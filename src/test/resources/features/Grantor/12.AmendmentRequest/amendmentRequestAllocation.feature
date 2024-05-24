@@ -7319,10 +7319,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
-    And I navigate to "Budget" sub tab
-    And I save the value from row "1" for column name "Cumulative Obligation" as "CumulativeObligationAwd1" from flex table "---subAwardStandAlone:-:focusAreaTableId---"
+    When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I wait for "2" seconds
+    And I navigate to "Budget" sub tab
+    And I save the value from row "1" for column name "Cumulative Obligation" as "CumulativeObligationAwd1" from flex table "---subAwardStandAlone:-:focusAreaTableId---"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -7743,7 +7744,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     Then I softly see field "Status" as "Closed/Completed"
     When I navigate to "Budget" sub tab
