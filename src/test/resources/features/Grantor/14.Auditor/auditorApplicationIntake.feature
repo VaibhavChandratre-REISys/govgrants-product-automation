@@ -1,7 +1,7 @@
 @auditorApplication @t3 @auditorNegotiations @auditor @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Application Module
 
-  @73805 @auditorCannotViewCreatedStatusPreApplication
+  @done @73805 @auditorCannotViewCreatedStatusPreApplication
   Scenario: Validate whether Auditor can view the application that is in Created Status
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal

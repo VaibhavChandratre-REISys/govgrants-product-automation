@@ -48,7 +48,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @69123 @auditorCanViewIndividualOrganization
+  @done @69123 @auditorCanViewIndividualOrganization
   Scenario Outline: Validate Auditor should have view / read  only access to record for Individual organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -110,7 +110,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     And I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:internalContactTableId---"
     Then I softly see field "Organization" as "Test Automation Organization"
 
-  @69144 @69132 @69128 @auditorCannotSendInvitationCanViewSMEReviewersContactDetails
+  @done @69144 @69132 @69128 @auditorCannotSendInvitationCanViewSMEReviewersContactDetails
   Scenario Outline: Verify Auditor Cannot create SME conatct and do not have access to send invitation (Bulk or single clicking paper aeroplane icon)/ Verify Auditor can view / read  only access to SME Reviewers Contact details
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -123,7 +123,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @69129 @auditorReassign
+  @done @69129 @auditorReassign
   Scenario: Verify Auditor profile would not have tasks assigned,  Re assign will populate no tasks to reassign
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -203,7 +203,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     And I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:subrecipientcontactTableId---"
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
 
-  @69129 @validateAuditorReassign @meenakshi
+  @done @69129 @validateAuditorReassign @meenakshi
   Scenario: Verify Auditor profile would not have tasks assigned  Re assign will populate no tasks to reassign
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab

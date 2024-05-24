@@ -733,7 +733,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Acknowledgement" for title "Changed Field" inside table "History"
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "History"
 
-  @93539 @verifyValidationMessageForOverrideJustification @monu
+  @done @93539 @verifyValidationMessageForOverrideJustification @monu
   Scenario: Validate error message for Override justification
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
