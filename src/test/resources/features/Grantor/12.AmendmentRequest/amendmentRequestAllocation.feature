@@ -8216,7 +8216,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Budget" sub tab
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @257433 @257432 @258219 @VerifySarahPmuserwillseeTotalCommitmentfieldontheBudgetSummarysectionOnNewAwardInPendingActivationStateandFieldwillpopulatevaluefromAwardonwhichamendmentisdone @sprint-19-US-255648 @hitesh @Allocation @TBExecution
+  @257433 @257432 @258219 @VerifySarahPmuserwillseeTotalCommitmentfieldontheBudgetSummarysectionOnNewAwardInPendingActivationStateandFieldwillpopulatevaluefromAwardonwhichamendmentisdone @sprint-19-US-255648 @hitesh @Allocation
   Scenario: Verify Sarah Pm user will see Total Commitment field on the Budget Summary section On New Award In Pending Activation State and Field will populate value from Award on which amendment is done
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     And I am on "SUBPORTAL" portal
@@ -8280,7 +8280,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #257432
     Then I softly see field "New Obligation" inside page block
     Then I softly see field "New Obligation" as "$0.00"
-    Then I softly see field "Total Commitment" as "$2,000.00"
+    Then I softly see field "Total Commitment" as "$1,000.00"
     And I save the field labeled "Total Commitment" as "TotalCommitment"
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -8297,7 +8297,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Budget" sub tab
     #257433
-    Then I softly see field "Total Commitment" as "$2,000.00"
+    Then I softly see field "Total Commitment" as "$1,000.00"
     And I save the field labeled "Total Commitment" as "TotalCommitmentGrant"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitmentGrant}"
 
@@ -9115,7 +9115,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitmentGrant2"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitmentGrant2}"
 
-  @263818 @263872 @263898 @263949 @264244 @264373 @263903 @ValidatePMusercanseeanewsectionofBudgetSummaryafteroverviewsectiononthecarryforwardamendmentrequestwhichissubmittograntorstateFAisYes @sprint-20-US-248355 @vaibhav @Allocation @TBExecution
+  @263818 @263872 @263898 @263949 @264244 @264373 @263903 @ValidatePMusercanseeanewsectionofBudgetSummaryafteroverviewsectiononthecarryforwardamendmentrequestwhichissubmittograntorstateFAisYes @sprint-20-US-248355 @vaibhav @Allocation
   Scenario: Validate PM user can see a new section of "Budget Summary" after overview section on the carry forward amendment request which is submit to grantor state (FA is Yes)
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
