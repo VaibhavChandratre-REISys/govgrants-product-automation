@@ -1,7 +1,7 @@
 @auditorGrant/Award @auditor @t3 @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Grant/Award
 
-  @69168 @auditorCannotCreateGrantandSubaward @smoke @buglogged100983
+  @done @69168 @auditorCannotCreateGrantandSubaward @smoke @buglogged100983
   Scenario: Validate Auditor should not be able to  Create/Edit Grant/subaward
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "AUDITOR" user
@@ -40,11 +40,11 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I click toggle button to select "Grants - All"
     And I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    Then I softly see status in Progress-bar is "Active" and is "green"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "Subawards" sub tab
     And I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardStandAlone:-:subawardsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
-    Then I softly see status in Progress-bar is "Activated" and is "green"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
 
   @69304 @auditorCandownloadasPDF @skipOnJenkins
   Scenario: Validate Verify User with Auditor profile has ability to download PDF files of record.
@@ -67,8 +67,8 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Application Name>"
-    When I click on "View" icon for "<Application Name>" inside table
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Site Visit}" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Site Visit}" inside flex table with id "---applicationIntake:-:appAllTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel

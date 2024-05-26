@@ -78,7 +78,8 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:EGMSID}" modal by clicking the top right x button
+    And I click modal button "Close"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel

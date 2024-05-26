@@ -57,6 +57,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
+    Then I see field "Status" as "Negotiation Initiated"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -82,8 +83,8 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
-    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---deskreview:-:reportsTableId---" panel
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---deskreview:-:reportsTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---subAwardFromFDM:-:fdmTableId---"
 #    Then I see the following rows under the following headers in table with id "---subAwardFromFDM:-:fdmTableId---" :
 #      | Announcement Title                               | Actions |
 #      | {SavedValue:Automation Runtime FDM Announcement} | View    |
@@ -168,7 +169,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -213,7 +214,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-#    Given I expand nested table containing column value "BP01"
+    Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
@@ -295,7 +296,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Application Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Application Name>" inside table
-    And I navigate to "Related Log" tab
+    And I navigate to "Related Log" sub tab
     Then I see values "Pre-Screen Review" and "Completed" inside table
     Examples:
       | Application Name                                 | User    |

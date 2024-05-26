@@ -60,7 +60,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @69124 @auditorCannotEditSubrecipientOrganization @smoke
+  @done @69124 @auditorCannotEditSubrecipientOrganization @smoke
   Scenario Outline:  Auditor should not be  able to  Edit Individual organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -154,7 +154,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
-    When I click on top right button "New" in flex table with id "---home:-:internalContactTableId---"
+    When I click on top right button "New" in flex table with id "SubrecipientContacts"
     And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter values into fields
@@ -162,26 +162,26 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | {SavedValue:uniqueEmailID} | fieldEmail |
     When I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:internalContactTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:internalContactTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "SubrecipientContacts"
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
     And I close modal by clicking the top right x button
-    When I click on "Edit" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:internalContactTableId---"
+    When I click on "Edit" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "SubrecipientContacts"
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
-    Then I softly cannot see top right button "New" in flex table with id "---home:-:internalContactTableId---"
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:internalContactTableId---" panel
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Contact}" in flex table with id "---home:-:internalContactTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "SubrecipientContacts"
+    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Contact}" in flex table with id "SubrecipientContacts"
 
   @69143 @auditorViewSubrecipientContacts
   Scenario: Validate Auditor should have view / read  only access to subrecipient contacts
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
-    When I click on top right button "New" in flex table with id "---home:-:internalContactTableId---"
+    When I click on top right button "New" in flex table with id "SubrecipientContacts"
     And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter values into fields
@@ -189,20 +189,20 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | {SavedValue:uniqueEmailID} | fieldEmail |
     When I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:internalContactTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:internalContactTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "SubrecipientContacts"
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
     And I refresh the page
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:internalContactTableId---" panel
-    When I click on "Edit" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:internalContactTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
+    When I click on "Edit" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "SubrecipientContacts"
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:subrecipientcontactTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:subrecipientcontactTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "SubrecipientContacts"
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
 
   @done @69129 @validateAuditorReassign @meenakshi
