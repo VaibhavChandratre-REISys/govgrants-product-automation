@@ -3290,6 +3290,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
+    When I navigate to "Overview" sub tab
     And I save the field labeled "Announcement Name" as "Automation Runtime Announcement"
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
