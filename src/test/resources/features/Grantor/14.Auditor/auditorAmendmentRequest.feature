@@ -1,4 +1,4 @@
-@auditorAmendmentRequest @auditor @t3 @parallel-regression @regression
+@auditorAmendmentRequest @auditor @t1 @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Amendment Request module
 
   @wip @69172 @auditorCannotCreateAmendmentRequest @smoke @skip

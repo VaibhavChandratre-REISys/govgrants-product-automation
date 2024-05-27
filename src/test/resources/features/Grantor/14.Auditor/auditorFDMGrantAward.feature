@@ -1,4 +1,4 @@
-@auditorGrant/Award @auditor @t3 @parallel-regression @regression
+@auditorGrant/Award @auditor @t1 @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Grant/Award
 
   @done @69168 @auditorCannotCreateGrantandSubaward @smoke @buglogged100983
@@ -61,14 +61,14 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
 
   @69939 @auditorCannotEditorApproveFDM
   Scenario Outline: Validate Auditor should not be  able to Edit/Approve FDM
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
-    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
+    And I published "Competitive" type announcement having name "<Application Name>" and properties "NO_RISK_ASSESSMENT-Automation PO user"
+    And I initiated an application review for application "<Application Name>" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
     Given I login to "As a Grantor" app as "PO" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Site Visit}" in "---applicationIntake:-:appAllTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Site Visit}" inside flex table with id "---applicationIntake:-:appAllTableId---"
+    And I perform quick search for "<Application Name>" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:appAllTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -196,7 +196,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I enter values into fields
       | Value                       | Field                 |
       | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+      | Automation Test Description | Justification__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                               | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
@@ -210,7 +210,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:pendingTaskTableId---" panel
+    When I perform quick search for "<Announcement Name>" in "---applicationReview:-:pendingTaskTableId---" panel
     Then I see "No Records Found" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     Examples:
       | Announcement Name                                               | Application Name                                                |

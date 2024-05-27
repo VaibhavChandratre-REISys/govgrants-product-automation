@@ -1,4 +1,4 @@
-@auditorHome @auditor @t3 @parallel-regression @regression
+@auditorHome @auditor @t1 @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @wip @68181 @auditorCannotCreateEditInternalOrganizations @smoke
@@ -74,7 +74,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @ch1 @69125 @auditorCannotCreateEditContact
+  @69125 @auditorCannotCreateEditContact
   Scenario Outline: Validate Auditor should not be  able to Create/Edit any Contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab

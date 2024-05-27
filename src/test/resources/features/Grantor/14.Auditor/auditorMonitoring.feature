@@ -1,4 +1,4 @@
-@auditorMonitoring @auditor @t3 @parallel-regression @regression
+@auditorMonitoring @auditor @t1 @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Monitoring module
 
   @wip @69178 @auditorPaymentRequest
@@ -35,6 +35,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Create Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Create Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---"
+    #Bug433131
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
     And I navigate to "Assessment" sub tab
@@ -133,9 +134,9 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     Given I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Site Visit Reports - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Site Visit}" in "---auditor:-:sitevisitMonitoringTableId---" panel
-    Then I can see row level action button "View" against "{SavedValue:Automation Runtime Site Visit}" in flex table with id "---auditor:-:sitevisitMonitoringTableId---"
-    And I click on "View" icon for "{SavedValue:Automation Runtime Site Visit}" inside flex table with id "---auditor:-:sitevisitMonitoringTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Site Visit}" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    Then I can see row level action button "View" against "{SavedValue:Automation Runtime Site Visit}" in flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I click on "View" icon for "{SavedValue:Automation Runtime Site Visit}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly cannot see top right button "Accept and Close" in page detail
 
   @wip @70076 @69870 @auditorCannotCreateDeleteAwardLevelDeskReview
@@ -370,7 +371,6 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---"
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button

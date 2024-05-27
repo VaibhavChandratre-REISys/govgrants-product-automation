@@ -1,4 +1,4 @@
-@closeoutExecution @closeout @t2 @grantor-regression @grantor-parallel-regression @regression
+@closeoutExecution @closeout @t1 @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in Closeout
 
   @96615 @VerifyAdvanceValueAtCloseoutRequest @monu
