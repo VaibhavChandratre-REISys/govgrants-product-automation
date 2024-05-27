@@ -491,7 +491,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @257705 @ValidatePOusercanseeCurrentCommitmentasReadonlyfieldwhichisCopyoftotalcommitmentfromtheAwardonwhichPeriodicRenewalAmendmentrequestiscreated @sprint-19-US-250552 @vaibhav @Allocation @TBExecution2
+  @257705 @ValidatePOusercanseeCurrentCommitmentasReadonlyfieldwhichisCopyoftotalcommitmentfromtheAwardonwhichPeriodicRenewalAmendmentrequestiscreated @sprint-19-US-250552 @vaibhav @Allocation
   Scenario: Validate PO user can see Current Commitment as Read-only field which is Copy of total commitment from the Award on which Periodic Renewal Amendment request is created
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
