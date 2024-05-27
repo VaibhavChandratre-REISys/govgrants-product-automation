@@ -6965,7 +6965,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
-    And I halt execution
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | Start Date         | End Date           | New Obligation |
       | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} | 1000           |
@@ -7341,6 +7340,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "2" seconds
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
+    And I halt execution
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | Start Date         | End Date           |
       | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
@@ -9482,7 +9482,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Budgeted Amount" as "BudgetedAmount"
     Then I softly see value "{SavedValue:RevisedObligation}" is "Equals to" the value "{SavedValue:BudgetedAmount}"
 
-  @264171 @263925 @264221 @264186 @264392 @ValidatePMusercanenteronlypositivevalueincarryforwardamountfiledonamendmentinsubmittograntorstateFAisyes @sprint-20-US-248355 @vaibhav @Allocation @TBExecution1
+  @264171 @263925 @264221 @264186 @264392 @ValidatePMusercanenteronlypositivevalueincarryforwardamountfiledonamendmentinsubmittograntorstateFAisyes @sprint-20-US-248355 @vaibhav @Allocation
   Scenario: Validate PM user can enter only positive value in carry forward amount filed on amendment in submit to grantor state FA is yes
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -9698,6 +9698,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 1000                 | 100        | 0              |
+    And I wait for "2" seconds
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -9778,8 +9779,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter value "Automation Justification" into field "PurposeRTA__c"
     And I enter value "700" into field "RequestedChangeInBudget__c"
-    And I wait for "5" seconds
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
     And I refresh the page
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -9791,6 +9792,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
       | Construction    | 500           |
+    And I wait for "2" seconds
     And I refresh the page
     When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
@@ -9800,6 +9802,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1500                 | 150        | 0              |
+    And I wait for "2" seconds
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -10039,7 +10042,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction    | 700           |
     And I refresh the page
     #264897
-    When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
     Then I softly see "Actions" in flex table header "---progressReport:-:budgetChangeTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---progressReport:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
@@ -11042,7 +11044,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Submit for Approval" in the page details
     And I pause execution for "3" seconds
     And I "Approve" in the approval decision
-    And I pause execution for "3" seconds
+    And I pause execution for "4" seconds
     And I click on "Amend Subaward" in the page details
     And I pause execution for "7" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
@@ -11330,7 +11332,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-    And I wait for "3" seconds
+    And I wait for "4" seconds
     And I click on "Amend Subaward" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I click on "Activate" in the page details
