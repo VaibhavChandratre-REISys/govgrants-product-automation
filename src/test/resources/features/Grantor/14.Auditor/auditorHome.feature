@@ -74,7 +74,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @69125 @auditorCannotCreateEditContact
+  @ch1 @69125 @auditorCannotCreateEditContact
   Scenario Outline: Validate Auditor should not be  able to Create/Edit any Contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab

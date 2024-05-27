@@ -1401,6 +1401,7 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:CloseoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
+    Given I navigate to "Overview" sub tab
     And I enter value "Automation Test Reason" into field "Reason__c"
     And I enter value "Automation Test justification" into field "Justification__c"
     When I navigate to "Checklist" sub tab
@@ -3624,7 +3625,7 @@ Feature: Validate all scenarios in Closeout
       | Name          | Closeout |
       | Automation FO | Step 1   |
     When I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "Green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
