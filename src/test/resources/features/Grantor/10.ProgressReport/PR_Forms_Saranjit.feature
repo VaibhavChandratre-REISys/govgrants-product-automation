@@ -3195,7 +3195,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Select the Disposition Report/Request (SF-428-C) as required form is filled. |
 
-  @ch1 @285229 @298720 @ValidateSF428validationshouldbedisplayonSF428ifchildSF428ASF428CformnotvalidatedbutSF428BformvalidatedifIselectall3optionsonAttachmentselectnooptiononsupplementalsheetValidateSF428Sform @sprint-26-US-282679 @vaibhav @Forms
+  @285229 @298720 @ValidateSF428validationshouldbedisplayonSF428ifchildSF428ASF428CformnotvalidatedbutSF428BformvalidatedifIselectall3optionsonAttachmentselectnooptiononsupplementalsheetValidateSF428Sform @sprint-26-US-282679 @vaibhav @Forms
   Scenario: Validate SF428 validation should be display on SF428 if child SF428A SF428C form not validated but SF-428-B form validated if I select all 3 options on Attachment & select no option on supplemental sheet & Validate SF 428 S form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3229,11 +3229,11 @@ Feature: Validate scenarios in Progress Report Forms
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent " or Add comment in "Comments Section", If "(ii) Other" option in "Federally-owned Property" is checked.     |
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent ", If any option in "1b. Equipment Acquired under a Federal Award" is checked.                               |
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent ", If "3. Report Loss, Destruction or Theft of Federally-owned Property" is checked.                         |
-      | Any one among "Sale Proceeds" or "Estimate of Current Fair Market Value" is required to be checked, if "2b. Sale of acquire equipment" is checked.                                                                              |
-      | "Percentage of Federal participation" is required, if "2b. Sale of acquire equipment" is checked.                                                                                                                               |
-      | "Federal Share" is required, if "2b. Sale of acquire equipment" is checked.                                                                                                                                                     |
+      | Any one among "Sale Proceeds" or "Estimate of Current Fair Market Value" is required to be checked, if "2b. Sale of acquired equipment" is checked.                                                                             |
+      | Percentage of Federal participation" is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                               |
+      | "Federal Share" is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                    |
       | "Selling and handling allowance", if "2b. Sale of acquired equipment" is checked.                                                                                                                                               |
-      | Total Amount is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                        |
+      | Total Amount is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                       |
     #Fill SF428-B Form
     And I close the tab
     And I refresh the page
