@@ -57,7 +57,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
-    Then I see field "Status" as "Negotiation Initiated"
+    Then I see field "Status" as "Reviewed"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -74,7 +74,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:negotiationPendingTaskTableId---" panel
     Then I see "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---negotiation:-:negotiationPendingTaskTableId---"
 
-  @69165 @auditorViewRecordCannotCreateSubawardFromApprovedFDM @buglogged151669
+  @done @69165 @auditorViewRecordCannotCreateSubawardFromApprovedFDM @buglogged151669
   Scenario: Validate Auditor Can view the record but should not be  able to  Create Subaward From Approved FDM
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -103,8 +103,6 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
