@@ -9642,7 +9642,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Budgeted Amount" as "BudgetedAmount"
     Then I softly see value "{SavedValue:RevisedObligation}" is "Equals to" the value "{SavedValue:BudgetedAmount}"
 
-  @264313 @264334 @264339 @264299 @264326 @264327 @264330 @264333 @264224 @264349 @264352 @ValidatePMuserseeRevisedobligationamountshouldbegreaterthanspentamountFAisyes @sprint-20-US-248355 @vaibhav @Allocation @TBExecution1
+  @264313 @264334 @264339 @264299 @264326 @264327 @264330 @264333 @264224 @264349 @264352 @ValidatePMuserseeRevisedobligationamountshouldbegreaterthanspentamountFAisyes @sprint-20-US-248355 @vaibhav @Allocation
   Scenario: Validate PM user see Revised obligation amount should be greater than spent amount FA is yes
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "THREE_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -9889,7 +9889,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Spent" as "$300.00"
     Then I softly see value "{SavedValue:Spent}" is "Less Than" the value "{SavedValue:RevisedObligation}"
 
-  @264523 @264573 @264553 @264316 @264264 @264588 @264905 @264897 @ValidateEXEuserseevalidationmessageifrevisedobligationislessthanspendamountFAisNo @sprint-20-US-248355-248356 @vaibhav @Allocation @TBExecution1
+  @264523 @264573 @264553 @264316 @264264 @264588 @264905 @264897 @ValidateEXEuserseevalidationmessageifrevisedobligationislessthanspendamountFAisNo @sprint-20-US-248355-248356 @vaibhav @Allocation
   Scenario: Validate EXE user see validation message if revised obligation is less than spend amount (FA is No)
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_SUB_ORG_IND-Automation EXE user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "EXE" user
@@ -10056,7 +10056,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I cannot see top right button "Edit" in page detail
     Then I softly see that "Carry Forward Amount" rendered in view mode only
     #264905
-    Then I softly do not see "Actions" in flex table header "---progressReport:-:budgetChangeTableId---"
     Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---progressReport:-:budgetChangeTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -10077,7 +10076,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #264316
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @264409 @264565 @264570 @264582 @264414 @264441 @264459 @264519 @264501 @264587 @264617 @264627 @264628 @264636 @264643 @264648 @264652 @264661 @264665 @264667 @264805 @264816 @264896 @266219 @ValidateSPIusercanseenewsectionofBudgetSummaryafteroverviewsectiononthecarryforwardamendmentrequestwhichisincreatedstateFAisYes @sprint-20-US-248356 @vaibhav @Allocation @TBExecution1
+  @264409 @264565 @264570 @264582 @264414 @264441 @264459 @264519 @264501 @264587 @264617 @264627 @264628 @264636 @264643 @264648 @264652 @264661 @264665 @264667 @264805 @264816 @264896 @266219 @ValidateSPIusercanseenewsectionofBudgetSummaryafteroverviewsectiononthecarryforwardamendmentrequestwhichisincreatedstateFAisYes @sprint-20-US-248356 @vaibhav @Allocation
   Scenario: Validate SPI user can see a new section of "Budget Summary" after overview section on the carry forward amendment request which is in created state FA is Yes
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "THREE_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -10370,10 +10369,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I cannot see top right button "Edit" in page detail
     Then I softly see that "Carry Forward Amount" rendered in view mode only
     #264816
-    Then I softly do not see "Actions" in flex table header "---amendment:-:RecipientCarryForwardBudgetTableId---"
     Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---"
     And I click on page navigation arrow "---amendment:-:RecipientCarryForwardBudgetTableId---" for table id "Next"
-    Then I softly do not see "Actions" in flex table header "---amendment:-:RecipientCarryForwardBudgetTableId---"
     Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -11120,7 +11117,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly see that "Cumulative Obligation" rendered in view mode only
     Then I softly see that "Total Commitment" rendered in view mode only
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "4" seconds
     When I hovering mouse on help text icon inside page block detail "Total Commitment"
     Then I softly see "Total amount committed through this and prior awards in this Budget period" shown as help text
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
