@@ -112,7 +112,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                                 | Target |
+      | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
@@ -130,7 +130,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I refresh the page
 #    Given I click on "Back" in the page details
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
@@ -189,7 +189,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I close the tab
     And I refresh the page
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
@@ -228,10 +228,10 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-   And I navigate to "Overview" sub tab
-   And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-     | Name                       | Project Role             | Is Key Contact |
-     | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -265,7 +265,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                                 | Target |
+      | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
@@ -284,7 +284,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I refresh the page
 #    Given I click on "Back" in the page details
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
@@ -301,7 +301,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Announcement Name                                        |
       | {SavedValue:Automation Runtime Announcement Application} |
 
-  @69984 @auditorApplicationReview
+  @done @69984 @auditorApplicationReview
   Scenario Outline: Validate auditor should have view / read  only access to completed status Application review
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"

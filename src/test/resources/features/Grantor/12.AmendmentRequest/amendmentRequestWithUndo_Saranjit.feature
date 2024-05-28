@@ -5576,7 +5576,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     When I navigate to "Subawards" sub tab
     And I click on parallel menu button in flex table title "Subawards"
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
