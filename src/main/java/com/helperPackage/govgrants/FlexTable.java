@@ -264,6 +264,27 @@ public final class FlexTable implements FlexTableComponent {
      * @modifier Monu.Kumar
      * @modifier komal.mukhekar - Added xpath
      */
+    public void collapse(String uniqueColumnValue) {
+        boolean statusElement = I.amPerforming().getElementReference().of(By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")).getAttribute("icon-name").contains("down");
+        try {
+            if (statusElement) {
+                I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]"))).click();
+            }
+        } catch (Exception ee) {
+            /* Ignore Exception */
+        }
+    }
+
+    public void expand(String uniqueColumnValue) {
+        boolean statusElement = I.amPerforming().getElementReference().of(By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")).getAttribute("icon-name").contains("right");
+        try {
+            if (statusElement) {
+                I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]"))).click();
+            }
+        } catch (Exception ee) {
+            /* Ignore Exception */
+        }
+    }
     public void expandOrCollapseNestedTable(String uniqueColumnValue, boolean isExpand) {
         try {
             if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
