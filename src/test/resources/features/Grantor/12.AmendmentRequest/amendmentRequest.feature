@@ -2548,7 +2548,7 @@ Feature: Validate all scenarios in the Amendment Request
       | {SavedValue:FD Username} | Step 4            |
     Then I softly see "Saved successfully!" inside flex table with id "---amendment:-:approversTableId---"
 
-  @148948 @verifyRemovalOfAddedApprover-TCAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird
+  @148948 @verifyRemovalOfAddedApprover-TCAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird  @Debug
   Scenario: To verify user can remove the added approver on terms and condition amendment
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2563,7 +2563,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---amendment:-:approversTableId---"
     And I select value "{SavedValue:PM Username}" into field "name__r.name"
-    And I enter value "Step 1" into field "AmendmentRequestRole__c"
+    And I select value "Step 1" into field "AmendmentRequestRole__c"
+#    And I enter value "Step 1" into field "AmendmentRequestRole__c"
     And I click on "Remove record" icon for "Step 1" inside table
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:approversTableId---"
 

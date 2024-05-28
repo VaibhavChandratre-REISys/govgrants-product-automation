@@ -4793,7 +4793,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
-  @236758 @236762  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783 @Debug
+  @236758 @236762  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
   Scenario Outline: Validate user change ownership of the Announcement then user should share the Reviews with the new owner, i.e all the assigned reviews should visible only to the new announcement owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab

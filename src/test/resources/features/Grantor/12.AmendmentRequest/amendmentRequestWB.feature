@@ -804,12 +804,6 @@ Feature: Amendment Request scenarios without background
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
-    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
-      | Name                     | Amendment Request |
-      | {SavedValue:FO Username} | Step 2            |
-    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
-      | Name                      | Amendment Request |
-      | {SavedValue:EXE Username} | Step 3            |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1888,7 +1882,7 @@ Feature: Amendment Request scenarios without background
 
   @97708 @ValidateSubrecipientAbleToEditBudgetChangeDetails-PeriodicRenewal @monu @AmendmentWBPooja
   Scenario: Verify sub recipient user is able to edit budget change details at subportal
-    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -5604,7 +5598,7 @@ Feature: Amendment Request scenarios without background
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    And I enter value "Automation Justification" into field "fieldJustification__c"
+    And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
     And I click on "Submit to Grantor" in the page details
@@ -5617,8 +5611,8 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Responsibilities" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:approversTableId---"
     And I select value "{SavedValue:PM Username}" into field "Name__c"
-    And I enter value "Step 1" into field "AmendmentRequestRole__c"
-    And I click on "Remove record" icon for "Step 1" inside table
+#    And I enter value "Step 1" into field "AmendmentRequestRole__c"
+    And I click on "Remove record" icon for "NA" inside table
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:approversTableId---"
 
   @151664 @VerifyErrorMessageAtApproverSectionWhileSkippingAt-BudgetRedirection-RnRFunctionality @monu
