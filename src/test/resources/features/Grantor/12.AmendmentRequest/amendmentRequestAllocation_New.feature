@@ -18030,7 +18030,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Then I softly see field "New Obligation" as "$2,000.50"
 
-  @hiteshTemp @319951 @ValidateCompAnnINDusercanseevalidationonsavebuttonwhenbudgetedamountgobelowremainingbudgetwhilechangingtheCFamountonBudgetgridonCarryForwardAR @Sprint-9-US-320518 @vaibhav @Allocation
+  @319951 @ValidateCompAnnINDusercanseevalidationonsavebuttonwhenbudgetedamountgobelowremainingbudgetwhilechangingtheCFamountonBudgetgridonCarryForwardAR @Sprint-9-US-320518 @vaibhav @Allocation
   Scenario: Validate Comp Ann IND user can see validation on save button when budgeted amount go below remaining budget while changing the CF amount on Budget grid on Carry Forward AR
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_BUD_CAT_SECOND_FOCUS_BUILD_UP_IND_ORG" of type "Competitive"
     Given I login to "As a Grantor" app as "PM" user
