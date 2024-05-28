@@ -2628,7 +2628,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:NewObligation1}" is "Equals to" the value "{SavedValue:NewObligation3}"
     Then I softly see value "{SavedValue:NewObligation2}" is "Equals to" the value "{SavedValue:NewObligation4}"
 
-  @257245 @257272 @257287 @ValidatePMusercannotseeFocusareaonthenewAwardiftheinitialAwardisfromFDMandvalueforNewObligationandcumulativeobligationisZeroforparticularFocusArea @sprint-19-US-249880 @vaibhav @Allocation @TBExecution2
+  @257245 @257272 @257287 @ValidatePMusercannotseeFocusareaonthenewAwardiftheinitialAwardisfromFDMandvalueforNewObligationandcumulativeobligationisZeroforparticularFocusArea @sprint-19-US-249880 @vaibhav @Allocation
   Scenario:Validate PM user cannot see a Focus area on the new Award if the initial Award is from FDM and value for New Obligation and cumulative obligation is Zero for a particular Focus Area
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2719,7 +2719,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Cumulative Obligation" rendered in view mode only
     Then I softly see that "Total Commitment" rendered in view mode only
     When I hovering mouse on help text icon inside page block detail "Total Commitment"
-    Then I softly see "Total amount committed through this and prior awards in this Budget period" shown as help text for label "Total Commitment"
+    Then I softly see "Total amount committed through this and prior awards in this Budget period" shown as help text
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
     #257287
@@ -4231,7 +4231,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly see that "New Obligation" rendered in view mode only
 
-  @258224 @258225 @258402 @ValidateusershouldabletoseethebudgetsummarybyfocusareasectionshoulddisplaywhenfocusAreaisYes @sprint-19-US-250549 @vaibhav @Allocation @TBExecution2
+  @258224 @258225 @258402 @ValidateusershouldabletoseethebudgetsummarybyfocusareasectionshoulddisplaywhenfocusAreaisYes @sprint-19-US-250549 @vaibhav @Allocation
   Scenario Outline: Validate user should able to see the budget summary by focus area section should display when focus Area is Yes
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -5769,7 +5769,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:PayreqId1}" modal by clicking the top right x button
     When I click modal button "Close"
     And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
@@ -5783,9 +5782,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter value "Automation Justification" into field "PurposeRTA__c"
-    And I wait for "5" seconds
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
+    And I wait for "2" seconds
     And I refresh the page
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     #264151
@@ -5847,6 +5847,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Revised Commitment" rendered in view mode only
     Then I softly see that "Carry Forward Amount" rendered in view mode only
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     #264586
     Then I softly see field "Carry Forward Amount" as "$700.00"
     #264768
@@ -6444,7 +6445,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$300.00" for title "Carry Forward Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:carryForwardFocusAreaTableId---"
     #264366
 #    And I expand nested table containing column value "BP01"
-    When I click on button "resetIcon" in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---"
+    When I click on button "resetIcon" in flex table with id "---amendment:-:RecipientParentCarryForwardBudgetTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
       | Construction    | 300           |
