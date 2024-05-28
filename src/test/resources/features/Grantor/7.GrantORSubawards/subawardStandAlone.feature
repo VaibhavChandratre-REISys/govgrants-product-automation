@@ -144,7 +144,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I pause execution for "3" seconds
     And I refresh the page
     And I pause execution for "3" seconds
-    Then I softly see status in Progress-bar is "Approved" and is "green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
   @51137 @65397 @allApproverSelection
   Scenario: Validate the assignment of Approvers for the award | To verify that approvers can be added in the subaward phase when login by award owner as a PM
@@ -5497,10 +5497,10 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "<Grant Name>" in "GrantorActiveGrantsgrid" panel
-    And I click on "View" icon for "<Grant Name>" inside flex table with id "GrantorActiveGrantsgrid" without waiting for record
+    When I perform quick search for "<Grant Name>" in "GrantorActiveGrants" panel
+    And I click on "View" icon for "<Grant Name>" inside flex table with id "GrantorActiveGrants" without waiting for record
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "<Award Name>" inside flex table with id "flexGridRelatedAwards1" without waiting for record
+    And I click on "View" icon for "<Award Name>" inside flex table with id "RelatedAwards1" without waiting for record
     And I click on "Edit" in the page details
     When I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record

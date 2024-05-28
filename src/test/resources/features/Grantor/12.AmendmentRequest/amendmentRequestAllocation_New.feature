@@ -17078,7 +17078,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Spent     |
       | $1,000.00 |
 
-  @hiteshTemp @271660 @ValidatePMusershouldseefollowingfieldsonamendmentrequestlayoutunderBudgetSummarysectionifFAYES @Sprint-22-US-270855 @vaibhav @Allocation
+  @271660 @ValidatePMusershouldseefollowingfieldsonamendmentrequestlayoutunderBudgetSummarysectionifFAYES @Sprint-22-US-270855 @vaibhav @Allocation
   Scenario: Validate PM user should see following fields on amendment request layout under Budget Summary section if FA YES
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -17143,7 +17143,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see "Revised Commitment" inside page block detail
     Then I softly see "Spent" inside page block detail
 
-  @hiteshTemp @271686 @271687 @271698 @271719 @271727 @271808 @271795 @271796 @271797 @271828 @271832 @271833 @271837 @271801 @271802 @ValidatePMusercanseeNewObligationfieldunderBudgetSummarysectiononversion2AwardisinPendingActivationstatepostARRollupfromtheNewObligationcolumninbudgetsummarybyfocusareasectionifFAYES @Sprint-22-US-270855 @vaibhav @Allocation
+  @271686 @271687 @271698 @271719 @271727 @271808 @271795 @271796 @271797 @271828 @271832 @271833 @271837 @271801 @271802 @ValidatePMusercanseeNewObligationfieldunderBudgetSummarysectiononversion2AwardisinPendingActivationstatepostARRollupfromtheNewObligationcolumninbudgetsummarybyfocusareasectionifFAYES @Sprint-22-US-270855 @vaibhav @Allocation
   Scenario: Validate PM user can see New Obligation field under Budget Summary section on version 2 Award is in Pending Activation state post AR & Roll up from the New Obligation Column in budget summary by focus area section if FA YES
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -17436,7 +17436,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:cumulativeObligationPaySumm23}" is "Equals to" the value "{SavedValue:cumulativeObligationPaySummGrantSr23}"
     Then I softly see value "{SavedValue:cumulativeObligationPaySumm33}" is "Equals to" the value "{SavedValue:cumulativeObligationPaySummGrantSr33}"
     When I navigate to "Subawards" sub tab
-    When I click on button "resetIcon" in flex table with id "---paymentRequest:-:recipientAwardTableId---"
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
     When I navigate to "Actuals" sub tab
@@ -17822,6 +17821,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 2000                 | 200        | 0              |
     And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -17881,6 +17881,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 2000                 | 200        | 0              |
     And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -17927,6 +17928,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 3000                 | 300        | 0              |
     And I refresh the page
+    And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -18345,7 +18347,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Subawards" sub tab
 #    And I click on parallel menu button in flex table title "Subawards"
 #    And I select "Reset Table" from parallel lines dropdown of "Subawards"
-    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
@@ -18770,7 +18771,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$1,000.00"
     Then I softly see value "{SavedValue:TotalCommitmentAwd}" is "Equals to" the value "{SavedValue:TotalCommitmentGrantSr}"
     #272609
-#    When I expand nested table containing column value "BP01"
+    When I expand nested table containing column value "BP01"
     And I select value inside table "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---" is "All"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:grantsBudgetCategoryTableIdSubrecipient---" :
       | Award Amount |
@@ -18783,7 +18784,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Subawards" sub tab
 #    And I click on parallel menu button in flex table title "Subawards"
 #    And I select "Reset Table" from parallel lines dropdown of "Subawards"
-    When I click on button "resetIcon" in flex table with id "---paymentRequest:-:recipientAwardTableId---"
+#    When I click on button "resetIcon" in flex table with id "---paymentRequest:-:recipientAwardTableId---"
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
     #272582
@@ -18815,7 +18816,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Award Amount |
       | $1,000.00    |
 
-  @hiteshTemp @272611 @272599 @272600 @272557 @272570 @272573 @ValidateAdminusercanseeSpentfieldunderPaymentSummarysectionofActualtabonGrantlayoutisinActivestatepostAR&valuecopiedfromSpentfieldunderBudgetsummaryfieldonversion2AwardFANO @Sprint-22-US-270855 @vaibhav @Allocation
+  @272611 @272599 @272600 @272557 @272570 @272573 @ValidateAdminusercanseeSpentfieldunderPaymentSummarysectionofActualtabonGrantlayoutisinActivestatepostAR&valuecopiedfromSpentfieldunderBudgetsummaryfieldonversion2AwardFANO @Sprint-22-US-270855 @vaibhav @Allocation
   Scenario: Validate Admin user can see Spent field under Payment Summary section of Actual tab on Grant layout is in Active state post AR & value copied from Spent field under Budget summary field on version 2 Award FA NO
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_BUILDUP_YES-Automation ADMIN user" of type "Directed"
     And I am on "SUBPORTAL" portal
@@ -19145,6 +19146,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Title        | Narrative     | Award Amount |
       | Construction | The Narrative | 50           |
     And I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     #272163
@@ -20152,10 +20154,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Status" as "Approved"
     And I wait for "4" seconds
     And I click on "Amend Subaward" in the page details
-    And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
+    And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     And I navigate to "Budget" sub tab
     #315677
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
@@ -20457,6 +20459,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I enter "PeriodicEditionFocusYes" values from "AmendmentRequest_Field_Values.xlsx"
     And I wait for "4" seconds
     When I click on "Save" in the page details
+    And I wait for "4" seconds
     And I refresh the page
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
