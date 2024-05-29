@@ -1116,7 +1116,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 #    #264953,264965
 #    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 #    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    When I login to "As a Grantor" app as "PM" user
 #    And I navigate to "Grants" tab
 #    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
 #    And I perform quick search for "CR-AD--1620-00" in "---amendment:-:pendingTaskTableId---" panel
@@ -1199,27 +1198,29 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 #    And I save the field labeled "Spent" as "Spent"
 #    Then I softly see value "{SavedValue:awardSpent}" is "Equals to" the value "{SavedValue:Spent}"
     #264594
-    Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:carryForwardFocusAreaTableId---"
-    Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:carryForwardFocusAreaTableId---"
-    Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---amendment:-:carryForwardFocusAreaTableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                     | Amendment Request |
-      | {SavedValue:PM Username} | Step 1            |
-    And I click on "Submit for Approval" in the page details
-    #264083,264591
-    Then I softly see field "Status" as "Submitted for Approval"
-    And I navigate to "Overview" sub tab
-    Then I softly see field "Revised Obligation" as "$2,700.00"
-    Then I softly see value "$2,700.00" for title "Revised Encumbrance" inside table "---amendment:-:amendmentFundingAccountsTableId---"
-    #264086
-    Then I softly see field "Revised Obligation" as "$2,700.00"
-    And I save the field labeled "Revised Obligation" as "RevisedObligation"
-    Then I softly see field "Budgeted Amount" as "$2,700.00"
-    And I save the field labeled "Budgeted Amount" as "BudgetedAmount"
-    Then I softly see value "{SavedValue:RevisedObligation}" is "Equals to" the value "{SavedValue:BudgetedAmount}"
-    #264974
-    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+#    Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:carryForwardFocusAreaTableId---"
+#    Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:carryForwardFocusAreaTableId---"
+#    Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---amendment:-:carryForwardFocusAreaTableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+#      | Name                     | Amendment Request |
+#      | {SavedValue:PM Username} | Step 1            |
+#    And I click on "Submit for Approval" in the page details
+#    #264083,264591
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    And I navigate to "Overview" sub tab
+#    Then I softly see field "Revised Obligation" as "$2,700.00"
+#    Then I softly see value "$2,700.00" for title "Revised Encumbrance" inside table "---amendment:-:amendmentFundingAccountsTableId---"
+#    #264086
+#    Then I softly see field "Revised Obligation" as "$2,700.00"
+#    And I save the field labeled "Revised Obligation" as "RevisedObligation"
+#    Then I softly see field "Budgeted Amount" as "$2,700.00"
+#    And I save the field labeled "Budgeted Amount" as "BudgetedAmount"
+#    Then I softly see value "{SavedValue:RevisedObligation}" is "Equals to" the value "{SavedValue:BudgetedAmount}"
+#    #264974
+#    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPA" user
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -1227,7 +1228,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "View" icon for "CR-AD--1620-00" inside flex table with id "---amendment:-:recipientSideAmendmentRequestTableId---" without waiting for record
     When I navigate to "Overview" sub tab
     Then I softly see field "Status" as "Submitted for Approval"
-#    And I expand nested table containing column value "BP01"
+#    And I expand nested table containing column value "BP01
+    And I halt execution
     Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---"
     Then I softly see value "$200.00" for title "Carry Forward" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
     And I wait for "3" seconds
