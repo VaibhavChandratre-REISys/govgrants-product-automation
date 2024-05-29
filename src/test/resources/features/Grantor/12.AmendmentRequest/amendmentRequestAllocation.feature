@@ -6488,8 +6488,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter value "Automation Justification" into field "PurposeRTA__c"
-    And I wait for "5" seconds
+    And I wait for "2" seconds
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
     And I refresh the page
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -6520,8 +6521,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    And I expand nested table containing column value "BP01"
     When I click on button "resetIcon" in flex table with id "---amendment:-:RecipientParentCarryForwardBudgetTableId---"
+    And I expand nested table containing column value "BP01"
     Then I softly see value "$500.00" for title "Remaining budget" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
     Then I softly see value "$200.00" for title "Carry Forward" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
     And I wait for "3" seconds
