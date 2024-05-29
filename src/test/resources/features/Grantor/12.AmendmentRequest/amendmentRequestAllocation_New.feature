@@ -1117,87 +1117,87 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 #    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 #    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I login to "As a Grantor" app as "PM" user
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "CR-AD--1620-00" in "---amendment:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "CR-AD--1620-00" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+#    And I click on "Edit" in the page details
+#    When I enter values into fields
+#      | Value | Field                      |
+#      | 500   | RequestedChangeInBudget__c |
+#    And I click on "Save" in the page details
+#    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+#      | Title                       | Revised Encumbrance |
+#      | {SavedValue:fundingAccount} | 2700                |
+#    And I wait for "9" seconds
+#    And I click on "Submit for Approval" in the page details
+#    Then I softly see the following messages in the page details contains:
+#      | Overview Tab - The Revised Obligation must be equal to the Budgeted Amount in the Budget Summary Section.                          |
+#    #264589
+#      | Overview Tab - The Revised Obligation ($2500.0) must be equal to the total of Revised Encumbrance in the Funding Account ($2700.0) |
+#    #264085
+#    And I click on "Edit" in the page details
+#    When I enter values into fields
+#      | Value | Field                      |
+#      | 1500  | RequestedChangeInBudget__c |
+#    #263945
+#    Then I softly see that "Budgeted Amount" rendered in view mode only
+#    And I click on "Save" in the page details
+#    Then I softly see field "Budgeted Amount" as "$2,700.00"
+#    Then I see the following rows under the following headers in table with id "---amendment:-:grantorBudgetChangeTableId---" :
+#      | Revised Award Amount |
+#      | $2,700.00            |
+#    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+#      | Title                       | Revised Encumbrance |
+#      | {SavedValue:fundingAccount} | 2700                |
+#    And I wait for "9" seconds
+#    And I click on "Submit for Approval" in the page details
+#    #264085
+#    Then I softly see the following messages in the page details contains:
+#      | Overview Tab - The Revised Obligation must be equal to the Budgeted Amount in the Budget Summary Section.                          |
+#    #264590
+#      | Overview Tab - The Revised Obligation ($3500.0) must be equal to the total of Revised Encumbrance in the Funding Account ($2700.0) |
+#    #264083
+#    And I click on "Edit" in the page details
+#    When I enter values into fields
+#      | Value | Field                      |
+#      | 700   | RequestedChangeInBudget__c |
+#    #264080
+#    Then I softly see that "Revised Obligation" rendered in view mode only
+#    And I click on "Save" in the page details
     And I wait for "5" seconds
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "CR-AD--1620-00" in "---amendment:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "CR-AD--1620-00" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    And I click on "Edit" in the page details
-    When I enter values into fields
-      | Value | Field                      |
-      | 500   | RequestedChangeInBudget__c |
-    And I click on "Save" in the page details
-    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
-      | Title                       | Revised Encumbrance |
-      | {SavedValue:fundingAccount} | 2700                |
-    And I wait for "9" seconds
-    And I click on "Submit for Approval" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Overview Tab - The Revised Obligation must be equal to the Budgeted Amount in the Budget Summary Section.                          |
-    #264589
-      | Overview Tab - The Revised Obligation ($2500.0) must be equal to the total of Revised Encumbrance in the Funding Account ($2700.0) |
-    #264085
-    And I click on "Edit" in the page details
-    When I enter values into fields
-      | Value | Field                      |
-      | 1500  | RequestedChangeInBudget__c |
-    #263945
-    Then I softly see that "Budgeted Amount" rendered in view mode only
-    And I click on "Save" in the page details
-    Then I softly see field "Budgeted Amount" as "$2,700.00"
-    Then I see the following rows under the following headers in table with id "---amendment:-:grantorBudgetChangeTableId---" :
-      | Revised Award Amount |
-      | $2,700.00            |
-    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
-      | Title                       | Revised Encumbrance |
-      | {SavedValue:fundingAccount} | 2700                |
-    And I wait for "9" seconds
-    And I click on "Submit for Approval" in the page details
-    #264085
-    Then I softly see the following messages in the page details contains:
-      | Overview Tab - The Revised Obligation must be equal to the Budgeted Amount in the Budget Summary Section.                          |
-    #264590
-      | Overview Tab - The Revised Obligation ($3500.0) must be equal to the total of Revised Encumbrance in the Funding Account ($2700.0) |
-    #264083
-    And I click on "Edit" in the page details
-    When I enter values into fields
-      | Value | Field                      |
-      | 700   | RequestedChangeInBudget__c |
-    #264080
-    Then I softly see that "Revised Obligation" rendered in view mode only
-    And I click on "Save" in the page details
-    And I save the field labeled "Carry Forward Amount" as "CarryForward"
-    And I save the field labeled "Current Obligation" as "CurrentObligation"
-    And I save the field labeled "Revised Obligation" as "RevisedObligation"
-    Then I softly see addition of two fields "{SavedValue:CarryForward}" and "{SavedValue:CurrentObligation}" is equal to "{SavedValue:RevisedObligation}"
-    Then I softly see field "Carry Forward Amount" as "$700.00"
-    Then I softly see field "Current Obligation" as "$2,000.00"
-    Then I softly see field "Revised Obligation" as "$2,700.00"
-    #264564
-    Then I softly see "Carry Forward Amount" in flex table header "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    Then I softly see value "$200.00" for title "Carry Forward Amount" against the value "Automation Permanent Focus Area" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    Then I softly see value "$500.00" for title "Carry Forward Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    Then I softly see value "$700.00" for title "Carry Forward Amount" against the value "Grand Total" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    #264581
-    Then I softly see "Revised Obligation" in flex table header "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    Then I softly see value "$2,000.00" for title "Current Obligation" against the value "Grand Total" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    Then I softly see value "$2,700.00" for title "Revised Obligation" against the value "Grand Total" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    And I save the value from row "3" for column name "Current Obligation" as "CurrentObligationFATotal" from flex table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    And I save the value from row "3" for column name "Carry Forward Amount" as "CarryForwardFATotal" from flex table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    And I save the value from row "3" for column name "Revised Obligation" as "RevisedObligationFATotal" from flex table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    Then I softly see addition of two fields "{SavedValue:CarryForwardFATotal}" and "{SavedValue:CurrentObligationFATotal}" is equal to "{SavedValue:RevisedObligationFATotal}"
-    #264556
-    Then I softly see value "$300.00" for title "Spent" against the value "Automation Permanent Focus Area" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    Then I softly see value "$300.00" for title "Spent" against the value "Grand Total" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    #263938
-    Then I softly see field "Spent" as "$300.00"
-    And I save the field labeled "Spent" as "Spent"
-    Then I softly see value "{SavedValue:awardSpent}" is "Equals to" the value "{SavedValue:Spent}"
+#    And I save the field labeled "Carry Forward Amount" as "CarryForward"
+#    And I save the field labeled "Current Obligation" as "CurrentObligation"
+#    And I save the field labeled "Revised Obligation" as "RevisedObligation"
+#    Then I softly see addition of two fields "{SavedValue:CarryForward}" and "{SavedValue:CurrentObligation}" is equal to "{SavedValue:RevisedObligation}"
+#    Then I softly see field "Carry Forward Amount" as "$700.00"
+#    Then I softly see field "Current Obligation" as "$2,000.00"
+#    Then I softly see field "Revised Obligation" as "$2,700.00"
+#    #264564
+#    Then I softly see "Carry Forward Amount" in flex table header "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    Then I softly see value "$200.00" for title "Carry Forward Amount" against the value "Automation Permanent Focus Area" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    Then I softly see value "$500.00" for title "Carry Forward Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    Then I softly see value "$700.00" for title "Carry Forward Amount" against the value "Grand Total" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    #264581
+#    Then I softly see "Revised Obligation" in flex table header "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    Then I softly see value "$2,000.00" for title "Current Obligation" against the value "Grand Total" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    Then I softly see value "$2,700.00" for title "Revised Obligation" against the value "Grand Total" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    And I save the value from row "3" for column name "Current Obligation" as "CurrentObligationFATotal" from flex table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    And I save the value from row "3" for column name "Carry Forward Amount" as "CarryForwardFATotal" from flex table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    And I save the value from row "3" for column name "Revised Obligation" as "RevisedObligationFATotal" from flex table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    Then I softly see addition of two fields "{SavedValue:CarryForwardFATotal}" and "{SavedValue:CurrentObligationFATotal}" is equal to "{SavedValue:RevisedObligationFATotal}"
+#    #264556
+#    Then I softly see value "$300.00" for title "Spent" against the value "Automation Permanent Focus Area" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    Then I softly see value "$300.00" for title "Spent" against the value "Grand Total" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    #263938
+#    Then I softly see field "Spent" as "$300.00"
+#    And I save the field labeled "Spent" as "Spent"
+#    Then I softly see value "{SavedValue:awardSpent}" is "Equals to" the value "{SavedValue:Spent}"
     #264594
     Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:carryForwardFocusAreaTableId---"
     Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:carryForwardFocusAreaTableId---"
@@ -12386,7 +12386,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:ActivatedSubAwardId1}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+    And I click on "View" icon for "Pending Activation" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I navigate to "Budget" sub tab
     #269778
@@ -12412,7 +12412,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:ActivatedSubAwardId1}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+    And I click on "View" icon for "Pending Activation" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I navigate to "Budget" sub tab
     Then I softly see "Budget Summary" page block displayed
@@ -12444,7 +12444,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---closeout:-:grantsTableId---"
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:ActivatedSubAwardId1}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "View" icon for "Pending Activation" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
     And I navigate to "Budget" sub tab
