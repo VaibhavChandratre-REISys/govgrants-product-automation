@@ -1534,22 +1534,10 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    And I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
+    When I login to "As a Grantor" app as "PM" user
     And I halt execution
-    When I navigate to "Reports and Outcomes" sub tab
-    And I expand nested table containing column value "Automation Observation"
-    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
-      | Title                               | Description            | Status      | Due Date | Assigned To                |
-      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I collapse nested table containing column value "Automation Observation"
-    And I expand nested table containing column value "Automation Concern"
-    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To                |
-      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I collapse nested table containing column value "Automation Concern"
-    And I expand nested table containing column value "Automation Finding"
-    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
-      | Title                           | Description            | Status      | Due Date | Assigned To                |
-      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    And I collapse nested table containing column value "Automation Finding"
+    And I collapse nested table containing column value "BP01"
+    And I wait for "5" seconds
+    And I collapse nested table containing column value "BP01"
+    And I halt execution
+#    And I collapse nested table containing column value "BP01"
