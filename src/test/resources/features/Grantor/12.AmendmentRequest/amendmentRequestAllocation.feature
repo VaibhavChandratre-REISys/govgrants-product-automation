@@ -350,7 +350,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     Then I softly see field "Payment Period End Date" as "{SavedValue:updatedBudgetPeriodDate}"
 
-  @257686 @257701 @257708 @257692 @257717 @257709 @257736 @257744 @257745 @257747 @257746 @257748 @257749 @ValidatePOusercanseeNewObligationfieldasuserenterdollarfieldenterPositivevalueinNewObligationfieldunderBudgetSummarysectionwhenPeriodicRenewalamendmentrequestincreatedstateFAYES @sprint-19-US-250552 @vaibhav @Allocation @TBExecution2
+  @257686 @257701 @257708 @257692 @257717 @257709 @257736 @257744 @257745 @257747 @257746 @257748 @257749 @ValidatePOusercanseeNewObligationfieldasuserenterdollarfieldenterPositivevalueinNewObligationfieldunderBudgetSummarysectionwhenPeriodicRenewalamendmentrequestincreatedstateFAYES @sprint-19-US-250552 @vaibhav @Allocation
   Scenario: Validate PO user can see New Obligation field as user enter dollar field & enter Positive Value in New Obligation field under Budget Summary section when Periodic Renewal amendment request in created state(FA=YES)
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -444,7 +444,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Save" in the page details
     #257717
     Then I softly see the following messages in the page details contains:
-      | Revised Commitment : Number is too large. |
+      | Revised Commitment: value outside of valid range on numeric field: 200000000000000000.30 |
     When I enter values into fields
       | Value | Field                |
       | 5000  | RevisedCommitment__c |
@@ -5586,7 +5586,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Revised Award Amount |
       | $2,500.00            |
 
-  @264151 @264152 @264574 @264576 @264586 @264768 @264797 @308967 @265760 @ValidatePOusercanseeBudgetedAmountasRolledupfromthebudgetchangesectionsRevisedAwardAmountcolumn @sprint-20-US-228432-244399 @vaibhav @Allocation @TBExecution2
+  @264151 @264152 @264574 @264576 @264586 @264768 @264797 @308967 @265760 @ValidatePOusercanseeBudgetedAmountasRolledupfromthebudgetchangesectionsRevisedAwardAmountcolumn @sprint-20-US-228432-244399 @vaibhav @Allocation
   Scenario: Validate PO user can see Budgeted Amount as Rolled up from the budget change sections Revised Award Amount column
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY-Automation IND user"
@@ -6229,7 +6229,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @264258 @264262 @264252 @264366 @ValidateINDusercaneditCarryForwardAmountcolumnofBudgetsummarybyfocusareasectiononclickofinlineeditandusercanenterpositivevaluewhenCarryforwardamendmentisinUnderrevisionstate @sprint-20-US-244399 @vaibhav @Allocation @TBExecution2
+  @264258 @264262 @264252 @264366 @ValidateINDusercaneditCarryForwardAmountcolumnofBudgetsummarybyfocusareasectiononclickofinlineeditandusercanenterpositivevaluewhenCarryforwardamendmentisinUnderrevisionstate @sprint-20-US-244399 @vaibhav @Allocation
   Scenario: Validate IND user can edit Carry Forward Amount column of Budget summary by focus area section on click of inline edit and user can enter positive value when Carry forward amendment is in Under revision state
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY-Automation IND user"
@@ -6411,7 +6411,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Next"
     Then I softly see value "$1,300.00" for title "Revised Award Amount" against the value "Construction" inside table "---progressReport:-:budgetChangeTableId---"
 
-  @265743 @ValidateINDusercancarryforwardpartialbudgetfromremainingbudgetofpreviousBudgetperiodFA1tofocusareafromCurrentBudgetperiod @sprint-20-US-244399 @vaibhav @Allocation @TBExecution3
+  @265743 @ValidateINDusercancarryforwardpartialbudgetfromremainingbudgetofpreviousBudgetperiodFA1tofocusareafromCurrentBudgetperiod @sprint-20-US-244399 @vaibhav @Allocation
   Scenario: Validate IND user can carry forward partial budget from remaining budget of previous Budget period FA1 to focus area from Current Budget period
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY-Automation IND user"
@@ -6530,7 +6530,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Remaining budget" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
     Then I softly see value "$300.00" for title "Carry Forward" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
 
-  @265004 @265128 @265131 @265144 @265162 @265163 @265190 @265197 @265204 @ValidateINDusercanseeNewObligationandCumulativeObligationcolumninBudgetSummarybyFocusAreasectionwhenAwardisinPendingactivationstate @sprint-20-US-263389 @vaibhav @Allocation @TBExecution3
+  @265004 @265128 @265131 @265144 @265162 @265163 @265190 @265197 @265204 @ValidateINDusercanseeNewObligationandCumulativeObligationcolumninBudgetSummarybyFocusAreasectionwhenAwardisinPendingactivationstate @sprint-20-US-263389 @vaibhav @Allocation
   Scenario: Validate IND user can see New Obligation and Cumulative Obligation column in Budget Summary by Focus Area section when Award is in Pending activation state
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY-Automation IND user"

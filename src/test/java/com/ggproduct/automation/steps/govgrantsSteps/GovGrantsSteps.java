@@ -441,12 +441,12 @@ public final class GovGrantsSteps {
 
     @When("^I expand nested table containing column value \"([^\"]*)\"$")
     public void expandNestedTable(String uniqueColumnValue) {
-        govgrants.perform().flexTable().expandOrCollapseNestedTable(uniqueColumnValue, true);
+        govgrants.perform().flexTable().expand(uniqueColumnValue);
     }
 
     @When("^I collapse nested table containing column value \"([^\"]*)\"$")
     public void collapseNestedTable(String uniqueColumnValue) {
-        govgrants.perform().flexTable().expandOrCollapseNestedTable(uniqueColumnValue,false);
+        govgrants.perform().flexTable().collapse(uniqueColumnValue);
     }
 
     @When("^I expand nested table containing column value \"([^\"]*)\" inside nested table containing \"([^\"]*)\"$")

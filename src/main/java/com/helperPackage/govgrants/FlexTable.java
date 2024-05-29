@@ -255,15 +255,7 @@ public final class FlexTable implements FlexTableComponent {
         }
     }
 
-    /**
-     * Either expands or collapses a sub table in a nested flex grid
-     *
-     * @param uniqueColumnValue
-     * @param isExpand
-     * @author john.phillips
-     * @modifier Monu.Kumar
-     * @modifier komal.mukhekar - Added xpath
-     */
+
     public void collapse(String uniqueColumnValue) {
         boolean statusElement = I.amPerforming().getElementReference().of(By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")).getAttribute("icon-name").contains("down");
         try {
@@ -285,6 +277,16 @@ public final class FlexTable implements FlexTableComponent {
             /* Ignore Exception */
         }
     }
+
+    /**
+     * Either expands or collapses a sub table in a nested flex grid
+     *
+     * @param uniqueColumnValue
+     * @param isExpand
+     * @author john.phillips
+     * @modifier Monu.Kumar
+     * @modifier komal.mukhekar - Added xpath
+     */
     public void expandOrCollapseNestedTable(String uniqueColumnValue, boolean isExpand) {
         try {
             if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
