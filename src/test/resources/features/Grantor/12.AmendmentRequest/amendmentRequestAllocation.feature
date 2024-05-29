@@ -6869,7 +6869,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
-    And I halt execution
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | Start Date         | End Date           | New Obligation |
       | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} | 1000           |
@@ -7245,7 +7244,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "2" seconds
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
-    And I halt execution
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | Start Date         | End Date           |
       | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
