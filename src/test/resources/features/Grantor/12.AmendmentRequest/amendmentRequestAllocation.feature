@@ -5780,7 +5780,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Budgeted Amount" rendered in view mode only
     Then I softly see that "Current Commitment" rendered in view mode only
     Then I softly see fields "RevisedCommitment__c" is in edit mode
-    Then I softly see that "Revised Commitment" rendered in view mode only
     Then I softly see that "Carry Forward Amount" rendered in view mode only
     When I click on "Save" in the page details
     And I wait for "2" seconds
