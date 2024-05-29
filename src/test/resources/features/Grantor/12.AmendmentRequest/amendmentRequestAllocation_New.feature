@@ -17479,7 +17479,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Award Amount |
       | $600.00      |
 
-  @hiteshTemp @272171 @272172 @272167 @272168 @272169 @272215 @272216 @272217 @272225 @272233 @272235 @272236 @272238 @272219 @272223 @ValidatePOusercanseeNewObligationcolumnacrosseachFAunderBudgetSummarybyFAsectiononversion2AwardisinPendingActivationstatepostAR&valueshouldsee$0ifFAYES @Sprint-22-US-270855 @vaibhav @Allocation
+  @272171 @272172 @272167 @272168 @272169 @272215 @272216 @272217 @272225 @272233 @272235 @272236 @272238 @272219 @272223 @ValidatePOusercanseeNewObligationcolumnacrosseachFAunderBudgetSummarybyFAsectiononversion2AwardisinPendingActivationstatepostAR&valueshouldsee$0ifFAYES @Sprint-22-US-270855 @vaibhav @Allocation
   Scenario: Validate PO user can see New Obligation column across each FA under Budget Summary by FA section on version 2 Award is in Pending Activation state post AR & value should see $0 if FA YES
     Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_BUD_CAT_SECOND_FOCUS_BUILD_UP_IND_ORG-Automation PO user" of type "Formula_By_Applicant"
     When I am on "SUBPORTAL" portal

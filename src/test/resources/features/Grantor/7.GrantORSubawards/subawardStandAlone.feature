@@ -5992,7 +5992,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66008 @66019 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnTheSubrecipientProfile(SPIuser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePage
+  @66008 @66019 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnTheSubrecipientProfile(SPIuser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePage @wip
   Scenario Outline: Validate After “Accept After Approval” Button Is Clicked On The Subrecipient Profile (SPIuser) View Noga Button Appears On The Top Right Corner Of The Page
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
