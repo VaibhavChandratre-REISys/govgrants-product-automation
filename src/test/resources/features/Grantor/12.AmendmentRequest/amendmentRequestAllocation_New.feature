@@ -1571,7 +1571,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Budget Category | Carry Forward |
       | Construction    | 100           |
     And I refresh the page
-    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 350                  | 35         | 0              |
@@ -1994,7 +1993,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---"
     Then I softly see value "$400.00" for title "Carry Forward" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
 
-  @hitRun1 @264969 @264842 @264977 @264979 @264998 @264957 @264958 @264959 @264875 @264834 @ValidateSPAusercanseeCarryForwardAmountclmunderBudgetPeriodsectioniseditableinCreatedstateofAmendmentRequestFAisYES @sprint-20-US-249461 @vaibhav @Allocation
+  @264969 @264842 @264977 @264979 @264998 @264957 @264958 @264959 @264875 @264834 @ValidateSPAusercanseeCarryForwardAmountclmunderBudgetPeriodsectioniseditableinCreatedstateofAmendmentRequestFAisYES @sprint-20-US-249461 @vaibhav @Allocation
   Scenario: Validate SPA user can see 'Carry Forward Amount clm under Budget Period section is editable in Created state of Amendment Request (FA is YES
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_DETAILS_BUDGET_YES_RISK_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
@@ -2996,7 +2995,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Budgeted Amount" rendered in view mode only
     Then I softly see that "Current Commitment" rendered in view mode only
 
-  @hitRun1 @256784 @256646 @256701 @256754 @Verifyusershouldnotabletoeditanyfieldinbudgetsummary&budgetsummarybyfocusareasectionwhenAmendmentisinsubmitforapproval&ApprovedstateFAYes @sprint-19-US-255590 @hitesh @Allocation
+  @256784 @256646 @256701 @256754 @Verifyusershouldnotabletoeditanyfieldinbudgetsummary&budgetsummarybyfocusareasectionwhenAmendmentisinsubmitforapproval&ApprovedstateFAYes @sprint-19-US-255590 @hitesh @Allocation
   Scenario: Verify user should not able to edit any field in budget summary & budget summary by focus area section when Amendment is in submit for approval & Approved state(FA Yes)
     And I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -3286,7 +3285,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Current Obligation" as "CurrentObligation"
     Then I softly see value "{SavedValue:CumulativeObligation}" is "Equals to" the value "{SavedValue:CurrentObligation}"
 
-  @hitRun1 @256780 @256911 @256921 @257014 @VerifyusershouldabletoseePriorawardedbudgetAwardedbudgetshouldberenamedFAyes @sprint-19-US-255590-255591 @hitesh @Allocation
+  @256780 @256911 @256921 @257014 @VerifyusershouldabletoseePriorawardedbudgetAwardedbudgetshouldberenamedFAyes @sprint-19-US-255590-255591 @hitesh @Allocation
   Scenario: Verify user should able to see Budget Summary by Focus Area Section, only if Focus area is Yes
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3364,7 +3363,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Close"
     And I wait for "2" seconds
 #    When I expand nested table containing column value "BP01"
-    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
+#    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
     When I click on "Add Line Item Details" icon for "Indirect costs" inside flex table with id "---applicationReview:-:budgetTableId---"
     When I enter the following values into flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "New" :
@@ -3461,8 +3460,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection. |
     And I pause execution for "5" seconds
     And I refresh the page
-    And I click on parallel menu button in flex table title "Budget Change"
-    And I select "Reset Table" from parallel lines dropdown of "Budget Change"
+#    And I click on parallel menu button in flex table title "Budget Change"
+#    And I select "Reset Table" from parallel lines dropdown of "Budget Change"
     And I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     When I edit the following rows inline in flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "Edit" :
       | Title        | Narrative     | Award Amount |
@@ -3482,7 +3481,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see "Prior Award Amount" in flex table header "---amendment:-:AddLineItemForBudgetChangeTableId---"
     And I click modal button "Close"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
+#    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
     Then I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:grantorBudgetChangeTableId---"
     Then I softly see "Award Amount" in flex table header "---amendment:-:AddLineItemForBudgetChangeTableId---"
     Then I softly see "Prior Award Amount" in flex table header "---amendment:-:AddLineItemForBudgetChangeTableId---"
@@ -17009,7 +17008,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1200                 | 120        | 0              |
-#    And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Next"
+    And I wait for "2" seconds
+    And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1500                 | 150        | 0              |
