@@ -31,7 +31,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardStandAlone:-:subawardsTableId---" panel
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime award}" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
 
-  @69170 @auditorCanViewActiveGrantAward
+  @done @69170 @auditorCanViewActiveGrantAward
   Scenario: Validate Auditor should have view / read  only access to Active Grant/Award
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "AUDITOR" user

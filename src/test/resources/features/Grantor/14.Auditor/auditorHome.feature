@@ -80,9 +80,10 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I navigate to "Home" tab
     #Bug432799
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
+    #Bug433406
     Then I softly cannot see top right button "New" in flex table with id "---home:-:internalContactTableId---"
-    When I perform quick search for "Automation FO" in "---home:-:internalContactTableId---" panel
-    Then I softly cannot see row level action button "Edit" against "True" in flex table with id "---home:-:internalContactTableId---"
+    When I perform quick search for "Automation FO1" in "---home:-:internalContactTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "Automation FO1" in flex table with id "---home:-:internalContactTableId---"
     Then I softly see "Name" in flex table header "---home:-:internalContactTableId---"
     Then I softly see "Organization" in flex table header "---home:-:internalContactTableId---"
     Then I softly see "Email" in flex table header "---home:-:internalContactTableId---"
@@ -107,9 +108,9 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:internalContactTableId---" panel
-    Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime Contact}" in flex table with id "---home:-:internalContactTableId---"
-    And I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:internalContactTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:internalContactTableId---" panel
+    Then I softly can see row level action button "View" against "Test Automation Organization" in flex table with id "---home:-:internalContactTableId---"
+    And I click on "View" icon for "Test Automation Organization" inside flex table with id "---home:-:internalContactTableId---"
     Then I softly see field "Organization" as "Test Automation Organization"
 
   @done @69144 @69132 @69128 @auditorCannotSendInvitationCanViewSMEReviewersContactDetails

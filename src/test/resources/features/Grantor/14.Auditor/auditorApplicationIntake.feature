@@ -141,7 +141,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I perform quick search for "<Application Name>" in "---auditor:-:applicationTableId---" panel
     Then I softly cannot see row level action button "Edit" against "<Application Name>" in flex table with id "---auditor:-:applicationTableId---"
     When I click on "View" icon for "<Application Name>" inside table
-    Then I see status in Progress-bar is "Submitted" and is "Green"
+    Then I see status in Progress-bar is "Submitted" and is "dark blue"
     Examples:
       | Application Name                                         |
       | {SavedValue:Automation Runtime Announcement Application} |
@@ -193,6 +193,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
+    And I logout
     When I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "<User>" user
     When I navigate to "Applications" tab
@@ -234,9 +235,11 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Back" in the page details
+#    And I click on "Back" in the page details
+    And I close the tab
     And I click on top right button "Add Files" in flex table with id "---auditor:-:PreApplicationTableId---"
     When I upload attachment "Attachment.pdf" of type "Other" from computer
     When I click on "Submit to Grantor" in the page details
