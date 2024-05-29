@@ -18135,7 +18135,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | You cannot carry forward more than the remaining budget |
 
-  @hiteshTemp @272246 @272247 @272248 @272251 @272252 @272274 @272275 @272279 @272281 @272282 @272284 @272315 @272316 @272330 @272332 @272331 @272305 @272313 @272283 @272280 @272255 @272257 @272262 @272263 @272271 @272241 @ValidateEXEusercanseeNewObligationfieldunderBudgetSummarysectiononversion2AwardisinPendingActivationstatepostAR&copiedfromdifferencecolumninfundingAccountsectiononARifFAYES
+  @272246 @272247 @272248 @272251 @272252 @272274 @272275 @272279 @272281 @272282 @272284 @272315 @272316 @272330 @272332 @272331 @272305 @272313 @272283 @272280 @272255 @272257 @272262 @272263 @272271 @272241 @ValidateEXEusercanseeNewObligationfieldunderBudgetSummarysectiononversion2AwardisinPendingActivationstatepostAR&copiedfromdifferencecolumninfundingAccountsectiononARifFAYES
   Scenario: Validate EXE user can see New Obligation field under Budget Summary section on version 2 Award is in Pending Activation state post AR & copied from difference column in funding Account section on AR if FA YES
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
