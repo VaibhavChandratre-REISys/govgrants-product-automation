@@ -5588,80 +5588,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 
   @264151 @264152 @264574 @264576 @264586 @264768 @264797 @308967 @265760 @ValidatePOusercanseeBudgetedAmountasRolledupfromthebudgetchangesectionsRevisedAwardAmountcolumn @sprint-20-US-228432-244399 @vaibhav @Allocation @TBExecution2
   Scenario: Validate PO user can see Budgeted Amount as Rolled up from the budget change sections Revised Award Amount column
-    When I login to "As a Grantor" app as "PO" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Formula Announcements"
-    And I click on top right button "New" in flex table with id "---announcement:-:formulaAnnouncementTableId---"
-    And I enter "FormulaAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
-    When I enter "Creation_Formula_ByApp_FocusYes" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    When I navigate to "Overview" sub tab
-    And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
-    When I navigate to "Overview" sub tab
-    When I enter value "Individuals" into field "EligibleApplicantTypes__c"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    When I navigate to "Overview" sub tab
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
-    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 5000            |
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "Automation PM" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name          | Announcement |
-      | Automation PO | Step 1       |
-    And I click on "Edit" in the page details
-    When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "Justification__c"
-    And I click on "Save" in the page details
-    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Budget Period Name | Start Date | End Date |
-      | BP01               | 50         | 150      |
-    When I navigate to "Overview" sub tab
-    #264797
-    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---announcement:-:AnnouncementServiceArea1TableId---"
-    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---announcement:-:AnnouncementServiceArea1TableId---"
-    And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
-    And I perform quick search for "Automation IND" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
-    When I click "Add" after selection of "Automation IND" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
-    When I close "Add Organizations" modal by clicking the top right x button
-    And I refresh the page
-    And I expand nested table containing column value "Automation IND"
-    And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
-      | Title                           | Allocation Amount |
-      | Automation Permanent Focus Area | 500               |
-    And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
-      | Title                            | Allocation Amount |
-      | Automation Permanent Focus Area2 | 500               |
-    And I wait for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    And I wait for "4" seconds
-    And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    And I click on "Publish" in the page details
-    Then I softly see status in Progress-bar is "Published" and is "dark blue"
+    Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY-Automation IND user"
     And I created approved FDM on application "{SavedValue:Automation Runtime Announcement}"
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Announcement}" and properties "Automation PO user"
     And I activate award from FDM having application name "{SavedValue:Automation Runtime Announcement}"
+    When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
@@ -5796,6 +5728,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---amendment:-:carryForwardFocusAreaTableId---" by clicking "Edit" :
       | Title                            | Carry Forward Amount |
       | Automation Permanent Focus Area2 | 500                  |
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     #264151,264152
     Then I softly see field "Carry Forward Amount" as "$700.00"
     Then I softly see field "Current Obligation" as "$2,000.00"
@@ -6444,7 +6379,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$200.00" for title "Carry Forward Amount" against the value "Automation Permanent Focus Area" inside table "---amendment:-:carryForwardFocusAreaTableId---"
     Then I softly see value "$300.00" for title "Carry Forward Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:carryForwardFocusAreaTableId---"
     #264366
-#    And I expand nested table containing column value "BP01"
+    And I expand nested table containing column value "BP01"
     When I click on button "resetIcon" in flex table with id "---amendment:-:RecipientParentCarryForwardBudgetTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -6463,6 +6398,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1300                 | 130        | 0              |
     And I refresh the page
+    And I wait for "2" seconds
 #    And I expand nested table containing column value "BP01"
     Then I softly see value "$300.00" for title "Carry Forward" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
     And I wait for "3" seconds
