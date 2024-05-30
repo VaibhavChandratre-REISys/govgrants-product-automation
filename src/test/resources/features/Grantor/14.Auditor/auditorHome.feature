@@ -152,6 +152,9 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @ch1 @69142 @auditorCannotCreateEditSubrecipientContact @smoke
   Scenario: Validate Auditor cannot Create/Edit any subrecipient contact user
+    Given I delete the record "Automation Runtime Contact Contact" from the object "CONTACT"
+    Given I delete the record "Automation Runtime Contact385484316 Contact" from the object "CONTACT"
+    Given I delete the record "Automation Runtime Contact4568176243 Contact" from the object "CONTACT"
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
@@ -164,8 +167,8 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | {SavedValue:uniqueEmailID} | Email |
     When I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
-    When I navigate to "Home" tab
-    And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
+#    When I navigate to "Home" tab
+#    And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "SubrecipientContacts"
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
