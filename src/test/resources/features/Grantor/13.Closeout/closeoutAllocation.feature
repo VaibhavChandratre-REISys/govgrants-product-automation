@@ -432,7 +432,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Spent" as "$500.00"
     Then I softly see value "$500.00" for title "Spent" against the value "Total" inside table "---closeout:-:subrecipientBudgetSummaryFocusAreaTableId---"
 
-  @265593 @265639 @ValidateSPIuserseespentvalueshouldbeupdatedoncloseoutinSubmitforapprovalstateofcloseout @sprint-20-US-263394 @vaibhav @Allocation @TBExecution2
+  @265593 @265639 @ValidateSPIuserseespentvalueshouldbeupdatedoncloseoutinSubmitforapprovalstateofcloseout @sprint-20-US-263394 @vaibhav @Allocation @wip
   Scenario: Validate SPI user see 'spent' value should be updated on closeout in Submit for approval state of closeout
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -577,7 +577,7 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Overview" sub tab
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
 
-  @265223 @265225 @ValidateEXEusershouldnotseezerofocusareaoncloseoutwhichisnotcopiedfromawardtograntwhenawardisnotfromFDM @sprint-20-US-246948 @vaibhav @Allocation @TBExecution2
+  @265223 @265225 @ValidateEXEusershouldnotseezerofocusareaoncloseoutwhichisnotcopiedfromawardtograntwhenawardisnotfromFDM @sprint-20-US-246948 @vaibhav @Allocation
   Scenario: Validate EXE user should not see zero focus area on closeout which is not copied from award to grant when award is not from FDM
     Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA-Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user

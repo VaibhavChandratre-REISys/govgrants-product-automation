@@ -10470,12 +10470,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction | Construction | 1700         | 170        | 0              |
     When I close "Add Line Items" modal by clicking the top right x button
     And I refresh the page
+    And I wait for "3" seconds
     #265693
     When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     Then I softly see value "$1,700.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
-    And I wait for "8" seconds
+    And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     #264904
