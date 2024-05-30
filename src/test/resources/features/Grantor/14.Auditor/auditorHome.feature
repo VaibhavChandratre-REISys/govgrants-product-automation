@@ -160,8 +160,8 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter values into fields
-      | Value                      | Field      |
-      | {SavedValue:uniqueEmailID} | fieldEmail |
+      | Value                      | Field |
+      | {SavedValue:uniqueEmailID} | Email |
     When I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
@@ -188,8 +188,8 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter values into fields
-      | Value                      | Field      |
-      | {SavedValue:uniqueEmailID} | fieldEmail |
+      | Value                      | Field |
+      | {SavedValue:uniqueEmailID} | Email |
     When I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
