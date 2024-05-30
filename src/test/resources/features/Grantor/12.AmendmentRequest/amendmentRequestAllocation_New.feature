@@ -6700,6 +6700,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1200                 | 120        | 0              |
+    When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
     And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
@@ -7010,9 +7011,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I navigate to "Directed" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Directed Announcements" in "---announcement:-:annoucementTableId---"
-    When I perform quick search for "Record Id" in "---announcement:-:annoucementTableId---" panel
-    When I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:annoucementTableId---" without waiting for record
+    And I click toggle button to select "All Directed Announcements"
+    And I perform quick search for "Record id" in "---announcement:-:annoucementTableId---" panel
+    And I click on "View" icon for "Record id" inside flex table with id "---announcement:-:annoucementTableId---" without waiting for record
     And I click on "Publish" in the page details
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
