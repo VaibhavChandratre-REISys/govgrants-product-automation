@@ -5726,8 +5726,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PayreqId"
     And I navigate to "Financials" sub tab
-    When I click on button "resetIcon" in flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---"
-    And I select value inside table "---paymentRequest:-:paymentRequestBudgetTableId---" is "All"
     And I edit the following rows inline in flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" by clicking "Edit" :
       | Budget Category | Spent This Action |
       | Construction    | 300               |
@@ -10790,7 +10788,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
-    When I click "Associate" after selection of "Test Focus Area" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
+    When I click "Associate" after selection of "Test Focus Area1" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
