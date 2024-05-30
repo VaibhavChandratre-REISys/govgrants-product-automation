@@ -182,6 +182,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Then I softly cannot see top right button "New" in flex table with id "SubrecipientContacts"
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Contact}" in flex table with id "SubrecipientContacts"
+    Given I delete the record "{SavedValue:Automation Runtime Contact}" from the object "CONTACT"
 
   @ch1 @69143 @auditorViewSubrecipientContacts
   Scenario: Validate Auditor should have view / read  only access to subrecipient contacts
@@ -212,6 +213,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "SubrecipientContacts"
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
+    Given I delete the record "{SavedValue:Automation Runtime Contact}" from the object "CONTACT"
 
   @done @69129 @validateAuditorReassign @meenakshi
   Scenario: Verify Auditor profile would not have tasks assigned  Re assign will populate no tasks to reassign
