@@ -3314,7 +3314,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Available Balance" as "$9,995,000.00"
     Then I softly see field "Appropriation Amount" as "$1,000,000.00"
 
-  @258576 @258578 @258587 @258590 @262837 @258594 @258592 @258593 @258595 @262820 @ValidateCompPOusercanseevaluedisplayedforTotalCommitmentfieldonPendingActivationstateofversion2awardiscopiedfromtheRevisedCommitmentfieldfromthebudgetsummarysectionofamendmentrequestFAYes @sprint-19-US-250551 @vaibhav @Allocation @TBExecution4
+  @258576 @258578 @258587 @258590 @262837 @258594 @258592 @258593 @258595 @262820 @ValidateCompPOusercanseevaluedisplayedforTotalCommitmentfieldonPendingActivationstateofversion2awardiscopiedfromtheRevisedCommitmentfieldfromthebudgetsummarysectionofamendmentrequestFAYes @sprint-19-US-250551 @vaibhav @Allocation
   Scenario: Validate Comp PO user can see value displayed for Total Commitment field on Pending Activation state of version 2 award is copied from the Revised Commitment field from the budget summary section of amendment request(FA=Yes)
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-Automation IND user"
@@ -10303,7 +10303,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | You cannot carry forward more than the remaining budget |
 
-  @265693 @264808 @264904 @264350 @ValidateSPIusercanedittheCarryforwardcolumnfromhebudgetperiodsectioninthesentbacktosrstateorunderrevisionstateofamendmentFAisyes @sprint-20-US-248355-248356 @vaibhav @Allocation @TBExecution1
+  @265693 @264808 @264904 @264350 @ValidateSPIusercanedittheCarryforwardcolumnfromhebudgetperiodsectioninthesentbacktosrstateorunderrevisionstateofamendmentFAisyes @sprint-20-US-248355-248356 @vaibhav @Allocation
   Scenario: Validate SPI user can edit the 'Carry forward' column from the budget period section in the sent back to sr state or under revision state of amendment FA is yes
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "THREE_FOCUS_BY_APP_DETAILS_BUDGET_YES_RISK_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
@@ -11026,7 +11026,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
 
-  @265034 @ValidatePMusercannotseeFocusareaonthenewAwardiftheinitialAwardisfromFDMandvalueforNewObligationandspentisZeroforparticularFocusArea @sprint-20-US-263390 @vaibhav @Allocation @TBExecution1
+  @265034 @ValidatePMusercannotseeFocusareaonthenewAwardiftheinitialAwardisfromFDMandvalueforNewObligationandspentisZeroforparticularFocusArea @sprint-20-US-263390 @vaibhav @Allocation
   Scenario: Validate PM user cannot see a Focus area on the new Award if the initial Award is from FDM and value for New Obligation and spent is Zero for a particular Focus Area
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "THREE_FOCUS_BY_APP_DETAILS_BUDGET_YES_RISK_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
