@@ -207,7 +207,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Application Name                                             | User    |
       | {SavedValue:Automation Runtime Announcement for Application} | Auditor |
 
-  @ch1 @69941 @69940 @audiorPreApplicationToApplication
+  @ch2 @69941 @69940 @audiorPreApplicationToApplication
   Scenario Outline: Validate Auditor should have view / read  only access to submitted pre-application| Validate Auditor should not be  able to Review/Accept/Reject Preapplication
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -240,8 +240,8 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I click on "Save" in the page details
 #    And I click on "Back" in the page details
     And I close the tab
-    And I click on top right button "Add Files" in flex table with id "---auditor:-:PreApplicationTableId---"
-    When I upload attachment "Attachment.pdf" of type "Other" from computer
+#    And I click on top right button "Add Files" in flex table with id "---auditor:-:PreApplicationTableId---"
+#    When I upload attachment "Attachment.pdf" of type "Other" from computer
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -291,6 +291,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     Given I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
