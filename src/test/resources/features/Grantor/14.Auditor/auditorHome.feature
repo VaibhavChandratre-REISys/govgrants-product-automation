@@ -167,22 +167,24 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | {SavedValue:uniqueEmailID} | Email |
     When I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
-#    When I navigate to "Home" tab
-#    And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "SubrecipientContacts"
+    When I navigate to "Home" tab
+    And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "SubrecipientContacts" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "SubrecipientContacts"
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
-    And I close modal by clicking the top right x button
-    When I click on "Edit" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "SubrecipientContacts"
+    And I click modal button "Close"
+    When I navigate to "Home" tab
+    And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
+    When I click on "Edit" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "SubrecipientContacts"
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "SubrecipientContacts"
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Contact}" in flex table with id "SubrecipientContacts"
-    Given I delete the record "{SavedValue:Automation Runtime Contact}" from the object "CONTACT"
+    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "SubrecipientContacts" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "SubrecipientContacts"
+    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
   @ch1 @69143 @auditorViewSubrecipientContacts
   Scenario: Validate Auditor should have view / read  only access to subrecipient contacts
