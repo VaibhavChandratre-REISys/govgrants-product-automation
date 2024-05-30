@@ -1486,6 +1486,7 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:CloseoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
+    Given I navigate to "Overview" sub tab
     And I enter value "Automation Test Reason" into field "Reason__c"
     And I enter value "Automation Test justification" into field "Justification__c"
     When I navigate to "Checklist" sub tab
