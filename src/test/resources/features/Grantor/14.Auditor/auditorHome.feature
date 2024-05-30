@@ -74,7 +74,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @69125 @auditorCannotCreateEditContact
+  @done @69125 @auditorCannotCreateEditContact
   Scenario Outline: Validate Auditor should not be  able to Create/Edit any Contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -94,7 +94,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @69126 @auditorCanViewCreatedContact
+  @done @69126 @auditorCanViewCreatedContact
   Scenario: Validate Auditor should have view / read  only access to record.
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
@@ -150,12 +150,13 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Then I softly see "No Records Found" inside flex table with id "---home:-:completedAssignedToMe---"
     Then I softly see "No Records Found" inside flex table with id "---home:-:completedAssignedByMe---"
 
-  @69142 @auditorCannotCreateEditSubrecipientContact @smoke
+  @ch1 @69142 @auditorCannotCreateEditSubrecipientContact @smoke
   Scenario: Validate Auditor cannot Create/Edit any subrecipient contact user
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "SubrecipientContacts"
+    #Bug433918
     And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter values into fields
@@ -177,12 +178,13 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Contact}" in flex table with id "SubrecipientContacts"
 
-  @69143 @auditorViewSubrecipientContacts
+  @ch1 @69143 @auditorViewSubrecipientContacts
   Scenario: Validate Auditor should have view / read  only access to subrecipient contacts
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     When I click on top right button "New" in flex table with id "SubrecipientContacts"
+    #Bug433918
     And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter values into fields

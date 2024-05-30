@@ -38,7 +38,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     Then I cannot see row level action button "Initiate Negotiation" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---applicationReview:-:recommendedTableId---"
 
-  @69164 @auditorCannotSend/CompleteNegotiations @buglogged151671
+  @done @69164 @auditorCannotSend/CompleteNegotiations @buglogged151671
   Scenario: Validate Auditor should be able to View the record but shouldn't be able to Complete Negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -56,6 +56,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
+    #Bug428924
     Then I see field "Status" as "Reviewed"
     When I save the field labeled "EGMS ID" as "EGMSID"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -91,7 +92,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     Then I see status in Progress-bar is "Approved" and is "dark blue"
 
-  @69166 @auditorApplication @smoke
+  @done @69166 @auditorApplication @smoke
   Scenario Outline: Validate Auditor should be able to View submitted application details but cannot edit the submitted application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -146,7 +147,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Application Name                                         |
       | {SavedValue:Automation Runtime Announcement Application} |
 
-  @69301 @auditorCannotAddAttachmentsAndNotes
+  @ch1 @69301 @auditorCannotAddAttachmentsAndNotes
   Scenario Outline: Verify User with Auditor profile has no ability to add attachments and notes.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -193,9 +194,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
-    And I logout
-    When I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "<User>" user
+    When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -208,7 +207,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Application Name                                             | User    |
       | {SavedValue:Automation Runtime Announcement for Application} | Auditor |
 
-  @69941 @69940 @audiorPreApplicationToApplication
+  @ch1 @69941 @69940 @audiorPreApplicationToApplication
   Scenario Outline: Validate Auditor should have view / read  only access to submitted pre-application| Validate Auditor should not be  able to Review/Accept/Reject Preapplication
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal

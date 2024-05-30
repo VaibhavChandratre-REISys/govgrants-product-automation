@@ -59,7 +59,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I download the file
     Then I see "Active" on page "1" of "govgrants" pdf file
 
-  @69939 @auditorCannotEditorApproveFDM
+  @ch1 @69939 @auditorCannotEditorApproveFDM
   Scenario Outline: Validate Auditor should not be  able to Edit/Approve FDM
     And I published "Competitive" type announcement having name "<Application Name>" and properties "NO_RISK_ASSESSMENT-Automation PO user"
     And I initiated an application review for application "<Application Name>" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"

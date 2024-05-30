@@ -25,7 +25,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I perform quick search for "Created" in "---auditor:-:paymentrequestAdvancesTableId---" panel
     Then I see value "Created" for title "Status" inside table "---auditor:-:paymentrequestAdvancesTableId---"
 
-  @69179 @69942 @auditorOrgRiskAssessment @smoke
+  @done @69179 @69942 @auditorOrgRiskAssessment @smoke
   Scenario: Validate Auditor should have view / read  only access to Organizational Risk Assessment |Validate Auditor should not be  able to Provide revision access
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
@@ -58,7 +58,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     And I click on "View" icon for "Active" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    Then I softly see status in Progress-bar is "Active" and is "green"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
     Then I softly cannot see top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
   @done @69180 @auditorMonitoringSchedule
@@ -183,7 +183,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
       | User    |
       | AUDITOR |
 
-  @69872 @69979 @auditorCannotCreateAwardLevelRiskAssessment
+  @done @69872 @69979 @auditorCannotCreateAwardLevelRiskAssessment
   Scenario Outline: Validate Auditor should not be able to Create Award Level Risk Assessment/ Validate whether Auditor can View the active Risk assessment from Monitoring Tab
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -246,7 +246,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
       | User    |
       | AUDITOR |
 
-  @69986 @69985 @auditorCannotSendBackProgressReportToSubrecipient
+  @ch1 @69986 @69985 @auditorCannotSendBackProgressReportToSubrecipient
   Scenario: Validate Auditor should not be  able to Send back progress report to S/R | Validate Auditor should have view / read  only access to the progress report record
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -266,9 +266,12 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+#    And I click on "Back" in the page details
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
     When I click on "Submit to Grantor" in the page details
@@ -286,7 +289,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---auditor:-:progressreportTableId---"
     Then I softly cannot see top right button "Send Back to Subrecipient" in page detail
 
-  @70075 @auditorCannotBeAnApprover
+  @ch1 @70075 @auditorCannotBeAnApprover
   Scenario: Validate approver user is not allowed to reassign tasks their tasks to Auditor.
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -322,9 +325,13 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I click on "Conduct" in the page details
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    When I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -334,7 +341,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I select radio button "Forward" in the approval decision
     Then I cannot see user "{SavedValue:AUDITOR Username}" in the user lookup in the approval decision
 
-  @70324 @auditorCannotEdit/CompletePeerReviewProcess
+  @ch1 @70324 @auditorCannotEdit/CompletePeerReviewProcess
   Scenario: Validate whether the complete Review Button is available for Auditor user to complete peer review process
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
