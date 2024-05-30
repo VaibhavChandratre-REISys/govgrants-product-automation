@@ -164,6 +164,8 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | {SavedValue:uniqueEmailID} | Email |
     When I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
+    When I navigate to "Home" tab
+    And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "SubrecipientContacts"
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"

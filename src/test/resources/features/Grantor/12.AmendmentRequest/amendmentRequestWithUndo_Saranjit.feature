@@ -4805,7 +4805,7 @@ Feature: Amendment Request scenarios with Undo
       | Budget Category | Carry Forward |
       | Construction    | 200           |
     And I refresh the page
-    And I expand nested table containing column value "BP01"
+#    And I expand nested table containing column value "BP01"
     And I click on page navigation arrow "RecipientAmendmentRequestCarryForwardBudget" for table id "Next"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -4816,7 +4816,7 @@ Feature: Amendment Request scenarios with Undo
       | Budget Category | Carry Forward |
       | Construction    | 0             |
     And I refresh the page
-    And I expand nested table containing column value "BP02"
+#    And I expand nested table containing column value "BP02"
     And I click on page navigation arrow "RecipientAmendmentRequestCarryForwardBudget" for table id "Next"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
