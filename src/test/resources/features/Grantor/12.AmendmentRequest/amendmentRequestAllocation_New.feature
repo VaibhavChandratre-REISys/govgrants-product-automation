@@ -7944,7 +7944,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$0.00" for title "Current Obligation" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:carryForwardFocusAreaTableId---"
     Then I softly see value "$0.00" for title "Carry Forward Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:carryForwardFocusAreaTableId---"
 
-  @264941 @264939 @264615 @ValidateusercannoteditcarryforwardcolumnfromthebudgetperiodsectioninsubmittedforapprovalstateFAYes @sprint-20-US-263307 @vaibhav @Allocation
+  @tempApp @264941 @264939 @264615 @ValidateusercannoteditcarryforwardcolumnfromthebudgetperiodsectioninsubmittedforapprovalstateFAYes @sprint-20-US-263307 @vaibhav @Allocation
   Scenario: Validate user cannot edit carry forward column from the budget period section in submitted for approval state FA Yes
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -8010,8 +8010,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     And I navigate to "Directed" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Directed Announcements" in "---announcement:-:annoucementTableId---"
-    When I perform quick search for "Record Id" in "---announcement:-:annoucementTableId---" panel
+    And I click toggle button to select "All Directed Announcements"
+    And I perform quick search for "Record id" in "---announcement:-:annoucementTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:annoucementTableId---" without waiting for record
     And I click on "Publish" in the page details
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
@@ -10788,11 +10788,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
-    When I click "Associate" after selection of "Test Focus Area1" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
+#    When I click "Associate" after selection of "Test Focus Area1" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
+#    When I navigate to "Financials" sub tab
+#    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
+#    When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
@@ -13787,7 +13787,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---amendment:-:FundingChangeFocusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Revised Obligation" against the value "Automation Permanent Focus Area" inside table "---amendment:-:FundingChangeFocusAreaTableId---"
 
-  @327113 @VerifyusercannotseebudgetsummarybyfocusareasectiononfundingchangeamendmentrequestFANo @Sprint-10-US-320518 @hitesh @Allocation
+  @tempApp @327113 @VerifyusercannotseebudgetsummarybyfocusareasectiononfundingchangeamendmentrequestFANo @Sprint-10-US-320518 @hitesh @Allocation
   Scenario: Verify user can not see budget summary by focus area section on funding change amendment request (FA=No)
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -13821,7 +13821,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I see status in Progress-bar is "Created" and is "dark blue"
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @327121 @VerifyinternalandexternalusershouldnotabletoaddorremovethefocusareaonbudgetredirectionamendmentrequestFAyes @sprint-10-US-320518 @hitesh
+  @tempApp @327121 @VerifyinternalandexternalusershouldnotabletoaddorremovethefocusareaonbudgetredirectionamendmentrequestFAyes @sprint-10-US-320518 @hitesh
   Scenario: Verify internal and external user should not able to add or remove the focus area on budget redirection amendment request (FA=yes)
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -13859,7 +13859,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see row level action button "Remove Focus Area" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:projectAreasTableId---"
     Then I softly cannot see row level action button "Remove Focus Area" against "Automation Permanent Focus Area2" in flex table with id "---amendment:-:projectAreasTableId---"
 
-  @258321 @258317 @VerifyPOusercanseeTotalCommitmentamountiscomingfromTotalcommitmentfieldfromthelatestClosedawardandforLatestBPFAisNo @sprint-19-US-255644 @hitesh @Allocation
+  @tempApp @258321 @258317 @VerifyPOusercanseeTotalCommitmentamountiscomingfromTotalcommitmentfieldfromthelatestClosedawardandforLatestBPFAisNo @sprint-19-US-255644 @hitesh @Allocation
   Scenario: Verify PO user can see Total Commitment amount is coming from Total commitment field from the latest Closed  award  and for Latest BP (FA is No)
     And I activated standalone subaward "Automation Runtime award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "PO" user
@@ -13979,7 +13979,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeGrant"
     Then I softly see value "{SavedValue:CumulativeObligationAW1}" is "Equals to" the value "{SavedValue:CumulativeGrant}"
 
-  @263958 @VerifySpentvalueshouldbeCalculatedagainsteachfocusareaFAareaYes @sprint-20-US-263426 @hitesh @Allocation
+  @tempApp @263958 @VerifySpentvalueshouldbeCalculatedagainsteachfocusareaFAareaYes @sprint-20-US-263426 @hitesh @Allocation
   Scenario: Verify Spent value should be  Calculated against each focus area(FA area Yes)
     And I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -14095,7 +14095,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Spent" as "Spent4"
     Then I softly see value "{SavedValue:awardSpent}" is "Equals to" the value "{SavedValue:Spent4}"
 
-  @264325 @VerifyusercanenteronlypositivevalueincarryforwardamountsubmittograntorstateFANo @sprint-20-US-263305 @hitesh @Allocation
+  @tempApp @264325 @VerifyusercanenteronlypositivevalueincarryforwardamountsubmittograntorstateFANo @sprint-20-US-263305 @hitesh @Allocation
   Scenario: Verify user can enter only positive value in  carry forward amount submit to grantor state (FA No)
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -14114,8 +14114,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
       | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
     And I refresh the page
@@ -14166,8 +14166,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
-    And I enter value "1000" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
+    And I enter value "1000" into field "RequestedChangeInBudget__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
@@ -14191,17 +14191,17 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I click on "Edit" in the page details
-    And I enter value "1000" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "1000" into field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     When I click on "Edit" in the page details
-    And I enter value "-1000" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "-1000" into field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     And I pause execution for "3" seconds
     Then I see the following messages in the page details contains:
       | Overview Tab - Carry Forward Amount in the budget period section must be equal to the Carry Forward amount on the Budget Summary section. |
 
-  @256889 @VerifyValidationmessageshouldbedisplaywhenbudgetedamountisnotequaltocurrentobligationFAYes @sprint-19-US-255590 @hitesh @Allocation
+  @tempApp @256889 @VerifyValidationmessageshouldbedisplaywhenbudgetedamountisnotequaltocurrentobligationFAYes @sprint-19-US-255590 @hitesh @Allocation
   Scenario:Verify Validation message should be display when budgeted amount is not equal to  current obligation(FA Yes)
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -14231,7 +14231,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection. |
 
-  @268415 @VerifyCumulativeobligationandBalancevalueshouldnotupdatedonexitingpaymentrequestwhichisincreatedstatewhennewawardisactivatedafterBudgetredirectionamendmentrequest @sprint-21-US-265880 @hitesh
+  @tempApp @268415 @VerifyCumulativeobligationandBalancevalueshouldnotupdatedonexitingpaymentrequestwhichisincreatedstatewhennewawardisactivatedafterBudgetredirectionamendmentrequest @sprint-21-US-265880 @hitesh
   Scenario: Verify Cumulative obligation and Balance value should not updated on exiting payment request which is in created state when new award is activated after Budget redirection amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_SUB_ORG_IND-Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -14331,7 +14331,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Balance" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:awardPaymentSummaryFocusAreaTableId---"
     Then I softly see value "{SavedValue:Balance2}" is "Equals to" the value "{SavedValue:BalanceAW2}"
 
-  @265696 @VerifyINDusercancarryforwardtheamountfromonefocusareatoanotherfocusareaFANo @sprint-20-US-248356 @hitesh @Allocation
+  @tempApp @265696 @VerifyINDusercancarryforwardtheamountfromonefocusareatoanotherfocusareaFANo @sprint-20-US-248356 @hitesh @Allocation
   Scenario:Verify IND user can carryforward the amount from one focus area to another focus area (FA is No)
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_SUB_ORG_IND-Automation PM user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "PM" user
@@ -14349,9 +14349,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -14408,8 +14408,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
-    And I enter value "700" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
+    And I enter value "700" into field "RequestedChangeInBudget__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
@@ -14420,7 +14420,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Budget Category | Carry Forward |
       | Construction    | 200           |
     And I refresh the page
-    And I expand nested table containing column value "BP01"
+#    And I expand nested table containing column value "BP01"
+    And I select value inside table "---amendment:-:RecipientCarryForwardBudgetTableId---" is "10"
     And I click on page navigation arrow "---amendment:-:RecipientCarryForwardBudgetTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -14434,7 +14435,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @274134 @VerifySPIusercaninitiateandapprovedbudgetredirectionamendmentondirectedtypegrant @sprint-23-US-263305 @hitesh @Allocation
+  @tempApp @274134 @VerifySPIusercaninitiateandapprovedbudgetredirectionamendmentondirectedtypegrant @sprint-23-US-263305 @hitesh @Allocation
   Scenario: Verify SPI user can initiate and approved budget redirection amendment on directed type grant
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Directed"
     Given I am on "SUBPORTAL" portal
@@ -14579,7 +14580,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Revised Obligation must be greater than or equal to the Spent amount. |
 
-  @314166 @VerifyPMusershouldseevalidationonSubmitApprovalbuttonwhenCarryforAmountfieldonBudgetSummarysectionisnotequaltototalofCarryforwardAmountacrossallFAfrombudgetchangesectiononCarryforwardAR @sprint-20-US-308117 @hitesh @Allocation
+  @tempApp @314166 @VerifyPMusershouldseevalidationonSubmitApprovalbuttonwhenCarryforAmountfieldonBudgetSummarysectionisnotequaltototalofCarryforwardAmountacrossallFAfrombudgetchangesectiononCarryforwardAR @sprint-20-US-308117 @hitesh @Allocation
   Scenario: Verify PM user should see validation on Submit for Approval button when Carry for Amount field on Budget Summary section is not equal to total of Carry forward Amount across all FA from budget change section on Carry forward AR
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -14598,9 +14599,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
@@ -14657,8 +14658,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
-    And I enter value "700" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
+    And I enter value "700" into field "RequestedChangeInBudget__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
@@ -14692,8 +14693,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                           |
-      | 1000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 1000  | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -14761,7 +14762,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Revised Commitment should be equal to or greater than the total of Cummulative Obligation $3000.00 across all budget periods. |
 
-  @314015 @VerifyMserannotseevalidationonSubmitforApprovalbuttonwhenRevisedCommitmentisequaltoadditionofCumulativeObligationonGrant&newObligationonPeriodicRenewalamendmentrequestFAYES @sprint-8-US-308117 @hitesh @Allocation
+  @tempApp @314015 @VerifyMserannotseevalidationonSubmitforApprovalbuttonwhenRevisedCommitmentisequaltoadditionofCumulativeObligationonGrant&newObligationonPeriodicRenewalamendmentrequestFAYES @sprint-8-US-308117 @hitesh @Allocation
   Scenario: Verify PM user cannot see validation on Submit for Approval button when Revised Commitment is equal to addition of Cumulative Obligation on Grant & new Obligation on Periodic Renewal amendment request (FA=YES)
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "TWO_BUD_CAT_FIFTEEN_HUNDRED_AMT"
@@ -15054,7 +15055,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitment3"
     Then I softly see value "{SavedValue:TotalCommitment1}" is "Equals to" the value "{SavedValue:TotalCommitment3}"
 
-  @274169 @VerifyPOSPAusercanseeSpentfieldunderPaymentSummarysectiononversion2AwardisinPendingActivationstatepostBPCAR&valuecopiedfromSpentfieldonversion1AwardonARiscreatedifFANo @sprint-23-US-273843 @hitesh @Allocation
+  @tempApp @274169 @VerifyPOSPAusercanseeSpentfieldunderPaymentSummarysectiononversion2AwardisinPendingActivationstatepostBPCAR&valuecopiedfromSpentfieldonversion1AwardonARiscreatedifFANo @sprint-23-US-273843 @hitesh @Allocation
   Scenario: Verify PO/SPA user can see Spent field under Payment Summary section on version 2 Award is in Pending Activation state post BPC AR & value copied from Spent field on version 1 Award on AR is created if (FA=No)
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -15174,7 +15175,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Spent" as "Spent2"
     Then I softly see value "{SavedValue:Spent2}" is "Equals to" the value "{SavedValue:awardSpent}"
 
-  @274138 @VerifySPAusercanseeTotalcommitmentcumulativeobligationfiledasreadonlyfieldsinBudgetSummarysectionwhenawardisinActivatedstateafterBudgetredirectionamendmentFAisYES&AllocationByApplicantFA @sprint-23-US-273843 @hitesh @Allocation
+  @tempApp @274138 @VerifySPAusercanseeTotalcommitmentcumulativeobligationfiledasreadonlyfieldsinBudgetSummarysectionwhenawardisinActivatedstateafterBudgetredirectionamendmentFAisYES&AllocationByApplicantFA @sprint-23-US-273843 @hitesh @Allocation
   Scenario: Verify SPA user can see Total commitment, cumulative obligation filed as read-only fields in Budget Summary section when award is in Activated state after Budget redirection amendment (FA is YES & Allocation=By Applicant & FA)
     Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY-Automation PM user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -15226,7 +15227,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Cumulative Obligation" rendered in view mode only
     Then I softly see that "Total Commitment" rendered in view mode only
 
-  @274139 @VerifyPOusercaninitiateandapprovedcombinationofamendmentrequestsBudgetredirectionSOWKeypersonalchange @sprint-23-US-273843 @hitesh
+  @tempApp @274139 @VerifyPOusercaninitiateandapprovedcombinationofamendmentrequestsBudgetredirectionSOWKeypersonalchange @sprint-23-US-273843 @hitesh
   Scenario: Verify PO user can initiate and approved combination of amendment requests (Budget redirection +SOW+ Key personal change)
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Formula_By_Applicant_Focus_Area"
     And I am on "SUBPORTAL" portal
@@ -15260,7 +15261,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
 
-  @274130 @VerifyPOusercanaddorremovefocusareaandapprovedperiodicrenewalamendmentwithincreasebudget @sprint-23-US-273843 @hitesh @Allocation
+  @tempApp @274130 @VerifyPOusercanaddorremovefocusareaandapprovedperiodicrenewalamendmentwithincreasebudget @sprint-23-US-273843 @hitesh @Allocation
   Scenario:Verify PO user can add or remove focus area and approved periodic renewal amendment with increase budget
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Directed"
     When I login to "As a Grantor" app as "PO" user
@@ -15279,9 +15280,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I click on top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---amendment:-:projectAreasTableId---"
@@ -15315,7 +15316,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I "Approve" in the approval decision
     Then I see status in Progress-bar is "Approved" and is "dark blue"
 
-  @268813 @268697 @268752 @268710 @268598 @268605 @ValidateGrantorSOWamountoftotalcommitmentcumulativeobligationfiledvalueinbudgetsummarysectionshouldcomingfromlatestversion2activeawardongrant @Sprint-21-US-266911 @vaibhav @Allocation
+  @tempApp @268813 @268697 @268752 @268710 @268598 @268605 @ValidateGrantorSOWamountoftotalcommitmentcumulativeobligationfiledvalueinbudgetsummarysectionshouldcomingfromlatestversion2activeawardongrant @Sprint-21-US-266911 @vaibhav @Allocation
   Scenario: Validate Grantor SOW amount of total commitment, cumulative obligation filed value in budget summary section should coming from latest version2 active award on grant
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY-Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -15541,7 +15542,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Spent" as "$500.00"
     Then I softly see value "{SavedValue:SpentPaySummAwd1}" is "Equals to" the value "{SavedValue:SpentPaySummAwd2SR}"
 
-  @269642 @ValidateTCGrantorsideAdminINDusercanseeCumulativeObligationfieldunderBudgetSummarysectionofBudgettabonGrantlayoutinActivestatepostTCARvaluecopiedfromCumobligationfieldonversion1AwardonARrequestiscreatedFANO @Sprint-21-US-266911 @vaibhav @Allocation
+  @tempApp @269642 @ValidateTCGrantorsideAdminINDusercanseeCumulativeObligationfieldunderBudgetSummarysectionofBudgettabonGrantlayoutinActivestatepostTCARvaluecopiedfromCumobligationfieldonversion1AwardonARrequestiscreatedFANO @Sprint-21-US-266911 @vaibhav @Allocation
   Scenario: Validate T&C Grantor side Admin IND user can see Cumulative Obligation field under Budget Summary section of Budget tab on Grant layout in Active state post T&C AR & value copied from Cum obligation field on version 1 Award on AR request is created FA NO
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_SUB_ORG_IND-Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "ADMIN" user
@@ -15599,7 +15600,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationGrant"
     Then I softly see value "{SavedValue:CumulativeObligationAwd1}" is "Equals to" the value "{SavedValue:CumulativeObligationGrant}"
 
-  @274171 @ValidateFormulaBudgetperiodchangeFANOusercanapprovetheamendmentwithenteringBudgetperioddatesmorethanBPEndDateandLessthanPPEndDateinbudgetperiodsection @Sprint-23-US-273843 @vaibhav @Allocation
+  @tempApp @274171 @ValidateFormulaBudgetperiodchangeFANOusercanapprovetheamendmentwithenteringBudgetperioddatesmorethanBPEndDateandLessthanPPEndDateinbudgetperiodsection @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Formula Budget period change FA NO user can approve the amendment with entering Budget period dates more than BP End Date and Less than PP End Date in budget period section
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO_BUILDUP_YES_PROJECT_END_DATE-Automation PO user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "PO" user
@@ -15619,7 +15620,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "3800" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "3800" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate1"
     Then I softly see value "{SavedValue:updatedBudgetPeriodDate}" is "less than" the value "{SavedValue:updatedBudgetPeriodDate1}"
@@ -15649,7 +15650,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @308112 @ValidateEXEusercanseeCumulativeObligationandTotalCommitmentfieldsasreadonlyfieldsinBudgetsummarysectiononthecloseGrantFAisNo @Sprint-7-US-305149 @vaibhav @Allocation
+  @tempApp @308112 @ValidateEXEusercanseeCumulativeObligationandTotalCommitmentfieldsasreadonlyfieldsinBudgetsummarysectiononthecloseGrantFAisNo @Sprint-7-US-305149 @vaibhav @Allocation
   Scenario: Validate EXE user can see Cumulative Obligation and Total Commitment fields as read only fields in Budget summary section on the close Grant (FA is No)
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "EXE" user
@@ -15667,9 +15668,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I enter values into fields
-      | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
     And I refresh the page
@@ -15720,8 +15721,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "fieldPurposeRTA__c"
-    And I enter value "1000" into field "fieldRequestedChangeInBudget__c"
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
+    And I enter value "1000" into field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
     And I refresh the page
@@ -15816,7 +15817,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I hovering mouse on help text icon inside page block detail "Total Commitment"
     Then I softly see "Total amount committed through this and prior awards in this Budget period" shown as help text
 
-  @276405 @ValidateCompetitiveFAYes$amountisnotupdatedonGrantandSubawardafterFundingchangeamendmentisrejected @Sprint-24-US-275864 @vaibhav @Allocation
+  @tempApp @276405 @ValidateCompetitiveFAYes$amountisnotupdatedonGrantandSubawardafterFundingchangeamendmentisrejected @Sprint-24-US-275864 @vaibhav @Allocation
   Scenario: Validate Competitive FA Yes $ amount is not updated on Grant and Subaward after Funding change amendment is rejected
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY-Automation IND user"
@@ -16156,7 +16157,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:subawardsTableId---"
     Then I softly do not see value "{SavedValue:ActivatedSubAwardId}" for title "EGMS ID" inside table "---subAwardStandAlone:-:subawardsTableId---"
 
-  @276404 @ValidateCompetitiveFAYesSpentvalueisnotpopulatedoninflightPeriodicrenewalamendmentrequestafterpaymentrequestisapproved @Sprint-24-US-275864 @vaibhav @Allocation
+  @tempApp @276404 @ValidateCompetitiveFAYesSpentvalueisnotpopulatedoninflightPeriodicrenewalamendmentrequestafterpaymentrequestisapproved @Sprint-24-US-275864 @vaibhav @Allocation
   Scenario: Validate Competitive FA Yes Spent value is not populated on inflight Periodic renewal amendment request after payment request is approved
     And I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY-Automation IND user"
@@ -16351,7 +16352,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:TotalObligation}" is "Equals to" the value "{SavedValue:TotalObligation1}"
     Then I softly see value "{SavedValue:AvailableBalance}" is "Equals to" the value "{SavedValue:AvailableBalance1}"
 
-  @274253 @ValidateFormulaFANOPMusercanseeCumulativeObligationamountisreadonlyfilediscomingfromthecumulativeObligationfieldinthelatestawardinclosedstateacrossallBPsongrant @Sprint-23-US-273843 @vaibhav @Allocation
+  @tempApp @274253 @ValidateFormulaFANOPMusercanseeCumulativeObligationamountisreadonlyfilediscomingfromthecumulativeObligationfieldinthelatestawardinclosedstateacrossallBPsongrant @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Formula FA NO PM user can see Cumulative Obligation amount is read only filed is coming from the cumulative Obligation field in the latest award in closed state across all BPs on grant
     And I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -16911,7 +16912,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Spent     |
       | $1,000.00 |
 
-  @hiteshTemp @272133 @ValidatePMuserseeupdatedspentamountonCarryForwardamendmentrequestafterpaymentrequest @Sprint-22-US-270869 @vaibhav @Allocation @buglogged-355370
+  @tempApp @272133 @ValidatePMuserseeupdatedspentamountonCarryForwardamendmentrequestafterpaymentrequest @Sprint-22-US-270869 @vaibhav @Allocation @buglogged-355370
   Scenario: Validate PM user see updated spent amount on Carry Forward amendment request after payment request
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -16955,6 +16956,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1000                 | 100        | 0              |
+    And I select value inside table "---amendment:-:budgetChangeTableId---" is "10"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
