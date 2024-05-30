@@ -2180,12 +2180,10 @@ Feature: Validate all scenarios in Closeout
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
+    And I enter value "Automation Test justification" into field "Justification__c"
+    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
-    When I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
-    When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     Then I softly see field "Spent" as "$0.00"
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
@@ -2218,7 +2216,7 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:PM Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2233,7 +2231,8 @@ Feature: Validate all scenarios in Closeout
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:PayreqId}" modal by clicking the top right x button
+    When I click modal button "Close"
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2250,8 +2249,8 @@ Feature: Validate all scenarios in Closeout
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I click on top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
@@ -2289,7 +2288,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 3000  | fieldRevisedCommitment__c |
+      | 3000  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Revised Encumbrance |
@@ -2361,8 +2360,8 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Overview" sub tab
     When I enter values into fields
       | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 4000  | fieldRevisedCommitment__c       |
+      | 2000  | RequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
@@ -2394,7 +2393,7 @@ Feature: Validate all scenarios in Closeout
     And I "Approve" in the approval decision
     And I pause execution for "3" seconds
     And I click on "Amend Subaward" in the page details
-    And I pause execution for "10" seconds
+    And I pause execution for "7" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
@@ -2409,12 +2408,10 @@ Feature: Validate all scenarios in Closeout
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
+    And I enter value "Automation Test justification" into field "Justification__c"
+    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
-    When I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
-    When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     Then I softly see field "Spent" as "$0.00"
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
@@ -2432,7 +2429,7 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:PM Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2462,9 +2459,9 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Overview" sub tab
     When I enter values into fields
       | Value | Field                           |
-      | 2000  | fieldRequestedChangeInBudget__c |
-      | 6000  | fieldRevisedCommitment__c       |
-      | 5000  | fieldProposedBudgetEndDate__c   |
+      | 2000  | RequestedChangeInBudget__c |
+      | 6000  | RevisedCommitment__c       |
+      | 5000  | ProposedBudgetEndDate__c   |
     And I wait for "3" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"

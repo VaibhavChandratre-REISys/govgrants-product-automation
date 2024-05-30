@@ -10471,6 +10471,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I close "Add Line Items" modal by clicking the top right x button
     And I refresh the page
     And I wait for "3" seconds
+    And I collapse nested table containing column value "BP01"
     #265693
     When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
@@ -10503,6 +10504,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 2700                |
     And I click on "Send Back to Subrecipient" in the page details
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -10510,11 +10512,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     Then I softly see field "Status" as "Under Revision"
     #264808
+    And I expand nested table containing column value "BP01"
     Then I softly see "Actions" in flex table header "---amendment:-:RecipientCarryForwardBudgetTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---"
     And I click on page navigation arrow "---amendment:-:RecipientCarryForwardBudgetTableId---" for table id "Next"
     Then I softly see "Actions" in flex table header "---amendment:-:RecipientCarryForwardBudgetTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---"
+    And I collapse nested table containing column value "BP01"
     When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
