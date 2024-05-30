@@ -261,6 +261,11 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
+    And I pause execution for "3" seconds
+    And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -286,10 +291,6 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I close the tab
     And I refresh the page
 #    Given I click on "Back" in the page details
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     Given I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
