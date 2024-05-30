@@ -376,7 +376,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Save" in the page details
     #257701
     Then I softly see the following messages in the page details contains:
-      | New Obligation : Number is too large. |
+      | New Obligation: value outside of valid range on numeric field: 20000000000000000.30 |
     #257708
     When I enter values into fields
       | Value | Field                      |
