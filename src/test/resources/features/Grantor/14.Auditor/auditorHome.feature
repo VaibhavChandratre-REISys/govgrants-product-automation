@@ -180,6 +180,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     And I click modal button "Save"
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
+    #Bug434186
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "SubrecipientContacts"
     When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "SubrecipientContacts" panel
@@ -211,6 +212,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
+    #Bug434186
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "SubrecipientContacts" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "SubrecipientContacts"
