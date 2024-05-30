@@ -5727,7 +5727,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "PayreqId"
     And I navigate to "Financials" sub tab
     When I click on button "resetIcon" in flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---"
-    And I select value inside table "---program:-:previewPackageTableId---" is "20"
+    And I select value inside table "---paymentRequest:-:paymentRequestBudgetTableId---" is "All"
     And I edit the following rows inline in flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" by clicking "Edit" :
       | Budget Category | Spent This Action |
       | Construction    | 300               |
