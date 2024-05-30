@@ -1,4 +1,4 @@
-@organizationalSiteVisitUndo @grantor-regression @grantor-parallel-regression @siteVisit @regression @organizationalSiteVisitUndo
+@organizationalSiteVisitUndo @grantor-regression @grantor-parallel-regression @siteVisit @regression @organizationalSiteVisitUndo @siteVisit_Lwc_Run
 Feature: Validate all scenarios in Organizational Site Visit With Undo
 
   @289790 @289791 @289792 @289793 @289797 @289798 @289808 @289809 @291842 @VerifywhenPmapprovercanclickonundobuttoninOrganizationalSiteVisitrecordwhenrecordisinApprovedstate @sprint-2-US-288691 @hitesh @Undo @FieldHistoryExclude
