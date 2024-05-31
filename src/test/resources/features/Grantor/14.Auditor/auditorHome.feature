@@ -150,7 +150,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Then I softly see "No Records Found" inside flex table with id "---home:-:completedAssignedToMe---"
     Then I softly see "No Records Found" inside flex table with id "---home:-:completedAssignedByMe---"
 
-  @69142 @auditorCannotCreateEditSubrecipientContact @smoke
+  @ch2 @69142 @auditorCannotCreateEditSubrecipientContact @smoke
   Scenario: Validate Auditor cannot Create/Edit any subrecipient contact user
     Given I delete the record "Automation Runtime Contact Contact" from the object "CONTACT"
     Given I delete the record "Automation Runtime Contact385484316 Contact" from the object "CONTACT"

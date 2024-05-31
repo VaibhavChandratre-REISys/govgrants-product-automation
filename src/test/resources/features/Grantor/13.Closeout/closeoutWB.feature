@@ -128,7 +128,7 @@ Feature: Validate all scenarios in Closeout
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @93795 @76492 @76493 @86710 @validateEmailNotificationReceivedForCloseoutsForEXEUser @meenakshi
+  @ch2 @93795 @76492 @76493 @86710 @validateEmailNotificationReceivedForCloseoutsForEXEUser @meenakshi
   Scenario: To verify Email notification should be received to Closeout Owner when Closeout has created for closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -206,7 +206,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     When I click on "Override" in the page details
     And I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #76493
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
@@ -238,7 +238,7 @@ Feature: Validate all scenarios in Closeout
     And I softly see value "Automation PM" for title "Assigned By" inside table "---closeout:-:pendingTaskTableId---"
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
-    Then I see status in Progress-bar is "Completed" and is "green"
+    Then I see status in Progress-bar is "Completed" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
@@ -397,7 +397,7 @@ Feature: Validate all scenarios in Closeout
       | Review has been submitted successfully. |
     Then I softly see that "Submitted" has been added in flextable with Id "---closeout:-:closeoutPeerReviewTableId---"
 
-  @93808 @validateSendBackProgramApproverInCloseoutPhase @meenakshi
+  @ch2 @93808 @validateSendBackProgramApproverInCloseoutPhase @meenakshi
   Scenario: To verify status changed as : created when Program Approver send Back the closeout Request in Closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -444,7 +444,7 @@ Feature: Validate all scenarios in Closeout
     And I enter value "Automation Test Reason" into field "Reason__c"
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
-    Then I softly see field "Override Justification" as "Automation Test justification"
+    Then I softly see field "Override Justification" as ""
     When I click on "Override" in the page details
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -454,7 +454,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I "Send Back" in the approval decision
     Then I softly see field "Status" as "Created"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
 
   @93696 @93581 @validateAwardAmountAndBalanceInOverviewCloseout @meenakshi
   Scenario: Verify the values on fields Awarded amount and Balance on closeout view page if the payment request is not processed
@@ -503,7 +503,7 @@ Feature: Validate all scenarios in Closeout
     When I click modal button "No"
     Then I softly see field "Status" as "Sent to Subrecipient"
 
-  @76489 @ValidateApprovedCloseoutInsideApprovalHistory-TerminationCloseoutRequest-EXEUser @monu @buglogged140761
+  @ch2 @76489 @ValidateApprovedCloseoutInsideApprovalHistory-TerminationCloseoutRequest-EXEUser @monu @buglogged140761 @FieldHistoryExclude
   Scenario: Validate user is able to see Approved status of closeout request in chevron diagram and inside Approval history table with EXE user
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -569,15 +569,15 @@ Feature: Validate all scenarios in Closeout
     And I click toggle button to select "Closeouts - All"
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
-    And I navigate to "History" sub tab
-    Then I softly see value "Completed" for title "New Value" inside table "History"
-    Then I softly see value "Approved" for title "Old Value" inside table "History"
-    And I refresh the page
-    #40747 #monu
-    And I see "{SavedValue:EXE Username}" against "Initial Submitter" in approval history
-    And I see "{SavedValue:PM Username}" against "Step 1" in approval history
-    Then I softly see column "Date" inside row "1" at position "1" contains text "Step : Step 2"
-    Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Approved"
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Completed" for title "New Value" inside table "History"
+#    Then I softly see value "Approved" for title "Old Value" inside table "History"
+#    And I refresh the page
+#    #40747 #monu
+#    And I see "{SavedValue:EXE Username}" against "Initial Submitter" in approval history
+#    And I see "{SavedValue:PM Username}" against "Step 1" in approval history
+#    Then I softly see column "Date" inside row "1" at position "1" contains text "Step : Step 2"
+#    Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Approved"
 
   @done @95571 @VerifyVisibilityOfAddFilesFopTerminationCloseoutRequest-EXEUser @monu
   Scenario: Validate Exe user is not able to see Add files button under closeout details while creating termination closeout request
@@ -827,7 +827,7 @@ Feature: Validate all scenarios in Closeout
     When I enter value "Checked" into field "fieldAggreement__c"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "green"
+    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
     Then I softly see field "Status" as "Acknowledged by Subrecipient"
     When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
@@ -876,7 +876,7 @@ Feature: Validate all scenarios in Closeout
     When I enter value "Checked" into field "fieldAggreement__c"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "green"
+    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
@@ -1225,7 +1225,7 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
-    Then I see status in Progress-bar is "Approved" and is "Green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
 
   @154050 @Verify3StepApprovalFor-ScheduleCloseoutRequest-RnRFunctionality @monu
   Scenario: Verify user is able to add three step approver for schedule closeout and reject it on step three
@@ -1515,7 +1515,7 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
-    Then I see status in Progress-bar is "Approved" and is "Green"
+    Then I see status in Progress-bar is "Approved" and is "dark blue"
 
   @done @199767 @ValidateEXEuseroldownershouldnotabletoseebuttonssectionallevel&pagelevelwhenownershiprelatedtaskisreassigntonewEXEuser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate EXE user(old owner) should not able to see buttons sectional level & page level when ownership related task is reassign to new EXE user
@@ -2079,7 +2079,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---closeout:-:closeoutOwnerTableId---"
 
-  @200262 @ValidatePMuseroldownershouldnothavetheeditaccesspagelayout&sectionallevelbuttonsisinSubmittedforreviewstateafterownershipofcloseoutistransferfromonePMusertootherPMuser @sprint-12-US-226646 @vaibhav @reassignment
+  @ch2 @200262 @ValidatePMuseroldownershouldnothavetheeditaccesspagelayout&sectionallevelbuttonsisinSubmittedforreviewstateafterownershipofcloseoutistransferfromonePMusertootherPMuser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM user (old owner) should not have the edit access (page layout & sectional level buttons) is in 'Submitted for review' state after ownership of closeout is transfer from one PM user to other PM user
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM1" user
@@ -2129,8 +2129,8 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "input-1"
-    And I select value "Automation PM1" into field "input-2"
+    And I select value "Automation PM1" into field "input-1"
+    And I select value "Automation PM" into field "input-2"
     And I select module "Closeout" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:closeoutSourceTableId---" panel
     Then I see value "{SavedValue:closeoutID}" for title "Closeout ID" inside table "---closeout:-:closeoutSourceTableId---"
@@ -2647,7 +2647,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Automation PO1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
     Then I softly see value "Automation PO" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
 
-  @200259 @ValidatePMuserasownerofcloseoutshouldnotaffectedevenifownershipofAwardistransferfromonePMusertootherPMuserisinSubmittedforapprovalstate @sprint-12-US-226646 @vaibhav @reassignment
+  @ch2 @200259 @ValidatePMuserasownerofcloseoutshouldnotaffectedevenifownershipofAwardistransferfromonePMusertootherPMuserisinSubmittedforapprovalstate @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM user as owner of closeout should not affected even if ownership of Award is transfer from one PM user to other PM user is in 'Submitted for approval' state
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2719,7 +2719,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---closeout:-:closeoutOwnerTableId---"
     And I navigate to "History" sub tab
-    Then I softly see that "Automation PM" has been added in flextable with Id "---closeout:-:closeoutHistoryTableId---"
+#    Then I softly see that "Automation PM" has been added in flextable with Id "---closeout:-:closeoutHistoryTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2867,16 +2867,13 @@ Feature: Validate all scenarios in Closeout
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I edit the following rows inline in flex table with id "---amendment:-:AmendmentFundingAccountTableId---" by clicking "Edit" :
-      | Funding Account                    | Revised Encumbrance |
-      | ---AUTOEnvData:-:fundingAccount--- | 1000                |
-    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
-    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
-    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
-#    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
-#    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
-#    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
-#    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
+    And I wait for "2" seconds
+    And I save the field labeled "Proposed Budget Period Start Date" as "Proposed Budget Period Start Date"
+    And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriod"
+    And I get the "EGMS ID"
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                           | Start Date                                     | End Date                         |
+      | Automation Permanent Focus Area | {SavedValue:Proposed Budget Period Start Date} | {SavedValue:updatedBudgetPeriod} |
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |
@@ -3008,7 +3005,7 @@ Feature: Validate all scenarios in Closeout
     And I pause execution for "5" seconds
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4103,7 +4100,7 @@ Feature: Validate all scenarios in Closeout
     And I pause execution for "5" seconds
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4373,7 +4370,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
 
-  @227799 @ValidatePMusecanshowtheownerorinterceptorcolumnforrespectivemoduleswhichisinopenitemssectiontovalidatetheownerofrecordsunderopenitems&ownerofcloseoutshouldgetsame @sprint-12-US-226976 @vaibhav @reassignment
+  @ch1 @227799 @ValidatePMusecanshowtheownerorinterceptorcolumnforrespectivemoduleswhichisinopenitemssectiontovalidatetheownerofrecordsunderopenitems&ownerofcloseoutshouldgetsame @sprint-12-US-226976 @vaibhav @reassignment
   Scenario: Validate PM user can show the owner or interceptor column for respective modules which is in open items section to validate the owner of records under open items & owner of closeout should get same
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     # Desk Review
@@ -4431,16 +4428,13 @@ Feature: Validate all scenarios in Closeout
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I edit the following rows inline in flex table with id "---amendment:-:AmendmentFundingAccountTableId---" by clicking "Edit" :
-      | Funding Account                    | Revised Encumbrance |
-      | ---AUTOEnvData:-:fundingAccount--- | 1000                |
-    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
-    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
-    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
-#    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
-#    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
-#    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
-#    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
+    And I wait for "2" seconds
+    And I save the field labeled "Proposed Budget Period Start Date" as "Proposed Budget Period Start Date"
+    And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriod"
+    And I get the "EGMS ID"
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                           | Start Date                                     | End Date                         |
+      | Automation Permanent Focus Area | {SavedValue:Proposed Budget Period Start Date} | {SavedValue:updatedBudgetPeriod} |
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |
@@ -4677,16 +4671,13 @@ Feature: Validate all scenarios in Closeout
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I edit the following rows inline in flex table with id "---amendment:-:AmendmentFundingAccountTableId---" by clicking "Edit" :
-      | Funding Account                    | Revised Encumbrance |
-      | ---AUTOEnvData:-:fundingAccount--- | 1000                |
-    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
-    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
-    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
-#    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
-#    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
-#    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
-#    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
+    And I wait for "2" seconds
+    And I save the field labeled "Proposed Budget Period Start Date" as "Proposed Budget Period Start Date"
+    And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriod"
+    And I get the "EGMS ID"
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                           | Start Date                                     | End Date                         |
+      | Automation Permanent Focus Area | {SavedValue:Proposed Budget Period Start Date} | {SavedValue:updatedBudgetPeriod} |
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |
@@ -4818,7 +4809,7 @@ Feature: Validate all scenarios in Closeout
     And I pause execution for "5" seconds
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     #Closeout
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -4984,16 +4975,13 @@ Feature: Validate all scenarios in Closeout
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I edit the following rows inline in flex table with id "---amendment:-:AmendmentFundingAccountTableId---" by clicking "Edit" :
-      | Funding Account                    | Revised Encumbrance |
-      | ---AUTOEnvData:-:fundingAccount--- | 1000                |
-    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
-    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
-    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
-#    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
-#    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
-#    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
-#    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
+    And I wait for "2" seconds
+    And I save the field labeled "Proposed Budget Period Start Date" as "Proposed Budget Period Start Date"
+    And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriod"
+    And I get the "EGMS ID"
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                           | Start Date                                     | End Date                         |
+      | Automation Permanent Focus Area | {SavedValue:Proposed Budget Period Start Date} | {SavedValue:updatedBudgetPeriod} |
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |

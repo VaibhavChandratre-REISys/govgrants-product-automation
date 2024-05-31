@@ -61,7 +61,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
 
   @69939 @auditorCannotEditorApproveFDM
   Scenario Outline: Validate Auditor should not be  able to Edit/Approve FDM
-    And I published "Competitive" type announcement having name "<Announcement Name>" and properties "NO_RISK_ASSESSMENT-Automation PO user"
+    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NO_RISK_ASSESSMENT-Automation PO user"
     And I initiated an application review for application "<Application Name>" on announcement "<Announcement Name>" with properties "default"
     Given I login to "As a Grantor" app as "PO" user
     When I navigate to "Applications" tab
