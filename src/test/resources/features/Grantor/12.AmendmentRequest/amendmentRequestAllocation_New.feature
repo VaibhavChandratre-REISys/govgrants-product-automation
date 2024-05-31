@@ -1992,7 +1992,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---"
     Then I softly see value "$400.00" for title "Carry Forward" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
 
-  @264969 @264842 @264977 @264979 @264998 @264957 @264958 @264959 @264875 @264834 @ValidateSPAusercanseeCarryForwardAmountclmunderBudgetPeriodsectioniseditableinCreatedstateofAmendmentRequestFAisYES @sprint-20-US-249461 @vaibhav @Allocation
+  @hitRun @264969 @264842 @264977 @264979 @264998 @264957 @264958 @264959 @264875 @264834 @ValidateSPAusercanseeCarryForwardAmountclmunderBudgetPeriodsectioniseditableinCreatedstateofAmendmentRequestFAisYES @sprint-20-US-249461 @vaibhav @Allocation
   Scenario: Validate SPA user can see 'Carry Forward Amount clm under Budget Period section is editable in Created state of Amendment Request (FA is YES
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_DETAILS_BUDGET_YES_RISK_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
@@ -2188,6 +2188,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Title        | Award Amount | Cash Match | Non Cash Match |
       | Construction | 1200         | 120        | 0              |
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
@@ -2196,8 +2199,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction | 1500         | 150        | 0              |
     And I click modal button "Close"
     And I refresh the page
-    And I click on parallel menu button in flex table title "Budget Change"
-    And I select "Reset Table" from parallel lines dropdown of "Budget Change"
+    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     Then I softly see value "$1,200.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
@@ -2227,8 +2229,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     #264998
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    And I click on parallel menu button in flex table title "Budget Change"
-    And I select "Reset Table" from parallel lines dropdown of "Budget Change"
+    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
     And I click modal button "Close"
@@ -2237,8 +2238,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
     And I click modal button "Close"
     And I refresh the page
-    And I click on parallel menu button in flex table title "Budget Change"
-    And I select "Reset Table" from parallel lines dropdown of "Budget Change"
+    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     Then I softly see value "$1,200.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
@@ -2261,8 +2261,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Overview" sub tab
     #264979
     Then I softly see field "Status" as "Under Revision"
-    And I click on parallel menu button in flex table title "Budget Change"
-    And I select "Reset Table" from parallel lines dropdown of "Budget Change"
+    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
@@ -2277,8 +2276,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction | 1600         | 160        | 0              |
     And I click modal button "Close"
     And I refresh the page
-    And I click on parallel menu button in flex table title "Budget Change"
-    And I select "Reset Table" from parallel lines dropdown of "Budget Change"
+    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     Then I softly see value "$1,300.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     Then I softly see value "$1,600.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
@@ -5578,123 +5576,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Revised Award Amount |
       | $1,000.00            |
 
-  @264192 @264202 @264200 @264198 @VerifyEXEusershouldabletoSeeCumulativeObligationcolumninBudgetsummarybyfocusareasectiononamendedoldAwardFAyes @sprint-20-US-263426 @hitesh @Allocation
+  @hitRun @264192 @264202 @264200 @264198 @VerifyEXEusershouldabletoSeeCumulativeObligationcolumninBudgetsummarybyfocusareasectiononamendedoldAwardFAyes @sprint-20-US-263426 @hitesh @Allocation
   Scenario: Verify EXE user should able to See Cumulative Obligation column in Budget summary by focus area section on amended(old Award) (FA yes)
-    When I login to "As a Grantor" app as "EXE" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Directed" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Directed Announcements"
-    And I click on top right button "New" in flex table with id "---announcement:-:annoucementTableId---"
-    And I enter "DirectedAnnouncement1" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
-    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    When I click on "Edit" in the page details
-    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    When I navigate to "Overview" sub tab
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
-    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 5000            |
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name           | Announcement |
-      | Automation EXE | Step 1       |
-    And I click on "Edit" in the page details
-    When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "Justification__c"
-    And I enter "budget_Details_Subaward_Yes" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Budget Period Name | Start Date | End Date |
-      | BP01               | 50         | 150      |
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
-    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
-    When I close "Add Organizations" modal by clicking the top right x button
-    And I wait for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    And I wait for "4" seconds
-    And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    And I click on "Publish" in the page details
-    Then I softly see status in Progress-bar is "Published" and is "dark blue"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Opportunities" tab
-    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
-    And I navigate to "Financials" sub tab
-    When I click on "Qualify" in the page details
-    When I click on "Create Application" in the page details
-    And I click modal button "Save and Continue"
-    When I navigate to "Budget" sub tab
-    When I enter "Edition" values from "Application_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I navigate to "Budget" sub tab
-    When I expand nested table containing column value "BP01"
-    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---applicationReview:-:budgetTableId---"
-    When I enter the following values into flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
-      | Construction | The narrative | 500          | 50         | 50             |
-    And I click modal button "Close"
-#    When I expand nested table containing column value "BP01"
-    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---applicationReview:-:budgetTableId---"
-    When I enter the following values into flex table with id "---applicationReview:-:addLineItemsModalTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
-      | Construction | The narrative | 500          | 50         | 50             |
-    And I click modal button "Close"
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Checked        |
-    When I navigate to "Proposal" sub tab
-    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                  | Target |
-      | Automation Permanent KPI | 10     |
-    When I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    And I switch to tab number "1"
-    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I close the tab
-    And I refresh the page
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    And I switch to tab number "1"
-    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I close the tab
-    And I get the "EGMS ID"
-    When I click on "Submit Application" in the page details
-    Then I see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_DETAILS_BUDGET_YES_RISK_NO-Automation EXE user"
+    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
     And I created approved FDM on application "{SavedValue:Automation Runtime Announcement}"
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Announcement}" and properties "Automation EXE user"
     And I activate award from FDM having application name "{SavedValue:Automation Runtime Announcement}"
@@ -14211,8 +14096,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 
   @tempApp @256889 @VerifyValidationmessageshouldbedisplaywhenbudgetedamountisnotequaltocurrentobligationFAYes @sprint-19-US-255590 @hitesh @Allocation
   Scenario:Verify Validation message should be display when budgeted amount is not equal to  current obligation(FA Yes)
-    Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
-    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
+    Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "BY_APPLICANT_DETAILS_BUDGET_YES_RISK_NO-Automation PM user"
+    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "BUDGET_CAT_DETAILS_BUD_YES"
     And I created approved FDM on application "{SavedValue:Automation Runtime Announcement}"
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Announcement}" and properties "Automation PM user"
     And I activate award from FDM having application name "{SavedValue:Automation Runtime Announcement}"
@@ -14446,7 +14331,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @tempApp @274134 @VerifySPIusercaninitiateandapprovedbudgetredirectionamendmentondirectedtypegrant @sprint-23-US-263305 @hitesh @Allocation
+  @274134 @VerifySPIusercaninitiateandapprovedbudgetredirectionamendmentondirectedtypegrant @sprint-23-US-263305 @hitesh @Allocation
   Scenario: Verify SPI user can initiate and approved budget redirection amendment on directed type grant
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Directed"
     Given I am on "SUBPORTAL" portal
