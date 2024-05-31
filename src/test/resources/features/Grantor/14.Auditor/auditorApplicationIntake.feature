@@ -207,7 +207,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Application Name                                             | User    |
       | {SavedValue:Automation Runtime Announcement for Application} | Auditor |
 
-  @ch2 @69941 @69940 @audiorPreApplicationToApplication
+  @done @69941 @69940 @audiorPreApplicationToApplication
   Scenario Outline: Validate Auditor should have view / read  only access to submitted pre-application| Validate Auditor should not be  able to Review/Accept/Reject Preapplication
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -250,8 +250,6 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I perform quick search for "Record id" in "---preApplication:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record id" inside table
     When I click on "Accept" in the page details
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - Submitted"
@@ -263,7 +261,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I pause execution for "3" seconds
-    And I edit the following rows inline in flex table with id "PreAppContact" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab

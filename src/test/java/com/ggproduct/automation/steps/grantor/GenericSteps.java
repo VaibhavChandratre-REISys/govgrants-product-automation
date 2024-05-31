@@ -42,26 +42,18 @@ public class GenericSteps {
     @Description("To verify field value is blank in flex table with Id")
     @Then("^I (softly see|see) field name \"([^\"]*)\" is blank in flex table with Id \"([^\"]*)\"$")
     public void iSeeFieldNameIsBlank(String usage, String fieldname, String tableId) {
-        grantorProjectManager.assertColumnValuIsBlank(tableId, fieldname,
-                usage.contains("softly")
-        );
+        grantorProjectManager.assertColumnValuIsBlank(tableId, fieldname, usage.contains("softly"));
     }
 
     @Description("To verify total records available under flex table")
     @Then("^I (softly see|see) total records count \"([^\"]*)\" in flex table \"([^\"]*)\"$")
     public void iSeeTotalRecordsCountInFlexTable(String usage, String totalRecords, String tableId) {
-        grantorProjectManager.AssertTotalRecordsCountInFlexTable(totalRecords,
-                tableId,
-                usage.contains("softly")
-        );
+        grantorProjectManager.AssertTotalRecordsCountInFlexTable(totalRecords, tableId, usage.contains("softly"));
     }
 
     @Then("^I (softly can see|can see|cannot see|softly cannot see) page block \"([^\"]*)\"$")
     public void iCanSeeCannotSeePageBlock(String usage, String pageblockName) {
-        grantorProjectManager.AssertPageBlockDisplayed(pageblockName,
-                "can see".equalsIgnoreCase(usage) || "softly can see".equalsIgnoreCase(usage),
-                usage.contains("softly")
-        );
+        grantorProjectManager.AssertPageBlockDisplayed(pageblockName, "can see".equalsIgnoreCase(usage) || "softly can see".equalsIgnoreCase(usage), usage.contains("softly"));
     }
 
     @Description("To get the field value from page block")
@@ -73,10 +65,7 @@ public class GenericSteps {
     @Description("To compare two different field values")
     @Then("^I (compare|softly compare) field \"([^\"]*)\" from sub tab \"([^\"]*)\" with expected field$")
     public void iCompareFieldFromSubTabWithExpectedField(String usage, String fieldName, String subTabName) {
-        grantorProjectManager.assertTwoFieldValues(fieldName,
-                subTabName,
-                usage.contains("softly")
-        );
+        grantorProjectManager.assertTwoFieldValues(fieldName, subTabName, usage.contains("softly"));
     }
 
     @Description("To verify text under attachment flex table")
@@ -106,18 +95,13 @@ public class GenericSteps {
 
     @Then("^I (verify|softly verify) that \"([^\"]*)\" file is downloaded$")
     public void iVerifyThatPdfFileIsDownloaded(String usage, String fileType) {
-        grantorProjectManager.assertThatFileIsDownloaded(fileType,
-                usage.contains("softly")
-        );
+        grantorProjectManager.assertThatFileIsDownloaded(fileType, usage.contains("softly"));
     }
 
     @Description("To verify no of rows checked for field name")
     @Then("^I can (softly see|see) \"([^\"]*)\" record value is checked for field name \"([^\"]*)\"$")
     public void iCanSeeRecordValueIsCheckedForFieldName(String usage, String count, String fieldName) {
-        grantorProjectManager.AssertFieldValueIsChecked(fieldName,
-                count,
-                usage.contains("softly")
-        );
+        grantorProjectManager.AssertFieldValueIsChecked(fieldName, count, usage.contains("softly"));
     }
 
     @Given("^I (softly can see|can see) mail notification for \"([^\"]*)\" user with following subject:$")
@@ -150,22 +134,18 @@ public class GenericSteps {
     @Then("^I (verify|softly verify) that the Schedule end date is matching with Reporting Period End Date$")
     public void iVerifyThatTheScheduleEndDateIsMatchingWithReportingPeriodEndDate(String usage) {
         if (usage.contains("softly")) {
-            I.amPerforming().assertionsTo().assertThat(I.amPerforming().propertiesFileOperationsTo().getValue("lastValueFromTableForCol"))
-                    .isEqualTo(I.amPerforming().propertiesFileOperationsTo().getValue("ScheduleEndDate"));
+            I.amPerforming().assertionsTo().assertThat(I.amPerforming().propertiesFileOperationsTo().getValue("lastValueFromTableForCol")).isEqualTo(I.amPerforming().propertiesFileOperationsTo().getValue("ScheduleEndDate"));
         } else {
-            Assert.assertEquals(I.amPerforming().propertiesFileOperationsTo().getValue("lastValueFromTableForCol"),
-                    I.amPerforming().propertiesFileOperationsTo().getValue("ScheduleEndDate"));
+            Assert.assertEquals(I.amPerforming().propertiesFileOperationsTo().getValue("lastValueFromTableForCol"), I.amPerforming().propertiesFileOperationsTo().getValue("ScheduleEndDate"));
         }
     }
 
     @Then("^I (verify|softly verify) that the Schedule start date is matching with Reporting Period start Date$")
     public void iVerifyThatTheScheduleStartDateIsMatchingWithReportingPeriodStartDate(String usage) {
         if (usage.contains("softly")) {
-            I.amPerforming().assertionsTo().assertThat(I.amPerforming().propertiesFileOperationsTo().getValue("lastValueFromTableForCol"))
-                    .isEqualTo(I.amPerforming().propertiesFileOperationsTo().getValue("ScheduleStartDate"));
+            I.amPerforming().assertionsTo().assertThat(I.amPerforming().propertiesFileOperationsTo().getValue("lastValueFromTableForCol")).isEqualTo(I.amPerforming().propertiesFileOperationsTo().getValue("ScheduleStartDate"));
         } else {
-            Assert.assertEquals(I.amPerforming().propertiesFileOperationsTo().getValue("lastValueFromTableForCol"),
-                    I.amPerforming().propertiesFileOperationsTo().getValue("ScheduleStartDate"));
+            Assert.assertEquals(I.amPerforming().propertiesFileOperationsTo().getValue("lastValueFromTableForCol"), I.amPerforming().propertiesFileOperationsTo().getValue("ScheduleStartDate"));
         }
     }
 
@@ -357,21 +337,15 @@ public class GenericSteps {
     public void iDoNotSeeFieldLabelPresentOnPageUnderTable(String usage, String fieldLabel, String tableHeaderTitle) {
         if (usage.contains("softly")) {
             if (usage.contains("not")) {
-                I.amPerforming().assertionsTo().assertThat(grantorProjectManager.assertToCheckFieldPresentOnPageUnderSpecificTable(fieldLabel, tableHeaderTitle))
-                        .isFalse().as("Field " + fieldLabel + " is still present on the page under table " + tableHeaderTitle);
+                I.amPerforming().assertionsTo().assertThat(grantorProjectManager.assertToCheckFieldPresentOnPageUnderSpecificTable(fieldLabel, tableHeaderTitle)).isFalse().as("Field " + fieldLabel + " is still present on the page under table " + tableHeaderTitle);
             } else {
-                I.amPerforming().assertionsTo().assertThat(grantorProjectManager.assertToCheckFieldPresentOnPageUnderSpecificTable(fieldLabel, tableHeaderTitle))
-                        .isTrue().as("Field " + fieldLabel + " is not present on the page under table " + tableHeaderTitle);
+                I.amPerforming().assertionsTo().assertThat(grantorProjectManager.assertToCheckFieldPresentOnPageUnderSpecificTable(fieldLabel, tableHeaderTitle)).isTrue().as("Field " + fieldLabel + " is not present on the page under table " + tableHeaderTitle);
             }
         } else {
             if (usage.contains("not")) {
-                Assert.assertFalse(
-                        grantorProjectManager.assertToCheckFieldPresentOnPageUnderSpecificTable(fieldLabel, tableHeaderTitle)
-                );
+                Assert.assertFalse(grantorProjectManager.assertToCheckFieldPresentOnPageUnderSpecificTable(fieldLabel, tableHeaderTitle));
             } else {
-                Assert.assertTrue(
-                        grantorProjectManager.assertToCheckFieldPresentOnPageUnderSpecificTable(fieldLabel, tableHeaderTitle)
-                );
+                Assert.assertTrue(grantorProjectManager.assertToCheckFieldPresentOnPageUnderSpecificTable(fieldLabel, tableHeaderTitle));
             }
         }
     }
@@ -631,5 +605,26 @@ public class GenericSteps {
         } catch (Exception e) {
         }
         return false;
+    }
+
+    @And("^I check button \"([^\"]*)\" is (present|not present) in table with id \"([^\"]*)\"$")
+    public void iCheckButtonIsPresentInTableWithId(String arg0, String usage, String arg1) {
+        if (usage.equalsIgnoreCase("present")) {
+            Assert.assertTrue(assertButtoninTablewithId(arg0, arg1));
+        } else if (usage.equalsIgnoreCase("not present")) {
+            Assert.assertFalse(assertButtoninTablewithId(arg0, arg1));
+        }
+    }
+
+    private static Boolean assertButtoninTablewithId(String buttonName, String id) {
+        By Button=By.xpath("//c-lwc-flex-table[@data-flextablename='" + id + "']//button[contains(text(),'" + buttonName + "')]");
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(Button))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
     }
 }

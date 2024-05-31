@@ -182,7 +182,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I navigate to "Home" tab
     #Bug434186
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
-    Then I softly cannot see top right button "New" in flex table with id "SubrecipientContacts"
+    And I check button "New" is not present in table with id "SubrecipientContacts"
     When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "SubrecipientContacts" panel
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "SubrecipientContacts"
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
