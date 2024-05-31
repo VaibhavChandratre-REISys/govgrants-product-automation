@@ -4807,8 +4807,8 @@ Feature: Amendment Request scenarios with Undo
     And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/amendmentrequest/a1YDV000002uKix2AE/crad1234795700"
     And I save the field labeled "EGMS ID" as "CFAmendmentId1"
 
-    When I click on button "resetIcon" in flex table with id "RecipientAmendmentRequestCarryForwardBudget"
     And I expand nested table containing column value "BP01"
+    When I click on button "resetIcon" in flex table with id "RecipientAmendmentRequestCarryForwardBudget"
     And I edit the following rows inline in flex table with id "RecipientAmendmentRequestCarryForwardBudget" by clicking "Edit" :
       | Budget Category | Carry Forward |
       | Construction    | 200           |
