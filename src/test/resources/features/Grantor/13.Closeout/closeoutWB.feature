@@ -1371,7 +1371,7 @@ Feature: Validate all scenarios in Closeout
     And I submit the approval in the approval decision without processing
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @154027 @Verify2StepApprovalFor-ScheduleCloseoutRequest-RnRFunctionality @monu @buglogged171129
+  @done @154027 @Verify2StepApprovalFor-ScheduleCloseoutRequest-RnRFunctionality @monu @buglogged171129
   Scenario: Validate Approvers are getting inherited from award record to schedule closeout request
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -1517,7 +1517,7 @@ Feature: Validate all scenarios in Closeout
     And I "Approve" in the approval decision
     Then I see status in Progress-bar is "Approved" and is "Green"
 
-  @199767 @ValidateEXEuseroldownershouldnotabletoseebuttonssectionallevel&pagelevelwhenownershiprelatedtaskisreassigntonewEXEuser @sprint-12-US-226646 @vaibhav @reassignment
+  @done @199767 @ValidateEXEuseroldownershouldnotabletoseebuttonssectionallevel&pagelevelwhenownershiprelatedtaskisreassigntonewEXEuser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate EXE user(old owner) should not able to see buttons sectional level & page level when ownership related task is reassign to new EXE user
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -1664,7 +1664,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---closeout:-:closeoutOwnerTableId---"
 
-  @200132 @ValidatePMuserAwardownerwillremainsameevenafterownershipofcloseoutischangedfromonePOtootherPOinAcknowledgebyS/rstate @sprint-12-US-226646 @vaibhav @reassignment
+  @done @200132 @ValidatePMuserAwardownerwillremainsameevenafterownershipofcloseoutischangedfromonePOtootherPOinAcknowledgebyS/rstate @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM user (Award owner) will remain same even after ownership of closeout is changed from one PO to other PO in 'Acknowledge by S/r' state
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -1730,7 +1730,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PO" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @FieldHistoryExclude @200146 @ValidatePOusercloseoutownerfieldhistorytableshouldbeupdatedwhenownershipofcloseoutistransfertonewuserinSubmittedforapprovalstate @sprint-12-US-226646 @vaibhav @reassignment
+  @done @FieldHistoryExclude @200146 @ValidatePOusercloseoutownerfieldhistorytableshouldbeupdatedwhenownershipofcloseoutistransfertonewuserinSubmittedforapprovalstate @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PO user(closeout owner) field history table should be updated when ownership of closeout is transfer to new user in 'Submitted for approval' state
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -1987,7 +1987,7 @@ Feature: Validate all scenarios in Closeout
       Sandbox: Notification: Review completed for {SavedValue:closeoutID}
       """
 
-  @200244 @Validateinitiatorofcloseout2shouldbeanyuserexeppmevenifownershipofcloseou1istransferredfromonePOusertootherPOuserandrejectthefirstcloseout @sprint-12-US-226646 @vaibhav @reassignment
+  @done @200244 @Validateinitiatorofcloseout2shouldbeanyuserexeppmevenifownershipofcloseou1istransferredfromonePOusertootherPOuserandrejectthefirstcloseout @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate initiator of closeout 2 should be any user<exe,po,pm> even if ownership of closeout 1 is transferred from one PO user to other PO user and reject the first close out
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -2172,7 +2172,7 @@ Feature: Validate all scenarios in Closeout
     Then I cannot see top right button "Add Files" in flex table with id "---closeout:-:CloseoutDetailsTableId---"
     Then I can see top right button "New" in flex table with id "---closeout:-:closeoutNotesTableId---"
 
-  @199756 @199758 @ValidatePMusercloseoutownerOwnershipbasedtaskAcknowledgeCloseoutRequestreassigntonewPMuserinSendtosubrecipientstatethennewPMuserwillownerofthattask @sprint-12-US-226646 @vaibhav @reassignment
+  @done @199756 @199758 @ValidatePMusercloseoutownerOwnershipbasedtaskAcknowledgeCloseoutRequestreassigntonewPMuserinSendtosubrecipientstatethennewPMuserwillownerofthattask @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM user (closeout owner)Ownership based task 'Acknowledge Closeout Request' reassign to new PM user in 'Send to subrecipient state' then new PM user will owner of that task
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2247,7 +2247,7 @@ Feature: Validate all scenarios in Closeout
     Then I cannot see top right button "Add Files" in flex table with id "---closeout:-:CloseoutDetailsTableId---"
     Then I softly can see top right button "New" in flex table with id "---closeout:-:closeoutNotesTableId---"
 
-  @199771 @ValidatenewcloseoutownerasPOusershouldhavethesameeditaccesspagelayou&sectionallevelbuttonstonewuseoldownerofcloseouthadAcknowledgebysubrecipientstatewhenownershipbasedtaskisreassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment
+  @done @199771 @ValidatenewcloseoutownerasPOusershouldhavethesameeditaccesspagelayou&sectionallevelbuttonstonewuseoldownerofcloseouthadAcknowledgebysubrecipientstatewhenownershipbasedtaskisreassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate new closeout owner as PO user should have the same edit access (page layout & sectional level buttons) to new user as old owner of closeout had in 'Acknowledge by subrecipient' state when ownership based task is reassign to new user
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -2734,7 +2734,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @229477 @ValidateusershouldnotabletoseeclosegrantrecordonownershiplookupforAdminuser @sprint-12-US-226646 @vaibhav @reassignment
+  @done @229477 @ValidateusershouldnotabletoseeclosegrantrecordonownershiplookupforAdminuser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate user should not able to see close grant record on ownership lookup for Admin user
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -3427,7 +3427,7 @@ Feature: Validate all scenarios in Closeout
 #      The EGMS Team
 #      """
 
-  @200171 @ValidatePMuserCloseoutApproverSentBackemailshouldbegeneratedinyopmailtonewcloseoutownerwheownershipistransferfromonePMtootherPMisinSubmittedforApprovalstate @sprint-11-US-224734 @vaibhav @reassignment
+  @done @200171 @ValidatePMuserCloseoutApproverSentBackemailshouldbegeneratedinyopmailtonewcloseoutownerwheownershipistransferfromonePMtootherPMisinSubmittedforApprovalstate @sprint-11-US-224734 @vaibhav @reassignment
   Scenario: Validate PM user Email 'Closeout Approver Sent Back Notify' should trigger to new owner of closeout when once ownership related task is reassign to new user of closeout
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -3510,7 +3510,7 @@ Feature: Validate all scenarios in Closeout
 #      The EGMS Team
 #      """
 
-  @200135 @ValidatePOusernewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinAcknowledgebyS/rstateafterownershipofcloseoutistransferfromonePOusertootherPOuser @sprint-11-US-224734 @vaibhav @reassignment
+  @done @200135 @ValidatePOusernewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinAcknowledgebyS/rstateafterownershipofcloseoutistransferfromonePOusertootherPOuser @sprint-11-US-224734 @vaibhav @reassignment
   Scenario: Validate PO user (new owner) will have the same access (page layout & sectional level buttons) as old owner had in 'Acknowledge by S/r' state after ownership of closeout is transfer from one PO user to other PO user
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -3640,7 +3640,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:closeoutID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @200153 @ValidatePMuserCloseoutRequestAwardownernotifyemailshouldbegeneratedinyopmailtoawardownerwhencloseoutisinCreatedstate @sprint-5-US-197578 @vaibhav @reassignment
+  @done @200153 @ValidatePMuserCloseoutRequestAwardownernotifyemailshouldbegeneratedinyopmailtoawardownerwhencloseoutisinCreatedstate @sprint-5-US-197578 @vaibhav @reassignment
   Scenario: Validate PM user Closeout Request Award owner notify email should be generated in yopmail to award owner when closeout is in 'Created' state
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -4189,7 +4189,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
 
-  @227798 @ValidatePMuserwhenrecordsunderopenitemsisinanystateexceptsubmitforapprovalstatethenweshouldoverrideopenitems&forceclosethatopenitems&proceedfurtherevenafterownershiptransfer @sprint-12-US-226976 @vaibhav @reassignment
+  @done @227798 @ValidatePMuserwhenrecordsunderopenitemsisinanystateexceptsubmitforapprovalstatethenweshouldoverrideopenitems&forceclosethatopenitems&proceedfurtherevenafterownershiptransfer @sprint-12-US-226976 @vaibhav @reassignment
   Scenario: Validate PM user when records under open items is in any state except submit for approval state then we should override open items & force close that open items & proceed further even after ownership transfer
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"

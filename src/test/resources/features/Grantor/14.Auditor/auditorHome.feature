@@ -150,7 +150,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Then I softly see "No Records Found" inside flex table with id "---home:-:completedAssignedToMe---"
     Then I softly see "No Records Found" inside flex table with id "---home:-:completedAssignedByMe---"
 
-  @ch1 @69142 @auditorCannotCreateEditSubrecipientContact @smoke
+  @69142 @auditorCannotCreateEditSubrecipientContact @smoke
   Scenario: Validate Auditor cannot Create/Edit any subrecipient contact user
     Given I delete the record "Automation Runtime Contact Contact" from the object "CONTACT"
     Given I delete the record "Automation Runtime Contact385484316 Contact" from the object "CONTACT"
@@ -187,7 +187,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "SubrecipientContacts"
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
-  @ch1 @69143 @auditorViewSubrecipientContacts
+  @69143 @auditorViewSubrecipientContacts
   Scenario: Validate Auditor should have view / read  only access to subrecipient contacts
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
