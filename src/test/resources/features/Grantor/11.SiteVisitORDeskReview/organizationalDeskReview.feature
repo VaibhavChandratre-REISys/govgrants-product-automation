@@ -874,9 +874,10 @@ Feature: Validate all scenarios in Organizational Desk Review
     Given I navigate to "Overview" sub tab
     Then I softly see field "Created Date" is not editable
     When I navigate to "Files" sub tab
-    And I choose the file "Program_Field_Values.xlsx" to upload for "Checklist" of type "Program"
-    When I close "Upload Template" modal by clicking the top right x button
-    Then I see value "Mandatory" for title "Required" against the value "Active" inside table "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
+   Then I can see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
+   And I click on top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
+   And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
+   Then I softly see value "Attachment.pdf" for title "Title" against the value "Supporting Documents" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
 
   @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval @skipOnJenkins @organizationalDeskReviewSecond
   Scenario: Validate Record Owner user is able to take Snapshot after Org Desk Review is Submitted for Approval status - Org Desk Review

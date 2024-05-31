@@ -1030,7 +1030,7 @@ public final class GovGrantsSteps {
             I.amPerforming().click().withJavaScript(inputBox1);
             I.amPerforming().textInput().toClear(inputBox1);
             I.amPerforming().textInput().in(inputBox1, fieldValue);
-            I.amPerforming().click().on(By.xpath("//div//ul//span[contains(@class,'lookup__item-action')]//span[text()='" + fieldValue + "']"));
+            I.amPerforming().click().withJavaScript(By.xpath("//div//ul//span[contains(@class,'lookup__item-action')]//span[text()='" + fieldValue + "'] | //div[@title='" + fieldValue + "']"));
         }
     }
 

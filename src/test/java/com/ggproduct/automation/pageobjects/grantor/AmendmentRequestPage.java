@@ -32,8 +32,8 @@ public class AmendmentRequestPage extends GrantorProjectManager {
      * @Author - Mahadev.hanme
       */
     public void enterRevisedEncumbrance(String awardName) {
-        I.amPerforming().textInput().toClear(By.xpath("//field[@field-name='ActualEncumbrance__c']/input"));
-        I.amPerforming().textInput().in(By.xpath("//field[@field-name='ActualEncumbrance__c']/input"),calculateRevisedEncumbrance(awardName).toString());
+        I.amPerforming().textInput().toClear(By.xpath("//c-fieldlwc[@data-fieldapiname='ActualEncumbrance__c']//input"));
+        I.amPerforming().textInput().in(By.xpath("//c-fieldlwc[@data-fieldapiname='ActualEncumbrance__c']//input"),calculateRevisedEncumbrance(awardName).toString());
     }
 
     public void updatedBudgetPeriodEndDate(String offset, String awardName) {
