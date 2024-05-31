@@ -1,4 +1,4 @@
-@amendmentRequestsAllocationVaibhav @amendmentRequests @grantor-regression @grantor-parallel-regression @parallel-regression @regression @PayReqExecution
+@amendmentRequestsAllocationVaibhav @amendmentRequests @grantor-regression @grantor-parallel-regression @parallel-regression @regression
 Feature: Validate all scenarios in the Amendment Request Allocation Feature
 
   @57288 @verifyAdvancePRCreatedAtRevisedAmendmentSubaward @jitendra
@@ -9396,9 +9396,26 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:TotalObligation}" is "Equals to" the value "{SavedValue:TotalObligation1}"
     Then I softly see value "{SavedValue:AvailableBalance}" is "Equals to" the value "{SavedValue:AvailableBalance1}"
 
-  @256928 @ValidateCompPMusercancorrectamountdisplayinPreEncumbranceAppropriationAmountEncumbranceSpentTotalObligationandAvailableBalanceunderfundingaccount @sprint-19-US-256008 @vaibhav @Allocation 
+  @256928 @ValidateCompPMusercancorrectamountdisplayinPreEncumbranceAppropriationAmountEncumbranceSpentTotalObligationandAvailableBalanceunderfundingaccount @sprint-19-US-256008 @vaibhav @Allocation
   Scenario: Validate Comp PM user can see correct $ amount display in Pre-Encumbrance, Appropriation Amount, Encumbrance, Spent, Total Obligation and Available Balance under funding account
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Planning" tab
+    When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
+    When I enter in modal "Creation" values from "FundingSource_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "FundingSource_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
+    And I enter "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I save the field labeled "Title" as "Automation Test Funding Account"
+    And I click on "Activate" in the page details
+    Then I see status in Progress-bar is "Active" and is "dark blue"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -9408,14 +9425,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I enter in modal value "Yes" into field "IsNegotiationsAllowed__c"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement"
-    When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "Automation Permanent Funding Account3" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Test Funding Account}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Financials" sub tab
@@ -9532,13 +9549,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click in table hyperlink containing value "{SavedValue:FundingAccount2}"
     Then I see the header is "Funding Account" in the page details
     Then I softly see field "Pre-Encumbrance" as "$2,000.00"
-    Then I softly see field "Encumbrance" as "$9,000.00" in "Financials" pageblock
+    Then I softly see field "Encumbrance" as "$3,000.00" in "Financials" pageblock
     Then I softly see field "Spent" as "$0.00"
-    Then I softly see field "Total Obligation" as "$11,000.00"
-    Then I softly see field "Available Balance" as "$989,000.00"
-    Then I softly see field "Appropriation Amount" as "$1,000,000.00"
+    Then I softly see field "Total Obligation" as "$5,000.00"
+    Then I softly see field "Available Balance" as "$9,995,000.00"
+    Then I softly see field "Appropriation Amount" as "$10,000,000.00"
 
-  @266745 @266746 @266747 @266748 @266749 @ValidateEXEusercanseenewsectionofthePaymentSummarybyFocusAreaontheActiveawardwhenAwardiscreatedfromcompetitiveannouncement @sprint-21-US-266772 @vaibhav @Allocation 
+  @266745 @266746 @266747 @266748 @266749 @ValidateEXEusercanseenewsectionofthePaymentSummarybyFocusAreaontheActiveawardwhenAwardiscreatedfromcompetitiveannouncement @sprint-21-US-266772 @vaibhav @Allocation
   Scenario: Validate EXE user can see new section of the Payment Summary by Focus Area on the Active award when Award is created from competitive announcement
     And I published "Competitive" type announcement having name "Automation Runtime Amendment Award" and properties "NO_RISK_ASSESSMENT-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Amendment Award}" on announcement "{SavedValue:Automation Runtime Amendment Award}" with properties "default"
@@ -9582,7 +9599,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:PM Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -9707,7 +9724,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:PM Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -11352,7 +11369,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeGrant1"
     Then I softly see value "{SavedValue:CumulativeAward2}" is "Equals to" the value "{SavedValue:CumulativeGrant1}"
 
-  @263427 @263429 @ValidatePOusercanseeCumulativeObligationamountiscomingfromthecumulativeObligationfielthelatestawardinclosedstateacrossallBPsongrantFAisYes @sprint-21-US-263183 @vaibhav @Allocation 
+  @263427 @263429 @ValidatePOusercanseeCumulativeObligationamountiscomingfromthecumulativeObligationfielthelatestawardinclosedstateacrossallBPsongrantFAisYes @sprint-21-US-263183 @vaibhav @Allocation
   Scenario: Validate PO user can see Cumulative Obligation amount is coming from the cumulative Obligation field in the latest award in closed state across all BPs on grant (FA is Yes)
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -11495,9 +11512,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitmentGrant"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitmentGrant}"
 
-  @257301 @ValidatePMusercanseereadonlyTotalCommitmentamountiscomingfromTotalcommitmentfieldfromthelatestClosedawardandforLatestBPFAYes @sprint-21-US-263183 @vaibhav @Allocation 
+  @257301 @ValidatePMusercanseereadonlyTotalCommitmentamountiscomingfromTotalcommitmentfieldfromthelatestClosedawardandforLatestBPFAYes @sprint-21-US-263183 @vaibhav @Allocation
   Scenario: Validate PM user can see read only Total Commitment amount is coming from Total commitment field from the latest Closed award and for Latest BP (FA Yes)
-    Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO-Automation PM user"
+    Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY-Automation IND user"
     And I created approved FDM on application "{SavedValue:Automation Runtime Announcement}"
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Announcement}" and properties "Automation PM user"

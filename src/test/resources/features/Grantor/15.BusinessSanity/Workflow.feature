@@ -1532,20 +1532,12 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @Debug
+  @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/SiteVisit__c/a3fDV000001GFDnYAO/view"
-    And I navigate to "Responsibilities" sub tab
-    And I click on top right button "New" in flex table with id "---deskreview:-:approverDeskReviewTableId---"
-    And I select value "{SavedValue:PM Username}" into field "name__r.name"
-    And I click on "Remove record" icon for "{SavedValue:PM Username}" inside table
-    Then I softly see "No Records Found" inside flex table with id "---amendment:-:fundingChangeApproversTableId---"
-
-#    And I ent
-#    And I navigate to "Monitoring" tab
-#    And I wait for "5" seconds
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - Active"
-#    When I perform quick search for "{SavedValue:Automation Runtime Award Bulk Record for Site Visit}" in "---deskreview:-:internalActiveGrants---" panel
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I halt execution
+    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
+    Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
+    And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
+    Then I softly see value "$1,700.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
