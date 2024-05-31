@@ -4807,30 +4807,32 @@ Feature: Amendment Request scenarios with Undo
     And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/amendmentrequest/a1YDV000002uKix2AE/crad1234795700"
     And I save the field labeled "EGMS ID" as "CFAmendmentId1"
 
+#    When I click on button "resetIcon" in flex table with id "RecAmendmentRequestCarryForwardBudget"
     And I expand nested table containing column value "BP01"
-    When I click on button "resetIcon" in flex table with id "RecipientAmendmentRequestCarryForwardBudget"
-    And I edit the following rows inline in flex table with id "RecipientAmendmentRequestCarryForwardBudget" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "RecAmendmentRequestCarryForwardBudget" by clicking "Edit" :
       | Budget Category | Carry Forward |
       | Construction    | 200           |
-#    And I expand nested table containing column value "BP01"
-    And I click on page navigation arrow "RecipientAmendmentRequestCarryForwardBudget" for table id "Next"
-    And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
+#    And I collapse nested table containing column value "BP01"
+#    And I expand nested table containing column value "BP02"
+    And I click on page navigation arrow "RecAmendmentRequestCarryForwardBudget" for table id "Next"
+    And I edit the following rows inline in flex table with id "RecAmendmentRequestCarryForwardBudget" by clicking "Edit" :
       | Budget Category | Carry Forward |
       | Construction    | 500           |
     And I refresh the page
+#    When I click on button "resetIcon" in flex table with id "RecAmendmentRequestCarryForwardBudget"
     And I expand nested table containing column value "BP02"
-    When I click on button "resetIcon" in flex table with id "RecipientAmendmentRequestCarryForwardBudget"
-    And I edit the following rows inline in flex table with id "RecipientAmendmentRequestCarryForwardBudget" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "RecAmendmentRequestCarryForwardBudget" by clicking "Edit" :
       | Budget Category | Carry Forward |
-      | Construction    | 0             |
+      | Construction    | 200           |
     And I refresh the page
 #    And I expand nested table containing column value "BP02"
-    And I click on page navigation arrow "RecipientAmendmentRequestCarryForwardBudget" for table id "Next"
-    And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
+    And I click on page navigation arrow "RecAmendmentRequestCarryForwardBudget" for table id "Next"
+    And I edit the following rows inline in flex table with id "RecAmendmentRequestCarryForwardBudget" by clicking "Edit" :
       | Budget Category | Carry Forward |
-      | Construction    | 0             |
+      | Construction    | 500           |
     And I refresh the page
-    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
+#    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
+    And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Previous"
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1200                 | 120        | 0              |
