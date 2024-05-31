@@ -3959,16 +3959,13 @@ Feature: Validate all scenarios in Closeout
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I edit the following rows inline in flex table with id "---amendment:-:AmendmentFundingAccountTableId---" by clicking "Edit" :
-      | Funding Account                    | Revised Encumbrance |
-      | ---AUTOEnvData:-:fundingAccount--- | 1000                |
-    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
-    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
-    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
-#    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
-#    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
-#    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
-#    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
+    And I wait for "2" seconds
+    And I save the field labeled "Proposed Budget Period Start Date" as "Proposed Budget Period Start Date"
+    And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriod"
+    And I get the "EGMS ID"
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                           | Start Date                                     | End Date                         |
+      | Automation Permanent Focus Area | {SavedValue:Proposed Budget Period Start Date} | {SavedValue:updatedBudgetPeriod} |
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |
