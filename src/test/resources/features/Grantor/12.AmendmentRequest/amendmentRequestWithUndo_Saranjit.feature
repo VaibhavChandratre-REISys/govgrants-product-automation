@@ -5880,6 +5880,7 @@ Feature: Amendment Request scenarios with Undo
       | Construction    | 0             |
     And I pause execution for "3" seconds
     And I collapse nested table containing column value "BP02"
+    And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Previous"
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1300                 | 130        | 0              |

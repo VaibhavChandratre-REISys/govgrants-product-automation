@@ -694,7 +694,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:CloseoutRelatedSubAwardsTableId---" panel
     Then I softly see value "$0.00" for title "Closeout Deobligation" inside table "---closeout:-:CloseoutRelatedSubAwardsTableId---"
 
-  @96671 @96734 @VerifyUpdatedDetailsInHistorySectionForCloseout-Scheduled @monu @FieldHistoryExclude
+  @done @96671 @96734 @VerifyUpdatedDetailsInHistorySectionForCloseout-Scheduled @monu @FieldHistoryExclude
   Scenario: Validate user can see updated details in hiostory section after created scheduled closeout request is sent to sub recipient
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
