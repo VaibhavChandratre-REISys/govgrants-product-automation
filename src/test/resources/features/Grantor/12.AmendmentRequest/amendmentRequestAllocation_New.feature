@@ -1992,7 +1992,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---"
     Then I softly see value "$400.00" for title "Carry Forward" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
 
-  @hitRun @264969 @264842 @264977 @264979 @264998 @264957 @264958 @264959 @264875 @264834 @ValidateSPAusercanseeCarryForwardAmountclmunderBudgetPeriodsectioniseditableinCreatedstateofAmendmentRequestFAisYES @sprint-20-US-249461 @vaibhav @Allocation
+  @tempApp @264969 @264842 @264977 @264979 @264998 @264957 @264958 @264959 @264875 @264834 @ValidateSPAusercanseeCarryForwardAmountclmunderBudgetPeriodsectioniseditableinCreatedstateofAmendmentRequestFAisYES @sprint-20-US-249461 @vaibhav @Allocation
   Scenario: Validate SPA user can see 'Carry Forward Amount clm under Budget Period section is editable in Created state of Amendment Request (FA is YES
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_DETAILS_BUDGET_YES_RISK_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
@@ -2199,6 +2199,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction | 1500         | 150        | 0              |
     And I click modal button "Close"
     And I refresh the page
+    And I wait for "2" seconds
+    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     Then I softly see value "$1,200.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
@@ -5576,7 +5578,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Revised Award Amount |
       | $1,000.00            |
 
-  @hitRun @264192 @264202 @264200 @264198 @VerifyEXEusershouldabletoSeeCumulativeObligationcolumninBudgetsummarybyfocusareasectiononamendedoldAwardFAyes @sprint-20-US-263426 @hitesh @Allocation
+  @264192 @264202 @264200 @264198 @VerifyEXEusershouldabletoSeeCumulativeObligationcolumninBudgetsummarybyfocusareasectiononamendedoldAwardFAyes @sprint-20-US-263426 @hitesh @Allocation
   Scenario: Verify EXE user should able to See Cumulative Obligation column in Budget summary by focus area section on amended(old Award) (FA yes)
     And I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_DETAILS_BUDGET_YES_RISK_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
@@ -13704,6 +13706,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
   And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | New Obligation |
       | Automation Permanent Focus Area | 1000           |
+      | Automation Permanent Focus Area2 | 1000           |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
@@ -15126,7 +15129,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Cumulative Obligation" rendered in view mode only
     Then I softly see that "Total Commitment" rendered in view mode only
 
-  @tempApp @274139 @VerifyPOusercaninitiateandapprovedcombinationofamendmentrequestsBudgetredirectionSOWKeypersonalchange @sprint-23-US-273843 @hitesh
+  @274139 @VerifyPOusercaninitiateandapprovedcombinationofamendmentrequestsBudgetredirectionSOWKeypersonalchange @sprint-23-US-273843 @hitesh
   Scenario: Verify PO user can initiate and approved combination of amendment requests (Budget redirection +SOW+ Key personal change)
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Formula_By_Applicant_Focus_Area"
     And I am on "SUBPORTAL" portal
@@ -15139,7 +15142,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     And I wait for "2" seconds
-    When I enter "Subrecipient_BRedirec_SOW_KPC" values from "AmendmentRequest_Field_Values.xlsx"
+    When I enter "Sub_BR_KPC_SOW_creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I wait for "2" seconds
     And I click modal button "Save and Continue"
     And I enter "Subrecipient_BD_KP_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
@@ -15552,7 +15555,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @tempApp @308112 @ValidateEXEusercanseeCumulativeObligationandTotalCommitmentfieldsasreadonlyfieldsinBudgetsummarysectiononthecloseGrantFAisNo @Sprint-7-US-305149 @vaibhav @Allocation
+  @308112 @ValidateEXEusercanseeCumulativeObligationandTotalCommitmentfieldsasreadonlyfieldsinBudgetsummarysectiononthecloseGrantFAisNo @Sprint-7-US-305149 @vaibhav @Allocation
   Scenario: Validate EXE user can see Cumulative Obligation and Total Commitment fields as read only fields in Budget summary section on the close Grant (FA is No)
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "EXE" user
@@ -15713,10 +15716,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I cannot see top right button "Edit" in page detail
     Then I softly see that "Cumulative Obligation" rendered in view mode only
     Then I softly see that "Total Commitment" rendered in view mode only
-    And I refresh the page
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
-    And I refresh the page
     When I hovering mouse on help text icon inside page block detail "Total Commitment"
     Then I softly see "Total amount committed through this and prior awards in this Budget period" shown as help text
 
@@ -16856,7 +16857,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1000                 | 100        | 0              |
