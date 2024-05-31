@@ -148,7 +148,7 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    And I logout
+#    And I logout
 #    #93795
 #    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
 #    And I pause execution for "10" seconds
@@ -157,8 +157,9 @@ Feature: Validate all scenarios in Closeout
 #      """
 #      Sandbox: Notification: New Closeout has been Created.
 #      """
-    And I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "EXE" user
+#    And I am on "INTERNAL" portal
+#    When I login to "As a Grantor" app as "EXE" user
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -185,7 +186,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     And I click on "Acknowledge" in the page details
-    And I logout
+#    And I logout
 #    #76492
 #    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
 #    And I pause execution for "180" seconds
@@ -194,8 +195,9 @@ Feature: Validate all scenarios in Closeout
 #      """
 #      Sandbox: Notification: Closeout # {SavedValue:closeoutID} Acknowledgedby Subrecipient
 #      """
-    And I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "EXE" user
+#    And I am on "INTERNAL" portal
+#    When I login to "As a Grantor" app as "EXE" user
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -262,7 +264,7 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     Given I click on "Send To Subrecipient" in the page details
-    And I logout
+#    And I logout
 #    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
 #    And I pause execution for "180" seconds
 #    Then I refresh the page
@@ -278,8 +280,9 @@ Feature: Validate all scenarios in Closeout
 #      """
 #      Sandbox: Notification of Closeout Request for {SavedValue:Automation Runtime Award for closeout}
 #      """
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
+#    When I am on "SUBPORTAL" portal
+#    And I login to "Grants Portal" app as "SPI3" user
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:CloseoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -323,7 +326,7 @@ Feature: Validate all scenarios in Closeout
 #      Sandbox: Notification: Closeout Request {SavedValue:closeoutID} has beenSubmitted for your Approval
 #      """
 
-  @94022 @94019 @94021 @94040 @94042 @validateSendCloseoutRequestForSendReviewForEXEUser @meenakshi
+  @done @94022 @94019 @94021 @94040 @94042 @validateSendCloseoutRequestForSendReviewForEXEUser @meenakshi
   Scenario: To verify Closeout owner able to send the Closeout request for Send for review in closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -343,7 +346,7 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    #Bug434417
+    #Bug434417 @due to bug testcase cannot be completed
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutPeerReviewTableId---" by clicking "New" :
       | Reviewer Name            | Responsibility  | Description                 | Due Date |
@@ -456,7 +459,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @93696 @93581 @validateAwardAmountAndBalanceInOverviewCloseout @meenakshi
+  @done @93696 @93581 @validateAwardAmountAndBalanceInOverviewCloseout @meenakshi
   Scenario: Verify the values on fields Awarded amount and Balance on closeout view page if the payment request is not processed
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "NO_ADVANCE_PERMISSION" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -503,7 +506,7 @@ Feature: Validate all scenarios in Closeout
     When I click modal button "Cancel"
     Then I softly see field "Status" as "Sent to Subrecipient"
 
-  @ch3 @76489 @ValidateApprovedCloseoutInsideApprovalHistory-TerminationCloseoutRequest-EXEUser @monu @buglogged140761 @FieldHistoryExclude
+  @done @76489 @ValidateApprovedCloseoutInsideApprovalHistory-TerminationCloseoutRequest-EXEUser @monu @buglogged140761 @FieldHistoryExclude
   Scenario: Validate user is able to see Approved status of closeout request in chevron diagram and inside Approval history table with EXE user
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -644,9 +647,12 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---"
     And I click on top right button "Add Files" in flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---"
-    And I upload attachment "Attachment.pdf" of type "Federal Closeout Document" from computer
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---closeout:-:ExternalCloseoutDetailsTableId---"
-    Then I softly see value "{SavedValue:AttachedFile}" for title "Title" inside table "---closeout:-:ExternalCloseoutDetailsTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Federal Closeout Document" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+#    And I upload attachment "Attachment.pdf" of type "Federal Closeout Document" from computer
+#    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---closeout:-:ExternalCloseoutDetailsTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---closeout:-:ExternalCloseoutDetailsTableId---"
     #95609 #monu
     And I click on "Edit" icon for "{SavedValue:AttachedFile}" inside flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---"
     When I select Classification as "Other" at upload file modal
@@ -717,7 +723,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
-    And I enter value "checked" into field "fieldAggreement__c"
+    And I enter value "checked" into field "Aggreement__c"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
     And I am on "INTERNAL" portal
@@ -825,7 +831,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Start" icon for "Record Id" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
-    When I enter value "Checked" into field "fieldAggreement__c"
+    When I enter value "Checked" into field "Aggreement__c"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
     Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
@@ -928,6 +934,7 @@ Feature: Validate all scenarios in Closeout
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
+    Then I softly see field "Status" as "Acknowledged by Subrecipient"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1162,7 +1169,7 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:PM Username} | Step 2   |
     Then I softly see "You cannot specify the same user for multiple steps for Closeout" inside flex table with id "---closeout:-:closeoutApproverTableId---"
 
-  @153656 @Verify2StepApprovalForScheduleCloseoutRequest-RnRFuntionality @monu
+  @done @153656 @Verify2StepApprovalForScheduleCloseoutRequest-RnRFuntionality @monu
   Scenario: Verify user is able approve the schedule closeout request in two step approver
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -2650,7 +2657,7 @@ Feature: Validate all scenarios in Closeout
 #    Then I softly see value "Automation PO1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
 #    Then I softly see value "Automation PO" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
 
-  @200259 @ValidatePMuserasownerofcloseoutshouldnotaffectedevenifownershipofAwardistransferfromonePMusertootherPMuserisinSubmittedforapprovalstate @sprint-12-US-226646 @vaibhav @reassignment
+  @done @200259 @ValidatePMuserasownerofcloseoutshouldnotaffectedevenifownershipofAwardistransferfromonePMusertootherPMuserisinSubmittedforapprovalstate @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM user as owner of closeout should not affected even if ownership of Award is transfer from one PM user to other PM user is in 'Submitted for approval' state
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2812,7 +2819,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:closeoutTargetTableId---" panel
     Then I see value "{SavedValue:closeoutID}" for title "Closeout ID" inside table "---closeout:-:closeoutTargetTableId---"
 
-  @ch2 @227801 @ValidatePMuserifownersomerecordsaresame&somearedifferentthanownerofcloseoutthenweshouldgetvalidationonoverriddenbuttonbutsomerecordsareforceclosedifownerofrecordsissameasownerofcloseoutafterownershiptransfer @sprint-12-US-226646 @vaibhav @reassignment
+  @227801 @ValidatePMuserifownersomerecordsaresame&somearedifferentthanownerofcloseoutthenweshouldgetvalidationonoverriddenbuttonbutsomerecordsareforceclosedifownerofrecordsissameasownerofcloseoutafterownershiptransfer @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM user if owner of some records are same & some are different than owner of closeout then we should get validation on overridden button but some records are force closed if owner of records is same as owner of closeout after ownership transfer
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     # Desk Review
@@ -2890,7 +2897,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
+    And I navigate to "Home" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
@@ -2906,7 +2913,8 @@ Feature: Validate all scenarios in Closeout
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Progress Report"
     When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award for closeout}" having object api name as "ProgressReports__c"
-    And I navigate to "Monitoring" tab
+    And I pause execution for "10" seconds
+    And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
@@ -2926,9 +2934,11 @@ Feature: Validate all scenarios in Closeout
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -3906,7 +3916,7 @@ Feature: Validate all scenarios in Closeout
 #      The EGMS Team
 #      """
 
-  @ch2 @227789 @ValidatePMuserwhenrecordsunderopenitemsisonlyinsubmitforapprovalstate&ownerofthatrecordisdifferentfromcloseoutownerthenshouldgeterrormessageonoverriddenbuttonafterownershiptransfer @sprint-12-US-226976 @vaibhav @reassignment
+  @227789 @ValidatePMuserwhenrecordsunderopenitemsisonlyinsubmitforapprovalstate&ownerofthatrecordisdifferentfromcloseoutownerthenshouldgeterrormessageonoverriddenbuttonafterownershiptransfer @sprint-12-US-226976 @vaibhav @reassignment
   Scenario: Validate PM user when records under open items is only in submit for approval state & owner of that record is different from closeout owner then should get error message on overridden button after ownership transfer
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     # Desk Review
@@ -3963,26 +3973,27 @@ Feature: Validate all scenarios in Closeout
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    And I save the field labeled "Proposed Budget Period Start Date" as "Proposed Budget Period Start Date"
-    And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriod"
-    And I get the "EGMS ID"
-    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title                           | Start Date                                     | End Date                         |
-      | Automation Permanent Focus Area | {SavedValue:Proposed Budget Period Start Date} | {SavedValue:updatedBudgetPeriod} |
+    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
+    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
+    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
+#    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
+#    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
+#    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
+#    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name           | Amendment Request |
-      | Automation PM1 | Step 1            |
+      | Automation EXE | Step 1            |
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name           | Amendment Request |
-      | Automation EXE | Step 2            |
+      | Automation PM1 | Step 2            |
     And I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
+    And I navigate to "Grants" tab    Then I softly see field "Status" as "Sent to Subrecipient"
+
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
@@ -4374,7 +4385,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
 
-  @ch2 @227799 @ValidatePMusecanshowtheownerorinterceptorcolumnforrespectivemoduleswhichisinopenitemssectiontovalidatetheownerofrecordsunderopenitems&ownerofcloseoutshouldgetsame @sprint-12-US-226976 @vaibhav @reassignment
+  @227799 @ValidatePMusecanshowtheownerorinterceptorcolumnforrespectivemoduleswhichisinopenitemssectiontovalidatetheownerofrecordsunderopenitems&ownerofcloseoutshouldgetsame @sprint-12-US-226976 @vaibhav @reassignment
   Scenario: Validate PM user can show the owner or interceptor column for respective modules which is in open items section to validate the owner of records under open items & owner of closeout should get same
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     # Desk Review
@@ -4489,9 +4500,10 @@ Feature: Validate all scenarios in Closeout
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -4619,7 +4631,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
 
-  @ch2 @228156 @ValidatePMuserwecanoverridethependingitemswhenstateofrecordsareApprovedeventhoughownerofsomerecordsaredifferentthanownerofcloseoutincaseofownershiptransfer @sprint-12-US-226976 @vaibhav @reassignment
+  @228156 @ValidatePMuserwecanoverridethependingitemswhenstateofrecordsareApprovedeventhoughownerofsomerecordsaredifferentthanownerofcloseoutincaseofownershiptransfer @sprint-12-US-226976 @vaibhav @reassignment
   Scenario: Valdate PM user we can override the pending items when state of records are Approved even though owner of some records are different than owner of closeout in case of ownership transfer
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     # Desk Review
@@ -4732,9 +4744,10 @@ Feature: Validate all scenarios in Closeout
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -4924,7 +4937,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
 
-  @ch2 @227791 @ValidatePMuserwhenrecordsunderopenitemsisinsubmitforapprovalstate&ownerofthatrecordissameascloseoutownerthenusershouldoverrideopenitems&forceclosethatopenitem&proceedfurtherevenafterownershiptransfer @sprint-12-US-226976 @vaibhav @reassignment
+  @227791 @ValidatePMuserwhenrecordsunderopenitemsisinsubmitforapprovalstate&ownerofthatrecordissameascloseoutownerthenusershouldoverrideopenitems&forceclosethatopenitem&proceedfurtherevenafterownershiptransfer @sprint-12-US-226976 @vaibhav @reassignment
   Scenario: Validate PM user when records under open items is in submit for approval state & owner of that record is same as closeout owner then user should override open items & force close that open items & proceed further even after ownership transfer
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     # Desk Review
@@ -5032,9 +5045,10 @@ Feature: Validate all scenarios in Closeout
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
