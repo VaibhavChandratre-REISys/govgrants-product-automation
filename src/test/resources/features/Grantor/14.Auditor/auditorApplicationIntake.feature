@@ -207,7 +207,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Application Name                                             | User    |
       | {SavedValue:Automation Runtime Announcement for Application} | Auditor |
 
-  @ch1 @69941 @69940 @audiorPreApplicationToApplication
+  @ch2 @69941 @69940 @audiorPreApplicationToApplication
   Scenario Outline: Validate Auditor should have view / read  only access to submitted pre-application| Validate Auditor should not be  able to Review/Accept/Reject Preapplication
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -263,7 +263,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I pause execution for "3" seconds
-    And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "PreAppContact" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
