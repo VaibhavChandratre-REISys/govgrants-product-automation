@@ -591,6 +591,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Automation Test Description | FundingChangeJustification__c |
       | -2000                       | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -2548,7 +2549,7 @@ Feature: Validate all scenarios in the Amendment Request
       | {SavedValue:FD Username} | Step 4            |
     Then I softly see "Saved successfully!" inside flex table with id "---amendment:-:approversTableId---"
 
-  @148948 @verifyRemovalOfAddedApprover-TCAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird  @Debug
+  @148948 @verifyRemovalOfAddedApprover-TCAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird @wip @holdForNewStep
   Scenario: To verify user can remove the added approver on terms and condition amendment
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2639,7 +2640,7 @@ Feature: Validate all scenarios in the Amendment Request
       | {SavedValue:FD Username} | Step 4            |
     Then I softly see "Saved Successfully!" inside flex table with id "---amendment:-:fundingChangeApproversTableId---"
 
-  @149402 @verifyRemovalOfAddedApprover-BPCAmendmentRequest-RnRFuntionality @monu @poojaAmendmnetThird
+  @149402 @verifyRemovalOfAddedApprover-BPCAmendmentRequest-RnRFuntionality @monu @poojaAmendmnetThird @wip @holdForNewStep
   Scenario: Verify user can remove the added approver on Budget Period Change amendment
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2662,8 +2663,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I navigate to "Responsibilities" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     And I select value "{SavedValue:PM Username}" into field "name__r.name"
-    And I enter value "Step 4" into field "AmendmentRequestRole__c"
-    And I click on "Remove record" icon for "Step 4" inside table
+#    And I enter value "Step 4" into field "AmendmentRequestRole__c"
+    And I click on "Remove record" icon for "{SavedValue:PM Username}" inside table
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:fundingChangeApproversTableId---"
 
   @149403 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUser-BPCAmendmentRequest-RnRFuntionality @monu @poojaAmendmnetThird
@@ -2793,7 +2794,7 @@ Feature: Validate all scenarios in the Amendment Request
       | {SavedValue:FD Username} | Step 4            |
     Then I softly see "Saved Successfully!" inside flex table with id "---amendment:-:approversTableId---"
 
-  @151385 @verifyRemovalOfAddedApprover-FundingChangeAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird
+  @151385 @verifyRemovalOfAddedApprover-FundingChangeAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird @wip @holdForNewStep
   Scenario: To verify user can  remove the new added approver on funding change amendment
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
