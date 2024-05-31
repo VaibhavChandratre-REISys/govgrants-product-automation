@@ -4791,7 +4791,6 @@ Feature: Amendment Request scenarios with Undo
     And I enter value "Automation Justification" into field "PurposeRTA__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/amendmentrequest/a1YDV000002uKZR2A2/crad1234778000"
     And I save the field labeled "EGMS ID" as "CFAmendmentId1"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I edit the following rows inline in flex table with id "RecipientAmendmentProjectAreasGrantorCarryForward" by clicking "Edit" :
