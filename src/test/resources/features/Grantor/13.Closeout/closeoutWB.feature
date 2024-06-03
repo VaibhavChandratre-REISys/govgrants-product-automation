@@ -2913,7 +2913,7 @@ Feature: Validate all scenarios in Closeout
 
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Complete Grantor Progress Report" in "---progressReport:-:pendingTaskTableId---" panel
+    When I perform quick search for "PR--GT-1234-07541-002" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Complete Grantor Progress Report" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
