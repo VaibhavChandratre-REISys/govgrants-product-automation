@@ -59,43 +59,40 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I download the file
     Then I see "Active" on page "1" of "govgrants" pdf file
 
-  @ch1 @69939 @auditorCannotEditorApproveFDM @Buglogged429287 @needtoCheck
+  @69939 @auditorCannotEditorApproveFDM @Buglogged429287 @wip
   Scenario Outline: Validate Auditor should not be  able to Edit/Approve FDM
-#    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NO_RISK_ASSESSMENT-Automation PO user"
-#    And I initiated an application review for application "<Application Name>" on announcement "<Announcement Name>" with properties "default"
+    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NO_RISK_ASSESSMENT-Automation PO user"
+    And I initiated an application review for application "<Application Name>" on announcement "<Announcement Name>" with properties "default"
     Given I login to "As a Grantor" app as "PO" user
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I pause execution for "5" seconds
-#    And I perform quick search for "<Application Name>" in "---applicationIntake:-:appAllTableId---" panel
-#    When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:appAllTableId---"
-#    And I get the "EGMS ID"
-#    And I save the field labeled "EGMS ID" as "appEGMSID"
-#    When I navigate to "Applications" tab
-#    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-#    When I click toggle button to select "Application Reviews - All"
-#    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
-#    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-#    And I navigate to "Related Log" sub tab
-#    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-#    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
-#    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
-#    And I click on "Next Review Step" in the page details
-#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-#      | Form Name         | Due in Days |
-#      | Program Review    | 5           |
-#      | Fiscal Review     | 5           |
-#      | Compliance Review | 5           |
-#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-#      | Reviewer                  |
-#      | {SavedValue:EXE Username} |
-#      | {SavedValue:FO Username}  |
-#      | {SavedValue:PM Username}  |
-##    When I expand nested table containing column value "<Application Name>"
-    And I pause execution for "10" seconds
-    And I navigate to url "//test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/ReviewStep__c/a3SDV000000uOys2AE/view"
-    And I pause execution for "10" seconds
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I pause execution for "5" seconds
+    And I perform quick search for "<Application Name>" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:appAllTableId---"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I click on "Next Review Step" in the page details
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name         | Due in Days |
+      | Program Review    | 5           |
+      | Fiscal Review     | 5           |
+      | Compliance Review | 5           |
+    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+      | Reviewer                  |
+      | {SavedValue:EXE Username} |
+      | {SavedValue:FO Username}  |
+      | {SavedValue:PM Username}  |
+#    When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -218,5 +215,5 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:pendingTaskTableId---" panel
     Then I see "No Records Found" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     Examples:
-      | Announcement Name                                       | Application Name                                        |
-      | Automation Runtime Announcement Application Review74688 | Automation Runtime Announcement Application Review74688 |
+      | Announcement Name                                  | Application Name                                   |
+      | Automation Runtime Announcement Application Review | Automation Runtime Announcement Application Review |

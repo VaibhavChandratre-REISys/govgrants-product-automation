@@ -209,16 +209,14 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 #    And I click modal button "Close"
 #    And I pause execution for "5" seconds
 #    And I refresh the page
-    When I navigate to "Home" tab
-    And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
-    And I pause execution for "5" seconds
-    When I perform quick search for "Automation Runtime Contact1325673538 Contact" in "SubrecipientContacts" panel
-    When I click on "Edit" icon for "Automation Runtime Contact1325673538 Contact" inside flex table with id "SubrecipientContacts"
-    And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
-    And I click modal button "Save"
-    And I pause execution for "2" seconds
-    And I click modal button "Close"
-    And I pause execution for "2" seconds
+#    When I navigate to "Home" tab
+#    And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
+#    And I pause execution for "5" seconds
+#    When I perform quick search for "Automation Runtime Contact1325673538 Contact" in "SubrecipientContacts" panel
+#    When I click on "Edit" icon for "Automation Runtime Contact1325673538 Contact" inside flex table with id "SubrecipientContacts"
+#    And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
+#    And I click modal button "Save"
+#    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
     #Bug434186

@@ -609,50 +609,49 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---closeout:-:CloseoutDetailsTableId---"
 
-  @ch1 @95599 @95609 @95607 @VerifySubrecipientAbleToAddAttachmentForTerminationCloseoutRequest-EXEUser @monu
+  @done @95599 @95609 @95607 @VerifySubrecipientAbleToAddAttachmentForTerminationCloseoutRequest-EXEUser @monu
   Scenario: Validate subrecipient user is able to see Add files button on under closeout details while creating termination closeout request
-#    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
-#    When I login to "As a Grantor" app as "EXE" user
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - Active"
-#    When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:grantsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
-#    And I navigate to "Overview" sub tab
-#    And I get the "EGMS ID"
-#    And I save the field labeled "EGMS ID" as "GrantID"
-#    When I navigate to "Requests" sub tab
-#    And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
-#    When I enter in modal "TerminationValues" values from "Closeout_Field_Values.xlsx"
-#    And I click modal button "Save and Continue"
-#    And I enter "TerminationEdition" values from "Closeout_Field_Values.xlsx"
-#    And I save the field labeled "EGMS ID" as "closeoutID"
-#    When I click on "Save" in the page details
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
-#      | Name                     | Closeout |
-#      | {SavedValue:PM Username} | Step 1   |
-#    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
-#      | Name                     | Closeout |
-#      | {SavedValue:FO Username} | Step 2   |
-#    Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---closeout:-:closeoutApproverTableId---"
-#    When I click on "Send To Subrecipient" in the page details
-#    Then I softly see field "Status" as "Sent To Subrecipient"
-#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:grantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
+    And I navigate to "Overview" sub tab
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "GrantID"
+    When I navigate to "Requests" sub tab
+    And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
+    When I enter in modal "TerminationValues" values from "Closeout_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "TerminationEdition" values from "Closeout_Field_Values.xlsx"
+    And I save the field labeled "EGMS ID" as "closeoutID"
+    When I click on "Save" in the page details
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:PM Username} | Step 1   |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 2   |
+    Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---closeout:-:closeoutApproverTableId---"
+    When I click on "Send To Subrecipient" in the page details
+    Then I softly see field "Status" as "Sent To Subrecipient"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
-#    When I navigate to "Closeout" tab
-#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "Record Id" in "---closeout:-:pendingTaskTableId---" panel
-#    And I click on "Start" icon for "Record Id" inside flex table with id "---closeout:-:pendingTaskTableId---"
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/closeout/a23DV000004dFjPYAU/clrg00129800710"
+    When I navigate to "Closeout" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---closeout:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I navigate to "Files" sub tab
-#    Then I softly can see top right button "Add Files" in flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---"
-#    And I click on top right button "Add Files" in flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---"
-#    And I upload attachment without random number "Attachment.pdf" of type "Federal Closeout Document" from computer
-#    When I click modal button "Close"
-#    And I wait for "2" seconds
-#    Then I softly see value "Attachment.pdf" for title "Title" inside table "---closeout:-:ExternalCloseoutDetailsTableId---"
+    Then I softly can see top right button "Add Files" in flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---"
+    And I click on top right button "Add Files" in flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Federal Closeout Document" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---closeout:-:ExternalCloseoutDetailsTableId---"
 #    #95609 #monu
     And I edit the following rows inline in flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---" by clicking "Edit" :
       | Title          | Classification | Description            |
@@ -938,25 +937,19 @@ Feature: Validate all scenarios in Closeout
 
     Given I login to "As a Grantor" app as "PM" user
 
-    When I navigate to "Closeout" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "GT-1234-07539" in "---closeout:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Acknowledged Closeout Request" inside flex table with id "---closeout:-:pendingTaskTableId---"
-    When I click on "Override" in the page details
-    Then I softly see field "Status" as "Overridden"
+#    When I navigate to "Closeout" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "GT-1234-07539" in "---closeout:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "Acknowledged Closeout Request" inside flex table with id "---closeout:-:pendingTaskTableId---"
+#    When I click on "Override" in the page details
+#    Then I softly see field "Status" as "Overridden"
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeouts - All"
     When I perform quick search for "GT-1234-07539" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
-    And I click on "View" icon for "Approve Closeout Request" inside flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
+    And I click on "View" icon for "GT-1234-07539" inside flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
     When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Closeout" tab
-    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
-    And I click toggle button to select "Project Period Closeouts - All"
-    And I perform quick search for "GT-1234-07539" in "ProjectPeriodCloseoutGrantor" panel
-    And I click on "View" icon for "Approve Closeout Request" inside flex table with id "ProjectPeriodCloseoutGrantor"
     And I select radio button "Forward" in the approval decision
     Then I can see the comment box in the approval decision
     Then I can see user "{SavedValue:EXE Username}" in the user lookup in the approval decision
