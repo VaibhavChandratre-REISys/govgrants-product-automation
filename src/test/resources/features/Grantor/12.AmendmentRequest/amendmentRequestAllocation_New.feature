@@ -9031,7 +9031,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see field "Budgeted Amount" inside page block
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @tempApp @265318 @265307 @265572 @265573 @265574 @265576 @265319 @265560 @265561 @265358 @265359 @265362 @265363 @265555 @265314 @ValidatePMusercanseeCumulativeObligationfieldunderBudgetsummarysectiontotaloftheEncumbrancecolumnfromtheAwardFundingAccountinformationinPendingActivationstateFAYes @sprint-20-US-263392 @vaibhav @Allocation
+   @265318 @265307 @265572 @265573 @265574 @265576 @265319 @265560 @265561 @265358 @265359 @265362 @265363 @265555 @265314 @ValidatePMusercanseeCumulativeObligationfieldunderBudgetsummarysectiontotaloftheEncumbrancecolumnfromtheAwardFundingAccountinformationinPendingActivationstateFAYes @sprint-20-US-263392 @vaibhav @Allocation
   Scenario: Validate PM user can see Cumulative Obligation field under Budget summary section & total of the 'Encumbrance' column from the Award Funding Account information in Pending Activation state FA Yes
     And I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -9384,6 +9384,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,500.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see value "$2,700.00" for title "Cumulative Obligation" against the value "Grand Total" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see value "$1,200.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
+    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     And I click on page navigation arrow "---subAwardStandAlone:-:sRBudgetCategoryTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     And I refresh the page
