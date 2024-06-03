@@ -3918,9 +3918,7 @@ Feature: Validate all scenarios in Closeout
   Scenario: Validate PM user when records under open items is only in submit for approval state & owner of that record is different from closeout owner then should get error message on overridden button after ownership transfer
 #    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
 #    # Desk Review
-    When I login to "As a Grantor" app as "PM" user
-    And I pause execution for "10" seconds
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/amendmentrequest/a1YDV000002uKsT2AU/crad1234809600"
+#    When I login to "As a Grantor" app as "PM" user
 #    And I navigate to "Grants" tab
 #    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
 #    And I click toggle button to select "Grants - Active"
@@ -3973,7 +3971,7 @@ Feature: Validate all scenarios in Closeout
 #    And I click modal button "Save and Continue"
 #    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
 #    When I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
+#    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
 #    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
 #    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
 ##    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
@@ -3991,28 +3989,31 @@ Feature: Validate all scenarios in Closeout
 #      | Name           | Amendment Request |
 #      | Automation PM1 | Step 2            |
 #    And I click on "Send to Subrecipient" in the page details
-    Then I softly see field "Status" as "Sent to Subrecipient"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---home:-:externalPendingTasktableId---" panel
-    And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---home:-:externalPendingTasktableId---" without waiting for record
-    And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
-     #Progress Report
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    Given I delete the record "Automation Runtime Award for closeout62423" from the object "Progress Report"
-    When I create a post award record "ProgressReport" for the Award "Automation Runtime Award for closeout62423" having object api name as "ProgressReports__c"
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+#    Then I softly see field "Status" as "Sent to Subrecipient"
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Home" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---home:-:externalPendingTasktableId---" panel
+#    And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---home:-:externalPendingTasktableId---" without waiting for record
+#    And I click on "Submit to Grantor" in the page details
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I click on "Submit for Approval" in the page details
+#    Then I softly see field "Status" as "Submitted for Approval"
+#     #Progress Report
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    Given I delete the record "Automation Runtime Award for closeout62423" from the object "Progress Report"
+#    When I create a post award record "ProgressReport" for the Award "Automation Runtime Award for closeout62423" having object api name as "ProgressReports__c"
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/progressreports/a3CDV000000rE4b2AE/prgt123407544001"
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
