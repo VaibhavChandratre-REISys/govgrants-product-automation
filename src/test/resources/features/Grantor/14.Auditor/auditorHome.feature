@@ -48,7 +48,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @done @69123 @auditorCanViewIndividualOrganization
+  @69123 @auditorCanViewIndividualOrganization
   Scenario Outline: Validate Auditor should have view / read  only access to record for Individual organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -60,7 +60,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @done @69124 @auditorCannotEditSubrecipientOrganization @smoke
+  @69124 @auditorCannotEditSubrecipientOrganization @smoke
   Scenario Outline:  Auditor should not be  able to  Edit Individual organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -74,7 +74,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @done @69125 @auditorCannotCreateEditContact
+  @69125 @auditorCannotCreateEditContact
   Scenario Outline: Validate Auditor should not be  able to Create/Edit any Contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -94,7 +94,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @done @69126 @auditorCanViewCreatedContact
+  @69126 @auditorCanViewCreatedContact
   Scenario: Validate Auditor should have view / read  only access to record.
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
@@ -113,7 +113,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     And I click on "View" icon for "Test Automation Organization" inside flex table with id "---home:-:internalContactTableId---"
     Then I softly see field "Organization" as "Test Automation Organization"
 
-  @done @69144 @69132 @69128 @auditorCannotSendInvitationCanViewSMEReviewersContactDetails
+  @69144 @69132 @69128 @auditorCannotSendInvitationCanViewSMEReviewersContactDetails
   Scenario Outline: Verify Auditor Cannot create SME conatct and do not have access to send invitation (Bulk or single clicking paper aeroplane icon)/ Verify Auditor can view / read  only access to SME Reviewers Contact details
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -126,14 +126,14 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @done @69129 @auditorReassign
+  @69129 @auditorReassign
   Scenario: Verify Auditor profile would not have tasks assigned,  Re assign will populate no tasks to reassign
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     Then I do not see value "AUDITOR" inside auto search result after enterring into field "name__r.name"
 
-  @done @69120 @69130 @auditorPendingTaskSummaryPhase
+  @69120 @69130 @auditorPendingTaskSummaryPhase
   Scenario: Validate Auditor should have no pending task in any of the filter.| Verify Auditor do not have any pending tasks by any phase and by any due date filter.
     Given I login to "As a Grantor" app as "AUDITOR" user
     When I navigate to "Planning" tab
@@ -150,7 +150,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Then I softly see "No Records Found" inside flex table with id "---home:-:completedAssignedToMe---"
     Then I softly see "No Records Found" inside flex table with id "---home:-:completedAssignedByMe---"
 
-  @done @69142 @auditorCannotCreateEditSubrecipientContact @smoke
+  @69142 @auditorCannotCreateEditSubrecipientContact @smoke
   Scenario: Validate Auditor cannot Create/Edit any subrecipient contact user
     Given I delete the record "Automation Runtime Contact Contact" from the object "CONTACT"
     Given I delete the record "Automation Runtime Contact385484316 Contact" from the object "CONTACT"
@@ -187,7 +187,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "SubrecipientContacts"
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
-  @done @69143 @auditorViewSubrecipientContacts
+  @69143 @auditorViewSubrecipientContacts
   Scenario: Validate Auditor should have view / read  only access to subrecipient contacts
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
@@ -226,7 +226,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
-  @done @69129 @validateAuditorReassign @meenakshi
+  @69129 @validateAuditorReassign @meenakshi
   Scenario: Verify Auditor profile would not have tasks assigned  Re assign will populate no tasks to reassign
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab

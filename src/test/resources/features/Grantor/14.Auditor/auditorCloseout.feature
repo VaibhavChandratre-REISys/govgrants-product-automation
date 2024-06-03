@@ -13,7 +13,7 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     When I navigate to "Requests" sub tab
     Then I cannot see top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
 
-  @done @69176 @auditorCannotViewOverriddenCloseout
+  @69176 @auditorCannotViewOverriddenCloseout
   Scenario: Validate Auditor cannot have view access to "Submitted for Approval Status" Closeout Record
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -46,8 +46,8 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     And I save the field labeled "EGMS ID" as "EGMSID"
     And I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---"
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) |  Program Income Disbursed | Cash Match | Non-Cash Match |
-      | Extra Salary | The narrative | 500        | 1        | Feet        | 0                 |  0                        | 100        | 100            |
+      | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
+      | Extra Salary | The narrative | 500        | 1        | Feet        | 0                 | 0                        | 100        | 100            |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal

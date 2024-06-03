@@ -1,7 +1,7 @@
 @amendmentRequestsWB @amendmentRequestsundoSaranjit @t1 @grantor-regression @grantor-parallel-regression @regression @amendmentRequestUndo
 Feature: Amendment Request scenarios with Undo
 
-  @done @292388 @292389 @342738 @342740 @342744 @342792 @VerifywhenPmapproverclickonundobuttoninBudredAmmendrequestrecordSystemwillshowconfirmationboxwithaquestionandoptionsforselection @sprint-3-US-288689 @hitesh @Undo
+  @292388 @292389 @342738 @342740 @342744 @342792 @VerifywhenPmapproverclickonundobuttoninBudredAmmendrequestrecordSystemwillshowconfirmationboxwithaquestionandoptionsforselection @sprint-3-US-288689 @hitesh @Undo
   Scenario: Verify when Pm approver  click on undo button in Bud red Ammend request record System will show confirmation box with a question and options for selection.
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -131,111 +131,111 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     And I logout
     #292389
-#    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:BUDGETREDIRECTIONID}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:BUDGETREDIRECTIONID}  for the award #{SavedValue:AwardEGMSID}.
-#    Amendment Details:
-#    Amendment Type: Budget Redirection
-#    Amendment ID: {SavedValue:BUDGETREDIRECTIONID}
-#    Key POC: Automation SPI3
-#    Status: Submitted for Approval
-#    Grant: {SavedValue:GrantEGMSID}
-#    Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
-#    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:BUDGETREDIRECTIONID}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:BUDGETREDIRECTIONID}  for the award #{SavedValue:AwardEGMSID}.
-#    Amendment Details:
-#    Amendment Type: Budget Redirection
-#    Amendment ID: {SavedValue:BUDGETREDIRECTIONID}
-#    Key POC: Automation SPI3
-#    Status: Submitted for Approval
-#    Grant: {SavedValue:GrantEGMSID}
-#    Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
-#    And I checkout to yopmail with mailid "automationpo@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:BUDGETREDIRECTIONID}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:BUDGETREDIRECTIONID}  for the award #{SavedValue:AwardEGMSID}.
-#    Amendment Details:
-#    Amendment Type: Budget Redirection
-#    Amendment ID: {SavedValue:BUDGETREDIRECTIONID}
-#    Key POC: Automation SPI3
-#    Status: Submitted for Approval
-#    Grant: {SavedValue:GrantEGMSID}
-#    Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
-#    Then I refresh the page
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:BUDGETREDIRECTIONID}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:BUDGETREDIRECTIONID}  for the award #{SavedValue:AwardEGMSID}.
-#    Amendment Details:
-#    Amendment Type: Budget Redirection
-#    Amendment ID: {SavedValue:BUDGETREDIRECTIONID}
-#    Key POC: Automation SPI3
-#    Status: Submitted for Approval
-#    Grant: {SavedValue:GrantEGMSID}
-#    Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
+    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:BUDGETREDIRECTIONID}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:BUDGETREDIRECTIONID}  for the award #{SavedValue:AwardEGMSID}.
+    Amendment Details:
+    Amendment Type: Budget Redirection
+    Amendment ID: {SavedValue:BUDGETREDIRECTIONID}
+    Key POC: Automation SPI3
+    Status: Submitted for Approval
+    Grant: {SavedValue:GrantEGMSID}
+    Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:BUDGETREDIRECTIONID}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:BUDGETREDIRECTIONID}  for the award #{SavedValue:AwardEGMSID}.
+    Amendment Details:
+    Amendment Type: Budget Redirection
+    Amendment ID: {SavedValue:BUDGETREDIRECTIONID}
+    Key POC: Automation SPI3
+    Status: Submitted for Approval
+    Grant: {SavedValue:GrantEGMSID}
+    Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:BUDGETREDIRECTIONID}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:BUDGETREDIRECTIONID}  for the award #{SavedValue:AwardEGMSID}.
+    Amendment Details:
+    Amendment Type: Budget Redirection
+    Amendment ID: {SavedValue:BUDGETREDIRECTIONID}
+    Key POC: Automation SPI3
+    Status: Submitted for Approval
+    Grant: {SavedValue:GrantEGMSID}
+    Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+    Then I refresh the page
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:BUDGETREDIRECTIONID}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:BUDGETREDIRECTIONID}  for the award #{SavedValue:AwardEGMSID}.
+    Amendment Details:
+    Amendment Type: Budget Redirection
+    Amendment ID: {SavedValue:BUDGETREDIRECTIONID}
+    Key POC: Automation SPI3
+    Status: Submitted for Approval
+    Grant: {SavedValue:GrantEGMSID}
+    Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
     Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "PM" user
@@ -245,7 +245,7 @@ Feature: Amendment Request scenarios with Undo
     #342792
     Then I softly see value "{SavedValue:BUDGETREDIRECTIONID}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
 
-  @done @292390 @292391 @292392 @292393 @292398 @292401 @VerifythatwhenPMuserafterclickonundobuttonBudredAmmendrequestrecordgoesbacktosubmitforapprovalstate @sprint-3-US-288689 @hitesh @Undo
+  @292390 @292391 @292392 @292393 @292398 @292401 @VerifythatwhenPMuserafterclickonundobuttonBudredAmmendrequestrecordgoesbacktosubmitforapprovalstate @sprint-3-US-288689 @hitesh @Undo
   Scenario: Verify that when PM user after click on undo button Bud red Ammend request record goes back to submit for approval state
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -366,7 +366,7 @@ Feature: Amendment Request scenarios with Undo
     #292393
     Then I cannot see top right button "Undo" in page detail
 
-  @done @292394 @292395 @VerifythatwhenExeapproverForwardtheBudredAmmendrequestApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-3-US-288689 @hitesh @Undo
+  @292394 @292395 @VerifythatwhenExeapproverForwardtheBudredAmmendrequestApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-3-US-288689 @hitesh @Undo
   Scenario: Verify that when Exe approver Forward the Bud red Ammend request Approval task , Forwarded Approver will see UNDO button and not previous One.
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -444,7 +444,7 @@ Feature: Amendment Request scenarios with Undo
     #292395
     Then I cannot see top right button "Undo" in page detail
 
-  @done @292396 @VerifythatwhenEXEapproverSendbacktheBudredAmmendrequestrecordExewillnotseeUNDObutton @sprint-3-US-288689 @hitesh @Undo
+  @292396 @VerifythatwhenEXEapproverSendbacktheBudredAmmendrequestrecordExewillnotseeUNDObutton @sprint-3-US-288689 @hitesh @Undo
   Scenario:Verify that when EXE approver Send back the Bud red Ammend request record , Exe will not see UNDO button
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -501,7 +501,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
-  @done @292402 @292397 @VerifythatwhenApproveruserafterclickofRejectButtonWillnotSeeUndoButton @sprint-3-US-288689 @hitesh @Undo
+  @292402 @292397 @VerifythatwhenApproveruserafterclickofRejectButtonWillnotSeeUndoButton @sprint-3-US-288689 @hitesh @Undo
   Scenario:Verify that when Approver user after click of Reject Button Will not See Undo Button
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -578,7 +578,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
-  @done @292403 @292404 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @sprint-3-US-288689 @hitesh @Undo
+  @292403 @292404 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @sprint-3-US-288689 @hitesh @Undo
   Scenario:Verify last approver cannot see undo button on approved amendment when award is created on the amendment and is in Pending Activation state
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -656,7 +656,7 @@ Feature: Amendment Request scenarios with Undo
     #292404
     Then I cannot see top right button "Undo" in page detail
 
-  @done @292455 @292634 @VerifyUndobuttonvisibilityonapprovedamendmentaftersubawardisdeletedfromPendingactivationstate @sprint-3-US-288689 @hitesh @Undo
+  @292455 @292634 @VerifyUndobuttonvisibilityonapprovedamendmentaftersubawardisdeletedfromPendingactivationstate @sprint-3-US-288689 @hitesh @Undo
   Scenario:Verify Undo button visibility on approved amendment after subaward is deleted from Pending activation state
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -764,7 +764,7 @@ Feature: Amendment Request scenarios with Undo
     And I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @done @299629 @VerifythatUserWillseesnapshothistorynameAmendmentUndoApprovalpdfinsnapshotHistorytableafterlastapproverclickundobutton @sprint-3-US-299198 @hitesh @Undo
+  @299629 @VerifythatUserWillseesnapshothistorynameAmendmentUndoApprovalpdfinsnapshotHistorytableafterlastapproverclickundobutton @sprint-3-US-299198 @hitesh @Undo
   Scenario: Verify that User Will see snapshot history name Amendment - Undo Approval.pdf in snapshot History table after last approver click undo button
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -854,7 +854,7 @@ Feature: Amendment Request scenarios with Undo
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Amendment - Undo Approval.pdf" as name
 
-  @done @342745 @BudredVerifythatAnyuserwillnotseeUndobuttononBudgetredirectionAmendmentrequestinapprovedstate @sprint-3-US-288689 @hitesh @Undo
+  @342745 @BudredVerifythatAnyuserwillnotseeUndobuttononBudgetredirectionAmendmentrequestinapprovedstate @sprint-3-US-288689 @hitesh @Undo
   Scenario:Bud red ->Verify that Any user will not see Undo button on Budget redirection Amendment request in approved  state
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -932,7 +932,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
-  @done @342712 @342714 @342719 @KPCVerifythatAnyuserwillnotseeUndobuttononKeypersonalchangeARwhenARisincreatedstate @sprint-13-US-331643 @hitesh @Undo
+  @342712 @342714 @342719 @KPCVerifythatAnyuserwillnotseeUndobuttononKeypersonalchangeARwhenARisincreatedstate @sprint-13-US-331643 @hitesh @Undo
   Scenario: KPC-->Verify that Any user will not see Undo button on Key personal change AR when AR is in created state.
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -1083,7 +1083,7 @@ Feature: Amendment Request scenarios with Undo
     #342721
     Then I cannot see top right button "Undo" in page detail
 
-  @done @342632 @342651 @verifythatanyuserwillnotseeUndobuttonwhenperiodicrenewalAmmendmentrequestisincreatedstate  @sprint-13-US-331643 @hitesh @Undo
+  @342632 @342651 @verifythatanyuserwillnotseeUndobuttonwhenperiodicrenewalAmmendmentrequestisincreatedstate  @sprint-13-US-331643 @hitesh @Undo
   Scenario: verify that any user will not see Undo button when periodic renewal Ammendment request is in created state.
     And I activated standalone subaward "Automation Runtime award" with properties "AMENDMENT_REQUEST" of type "Formula_By_Applicant_Focus_Area"
     When I am on "INTERNAL" portal
@@ -1158,7 +1158,7 @@ Feature: Amendment Request scenarios with Undo
     #342651
     Then I cannot see top right button "Undo" in page detail
 
-  @done @287048 @287068 @292545 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-285149 @hitesh @Undo
+  @287048 @287068 @292545 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-285149 @hitesh @Undo
   Scenario: Verify last approver cannot see undo button on approved amendment when award is created on the amendment and is in Pending Activation state
     And I activated standalone subaward "Automation Runtime award" with properties "AMENDMENT_REQUEST" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -1268,7 +1268,7 @@ Feature: Amendment Request scenarios with Undo
     #287048
     Then I cannot see top right button "Undo" in page detail
 
-  @done @292325 @292326 @292483 @292486 @292603 @292605 @292639 @BPchangeamendmentVerifyonclickofUndobuttonontheBPchangeamendmentthestatusofamendmentisdisplayedasSubmittedforapproval @Sprint-2-US-285149 @hitesh @Undo
+  @292325 @292326 @292483 @292486 @292603 @292605 @292639 @BPchangeamendmentVerifyonclickofUndobuttonontheBPchangeamendmentthestatusofamendmentisdisplayedasSubmittedforapproval @Sprint-2-US-285149 @hitesh @Undo
   Scenario: BP change amendment: Verify on click of Undo button on the BP change amendment the status of amendment is displayed as Submitted for approval
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -1356,7 +1356,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on "Undo" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @done @292424 @292486 @VerifyundobuttonisnotdisplayedtouserotherthanlastapproverontheapprovedBPchangeamendmentrequest @Sprint-2-US-285149 @hitesh @Undo
+  @292424 @292486 @VerifyundobuttonisnotdisplayedtouserotherthanlastapproverontheapprovedBPchangeamendmentrequest @Sprint-2-US-285149 @hitesh @Undo
   Scenario: Verify undo button is not displayed to user other than last approver on the approved BP change amendment request
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -1466,7 +1466,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
-  @done @291188 @291189 @291192 @291194 @291195 @291196 @287056 @ValidatethatUsercanForwardARafterclickonUndoButtonAndafterthathewillnotseeUndoButtonAndForwardedApproverWillSeeUndobutton @Sprint-2-US-289814 @vaibhav @Undo
+  @291188 @291189 @291192 @291194 @291195 @291196 @287056 @ValidatethatUsercanForwardARafterclickonUndoButtonAndafterthathewillnotseeUndoButtonAndForwardedApproverWillSeeUndobutton @Sprint-2-US-289814 @vaibhav @Undo
   Scenario: Validate that User can Forward AR after click on Undo Button And after that he will not see Undo Button And Forwarded Approver Will See Undo button
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -1742,7 +1742,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
 
-  @done @291760 @291761 @291762 @ValidatelastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-289823 @vaibhav @Undo
+  @291760 @291761 @291762 @ValidatelastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-289823 @vaibhav @Undo
   Scenario: Validate last approver cannot see undo button on approved amendment when award is created on the amendment and is in Pending Activation state
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -1931,7 +1931,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @done @291763 @ValidateUndobuttonvisibilityonapprovedamendmentaftersubawardisdeletedfromPendingactivationstate @Sprint-2-US-289823 @vaibhav @Undo
+  @291763 @ValidateUndobuttonvisibilityonapprovedamendmentaftersubawardisdeletedfromPendingactivationstate @Sprint-2-US-289823 @vaibhav @Undo
   Scenario: Validate Undo button visibility on approved amendment after subaward is deleted from Pending activation state
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -2054,7 +2054,7 @@ Feature: Amendment Request scenarios with Undo
     And I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @done @287038 @ValidatethatPMApproverlastwillseetheundobuttontoreopentheapprovedtaskwhenPeriodicrenewalARinApprovedState @Sprint-1-US-285144 @vaibhav @Undo
+  @287038 @ValidatethatPMApproverlastwillseetheundobuttontoreopentheapprovedtaskwhenPeriodicrenewalARinApprovedState @Sprint-1-US-285144 @vaibhav @Undo
   Scenario: Validate that PM Approver last will see  the undo button to reopen the approved task when Periodic renewal AR in Approved State
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -2173,7 +2173,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @done @287043 @287049 @287051 @287052 @287044 @287045 @ValidatethatafterPmApproverlastClicksonUndoButtonCompletedApprovalTaskWillgetCancelledforlastApprover @Sprint-1-US-285144 @vaibhav @Undo
+  @287043 @287049 @287051 @287052 @287044 @287045 @ValidatethatafterPmApproverlastClicksonUndoButtonCompletedApprovalTaskWillgetCancelledforlastApprover @Sprint-1-US-285144 @vaibhav @Undo
   Scenario: Validate that after Pm Approver last Clicks on Undo Button Completed Approval Task Will get Cancelled for last Approver
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -2301,122 +2301,122 @@ Feature: Amendment Request scenarios with Undo
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---subAwardStandAlone:-:completeTaskTableId---" panel
     Then I softly see value "Completed" for title "Status" against the value "{SavedValue:SOWAMENDMENTREQUEST}" inside table "---subAwardStandAlone:-:completeTaskTableId---"
-#    #287051
-#    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-#    And I pause execution for "100" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
-#
-#    Amendment Details:
-#	Amendment Type: Periodic Renewal
-#	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
-#	Key POC: Automation SPI3
-# 	Status: Submitted for Approval
-# 	Grant: {SavedValue:GrantEGMSID}
-# 	Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
-#    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
-#
-#    Amendment Details:
-#	Amendment Type: Periodic Renewal
-#	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
-#	Key POC: Automation SPI3
-# 	Status: Submitted for Approval
-# 	Grant: {SavedValue:GrantEGMSID}
-# 	Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
-#    And I checkout to yopmail with mailid "automationpo@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
-#
-#    Amendment Details:
-#	Amendment Type: Periodic Renewal
-#	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
-#	Key POC: Automation SPI3
-# 	Status: Submitted for Approval
-# 	Grant: {SavedValue:GrantEGMSID}
-# 	Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
-#    Then I refresh the page
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
-#
-#    Amendment Details:
-#	Amendment Type: Periodic Renewal
-#	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
-#	Key POC: Automation SPI3
-# 	Status: Submitted for Approval
-# 	Grant: {SavedValue:GrantEGMSID}
-# 	Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
+    #287051
+    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I pause execution for "100" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
 
-  @done @287046 @287047 @ValidatethatwhenLastApproveandAwardOwnerArenotSamethenAmendSubawardbuttonisnotvisibletoapprover @Sprint-1-US-285144 @vaibhav @Undo
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
+
+    Amendment Details:
+	Amendment Type: Periodic Renewal
+	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
+	Key POC: Automation SPI3
+ 	Status: Submitted for Approval
+ 	Grant: {SavedValue:GrantEGMSID}
+ 	Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
+
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
+
+    Amendment Details:
+	Amendment Type: Periodic Renewal
+	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
+	Key POC: Automation SPI3
+ 	Status: Submitted for Approval
+ 	Grant: {SavedValue:GrantEGMSID}
+ 	Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
+
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
+
+    Amendment Details:
+	Amendment Type: Periodic Renewal
+	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
+	Key POC: Automation SPI3
+ 	Status: Submitted for Approval
+ 	Grant: {SavedValue:GrantEGMSID}
+ 	Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+    Then I refresh the page
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
+
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
+
+    Amendment Details:
+	Amendment Type: Periodic Renewal
+	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
+	Key POC: Automation SPI3
+ 	Status: Submitted for Approval
+ 	Grant: {SavedValue:GrantEGMSID}
+ 	Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+
+  @287046 @287047 @ValidatethatwhenLastApproveandAwardOwnerArenotSamethenAmendSubawardbuttonisnotvisibletoapprover @Sprint-1-US-285144 @vaibhav @Undo
   Scenario: Validate That when Last Approver and Award Owner Are not Same then Amend Subaward button is not visible to apprrover
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -2538,7 +2538,7 @@ Feature: Amendment Request scenarios with Undo
     Then I cannot see top right button "Undo" in page detail
     Then I can see top right button "Amend Subaward" in page detail
 
-  @done @287039 @287040 @287041 @287042 @287053 @ValidatethatPMUserwillnotseetheundobuttontoreopentheapprovedtaskwhenPeriodicrenewalARinCreatedState @Sprint-1-US-285144 @vaibhav @Undo
+  @287039 @287040 @287041 @287042 @287053 @ValidatethatPMUserwillnotseetheundobuttontoreopentheapprovedtaskwhenPeriodicrenewalARinCreatedState @Sprint-1-US-285144 @vaibhav @Undo
   Scenario: Validate that PM User will not see the undo button to reopen the approved task when Periodic renewal AR in Created State
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -2682,7 +2682,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     Then I cannot see top right button "Undo" in page detail
 
-  @done @287054 @ValidatethatUsercanApproveARafterclickonUndoButtonAndafterthathewillseeUndoButton @Sprint-1-US-285144 @vaibhav @Undo
+  @287054 @ValidatethatUsercanApproveARafterclickonUndoButtonAndafterthathewillseeUndoButton @Sprint-1-US-285144 @vaibhav @Undo
   Scenario: Validate that User can Approve AR after click on Undo Button And after that he will see Undo Button
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -2787,7 +2787,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
-  @done @287055 @ValidatethatUsercanRejectARafterclickonUndoButtonAndafterthathewillnotseeUndoButton @Sprint-1-US-285144 @vaibhav @Undo
+  @287055 @ValidatethatUsercanRejectARafterclickonUndoButtonAndafterthathewillnotseeUndoButton @Sprint-1-US-285144 @vaibhav @Undo
   Scenario: Validate that User can Reject AR after click on Undo Button And after that he will not see Undo Button
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -2894,7 +2894,7 @@ Feature: Amendment Request scenarios with Undo
     Then I cannot see top right button "Undo" in page detail
     Then I cannot see top right button "Amend Subaward" in page detail
 
-  @done @299878 @ValidatethatAemailWilltriggertoallapproversIncludingForwardedoneandOwnerOfArafterclickonyesButton @Sprint-1-US-285144 @vaibhav @Undo
+  @299878 @ValidatethatAemailWilltriggertoallapproversIncludingForwardedoneandOwnerOfArafterclickonyesButton @Sprint-1-US-285144 @vaibhav @Undo
   Scenario: Validate that A email Will trigger to all approvers Including Forwarded one and Owner Of Ar after click on yes Button
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -3020,121 +3020,121 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
-#    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-#    And I pause execution for "100" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
-#
-#    Amendment Details:
-#	Amendment Type: Periodic Renewal
-#	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
-#	Key POC: Automation SPI3
-# 	Status: Submitted for Approval
-# 	Grant: {SavedValue:GrantEGMSID}
-# 	Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
-#    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
-#
-#    Amendment Details:
-#	Amendment Type: Periodic Renewal
-#	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
-#	Key POC: Automation SPI3
-# 	Status: Submitted for Approval
-# 	Grant: {SavedValue:GrantEGMSID}
-# 	Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
-#    And I checkout to yopmail with mailid "automationpo@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
-#
-#    Amendment Details:
-#	Amendment Type: Periodic Renewal
-#	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
-#	Key POC: Automation SPI3
-# 	Status: Submitted for Approval
-# 	Grant: {SavedValue:GrantEGMSID}
-# 	Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
-#    #To Do:-Email is not generating for forwarded approval once bug resolve Bug Id:- 368885 after that will Uncomment below steps
-##    And I checkout to yopmail with mailid "automationfd@yopmail.com"
-##    And I pause execution for "80" seconds
-##    Then I refresh the page
-##    And I see the mail subject is as follows :
-##      """
-##     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
-##      """
-##    Then I see the mail text is as follows :
-##     """
-##    Hello,
-##
-##    This email is to inform you that the Approver Automation FD  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
-##
-##    Amendment Details:
-##	Amendment Type: Periodic Renewal
-##	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
-##	Key POC: Automation SPI3
-## 	Status: Submitted for Approval
-## 	Grant: {SavedValue:GrantEGMSID}
-## 	Funding Organization: Test Automation Organization
-##
-##    Log in to EGMS and click here to review the amendment request.
-##
-##    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-##
-##    Thank you.
-##    The EGMS Team
-##    """
+    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I pause execution for "100" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
 
-  @done @329625 @ValidatePRthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApprover @Sprint-13-US-331643 @vaibhav @Undo
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
+
+    Amendment Details:
+	Amendment Type: Periodic Renewal
+	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
+	Key POC: Automation SPI3
+ 	Status: Submitted for Approval
+ 	Grant: {SavedValue:GrantEGMSID}
+ 	Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
+
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
+
+    Amendment Details:
+	Amendment Type: Periodic Renewal
+	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
+	Key POC: Automation SPI3
+ 	Status: Submitted for Approval
+ 	Grant: {SavedValue:GrantEGMSID}
+ 	Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
+
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
+
+    Amendment Details:
+	Amendment Type: Periodic Renewal
+	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
+	Key POC: Automation SPI3
+ 	Status: Submitted for Approval
+ 	Grant: {SavedValue:GrantEGMSID}
+ 	Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+    #To Do:-Email is not generating for forwarded approval once bug resolve Bug Id:- 368885 after that will Uncomment below steps
+#    And I checkout to yopmail with mailid "automationfd@yopmail.com"
+#    And I pause execution for "80" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
+#      """
+#    Then I see the mail text is as follows :
+#     """
+#    Hello,
+#
+#    This email is to inform you that the Approver Automation FD  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
+#
+#    Amendment Details:
+#	Amendment Type: Periodic Renewal
+#	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
+#	Key POC: Automation SPI3
+# 	Status: Submitted for Approval
+# 	Grant: {SavedValue:GrantEGMSID}
+# 	Funding Organization: Test Automation Organization
+#
+#    Log in to EGMS and click here to review the amendment request.
+#
+#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+#
+#    Thank you.
+#    The EGMS Team
+#    """
+
+  @329625 @ValidatePRthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApprover @Sprint-13-US-331643 @vaibhav @Undo
   Scenario: Validate PR that approval task and email is generated to last step approver on click of undo button by Last Approver of desk review
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -3262,36 +3262,36 @@ Feature: Amendment Request scenarios with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "200" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
-#
-#    Amendment Details:
-#	Amendment Type: Periodic Renewal
-#	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
-#	Key POC: Automation SPI3
-# 	Status: Submitted for Approval
-# 	Grant: {SavedValue:GrantEGMSID}
-# 	Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "200" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Notification: Approver has initiated Undo Action on AmendmentRequest #{SavedValue:SOWAMENDMENTREQUEST}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
 
-  @done @329631 @ValidateKPCthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApprover @Sprint-13-US-331643 @vaibhav @Undo
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:SOWAMENDMENTREQUEST}  for the award #{SavedValue:AwardEGMSID}.
+
+    Amendment Details:
+	Amendment Type: Periodic Renewal
+	Amendment ID: {SavedValue:SOWAMENDMENTREQUEST}
+	Key POC: Automation SPI3
+ 	Status: Submitted for Approval
+ 	Grant: {SavedValue:GrantEGMSID}
+ 	Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+
+  @329631 @ValidateKPCthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApprover @Sprint-13-US-331643 @vaibhav @Undo
   Scenario: Validate KPC that approval task and email is generated to last step approver on click of undo button by Last Approver of desk review
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -3378,36 +3378,36 @@ Feature: Amendment Request scenarios with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:kpcId}" in "---amendment:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:kpcId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "100" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Sandbox: Notification: Approver has initiated Undo Action onAmendment Request #{SavedValue:kpcId}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:kpcId}  for the award #{SavedValue:AwardEGMSID}.
-#
-#    Amendment Details:
-#	Amendment Type: Key Personnel Change
-#	Amendment ID: {SavedValue:kpcId}
-#	Key POC: Automation SPI3
-# 	Status: Submitted for Approval
-# 	Grant: {SavedValue:GrantEGMSID}
-# 	Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "100" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Sandbox: Notification: Approver has initiated Undo Action onAmendment Request #{SavedValue:kpcId}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
 
-  @done @329639 @ValidateBudredthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApprover @Sprint-13-US-331643 @vaibhav @Undo
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:kpcId}  for the award #{SavedValue:AwardEGMSID}.
+
+    Amendment Details:
+	Amendment Type: Key Personnel Change
+	Amendment ID: {SavedValue:kpcId}
+	Key POC: Automation SPI3
+ 	Status: Submitted for Approval
+ 	Grant: {SavedValue:GrantEGMSID}
+ 	Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+
+  @329639 @ValidateBudredthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApprover @Sprint-13-US-331643 @vaibhav @Undo
   Scenario: Validate Bud red-Verify that approval task and email is generated to last step approver on click of undo button by Last Approver
     And I activated standalone subaward "Automation Runtime Award" with properties "IS_BUILDUP_FUNCTIONALITY_YES" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -3499,36 +3499,36 @@ Feature: Amendment Request scenarios with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:BUDGETREDIRECTIONID}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "100" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Sandbox: Notification: Approver has initiated Undo Action onAmendment Request #{SavedValue:BUDGETREDIRECTIONID}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:BUDGETREDIRECTIONID}  for the award #{SavedValue:AwardEGMSID}.
-#
-#    Amendment Details:
-#	Amendment Type: Budget Redirection
-#	Amendment ID: {SavedValue:BUDGETREDIRECTIONID}
-#	Key POC: Automation SPI3
-# 	Status: Submitted for Approval
-# 	Grant: {SavedValue:GrantEGMSID}
-# 	Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "100" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Sandbox: Notification: Approver has initiated Undo Action onAmendment Request #{SavedValue:BUDGETREDIRECTIONID}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
 
-  @done @326045 @ValidateBudredthatlastapprovercannotseeUndoButtonOnAmmendmentwhenARisinForceclosedstate @Sprint-13-US-331643 @vaibhav @Undo
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:BUDGETREDIRECTIONID}  for the award #{SavedValue:AwardEGMSID}.
+
+    Amendment Details:
+	Amendment Type: Budget Redirection
+	Amendment ID: {SavedValue:BUDGETREDIRECTIONID}
+	Key POC: Automation SPI3
+ 	Status: Submitted for Approval
+ 	Grant: {SavedValue:GrantEGMSID}
+ 	Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+
+  @326045 @ValidateBudredthatlastapprovercannotseeUndoButtonOnAmmendmentwhenARisinForceclosedstate @Sprint-13-US-331643 @vaibhav @Undo
   Scenario: Validate Bud red that last approver can not see Undo Button On Ammendment when AR isin Force closed state
     And I activated standalone subaward "Automation Runtime Award" with properties "IS_BUILDUP_FUNCTIONALITY_YES" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -3613,7 +3613,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Force Closed"
     Then I cannot see top right button "Undo" in page detail
 
-  @done @329638 @ValidateCFthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApproverofAmendment @Sprint-13-US-331643 @vaibhav @Undo
+  @329638 @ValidateCFthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApproverofAmendment @Sprint-13-US-331643 @vaibhav @Undo
   Scenario: Validate CF that approval task and email is generated to last step approver on click of undo button by Last Approver of Amendment
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -3790,36 +3790,36 @@ Feature: Amendment Request scenarios with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:CFAmendmentId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "150" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Sandbox: Notification: Approver has initiated Undo Action onAmendment Request #{SavedValue:CFAmendmentId}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:CFAmendmentId}  for the award #{SavedValue:AwardEGMSID}.
-#
-#    Amendment Details:
-#	Amendment Type: Carry Forward
-#	Amendment ID: {SavedValue:CFAmendmentId}
-#	Key POC: Automation SPI3
-# 	Status: Submitted for Approval
-# 	Grant: {SavedValue:GrantEGMSID}
-# 	Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "150" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Sandbox: Notification: Approver has initiated Undo Action onAmendment Request #{SavedValue:CFAmendmentId}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
 
-  @done @325284 @Validatetheundoishiddenontheamendmentwhere1awardwasinpendingactstateonthegrantandVisiblewhenAmendsubwardbuttonisnotclick @Sprint-13-US-331643 @vaibhav @Undo
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:CFAmendmentId}  for the award #{SavedValue:AwardEGMSID}.
+
+    Amendment Details:
+	Amendment Type: Carry Forward
+	Amendment ID: {SavedValue:CFAmendmentId}
+	Key POC: Automation SPI3
+ 	Status: Submitted for Approval
+ 	Grant: {SavedValue:GrantEGMSID}
+ 	Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+
+  @325284 @Validatetheundoishiddenontheamendmentwhere1awardwasinpendingactstateonthegrantandVisiblewhenAmendsubwardbuttonisnotclick @Sprint-13-US-331643 @vaibhav @Undo
   Scenario: Validate the undo is hidden on the amendment where 1 award was in pending act state  on the grant and Visible when Amend subward button is not click
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -3908,7 +3908,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @done @329507 @ValidateFCthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApprover @Sprint-13-US-331643 @vaibhav @Undo
+  @329507 @ValidateFCthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApprover @Sprint-13-US-331643 @vaibhav @Undo
   Scenario: Validate FC that approval task and email is generated to last step approver on click of undo button by Last Approver
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -4023,36 +4023,36 @@ Feature: Amendment Request scenarios with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "150" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#     Sandbox: Notification: Approver has initiated Undo Action onAmendment Request #{SavedValue:FundingID}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#
-#    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:FundingID}  for the award #{SavedValue:AwardEGMSID}.
-#
-#    Amendment Details:
-#	Amendment Type: Funding Change
-#	Amendment ID: {SavedValue:FundingID}
-#	Key POC: Automation SPI3
-# 	Status: Submitted for Approval
-# 	Grant: {SavedValue:GrantEGMSID}
-# 	Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "150" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+     Sandbox: Notification: Approver has initiated Undo Action onAmendment Request #{SavedValue:FundingID}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
 
-  @done @325565 @ValidateCArryFwdthebehaviorifForwardedapproverapprovesARandclicksonundoButton @Sprint-13-US-331643 @vaibhav @Undo
+    This email is to inform you that the Approver Automation PM  has initiated Undo Action for amendment request #{SavedValue:FundingID}  for the award #{SavedValue:AwardEGMSID}.
+
+    Amendment Details:
+	Amendment Type: Funding Change
+	Amendment ID: {SavedValue:FundingID}
+	Key POC: Automation SPI3
+ 	Status: Submitted for Approval
+ 	Grant: {SavedValue:GrantEGMSID}
+ 	Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+
+  @325565 @ValidateCArryFwdthebehaviorifForwardedapproverapprovesARandclicksonundoButton @Sprint-13-US-331643 @vaibhav @Undo
   Scenario: Validate CArry Fwd the behavior if Forwarded approver approves AR and clicks on undo Button
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -4258,7 +4258,7 @@ Feature: Amendment Request scenarios with Undo
     And I perform quick search for "{SavedValue:CFAmendmentId}" in "---subAwardStandAlone:-:completeTaskTableId---" panel
     Then I softly see value "Cancelled" for title "Status" against the value "{SavedValue:CFAmendmentId}" inside table "---subAwardStandAlone:-:completeTaskTableId---"
 
-  @done @309347 @ValidateKPClastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinforceClosedstate @Sprint-13-US-331643 @vaibhav @Undo
+  @309347 @ValidateKPClastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinforceClosedstate @Sprint-13-US-331643 @vaibhav @Undo
   Scenario: Validate KPC last approver cannot see undo button on approved amendment when award is created on the amendment and is in force Closed state
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -4341,7 +4341,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Force Closed"
     Then I cannot see top right button "Undo" in page detail
 
-  @done @342724 @342726 @342731 @342732 @ValidateCFARthatAnyuserwillnotseeUndoButtonwhenCarryforwardAmendmentisinCreatedstate @Sprint-13-US-331643 @vaibhav @Undo
+  @342724 @342726 @342731 @342732 @ValidateCFARthatAnyuserwillnotseeUndoButtonwhenCarryforwardAmendmentisinCreatedstate @Sprint-13-US-331643 @vaibhav @Undo
   Scenario: Validate CF AR that Any user will not see Undo Button when Carry forward Amendment is in Created state
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -4549,7 +4549,7 @@ Feature: Amendment Request scenarios with Undo
     #342732
     Then I cannot see top right button "Undo" in page detail
 
-  @done @292183 @292224 @292576 @ValidateFDuserassinglestepapproverstep1canabletoseeUNDObuttonafterApprovedtheARbyassignedapprover @Sprint-3-US-286469 @vaibhav @Undo
+  @292183 @292224 @292576 @ValidateFDuserassinglestepapproverstep1canabletoseeUNDObuttonafterApprovedtheARbyassignedapprover @Sprint-3-US-286469 @vaibhav @Undo
   Scenario: Validate FD user as single step approver step 1 can able to see UNDO button after Approved the AR by assigned approver
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -4640,66 +4640,66 @@ Feature: Amendment Request scenarios with Undo
     And I click on "View" icon for "{SavedValue:TermsCondId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
-#    And I logout
-#    And I checkout to yopmail with mailid "automationfd@yopmail.com"
-#    And I pause execution for "220" seconds
-#    Then I refresh the page
-#    And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onAmendment Request #{SavedValue:TermsCondId}"
-#    And I see the mail subject is as follows :
-#      """
-#     Sandbox: Notification: Approver has initiated Undo Action onAmendment Request #{SavedValue:TermsCondId}
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello,
-#    This email is to inform you that the Approver Automation FD  has initiated Undo Action for amendment request #{SavedValue:TermsCondId}  for the award #{SavedValue:AwardEGMSID}.
-#    Amendment Details:
-#    Amendment Type: Terms and Conditions Change
-#    Amendment ID: {SavedValue:TermsCondId}
-#    Key POC: Automation SPI3
-#    Status: Submitted for Approval
-#    Grant: {SavedValue:GrantEGMSID}
-#    Funding Organization: Test Automation Organization
-#
-#    Log in to EGMS and click here to review the amendment request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#    The EGMS Team
-#    """
-#    And I checkout to yopmail with mailid "automationfd@yopmail.com"
-#    And I pause execution for "10" seconds
-#    And I refresh the page
-#    And I click on mail with subject "Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} hasbeen Submitted for Approval"
-#    And I see the mail subject is as follows :
-#      """
-#     Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} hasbeen Submitted for Approval
-#      """
-#    Then I see the mail text is as follows :
-#     """
-#    Hello ,
-#
-#    This email is to inform you that the amendment request #{SavedValue:TermsCondId} has been created for the award #{SavedValue:AwardEGMSID}. You are assigned with the task to review and approve the amendment made for the award.
-#
-#    Amendment Details:
-#    Amendment Type: Terms and Conditions Change
-#    Amendment ID: {SavedValue:TermsCondId}
-#    Status: Submitted for Approval
-#    Grant: {SavedValue:GrantEGMSID}
-#
-#    Log in to EGMS and click here for more information.
-#
-#    Please follow all State Government protocols and standards for reviewing the Amendment Request.
-#
-#    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#
-#    Thank you.
-#
-#    The EGMS Team
-#    """
-#    And I am on "INTERNAL" portal
-#    When I login to "As a Grantor" app as "FD" user
+    And I logout
+    And I checkout to yopmail with mailid "automationfd@yopmail.com"
+    And I pause execution for "220" seconds
+    Then I refresh the page
+    And I click on mail with subject "Sandbox: Notification: Approver has initiated Undo Action onAmendment Request #{SavedValue:TermsCondId}"
+    And I see the mail subject is as follows :
+      """
+     Sandbox: Notification: Approver has initiated Undo Action onAmendment Request #{SavedValue:TermsCondId}
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello,
+    This email is to inform you that the Approver Automation FD  has initiated Undo Action for amendment request #{SavedValue:TermsCondId}  for the award #{SavedValue:AwardEGMSID}.
+    Amendment Details:
+    Amendment Type: Terms and Conditions Change
+    Amendment ID: {SavedValue:TermsCondId}
+    Key POC: Automation SPI3
+    Status: Submitted for Approval
+    Grant: {SavedValue:GrantEGMSID}
+    Funding Organization: Test Automation Organization
+
+    Log in to EGMS and click here to review the amendment request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+    The EGMS Team
+    """
+    And I checkout to yopmail with mailid "automationfd@yopmail.com"
+    And I pause execution for "10" seconds
+    And I refresh the page
+    And I click on mail with subject "Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} hasbeen Submitted for Approval"
+    And I see the mail subject is as follows :
+      """
+     Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} hasbeen Submitted for Approval
+      """
+    Then I see the mail text is as follows :
+     """
+    Hello ,
+
+    This email is to inform you that the amendment request #{SavedValue:TermsCondId} has been created for the award #{SavedValue:AwardEGMSID}. You are assigned with the task to review and approve the amendment made for the award.
+
+    Amendment Details:
+    Amendment Type: Terms and Conditions Change
+    Amendment ID: {SavedValue:TermsCondId}
+    Status: Submitted for Approval
+    Grant: {SavedValue:GrantEGMSID}
+
+    Log in to EGMS and click here for more information.
+
+    Please follow all State Government protocols and standards for reviewing the Amendment Request.
+
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+
+    Thank you.
+
+    The EGMS Team
+    """
+    And I am on "INTERNAL" portal
+    When I login to "As a Grantor" app as "FD" user
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4805,7 +4805,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     Then I cannot see top right button "Undo" in page detail
 
-  @done @292230 @ValidatenewFDuserLaststepapprovercanseeUNDObuttononApprovedstateofARwhenapprovaltaskistransferfromoneFDstep1usertootherFDuserstep1 @Sprint-3-US-286469 @vaibhav @Undo
+  @292230 @ValidatenewFDuserLaststepapprovercanseeUNDObuttononApprovedstateofARwhenapprovaltaskistransferfromoneFDstep1usertootherFDuserstep1 @Sprint-3-US-286469 @vaibhav @Undo
   Scenario: Validate new FD user Last step approver can see UNDO button on Approved state of AR when approval task is transfer from one FD step1 user to other FD user step 1
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -4917,7 +4917,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
-  @done @292582 @292587 @292594 @292591 @292588 @ValidatePOuserasLaststepapprovercanseeUNDOAmendsubawardbuttonsonApprovedstateofARwhenAmendmentownerissameaslaststepapprove2stepapproverabletoForwardapprovaldecisiontasktoEXEuser @Sprint-3-US-286469 @vaibhav @Undo
+  @292582 @292587 @292594 @292591 @292588 @ValidatePOuserasLaststepapprovercanseeUNDOAmendsubawardbuttonsonApprovedstateofARwhenAmendmentownerissameaslaststepapprove2stepapproverabletoForwardapprovaldecisiontasktoEXEuser @Sprint-3-US-286469 @vaibhav @Undo
   Scenario: Validate PO user as Last step approver can see UNDO & Amend subaward buttons on Approved state of AR when Amendment owner is same as last step approver(2 step approver) able to Forward approval decision task to EXE user
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -5259,7 +5259,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
-  @done @294372 @ValidateFDuserassinglestepapproverstep1cannotabletoseeUNDObuttonafterRejectedtheARbyassignedapprover @Sprint-3-US-286469 @vaibhav @Undo
+  @294372 @ValidateFDuserassinglestepapproverstep1cannotabletoseeUNDObuttonafterRejectedtheARbyassignedapprover @Sprint-3-US-286469 @vaibhav @Undo
   Scenario: Validate FD user as single step approver step 1 cannot able to see UNDO button after Rejected the AR by assigned approver
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -5331,7 +5331,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see column "Overall Status" at position "1" contains text "Rejected"
     Then I softly do not see value "{SavedValue:FD Username}" for title "Taken By" inside table "a0t4T000000YQBcQAO"
 
-  @done @292590 @Validatestep3approvercannotseeUNDObuttoninPendingActivatedstateofnewAwardpostT&CAR&seeUndobuttononARisinApprovedonceclickondeletebuttononAwardthenARinSubmittoGrantorstate @Sprint-3-US-286469 @vaibhav @Undo
+  @292590 @Validatestep3approvercannotseeUNDObuttoninPendingActivatedstateofnewAwardpostT&CAR&seeUndobuttononARisinApprovedonceclickondeletebuttononAwardthenARinSubmittoGrantorstate @Sprint-3-US-286469 @vaibhav @Undo
   Scenario: Validate step 3 approver cannot see UNDO button in Pending Activated state of new Award post T &C AR & see Undo button on AR is in Approved once click on delete button on Award then AR in Submit to Grantor state
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -5608,7 +5608,7 @@ Feature: Amendment Request scenarios with Undo
     And I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @done @325583 @ValidateCarryForwrdthatUndobuttonisavailabletocarryForwardamendmentonBPO2andBP03award @Sprint-13-US-331643 @vaibhav @Undo
+  @325583 @ValidateCarryForwrdthatUndobuttonisavailabletocarryForwardamendmentonBPO2andBP03award @Sprint-13-US-331643 @vaibhav @Undo
   Scenario: Validate Carry Forwrd that Undo button is available to carry Forward amendment on BPO2 and BP03 award
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user

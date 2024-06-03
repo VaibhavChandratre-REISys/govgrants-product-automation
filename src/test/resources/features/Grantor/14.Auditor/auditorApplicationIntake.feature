@@ -1,7 +1,7 @@
 @auditorApplication @t1 @auditorNegotiations @auditor @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Application Module
 
-  @done @73805 @auditorCannotViewCreatedStatusPreApplication
+  @73805 @auditorCannotViewCreatedStatusPreApplication
   Scenario: Validate whether Auditor can view the application that is in Created Status
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -25,7 +25,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I perform quick search for "Record Id" in "---preApplication:-:preApplicationsGrantorTableId---" panel
     Then I softly see "No records found" inside flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
 
-  @done @69163 @auditorCannotCreateNegotiation @buglogged151669
+  @69163 @auditorCannotCreateNegotiation @buglogged151669
   Scenario: Validate Auditor should not be  able to  Create Negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -38,7 +38,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     Then I cannot see row level action button "Initiate Negotiation" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---applicationReview:-:recommendedTableId---"
 
-  @done @69164 @auditorCannotSend/CompleteNegotiations @buglogged151671
+  @69164 @auditorCannotSend/CompleteNegotiations @buglogged151671
   Scenario: Validate Auditor should be able to View the record but shouldn't be able to Complete Negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -75,7 +75,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:negotiationPendingTaskTableId---" panel
     Then I see "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---negotiation:-:negotiationPendingTaskTableId---"
 
-  @done @69165 @auditorViewRecordCannotCreateSubawardFromApprovedFDM @buglogged151669
+  @69165 @auditorViewRecordCannotCreateSubawardFromApprovedFDM @buglogged151669
   Scenario: Validate Auditor Can view the record but should not be  able to  Create Subaward From Approved FDM
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -92,7 +92,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     Then I see status in Progress-bar is "Approved" and is "dark blue"
 
-  @done @69166 @auditorApplication @smoke
+  @69166 @auditorApplication @smoke
   Scenario Outline: Validate Auditor should be able to View submitted application details but cannot edit the submitted application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -147,7 +147,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Application Name                                         |
       | {SavedValue:Automation Runtime Announcement Application} |
 
-  @done @69301 @auditorCannotAddAttachmentsAndNotes
+  @69301 @auditorCannotAddAttachmentsAndNotes
   Scenario Outline: Verify User with Auditor profile has no ability to add attachments and notes.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -207,7 +207,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Application Name                                             | User    |
       | {SavedValue:Automation Runtime Announcement for Application} | Auditor |
 
-  @done @69941 @69940 @audiorPreApplicationToApplication
+  @69941 @69940 @audiorPreApplicationToApplication
   Scenario Outline: Validate Auditor should have view / read  only access to submitted pre-application| Validate Auditor should not be  able to Review/Accept/Reject Preapplication
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -304,7 +304,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
       | Announcement Name                                        |
       | {SavedValue:Automation Runtime Announcement Application} |
 
-  @done @69984 @auditorApplicationReview
+  @69984 @auditorApplicationReview
   Scenario Outline: Validate auditor should have view / read  only access to completed status Application review
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"

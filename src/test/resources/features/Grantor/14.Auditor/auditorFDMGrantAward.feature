@@ -1,7 +1,7 @@
 @auditorGrant/Award @auditor @t1 @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Grant/Award
 
-  @done @69168 @auditorCannotCreateGrantandSubaward @smoke @buglogged100983
+  @69168 @auditorCannotCreateGrantandSubaward @smoke @buglogged100983
   Scenario: Validate Auditor should not be able to  Create/Edit Grant/subaward
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "AUDITOR" user
@@ -14,7 +14,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I navigate to "Subawards" sub tab
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
 
-  @done @69169 @auditorCannotEDitActiveGrantAward
+  @69169 @auditorCannotEDitActiveGrantAward
   Scenario: Validate Auditor do not have Edit permission for Grant/Subaward
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "AUDITOR" user
@@ -31,7 +31,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardStandAlone:-:subawardsTableId---" panel
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime award}" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
 
-  @done @69170 @auditorCanViewActiveGrantAward
+  @69170 @auditorCanViewActiveGrantAward
   Scenario: Validate Auditor should have view / read  only access to Active Grant/Award
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "AUDITOR" user
