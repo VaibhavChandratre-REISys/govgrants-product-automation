@@ -93,9 +93,9 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
 #      | {SavedValue:FO Username}  |
 #      | {SavedValue:PM Username}  |
 ##    When I expand nested table containing column value "<Application Name>"
-    And I navigate to url "10"
+    And I pause execution for "10" seconds
     And I navigate to url "//test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/ReviewStep__c/a3SDV000000uOys2AE/view"
-    And I navigate to url "10"
+    And I pause execution for "10" seconds
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
