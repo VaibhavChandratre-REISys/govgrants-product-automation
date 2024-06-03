@@ -1,4 +1,4 @@
-@SiteVisitExecution @siteVisits @grantor-regression @grantor-parallel-regression @siteVisit @regression
+@SiteVisitExecution @siteVisits @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisit_Lwc_Run
 Feature: Validate all scenarios in the Site Visit
 
   Background: Data setup for Site Visit
@@ -1692,7 +1692,8 @@ Feature: Validate all scenarios in the Site Visit
 #    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
 #    And I pause execution for "3" seconds
     And I click toggle button to select "Grants - All"
-    And I pause execution for "15" seconds
+    And I pause execution for "3" seconds
+    When I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "ActiveGrants" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "ActiveGrants"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"

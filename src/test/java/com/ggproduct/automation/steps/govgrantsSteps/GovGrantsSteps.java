@@ -441,12 +441,12 @@ public final class GovGrantsSteps {
 
     @When("^I expand nested table containing column value \"([^\"]*)\"$")
     public void expandNestedTable(String uniqueColumnValue) {
-        govgrants.perform().flexTable().expandOrCollapseNestedTable(uniqueColumnValue, true);
+        govgrants.perform().flexTable().expand(uniqueColumnValue);
     }
 
     @When("^I collapse nested table containing column value \"([^\"]*)\"$")
     public void collapseNestedTable(String uniqueColumnValue) {
-        govgrants.perform().flexTable().expandOrCollapseNestedTable(uniqueColumnValue, false);
+        govgrants.perform().flexTable().collapse(uniqueColumnValue);
     }
 
     @When("^I expand nested table containing column value \"([^\"]*)\" inside nested table containing \"([^\"]*)\"$")
@@ -1030,7 +1030,7 @@ public final class GovGrantsSteps {
             I.amPerforming().click().withJavaScript(inputBox1);
             I.amPerforming().textInput().toClear(inputBox1);
             I.amPerforming().textInput().in(inputBox1, fieldValue);
-            I.amPerforming().click().on(By.xpath("//div//ul//span[contains(@class,'lookup__item-action')]//span[text()='" + fieldValue + "']"));
+            I.amPerforming().click().withJavaScript(By.xpath("//div//ul//span[contains(@class,'lookup__item-action')]//span[text()='" + fieldValue + "'] | //div[@title='" + fieldValue + "']"));
         }
     }
 

@@ -2899,7 +2899,6 @@ Feature: Validate all scenarios in Closeout
     And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-  Progress Report
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     Given I delete the record "Automation Runtime Award for closeout94600" from the object "Progress Report"
     When I create a post award record "ProgressReport" for the Award "Automation Runtime Award for closeout94600" having object api name as "ProgressReports__c"

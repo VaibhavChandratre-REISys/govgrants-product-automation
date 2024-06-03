@@ -168,7 +168,7 @@ public class UsersAndURL implements UsersController {
                 password = "Salesforce@2028";
                 break;
             default:
-                password = "Salesforce2029";
+                password = "Sales@2024";
         }
         return password;
     }

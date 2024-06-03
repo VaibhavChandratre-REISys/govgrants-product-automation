@@ -1920,7 +1920,7 @@ Feature: Validate scenarios in Progress Report Forms
       | State is required to save.                                                                                     |
       | ZIP / Postal Code is required to save.                                                                         |
       | Signature of Authorized Certifying Official is required to save.                                               |
-      | Submitted On : is required to save.                                                                            |
+      | Date Report Submitted: is required to save.                                                                            |
       | Signature of Authorized Certifying Official is required to save.                                               |
       | Date Request Submitted is required to save.                                                                    |
     And I enter "SF271_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
@@ -1987,6 +1987,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I enter value "300" into field "FunctionPercentage__c"
     And I enter value "400" into field "ActivityPercentage__c"
     And I enter value "500" into field "TotalPercentage271__c"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
 #    And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :

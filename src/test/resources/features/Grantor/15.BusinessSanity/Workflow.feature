@@ -1534,10 +1534,10 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "PM" user
-  And I halt execution
-#    And I navigate to "Applications" tab
-#    And I select "Site Visits" from dropdown for Global search
-#    And I perform quick search inside global search "AN-TAO modified-7729"
-#    Then I softly can see row level action button "Undo" against "AN-TAO modified-7729" in global search with id "Announcements"
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I halt execution
+    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
+    Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
+    And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
+    Then I softly see value "$1,700.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
