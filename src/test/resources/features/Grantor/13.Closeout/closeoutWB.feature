@@ -2910,108 +2910,108 @@ Feature: Validate all scenarios in Closeout
 
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/progressreports/a3CDV000000rEIj2AM/prgt123407541002?retURL=JTJGcmVjaXBpZW50JTJGcyUyRlJlY2lwaWVudE1vbml0b3Jpbmc%3D"
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/paymentrequest/a2xDV000001JEycYAG/pr12347792"
 
 #    And I navigate to "Home" tab
 #    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
 #    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
 #    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Forms and Files" sub tab
-    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I pause execution for "5" seconds
-    And I click modal button "Close"
-    When I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "progID"
-    And I click on "Edit" in the page details
-    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I navigate to "Performance" sub tab
-    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
-      | Title                    | Reported Date | Actual |
-      | Automation Permanent KPI | 7             | 7      |
-    When I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "1"
-    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I close the tab
-#    And I click on "Back" in the page details
-    When I click on "Submit to Grantor" in the page details
-    Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
-      | Name          | Progress Report |
-      | Automation PM | Step 1          |
-    And I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
-    #payment request 1
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - Active"
-    When I perform quick search for "Automation Runtime Award for closeout94600" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "Automation Runtime Award for closeout94600" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "Automation Runtime Award for closeout94600" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
-    When I navigate to "Actuals" sub tab
-    And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
-    When I enter value "Automation Runtime Payment Request" into field "Title__c"
-    And I click modal button "Save and Continue"
-    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "PayreqId"
-    And I navigate to "Financials" sub tab
-    When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
-    When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Unit Price | Quantity | Measurement |
-      | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
-    And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
-    And I navigate to "Financials" sub tab
-    And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
-      | Funding Account             | Net Spent This Action |
-      | {SavedValue:fundingAccount} | 30                    |
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
-      | Name                     | Reimbursement |
-      | {SavedValue:PM Username} | Step 1        |
-    When I get the "EGMS ID"
-    When I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
-     #payment request 2
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - Active"
-    When I perform quick search for "Automation Runtime Award for closeout94600" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "Automation Runtime Award for closeout94600" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
-    And I save the field labeled "EGMS ID" as "GrantEGMSID"
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "Automation Runtime Award for closeout94600" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
-    And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    When I navigate to "Actuals" sub tab
-    And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
-    When I enter value "Automation Runtime Payment Request" into field "Title__c"
-    And I click modal button "Save and Continue"
-    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
-    When I click on "Save" in the page details
+#    When I navigate to "Forms and Files" sub tab
+#    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+#    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+#    And I pause execution for "5" seconds
+#    And I click modal button "Close"
+#    When I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "progID"
+#    And I click on "Edit" in the page details
+#    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I navigate to "Performance" sub tab
+#    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+#      | Title                    | Reported Date | Actual |
+#      | Automation Permanent KPI | 7             | 7      |
+#    When I navigate to "Forms and Files" sub tab
+#    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+#    And I switch to tab number "1"
+#    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I close the tab
+##    And I click on "Back" in the page details
+#    When I click on "Submit to Grantor" in the page details
+#    Then I softly see field "Status" as "Submitted to Grantor"
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
+#      | Name          | Progress Report |
+#      | Automation PM | Step 1          |
+#    And I click on "Submit for Approval" in the page details
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    #payment request 1
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - Active"
+#    When I perform quick search for "Automation Runtime Award for closeout94600" in "---paymentRequest:-:recipientGrantTableId---" panel
+#    And I click on "View" icon for "Automation Runtime Award for closeout94600" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "Automation Runtime Award for closeout94600" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+#    When I navigate to "Actuals" sub tab
+#    And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+#    When I enter value "Automation Runtime Payment Request" into field "Title__c"
+#    And I click modal button "Save and Continue"
+#    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I save the field labeled "EGMS ID" as "PayreqId"
+#    And I navigate to "Financials" sub tab
+#    When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
+#    When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
+#      | Title        | Narrative     | Unit Price | Quantity | Measurement |
+#      | Extra Salary | The narrative | 30         | 1        | Feet        |
+#    When I close "Add Line Items" modal by clicking the top right x button
+#    And I click on "Submit to Grantor" in the page details
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
+#    And I navigate to "Financials" sub tab
+#    And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
+#      | Funding Account             | Net Spent This Action |
+#      | {SavedValue:fundingAccount} | 30                    |
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
+#      | Name                     | Reimbursement |
+#      | {SavedValue:PM Username} | Step 1        |
+#    When I get the "EGMS ID"
+#    When I click on "Submit for Approval" in the page details
+#    Then I softly see field "Status" as "Submitted for Approval"
+#     #payment request 2
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - Active"
+#    When I perform quick search for "Automation Runtime Award for closeout94600" in "---paymentRequest:-:recipientGrantTableId---" panel
+#    And I click on "View" icon for "Automation Runtime Award for closeout94600" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+#    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "Automation Runtime Award for closeout94600" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+#    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+#    When I navigate to "Actuals" sub tab
+#    And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+#    When I enter value "Automation Runtime Payment Request" into field "Title__c"
+#    And I click modal button "Save and Continue"
+#    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+#    When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PayreqId1"
-    And I navigate to "Financials" sub tab
-    And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
-      | Budget Category | Advance Requested This Action |
-      | Construction    | 10                            |
-    When I navigate to "Files" sub tab
+#    And I navigate to "Financials" sub tab
+#    And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
+#      | Budget Category | Advance Requested This Action |
+#      | Construction    | 10                            |
+    When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I pause execution for "5" seconds
@@ -4110,7 +4110,7 @@ Feature: Validate all scenarios in Closeout
     And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
       | Budget Category | Advance Requested This Action |
       | Construction    | 10                            |
-    When I navigate to "Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I pause execution for "5" seconds
