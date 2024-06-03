@@ -211,8 +211,9 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 #    And I refresh the page
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
-    When I perform quick search for "Automation Runtime Contact1325673538" in "SubrecipientContacts" panel
-    When I click on "Edit" icon for "Automation Runtime Contact1325673538" inside flex table with id "SubrecipientContacts"
+    And I pause execution for "5" seconds
+    When I perform quick search for "Automation Runtime Contact1325673538 Contact" in "SubrecipientContacts" panel
+    When I click on "Edit" icon for "Automation Runtime Contact1325673538 Contact" inside flex table with id "SubrecipientContacts"
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
     And I pause execution for "2" seconds
@@ -222,10 +223,10 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I navigate to "Home" tab
     #Bug434186
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
-    When I perform quick search for "Automation Runtime Contact1325673538" in "SubrecipientContacts" panel
-    And I click on "View" icon for "Automation Runtime Contact1325673538" inside flex table with id "SubrecipientContacts"
+    When I perform quick search for "Automation Runtime Contact1325673538 Contact" in "SubrecipientContacts" panel
+    And I click on "View" icon for "Automation Runtime Contact1325673538 Contact" inside flex table with id "SubrecipientContacts"
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
-    Given I delete the record "Automation Runtime Contact1325673538" from the object "CONTACT"
+    Given I delete the record "Automation Runtime Contact1325673538 Contact" from the object "CONTACT"
 
   @done @69129 @validateAuditorReassign @meenakshi
   Scenario: Verify Auditor profile would not have tasks assigned  Re assign will populate no tasks to reassign
