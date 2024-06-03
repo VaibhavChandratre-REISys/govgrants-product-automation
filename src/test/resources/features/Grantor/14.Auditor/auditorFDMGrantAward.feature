@@ -59,14 +59,15 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I download the file
     Then I see "Active" on page "1" of "govgrants" pdf file
 
-  @69939 @auditorCannotEditorApproveFDM @Buglogged429287 @needtoCheck
+  @ch1 @69939 @auditorCannotEditorApproveFDM @Buglogged429287 @needtoCheck
   Scenario Outline: Validate Auditor should not be  able to Edit/Approve FDM
-    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NO_RISK_ASSESSMENT-Automation PO user"
-    And I initiated an application review for application "<Application Name>" on announcement "<Announcement Name>" with properties "default"
+#    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NO_RISK_ASSESSMENT-Automation PO user"
+#    And I initiated an application review for application "<Application Name>" on announcement "<Announcement Name>" with properties "default"
     Given I login to "As a Grantor" app as "PO" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
+    And I pause execution for "5" seconds
     And I perform quick search for "<Application Name>" in "---applicationIntake:-:appAllTableId---" panel
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:appAllTableId---"
     And I get the "EGMS ID"
@@ -194,8 +195,8 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I click on "Edit" in the page details
     When I enter value "AuGr" into field "GrantCode__c"
     When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
+      | Value                       | Field            |
+      | AuGr                        | GrantCode__c     |
       | Automation Test Description | Justification__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
@@ -213,5 +214,5 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:pendingTaskTableId---" panel
     Then I see "No Records Found" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     Examples:
-      | Announcement Name                                               | Application Name                                                |
-      | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
+      | Announcement Name                                       | Application Name                                        |
+      | Automation Runtime Announcement Application Review74688 | Automation Runtime Announcement Application Review74688 |
