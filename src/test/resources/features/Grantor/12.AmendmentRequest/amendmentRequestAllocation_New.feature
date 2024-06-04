@@ -2199,7 +2199,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
-    And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Previous"
+    When I collapse nested table containing column value "BP01"
     Then I softly see value "$1,200.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
@@ -7348,15 +7348,15 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Award Amount | Cash Match | Non Cash Match |
-      | Extra Salary | The narrative | 1200         | 120        | 0              |
+      | Title       | Award Amount | Cash Match | Non Cash Match |
+      | Construction| 1200         | 120        | 0              |
     And I click modal button "Close"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Award Amount | Cash Match | Non Cash Match |
-      | Extra Salary | The narrative | 1500         | 150        | 0              |
+      | Title        |  Award Amount | Cash Match | Non Cash Match |
+      | Construction |  1500         | 150        | 0              |
     And I click modal button "Close"
     And I wait for "8" seconds
     And I click on "Submit to Grantor" in the page details
@@ -7409,8 +7409,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Carry Forward Amount" rendered in view mode only
     #264934
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
-    Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
-    Then I softly do not see "Actions" in flex table header "---amendment:-:amendmentLineItemsTableId---"
+    Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
