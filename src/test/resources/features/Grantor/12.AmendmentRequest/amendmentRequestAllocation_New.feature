@@ -6837,7 +6837,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @tempApp @264515 @264346 @264358 @264328 @264173 @264312 @264424 @264438 @ValidateBudgetedAmountisrolledupfromtheRevisedAwardAmountfromthebudgetgridinthebudgetchangesectionFAYes @sprint-20-US-263305 @vaibhav @Allocation
+  @264515 @264346 @264358 @264328 @264173 @264312 @264424 @264438 @ValidateBudgetedAmountisrolledupfromtheRevisedAwardAmountfromthebudgetgridinthebudgetchangesectionFAYes @sprint-20-US-263305 @vaibhav @Allocation
   Scenario: Validate Budgeted Amount is rolled up from the Revised Award Amount from the budget grid in the budget change section FA Yes
     And I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_DETAILS_BUDGET_YES_RISK_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
@@ -7347,8 +7347,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:carryForwardFocusAreaTableId---"
     Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:carryForwardFocusAreaTableId---"
     Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---amendment:-:carryForwardFocusAreaTableId---"
-    When I collapse nested table containing column value "BP01"
-    And I expand nested table containing column value "BP01"
+    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChageTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
