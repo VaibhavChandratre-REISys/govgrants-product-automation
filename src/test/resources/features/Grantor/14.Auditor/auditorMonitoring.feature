@@ -1,4 +1,4 @@
-@auditorMonitoring @auditor @parallel-regression @regression
+@auditorMonitoring @auditor @t1 @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Monitoring module
 
   @wip @69178 @auditorPaymentRequest
@@ -28,15 +28,19 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
   @69179 @69942 @auditorOrgRiskAssessment @smoke
   Scenario: Validate Auditor should have view / read  only access to Organizational Risk Assessment |Validate Auditor should not be  able to Provide revision access
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
+    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
     When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
     Given I am on "SUBPORTAL" portal
     When  I login to "Grants Portal" app as "SA" user
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    When I perform quick search for "Create Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Not Started" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---"
+    And I navigate to "Risk Assessment" sub tab
+    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    #Bug433131
+    When I enter in modal value "Checked" into field "Signature__c"
+    And I click modal button "Save and Continue"
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -52,9 +56,9 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---auditor:-:subrecipientOrgTableId---" panel
     When I click on "View" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---auditor:-:subrecipientOrgTableId---"
     And I navigate to "Risk Assessment" sub tab
-    And I perform quick search for "Active" in "---auditor:-:orgRiskAssessmentTableId---" panel
-    And I click on "View" icon for "Active" inside flex table with id "---auditor:-:orgRiskAssessmentTableId---"
-    Then I softly see status in Progress-bar is "Active" and is "green"
+    And I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
+    And I click on "View" icon for "Active" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
     Then I softly cannot see top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
   @69180 @auditorMonitoringSchedule
@@ -74,7 +78,8 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I navigate to "Monitoring Schedules" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Scheduled Activities - All"
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---auditor:-:scheduledactivtiesTableId---" panel
-    Then I can see row level action button "View" against "{SavedValue:AwardEGMSID}" in flex table with id "---auditor:-:scheduledactivtiesTableId---"
+    #Bug432624 - View icon is not visible pls refer bug
+#    Then I can see row level action button "View" against "{SavedValue:AwardEGMSID}" in flex table with id "---auditor:-:scheduledactivtiesTableId---"
     Examples:
       | User    |
       | AUDITOR |
@@ -84,8 +89,9 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Bayside Community Center" in "---auditor:-:subrecipientOrgTableId---" panel
-    When I click on "View" icon for "Bayside Community Center" inside flex table with id "---auditor:-:subrecipientOrgTableId---"
+    And I pause execution for "7" seconds
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---auditor:-:subrecipientOrgTableId---" panel
+    When I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---auditor:-:subrecipientOrgTableId---"
     And I navigate to "Related Log" sub tab
     Then I softly cannot see top right button "Initiate Site Visit" in flex table with id "---auditor:-:siteVisitTableId---"
     Then I softly cannot see top right button "Initiate Desk Review" in flex table with id "---auditor:-:deskreviewTableId---"
@@ -116,8 +122,8 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "---deskreview:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---deskreview:-:activeGrantsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "GrantorActiveGrants" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrants"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---deskreview:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
@@ -131,9 +137,9 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     Given I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Site Visit Reports - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Site Visit}" in "---auditor:-:sitevisitMonitoringTableId---" panel
-    Then I can see row level action button "View" against "{SavedValue:Automation Runtime Site Visit}" in flex table with id "---auditor:-:sitevisitMonitoringTableId---"
-    And I click on "View" icon for "{SavedValue:Automation Runtime Site Visit}" inside flex table with id "---auditor:-:sitevisitMonitoringTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Site Visit}" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    Then I can see row level action button "View" against "{SavedValue:Automation Runtime Site Visit}" in flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I click on "View" icon for "{SavedValue:Automation Runtime Site Visit}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly cannot see top right button "Accept and Close" in page detail
 
   @wip @70076 @69870 @auditorCannotCreateDeleteAwardLevelDeskReview
@@ -225,8 +231,8 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "---deskreview:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---deskreview:-:activeGrantsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "GrantorActiveGrants" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrants"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---deskreview:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
@@ -251,7 +257,6 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---"
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -261,9 +266,12 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+#    And I click on "Back" in the page details
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
     When I click on "Submit to Grantor" in the page details
@@ -288,9 +296,9 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - Active"
-    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "---deskreview:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---deskreview:-:activeGrantsTableId---"
+    And I click toggle button to select "Grants - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "GrantorActiveGrants" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrants"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---deskreview:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
@@ -317,9 +325,13 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     When I click on "Conduct" in the page details
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+#    When I click on "Back" in the page details
+    And I close the tab
+    And I refresh the page
+    When I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
       | Automation Finding     | Automation Description | Finding     |
@@ -369,7 +381,6 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---"
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button

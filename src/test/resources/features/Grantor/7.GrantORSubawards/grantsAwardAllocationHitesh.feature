@@ -6223,6 +6223,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                        | Announcement |

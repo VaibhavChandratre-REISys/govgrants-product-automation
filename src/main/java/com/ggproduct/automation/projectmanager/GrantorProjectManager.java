@@ -10,6 +10,7 @@ import org.assertj.core.util.Files;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
 import javax.mail.MessagingException;
 import java.io.File;
 import java.io.IOException;
@@ -364,7 +365,7 @@ public class GrantorProjectManager extends ProjectManager {
      * To verify RIsk level image
      */
     public Boolean assertRiskLevelImage(String fieldLabel, String imageName) throws IOException {
-        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[@class='customLabelstyle' and contains(text(),'" + fieldLabel + "')]/ancestor::dl[1]//dd//img[contains(@src,'"+imageName+"')]"))) {
+        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[@class='customLabelstyle' and contains(text(),'" + fieldLabel + "')]/ancestor::dl[1]//dd//img[contains(@src,'" + imageName + "')]"))) {
             return true;
         } else {
             return false;
@@ -391,7 +392,7 @@ public class GrantorProjectManager extends ProjectManager {
      */
     public Boolean isButtonDisplayedOnModal(String buttonName) {
         try {
-            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@id,'modaltemp')]//button[@title='"+buttonName+"'] | //c-modal-flex-layout//button[@title='"+buttonName+"']"));
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@id,'modaltemp')]//button[@title='" + buttonName + "'] | //c-modal-flex-layout//button[@title='" + buttonName + "']"));
         } catch (Exception e) {
         }
         return false;
@@ -440,7 +441,7 @@ public class GrantorProjectManager extends ProjectManager {
     public void clickTableTopRightButton(String buttonName, String flexTableId) {
         try {
             I.amPerforming().click().on(govgrants.perform().flexTable().getTopRightButtonLocatorByTableId(flexTableId, buttonName));
-        } catch(Exception e){
+        } catch (Exception e) {
             I.amPerforming().click().withJavaScript(govgrants.perform().flexTable().getTopRightButtonLocatorByTableId(flexTableId, buttonName));
         }
     }
@@ -448,7 +449,7 @@ public class GrantorProjectManager extends ProjectManager {
     public void clickButtonNameReset(String buttonName, String flexTableId) {
         try {
             I.amPerforming().click().on(govgrants.perform().flexTable().getResetButtonLocatorByTableId(flexTableId, buttonName));
-        } catch(Exception e){
+        } catch (Exception e) {
             I.amPerforming().click().withJavaScript(govgrants.perform().flexTable().getResetButtonLocatorByTableId(flexTableId, buttonName));
         }
     }
@@ -478,7 +479,7 @@ public class GrantorProjectManager extends ProjectManager {
                 );
             }
 
-        }else{
+        } else {
             List<String> listofRoles = new ArrayList<>();
             I.amPerforming().click().withJavaScript(By.xpath("//c-fieldlwc[@data-fieldapiname='ProjectRole__c']//lightning-input//input[@placeholder='Select an Option']"));
             I.amPerforming().scroll().withMouseToElement(By.xpath("//c-fieldlwc[@data-fieldapiname='ProjectRole__c']//lightning-input//input[@placeholder='Select an Option']"));
@@ -655,7 +656,7 @@ public class GrantorProjectManager extends ProjectManager {
             if (rowValues2.get(counter).getText().equalsIgnoreCase("No Records Found")) {
                 counter++;
             } else {
-                if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+                if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
                     I.amPerforming().click().on(columnSelector);
                     I.amPerforming().click().on(By.xpath("//*[@data-flextablename='" + flextableId + "']//td//*[text()='Delete']"));
                     govgrants.perform().modal().acceptPopUp();
@@ -687,7 +688,7 @@ public class GrantorProjectManager extends ProjectManager {
         }
     }
 
-    public void assertTextInHistoryTableForLWC(String usage, String colName,String tData, String text) {
+    public void assertTextInHistoryTableForLWC(String usage, String colName, String tData, String text) {
         if (usage.contains("softly")) {
             if (usage.contains("cannot")) {
                 I.amPerforming().assertionsTo().assertThat(isTextPresentInsideHistoryTableForLWC(colName, tData, text)).isFalse();
@@ -721,7 +722,7 @@ public class GrantorProjectManager extends ProjectManager {
     private boolean isTextPresentInsideHistoryTableForLWC(String colName, String tData, String text) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td//*[text()='" + text + "'] | //th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td//div[text()='" + text + "'] | //th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td[contains(text(),'" + text + "')] | //table//tr[2]//td[@data-label='" + colName + "']//div[text()='" + text + "']")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td//*[text()='" + text + "'] | //th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td//div[text()='" + text + "'] | //th//div[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//td[contains(text(),'" + text + "')] | //table//tr[2]//td[@data-label='" + colName + "']//div[text()='" + text + "']|//th//div/span[text()='" + colName + "']//ancestor::table//tbody//tr[" + tData + "]//span[text()='" + text + "']")))) {
                 flag = true;
             }
         } catch (Exception e) {
@@ -731,8 +732,7 @@ public class GrantorProjectManager extends ProjectManager {
 
     public Boolean isFieldStatusVisibleInPageblock(String fieldName, String fieldValue, String pageblockName) {
         boolean flag = false;
-        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//a[text()='" + pageblockName + "']/ancestor::div[@class='panel-heading']//following-sibling::div//span[text()='" + fieldName + "']/ancestor::div[@class='textFieldWrapFlex']//div//dd//span[text()='" + fieldValue + "'] | //span[contains(text(),'" + pageblockName + "')]/ancestor::c-page-block-section//following-sibling::div//label[contains(text(),'" + fieldName + "')]/..//div//lightning-formatted-text[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/parent::div/../div//label[contains(text(),'" + fieldName + "')]/..//div//span[contains(text(),'" + fieldValue + "')]")))
-        {
+        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//a[text()='" + pageblockName + "']/ancestor::div[@class='panel-heading']//following-sibling::div//span[text()='" + fieldName + "']/ancestor::div[@class='textFieldWrapFlex']//div//dd//span[text()='" + fieldValue + "'] | //span[contains(text(),'" + pageblockName + "')]/ancestor::c-page-block-section//following-sibling::div//label[contains(text(),'" + fieldName + "')]/..//div//lightning-formatted-text[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/parent::div/../div//label[contains(text(),'" + fieldName + "')]/..//div//span[contains(text(),'" + fieldValue + "')]"))) {
             flag = true;
         } else {
             flag = false;
@@ -769,13 +769,13 @@ public class GrantorProjectManager extends ProjectManager {
 
     public void assertValueAgainstTheValueForTitleInApprovalHistory(String usage, String expectedValue, String againstValue, String columnname) {
         if (usage.equalsIgnoreCase("see")) {
-            Assert.assertTrue(isvalueDisplayAgainsttheValue(expectedValue,againstValue, columnname ));
+            Assert.assertTrue(isvalueDisplayAgainsttheValue(expectedValue, againstValue, columnname));
         } else if (usage.equalsIgnoreCase("do not see")) {
-            Assert.assertFalse(isvalueDisplayAgainsttheValue(expectedValue,againstValue, columnname ));
+            Assert.assertFalse(isvalueDisplayAgainsttheValue(expectedValue, againstValue, columnname));
         } else if (usage.equalsIgnoreCase("softly see")) {
-            I.amPerforming().assertionsTo().assertThat(isvalueDisplayAgainsttheValue(expectedValue,againstValue, columnname )).isTrue();
+            I.amPerforming().assertionsTo().assertThat(isvalueDisplayAgainsttheValue(expectedValue, againstValue, columnname)).isTrue();
         } else if (usage.equalsIgnoreCase("softly do not see")) {
-            I.amPerforming().assertionsTo().assertThat(isvalueDisplayAgainsttheValue(expectedValue,againstValue, columnname )).isFalse();
+            I.amPerforming().assertionsTo().assertThat(isvalueDisplayAgainsttheValue(expectedValue, againstValue, columnname)).isFalse();
         }
     }
 

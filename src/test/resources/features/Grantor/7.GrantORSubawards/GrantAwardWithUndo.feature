@@ -1,4 +1,4 @@
-@grantsAwardAllocation @grantor-regression @grantor-parallel-regression @grantAndAward @regression @grantAndAwardUndo
+@grantsAwardAllocation @grantor-regression @grantor-parallel-regression @grantAndAward @regression @grantAndAwardUndo @AwardExecution
 Feature: Validate all scenarios of grants and award with undo
 
   @286390  @sprint-1-US-295145 @hitesh @Undo @bug-414263
