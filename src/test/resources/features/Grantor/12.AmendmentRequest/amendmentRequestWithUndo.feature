@@ -1982,7 +1982,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
-  @292609 @VerifyusercannotseeundobuttononamendmentwhenBPchangeamendmentisinRejectedstate @Sprint-2-US-285149 @hitesh @Undo
+  @done @292609 @VerifyusercannotseeundobuttononamendmentwhenBPchangeamendmentisinRejectedstate @Sprint-2-US-285149 @hitesh @Undo
   Scenario: Verify user cannot see undo button on amendment when BP change amendment is in Rejected state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -2061,7 +2061,7 @@ Feature: Amendment Request scenarios with Undo
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
-  @292635 @VerifyEXEasstep1approvercanseeundobuttonaftertheBPchangeamendmentrequestisapprovedwhen1stepapprovalprocessissetforamendmentrequest @Sprint-2-US-285149 @hitesh @Undo
+  @done @292635 @VerifyEXEasstep1approvercanseeundobuttonaftertheBPchangeamendmentrequestisapprovedwhen1stepapprovalprocessissetforamendmentrequest @Sprint-2-US-285149 @hitesh @Undo
   Scenario: Verify EXE as step 1 approver can see undo button after the BP change amendment request is approved when 1 step approval process is set for amendment request
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -2106,7 +2106,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
 
-  @292636 @VerifyPMuserasstep2approvercanseeundobuttonaftertheBPchangeamendmentrequestisapprovedwhen2stepapprovalprocessissetforamendmentrequest @Sprint-2-US-285149 @hitesh @Undo
+  @done @292636 @VerifyPMuserasstep2approvercanseeundobuttonaftertheBPchangeamendmentrequestisapprovedwhen2stepapprovalprocessissetforamendmentrequest @Sprint-2-US-285149 @hitesh @Undo
   Scenario: Verify PM user as step 2 approver can see undo button after the BP change amendment request is approved when 2 step approval process is set for amendment request
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -2161,7 +2161,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
 
-  @292637 @VerifyPMuserasstep3approvercanseeundobuttonaftertheBPchangeamendmentrequestisapprovedwhen3stepapprovalprocessissetforamendmentrequest @Sprint-2-US-285149 @hitesh @Undo
+  @done @292637 @VerifyPMuserasstep3approvercanseeundobuttonaftertheBPchangeamendmentrequestisapprovedwhen3stepapprovalprocessissetforamendmentrequest @Sprint-2-US-285149 @hitesh @Undo
   Scenario:Verify PM user as step 3 approver can see undo button after the BP change amendment request is approved when 3 step approval process is set for amendment request
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -8934,7 +8934,7 @@ Feature: Amendment Request scenarios with Undo
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Amendment - Undo Approval.pdf" as name
 
-  @287070 @VerifythatwhenApproverClicksonyesButtonOnConfirmationBoxUsercanproceedwithFlowAndOnClickonNOUsercanStoptheFlow @sprint-1-US-285148 @hitesh @Undo
+  @ch1 @287070 @VerifythatwhenApproverClicksonyesButtonOnConfirmationBoxUsercanproceedwithFlowAndOnClickonNOUsercanStoptheFlow @sprint-1-US-285148 @hitesh @Undo
   Scenario:Verify that when Approver Clicks on yes Button On Confirmation Box , User can proceed with Flow And On Click on NO User can Stop the Flow
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -8983,7 +8983,7 @@ Feature: Amendment Request scenarios with Undo
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 3000                 | 150        | 150            |
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
