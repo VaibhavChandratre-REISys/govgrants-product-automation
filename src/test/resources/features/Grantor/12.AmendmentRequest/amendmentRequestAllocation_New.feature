@@ -6661,7 +6661,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Value | Field                      |
       | 700   | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Revised Obligation" as "$2,700.00"
     And I save the field labeled "Revised Obligation" as "RevisedObligation"
     Then I softly see field "Budgeted Amount" as "$2,700.00"
@@ -6883,15 +6885,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Award Amount | Cash Match | Non Cash Match |
-      | Extra Salary | The narrative | 1000         | 100        | 0              |
+      | Title        | Award Amount | Cash Match | Non Cash Match |
+      | Construction | 1000         | 100        | 0              |
     And I click modal button "Close"
-    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Award Amount | Cash Match | Non Cash Match |
-      | Extra Salary | The narrative | 1000         | 100        | 0              |
+      | Title        | Award Amount | Cash Match | Non Cash Match |
+      | Construction | 1000         | 100        | 0              |
     And I click modal button "Close"
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
@@ -7216,15 +7217,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Award Amount | Cash Match | Non Cash Match |
-      | Extra Salary | The narrative | 1000         | 100        | 0              |
+      | Title        |  Award Amount | Cash Match | Non Cash Match |
+      | Construction |  1000         | 100        | 0              |
     And I click modal button "Close"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
-    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Award Amount | Cash Match | Non Cash Match |
-      | Extra Salary | The narrative | 1000         | 100        | 0              |
+      | Title        |  Award Amount | Cash Match | Non Cash Match |
+      | Construction |  1000         | 100        | 0              |
     And I click modal button "Close"
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
@@ -7761,15 +7761,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Award Amount | Cash Match | Non Cash Match |
-      | Extra Salary | The narrative | 1000         | 100        | 0              |
+      | Title        |  Award Amount | Cash Match | Non Cash Match |
+      | Construction |  1000         | 100        | 0              |
     And I click modal button "Close"
-    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Award Amount | Cash Match | Non Cash Match |
-      | Extra Salary | The narrative | 1000         | 100        | 0              |
+      | Title        |  Award Amount | Cash Match | Non Cash Match |
+      | Construction |  1000         | 100        | 0              |
     And I click modal button "Close"
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
