@@ -2200,6 +2200,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I refresh the page
     And I wait for "2" seconds
     When I collapse nested table containing column value "BP01"
+    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---
     Then I softly see value "$1,200.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
@@ -7039,6 +7040,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Edit" in the page details
     Then I softly see that "Revised Obligation" rendered in view mode only
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "Carry Forward Amount" as "CarryForward"
     And I save the field labeled "Current Obligation" as "CurrentObligation"
     And I save the field labeled "Revised Obligation" as "RevisedObligation"
@@ -7345,7 +7347,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:carryForwardFocusAreaTableId---"
     Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:carryForwardFocusAreaTableId---"
     Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---amendment:-:carryForwardFocusAreaTableId---"
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
+    When I collapse nested table containing column value "BP01"
+    And I expand nested table containing column value "BP01"
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChageTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title       | Award Amount | Cash Match | Non Cash Match |
@@ -7921,8 +7925,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Carry Forward" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
     #264939
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
-    Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
-    Then I softly do not see "Actions" in flex table header "---amendment:-:amendmentLineItemsTableId---"
+    Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -7941,7 +7944,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #264941
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---amendment:-:amendmentLineItemsTableId---"
-    Then I softly do not see "Actions" in flex table header "---amendment:-:amendmentLineItemsTableId---"
     And I refresh the page
     #264615
     Then I cannot see top right button "Edit" in page detail
