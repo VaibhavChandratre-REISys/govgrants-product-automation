@@ -11,7 +11,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
     And I navigate to "Actuals" sub tab
-    Then I softly see field "Advance Available" as "$0"
+    Then I softly see field "Advance Available" as "$0.00"
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
@@ -130,7 +130,7 @@ Feature: Validate all scenarios in Closeout
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @93795 @76492 @76493 @86710 @validateEmailNotificationReceivedForCloseoutsForEXEUser @meenakshi
+  @93795 @76492 @76493 @86710 @validateEmailNotificationReceivedForCloseoutsForEXEUser @meenakshi @TBExecution
   Scenario: To verify Email notification should be received to Closeout Owner when Closeout has created for closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -150,6 +150,7 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
+    And I logout
     #93795
 #    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
 #    And I pause execution for "10" seconds
@@ -187,6 +188,8 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     And I click on "Acknowledge" in the page details
+    And I wait for "3" seconds
+    And I logout
     #76492
 #    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
 #    And I pause execution for "180" seconds
@@ -246,7 +249,7 @@ Feature: Validate all scenarios in Closeout
     And I click toggle button to select "Project Period Closeouts - Completed"
     Then I softly see value "Completed" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
 
-  @87358 @86711 @86707 @86709 @VerifyEmailNoificationRecievedBySPIUserForCloseout @meenakshi @buglogged-234888
+  @87358 @86711 @86707 @86709 @VerifyEmailNoificationRecievedBySPIUserForCloseout @meenakshi @buglogged-234888 @TBExecution1
   Scenario: To verify Email notification should be received to SPI user when closeout Request has Sent to Subrecipient in Closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -264,6 +267,8 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     Given I click on "Send To Subrecipient" in the page details
+    And I wait for "2" seconds
+    And I logout
 #    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
 #    And I pause execution for "180" seconds
 #    Then I refresh the page
@@ -290,6 +295,7 @@ Feature: Validate all scenarios in Closeout
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
@@ -325,7 +331,7 @@ Feature: Validate all scenarios in Closeout
       Sandbox: Notification: Closeout Request {SavedValue:closeoutID} has beenSubmitted for your Approval
       """
 
-  @94022 @94019 @94021 @94040 @94042 @validateSendCloseoutRequestForSendReviewForEXEUser @meenakshi
+  @94022 @94019 @94021 @94040 @94042 @validateSendCloseoutRequestForSendReviewForEXEUser @meenakshi @TBExecution
   Scenario: To verify Closeout owner able to send the Closeout request for Send for review in closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -368,7 +374,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I softly see value "Automation Description" for title "Description" inside table "---closeout:-:closeoutPeerReviewTableId---"
-    And I softly see value "{Date:MM/dd/yyyy::d+7}" for title "Due Date" inside table "---closeout:-:closeoutPeerReviewTableId---"
+    And I softly see value "{Date:MM/dd/yyyy::d+7}" for title "Due Date" against the value "{SavedValue:PM Username}" inside table "---closeout:-:closeoutPeerReviewTableId---"
     #94021
     And I click on "Delete" icon for "Automation PM" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---" without waiting for record
     And I softly do not see value "Automation PM" for title "Reviewer Name" inside table "---closeout:-:closeoutPeerReviewTableId---"
@@ -441,6 +447,7 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:CloseoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+    When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     And I enter value "Automation Test Reason" into field "Reason__c"
     And I enter value "Automation Test justification" into field "Justification__c"
@@ -1196,6 +1203,7 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:CloseoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+    And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     And I enter value "Automation Test Reason" into field "Reason__c"
     And I enter value "Automation Test justification" into field "Justification__c"
@@ -1264,6 +1272,7 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:CloseoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+    And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     And I enter value "Automation Test Reason" into field "Reason__c"
     And I enter value "Automation Test justification" into field "Justification__c"
