@@ -83,7 +83,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Back To Strategic Plan" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  Scenario: Subrecipient Contact Creation @ProdSan2
+ @SubrecipientContactCreation @ProdSan2
+  Scenario: Subrecipient Contact Creation
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
@@ -987,6 +988,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 1000              |
