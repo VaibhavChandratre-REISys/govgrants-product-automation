@@ -1534,10 +1534,14 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Monitoring" tab
+    When I login to "As a Grantor" app as "PO" user
     And I wait for "5" seconds
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award Bulk Record for Site Visit}" in "---deskreview:-:internalActiveGrants---" panel
+    When I navigate to "Actuals" sub tab
+    And I save the value from row "3" for column name "Award Amount" as "AutoFA1ConstActAwd2PaySummSR" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
+    Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
+    Then I softly see value "{SavedValue:AutoFA1ConstActAwd1PaySumm}" is "Equals to" the value "{SavedValue:AutoFA1ConstActAwd2PaySummSR}"
+    And I select value inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---" is "10"
+    And I click on page navigation arrow "---subAwardStandAlone:-:paymentSummaryBudgetTableId---" for table id "Next"
+    And I save the value from row "5" for column name "Award Amount" as "AutoFA2ConstActAwd2PaySummSR" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
+    Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
+    Then I softly see value "{SavedValue:AutoFA2ConstActAwd1PaySumm}" is "Equals to" the value "{SavedValue:AutoFA2ConstActAwd2PaySummSR}"
