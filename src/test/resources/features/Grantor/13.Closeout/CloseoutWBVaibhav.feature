@@ -249,7 +249,7 @@ Feature: Validate all scenarios in Closeout
     And I click toggle button to select "Project Period Closeouts - Completed"
     Then I softly see value "Completed" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
 
-  @87358 @86711 @86707 @86709 @VerifyEmailNoificationRecievedBySPIUserForCloseout @meenakshi @buglogged-234888 @TBExecution1
+  @87358 @86711 @86707 @86709 @VerifyEmailNoificationRecievedBySPIUserForCloseout @meenakshi @buglogged-234888 @TBExecution
   Scenario: To verify Email notification should be received to SPI user when closeout Request has Sent to Subrecipient in Closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -405,7 +405,7 @@ Feature: Validate all scenarios in Closeout
       | Review has been submitted successfully. |
     Then I softly see that "Submitted" has been added in flextable with Id "---closeout:-:closeoutPeerReviewTableId---"
 
-  @93808 @validateSendBackProgramApproverInCloseoutPhase @meenakshi
+  @93808 @validateSendBackProgramApproverInCloseoutPhase @meenakshi @TBExecution
   Scenario: To verify status changed as : created when Program Approver send Back the closeout Request in Closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -464,7 +464,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @93696 @93581 @validateAwardAmountAndBalanceInOverviewCloseout @meenakshi
+  @93696 @93581 @validateAwardAmountAndBalanceInOverviewCloseout @meenakshi @TBExecution
   Scenario: Verify the values on fields Awarded amount and Balance on closeout view page if the payment request is not processed
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "NO_ADVANCE_PERMISSION" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -743,7 +743,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Acknowledgement" for title "Changed Field" inside table "History"
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "History"
 
-  @93539 @verifyValidationMessageForOverrideJustification @monu
+  @93539 @verifyValidationMessageForOverrideJustification @monu @TBExecution
   Scenario: Validate error message for Override justification
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -896,7 +896,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see top right button "Override" in page detail
     When I click on "Edit" in the page details
 
-  @96735 @VerifyApprovalDecisionFieldsAndButtons-Scheduled @monu @buglogged141587
+  @96735 @VerifyApprovalDecisionFieldsAndButtons-Scheduled @monu @buglogged141587 @TBExecution
   Scenario: Validate user can see approval decision fields and button at approval decision box
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -1167,7 +1167,7 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:PM Username} | Step 2   |
     Then I softly see "You cannot specify the same user for multiple steps for Closeout" inside flex table with id "---closeout:-:closeoutApproverTableId---"
 
-  @153656 @Verify2StepApprovalForScheduleCloseoutRequest-RnRFuntionality @monu
+  @153656 @Verify2StepApprovalForScheduleCloseoutRequest-RnRFuntionality @monu @TBExecution
   Scenario: Verify user is able approve the schedule closeout request in two step approver
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -1233,7 +1233,7 @@ Feature: Validate all scenarios in Closeout
     And I "Approve" in the approval decision
     Then I see status in Progress-bar is "Approved" and is "dark blue"
 
-  @154050 @Verify3StepApprovalFor-ScheduleCloseoutRequest-RnRFunctionality @monu
+  @154050 @Verify3StepApprovalFor-ScheduleCloseoutRequest-RnRFunctionality @monu @TBExecution
   Scenario: Verify user is able to add three step approver for schedule closeout and reject it on step three
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"

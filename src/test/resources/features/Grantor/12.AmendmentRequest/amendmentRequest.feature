@@ -591,7 +591,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter values into fields
       | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
-      | -2000                       | RequestedChangeInBudget__c    |
+      | -200                       | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
@@ -803,13 +803,8 @@ Feature: Validate all scenarios in the Amendment Request
       | Title        | Narrative     | Award Amount |
       | Extra Salary | The narrative | 1000         |
     When I close "Add Line Items" modal by clicking the top right x button
-#    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
-#    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
-#    When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
-#      | Title        | Narrative     | Award Amount |
-#      | Extra Salary | The narrative | 1000         |
-#    When I close "Add Line Items" modal by clicking the top right x buttonName
     And I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I cannot see top right button "Edit" in page detail
 
   @56968 @VerifyDeletionOfFundingChangeAmendmentByAwardOwner @mahadev @poojaAmendmnet

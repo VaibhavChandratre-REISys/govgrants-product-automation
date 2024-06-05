@@ -3071,6 +3071,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Automation Test Description | FundingChangeJustification__c |
       | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "FundingID"
     Then I softly see field "Current Obligation" as "$1,000.00"
     And I save the field labeled "Current Obligation" as "CurrentObligation"
@@ -3095,6 +3096,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Edit" in the page details
     Then I softly see that "Revised Commitment" rendered in view mode only
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I refresh the page
     #253669
     Then I softly see field "Current Obligation" as "$1,000.00"
@@ -5828,7 +5830,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "New Obligation" as "($2,000.00)"
     Then I softly see field "Current Obligation" as "$1,000.00"
     Then I softly see field "Revised Obligation" as "($1,000.00)"
-    Then I softly see value "$1,000.00" for title "Spent" against the value "Automation Permanent Focus Area" inside table "---amendment:-:projectAreasTableId---"
+    Then I softly see value "$1,000.00" for title "Spent" against the value "Grand Total" inside table "---amendment:-:projectAreasTableId---"
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
@@ -10361,7 +10363,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Available Balance" as "AvailableBalance"
     Then I softly see field "Appropriation Amount" as "$10,000,000.00"
     Then I softly see field "Pre-Encumbrance" as "$0.00"
-    Then I softly see field "Encumbrance" as "$1,000.00"
+    Then I softly see field "Encumbrance" as "$1,000.00" in "Financials" pageblock
     Then I softly see field "Spent" as "$0.00"
     Then I softly see field "Total Obligation" as "$1,000.00"
     Then I softly see field "Available Balance" as "$9,999,000.00"
@@ -10501,7 +10503,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:AvailableBalance}" is "Greater Than" the value "{SavedValue:AvailableBalance1}"
     Then I softly see field "Appropriation Amount" as "$10,000,000.00"
     Then I softly see field "Pre-Encumbrance" as "$0.00"
-    Then I softly see field "Encumbrance" as "$2,700.00"
+    Then I softly see field "Encumbrance" as "$2,700.00" in "Financials" pageblock
     Then I softly see field "Spent" as "$300.00"
     Then I softly see field "Total Obligation" as "$3,000.00"
     Then I softly see field "Available Balance" as "$9,997,000.00"

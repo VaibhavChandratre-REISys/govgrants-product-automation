@@ -260,7 +260,8 @@ public final class FlexTable implements FlexTableComponent {
         boolean statusElement = I.amPerforming().getElementReference().of(By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")).getAttribute("icon-name").contains("down");
         try {
             if (statusElement) {
-                I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]"))).click();
+            WebElement collapseElement =  I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")));
+                I.amPerforming().click().withJavaScript(collapseElement);
             }
         } catch (Exception ee) {
             /* Ignore Exception */
@@ -271,7 +272,8 @@ public final class FlexTable implements FlexTableComponent {
         boolean statusElement = I.amPerforming().getElementReference().of(By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")).getAttribute("icon-name").contains("right");
         try {
             if (statusElement) {
-                I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]"))).click();
+                WebElement expandElement = I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")));
+                I.amPerforming().click().withJavaScript(expandElement);
             }
         } catch (Exception ee) {
             /* Ignore Exception */

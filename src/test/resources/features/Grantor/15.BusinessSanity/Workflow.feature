@@ -1536,8 +1536,7 @@ Feature: Validate all scenarios of every modules flow
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I login to "As a Grantor" app as "PM" user
     And I halt execution
-    And I click on "Edit" in the page details
-    And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I close "View Subrecipient Contact" modal by clicking the top right x button
-    Then I softly see value "New" for title "Status" inside table "---home:-:subrecipientContactTableId---"
+    When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Funding Account3" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I halt execution
