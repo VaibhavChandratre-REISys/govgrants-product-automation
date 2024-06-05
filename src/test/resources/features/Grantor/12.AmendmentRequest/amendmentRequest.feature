@@ -69,7 +69,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     Given I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
-      | Value                    | Field             |
+      | Value                    | Field        |
       | Automation Permanent KPI | MasterKPI__c |
       | 10                       | Target__c    |
     Given I click modal button "Save"
@@ -154,8 +154,9 @@ Feature: Validate all scenarios in the Amendment Request
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "4" seconds
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
+    And I wait for "2" seconds
     #97383 #monu
     Then I softly see field "Amendment Types" as "Scope of Work Change"
     And I click on "Submit to Grantor" in the page details
@@ -183,7 +184,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
-      | Value                                    | Field             |
+      | Value                                    | Field        |
       | Automation Permanent KPI for Regression2 | MasterKPI__c |
       | 10                                       | Target__c    |
     And I click modal button "Save"
@@ -292,7 +293,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     Given I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
-      | Value                    | Field             |
+      | Value                    | Field        |
       | Automation Permanent KPI | MasterKPI__c |
       | 10                       | Target__c    |
     Given I click modal button "Save"
@@ -364,9 +365,9 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Save" in the page details
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
-      | Value                                    | Field             |
-      | Automation Permanent KPI for Regression2 | MasterKPI__c      |
-      | 10                                       | Target__c         |
+      | Value                                    | Field        |
+      | Automation Permanent KPI for Regression2 | MasterKPI__c |
+      | 10                                       | Target__c    |
     When I click modal button "Save"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
@@ -386,8 +387,9 @@ Feature: Validate all scenarios in the Amendment Request
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "4" seconds
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
+    And I wait for "2" seconds
     Then I softly see field "Amendment Types" as "Scope of Work Change"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -587,15 +589,11 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | -2000                       | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I wait for "3" seconds
-    And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
-    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title                           | End Date                             |
-      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -632,7 +630,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -648,9 +646,9 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | FundingChangeJustification__c      |
-      | 1000                        | RequestedChangeInBudget__c         |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -676,7 +674,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
     And I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
@@ -739,7 +737,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -775,9 +773,9 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | FundingChangeJustification__c      |
-      | 1000                        | RequestedChangeInBudget__c         |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -821,7 +819,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -836,7 +834,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -852,7 +850,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -898,8 +896,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 3100  | RevisedCommitment__c      |
+      | Value | Field                |
+      | 3100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
@@ -922,7 +920,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -969,8 +967,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 3100  | RevisedCommitment__c      |
+      | Value | Field                |
+      | 3100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
@@ -995,7 +993,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -1055,7 +1053,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -1108,7 +1106,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -1147,7 +1145,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
+      | Value | Field                |
       | 2100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
@@ -1191,9 +1189,9 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | FundingChangeJustification__c      |
-      | 1000                        | RequestedChangeInBudget__c         |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1237,9 +1235,9 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | FundingChangeJustification__c      |
-      | 1000                        | RequestedChangeInBudget__c         |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1276,7 +1274,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
+      | Value | Field                |
       | 2100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Send Back to Subrecipient" in the page details
@@ -1293,7 +1291,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -1335,9 +1333,9 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | FundingChangeJustification__c      |
-      | 1000                        | RequestedChangeInBudget__c         |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1383,9 +1381,9 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | FundingChangeJustification__c      |
-      | 100                         | RequestedChangeInBudget__c         |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 100                         | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1422,7 +1420,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
+      | Value | Field                |
       | 1200  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
@@ -1495,7 +1493,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 1100                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -1527,8 +1525,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 2100  | RevisedCommitment__c      |
+      | Value | Field                |
+      | 2100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
@@ -1546,9 +1544,9 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | FundingChangeJustification__c      |
-      | 1100                        | RequestedChangeInBudget__c         |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 1100                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1578,7 +1576,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
+      | Value | Field                |
       | 2100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
@@ -1597,7 +1595,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 1100                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -1629,8 +1627,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 2100  | RevisedCommitment__c      |
+      | Value | Field                |
+      | 2100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
@@ -1648,7 +1646,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 1100                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -1680,8 +1678,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 2100  | RevisedCommitment__c      |
+      | Value | Field                |
+      | 2100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
@@ -1784,9 +1782,9 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | FundingChangeJustification__c      |
-      | 2000                        | RequestedChangeInBudget__c         |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I get the updated budget end date by offset "0" for award "{SavedValue:Automation Runtime Award}"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -1853,8 +1851,8 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 5100  | RevisedCommitment__c      |
+      | Value | Field                |
+      | 5100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
@@ -2312,7 +2310,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
+      | Value                    | Field          |
       | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I click on "Delete" in the page details
@@ -2327,7 +2325,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
+      | Value                    | Field          |
       | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -2384,7 +2382,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -2487,7 +2485,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
+      | Value                    | Field          |
       | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -2507,8 +2505,8 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
-      | Automation Justification | TncComments__c      |
+      | Value                    | Field          |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
@@ -2528,7 +2526,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
+      | Value                    | Field          |
       | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -2556,8 +2554,8 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
-      | Automation Justification | TncComments__c      |
+      | Value                    | Field          |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
@@ -2576,7 +2574,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
+      | Value                    | Field          |
       | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
@@ -2702,11 +2700,10 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
-    When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter value "3800" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
     And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
@@ -2731,7 +2728,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -2771,7 +2768,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
+      | Value | Field                |
       | 2100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
@@ -2801,7 +2798,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -2853,7 +2850,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
+      | Value                    | Field          |
       | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab

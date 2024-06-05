@@ -100,10 +100,11 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:subrecipientContactTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:subrecipientContactTableId---" without waiting for record
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
-    And I click modal button "Edit"
+    And I click on "Edit" in the page details
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
     And I close "View Subrecipient Contacts" modal by clicking the top right x button
+    And I wait for "2" seconds
     Then I softly see value "New" for title "Status" inside table "---home:-:subrecipientContactTableId---"
 
   @72341 @programActivation @ProdSan1
