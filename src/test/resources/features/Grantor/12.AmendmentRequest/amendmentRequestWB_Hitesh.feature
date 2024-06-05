@@ -1,7 +1,7 @@
 @amendmentRequestsWB @amendmentRequests @grantor-regression @grantor-parallel-regression @regression
 Feature: Amendment Request scenarios without background
 
-  @200059 @ValidatePMusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatcreatedstateforScopeofWorkChangeARtype @sprint-5-US-198419 @vaibhav @reassignment
+  @hitNew @200059 @ValidatePMusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatcreatedstateforScopeofWorkChangeARtype @sprint-5-US-198419 @vaibhav @reassignment
   Scenario: Validate PM user should able to see the AR is updated after change the ownership by Grantor Side at created state for Scope of Work Change AR type
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -19,31 +19,26 @@ Feature: Amendment Request scenarios without background
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:scopeWorkId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -65,7 +60,7 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see top right button "Send to Subrecipient" in page detail
     Then I softly cannot see top right button "Delete" in page detail
 
-  @200067 @ValidateEXEusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedtoGrantorstateforcombinationofSOW/BPCARtype @sprint-5-US-198419 @vaibhav @reassignment
+  @hitNew @200067 @ValidateEXEusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedtoGrantorstateforcombinationofSOW/BPCARtype @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate EXE user should able to see the AR is updated after change the ownership by Grantor Side at Submitted to Grantor state for combination of SOW/BPC AR type
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -86,7 +81,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -109,26 +104,21 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "s2id_autogen1"
-    And I select value "Automation EXE1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation EXE" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation EXE" into field "input-1"
+    And I select value "Automation EXE1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:budgetPC&ScopeId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:budgetPC&ScopeId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:budgetPC&ScopeId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -136,9 +126,10 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:budgetPC&ScopeId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     When I click on "Start" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     Then I softly can see top right button "Submit For Approval" in page detail
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
+      #    To Do:- Field history deployment not done in LWC hence commented this part
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -160,7 +151,7 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly cannot see top right button "Submit For Approval" in page detail
 
-  @200068 @ValidateFOusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedforapprovalstateforSOWARtype @sprint-5-US-198419 @vaibhav @reassignment
+  @hitNew @200068 @ValidateFOusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedforapprovalstateforSOWARtype @sprint-5-US-198419 @vaibhav @reassignment
   Scenario: Validate FO user should able to see the AR is updated after change the ownership by Grantor Side at Submitted for  approval state for SOW AR type
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "FO" user
@@ -178,13 +169,13 @@ Feature: Amendment Request scenarios without background
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     And I click on "Send to Subrecipient" in the page details
-    Then I see status in Progress-bar is "Sent to Subrecipient" and is "Green"
+    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -202,26 +193,21 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation FO" into field "s2id_autogen1"
-    And I select value "Automation FO1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation FO" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation FO" into field "input-1"
+    And I select value "Automation FO1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:scopeWorkId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -230,7 +216,7 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Approval"
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 #   To Do:- Field history deployment not done in LWC hence commented this part
 #    And I navigate to "History" sub tab
 #    Then I softly see value "Automation FO1" for title "New Value" inside table "---amendment:-:historyTableId---"
@@ -243,7 +229,7 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Approval"
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 #    To Do:- Field history deployment not done in LWC hence commented this part
 #    And I navigate to "History" sub tab
 #    Then I softly see value "Automation FO1" for title "New Value" inside table "---amendment:-:historyTableId---"
@@ -265,7 +251,7 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly can see top right button "Amend Subaward" in page detail
 
-  @200069 @ValidatePMusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatrejectedstateforSOWAR @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @hitNew @200069 @ValidatePMusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatrejectedstateforSOWAR @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PM user should able to see the AR is updated after change the ownership by Grantor Side at rejected state for SOW AR
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -283,13 +269,13 @@ Feature: Amendment Request scenarios without background
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     And I click on "Send to Subrecipient" in the page details
-    Then I see status in Progress-bar is "Sent to Subrecipient" and is "Green"
+    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -310,26 +296,21 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:scopeWorkId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -340,9 +321,10 @@ Feature: Amendment Request scenarios without background
     Then I softly see field "Status" as "Rejected"
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---amendment:-:amendmentOwnerTableId---"
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    #   To Do:- Field history deployment not done in LWC hence commented this part
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -351,11 +333,12 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    #   To Do:- Field history deployment not done in LWC hence commented this part
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
 
-  @200486 @ValidatePMusershouldabletoseealleditaccesspage&sectionleveltonewowneraftertaskreassignmentforcombinationofBPC&SOWARbygrantorsideattachment @sprint-5-US-198153 @vaibhav @reassignment @taskreassign
+  @hitNew @200486 @ValidatePMusershouldabletoseealleditaccesspage&sectionleveltonewowneraftertaskreassignmentforcombinationofBPC&SOWARbygrantorsideattachment @sprint-5-US-198153 @vaibhav @reassignment @taskreassign
   Scenario: Validate PM user should able to see all edit access(page & section level) to new owner after task reassignment for combination of BPC & SOW AR by grantor side attachment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -393,7 +376,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:scopeWorkId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
-    And I refresh the page
+    And I reset the table
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -408,10 +391,10 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @200070 @ValidatePOusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatapprovedstateforSOWAR @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @hitNew @200070 @ValidatePOusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatapprovedstateforSOWAR @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PO user should able to see the AR is updated after change the ownership by Grantor Side at approved state for SOW AR
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -429,7 +412,7 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
     And I get the "EGMS ID"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -448,26 +431,21 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PO" into field "s2id_autogen1"
-    And I select value "Automation PO1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PO" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation PO" into field "input-1"
+    And I select value "Automation PO1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:scopeWorkId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -476,9 +454,10 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Approved"
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+     #   To Do:- Field history deployment not done in LWC hence commented this part
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
     Then I softly can see top right button "Amend Subaward" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -488,12 +467,13 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Approved"
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+     #   To Do:- Field history deployment not done in LWC hence commented this part
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
     Then I softly cannot see top right button "Amend Subaward" in page detail
 
-  @200071 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatcreatedstateforcombinationofBPC&SOWARtype @sprint-5-US-198419 @vaibhav @reassignment
+  @hitNew @200071 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatcreatedstateforcombinationofBPC&SOWARtype @sprint-5-US-198419 @vaibhav @reassignment
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R Side at created state for combination of BPC&SOW AR type
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -512,37 +492,32 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:budgetSOWChangeId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:budgetSOWChangeId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:budgetSOWChangeId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:budgetSOWChangeId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:budgetSOWChangeId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:budgetSOWChangeId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -572,7 +547,7 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Submit for Approval" in page detail
 
-  @200072 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatSubmittedtoGrantorstateforSOWARtype@sprint-5-US-198419 @vaibhav @reassignment
+  @hitNew @200072 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatSubmittedtoGrantorstateforSOWARtype@sprint-5-US-198419 @vaibhav @reassignment
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R Side at Submitted to Grantor state for SOW AR type
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -590,32 +565,27 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
     And I get the "EGMS ID"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "s2id_autogen1"
-    And I select value "Automation EXE1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation EXE" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation EXE" into field "input-1"
+    And I select value "Automation EXE1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:scopeWorkId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -623,9 +593,10 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    To Do:- Field history deployment not done in LWC hence commented this part
+  #    And I navigate to "History" sub tab
+#    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
@@ -637,13 +608,14 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    To Do:- Field history deployment not done in LWC hence commented this part
+  #    And I navigate to "History" sub tab
+#    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Submit for Approval" in page detail
 
-  @200073 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatrejectedstateforSOWAR @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @hitNew @200073 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatrejectedstateforSOWAR @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R Side at rejected state for SOW AR
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -661,7 +633,7 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
     And I get the "EGMS ID"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -680,26 +652,21 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:scopeWorkId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -708,9 +675,10 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    #    To Do:- Field history deployment not done in LWC hence commented this part
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation SPI3" for title "Name" inside table "---amendment:-:amendmentOwnerTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -721,11 +689,12 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    #    To Do:- Field history deployment not done in LWC hence commented this part
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
 
-  @200074 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RatSubmittedforapprovalstateforSOWARtype @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @hitNew @200074 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RatSubmittedforapprovalstateforSOWARtype @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R at Submitted for approval state for SOW AR type
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -743,7 +712,7 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
     And I get the "EGMS ID"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -759,26 +728,21 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:scopeWorkId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -787,9 +751,10 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Approval"
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    #    To Do:- Field history deployment not done in LWC hence commented this part
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation SPI3" for title "Name" inside table "---amendment:-:amendmentOwnerTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -800,11 +765,12 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Approval"
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    #    To Do:- Field history deployment not done in LWC hence commented this part
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
 
-  @200079 @ValidateusershouldabletoseetheaccesstonewownerafterchangingtheownershipBudgetperiodchangefromgrantorside @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @hitNew @200079 @ValidateusershouldabletoseetheaccesstonewownerafterchangingtheownershipBudgetperiodchangefromgrantorside @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the access to new owner after changing the ownership Budget period change from grantor side
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -826,26 +792,21 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "s2id_autogen1"
-    And I select value "Automation EXE1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation EXE" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation EXE" into field "input-1"
+    And I select value "Automation EXE1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:budgetPChangeId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:budgetPChangeId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:budgetPChangeId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -858,7 +819,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -873,11 +834,12 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    To Do:- Field history deployment not done in LWC hence commented this part
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
 
-  @200080 @ValidateusershouldabletoseetheaccesstonewownerafterchangingtheownershipSOWfromgrantorside @sprint-5-US-198419 @vaibhav @reassignment
+  @hitNew @200080 @ValidateusershouldabletoseetheaccesstonewownerafterchangingtheownershipSOWfromgrantorside @sprint-5-US-198419 @vaibhav @reassignment
   Scenario: Validate user should able to see the access to new owner after changing the ownership SOW from grantor side
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -895,31 +857,26 @@ Feature: Amendment Request scenarios without background
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:scopeWorkId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -958,7 +915,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @200081 @ValidateusershouldabletoseetheaccesstonewownerafterchangingtheownershipBudgetperiodchangefromS/Rside @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @hitNew @200081 @ValidateusershouldabletoseetheaccesstonewownerafterchangingtheownershipBudgetperiodchangefromS/Rside @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the access to new owner after changing the ownership Budget period change from S/R side
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -977,36 +934,31 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
     When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "s2id_autogen1"
-    And I select value "Automation EXE1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation EXE" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation EXE" into field "input-1"
+    And I select value "Automation EXE1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:budgetPChangeId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:budgetPChangeId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:budgetPChangeId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1020,7 +972,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     Then I softly see value "Automation SPI3" for title "Name" inside table "---amendment:-:amendmentOwnerTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1035,11 +987,12 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    To Do:- Field history deployment not done in LWC hence commented this part
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
 
-  @200082 @ValidateusershouldabletoseetheaccesstonewownerafterchangingtheownershipscopeofworkchangefromS/Rside @sprint-5-US-198419 @vaibhav @reassignment
+  @hitNew @200082 @ValidateusershouldabletoseetheaccesstonewownerafterchangingtheownershipscopeofworkchangefromS/Rside @sprint-5-US-198419 @vaibhav @reassignment
   Scenario: Validate user should able to see the access to new owner after changing the ownership scope of work change from S/R side
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -1057,32 +1010,27 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
     And I get the "EGMS ID"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "s2id_autogen1"
-    And I select value "Automation EXE1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation EXE" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation EXE" into field "input-1"
+    And I select value "Automation EXE1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:scopeWorkId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1101,7 +1049,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     Then I softly see value "Automation SPI3" for title "Name" inside table "---amendment:-:amendmentOwnerTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1126,7 +1074,7 @@ Feature: Amendment Request scenarios without background
 #    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
 #    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
 
-  @200090 @ValidateHistoryshouldbeupdatedafterchangingtheownershipofAmendment @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @hitNew @200090 @ValidateHistoryshouldbeupdatedafterchangingtheownershipofAmendment @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate History should be updated after changing the ownership of Amendment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -1144,31 +1092,26 @@ Feature: Amendment Request scenarios without background
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:scopeWorkId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:scopeWorkId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1177,11 +1120,11 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly can see top right button "Edit" in page detail
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
 
-  @200488 @ValidatePMusershouldabletoseealleditaccesspage&sectionleveltonewowneraftertaskreassignmentforcombinationofBPC&SOWARbygrantorsideattachment @sprint-5-US-201628 @vaibhav @reassignment @ownvai
+  @hitNew  @200488 @ValidatePMusershouldabletoseealleditaccesspage&sectionleveltonewowneraftertaskreassignmentforcombinationofBPC&SOWARbygrantorsideattachment @sprint-5-US-201628 @vaibhav @reassignment @ownvai
   Scenario: Validate PM user should able to see all edit access page & section level to new owner after task reassignment for combination of BPC & SOW AR by grantor side attachment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -1214,13 +1157,13 @@ Feature: Amendment Request scenarios without background
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
+    And I select value "Automation PM" into field "input-source"
+    And I select value "Automation PM1" into field "input-target"
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---program:-:adminTaskReassignmentTableId---" panel
     When I check "{SavedValue:scopeWorkId}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I pause execution for "30" seconds
-    And I refresh the page
+    And I reset the table
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -1239,10 +1182,10 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @200831 @200841 @ValidateFundingchangependingtaskshouldbegeneratedfornewPMownerinmytaskandinpendingtask @sprint-5-US-194231 @vaibhav @reassignment
+  @hitNew @200831 @200841 @ValidateFundingchangependingtaskshouldbegeneratedfornewPMownerinmytaskandinpendingtask @sprint-5-US-194231 @vaibhav @reassignment
   Scenario: Validate Funding change pending task should be generated for new PM owner in my task and in pending task
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1258,9 +1201,9 @@ Feature: Amendment Request scenarios without background
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
@@ -1299,7 +1242,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:FundingID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
-    And I refresh the page
+    And I reset the table
     When I perform quick search for "{SavedValue:FundingID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -1310,7 +1253,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Review Amendment Request" for title "Task Type" inside table "---amendment:-:pendingTaskTableId---"
     Then I see value "Not Started" for title "Status" against the value "{SavedValue:FundingID}" inside table "---amendment:-:pendingTaskTableId---"
 
-  @200845 @ValidateFundingchangeasEXEuseIcanreassignReviewAmendmentRequestownershiptasktootherEXEuser @sprint-5-US-194231 @vaibhav @reassignment
+  @hitNew @200845 @ValidateFundingchangeasEXEuseIcanreassignReviewAmendmentRequestownershiptasktootherEXEuser @sprint-5-US-194231 @vaibhav @reassignment
   Scenario: Validate Funding change as EXE user I can reassign 'Review Amendment Request' ownership task to other EXE user
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -1326,9 +1269,9 @@ Feature: Amendment Request scenarios without background
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
@@ -1366,6 +1309,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:FundingID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:FundingID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -1376,7 +1320,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Review Amendment Request" for title "Task Type" inside table "---amendment:-:pendingTaskTableId---"
     Then I see value "Not Started" for title "Status" against the value "{SavedValue:FundingID}" inside table "---amendment:-:pendingTaskTableId---"
 
-  @200847 @ValidateFundingchangeasFOuserIcanreassignReviewAmendmentRequestownershiptasktootherFOuser @sprint-5-US-194231 @vaibhav @reassignment
+  @hitNew @200847 @ValidateFundingchangeasFOuserIcanreassignReviewAmendmentRequestownershiptasktootherFOuser @sprint-5-US-194231 @vaibhav @reassignment
   Scenario: Validate Funding change as FO user I can reassign 'Review Amendment Request' ownership task to other FO user
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "FO" user
@@ -1392,9 +1336,9 @@ Feature: Amendment Request scenarios without background
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
@@ -1432,6 +1376,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:FundingID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:FundingID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
@@ -1514,7 +1459,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
   @200854 @ValidateFundingchangefieldhistoryshouldbeupdatedfornewownerofamendmentrequest @sprint-5-US-194231 @vaibhav @reassignment @FieldHistoryExclude
@@ -1799,7 +1744,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "Principal Investigator" into field "ProjectRole__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1831,7 +1776,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
   @200857 @ValidateFundingVerifyAmendmentRequestRejectedemailshouldbegenerateforEXEnewownerofamendmentrequest @sprint-5-US-194231 @vaibhav @reassignment
@@ -2002,7 +1947,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     #200860,200867
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2081,7 +2026,7 @@ Feature: Amendment Request scenarios without background
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1000                 | 100        | 0              |
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -2153,7 +2098,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2208,7 +2153,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2267,7 +2212,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "Principal Investigator" into field "ProjectRole__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -2331,7 +2276,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "Principal Investigator" into field "ProjectRole__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -2357,7 +2302,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
   @200889 @ValidatePeriodicrenewalFDasawardownerIcanseefollowingbuttonsafterReviewAmendmentRequesttaskownershipreassigntonewowner @sprint-5-US-194231 @vaibhav @reassignment
@@ -2403,7 +2348,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "Principal Investigator" into field "ProjectRole__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -2432,7 +2377,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
   @200891 @validatePeriodicrenewalifawardandamendmentownerissametheawardownerscanabletoseeallbuttonsaccessofAR @sprint-5-US-194231 @vaibhav @reassignment
@@ -2478,7 +2423,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "Principal Investigator" into field "ProjectRole__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2494,7 +2439,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
   @200892 @ValidatePeriodicrenewalfiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-194231 @vaibhav @reassignment @FieldHistoryExclude
@@ -2540,7 +2485,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "Principal Investigator" into field "ProjectRole__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -2609,7 +2554,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "Principal Investigator" into field "ProjectRole__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -2629,7 +2574,7 @@ Feature: Amendment Request scenarios without background
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2708,7 +2653,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "Principal Investigator" into field "ProjectRole__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -2737,7 +2682,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2800,7 +2745,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "Principal Investigator" into field "ProjectRole__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -2869,7 +2814,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "Principal Investigator" into field "ProjectRole__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -2964,7 +2909,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "Principal Investigator" into field "ProjectRole__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -2984,7 +2929,7 @@ Feature: Amendment Request scenarios without background
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3481,7 +3426,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "Principal Investigator" into field "ProjectRole__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -3510,7 +3455,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
   @200895 @ValidatePeriodicrenewalAmendmentRequestSentBackemailshouldbegenerateforEXEnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-194231 @vaibhav @reassignment
@@ -3559,7 +3504,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "Principal Investigator" into field "ProjectRole__c"
     And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -3579,7 +3524,7 @@ Feature: Amendment Request scenarios without background
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3681,7 +3626,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
   @201022 @ValidateT&ColdARoldownershouldnothaveanybuttonaccessafterownershiptaskreassigntonewowner @sprint-5-US-194231 @vaibhav @reassignment
@@ -3832,7 +3777,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "500" into field "fieldRequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -3842,7 +3787,7 @@ Feature: Amendment Request scenarios without background
       | Construction    | 1500                 | 150        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4184,14 +4129,14 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I pause execution for "3" seconds
     And I "Approve" in the approval decision
     And I pause execution for "3" seconds
@@ -4213,7 +4158,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "500" into field "fieldRequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -4223,7 +4168,7 @@ Feature: Amendment Request scenarios without background
       | Construction    | 1500                 | 150        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4319,7 +4264,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "500" into field "fieldRequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -4329,7 +4274,7 @@ Feature: Amendment Request scenarios without background
       | Construction    | 1500                 | 150        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4422,7 +4367,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "500" into field "fieldRequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -4432,7 +4377,7 @@ Feature: Amendment Request scenarios without background
       | Construction    | 1500                 | 150        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
@@ -4521,7 +4466,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "500" into field "fieldRequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -4531,7 +4476,7 @@ Feature: Amendment Request scenarios without background
       | Construction    | 1500                 | 150        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4633,7 +4578,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "500" into field "fieldRequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -4643,7 +4588,7 @@ Feature: Amendment Request scenarios without background
       | Construction    | 1500                 | 150        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4745,7 +4690,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "500" into field "fieldRequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -4755,7 +4700,7 @@ Feature: Amendment Request scenarios without background
       | Construction    | 1500                 | 150        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4873,7 +4818,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "500" into field "fieldRequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -4883,7 +4828,7 @@ Feature: Amendment Request scenarios without background
       | Construction    | 1500                 | 150        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4986,7 +4931,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "500" into field "fieldRequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -4996,7 +4941,7 @@ Feature: Amendment Request scenarios without background
       | Construction    | 1500                 | 150        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5080,7 +5025,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "500" into field "fieldRequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -5090,7 +5035,7 @@ Feature: Amendment Request scenarios without background
       | Construction    | 1500                 | 150        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5190,7 +5135,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "500" into field "fieldRequestedChangeInBudget__c"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
-    Then I softly see status in Progress-bar is "Created" and is "Green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -5200,7 +5145,7 @@ Feature: Amendment Request scenarios without background
       | Construction    | 1500                 | 150        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5284,12 +5229,12 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BudgetRedirectId"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5317,12 +5262,12 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BudgetRedirectId"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5350,12 +5295,12 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BudgetRedirectId"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5394,12 +5339,12 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BudgetRedirectId"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5438,12 +5383,12 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BudgetRedirectId"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5476,7 +5421,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
   @200339 @ValidateBudgetRedirectionasPOnewownerofARIhavefollowingbuttonaccess @sprint-5-US-197424 @vaibhav @reassignment
   Scenario: Validate Budget Redirection as PO new owner of AR I have following button access
@@ -5492,12 +5437,12 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BudgetRedirectId"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5530,7 +5475,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
   @200413 @ValidateBudgetRedirectionifS\RusercreateamendmentandsubmittograntorthenARinternalownershouldbeawardownerevenifpreviousamendmentownershiptaskreassigntootheruserotheruser @sprint-5-US-197424 @vaibhav @reassignment
   Scenario: Validate Budget Redirection if S\R user create amendment and submit to grantor then AR internal owner should be award owner even if previous amendment ownership task reassign to other user other user
@@ -5546,12 +5491,12 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BudgetRedirectId"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5613,12 +5558,12 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BudgetRedirectId1"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5634,7 +5579,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -5649,7 +5594,7 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
   @200414 @ValidateBudgetRedirectionfiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-197424 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Budget Redirection filed history should be updated for new owner of AR
@@ -5665,12 +5610,12 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BudgetRedirectId"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5713,12 +5658,12 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BudgetRedirectId"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5800,12 +5745,12 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BudgetRedirectId"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5881,12 +5826,12 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    Then I softly see status in Progress-bar is "Created" and is "green"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BudgetRedirectId"
     And I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "Green"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5973,7 +5918,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
   @200432 @200438 @ValidateKeypersonalchangeReviewAmendmentRequestpendingtaskshouldgenerateforEXEuserinmytaskandinpendingtasksection @sprint-5-US-197424 @vaibhav @reassignment
   Scenario: Validate Key personal change 'Review Amendment Request' pending task should generate for EXE user in my task  and in pending task section
@@ -6080,7 +6025,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
   @200454 @ValidateKeypersonalchangeEXEasawardownerIcanseefollowingbuttonsafterReviewAmendmentRequesttaskownershipreassigntonewowner @sprint-5-US-197424 @vaibhav @reassignment
   Scenario: Validate Key personal change EXE as award owner I can see following buttons after 'Review Amendment Request' task ownership reassign to new owner
@@ -6138,7 +6083,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
   @200455 @ValidateKeypersonalchangefiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-197424 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Key personal change filed history should be updated for new owner of AR
