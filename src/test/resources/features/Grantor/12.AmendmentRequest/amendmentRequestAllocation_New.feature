@@ -1992,7 +1992,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---"
     Then I softly see value "$400.00" for title "Carry Forward" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
 
-  @tempApp @264969 @264842 @264977 @264979 @264998 @264957 @264958 @264959 @264875 @264834 @ValidateSPAusercanseeCarryForwardAmountclmunderBudgetPeriodsectioniseditableinCreatedstateofAmendmentRequestFAisYES @sprint-20-US-249461 @vaibhav @Allocation
+  @264969 @264842 @264977 @264979 @264998 @264957 @264958 @264959 @264875 @264834 @ValidateSPAusercanseeCarryForwardAmountclmunderBudgetPeriodsectioniseditableinCreatedstateofAmendmentRequestFAisYES @sprint-20-US-249461 @vaibhav @Allocation
   Scenario: Validate SPA user can see 'Carry Forward Amount clm under Budget Period section is editable in Created state of Amendment Request (FA is YES
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_DETAILS_BUDGET_YES_RISK_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
@@ -2279,6 +2279,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction | 1600         | 160        | 0              |
     And I click modal button "Close"
     When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
+    And I wait for "2" seconds
     Then I softly see value "$1,300.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     Then I softly see value "$1,600.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
@@ -7717,7 +7718,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$0.00" for title "Current Obligation" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:carryForwardFocusAreaTableId---"
     Then I softly see value "$0.00" for title "Carry Forward Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:carryForwardFocusAreaTableId---"
 
-  @tempApp @264941 @264939 @264615 @ValidateusercannoteditcarryforwardcolumnfromthebudgetperiodsectioninsubmittedforapprovalstateFAYes @sprint-20-US-263307 @vaibhav @Allocation
+  @264941 @264939 @264615 @ValidateusercannoteditcarryforwardcolumnfromthebudgetperiodsectioninsubmittedforapprovalstateFAYes @sprint-20-US-263307 @vaibhav @Allocation
   Scenario: Validate user cannot edit carry forward column from the budget period section in submitted for approval state FA Yes
     And I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_DETAILS_BUDGET_YES_RISK_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
@@ -12314,10 +12315,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,000.00" for title "Cumulative Obligation" against the value "Grand Total" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     #269238
     When I navigate to "Actuals" sub tab
-    And I save the value from row "3" for column name "Award Amount" as "AutoFA1ConstActAwd1PaySumm" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
+    And I save the value from row "4" for column name "Award Amount" as "AutoFA1ConstActAwd1PaySumm" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     And I click on page navigation arrow "---subAwardStandAlone:-:paymentSummaryBudgetTableId---" for table id "Next"
-    And I save the value from row "5" for column name "Award Amount" as "AutoFA2ConstActAwd1PaySumm" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
+    And I save the value from row "7" for column name "Award Amount" as "AutoFA2ConstActAwd1PaySumm" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     #269230
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationPaySummAwd1"
@@ -12482,11 +12483,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     #269238
     When I navigate to "Actuals" sub tab
-    And I save the value from row "3" for column name "Award Amount" as "AutoFA1ConstActAwd2PaySumm" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
+    And I save the value from row "4" for column name "Award Amount" as "AutoFA1ConstActAwd2PaySumm" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     Then I softly see value "{SavedValue:AutoFA1ConstActAwd1PaySumm}" is "Equals to" the value "{SavedValue:AutoFA1ConstActAwd2PaySumm}"
     And I click on page navigation arrow "---subAwardStandAlone:-:paymentSummaryBudgetTableId---" for table id "Next"
-    And I save the value from row "5" for column name "Award Amount" as "AutoFA2ConstActAwd2PaySumm" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
+    And I save the value from row "7" for column name "Award Amount" as "AutoFA2ConstActAwd2PaySumm" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     Then I softly see value "{SavedValue:AutoFA2ConstActAwd1PaySumm}" is "Equals to" the value "{SavedValue:AutoFA2ConstActAwd2PaySumm}"
     #269230
@@ -12588,11 +12589,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     #269238
     When I navigate to "Actuals" sub tab
-    And I save the value from row "3" for column name "Award Amount" as "AutoFA1ConstActAwd2PaySummSR" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
+    And I save the value from row "4" for column name "Award Amount" as "AutoFA1ConstActAwd2PaySummSR" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     Then I softly see value "{SavedValue:AutoFA1ConstActAwd1PaySumm}" is "Equals to" the value "{SavedValue:AutoFA1ConstActAwd2PaySummSR}"
     And I click on page navigation arrow "---subAwardStandAlone:-:paymentSummaryBudgetTableId---" for table id "Next"
-    And I save the value from row "5" for column name "Award Amount" as "AutoFA2ConstActAwd2PaySummSR" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
+    And I save the value from row "7" for column name "Award Amount" as "AutoFA2ConstActAwd2PaySummSR" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     Then I softly see value "{SavedValue:AutoFA2ConstActAwd1PaySumm}" is "Equals to" the value "{SavedValue:AutoFA2ConstActAwd2PaySummSR}"
     #269230

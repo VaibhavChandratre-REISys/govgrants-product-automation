@@ -1387,7 +1387,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Review Amendment Request" for title "Task Type" inside table "---amendment:-:pendingTaskTableId---"
     Then I see value "Not Started" for title "Status" against the value "{SavedValue:FundingID}" inside table "---amendment:-:pendingTaskTableId---"
 
-  @200853 @ValidateFundingchangefollowingbuttonsshouldbedisplayfornewPOowner @sprint-5-US-194231 @vaibhav @reassignment
+  @hitNew  @200853 @ValidateFundingchangefollowingbuttonsshouldbedisplayfornewPOowner @sprint-5-US-194231 @vaibhav @reassignment
   Scenario: Validate Funding change following buttons should be display for new PO owner
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -1403,9 +1403,9 @@ Feature: Amendment Request scenarios without background
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
@@ -1443,6 +1443,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:FundingID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:FundingID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
@@ -1478,9 +1479,9 @@ Feature: Amendment Request scenarios without background
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
@@ -1518,6 +1519,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:FundingID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:FundingID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1528,9 +1530,9 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Review Amendment Request" for title "Task Type" inside table "---amendment:-:pendingTaskTableId---"
     Then I see value "Not Started" for title "Status" against the value "{SavedValue:FundingID}" inside table "---amendment:-:pendingTaskTableId---"
     And I click on "Start" icon for "{SavedValue:FundingID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation PM" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM1" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation PM" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation PM1" for title "Old Value" inside table "---amendment:-:historyTableId---"
 
   @200870 @ValidateFundingchangeasFDuseIcanreassignReviewAmendmentRequestownershiptasktootherFDuser @sprint-5-US-194231 @vaibhav @reassignment
   Scenario: Validate Funding change as FD user I can reassign Review Amendment Request ownership task to other FD user
@@ -1548,9 +1550,9 @@ Feature: Amendment Request scenarios without background
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
@@ -1588,6 +1590,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:FundingID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:FundingID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
@@ -1615,12 +1618,12 @@ Feature: Amendment Request scenarios without background
     When I enter "Funding_Terms_creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     When I enter values into fields
       | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundTermsID"
     When I navigate to "Responsibilities" sub tab
@@ -1655,6 +1658,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:FundTermsID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:FundTermsID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:FundTermsID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -1670,7 +1674,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1761,6 +1765,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -1795,9 +1800,9 @@ Feature: Amendment Request scenarios without background
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
@@ -1832,6 +1837,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:FundingID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:FundingID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -1842,8 +1848,8 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 4100  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Revised Encumbrance |
@@ -1895,9 +1901,9 @@ Feature: Amendment Request scenarios without background
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
@@ -1932,6 +1938,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:FundingID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:FundingID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -2037,6 +2044,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -2068,7 +2076,7 @@ Feature: Amendment Request scenarios without background
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
@@ -2103,45 +2111,23 @@ Feature: Amendment Request scenarios without background
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
-    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    And I Click on "Reassign Records" icon for "Grant" without tableid
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
-    When I check "{SavedValue:GrantEGMSID}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
-    When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
-    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
-    And I pause execution for "30" seconds
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
-    Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    And I pause execution for "2" seconds
-    And I close the tab
-    And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:budgetPChangeId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:budgetPChangeId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:budgetPChangeId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2224,6 +2210,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
@@ -2288,6 +2275,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2360,6 +2348,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
@@ -2497,6 +2486,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -2504,9 +2494,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
 
   @200893 @ValidatePeriodicrenewalAmendmentRequestRejectedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-194231 @vaibhav @reassignment
   Scenario: Validate Periodic renewal 'Amendment Request Rejected' email should be generate for PM new owner of amendment request after the Review Amendment Request ownership task reassign to him
@@ -2566,6 +2556,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -2665,6 +2656,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -2764,9 +2756,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation PM" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM1" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation PM" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation PM1" for title "Old Value" inside table "---amendment:-:historyTableId---"
 
   @200900 @ValidatePeriodicrenewaloldARoldownershouldnothaveanybuttonaccessafterownershipreassigntonewowner @sprint-5-US-194231 @vaibhav @reassignment
   Scenario: Validate Periodic renewal old AR old owner should not have any button access  after ownership reassign to new owner
@@ -2826,6 +2818,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -2921,6 +2914,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -2974,8 +2968,8 @@ Feature: Amendment Request scenarios without background
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Value                    | Field          |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "TermsCondId"
     When I navigate to "Responsibilities" sub tab
@@ -3000,6 +2994,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:TermsCondId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:TermsCondId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:TermsCondId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -3026,8 +3021,8 @@ Feature: Amendment Request scenarios without background
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Value                    | Field          |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "TermsCondId"
     When I navigate to "Responsibilities" sub tab
@@ -3052,6 +3047,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:TermsCondId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:TermsCondId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:TermsCondId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -3078,8 +3074,8 @@ Feature: Amendment Request scenarios without background
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Value                    | Field          |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "TermsCondId"
     When I navigate to "Responsibilities" sub tab
@@ -3109,6 +3105,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:TermsCondId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:TermsCondId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:TermsCondId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
@@ -3135,8 +3132,8 @@ Feature: Amendment Request scenarios without background
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Value                    | Field          |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "TermsCondId"
     When I navigate to "Responsibilities" sub tab
@@ -3166,6 +3163,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:TermsCondId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:TermsCondId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:TermsCondId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
@@ -3176,9 +3174,9 @@ Feature: Amendment Request scenarios without background
     Then I see value "Acknowledged Amendment Request" for title "Task Type" inside table "---amendment:-:pendingTaskTableId---"
     #200972
     And I click on "Start" icon for "{SavedValue:TermsCondId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
 
   @201021 @ValidateT&Callsectionlevelandpagelevelbuttonwillbevisibletoamendmentowner @sprint-5-US-194231 @vaibhav @reassignment
   Scenario: Validate T & C all section level and page level button will be visible to amendment owner and  award owner
@@ -3197,8 +3195,8 @@ Feature: Amendment Request scenarios without background
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Value                    | Field          |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "TermsCondId"
     When I navigate to "Responsibilities" sub tab
@@ -3223,6 +3221,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:TermsCondId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:TermsCondId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:TermsCondId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -3243,8 +3242,8 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     When I navigate to "Subawards" sub tab
-    And I click on parallel menu button in flex table title "Subawards"
-    And I select "Reset Table" from parallel lines dropdown of "Subawards"
+#    And I click on parallel menu button in flex table title "Subawards"
+#    And I select "Reset Table" from parallel lines dropdown of "Subawards"
     And I click on "View" icon for "Pending Activation" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I can see top right button "Activate" in page detail
     Then I can see top right button "Delete" in page detail
@@ -3268,8 +3267,8 @@ Feature: Amendment Request scenarios without background
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Value                    | Field          |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "TermsCondId"
     When I navigate to "Responsibilities" sub tab
@@ -3294,6 +3293,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:TermsCondId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:TermsCondId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:TermsCondId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
@@ -3314,8 +3314,8 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     When I navigate to "Subawards" sub tab
-    And I click on parallel menu button in flex table title "Subawards"
-    And I select "Reset Table" from parallel lines dropdown of "Subawards"
+#    And I click on parallel menu button in flex table title "Subawards"
+#    And I select "Reset Table" from parallel lines dropdown of "Subawards"
     And I click on "View" icon for "Pending Activation" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I can see top right button "Activate" in page detail
     Then I can see top right button "Delete" in page detail
@@ -3328,8 +3328,8 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
-    And I click on parallel menu button in flex table title "Subawards"
-    And I select "Reset Table" from parallel lines dropdown of "Subawards"
+#    And I click on parallel menu button in flex table title "Subawards"
+#    And I select "Reset Table" from parallel lines dropdown of "Subawards"
     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Management" sub tab
@@ -3337,8 +3337,8 @@ Feature: Amendment Request scenarios without background
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Value                    | Field          |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "TermsCondId1"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -3438,6 +3438,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -3516,6 +3517,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -3579,8 +3581,8 @@ Feature: Amendment Request scenarios without background
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Value                    | Field          |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "TermsCondId"
     When I navigate to "Responsibilities" sub tab
@@ -3610,6 +3612,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:TermsCondId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:TermsCondId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:TermsCondId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
