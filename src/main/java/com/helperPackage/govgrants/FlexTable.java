@@ -814,7 +814,7 @@ public final class FlexTable implements FlexTableComponent {
         WebElement entriesDD = I.amPerforming().getElementReference().of(entriesDropDown);
         By elementDropDown = By.xpath("//span[text()='Show']/parent::div/following-sibling::div//li[@data-id='" + numberofEntries + "']");
         try {
-            I.amPerforming().click().on(entriesDD);
+            I.amPerforming().click().withJavaScript(entriesDD);
             I.amPerforming().textInput().in(entriesDD, numberofEntries);
             I.amPerforming().click().on(elementDropDown);
         } catch (Exception e) {
