@@ -126,7 +126,7 @@ Feature: Amendment Request scenarios without background
     And I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:budgetPC&ScopeId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     When I click on "Start" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
       #    To Do:- Field history deployment not done in LWC hence commented this part
 #    And I navigate to "History" sub tab
 #    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
@@ -138,7 +138,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     Then I see value "{SavedValue:budgetPC&ScopeId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
 #    To Do:- Field history deployment not done in LWC hence commented this part
 #    And I navigate to "History" sub tab
 #    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
@@ -150,7 +150,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     Then I see value "{SavedValue:budgetPC&ScopeId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
 
   @hitNew @200068 @ValidateFOusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedforapprovalstateforSOWARtype @sprint-5-US-198419 @vaibhav @reassignment
   Scenario: Validate FO user should able to see the AR is updated after change the ownership by Grantor Side at Submitted for  approval state for SOW AR type
@@ -1686,7 +1686,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Send Back to Subrecipient" in page detail
-    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
@@ -1700,7 +1700,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Send Back to Subrecipient" in page detail
-    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
@@ -1966,7 +1966,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Send Back to Subrecipient" in page detail
-    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
@@ -1981,7 +1981,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Send Back to Subrecipient" in page detail
-    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
@@ -2053,7 +2053,7 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     Then I softly see value "Review Amendment Request" for title "Task Type" inside table "---program:-:pendingTaskTableId---"
 
-  @hitNew1  @200643 @ValidateuserchangetheawardowneraftercreatingARthenallaccessgotothenewownerforAR @sprint-5-US-201628 @vaibhav @reassignment @taskreassign
+  @hitNew2  @200643 @ValidateuserchangetheawardowneraftercreatingARthenallaccessgotothenewownerforAR @sprint-5-US-201628 @vaibhav @reassignment @taskreassign
   Scenario: Validate user change the award owner after creating AR then all access go to the new owner for AR
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2417,7 +2417,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:goalsAndObjectivesTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
@@ -3240,7 +3240,7 @@ Feature: Amendment Request scenarios without background
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
 
-  @hitNew1 @201036 @ValidateT&Casawardownerheshouldnotabletoseeanybuttonsaccessonamendmentrecord @sprint-5-US-194231 @vaibhav @reassignment
+  @hitNew2 @201036 @ValidateT&Casawardownerheshouldnotabletoseeanybuttonsaccessonamendmentrecord @sprint-5-US-194231 @vaibhav @reassignment
   Scenario: Validate T & C as award owner he should not able to see any buttons access on amendment record
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -4495,7 +4495,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
@@ -4606,7 +4606,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
@@ -4717,7 +4717,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
@@ -4732,7 +4732,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Send Back to Subrecipient" in page detail
-    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
     Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
     When I navigate to "Responsibilities" sub tab
@@ -4844,7 +4844,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Send Back to Subrecipient" in page detail
-    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
     Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
     When I navigate to "Responsibilities" sub tab
@@ -4938,7 +4938,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
@@ -5400,7 +5400,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
@@ -5454,7 +5454,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
@@ -5558,7 +5558,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
@@ -5573,7 +5573,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Send Back to Subrecipient" in page detail
-    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
@@ -5897,7 +5897,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
@@ -6004,7 +6004,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
@@ -6062,7 +6062,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
