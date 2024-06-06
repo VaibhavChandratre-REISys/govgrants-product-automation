@@ -138,7 +138,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     Then I see value "{SavedValue:budgetPC&ScopeId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
 #    To Do:- Field history deployment not done in LWC hence commented this part
 #    And I navigate to "History" sub tab
 #    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
@@ -150,7 +150,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     Then I see value "{SavedValue:budgetPC&ScopeId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I softly cannot see top right button "Submit For Approval" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
 
   @hitNew @200068 @ValidateFOusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedforapprovalstateforSOWARtype @sprint-5-US-198419 @vaibhav @reassignment
   Scenario: Validate FO user should able to see the AR is updated after change the ownership by Grantor Side at Submitted for  approval state for SOW AR type
@@ -1744,9 +1744,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2025,9 +2025,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1000                 | 100        | 0              |
@@ -2053,7 +2053,7 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     Then I softly see value "Review Amendment Request" for title "Task Type" inside table "---program:-:pendingTaskTableId---"
 
-  @hitNew2  @200643 @ValidateuserchangetheawardowneraftercreatingARthenallaccessgotothenewownerforAR @sprint-5-US-201628 @vaibhav @reassignment @taskreassign
+  @200643 @ValidateuserchangetheawardowneraftercreatingARthenallaccessgotothenewownerforAR @sprint-5-US-201628 @vaibhav @reassignment @taskreassign
   Scenario: Validate user change the award owner after creating AR then all access go to the new owner for AR
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2101,7 +2101,6 @@ Feature: Amendment Request scenarios without background
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Delete" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
@@ -2134,7 +2133,6 @@ Feature: Amendment Request scenarios without background
     And I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Delete" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
@@ -2193,9 +2191,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -2257,9 +2255,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -2329,9 +2327,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
@@ -2404,9 +2402,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2465,9 +2463,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2534,9 +2532,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2633,9 +2631,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -2725,9 +2723,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -2793,9 +2791,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -2888,9 +2886,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -3240,7 +3238,7 @@ Feature: Amendment Request scenarios without background
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
 
-  @hitNew2 @201036 @ValidateT&Casawardownerheshouldnotabletoseeanybuttonsaccessonamendmentrecord @sprint-5-US-194231 @vaibhav @reassignment
+  @201036 @ValidateT&Casawardownerheshouldnotabletoseeanybuttonsaccessonamendmentrecord @sprint-5-US-194231 @vaibhav @reassignment
   Scenario: Validate T & C as award owner he should not able to see any buttons access on amendment record
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -3307,6 +3305,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Subawards" sub tab
 #    And I click on parallel menu button in flex table title "Subawards"
 #    And I select "Reset Table" from parallel lines dropdown of "Subawards"
+    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     And I click on "View" icon for "Pending Activation" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I can see top right button "Activate" in page detail
     Then I can see top right button "Delete" in page detail
@@ -3321,6 +3320,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Subawards" sub tab
 #    And I click on parallel menu button in flex table title "Subawards"
 #    And I select "Reset Table" from parallel lines dropdown of "Subawards"
+    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Management" sub tab
@@ -3412,9 +3412,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -3490,9 +3490,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -5862,9 +5862,9 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Other" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role  |
+      | {SavedValue:SPI3 Username} | other         |
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -5922,9 +5922,9 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Other" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role |
+      | {SavedValue:SPI3 Username} | other        |
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -5971,9 +5971,9 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Other" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role     |
+      | {SavedValue:SPI3 Username} | other            |
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -6029,9 +6029,9 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Other" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -6087,9 +6087,9 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
-    And I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Other" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role             |
+      | {SavedValue:SPI3 Username} | Principal Investigator   |
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
