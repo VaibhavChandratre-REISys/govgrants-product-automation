@@ -151,7 +151,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I logout
-    93795
+#    93795
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
@@ -190,7 +190,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Acknowledge" in the page details
     And I wait for "3" seconds
     And I logout
-    76492
+#    76492
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
