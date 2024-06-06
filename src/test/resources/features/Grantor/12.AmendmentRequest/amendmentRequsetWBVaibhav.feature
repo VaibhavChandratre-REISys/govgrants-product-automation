@@ -22,7 +22,7 @@ Feature: Amendment Request scenarios without background
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
       | Name                       | Project Role |
       | {SavedValue:SPI3 Username} | Other        |
-     When I click on "Submit to Grantor" in the page details
+    When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -86,7 +86,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @200457 @ValidateKeypersonalchangeAmendmentRequestSentBackemailshouldbegenerateforEXEnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment @TBExecution1
+  @200457 @ValidateKeypersonalchangeAmendmentRequestSentBackemailshouldbegenerateforEXEnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment
   Scenario: Validate Key personal change 'Amendment Request Sent Back' email should be generate for EXE new owner of amendment request after the 'Review Amendment Request' ownership task reassign to him
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -99,6 +99,7 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_KPC" values from "AmendmentRequest_Field_Values.xlsx"
@@ -155,22 +156,22 @@ Feature: Amendment Request scenarios without background
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Amendment Request #{SavedValue:kpcId} has been SentBack by an Approver
+      Sandbox: Notification: Amendment Request #{SavedValue:kpcId} hasbeen Sent Back by an Approver
       """
 
     Then I see the mail text is as follows :
 
       """
       Hello,
-      This email is to inform you that the amendment request #{SavedValue:kpcId} which has been created for the award # has been sent back by the approver.
+      This email is to inform you that the amendment request #{SavedValue:kpcId} which has been created for the award #{SavedValue:AwardEGMSID} has been sent back by the approver.
       Amendment Details:
-      Amendment Type:
+      Amendment Type: Key Personnel Change
       Amendment ID: {SavedValue:kpcId}
       Status: Created
       Grant: {SavedValue:GrantEGMSID}
-      GrantName: {SavedValue:GrantEGMSID}
+
       Log in to EGMS and click here to access the record.
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
       Thank you.
       The EGMS Team
       """
@@ -264,7 +265,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @200461 @ValidateKeypersonalchangeawardownershouldnotseeamendmentlevelbuttonsaccessafterownershipreassigntonewowner @sprint-5-US-197424 @vaibhav @reassignment @TBExecution1
+  @200461 @ValidateKeypersonalchangeawardownershouldnotseeamendmentlevelbuttonsaccessafterownershipreassigntonewowner @sprint-5-US-197424 @vaibhav @reassignment
   Scenario: Validate Key personal change award owner should not see amendment level buttons access  after ownership reassign to new owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation PM1 user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -464,7 +465,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @200280 @ValidateCarryForwardAmendmentReqestApprovedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment @TBExecution1
+  @200280 @ValidateCarryForwardAmendmentReqestApprovedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment
   Scenario: Validate Carry Forward 'Amendment Request Approved' email should be generate for PM new owner of amendment request after the 'Review Amendment Request' ownership task reassign to him
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -595,7 +596,7 @@ Feature: Amendment Request scenarios without background
 
       """
       Hello,
-      This email is to inform you that the amendment request #{SavedValue:CFAmendmentId} for the award # {SavedValue:AwardEGMSID}  has been approved and a new award can be created.
+      This email is to inform you that the amendment request #{SavedValue:CFAmendmentId} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
       Amendment Request Summary:
       Amendment Request Type: Carry Forward
       Amendment ID: {SavedValue:CFAmendmentId}
@@ -624,7 +625,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-   And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
@@ -687,7 +688,6 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Scope&BudgetPeriod_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
@@ -811,6 +811,7 @@ Feature: Amendment Request scenarios without background
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -1720,7 +1721,7 @@ Feature: Amendment Request scenarios without background
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -1822,7 +1823,7 @@ Feature: Amendment Request scenarios without background
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
+      | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
@@ -1870,7 +1871,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
+      | Value | Field                |
       | 4100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
@@ -1926,9 +1927,9 @@ Feature: Amendment Request scenarios without background
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
@@ -1963,6 +1964,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:FundingID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:FundingID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -1973,8 +1975,8 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field                     |
-      | 4100  | fieldRevisedCommitment__c |
+      | Value | Field                |
+      | 4100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Revised Encumbrance |
@@ -1991,13 +1993,13 @@ Feature: Amendment Request scenarios without background
     And I pause execution for "20" seconds
     And I refresh the page
     And I see the mail subject is as follows :
-"""
+      """
       Sandbox: Notification: Amendment Request #{SavedValue:FundingID} has beenApproved
       """
 
     Then I see the mail text is as follows :
 
-"""
+      """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:FundingID} for the award #   has been approved and a new award can be created.
       Amendment Details:
