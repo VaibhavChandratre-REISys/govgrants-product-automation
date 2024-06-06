@@ -150,7 +150,7 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    And I logout
+#    And I logout
     #93795
 #    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
 #    And I pause execution for "10" seconds
@@ -160,8 +160,9 @@ Feature: Validate all scenarios in Closeout
 #      Sandbox: Notification: New Closeout has been Created.
 #      """
 #    Then I refresh the page
-    And I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "EXE" user
+#    And I am on "INTERNAL" portal
+#    When I login to "As a Grantor" app as "EXE" user
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -189,7 +190,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     And I click on "Acknowledge" in the page details
     And I wait for "3" seconds
-    And I logout
+#    And I logout
     #76492
 #    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
 #    And I pause execution for "180" seconds
@@ -199,8 +200,9 @@ Feature: Validate all scenarios in Closeout
 #      Sandbox: Notification: Closeout # {SavedValue:closeoutID} Acknowledgedby Subrecipient
 #      """
 #    Then I refresh the page
-    And I am on "INTERNAL" portal
-    When I login to "As a Grantor" app as "EXE" user
+#    And I am on "INTERNAL" portal
+#    When I login to "As a Grantor" app as "EXE" user
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -249,7 +251,7 @@ Feature: Validate all scenarios in Closeout
     And I click toggle button to select "Project Period Closeouts - Completed"
     Then I softly see value "Completed" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
 
-  @87358 @86711 @86707 @86709 @VerifyEmailNoificationRecievedBySPIUserForCloseout @meenakshi @buglogged-234888 @TBExecution
+  @87358 @86711 @86707 @86709 @VerifyEmailNoificationRecievedBySPIUserForCloseout @meenakshi @buglogged-234888 
   Scenario: To verify Email notification should be received to SPI user when closeout Request has Sent to Subrecipient in Closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -269,22 +271,22 @@ Feature: Validate all scenarios in Closeout
     Given I click on "Send To Subrecipient" in the page details
     And I wait for "2" seconds
     And I logout
-#    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-#    And I pause execution for "180" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#"""
-#      Sandbox: Notification of Closeout Request for {SavedValue:Automation Runtime Award for closeout}
-#      """
-#    #86711
-#    And I checkout to yopmail with mailid "automation.spa@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#     """
-#      Sandbox: Notification of Closeout Request for {SavedValue:Automation Runtime Award for closeout}
-#      """
-#    Then I refresh the page
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I pause execution for "180" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+     """
+      Sandbox: Notification of Closeout Request for {SavedValue:Automation Runtime Award for closeout}
+      """
+    #86711
+    And I checkout to yopmail with mailid "automation.spa@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+     """
+      Sandbox: Notification of Closeout Request for {SavedValue:Automation Runtime Award for closeout}
+      """
+    Then I refresh the page
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Closeout" tab
@@ -331,7 +333,7 @@ Feature: Validate all scenarios in Closeout
       Sandbox: Notification: Closeout Request {SavedValue:closeoutID} has beenSubmitted for your Approval
       """
 
-  @94022 @94019 @94021 @94040 @94042 @validateSendCloseoutRequestForSendReviewForEXEUser @meenakshi @TBExecution
+  @94022 @94019 @94021 @94040 @94042 @validateSendCloseoutRequestForSendReviewForEXEUser @meenakshi 
   Scenario: To verify Closeout owner able to send the Closeout request for Send for review in closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -405,7 +407,7 @@ Feature: Validate all scenarios in Closeout
       | Review has been submitted successfully. |
     Then I softly see that "Submitted" has been added in flextable with Id "---closeout:-:closeoutPeerReviewTableId---"
 
-  @93808 @validateSendBackProgramApproverInCloseoutPhase @meenakshi @TBExecution
+  @93808 @validateSendBackProgramApproverInCloseoutPhase @meenakshi
   Scenario: To verify status changed as : created when Program Approver send Back the closeout Request in Closeout phase
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -508,7 +510,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     When I click on "Acknowledge" in the page details without processing
     Then I softly see confirmation box with body "You are agreeing to complete any Open Items by the Closeout Due Date. Are you sure you are ready to acknowledge the Closeout Request?" is displayed
-    When I click modal button "No"
+    When I click modal button "Cancel"
     Then I softly see field "Status" as "Sent to Subrecipient"
 
   @76489 @ValidateApprovedCloseoutInsideApprovalHistory-TerminationCloseoutRequest-EXEUser @monu @buglogged140761 @FieldHistoryExclude
@@ -896,7 +898,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see top right button "Override" in page detail
     When I click on "Edit" in the page details
 
-  @96735 @VerifyApprovalDecisionFieldsAndButtons-Scheduled @monu @buglogged141587 @TBExecution
+  @96735 @VerifyApprovalDecisionFieldsAndButtons-Scheduled @monu @buglogged141587 
   Scenario: Validate user can see approval decision fields and button at approval decision box
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -907,7 +909,6 @@ Feature: Validate all scenarios in Closeout
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
-    And I save the field labeled "EGMS ID" as "closeoutID"
     When I navigate to "Requests" sub tab
     When I click on "View" icon for "Scheduled" inside flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
     When I navigate to "Responsibilities" sub tab
@@ -917,6 +918,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
       | {SavedValue:FO Username} | Step 2   |
+    And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
     And I enter value "Automation Test Reason" into field "Reason__c"
@@ -924,6 +926,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Checklist" sub tab
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -1167,7 +1170,7 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:PM Username} | Step 2   |
     Then I softly see "You cannot specify the same user for multiple steps for Closeout" inside flex table with id "---closeout:-:closeoutApproverTableId---"
 
-  @153656 @Verify2StepApprovalForScheduleCloseoutRequest-RnRFuntionality @monu @TBExecution
+  @153656 @Verify2StepApprovalForScheduleCloseoutRequest-RnRFuntionality @monu 
   Scenario: Verify user is able approve the schedule closeout request in two step approver
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -1231,9 +1234,9 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
-    Then I see status in Progress-bar is "Approved" and is "dark blue"
+    Then I see status in Progress-bar is "Completed" and is "dark blue"
 
-  @154050 @Verify3StepApprovalFor-ScheduleCloseoutRequest-RnRFunctionality @monu @TBExecution
+  @154050 @Verify3StepApprovalFor-ScheduleCloseoutRequest-RnRFunctionality @monu
   Scenario: Verify user is able to add three step approver for schedule closeout and reject it on step three
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
