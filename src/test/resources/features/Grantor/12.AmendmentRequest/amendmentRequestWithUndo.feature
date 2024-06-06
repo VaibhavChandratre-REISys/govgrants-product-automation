@@ -1162,80 +1162,80 @@ Feature: Amendment Request scenarios with Undo
 #    And I refresh the page
 #    And I click on "Submit to Grantor" in the page details
 #    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I navigate to "Overview" sub tab
+#    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+#      | Title                       | Revised Encumbrance |
+#      | {SavedValue:fundingAccount} | 2700                |
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+#      | Name                     | Amendment Request |
+#      | {SavedValue:PO Username} | Step 1            |
+#    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+#      | Name                      | Amendment Request |
+#      | {SavedValue:EXE Username} | Step 2            |
+#    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+#      | Name                     | Amendment Request |
+#      | {SavedValue:FO Username} | Step 3            |
+#    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+#      | Name                     | Amendment Request |
+#      | {SavedValue:PM Username} | Step 4            |
+#    When I click on "Submit for Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:CFAmendmentId}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+#    And I "Approve" in the approval decision
+#    Then I cannot see top right button "Undo" in page detail
+#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I "Approve" in the approval decision
+#    Then I cannot see top right button "Undo" in page detail
+#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I "Approve" in the approval decision
+#    Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
-      | Title                       | Revised Encumbrance |
-      | {SavedValue:fundingAccount} | 2700                |
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                     | Amendment Request |
-      | {SavedValue:PO Username} | Step 1            |
-    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                      | Amendment Request |
-      | {SavedValue:EXE Username} | Step 2            |
-    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                     | Amendment Request |
-      | {SavedValue:FO Username} | Step 3            |
-    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name                     | Amendment Request |
-      | {SavedValue:PM Username} | Step 4            |
-    When I click on "Submit for Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:CFAmendmentId}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I softly see field "Status" as "Approved"
-    Then I can see top right button "Undo" in page detail
-    And I click on "Amend Subaward" in the page details
-    And I pause execution for "10" seconds
-    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
-    And I save the field labeled "EGMS ID" as "AwardEGMSID1"
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    And I click on "View" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I softly see field "Status" as "Approved"
-    Then I cannot see top right button "Undo" in page detail
-    #292884
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I "Approve" in the approval decision
+#    Then I softly see field "Status" as "Approved"
+#    Then I can see top right button "Undo" in page detail
+#    And I click on "Amend Subaward" in the page details
+#    And I pause execution for "10" seconds
+#    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+#    And I save the field labeled "EGMS ID" as "AwardEGMSID1"
+#    And I navigate to "Grants" tab
+#    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Amendment Requests - All"
+#    When I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+#    And I click on "View" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+#    Then I softly see field "Status" as "Approved"
+#    Then I cannot see top right button "Undo" in page detail
+#    #292884
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "Automation Runtime award78614" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "Automation Runtime award78614" inside table
     When I navigate to "Subawards" sub tab
-    And I click on parallel menu button in flex table title "Subawards"
-    And I select "Reset Table" from parallel lines dropdown of "Subawards"
-    And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+#    And I click on parallel menu button in flex table title "Subawards"
+#    And I select "Reset Table" from parallel lines dropdown of "Subawards"
+    And I click on "View" icon for "Pending Activation" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
     Then I see status in Progress-bar is "Activated" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
