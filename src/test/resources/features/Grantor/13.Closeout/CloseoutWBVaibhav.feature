@@ -150,19 +150,18 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-#    And I logout
-    #93795
-#    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#    """
-#      Sandbox: Notification: New Closeout has been Created.
-#      """
-#    Then I refresh the page
-#    And I am on "INTERNAL" portal
-#    When I login to "As a Grantor" app as "EXE" user
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I logout
+    93795
+    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+    """
+      Sandbox: Notification: New Closeout has been Created.
+      """
+    Then I refresh the page
+    And I am on "INTERNAL" portal
+    When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -190,19 +189,18 @@ Feature: Validate all scenarios in Closeout
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     And I click on "Acknowledge" in the page details
     And I wait for "3" seconds
-#    And I logout
-    #76492
-#    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-#    And I pause execution for "180" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Closeout # {SavedValue:closeoutID} Acknowledgedby Subrecipient
-#      """
-#    Then I refresh the page
-#    And I am on "INTERNAL" portal
-#    When I login to "As a Grantor" app as "EXE" user
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I logout
+    76492
+    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I pause execution for "180" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Closeout # {SavedValue:closeoutID} Acknowledgedby Subrecipient
+      """
+    Then I refresh the page
+    And I am on "INTERNAL" portal
+    When I login to "As a Grantor" app as "EXE" user
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -225,7 +223,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see snapshot with name containing "SentToSubrecipient.pdf" as name
     And I click on hyperlink containing value "Submission.pdf"
     When I download the file
-    Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
+    Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab

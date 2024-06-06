@@ -122,7 +122,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Acknowledge" in the page details
     Then I see that "Amendment Request" is in "Acknowledged" status
 
-  @53203 @97561 @97383 @submitForApprovalSOWAmendmentRequest @monu @poojaAmendmnet
+  @53203 @97561 @97383 @submitForApprovalSOWAmendmentRequest @monu @amendTBE
   Scenario: Submit Amendment Request for Approval
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -352,7 +352,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Amend Subaward" in the page details
     Then I see that "{SavedValue:Automation Runtime Award}" is in "Pending Activation" status
 
-  @53207 @97980 @activateSubawardSOWAmendmentRequest @scopeOfWorkHappyPath @poojaAmendmnet
+  @53207 @97980 @activateSubawardSOWAmendmentRequest @scopeOfWorkHappyPath @amendTBE
   Scenario: Activate SOW Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -981,7 +981,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly can see top right button "Amend Subaward" in page detail
 
-  @57287 @57269 @VerifyPendingTaskAtSubPortalAfterReviseAmendmentRequest @mahadev @poojaAmendmnetSecond @Bug-LWC-429508
+  @57287 @57269 @VerifyPendingTaskAtSubPortalAfterReviseAmendmentRequest @mahadev @poojaAmendmnetSecond @Bug-LWC-429508 @amendTBE
   Scenario: Verify once grantor click on Revise button Amendment request Status changes to Created | Verify Sub-recipient can check revise amendment request in pending task
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2689,7 +2689,7 @@ Feature: Validate all scenarios in the Amendment Request
       | {SavedValue:EXE Username} | Step 1            |
     Then I softly see "You cannot specify the same step for multiple users for Amendment Request." inside flex table with id "---amendment:-:fundingChangeApproversTableId---"
 
-  @149404 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStep-BPCAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird
+  @149404 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStep-BPCAmendmentRequest-RnRFunctionality @monu @amendTBE
   Scenario: Verify validation displayed when same approver is added on different  step for amendment Budget Period Change
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
