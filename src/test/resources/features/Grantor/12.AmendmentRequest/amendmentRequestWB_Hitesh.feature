@@ -2289,7 +2289,7 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @hitNew1 @200889 @ValidatePeriodicrenewalFDasawardownerIcanseefollowingbuttonsafterReviewAmendmentRequesttaskownershipreassigntonewowner @sprint-5-US-194231 @vaibhav @reassignment
+  @200889 @ValidatePeriodicrenewalFDasawardownerIcanseefollowingbuttonsafterReviewAmendmentRequesttaskownershipreassigntonewowner @sprint-5-US-194231 @vaibhav @reassignment
   Scenario: Validate Periodic renewal FD as award owner I can see following buttons after 'Review Amendment Request' task ownership reassign to new owner
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -2936,6 +2936,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
     When I navigate to "Subawards" sub tab
+    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     And I click on "View" icon for "Pending Activation" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I can see top right button "Activate" in page detail
 
@@ -3232,13 +3233,14 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Subawards" sub tab
 #    And I click on parallel menu button in flex table title "Subawards"
 #    And I select "Reset Table" from parallel lines dropdown of "Subawards"
+    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     And I click on "View" icon for "Pending Activation" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I can see top right button "Activate" in page detail
     Then I can see top right button "Delete" in page detail
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
 
-  @201036 @ValidateT&Casawardownerheshouldnotabletoseeanybuttonsaccessonamendmentrecord @sprint-5-US-194231 @vaibhav @reassignment
+  @hitNew1 @201036 @ValidateT&Casawardownerheshouldnotabletoseeanybuttonsaccessonamendmentrecord @sprint-5-US-194231 @vaibhav @reassignment
   Scenario: Validate T & C as award owner he should not able to see any buttons access on amendment record
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -3320,7 +3322,6 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Subawards" sub tab
 #    And I click on parallel menu button in flex table title "Subawards"
 #    And I select "Reset Table" from parallel lines dropdown of "Subawards"
-    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Management" sub tab
@@ -5530,6 +5531,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
     When I navigate to "Subawards" sub tab
+    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     And I click on "View" icon for "Pending Activation" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I click on "Activate" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
