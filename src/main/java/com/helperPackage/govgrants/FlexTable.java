@@ -816,6 +816,7 @@ public final class FlexTable implements FlexTableComponent {
         try {
             I.amPerforming().click().withJavaScript(entriesDD);
             I.amPerforming().textInput().in(entriesDD, numberofEntries);
+            I.amPerforming().scroll().onPageToSpecificElement(elementDropDown);
             I.amPerforming().click().on(elementDropDown);
         } catch (Exception e) {
             I.amPerforming().click().withJavaScript(elementDropDown);
