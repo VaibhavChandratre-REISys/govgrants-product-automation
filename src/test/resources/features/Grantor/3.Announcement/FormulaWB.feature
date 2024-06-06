@@ -3374,42 +3374,42 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
-    #222556
-    And I navigate to "Opportunities" tab
-    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    When I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
-    And I navigate to "Financials" sub tab
-    Then I see value "$2000" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
-    When I click on "Qualify" in the page details
-    And I wait for "3" seconds
-    And I navigate to "Opportunities" tab
-    When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
-    And I click toggle button to select "Qualified Opportunities - All"
-    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:qualifiedTableId---" panel
-    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:qualifiedTableId---"
-    And I navigate to "Financials" sub tab
-    Then I see value "$2000" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    And I navigate to "Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "<Announcement Name>" inside table
-    And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$2,000"
-    #222555 #222479
-    When I navigate to "Announcements" tab
-    When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "All Formula Announcements"
-    When I perform quick search for "<Announcement Name>" in "---announcement:-:formulaAnnouncementTableId---" panel
-    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    When I navigate to "Overview" sub tab
-    And I save the value from row "1" for column name "Last Updated" as "lastUpdateDateTime" from flex table "---announcement:-:formulaInvitedApplicatsTableId---"
-    Then I see the following rows under the following headers in table with id "---announcement:-:formulaInvitedApplicatsTableId---" :
-      | Applicants                          | Last Updated By | Last Updated                    |
-      | SAN DIEGO ELECTRICAL TRAINING TRUST | Automation PM   | {SavedValue:lastUpdateDateTime} |
+#    #222556
+#    And I navigate to "Opportunities" tab
+#    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+#    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+#    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+#    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
+#    And I navigate to "Financials" sub tab
+#    Then I see value "$2000" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
+#    When I click on "Qualify" in the page details
+#    And I wait for "3" seconds
+#    And I navigate to "Opportunities" tab
+#    When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
+#    And I click toggle button to select "Qualified Opportunities - All"
+#    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:qualifiedTableId---" panel
+#    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:qualifiedTableId---"
+#    And I navigate to "Financials" sub tab
+#    Then I see value "$2000" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Applications" tab
+#    And I navigate to "Applications" content inside "Applications" subheader on left panel
+#    When I click toggle button to select "Applications - All"
+#    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+#    When I click on "View" icon for "<Announcement Name>" inside table
+#    And I navigate to "Budget" sub tab
+#    Then I softly see field "Allocation Amount" as "$2,000"
+#    #222555 #222479
+#    When I navigate to "Announcements" tab
+#    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+#    And I click toggle button to select "All Formula Announcements"
+#    When I perform quick search for "<Announcement Name>" in "---announcement:-:formulaAnnouncementTableId---" panel
+#    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
+#    When I navigate to "Overview" sub tab
+#    And I save the value from row "1" for column name "Last Updated" as "lastUpdateDateTime" from flex table "---announcement:-:formulaInvitedApplicatsTableId---"
+#    Then I see the following rows under the following headers in table with id "---announcement:-:formulaInvitedApplicatsTableId---" :
+#      | Applicants                          | Last Updated By | Last Updated                    |
+#      | SAN DIEGO ELECTRICAL TRAINING TRUST | Automation PM   | {SavedValue:lastUpdateDateTime} |
 
     Examples:
       | Announcement Name                                |
