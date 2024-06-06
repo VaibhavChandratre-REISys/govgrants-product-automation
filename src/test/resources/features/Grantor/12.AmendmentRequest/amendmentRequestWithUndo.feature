@@ -1712,7 +1712,7 @@ Feature: Amendment Request scenarios with Undo
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "CR-AD-1234-8886-00" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "CR-AD-1234-8886-00" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I click on "View" icon for "CR-AD-1234-8886-00" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
     When I navigate to "Responsibilities" sub tab
@@ -4929,102 +4929,101 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
-  @ch3 @291091 @VerifythatUsercanReassignARafterthathewillnotseeUndoButtonifuserisnotlastApprover @sprint-2-US-289813 @hitesh @Undo
+  @done @291091 @VerifythatUsercanReassignARafterthathewillnotseeUndoButtonifuserisnotlastApprover @sprint-2-US-289813 @hitesh @Undo
   Scenario:Verify that User can Reassign AR  after that he will not see Undo Button if user is not last Approver
-#    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
-#    When I login to "As a Grantor" app as "PM" user
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - Active"
-#    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I save the field labeled "EGMS ID" as "AwardEGMSID"
-#    When I navigate to "Management" sub tab
-#    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
-#    When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
-#    And I click modal button "Save and Continue"
-#    When I enter values into fields
-#      | Value                       | Field                         |
-#      | Automation Test Description | FundingChangeJustification__c |
-#    And I click on "Save" in the page details
-#    And I save the field labeled "EGMS ID" as "FundingID"
-#    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-#      | Title                           | New Obligation |
-#      | Automation Permanent Focus Area | 2000           |
-#    And I refresh the page
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
-#      | Name                     | Amendment Request |
-#      | {SavedValue:PO Username} | Step 1            |
-#    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
-#      | Name                      | Amendment Request |
-#      | {SavedValue:EXE Username} | Step 2            |
-#    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
-#      | Name                     | Amendment Request |
-#      | {SavedValue:FO Username} | Step 3            |
-#    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
-#      | Name                     | Amendment Request |
-#      | {SavedValue:PM Username} | Step 4            |
-#    When I get the "EGMS ID"
-#    And I click on "Send to Subrecipient" in the page details
-#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-#    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-#    And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
-#      | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
-#      | Construction  | 3000                 | 150        | 150            |
-#    And I click on "Submit to Grantor" in the page details
-#    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-#    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-#    And I navigate to "Overview" sub tab
-#    And I click on "Edit" in the page details
-#    When I enter values into fields
-#      | Value | Field                |
-#      | 3000  | RevisedCommitment__c |
-#    And I click on "Save" in the page details
-#    When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
-#      | Funding Account             | Revised Encumbrance |
-#      | {SavedValue:fundingAccount} | 3000                |
-#    And I click on "Submit for Approval" in the page details
-#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-#    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "{SavedValue:FundingID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-#    And I click on "Start" icon for "{SavedValue:FundingID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-#    And I "Approve" in the approval decision
-#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-#    Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "{SavedValue:FundingID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-#    And I click on "Start" icon for "{SavedValue:FundingID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-#    Then I softly see field "Status" as "Submitted for Approval"
-#    Then I see only the following ordered radio buttons in the approval decision :
-#      | Approve | Reject | Forward | Send to Owner |
-#    And I navigate to "Home" tab
-#    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-#    When I reassign task to "Automation EXE1"
-#    When I perform quick search for "{SavedValue:FundingID}" in "---program:-:grantorTaskReassignTableId---" panel
-#    When I check "{SavedValue:FundingID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
-#    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-#    And I pause execution for "30" seconds
-#    And I reset the table
-#    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
-    When I login to "As a Grantor" app as "EXE1" user
+    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter values into fields
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+    And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "FundingID"
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                           | New Obligation |
+      | Automation Permanent Focus Area | 2000           |
+    And I refresh the page
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PO Username} | Step 1            |
+    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+      | Name                      | Amendment Request |
+      | {SavedValue:EXE Username} | Step 2            |
+    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:FO Username} | Step 3            |
+    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PM Username} | Step 4            |
+    When I get the "EGMS ID"
+    And I click on "Send to Subrecipient" in the page details
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "CR-AD-1234-8878-00" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "View" icon for "CR-AD-1234-8878-00" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
+      | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
+      | Construction  | 3000                 | 150        | 150            |
+    And I click on "Submit to Grantor" in the page details
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    When I enter values into fields
+      | Value | Field                |
+      | 3000  | RevisedCommitment__c |
+    And I click on "Save" in the page details
+    When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Revised Encumbrance |
+      | {SavedValue:fundingAccount} | 3000                |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:FundingID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:FundingID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:FundingID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:FundingID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    Then I softly see field "Status" as "Submitted for Approval"
+    Then I see only the following ordered radio buttons in the approval decision :
+      | Approve | Reject | Forward | Send to Owner |
+    And I navigate to "Home" tab
+    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+    When I reassign task to "Automation EXE1"
+    When I perform quick search for "{SavedValue:FundingID}" in "---program:-:grantorTaskReassignTableId---" panel
+    When I check "{SavedValue:FundingID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I pause execution for "30" seconds
+    And I reset the table
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:pendingTaskTableId---" panel
+    When I click on "View" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Submitted for Approval"
     Then I cannot see top right button "Undo" in page detail
@@ -5032,8 +5031,8 @@ Feature: Amendment Request scenarios with Undo
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "CR-AD-1234-8878-00" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    And I click on "View" icon for "CR-AD-1234-8878-00" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    And I click on "View" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Approval"
     Then I cannot see top right button "Undo" in page detail
 
@@ -8892,31 +8891,25 @@ Feature: Amendment Request scenarios with Undo
     And I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @ch3 @299481 @VerifythatUserWillSeeSnapshotInSnapshotHistoryTable @Sprint-5-US-297246 @hitesh @Undo
+  @done @299481 @VerifythatUserWillSeeSnapshotInSnapshotHistoryTable @Sprint-5-US-297246 @hitesh @Undo
   Scenario: Verify that User Will See Snapshot In Snapshot History Table
-#    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Award__c/a1oDV000007RzDIYA0/view"
-#    And I navigate to "Grants" tab
-#    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Subawards  - Active"
-#    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
-#    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+    And I navigate to "Grants" tab
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    And I save the field labeled "Subaward Title" as "Automation Runtime Award"
-#    And I navigate to "Management" sub tab
-#    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
-#    When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
-#    And I click modal button "Save and Continue"
-#    And I enter "PeriodicEditionFocusYes" values from "AmendmentRequest_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/AmendmentRequest__c/a1YDV000002uLyo2AE/view"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "PeriodicEditionFocusYes" values from "AmendmentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---amendment:-:keyOutcomesTableId---" by clicking "Edit" :
       | Title                    | Actual |
       | Automation Permanent KPI | 1000   |
-#    And I click on "Edit" icon for "---AUTOEnvData:-:fundingAccount---" inside flex table with id "---amendment:-:AmendmentFundingAccountTableId---" without waiting for record
-#    And I enter value "1000" into field "ActualEncumbrance__c"
-#    And I click on top right button "Save" in flex table with id "---amendment:-:AmendmentFundingAccountTableId---"
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
