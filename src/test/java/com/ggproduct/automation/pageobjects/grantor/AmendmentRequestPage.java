@@ -62,7 +62,7 @@ public class AmendmentRequestPage extends GrantorProjectManager {
         By entriesDropDown = ByUsing.xpath("//*[@data-flextablename='" + flexTableId + "']//div//input[@placeholder='Select an Option']");
 
         try {
-            I.amPerforming().scroll().toZoomInOut(100);
+            I.amPerforming().scroll().toZoomInOut(1);
             I.amPerforming().waitFor().ElementToBePresent(entriesDropDown,5);
             if (I.amPerforming().checkToSee().isDisplayed(entriesDropDown)
                     || I.amPerforming().checkToSee().isEnabled(entriesDropDown)) {
