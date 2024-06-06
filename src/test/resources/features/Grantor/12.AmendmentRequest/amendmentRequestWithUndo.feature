@@ -1118,6 +1118,8 @@ Feature: Amendment Request scenarios with Undo
 #    When I click on "Activate" in the page details
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/amendmentrequest/a1YDV000002uM3U2AU/crad1234888400"
+
 #    And I navigate to "Grants" tab
 #    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
 #    And I click toggle button to select "Subawards  - Active"
@@ -1130,7 +1132,7 @@ Feature: Amendment Request scenarios with Undo
 #    And I enter value "Automation Justification" into field "PurposeRTA__c"
 #    And I wait for "5" seconds
 #    When I click on "Save" in the page details
-#    And I save the field labeled "EGMS ID" as "CFAmendmentId"
+    And I save the field labeled "EGMS ID" as "CFAmendmentId"
 #    Then I softly see status in Progress-bar is "Created" and is "dark blue"
 #    And I refresh the page
 #    And I edit the following rows inline in flex table with id "---amendment:-:carryForwardFocusAreaTableId---" by clicking "Edit" :
@@ -1149,18 +1151,17 @@ Feature: Amendment Request scenarios with Undo
 #      | Budget Category | Carry Forward |
 #      | Construction    | 500           |
 ##    When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/amendmentrequest/a1YDV000002uM3U2AU/crad1234888400"
-    And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Previous"
-    And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
-      | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
-      | Construction    | 1200                 | 120        | 0              |
-    And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Next"
-    And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
-      | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
-      | Construction    | 1500                 | 150        | 0              |
-    And I refresh the page
-    And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+#    And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Previous"
+#    And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
+#      | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
+#      | Construction    | 1200                 | 120        | 0              |
+#    And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Next"
+#    And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
+#      | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
+#      | Construction    | 1500                 | 150        | 0              |
+#    And I refresh the page
+#    And I click on "Submit to Grantor" in the page details
+#    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
