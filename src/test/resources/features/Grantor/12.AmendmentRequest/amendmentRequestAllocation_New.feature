@@ -9636,6 +9636,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1000                 | 100        | 0              |
+    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
@@ -10682,7 +10683,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation2"
     Then I softly see value "{SavedValue:CumulativeObligationAward1}" is "Equals to" the value "{SavedValue:CumulativeObligation2}"
     #269860
-#    When I expand nested table containing column value "BP01"
+    When I expand nested table containing column value "BP01"
     Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---"
     And I click on page navigation arrow "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---" for table id "Next"
     Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---"
@@ -12594,7 +12595,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     #269238
     When I navigate to "Actuals" sub tab
-    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     And I save the value from row "3" for column name "Award Amount" as "AutoFA1ConstActAwd2PaySummSR" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     Then I softly see value "{SavedValue:AutoFA1ConstActAwd1PaySumm}" is "Equals to" the value "{SavedValue:AutoFA1ConstActAwd2PaySummSR}"
