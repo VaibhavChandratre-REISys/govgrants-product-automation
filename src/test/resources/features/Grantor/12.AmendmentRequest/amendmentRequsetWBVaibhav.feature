@@ -1483,21 +1483,21 @@ Feature: Amendment Request scenarios without background
     And I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Amendment Request #{SavedValue:BudgetRedirectId} has beenApproved
+      Sandbox: Notification: Amendment Request #{SavedValue:BudgetRedirectId} hasbeen Approved
       """
 
     Then I see the mail text is as follows :
 
       """
       Hello,
-      This email is to inform you that the amendment request #{SavedValue:BudgetRedirectId} for the award # {SavedValue:AwardEGMSID}  has been approved and a new award can be created.
+      This email is to inform you that the amendment request #{SavedValue:BudgetRedirectId} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
       Amendment Details:
-      Amendment Request Type: Formal Amendments
+      Amendment Request Type: Budget Redirection
       Amendment ID: {SavedValue:BudgetRedirectId}
       Status: Approved
       Grant: {SavedValue:GrantEGMSID}
       Log in to EGMS, and click here to access the record.
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com, if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
       Thank you.
       The EGMS Team
       """
@@ -1782,13 +1782,13 @@ Feature: Amendment Request scenarios without background
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Amendment Request #{SavedValue:FundingID} has beensubmitted
+      Sandbox: Notification: Amendment Request #{SavedValue:FundingID} hasbeen submitted
       """
     Then I see the mail text is as follows :
 
       """
       Hello,
-      This email is to inform you that the amendment request #{SavedValue:FundingID} for the award #{SavedValue:AwardEGMSID} has been submitted by the subrecipient. You are requested to review the amendment made for the award.
+      This email is to inform you that the amendment request #{SavedValue:FundingID} for the award #{SavedValue:AwardEGMSID} has been submitted by subrecipient. You are requested to review the amendment made for the award.
 
       Amendment Details:
          Amendment Type: Funding Change
@@ -1799,7 +1799,7 @@ Feature: Amendment Request scenarios without background
 
       Log in to EGMS and click here to perform the review.
 
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
       Thank you.
       The EGMS Team
@@ -1890,7 +1890,7 @@ Feature: Amendment Request scenarios without background
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Amendment Request #{SavedValue:FundingID} has been SentBack by an Approver
+      Sandbox: Notification: Amendment Request #{SavedValue:FundingID} hasbeen Sent Back by an Approver
       """
 
     Then I see the mail text is as follows :
@@ -1899,12 +1899,12 @@ Feature: Amendment Request scenarios without background
       Hello,
       This email is to inform you that the amendment request #{SavedValue:FundingID} which has been created for the award #{SavedValue:AwardEGMSID} has been sent back by the approver.
       Amendment Details:
-      Amendment Type:
+      Amendment Type: Funding Change
       Amendment ID: {SavedValue:FundingID}
       Status: Created
       Grant: {SavedValue:GrantEGMSID}
       Log in to EGMS and click here to access the record.
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
       Thank you.
       The EGMS Team
       """
@@ -2126,6 +2126,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Subawards" sub tab
     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
@@ -2179,14 +2180,14 @@ Feature: Amendment Request scenarios without background
     And I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} has beenApproved
+      Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} hasbeen Approved
       """
 
     Then I see the mail text is as follows :
 
       """
       Hello,
-      This email is to inform you that the amendment request #{SavedValue:TermsCondId} for the award #   has been approved and a new award can be created.
+      This email is to inform you that the amendment request #{SavedValue:TermsCondId} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
       Amendment Details:
       Amendment Type:  Terms and Conditions Change
       Amendment ID: {SavedValue:TermsCondId}
@@ -2194,7 +2195,7 @@ Feature: Amendment Request scenarios without background
       Grant: {SavedValue:GrantEGMSID}
 
       Log in to EGMS and click here to access the record
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
       Thank you.
       The EGMS Team
       """
@@ -2212,6 +2213,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Subawards" sub tab
     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
@@ -2289,22 +2291,22 @@ Feature: Amendment Request scenarios without background
     And I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} has beenApproved
+      Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} hasbeen Approved
       """
 
     Then I see the mail text is as follows :
 
       """
       Hello,
-      This email is to inform you that the amendment request #{SavedValue:TermsCondId} for the award #   has been approved and a new award can be created.
+      This email is to inform you that the amendment request #{SavedValue:TermsCondId} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
       Amendment Details:
-      Amendment Type:  Terms and Conditions Change
+      Amendment Type: Terms and Conditions Change
       Amendment ID: {SavedValue:TermsCondId}
       Status: Approved
       Grant: {SavedValue:GrantEGMSID}
 
       Log in to EGMS and click here to access the record
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
       Thank you.
       The EGMS Team
       """

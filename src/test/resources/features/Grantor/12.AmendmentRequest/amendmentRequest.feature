@@ -149,6 +149,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
+    Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -156,7 +157,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     #97383 #monu
     Then I softly see field "Amendment Types" as "Scope of Work Change"
     And I click on "Submit to Grantor" in the page details
@@ -1031,9 +1032,10 @@ Feature: Validate all scenarios in the Amendment Request
 #    And I click on "Revise" in the page details
     And I wait for "3" seconds
     When I navigate to "Overview" sub tab
-    And I click on "Edit" in the page details
-    When I enter value "Automation Description" into field "PurposeRTA__c"
-    And I click on "Save" in the page details
+    #logged bug fo below steps :- Bug Id-429508
+#    And I click on "Edit" in the page details
+#    When I enter value "Automation Description" into field "PurposeRTA__c"
+#    And I click on "Save" in the page details
     And I click on "Send Back to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2689,7 +2691,7 @@ Feature: Validate all scenarios in the Amendment Request
       | {SavedValue:EXE Username} | Step 1            |
     Then I softly see "You cannot specify the same step for multiple users for Amendment Request." inside flex table with id "---amendment:-:fundingChangeApproversTableId---"
 
-  @149404 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStep-BPCAmendmentRequest-RnRFunctionality @monu @amendTBE
+  @149404 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStep-BPCAmendmentRequest-RnRFunctionality @monu
   Scenario: Verify validation displayed when same approver is added on different  step for amendment Budget Period Change
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"

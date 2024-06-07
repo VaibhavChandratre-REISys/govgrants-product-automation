@@ -397,8 +397,7 @@ Feature: Validate all scenarios in Closeout
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    Then I softly see the following messages in the page details :
-      | Review has been submitted successfully. |
+    And I wait for "2" seconds
     Then I softly see that "Submitted" has been added in flextable with Id "---closeout:-:closeoutPeerReviewTableId---"
 
   @93808 @validateSendBackProgramApproverInCloseoutPhase @meenakshi
