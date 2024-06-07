@@ -443,7 +443,7 @@ Feature: Validate all scenarios in Closeout
     And I enter value "Automation Test Reason" into field "Reason__c"
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
-    Then I softly see field "Override Justification" as ""
+    Then I softly see field "Override Justification" as "Automation Test justification"
     When I click on "Override" in the page details
     And I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
