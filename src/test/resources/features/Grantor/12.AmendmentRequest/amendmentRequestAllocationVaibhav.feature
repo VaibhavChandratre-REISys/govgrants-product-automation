@@ -4133,7 +4133,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:subrecipientProjectAreasTableId---"
     Then I softly see value "$1,000.00" for title "Spent" against the value "Automation Permanent Focus Area" inside table "---amendment:-:subrecipientProjectAreasTableId---"
 
-  @253673 @253674 @253676 @ValidateSPAusercanseevaluesenteredbythegrantoruserinNewObligationcolumnofBudgetSummarybyFocusAreasection @sprint-18-US-247642 @vaibhav @Allocation @amendTBE
+  @253673 @253674 @253676 @ValidateSPAusercanseevaluesenteredbythegrantoruserinNewObligationcolumnofBudgetSummarybyFocusAreasection @sprint-18-US-247642 @vaibhav @Allocation
   Scenario Outline: Validate SPA user can see values entered by the grantor user in New Obligation column of Budget Summary by Focus Area section
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "<Properties>-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY-<UserProfile>"
@@ -4194,7 +4194,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Examples:
       | User | UserProfile          | Properties                             |
       | SPA  | Automation SPI3 user | SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO  |
-#      | IND  | Automation IND user  | INVITED_APPLICANT_IND_ORG_BY_APPLICANT |
+      | IND  | Automation IND user  | INVITED_APPLICANT_IND_ORG_BY_APPLICANT |
 
   @253678 @ValidateSPAusercanseeBudgetedAmountcolumnvalueisrollupfromthebudgetgridinthebudgetchangesectionFAYes @sprint-18-US-247642 @vaibhav @Allocation
   Scenario: Validate SPA user can see Budgeted Amount column value is rollup from the budget grid in the budget change section (FA Yes)

@@ -122,7 +122,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Acknowledge" in the page details
     Then I see that "Amendment Request" is in "Acknowledged" status
 
-  @53203 @97561 @97383 @submitForApprovalSOWAmendmentRequest @monu @amendTBE
+  @53203 @97561 @97383 @submitForApprovalSOWAmendmentRequest @monu
   Scenario: Submit Amendment Request for Approval
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -353,7 +353,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Amend Subaward" in the page details
     Then I see that "{SavedValue:Automation Runtime Award}" is in "Pending Activation" status
 
-  @53207 @97980 @activateSubawardSOWAmendmentRequest @scopeOfWorkHappyPath @amendTBE
+  @53207 @97980 @activateSubawardSOWAmendmentRequest @scopeOfWorkHappyPath
   Scenario: Activate SOW Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -982,7 +982,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly can see top right button "Amend Subaward" in page detail
 
-  @57287 @57269 @VerifyPendingTaskAtSubPortalAfterReviseAmendmentRequest @mahadev @poojaAmendmnetSecond @Bug-LWC-429508 @amendTBE
+  @57287 @57269 @VerifyPendingTaskAtSubPortalAfterReviseAmendmentRequest @mahadev @poojaAmendmnetSecond @Bug-LWC-429508
   Scenario: Verify once grantor click on Revise button Amendment request Status changes to Created | Verify Sub-recipient can check revise amendment request in pending task
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
