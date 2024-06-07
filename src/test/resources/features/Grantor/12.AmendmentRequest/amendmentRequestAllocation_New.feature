@@ -9587,7 +9587,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitmentGrantSR"
     Then I softly see value "{SavedValue:TotalCommitmentNewAwd}" is "Equals to" the value "{SavedValue:TotalCommitmentGrantSR}"
 
-  @HitRMN @265850 @265853 @ValidatePMusercanseeCumulativeObligationvalueshouldincreasedonversion2ofBP03awardFAisYeswhenwedoingcarryforwardARonBP03activateversion2awardonBP03ifwehave3budgetperiodonAward @sprint-20-US-263392 @vaibhav @Allocation
+  @265850 @265853 @ValidatePMusercanseeCumulativeObligationvalueshouldincreasedonversion2ofBP03awardFAisYeswhenwedoingcarryforwardARonBP03activateversion2awardonBP03ifwehave3budgetperiodonAward @sprint-20-US-263392 @vaibhav @Allocation
   Scenario: Validate PM user can see Cumulative Obligation value should increased on version 2 of BP03 award  (FA is Yes) when we doing carry forward AR on BP03 & activate version 2 award on BP03& if we have 3 budget period on Award
     And I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -10434,7 +10434,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Revised Obligation must be greater than or equal to the Spent amount. |
 
-  @HitRMN @269811 @269814 @269815 @269825 @269827 @269828 @269851 @269852 @269853 @269854 @269856 @256858 @269859 @269860 @269861 @269863 @269819 @269821 @KPCSRsideVerifyPMSPAusercanseeNewObligationfieldunderBudgetSummarysectiononversion2AwardisinActivatedstatepostKPCAR&shouldshow$0onversion2AwardfFAYES @sprint-21-US-266911 @hitesh @Allocation
+  @269811 @269814 @269815 @269825 @269827 @269828 @269851 @269852 @269853 @269854 @269856 @256858 @269859 @269860 @269861 @269863 @269819 @269821 @KPCSRsideVerifyPMSPAusercanseeNewObligationfieldunderBudgetSummarysectiononversion2AwardisinActivatedstatepostKPCAR&shouldshow$0onversion2AwardfFAYES @sprint-21-US-266911 @hitesh @Allocation
   Scenario: KPC(S/R side)Verify PM/SPA user can see New Obligation field under Budget Summary section on version 2 Award is in Activated state post KPC AR & should show $0 on version 2 Award  if(FA=YES)
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_DET_YES_FOCUS_AREA_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
@@ -10683,7 +10683,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation2"
     Then I softly see value "{SavedValue:CumulativeObligationAward1}" is "Equals to" the value "{SavedValue:CumulativeObligation2}"
     #269860
-#    When I expand nested table containing column value "BP01"
+    When I expand nested table containing column value "BP01"
     Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---"
     And I click on page navigation arrow "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---" for table id "Next"
     Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---"
