@@ -3025,7 +3025,7 @@ Feature: Validate all scenarios in Closeout
 #    When I click on "Submit for Approval" in the page details
 #    Then I softly see field "Status" as "Submitted for Approval"
 #    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
