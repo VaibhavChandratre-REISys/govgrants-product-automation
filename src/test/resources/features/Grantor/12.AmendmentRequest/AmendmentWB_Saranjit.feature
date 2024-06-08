@@ -996,7 +996,7 @@ Feature: Amendment Request scenarios without background
 #      The EGMS Team
 #      """
 
-  @ch1 @200318 @ValidateBudgetRedirectionemailshouldbegeneratedfornewownerafterReviewamendmentrequesttaskownershipreassigntonewowner @sprint-12-US-226646 @vaibhav @reassignment
+  @200318 @ValidateBudgetRedirectionemailshouldbegeneratedfornewownerafterReviewamendmentrequesttaskownershipreassigntonewowner @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Budget Redirection email should be generated for new owner after 'Review amendment request' task ownership reassign to new owner
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I am on "SUBPORTAL" portal

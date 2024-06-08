@@ -2809,7 +2809,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:closeoutTargetTableId---" panel
     Then I see value "{SavedValue:closeoutID}" for title "Closeout ID" inside table "---closeout:-:closeoutTargetTableId---"
 
-  @ch1 @227801 @ValidatePMuserifownersomerecordsaresame&somearedifferentthanownerofcloseoutthenweshouldgetvalidationonoverriddenbuttonbutsomerecordsareforceclosedifownerofrecordsissameasownerofcloseoutafterownershiptransfer @sprint-12-US-226646 @vaibhav @reassignment
+  @ch2 @227801 @ValidatePMuserifownersomerecordsaresame&somearedifferentthanownerofcloseoutthenweshouldgetvalidationonoverriddenbuttonbutsomerecordsareforceclosedifownerofrecordsissameasownerofcloseoutafterownershiptransfer @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM user if owner of some records are same & some are different than owner of closeout then we should get validation on overridden button but some records are force closed if owner of records is same as owner of closeout after ownership transfer
 #    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
 #    # Desk Review
