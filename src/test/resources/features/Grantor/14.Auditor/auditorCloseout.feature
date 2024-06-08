@@ -1,4 +1,4 @@
-@auditorCloseout @t1 @auditor @parallel-regression @regression
+@auditorCloseout @auditor @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Closeout Request module
 
   @wip @69175 @auditorCannotCreateCloseout @smoke @skip
