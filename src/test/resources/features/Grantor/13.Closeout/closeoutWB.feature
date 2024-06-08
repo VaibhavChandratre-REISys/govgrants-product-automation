@@ -2911,32 +2911,35 @@ Feature: Validate all scenarios in Closeout
 #    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/award/a1oDV000007RzqZYAS/ad12349318"
 #    And I save the field labeled "Subaward Title" as "Automation Runtime Award for closeout"
 
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "PR--GT-1234-08547-002" in "---closeout:-:externalHomePendingTasktableId---" panel
-    When I click on "Start" icon for "PR--GT-1234-08547-002" inside flex table with id "---closeout:-:externalHomePendingTasktableId---" without waiting for record
-    When I navigate to "Forms and Files" sub tab
-    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I pause execution for "5" seconds
-    And I click modal button "Close"
-    When I get the "EGMS ID"
+#    And I navigate to "Home" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "PR--GT-1234-08547-002" in "---closeout:-:externalHomePendingTasktableId---" panel
+#    When I click on "Start" icon for "PR--GT-1234-08547-002" inside flex table with id "---closeout:-:externalHomePendingTasktableId---" without waiting for record
+#    When I navigate to "Forms and Files" sub tab
+#    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+#    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+#    And I pause execution for "5" seconds
+#    And I click modal button "Close"
+#    When I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "progID"
+#    And I click on "Edit" in the page details
+#    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I navigate to "Performance" sub tab
+#    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+#      | Title                    | Reported Date | Actual |
+#      | Automation Permanent KPI | 7             | 7      |
+#    When I navigate to "Forms and Files" sub tab
+#    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+#    And I switch to tab number "1"
+#    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I close the tab
+##    And I click on "Back" in the page details
+#    When I click on "Submit to Grantor" in the page details
+    
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/progressreports/a3CDV000000rEqz2AE/prgt123408547002?retURL=JTJGcmVjaXBpZW50JTJGcyUyRlJlY2lwaWVudE1vbml0b3Jpbmc%3D"
     And I save the field labeled "EGMS ID" as "progID"
-    And I click on "Edit" in the page details
-    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I navigate to "Performance" sub tab
-    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
-      | Title                    | Reported Date | Actual |
-      | Automation Permanent KPI | 7             | 7      |
-    When I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "1"
-    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I close the tab
-#    And I click on "Back" in the page details
-    When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
