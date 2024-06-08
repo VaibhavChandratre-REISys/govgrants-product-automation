@@ -2809,104 +2809,113 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:closeoutTargetTableId---" panel
     Then I see value "{SavedValue:closeoutID}" for title "Closeout ID" inside table "---closeout:-:closeoutTargetTableId---"
 
-  @227801 @ValidatePMuserifownersomerecordsaresame&somearedifferentthanownerofcloseoutthenweshouldgetvalidationonoverriddenbuttonbutsomerecordsareforceclosedifownerofrecordsissameasownerofcloseoutafterownershiptransfer @sprint-12-US-226646 @vaibhav @reassignment
+  @ch1 @227801 @ValidatePMuserifownersomerecordsaresame&somearedifferentthanownerofcloseoutthenweshouldgetvalidationonoverriddenbuttonbutsomerecordsareforceclosedifownerofrecordsissameasownerofcloseoutafterownershiptransfer @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM user if owner of some records are same & some are different than owner of closeout then we should get validation on overridden button but some records are force closed if owner of records is same as owner of closeout after ownership transfer
-    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
-    # Desk Review
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---deskreview:-:internalActiveGrants---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---deskreview:-:internalActiveGrants---"
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
-    Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Desk Review" in flex table with id "---deskreview:-:managementInitiateDRtableid---"
-    And I enter values into fields
-      | Value                 | Field                |
-      | Automation Site Visit | Title__c             |
-      | Automation SPI3       | GranteePOCContact__c |
-      | Program & Fiscal      | MonitoringType__c    |
-    When I click modal button "Save and Continue"
-    And I enter "Edition" values from "DeskReview_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "DeskReview"
-    #Site Visit
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - Active"
-    And I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---sitevisits:-:grantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---sitevisits:-:grantsTableId---"
-    And I save the field labeled "EGMS ID" as "GrantEGMSID"
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
-    Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Site Visit" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
-    And I pause execution for "4" seconds
-    And I enter values into fields
-      | Value                 | Field                |
-      | Automation Site Visit | Title__c             |
-      | Automation SPI3       | GranteePOCContact__c |
-      | Program & Fiscal      | MonitoringType__c    |
-    When I click modal button "Save and Continue"
-    And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "SitevVisitId"
-    #Amendment Request
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
-    And I navigate to "Management" sub tab
-    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
-    When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
-    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
-    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
-#    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
-#    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
-#    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
-#    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
-    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
-      | Title                       | Revised Encumbrance |
-      | {SavedValue:fundingAccount} | 1000                |
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name           | Amendment Request |
-      | Automation EXE | Step 1            |
-    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name           | Amendment Request |
-      | Automation PM1 | Step 2            |
-    And I click on "Send to Subrecipient" in the page details
-    Then I softly see field "Status" as "Sent to Subrecipient"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---home:-:externalPendingTasktableId---" panel
-    And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---home:-:externalPendingTasktableId---" without waiting for record
-    And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Progress Report"
-    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award for closeout}" having object api name as "ProgressReports__c"
-    And I pause execution for "10" seconds
+#    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
+#    # Desk Review
+#    When I login to "As a Grantor" app as "PM" user
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - Active"
+#    When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---deskreview:-:internalActiveGrants---" panel
+#    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---deskreview:-:internalActiveGrants---"
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
+#    Given I navigate to "Management" sub tab
+#    And I click on top right button "Initiate Desk Review" in flex table with id "---deskreview:-:managementInitiateDRtableid---"
+#    And I enter values into fields
+#      | Value                 | Field                |
+#      | Automation Site Visit | Title__c             |
+#      | Automation SPI3       | GranteePOCContact__c |
+#      | Program & Fiscal      | MonitoringType__c    |
+#    When I click modal button "Save and Continue"
+#    And I enter "Edition" values from "DeskReview_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I save the field labeled "EGMS ID" as "DeskReview"
+#    #Site Visit
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - Active"
+#    And I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---sitevisits:-:grantsTableId---" panel
+#    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---sitevisits:-:grantsTableId---"
+#    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
+#    Given I navigate to "Management" sub tab
+#    And I click on top right button "Initiate Site Visit" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
+#    And I pause execution for "4" seconds
+#    And I enter values into fields
+#      | Value                 | Field                |
+#      | Automation Site Visit | Title__c             |
+#      | Automation SPI3       | GranteePOCContact__c |
+#      | Program & Fiscal      | MonitoringType__c    |
+#    When I click modal button "Save and Continue"
+#    And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "SitevVisitId"
+#    #Amendment Request
+#    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Subawards  - Active"
+#    When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
+#    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+#    And I navigate to "Management" sub tab
+#    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+#    When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
+#    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
+#    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
+##    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
+##    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
+##    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
+##    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
+#    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+#      | Title                       | Revised Encumbrance |
+#      | {SavedValue:fundingAccount} | 1000                |
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+#      | Name           | Amendment Request |
+#      | Automation EXE | Step 1            |
+#    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+#      | Name           | Amendment Request |
+#      | Automation PM1 | Step 2            |
+#    And I click on "Send to Subrecipient" in the page details
+#    Then I softly see field "Status" as "Sent to Subrecipient"
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Home" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---home:-:externalPendingTasktableId---" panel
+#    And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---home:-:externalPendingTasktableId---" without waiting for record
+#    And I click on "Submit to Grantor" in the page details
+#    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I click on "Submit for Approval" in the page details
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Progress Report"
+#    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award for closeout}" having object api name as "ProgressReports__c"
+#    And I pause execution for "10" seconds
+
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/progressreports/a3CDV000000rEqz2AE/prgt123408547002?retURL=JTJGcmVjaXBpZW50JTJGcyUyRlJlY2lwaWVudE1vbml0b3Jpbmc%3D"
+    When I get the "EGMS ID"
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.my.site.com/recipient/s/award/a1oDV000007RzqZYAS/ad12349318"
+    And I save the field labeled "Subaward Title" as "Automation Runtime Award for closeout"
+
+
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:Record Id}" in "---closeout:-:externalHomePendingTasktableId---" panel
+    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---closeout:-:externalHomePendingTasktableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
