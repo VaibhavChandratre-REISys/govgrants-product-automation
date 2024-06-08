@@ -753,15 +753,16 @@ Feature: Amendment Request scenarios with Undo
 #    When I click on "Submit for Approval" in the page details
 #    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 #    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-   When I login to "As a Grantor" app as "PO" user
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "CR-AD-1234-9330-00" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "CR-AD-1234-9330-00" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "CR-AD-1234-9330-00" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "CR-AD-1234-9330-00" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+#    And I "Approve" in the approval decision
+#    Then I cannot see top right button "Undo" in page detail
+#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+   When I login to "As a Grantor" app as "EXE" user
+
+   And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "CR-AD-1234-9330-00" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "CR-AD-1234-9330-00" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
