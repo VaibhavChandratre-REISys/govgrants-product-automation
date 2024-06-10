@@ -19068,7 +19068,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 #    And I click on parallel menu button in flex table title "Budget Change"
 #    And I select "Reset Table" from parallel lines dropdown of "Budget Change"
     When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
-    And I select value inside table "---amendment:-:grantorBudgetChangeTableId---" is "All"
     Then I see the following rows under the following headers in table with id "---amendment:-:grantorBudgetChangeTableId---" :
       | Revised Award Amount |
       | $600.00              |
@@ -19085,13 +19084,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #271745
 #    And I click on parallel menu button in flex table title "Subaward budget"
 #    And I select "Reset Table" from parallel lines dropdown of "Subaward budget"
-    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
+#    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
     Then I softly see value "$300.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I click on page navigation arrow "---subAwardStandAlone:-:subAwardBudgetTableId---" for table id "Next"
     Then I softly see value "$300.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
 #    And I click on parallel menu button in flex table title "Subaward budget"
 #    And I select "Reset Table" from parallel lines dropdown of "Subaward budget"
-    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
@@ -19149,7 +19147,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #271745
 #    And I click on parallel menu button in flex table title "Subaward budget"
 #    And I select "Reset Table" from parallel lines dropdown of "Subaward budget"
-    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
+#    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     Then I softly see value "$300.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     And I click on page navigation arrow "---subAwardStandAlone:-:sRBudgetCategoryTableId---" for table id "Next"
     Then I softly see value "$300.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
@@ -19192,7 +19190,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 #    And I click on parallel menu button in flex table title "Subawards"
 #    And I select "Reset Table" from parallel lines dropdown of "Subawards"
     When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
-    And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "View" icon for "Pending Activation" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
     When I navigate to "Budget" sub tab
