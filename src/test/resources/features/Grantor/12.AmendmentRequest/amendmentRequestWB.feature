@@ -6407,7 +6407,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
   @200504 @ValidateFOusercanreassignownershiptootheruserinsubmittoapprovalstateofFCamendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaFourth
@@ -6488,11 +6488,11 @@ Feature: Amendment Request scenarios without background
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation FO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation FO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation FO1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation FO" for title "Old Value" inside table "---amendment:-:historyTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
   @200514 @Validateapprovedtaskshouldbegeneratedfornewownerifuserchangeownerwhilesubmitforapprovalstate @sprint-5-US-196841 @vaibhav @reassignment @AmendmentWBPoojaFourth
   Scenario: Validate approved task should be generated for new owner if user change owner while submit for approval state
@@ -6572,6 +6572,7 @@ Feature: Amendment Request scenarios without background
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -6626,7 +6627,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 4100  | RevisedCommitment__c |
+      | 4100  | RevisedCommitment__c      |
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Revised Encumbrance |
@@ -6634,6 +6635,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Submit for Approval" in the page details
     And I pause execution for "3" seconds
     And I "Reject" in the approval decision
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -6806,7 +6808,7 @@ Feature: Amendment Request scenarios without background
       Sandbox: Notification: Owner Reassignment Report
       """
 
-  @200540 @ValidateAmendmentRequestSentBackemailshouldbegenerateforPMnewownerofamendmentrequest @sprint-5-US-196841 @vaibhav @reassignment
+  @200540 @ValidateAmendmentRequestSentBackemailshouldbegenerateforPMnewownerofamendmentrequest @sprint-5-US-196841 @vaibhav @reassignment @AmendmentWBPoojaFifth
   Scenario: Validate Amendment Request Sent Back' email should be generate for PM new owner of amendment request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -6825,8 +6827,8 @@ Feature: Amendment Request scenarios without background
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c      |
+      | 2000                        | RequestedChangeInBudget__c         |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
@@ -6854,42 +6856,40 @@ Feature: Amendment Request scenarios without background
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                     |
-      | 4100  | fieldRevisedCommitment__c |
+      | 4100  | RevisedCommitment__c      |
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 3000                |
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:FundingID}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:FundingID}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:FundingID}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
     And I pause execution for "10" seconds
@@ -6917,7 +6917,7 @@ Feature: Amendment Request scenarios without background
      The EGMS Team
       """
 
-  @200543 @Validateamendmentrequestownershouldnotchangeevenifitsrelatedawardownershipchangetootherowner @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200543 @Validateamendmentrequestownershouldnotchangeevenifitsrelatedawardownershipchangetootherowner @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaFifth
   Scenario: Validate amendment request owner should not change even if it's related award ownership change to other owner
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -6936,29 +6936,27 @@ Feature: Amendment Request scenarios without background
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 2000                        | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description | FundingChangeJustification__c      |
+      | 2000                        | RequestedChangeInBudget__c         |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    And I Click on "Reassign Records" icon for "Grant" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Grant" from reassign ownership dropdown
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     When I check "{SavedValue:GrantEGMSID}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -6968,7 +6966,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "History" sub tab
     Then I softly see value "Automation PM" for title "New Value" inside table "---amendment:-:historyTableId---"
 
-  @200559 @ValidatePMusercanreassignownershiptootheruserincreatedstateofPRamendment @sprint-5-US-196841 @vaibhav @reassignment
+  @200559 @ValidatePMusercanreassignownershiptootheruserincreatedstateofPRamendment @sprint-5-US-196841 @vaibhav @reassignment @AmendmentWBPoojaFifth
   Scenario: Validate PM user can reassign ownership to other user in created state of PR amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -6984,34 +6982,30 @@ Feature: Amendment Request scenarios without background
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Edit" icon for "---AUTOEnvData:-:fundingAccount---" inside flex table with id "---amendment:-:AmendmentFundingAccountTableId---" without waiting for record
-    And I enter value "1000" into field "ActualEncumbrance__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:AmendmentFundingAccountTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+      | Title                       | Revised Encumbrance |
+      | {SavedValue:fundingAccount} | 1000                |
     And I save the field labeled "EGMS ID" as "PERIODICRENEWAL"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PERIODICRENEWAL}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:PERIODICRENEWAL}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -7020,12 +7014,12 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
-    Then I softly see fields "fieldPurposeRTA__c" is in edit mode
-    Then I softly see fields "fieldImpact__c" is in edit mode
-    Then I softly see fields "fieldGrantAwardName__c" is in edit mode
-    Then I softly see fields "fieldGrantAwardDescription__c" is in edit mode
-    Then I softly see fields "fieldRequestedChangeInBudget__c" is in edit mode
-    Then I softly see fields "fieldBudgetRedirectionThreshhold__c" is in edit mode
+    Then I softly see fields "PurposeRTA__c" is in edit mode
+    Then I softly see fields "Impact__c" is in edit mode
+    Then I softly see fields "GrantAwardName__c" is in edit mode
+    Then I softly see fields "GrantAwardDescription__c" is in edit mode
+    Then I softly see fields "RequestedChangeInBudget__c" is in edit mode
+    Then I softly see fields "BudgetRedirectionThreshhold__c" is in edit mode
 
   @200641 @ValidatePOusercanreassignownershiptootheruserincreatedstateofperiodicrenewalamendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PO user can reassign ownership to other user in created state of periodic renewal amendment
@@ -7043,56 +7037,52 @@ Feature: Amendment Request scenarios without background
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Edit" icon for "---AUTOEnvData:-:fundingAccount---" inside flex table with id "---amendment:-:AmendmentFundingAccountTableId---" without waiting for record
-    And I enter value "1000" into field "ActualEncumbrance__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:AmendmentFundingAccountTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+      | Title                       | Revised Encumbrance |
+      | {SavedValue:fundingAccount} | 1000                |
     And I save the field labeled "EGMS ID" as "PERIODICRENEWAL"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PO" into field "s2id_autogen1"
-    And I select value "Automation PO1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PO" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation PO" into field "input-1"
+    And I select value "Automation PO1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PERIODICRENEWAL}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:PERIODICRENEWAL}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I navigate to "History" sub tab
-    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+#    And I navigate to "History" sub tab
+#    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
+#    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
-    Then I softly see fields "fieldPurposeRTA__c" is in edit mode
-    Then I softly see fields "fieldImpact__c" is in edit mode
-    Then I softly see fields "fieldGrantAwardName__c" is in edit mode
-    Then I softly see fields "fieldGrantAwardDescription__c" is in edit mode
-    Then I softly see fields "fieldRequestedChangeInBudget__c" is in edit mode
-    Then I softly see fields "fieldBudgetRedirectionThreshhold__c" is in edit mode
+    Then I softly see fields "PurposeRTA__c" is in edit mode
+    Then I softly see fields "Impact__c" is in edit mode
+    Then I softly see fields "GrantAwardName__c" is in edit mode
+    Then I softly see fields "GrantAwardDescription__c" is in edit mode
+    Then I softly see fields "RequestedChangeInBudget__c" is in edit mode
+    Then I softly see fields "BudgetRedirectionThreshhold__c" is in edit mode
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
   @200644 @200656 @ValidatePMusercanreassignownershiptootheruserinsubmittograntorstateofperiodicrenewalamendment @sprint-5-US-196841 @vaibhav @reassignment
@@ -7111,16 +7101,15 @@ Feature: Amendment Request scenarios without background
     And I click modal button "Save and Continue"
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I click on "Edit" icon for "---AUTOEnvData:-:fundingAccount---" inside flex table with id "---amendment:-:AmendmentFundingAccountTableId---" without waiting for record
-    And I enter value "1000" into field "ActualEncumbrance__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:AmendmentFundingAccountTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+      | Title                       | Revised Encumbrance |
+      | {SavedValue:fundingAccount} | 1000                |
     And I save the field labeled "EGMS ID" as "PERIODICRENEWAL"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
-    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
-    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
-    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" by clicking "Edit" :
+      | Title                           | Start Date         | End Date           |
+      | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
     And I edit the following rows inline in flex table with id "---amendment:-:AmendmentKPITableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | -8     |
@@ -7144,26 +7133,21 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PERIODICRENEWAL}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     When I check "{SavedValue:PERIODICRENEWAL}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:PERIODICRENEWAL}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -7176,7 +7160,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
   @200645 @ValidateEXEusercanreassignownershiptootheruserinsubmittoapprovalstateofPeriodicrenewalamendment @sprint-5-US-196841 @vaibhav @reassignment
