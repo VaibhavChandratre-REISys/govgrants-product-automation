@@ -54,16 +54,17 @@ Feature: Amendment Request scenarios without background
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
     And I select module "Amendment Request" from reassign ownership dropdown
-    And I pause execution for "3" seconds
-    When I perform quick search for "{SavedValue:TermsCondId}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
-    When I check "{SavedValue:TermsCondId}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
-    When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
+    When I perform quick search for "{SavedValue:TermsCondId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
+    Then I see value "{SavedValue:TermsCondId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
+    When I perform quick search for "{SavedValue:TermsCondId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
+    When I check "{SavedValue:TermsCondId}" boxes in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
+    When I click table top right button "Transfer Ownership" in flex table with id "---amendment:-:amendmentSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
-    When I perform quick search for "{SavedValue:TermsCondId}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
-    Then I see value "{SavedValue:TermsCondId}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    When I perform quick search for "{SavedValue:TermsCondId}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
+    Then I see value "{SavedValue:TermsCondId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
