@@ -908,7 +908,7 @@ Feature: Amendment Request scenarios without background
 #      The EGMS Team
 #      """
 
-  @200515 @ValidateafterchangingthetaskownershipofcombinationSOW/BPCchangebyS/Rsidethenemailshouldtriggeredto&newOwner @sprint-12-US-226646 @vaibhav @reassignment
+  @done @200515 @ValidateafterchangingthetaskownershipofcombinationSOW/BPCchangebyS/Rsidethenemailshouldtriggeredto&newOwner @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate after changing the task ownership of combination SOW/BPC  change by S/R side then email should triggered to old & new Owner
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PM1 user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -996,7 +996,7 @@ Feature: Amendment Request scenarios without background
 #      The EGMS Team
 #      """
 
-  @200318 @ValidateBudgetRedirectionemailshouldbegeneratedfornewownerafterReviewamendmentrequesttaskownershipreassigntonewowner @sprint-12-US-226646 @vaibhav @reassignment
+  @done @200318 @ValidateBudgetRedirectionemailshouldbegeneratedfornewownerafterReviewamendmentrequesttaskownershipreassigntonewowner @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Budget Redirection email should be generated for new owner after 'Review amendment request' task ownership reassign to new owner
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -2135,7 +2135,7 @@ Feature: Amendment Request scenarios without background
 #      The EGMS Team
 #      """
 
-  @229672 @ValidateemailshouldbetriggeredofAmendmentRequestRejected&forTaskreassignmenttonewuser @sprint-13-US-231194 @vaibhav @reassignment
+  @ch1 @229672 @ValidateemailshouldbetriggeredofAmendmentRequestRejected&forTaskreassignmenttonewuser @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate email should be triggered of Amendment Request Rejected & for Task reassignment to new user
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2192,6 +2192,7 @@ Feature: Amendment Request scenarios without background
     When I check "{SavedValue:budgetPC&ScopeId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:budgetPC&ScopeId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -3038,7 +3039,7 @@ Feature: Amendment Request scenarios without background
 #     The EGMS Team
 #      """
 
-  @232374 @ValidateemailshouldbetriggeredofAmendmentRequestsendback&forTaskreassignmenttonewuserFromS/rSide @sprint-13-US-231194 @vaibhav @reassignment
+  @ch2 @232374 @ValidateemailshouldbetriggeredofAmendmentRequestsendback&forTaskreassignmenttonewuserFromS/rSide @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate email should be triggered of Amendment Request send back & for Task reassignment to new user From S/r Side
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -3073,9 +3074,11 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:budgetSOWChangeId}" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:budgetSOWChangeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title                           | End Date                             |
-      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
+    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
+    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
+    And I edit the following rows inline in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" by clicking "Edit" :
+      | Title                           | Start Date         | End Date           |
+      | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name           | Amendment Request |
