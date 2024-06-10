@@ -19188,7 +19188,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Subawards" sub tab
 #    And I click on parallel menu button in flex table title "Subawards"
 #    And I select "Reset Table" from parallel lines dropdown of "Subawards"
-#    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
+    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     And I click on "View" icon for "Pending Activation" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
