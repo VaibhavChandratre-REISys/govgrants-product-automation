@@ -19246,8 +19246,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Spent" as "$500.00"
     Then I softly see value "{SavedValue:SpentAwd2}" is "Equals to" the value "{SavedValue:SpentAwdGrantSR}"
     When I navigate to "Subawards" sub tab
-    When I click on button "resetIcon" in flex table with id "---paymentRequest:-:recipientAwardTableId---"
-    And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+    And I click on "View" icon for "Activated" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
     And I navigate to "Budget" sub tab
     #271806
@@ -19258,7 +19257,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$300.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     And I click on page navigation arrow "---subAwardStandAlone:-:sRBudgetCategoryTableId---" for table id "Next"
     Then I softly see value "$300.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
-    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "All"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---" :
