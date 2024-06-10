@@ -5062,7 +5062,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
@@ -5082,11 +5082,9 @@ Feature: Amendment Request scenarios without background
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
