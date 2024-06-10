@@ -19254,6 +19254,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #271798
     Then I softly do not see field "Budgeted Amount" inside "Budget Summary" section
     #271819
+    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     Then I softly see value "$300.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     And I click on page navigation arrow "---subAwardStandAlone:-:sRBudgetCategoryTableId---" for table id "Next"
     Then I softly see value "$300.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
