@@ -193,7 +193,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click toggle button to select "Subaward Risk Assessments - All"
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     And I "Reassign" to user "{SavedValue:EXE Username}" in the approval decision
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
@@ -294,9 +294,9 @@ Feature: Validate all scenarios in the Risk Assessment
     And I enter the following values into flex table with id "RiskAssessmentApproverRoles" by clicking "New" :
       | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
-    Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "flexGridRiskAssessmentApproverRoles"
-    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "flexGridRiskAssessmentApproverRoles" without waiting for record
-    Then I softly see that "Sent for Review" has been added in flextable with Id "flexGridRiskAssessmentApproverRoles"
+    Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "RiskAssessmentApproverRoles"
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "dRiskAssessmentApproverRoles" without waiting for record
+    Then I softly see that "Sent for Review" has been added in flextable with Id "RiskAssessmentApproverRoles"
 
   @hitRun @58176 @58819 @60342 @riskAssessmentOwnercompletesPeerReviewforRiskAssessment @deepika
   Scenario: Validate whether the complete Review Button is available for PM user to complete peer review process and is Reviewed for Award Risk Assessment
@@ -333,14 +333,14 @@ Feature: Validate all scenarios in the Risk Assessment
     And I enter the following values into flex table with id "RiskAssessmentApproverRoles" by clicking "New" :
       | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
-    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "flexGridRiskAssessmentApproverRoles" without waiting for record
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---riskassessment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---riskassessment:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "flexGridRiskAssessmentApproverRoles"
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "RiskAssessmentApproverRoles"
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -495,7 +495,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @hitRun @58818 @buttonforRiskAssessmentNotHiddenAfterSubmitforApproval @deepika
+  @58818 @buttonforRiskAssessmentNotHiddenAfterSubmitforApproval @deepika
   Scenario: Validate New button still be avialble on the Table post Risk Assessment is submitted for approval.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -599,6 +599,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | {SavedValue:FO Username} | Step 2          |
     And I click on "Submit for Approval" in the page details
     Then I softly cannot see top right button "Edit" in page detail
+    And I wait for "5" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Subaward Risk Assessments - All"
@@ -729,14 +730,15 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I click on "Save" in the page 
+    And I wait for "3" seconds
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I get the "EGMS ID"
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
@@ -1141,10 +1143,10 @@ Feature: Validate all scenarios in the Risk Assessment
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     When I navigate to "Responsibilities" sub tab
-    And I enter the following values into flex table with id "flexGridRiskAssessmentApproverRoles" by clicking "New" :
+    And I enter the following values into flex table with id "RiskAssessmentApproverRoles" by clicking "New" :
       | Name                     | Responsibility   | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:PM Username} | Program Reviewer | Automation Test Description | 7        | No                   |
-    Then I see that "{SavedValue:PM Username}" has been added in flextable with Id "flexGridRiskAssessmentApproverRoles"
+    Then I see that "{SavedValue:PM Username}" has been added in flextable with Id "RiskAssessmentApproverRoles"
 
   @59713 @nonAwardUserCanViewCreatedRiskAssessment @deepika
   Scenario: Validate whether Non-Award Owner (FO) is able to view created Risk Assessment under Monitoring tab
@@ -1560,10 +1562,10 @@ Feature: Validate all scenarios in the Risk Assessment
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     When I navigate to "Responsibilities" sub tab
-    And I enter the following values into flex table with id "flexGridRiskAssessmentApproverRoles" by clicking "New" :
+    And I enter the following values into flex table with id "RiskAssessmentApproverRoles" by clicking "New" :
       | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
-    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "flexGridRiskAssessmentApproverRoles" without waiting for record
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
     Then I see status in Progress-bar is "Submitted for Review" and is "dark blue"
 
   @58178 @59869 @submitForApprovalButtonHiddenIfPeerReviewIsNotCompletedfoUserToViewActiveRA @deepika
@@ -1595,17 +1597,17 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
-    And I enter the following values into flex table with id "flexGridRiskAssessmentApproverRoles" by clicking "New" :
+    And I enter the following values into flex table with id "RiskAssessmentApproverRoles" by clicking "New" :
       | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
-    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "flexGridRiskAssessmentApproverRoles" without waiting for record
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "flexGridRiskAssessmentApproverRoles"
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "RiskAssessmentApproverRoles"
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -1858,10 +1860,10 @@ Feature: Validate all scenarios in the Risk Assessment
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     When I navigate to "Responsibilities" sub tab
-    And I enter the following values into flex table with id "flexGridRiskAssessmentApproverRoles" by clicking "New" :
+    And I enter the following values into flex table with id "RiskAssessmentApproverRoles" by clicking "New" :
       | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | Yes                  |
-    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "flexGridRiskAssessmentApproverRoles" without waiting for record
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1873,7 +1875,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I enter "RiskAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "flexGridRiskAssessmentApproverRoles"
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "RiskAssessmentApproverRoles"
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -1911,17 +1913,17 @@ Feature: Validate all scenarios in the Risk Assessment
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     When I navigate to "Responsibilities" sub tab
-    And I enter the following values into flex table with id "flexGridRiskAssessmentApproverRoles" by clicking "New" :
+    And I enter the following values into flex table with id "RiskAssessmentApproverRoles" by clicking "New" :
       | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
-    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "flexGridRiskAssessmentApproverRoles" without waiting for record
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "flexGridRiskAssessmentApproverRoles"
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "RiskAssessmentApproverRoles"
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -1942,7 +1944,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
-    Then I softly cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "flexGridRiskAssessmentApproverRoles"
+    Then I softly cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "RiskAssessmentApproverRoles"
 
   @59960 @intialRiskAssessmentMarkedAsExpired @deepika @smoke
   Scenario Outline: Validate when the Award is activated whether SR user can view the second Risk Assessment that was in Created Status
@@ -2446,10 +2448,10 @@ Feature: Validate all scenarios in the Risk Assessment
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     When I navigate to "Responsibilities" sub tab
-    And I enter the following values into flex table with id "flexGridRiskAssessmentApproverRoles" by clicking "New" :
+    And I enter the following values into flex table with id "RiskAssessmentApproverRoles" by clicking "New" :
       | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
-    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "flexGridRiskAssessmentApproverRoles" without waiting for record
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2469,7 +2471,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
-    Then I cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "flexGridRiskAssessmentApproverRoles"
+    Then I cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "RiskAssessmentApproverRoles"
 
   @60345 @60344 @riskLevelOverAllRiskFieldAddedtoOverViewOnceRiskAssessmentIsActive @deepika
   Scenario: Validate to check the newly added field 'Risk Level' and 'Overall Risk' in overview tab post the changes are done on Risk Assessment Record
@@ -3340,7 +3342,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | {SavedValue:PM Username} | Program Reviewer | Automation Test Description | 7        | No                   |
     Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---riskassessment:-:raPeerReviewFlexTableId---"
     Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---riskassessment:-:raPeerReviewFlexTableId---"
-    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "flexGridRiskAssessmentApproverRoles" without waiting for record
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
     And I get the "EGMS ID"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -6234,7 +6236,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---riskassessment:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "Automation FO1" inside flex table with id "flexGridRiskAssessmentApproverRoles"
+    When I click on "Enter Review" icon for "Automation FO1" inside flex table with id "RiskAssessmentApproverRoles"
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -6244,7 +6246,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---riskassessment:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "flexGridRiskAssessmentApproverRoles"
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "RiskAssessmentApproverRoles"
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -7946,17 +7948,17 @@ Feature: Validate all scenarios in the Risk Assessment
       | Name                      | Risk Assessment |
       | {SavedValue:PM1 Username} | Step 4          |
     When I navigate to "Responsibilities" sub tab
-    And I enter the following values into flex table with id "flexGridRiskAssessmentApproverRoles" by clicking "New" :
+    And I enter the following values into flex table with id "RiskAssessmentApproverRoles" by clicking "New" :
       | Name                     | Responsibility   | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:PM Username} | Program Reviewer | Automation Test Description | 7        | No                   |
-    And I click on "Send for Review" icon for "Program Reviewer" inside flex table with id "flexGridRiskAssessmentApproverRoles" without waiting for record
+    And I click on "Send for Review" icon for "Program Reviewer" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "flexGridRiskAssessmentApproverRoles"
+    When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "RiskAssessmentApproverRoles"
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
