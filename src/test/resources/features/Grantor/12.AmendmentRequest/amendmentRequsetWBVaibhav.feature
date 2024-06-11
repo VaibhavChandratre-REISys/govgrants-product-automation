@@ -1,7 +1,7 @@
 @amendmentRequestsWBVaibhav @amendmentRequests @grantor-regression @grantor-parallel-regression @regression
 Feature: Amendment Request scenarios without background
 
-  @200456 @ValidateKeypersonalchangeAmendmentRequestRejectedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment @skipTest
+  @200456 @ValidateKeypersonalchangeAmendmentRequestRejectedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment 
   Scenario: Validate Key personal change Amendment Request Rejected email should be generate for PM new owner of amendment request after the 'Review Amendment Request ownership task reassign to him
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -86,7 +86,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @200457 @ValidateKeypersonalchangeAmendmentRequestSentBackemailshouldbegenerateforEXEnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment @skipTest
+  @200457 @ValidateKeypersonalchangeAmendmentRequestSentBackemailshouldbegenerateforEXEnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment 
   Scenario: Validate Key personal change 'Amendment Request Sent Back' email should be generate for EXE new owner of amendment request after the 'Review Amendment Request' ownership task reassign to him
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -176,7 +176,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @200458 @ValidateKeypersonalchangeAmendmentRequestApprovedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment @skipTest
+  @200458 @ValidateKeypersonalchangeAmendmentRequestApprovedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment 
   Scenario: Validate Key personal change 'Amendment Request Approved' email should be generate for PM new owner of amendment request after the 'Review Amendment Request' ownership task reassign to him
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -265,7 +265,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @200461 @ValidateKeypersonalchangeawardownershouldnotseeamendmentlevelbuttonsaccessafterownershipreassigntonewowner @sprint-5-US-197424 @vaibhav @reassignment @skipTest
+  @200461 @ValidateKeypersonalchangeawardownershouldnotseeamendmentlevelbuttonsaccessafterownershipreassigntonewowner @sprint-5-US-197424 @vaibhav @reassignment 
   Scenario: Validate Key personal change award owner should not see amendment level buttons access  after ownership reassign to new owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation PM1 user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -323,7 +323,7 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-  @200276 @ValidateCarryForwardAmendmentRequestRejectedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment @skipTest
+  @200276 @ValidateCarryForwardAmendmentRequestRejectedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment 
   Scenario: Validate Carry Forward 'Amendment Request Rejected' email should be generate for PM new owner of amendment request after the 'Review Amendment Request' ownership task reassign to him
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PM1 user" of type "Competitive"
     When I login to "As a Grantor" app as "PM1" user
@@ -465,7 +465,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @200280 @ValidateCarryForwardAmendmentReqestApprovedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment @skipTest
+  @200280 @ValidateCarryForwardAmendmentReqestApprovedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment 
   Scenario: Validate Carry Forward 'Amendment Request Approved' email should be generate for PM new owner of amendment request after the 'Review Amendment Request' ownership task reassign to him
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -608,7 +608,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @200421 @ValidatePMusershouldabletoseethetasksrelatedtoBPCAmendmentRequestintheReassigntabonlyforthesourceuserwhichisselectedinthelookupfield @sprint-7-US-198153 @vaibhav @reassignment @skipTest
+  @200421 @ValidatePMusershouldabletoseethetasksrelatedtoBPCAmendmentRequestintheReassigntabonlyforthesourceuserwhichisselectedinthelookupfield @sprint-7-US-198153 @vaibhav @reassignment 
   Scenario: Validate PM user should able to see the tasks related to BPC Amendment Request in the Reassign tab only for the source user which is selected in the lookup field
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -673,7 +673,7 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     Then I see value "Acknowledged Amendment Request" for title "Task Type" inside table "---amendment:-:pendingTaskTableId---"
 
-  @200469 @ValidateExeusershouldabletoreassignthetasktheCombinationofBPC/SOWamendmentrequestbygrantorsidewithsameprofile&organization @sprint-7-US-198153 @vaibhav @reassignment @skipTest
+  @200469 @ValidateExeusershouldabletoreassignthetasktheCombinationofBPC/SOWamendmentrequestbygrantorsidewithsameprofile&organization @sprint-7-US-198153 @vaibhav @reassignment 
   Scenario: Validate  Exe  user should able to reassign the task the Combination of BPC/SOW amendment request by grantor side with same profile & organization
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -737,7 +737,7 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:budgetPC&ScopeId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     Then I see value "Review Amendment Request" for title "Task Type" inside table "---amendment:-:pendingTaskTableId---"
 
-  @200471 @ValidatePOusershouldabletoseethetasksrelatedtoSOWAmendmentRequestintheReassigntabonlyforthesourceuserwhichisselectedinthelookupfield @sprint-7-US-198153 @vaibhav @reassignment @skipTest
+  @200471 @ValidatePOusershouldabletoseethetasksrelatedtoSOWAmendmentRequestintheReassigntabonlyforthesourceuserwhichisselectedinthelookupfield @sprint-7-US-198153 @vaibhav @reassignment 
   Scenario: Validate PO user should able to see the tasks related to SOW Amendment Request in the Reassign tab only for the source user which is selected in the lookup field
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -793,7 +793,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
 
-  @200472 @ValidatePMusershouldabletoseethetasksrelatedtoBPCAmendmentRequestintheReassigntabonlyforthesourceuserwhichisselectedinthelookupfieldinS/Rside @sprint-7-US-198153 @vaibhav @reassignment @skipTest
+  @200472 @ValidatePMusershouldabletoseethetasksrelatedtoBPCAmendmentRequestintheReassigntabonlyforthesourceuserwhichisselectedinthelookupfieldinS/Rside @sprint-7-US-198153 @vaibhav @reassignment 
   Scenario: Validate PM user should able to see the tasks related to BPC Amendment Request in the Reassign tab only for the source user which is selected in the lookup field in S/R side
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -881,7 +881,7 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-  @200474 @ValidatePMusershouldabltoseethetasksrelatedtoSOWAmendmentRequestintheReassigntabonlyforthesourceuserwhichisselectedinthelookupfieldforSOWchangeARfromS/Rside @sprint-7-US-198153 @vaibhav @reassignment @skipTest
+  @200474 @ValidatePMusershouldabltoseethetasksrelatedtoSOWAmendmentRequestintheReassigntabonlyforthesourceuserwhichisselectedinthelookupfieldforSOWchangeARfromS/Rside @sprint-7-US-198153 @vaibhav @reassignment 
   Scenario: Validate PM user should able to see the tasks related to SOW Amendment Request in the Reassign tab only for the source user which is selected in the lookup field for SOW change AR from S/R side
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -960,7 +960,7 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-  @200478 @Validates/rsendsanamendmentrequesttotheamendmentinternalownerthenpendingtaskShouldcreateforcombinationofBPC/SOWamendmentinternalowner @sprint-7-US-198153 @vaibhav @reassignment @skipTest
+  @200478 @Validates/rsendsanamendmentrequesttotheamendmentinternalownerthenpendingtaskShouldcreateforcombinationofBPC/SOWamendmentinternalowner @sprint-7-US-198153 @vaibhav @reassignment 
   Scenario: Validate s/r sends an amendment request to the amendment internal owner then pending task Should create for combination of BPC/SOW amendment internal owner
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -1021,7 +1021,7 @@ Feature: Amendment Request scenarios without background
     And I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:budgetPC&ScopeId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
 
-  @200479 @Validates/rsendsanamendmentrequesttotheamendmentinternalownerthenpendingtaskShouldcreateforSOWamendmenttointernalowner @sprint-7-US-198153 @vaibhav @reassignment @skipTest
+  @200479 @Validates/rsendsanamendmentrequesttotheamendmentinternalownerthenpendingtaskShouldcreateforSOWamendmenttointernalowner @sprint-7-US-198153 @vaibhav @reassignment 
   Scenario: Validate  s/r sends an amendment request to the amendment internal owner then pending task Should create for SOW amendment to internal owner
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -1081,7 +1081,7 @@ Feature: Amendment Request scenarios without background
     Then I do not see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     Then I do not see value "Review Amendment Request" for title "Task Type" inside table "---amendment:-:pendingTaskTableId---"
 
-  @200485 @ValidateFOusershouldabletoseealleditaccesspage&sectionleveltonewowneraftertaskreassignmentforBPCARbygrantorsideattachment @sprint-7-US-198153 @vaibhav @reassignment @skipTest
+  @200485 @ValidateFOusershouldabletoseealleditaccesspage&sectionleveltonewowneraftertaskreassignmentforBPCARbygrantorsideattachment @sprint-7-US-198153 @vaibhav @reassignment 
   Scenario: Validate FO user should able to see all edit access(page & section level) to new owner after task reassignment for BPC AR by grantor side attachment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "FO" user
@@ -1182,7 +1182,7 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-  @200487 @ValidatePOusershouldabletoseealleditaccesspag&sectionleveltonewowneraftertaskreassignmentforBPCARbyGrantorallattachment @sprint-7-US-198153 @vaibhav @reassignment @skipTest
+  @200487 @ValidatePOusershouldabletoseealleditaccesspag&sectionleveltonewowneraftertaskreassignmentforBPCARbyGrantorallattachment @sprint-7-US-198153 @vaibhav @reassignment 
   Scenario: Validate PO user should able to see all edit access(page & section level) to new owner after task reassignment for BPC AR by Grantor Side side attachment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -1417,7 +1417,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
 
-  @200417 @ValidateBudgetRedirectionAmendmentRequestApprovedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment @skipTest
+  @200417 @ValidateBudgetRedirectionAmendmentRequestApprovedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment 
   Scenario: Validate Budget Redirection_ Verify 'Amendment Request Approved' email should be generate for PM new owner of amendment request after the 'Review Amendment Request' ownership task reassign to him
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -1703,7 +1703,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @200856 @ValidateFundingchangeAmendmentRequestSubmittedGrantorNotifyemailshouldbegenerateforPMnewownerofamendmentrequest @sprint-5-US-194231 @vaibhav @reassignment @skipTest
+  @200856 @ValidateFundingchangeAmendmentRequestSubmittedGrantorNotifyemailshouldbegenerateforPMnewownerofamendmentrequest @sprint-5-US-194231 @vaibhav @reassignment 
   Scenario: Validate Funding change Amendment Request Submitted Grantor Notify email should be generate for PM new owner of amendment request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation PM1 user" of type "Competitive"
     When I login to "As a Grantor" app as "PM1" user
@@ -1805,7 +1805,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @200858 @ValidateFundingchangeAmendmentRequestSentBackemailshouldbegenerateforPMnewownerofamendmentrequest @sprint-5-US-194231 @vaibhav @reassignment @skipTest
+  @200858 @ValidateFundingchangeAmendmentRequestSentBackemailshouldbegenerateforPMnewownerofamendmentrequest @sprint-5-US-194231 @vaibhav @reassignment 
   Scenario: Validate Funding change 'Amendment Request Sent Back' email should be generate for PM new owner of amendment request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -1994,22 +1994,22 @@ Feature: Amendment Request scenarios without background
     And I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Amendment Request #{SavedValue:FundingID} has beenApproved
+      Sandbox: Notification: Amendment Request #{SavedValue:FundingID} hasbeen Approved
       """
 
     Then I see the mail text is as follows :
 
       """
       Hello,
-      This email is to inform you that the amendment request #{SavedValue:FundingID} for the award #   has been approved and a new award can be created.
+      This email is to inform you that the amendment request #{SavedValue:FundingID} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
       Amendment Details:
-      Amendment Type:  Funding Change
+      Amendment Type: Funding Change
       Amendment ID: {SavedValue:FundingID}
       Status: Approved
       Grant: {SavedValue:GrantEGMSID}
 
       Log in to EGMS and click here to access the record
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
       Thank you.
       The EGMS Team
       """
@@ -2027,6 +2027,7 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
@@ -2100,20 +2101,20 @@ Feature: Amendment Request scenarios without background
 
       """
       Hello,
-      This email is to inform you that the amendment request #{SavedValue:PERIODICRENEWAL} for the award #   has been approved and a new award can be created.
+      This email is to inform you that the amendment request #{SavedValue:PERIODICRENEWAL} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
       Amendment Details:
-      Amendment Type:  Periodic Renewal
+      Amendment Type: Periodic Renewal
       Amendment ID: {SavedValue:PERIODICRENEWAL}
       Status: Approved
       Grant: {SavedValue:GrantEGMSID}
 
       Log in to EGMS and click here to access the record
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
       Thank you.
       The EGMS Team
       """
 
-  @200975 @ValidateT&CAmendmentRequestApprovedemailshouldbegenerateforEXEnewownerofamendmentrequest @sprint-5-US-194231 @vaibhav @reassignment @skipTest
+  @200975 @ValidateT&CAmendmentRequestApprovedemailshouldbegenerateforEXEnewownerofamendmentrequest @sprint-5-US-194231 @vaibhav @reassignment 
   Scenario: Validate T & C 'Amendment Request Approved' email should be generate for EXE new owner of amendment request
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -2200,7 +2201,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @200980 @ValidateT&Callsectionlevelandpagelevelbuttonwillbevisibletoamendmentowneronlynotawardowner @sprint-5-US-194231 @vaibhav @reassignment @skipTest
+  @200980 @ValidateT&Callsectionlevelandpagelevelbuttonwillbevisibletoamendmentowneronlynotawardowner @sprint-5-US-194231 @vaibhav @reassignment 
   Scenario: Validate T & C all section level and page level button will be visible to amendment owner only not award owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2724,7 +2725,7 @@ Feature: Amendment Request scenarios without background
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Amendment Request #{SavedValue:CFAmendmentId} has beensubmitted
+      Sandbox: Notification: Amendment Request #{SavedValue:CFAmendmentId} hasbeen submitted
       """
     Then I see the mail text is as follows :
 
@@ -2738,7 +2739,7 @@ Feature: Amendment Request scenarios without background
       Status: Submitted to Grantor
       Grant:  {SavedValue:GrantEGMSID}
       Log in to EGMS and click here to perform the review.
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
       Thank you.
       The EGMS Team
       """
@@ -3085,7 +3086,7 @@ Feature: Amendment Request scenarios without background
     And I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Amendment Request #{SavedValue:CFAmendmentId} has beenRejected
+      Sandbox: Notification: Amendment Request #{SavedValue:CFAmendmentId} hasbeen Rejected
       """
 
     Then I see the mail text is as follows :
@@ -3098,7 +3099,7 @@ Feature: Amendment Request scenarios without background
       Amendment Request Type: Carry Forward
       Comments: Automation Testing
       Log in to EGMS, and click here to access the record.
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com, if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com, if you have any questions or need assistance with this task.
       Thank you.
       The EGMS Team
       """
@@ -3188,22 +3189,22 @@ Feature: Amendment Request scenarios without background
     And I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Amendment Request #{SavedValue:FundingID} has beenApproved
+      Sandbox: Notification: Amendment Request #{SavedValue:FundingID} hasbeen Approved
       """
 
     Then I see the mail text is as follows :
 
       """
       Hello,
-      This email is to inform you that the amendment request #{SavedValue:FundingID} for the award #   has been approved and a new award can be created.
+      This email is to inform you that the amendment request #{SavedValue:FundingID} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
       Amendment Details:
-      Amendment Type:  Funding Change
+      Amendment Type: Funding Change
       Amendment ID: {SavedValue:FundingID}
       Status: Approved
       Grant: {SavedValue:GrantEGMSID}
 
       Log in to EGMS and click here to access the record
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
       Thank you.
       The EGMS Team
       """
@@ -3267,7 +3268,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I cannot see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
   @200518 @ValidateFundingchangePOusercanreassignownershiptootheruserinapprovedstateofFCamendment @sprint-5-US-196841 @vaibhav @reassignment
@@ -3519,7 +3520,7 @@ Feature: Amendment Request scenarios without background
     And I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Amendment Request #{SavedValue:FundingID} has beenRejected
+      Sandbox: Notification: Amendment Request #{SavedValue:FundingID} hasbeen Rejected
       """
 
     Then I see the mail text is as follows :
@@ -3532,7 +3533,7 @@ Feature: Amendment Request scenarios without background
       Amendment Request Type: Funding Change
       Comments: Automation Testing
       Log in to EGMS and click here to access the record.
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com, if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com, if you have any questions or need assistance with this task.
       Thank you.
       The EGMS Team
       """
@@ -3651,22 +3652,22 @@ Feature: Amendment Request scenarios without background
     And I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Amendment Request #{SavedValue:FundingID} has beenApproved
+      Sandbox: Notification: Amendment Request #{SavedValue:FundingID} hasbeen Approved
       """
 
     Then I see the mail text is as follows :
 
       """
       Hello,
-      This email is to inform you that the amendment request #{SavedValue:FundingID} for the award #   has been approved and a new award can be created.
+      This email is to inform you that the amendment request #{SavedValue:FundingID} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
       Amendment Details:
-      Amendment Type:  Funding Change
+      Amendment Type: Funding Change
       Amendment ID: {SavedValue:FundingID}
       Status: Approved
       Grant: {SavedValue:GrantEGMSID}
 
       Log in to EGMS and click here to access the record
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
       Thank you.
       The EGMS Team
       """
@@ -4245,6 +4246,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Subawards" sub tab
     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
@@ -4303,22 +4305,22 @@ Feature: Amendment Request scenarios without background
     And I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} has beenApproved
+      Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} hasbeen Approved
       """
 
     Then I see the mail text is as follows :
 
       """
       Hello,
-      This email is to inform you that the amendment request #{SavedValue:TermsCondId} for the award #   has been approved and a new award can be created.
+      This email is to inform you that the amendment request #{SavedValue:TermsCondId} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
       Amendment Details:
-      Amendment Type:  Terms and Conditions Change
+      Amendment Type: Terms and Conditions Change
       Amendment ID: {SavedValue:TermsCondId}
       Status: Approved
       Grant: {SavedValue:GrantEGMSID}
 
       Log in to EGMS and click here to access the record
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
       Thank you.
       The EGMS Team
       """
