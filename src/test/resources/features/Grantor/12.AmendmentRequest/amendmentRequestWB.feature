@@ -7070,6 +7070,7 @@ Feature: Amendment Request scenarios without background
 #    And I navigate to "History" sub tab
 #    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
 #    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I wait for "5" seconds
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     Then I softly see fields "PurposeRTA__c" is in edit mode
@@ -7156,7 +7157,7 @@ Feature: Amendment Request scenarios without background
     #200656
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
@@ -7242,7 +7243,8 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     When I navigate to "Files" sub tab
-    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    #US-291590
+    Then I softly cannot see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
   @200652 @ValidatePOusercanreassignownershiptootheruserinapprovedstateofPeriodicrenewalamendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaFifth
   Scenario: Validate PO user can reassign ownership to other user in approved state of Periodic renewal amendment
@@ -7882,7 +7884,7 @@ Feature: Amendment Request scenarios without background
 #    Then I softly see value "Automation FO1" for title "New Value" inside table "---amendment:-:historyTableId---"
 #    Then I softly see value "Automation FO" for title "Old Value" inside table "---amendment:-:historyTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
   @200787 @ValidatePOusercanreassignownershiptootheruserinapprovedstateofT&Camendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaFifth
   Scenario: Validate PO user can reassign ownership to other user in approved state of T & C amendment
