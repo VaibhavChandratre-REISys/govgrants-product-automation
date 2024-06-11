@@ -148,7 +148,7 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @229051 @ValidatePMusershouldabletoseealleditaccesspage&sectionleveltonewowneraftertaskreassignmentforcombinationofSOW&BPCARbys/rsideattachment @sprint-12-US-226646 @vaibhav @reassignment
+  @ch1 @229051 @ValidatePMusershouldabletoseealleditaccesspage&sectionleveltonewowneraftertaskreassignmentforcombinationofSOW&BPCARbys/rsideattachment @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM user should able to see all edit access(page & section level) to new owner after task reassignment for combination of  SOW & BPC AR by s/r side attachment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -212,7 +212,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Start" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
@@ -234,7 +234,7 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-  @229664 @ValidateCarryForwardPMusercanreassignownershiptonewownerinsubmittograntorstateofcarryforwardAR @sprint-12-US-226646 @vaibhav @reassignment
+  @ch1 @229664 @ValidateCarryForwardPMusercanreassignownershiptonewownerinsubmittograntorstateofcarryforwardAR @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Carry Forward PM user can reassign ownership to new owner  in submit to grantor state of carry forward AR
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -343,7 +343,7 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:CFAmendmentId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     Then I see value "Review Amendment Request" for title "Task Type" inside table "---amendment:-:pendingTaskTableId---"
 
-  @224654 @ValidateAmendmenttheeffectsontheR&Ronamendmen&award @sprint-12-US-226646 @vaibhav @reassignment
+  @done @224654 @ValidateAmendmenttheeffectsontheR&Ronamendmen&award @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Amendment the effects on the R&R on amendment & award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -580,7 +580,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Step 2" for title "Amendment Request" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
     Then I softly see value "Step 1" for title "Award" against the value "Automation PO" inside table "---subAwardStandAlone:-:awardApproversTableId---"
 
-  @224650 @Validateapprovertableshouldnotupdateonawardafteramendmentrequestreassignhisapprover @sprint-12-US-226646 @vaibhav @reassignment
+  @ch1 @224650 @Validateapprovertableshouldnotupdateonawardafteramendmentrequestreassignhisapprover @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate approver table should not update on award after amendment request reassign his approver
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -704,7 +704,6 @@ Feature: Amendment Request scenarios without background
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
-    And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -713,6 +712,8 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I pause execution for "5" seconds
+    And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
@@ -1560,7 +1561,7 @@ Feature: Amendment Request scenarios without background
 #      The EGMS Team
 #      """
 
-  @200181 @ValidateCarryforwardemailshouldbegeneratednewownerafterReviewamendmentrequesttaskownershipreassigntonewowner @sprint-5-US-197424 @vaibhav @reassignment
+  @ch1 @200181 @ValidateCarryforwardemailshouldbegeneratednewownerafterReviewamendmentrequesttaskownershipreassigntonewowner @sprint-5-US-197424 @vaibhav @reassignment
   Scenario: Validate Carry forward email should be generated for new owner after 'Review amendment request' task ownership reassign to new owner
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -1585,12 +1586,15 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
-    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
-    And I pause execution for "3" seconds
-    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
-    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
-    And I pause execution for "3" seconds
-    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" by clicking "Edit" :
+      | Title                           | Start Date         | End Date           |
+      | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
+#    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
+#    And I pause execution for "3" seconds
+#    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
+#    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
+#    And I pause execution for "3" seconds
+#    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |
@@ -1765,7 +1769,7 @@ Feature: Amendment Request scenarios without background
 #      The EGMS Team
 #      """
 
-  @200516 @ValidateafterchangingthetaskownershipofSOW/BPCchangebygrantorsidethenemailshouldtriggeredtoold&newOwner @sprint-5-US-198153 @vaibhav @reassignment
+  @ch1 @200516 @ValidateafterchangingthetaskownershipofSOW/BPCchangebygrantorsidethenemailshouldtriggeredtoold&newOwner @sprint-5-US-198153 @vaibhav @reassignment
   Scenario: Validate after changing the task ownership of SOW/BPC change by grantor side then email should triggered to old & new Owner
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2094,7 +2098,7 @@ Feature: Amendment Request scenarios without background
 #      The EGMS Team
 #      """
 
-  @229672 @ValidateemailshouldbetriggeredofAmendmentRequestRejected&forTaskreassignmenttonewuser @sprint-13-US-231194 @vaibhav @reassignment
+  @done @229672 @ValidateemailshouldbetriggeredofAmendmentRequestRejected&forTaskreassignmenttonewuser @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate email should be triggered of Amendment Request Rejected & for Task reassignment to new user
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2184,7 +2188,7 @@ Feature: Amendment Request scenarios without background
 #      The EGMS Team
 #      """
 
-  @229674 @ValidateemailshouldbetriggeredofAmendmentRequestsendback&forTaskreassignmenttonewuser @sprint-13-US-231194 @vaibhav @reassignment
+  @done @229674 @ValidateemailshouldbetriggeredofAmendmentRequestsendback&forTaskreassignmenttonewuser @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate email should be triggered of Amendment Request send back & for Task reassignment to new user
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2278,7 +2282,7 @@ Feature: Amendment Request scenarios without background
 #     The EGMS Team
 #      """
 
-  @229677 @ValidateemailshouldbetriggeredofAmendmentRequestApproved&forTaskreassignmenttonewuser @sprint-13-US-231194 @vaibhav @reassignment
+  @done @229677 @ValidateemailshouldbetriggeredofAmendmentRequestApproved&forTaskreassignmenttonewuser @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate email should be triggered of Amendment Request Approved & for Task reassignment to new user
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2371,7 +2375,7 @@ Feature: Amendment Request scenarios without background
 #      The EGMS Team
 #      """
 
-  @232515 @ValidateemailshouldbetriggeredofAmendmentRequestRejected&forChangeownershiptonewusergrantorSide @sprint-13-US-231194 @vaibhav @reassignment
+  @done @232515 @ValidateemailshouldbetriggeredofAmendmentRequestRejected&forChangeownershiptonewusergrantorSide @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate email should be triggered of Amendment Request Rejected & for Change ownership to new user
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2496,7 +2500,7 @@ Feature: Amendment Request scenarios without background
 #      The EGMS Team
 #      """
 
-  @232517 @ValidateemailshouldbetriggeredofAmendmentRequestsendback&forchangeownershiptonewuserFromgrantorside @sprint-13-US-231194 @vaibhav @reassignment
+  @done @232517 @ValidateemailshouldbetriggeredofAmendmentRequestsendback&forchangeownershiptonewuserFromgrantorside @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate email should be triggered of Amendment Request send back & for change ownership to new user From grantor side
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2624,7 +2628,7 @@ Feature: Amendment Request scenarios without background
 #     The EGMS Team
 #      """
 
-  @232519 @ValidateemailshouldbetriggeredofAmendmentRequestApproved&forchangeownershiptonewuserfromgrantorside @sprint-13-US-231194 @vaibhav @reassignment
+  @done @232519 @ValidateemailshouldbetriggeredofAmendmentRequestApproved&forchangeownershiptonewuserfromgrantorside @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate email should be triggered of Amendment Request Approved & for change ownership to new user from grantor side
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2872,7 +2876,7 @@ Feature: Amendment Request scenarios without background
 #      The EGMS Team
 #      """
 
-  @232521 @ValidateemailshouldbetriggeredofAmendmentRequestsendback&forChangeownershiptonewusers/rSide @sprint-13-US-231194 @vaibhav @reassignment
+  @done @232521 @ValidateemailshouldbetriggeredofAmendmentRequestsendback&forChangeownershiptonewusers/rSide @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate email should be triggered of Amendment Request send back & for Change ownership to new user s/r Side
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -3327,7 +3331,7 @@ Feature: Amendment Request scenarios without background
 #      The EGMS Team
 #      """
 
-  @223385 @ValidateAmendmentRequestModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-11-US-217998 @vaibhav @reassignment
+  @ch1 @223385 @ValidateAmendmentRequestModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-11-US-217998 @vaibhav @reassignment
   Scenario: Validate Amendment Request Module user should able to reassign the task to new user of more than 10 records & 1 email should be triggered for all records
     And I activated standalone subaward "Automation Runtime Bulk Award for Amendment" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -3428,12 +3432,15 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "PERIODICRENEWAL5"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
-    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
-    And I pause execution for "3" seconds
-    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
-    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
-    And I pause execution for "3" seconds
-    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" by clicking "Edit" :
+      | Title                           | Start Date         | End Date           |
+      | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
+#    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
+#    And I pause execution for "3" seconds
+#    And I enter value "{SavedValue:PBPSD}" into field "GATStartDate__c"
+#    And I enter value "{SavedValue:PBPED}" into field "GATEndDate__c"
+#    And I pause execution for "3" seconds
+#    And I click on top right button "Save" in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 1000                |

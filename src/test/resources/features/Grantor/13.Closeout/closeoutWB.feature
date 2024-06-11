@@ -352,6 +352,7 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:PM Username} | Program Reviewer | Automation Test Description | 5        |
     Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---closeout:-:closeoutPeerReviewTableId---"
     Then I softly see that "{SavedValue:PM Username}" has been added in flextable with Id "---closeout:-:closeoutPeerReviewTableId---"
+    #Bug438086
     When I click on "Send for Review" icon for "{SavedValue:FO Username}" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---" without waiting for record
     Then I softly see that "Sent for Review" has been added in flextable with Id "---closeout:-:closeoutPeerReviewTableId---"
     Then I softly cannot see row level action button "Edit" against "Sent for Review" in flex table with id "---closeout:-:closeoutPeerReviewTableId---"
@@ -441,7 +442,9 @@ Feature: Validate all scenarios in Closeout
     When I click on "Edit" in the page details
     Given I navigate to "Overview" sub tab
     And I enter value "Automation Test Reason" into field "Reason__c"
+    And I pause execution for "2" seconds
     And I enter value "Automation Test justification" into field "Justification__c"
+    And I pause execution for "3" seconds
     When I click on "Save" in the page details
     Then I softly see field "Override Justification" as "Automation Test justification"
     When I click on "Override" in the page details
@@ -642,6 +645,7 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---closeout:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---closeout:-:pendingTaskTableId---"
+    And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---"
     And I click on top right button "Add Files" in flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---"
@@ -1204,6 +1208,8 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     Then I softly see field "Override Justification" as "Automation Test justification"
     When I click on "Override" in the page details
+    Then I softly see field "Status" as "Overridden"
+    And I pause execution for "5" seconds
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeouts - All"
@@ -1273,6 +1279,8 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     Then I softly see field "Override Justification" as "Automation Test justification"
     When I click on "Override" in the page details
+    Then I softly see field "Status" as "Overridden"
+    And I pause execution for "5" seconds
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeouts - All"
@@ -3104,7 +3112,7 @@ Feature: Validate all scenarios in Closeout
     And I refresh the page
     When I click on "Override" in the page details
     Then I see the following messages in the page details :
-      | Open Items - Some records on the grant selected for closeout are Submitted for Approval, to proceed with the business process of Override you may have to either send the record to owner or approve/reject the record. {{SavedValue:SOWAMENDMENTREQUEST}, {SavedValue:PayreqId1}} |
+      | Open Items - Some records on the grant selected for closeout are Submitted for Approval, to proceed with the business process of Override you may have to either send the record to owner or approve/reject the record. {SavedValue:SOWAMENDMENTREQUEST}, {SavedValue:PayreqId1}} |
     And I refresh the page
     When I navigate to "Open Items" sub tab
     Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:SOWAMENDMENTREQUEST}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
@@ -4176,8 +4184,8 @@ Feature: Validate all scenarios in Closeout
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I refresh the page
     When I click on "Override" in the page details
-    Then I see the following messages in the page details :
-      | Open Items - Some records on the grant selected for closeout are Submitted for Approval, to proceed with the business process of Override you may have to either send the record to owner or approve/reject the record. {{SavedValue:SOWAMENDMENTREQUEST}, {SavedValue:progID}, {SavedValue:PayreqId}, {SavedValue:PayreqId1}} |
+    Then I softly see the following messages in the page details :
+      | Open Items - Some records on the grant selected for closeout are Submitted for Approval, to proceed with the business process of Override you may have to either send the record to owner or approve/reject the record. {SavedValue:SOWAMENDMENTREQUEST}, {SavedValue:progID}, {SavedValue:PayreqId}, {SavedValue:PayreqId1}} |
     And I refresh the page
     When I navigate to "Open Items" sub tab
     Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:SOWAMENDMENTREQUEST}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
@@ -4465,7 +4473,9 @@ Feature: Validate all scenarios in Closeout
      #Progress Report
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Progress Report"
+    And I pause execution for "5" seconds
     When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award for closeout}" having object api name as "ProgressReports__c"
+    And I pause execution for "2" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -4709,7 +4719,9 @@ Feature: Validate all scenarios in Closeout
      #Progress Report
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Progress Report"
+    And I pause execution for "3" seconds
     When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award for closeout}" having object api name as "ProgressReports__c"
+    And I pause execution for "2" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
