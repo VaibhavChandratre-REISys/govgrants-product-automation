@@ -6956,7 +6956,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "History" sub tab
     Then I softly see value "Automation PM" for title "New Value" inside table "---amendment:-:historyTableId---"
 
-  @200559 @ValidatePMusercanreassignownershiptootheruserincreatedstateofPRamendment @sprint-5-US-196841 @vaibhav @reassignment @AmendmentWBPoojaFifth @Debug
+  @200559 @ValidatePMusercanreassignownershiptootheruserincreatedstateofPRamendment @sprint-5-US-196841 @vaibhav @reassignment @AmendmentWBPoojaFifth
   Scenario: Validate PM user can reassign ownership to other user in created state of PR amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -8378,7 +8378,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @200288 @200296 @200295 @200298 @Validateusercanabletoseeownershiphyperlinkinhomemoduleleftnavigationpanel @sprint-5-US-198235 @vaibhav @reassignment @AmendmentWBPoojaSixth
+  @200288 @200296 @200295 @200298 @Validateusercanabletoseeownershiphyperlinkinhomemoduleleftnavigationpanel @sprint-5-US-198235 @vaibhav @reassignment @AmendmentWBPoojaSixth @Debug
   Scenario: Validate user can able to see ownership hyperlink in home module, left navigation panel
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
