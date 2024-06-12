@@ -975,7 +975,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I see the following messages in the page details :
       | Acknowledgement is Required to save. |
 
-  @hitRun @58938 @58179 @initialRAIsExpiredandSucceedingAreActive @deepika @smoke
+  @58938 @58179 @initialRAIsExpiredandSucceedingAreActive @deepika @smoke
   Scenario: Initial Risk Assessment should be marked as Expired if succeeding Risk Assessments are made active
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1221,7 +1221,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @hitRun @59791 @focannotEditCreatedRiskAssessmentByPMUser @deepika
+  @59791 @focannotEditCreatedRiskAssessmentByPMUser @deepika
   Scenario Outline: Validate the Action Icon 'Edit'  is not available on the table in award for Non-Award Owner(FO user)  for created Risk Assessment by PM user
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1245,6 +1245,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "Save" in the page details
     And I wait for "3" seconds
     When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "RiskAssessment"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1254,12 +1255,12 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
-    Then I cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Award for Risk Assessment}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:RiskAssessment}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     Examples:
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @hitRun @59789 @recordOwnerCanEDittheCreatedRiskAssessment @deepika
+  @59789 @recordOwnerCanEDittheCreatedRiskAssessment @deepika
   Scenario: Validate whether the record owner view the page level Edit Button on the Risk Assessment record that is in Created status
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
