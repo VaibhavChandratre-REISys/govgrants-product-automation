@@ -162,14 +162,8 @@ public class UsersAndURL implements UsersController {
             case "SPI4":
                 password = "Salesforce@2028";
                 break;
-            case "SPA":
-                password = "Salesforce2030";
-                break;
-            case "FD":
-                password = "Salesforce2030";
-                break;
             default:
-                password = "Salesforce2030";
+                password = "Salesforce2050";
         }
         return password;
     }
@@ -210,27 +204,27 @@ public class UsersAndURL implements UsersController {
 
     private String getAUTOEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsautomation@yopmail.com");
-        username.put("ADMIN1", "admin1@yopmail.com.automation");
-        username.put("EXE", "test@gmaildemo.com.atm.automation");
-        username.put("PM", "donald_pm@ggp.test7.atm.automation");
-        username.put("FO", "auto.fm@auto.com.atm.automation");
-        username.put("FD", "automationfd@yopmail.com");
-        username.put("PO", "automationpo@yopmail.com");
+        username.put("ADMIN", "govgrantsautomation@yopmail.com.gg2product");
+        username.put("ADMIN1", "manu.admin@ggp.test8.gg2product");
+        username.put("EXE", "test@gmaildemo.com.atm.gg2product");
+        username.put("PM", "donald_pm@ggp.test7.atm.gg2product");
+        username.put("FO", "auto.fm@auto.com.atm.gg2product");
+        username.put("FD", "test8.automationfd@yopmail.com.gg2product");
+        username.put("PO", "test8.automationpo@yopmail.com.gg2product");
         username.put("SPI", "automation.spi@yopmail.com.automation");
-        username.put("SPA", "automation.spa@yopmail.com");
-        username.put("IND", "ind.automation@yopmail.com");
-        username.put("SA", "automationspi1@yopmail.com");  // need to check this user.
-        username.put("SPI3", "automationspi30@yopmail.com");
-        username.put("AUDITOR", "automationauditor@yopmail.com");
-        username.put("PM1", "pm1.automation@yopmail.com");
-        username.put("EXE1", "exe1.automation@yopmail.com");
-        username.put("PO1", "automationpo1@yopmail.com");
-        username.put("FO1", "fo1.automation@yopmail.com");
-        username.put("FD1", "automationfd1@yopmail.com");
+        username.put("SPA", "automation.spa@yopmail.com.gg2product");
+        username.put("IND", "ind1.automation@yopmail.com.gg2product");
+        username.put("SA", "automationspi1@yopmail.com.gg2product");  // need to check this user.
+        username.put("SPI3", "automationspi30@yopmail.com.gg2product");
+        username.put("AUDITOR", "test8.automationauditor@yopmail.com.gg2product");
+        username.put("PM1", "test8.pm1.automation@yopmail.com.gg2product");
+        username.put("EXE1", "test8.exe1.automation@yopmail.com.gg2product");
+        username.put("PO1", "test8.automationpo1@yopmail.com.gg2product");
+        username.put("FO1", "test8.fo1.automation@yopmail.com.gg2product");
+        username.put("FD1", "test8.automationfd1@yopmail.com.gg2product");
         username.put("SME", "sme@yopmail.com.automation");
         username.put("SPI4", "signingauthority.sa@yopmail.com.automation");
-        username.put("SARAH PM", "sarah.pm@ggp.test9.automation");
+        username.put("SARAH PM", "sarah.pm@ggp.test8.gg2product");
 
         username.put("SIMON PM", "simon@ggp.test8.automation");
         username.put("ALEX FO", "alex_fo@ggp.test7.automation");
