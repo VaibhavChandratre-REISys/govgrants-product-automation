@@ -2087,7 +2087,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---closeout:-:closeoutOwnerTableId---"
 
-  @ch2 @200262 @ValidatePMuseroldownershouldnothavetheeditaccesspagelayout&sectionallevelbuttonsisinSubmittedforreviewstateafterownershipofcloseoutistransferfromonePMusertootherPMuser @sprint-12-US-226646 @vaibhav @reassignment
+  @done @ch2 @200262 @ValidatePMuseroldownershouldnothavetheeditaccesspagelayout&sectionallevelbuttonsisinSubmittedforreviewstateafterownershipofcloseoutistransferfromonePMusertootherPMuser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM user (old owner) should not have the edit access (page layout & sectional level buttons) is in 'Submitted for review' state after ownership of closeout is transfer from one PM user to other PM user
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM1" user
@@ -3806,7 +3806,7 @@ Feature: Validate all scenarios in Closeout
 #    Then I softly see value "Automation PO1" for title "New Value" inside table "---closeout:-:closeoutHistoryTableId---"
 #    Then I softly see value "Automation PO" for title "Old Value" inside table "---closeout:-:closeoutHistoryTableId---"
 
-  @ch2 @224656 @ValidateCloseoutnewownerofpeerreviewershouldabletosubmitthereviewcommentforcloseout @sprint-11-US-218319 @vaibhav @reassignment
+  @done @ch2 @224656 @ValidateCloseoutnewownerofpeerreviewershouldabletosubmitthereviewcommentforcloseout @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Closeout new owner of peer reviewer should able to submit the review comments for closeout
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
