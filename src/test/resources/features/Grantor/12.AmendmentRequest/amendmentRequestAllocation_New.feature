@@ -7215,6 +7215,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see "Budget Summary by Focus Area" page block displayed
     #264173
     And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
     Then I softly see fields "fieldRequestedChangeInBudget__c" is in edit mode
     And I click on "Save" in the page details
     Then I softly see field "Carry Forward Amount" as "$700.00"
@@ -9070,6 +9071,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 2000                |
@@ -10321,6 +10323,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 2000                |
@@ -14766,6 +14769,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I wait for "3" seconds
+    And I navigate to "Overview" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
     Then I softly see field "New Obligation" as "$1,000.00"
     And I save the field labeled "New Obligation" as "RevisedCommitment"

@@ -44,6 +44,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on top right button "Associate" in flex table with id "---amendment:-:goalsAndObjectivesTableId---"
     And I check "<Objectives>" boxes in flex table with id "---amendment:-:objectivesTableId---"
     When I click on top right button "Associate" in flex table with id "---amendment:-:objectivesTableId---"
+    And I wait for "3" seconds
     Then I see that "<Objectives>" has been added in flextable with Id "---amendment:-:goalsAndObjectivesTableId---"
     When I click on "Remove" icon for "<Objectives>" inside flex table with id "---amendment:-:goalsAndObjectivesTableId---" without waiting for record
     Then I do not see value "<Objectives>" for title "Title" inside table "---amendment:-:goalsAndObjectivesTableId---"

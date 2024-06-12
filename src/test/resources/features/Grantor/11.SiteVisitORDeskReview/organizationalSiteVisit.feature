@@ -926,7 +926,9 @@ Feature: Validate all scenarios in Organizational Site Visit
   Scenario: User will be able to review the supporting document checklist submitted by the subrecipient
     When I navigate to "Files" sub tab
     And I click on "Upload Template" icon for "Automation" inside flex table with id "---orgRiskAssessment:-:orgriskSupportingDocTableId---" with wait for record
-    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I choose the file "Attachment.pdf" to upload for "Others" of type "---progressReport:-:progressReportChecklistsTableId---"
+    When I close "Upload Document" modal by clicking the top right x button
+#    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click in table hyperlink containing value "View"
     Then I softly verify that the file "Attachment.pdf" is downloaded
 

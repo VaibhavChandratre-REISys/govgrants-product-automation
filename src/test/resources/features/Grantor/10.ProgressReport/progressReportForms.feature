@@ -5067,7 +5067,6 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Preview" icon for "Grantor Progress Report Forms" inside table
     And I select value inside table "---program:-:previewPackageTableId---" is "All"
     Then I softly see total records count "Total Records: 13" in flex table "---program:-:previewPackageTableId---"
-    And I perform quick search for "Community Initiative Progress Report" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Community Initiative Progress Report" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Progress Report" for title "Report Type" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "23" for title "Form Number" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
@@ -5511,7 +5510,6 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Preview" icon for "Grantor Progress Report Forms" inside table
     And I select value inside table "---program:-:previewPackageTableId---" is "All"
     Then I softly see total records count "Total Records: 13" in flex table "---program:-:previewPackageTableId---"
-    And I perform quick search for "Community Initiative Progress Report" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Community Initiative Progress Report" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Progress Report" for title "Report Type" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "23" for title "Form Number" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
@@ -5683,7 +5681,6 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Preview" icon for "Grantor Progress Report Forms" inside table
     And I select value inside table "---program:-:previewPackageTableId---" is "All"
     Then I softly see total records count "Total Records: 13" in flex table "---program:-:previewPackageTableId---"
-    And I perform quick search for "Community Initiative Progress Report" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Community Initiative Progress Report" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Progress Report" for title "Report Type" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "23" for title "Form Number" against the value "Community Initiative Progress Report" inside table "---program:-:previewPackageTableId---"

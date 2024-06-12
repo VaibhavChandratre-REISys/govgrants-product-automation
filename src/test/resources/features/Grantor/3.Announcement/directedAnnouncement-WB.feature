@@ -1886,7 +1886,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @RerunPooja @234235 @234239 @234237 @DirectAnnINDusercanseeErrormessageonsubmittograntorbuttonwhenuserresubmittheapplicationafternegotiationFromFDMifcheckwhentheBudgetedamountmustbeequaltotheRecommendedAmount @sprint-13-US-224176 @komal @Allocation
+   @234235 @234239 @234237 @DirectAnnINDusercanseeErrormessageonsubmittograntorbuttonwhenuserresubmittheapplicationafternegotiationFromFDMifcheckwhentheBudgetedamountmustbeequaltotheRecommendedAmount @sprint-13-US-224176 @komal @Allocation
   Scenario Outline: Direct Ann IND user can see Error message on submit to grantor button when user resubmit the application after negotiation From FDM if check when the Budgeted amount must be equal to the Recommended Amount
   | Direct Ann>> Verify IND user can able to edit the Budget Summary by focus area section When the grantor select this Budget Tab: Budget Summary by Focus Area" in the picklist for negotiation (From FDM)& submit application to s/r side |
   | Direct Ann>> Verify IND user can not see Error message on submit to grantor button when user resubmit the application after negotiation (From FDM), if  Budgeted amount is equal to the  Recommended Amount  |
