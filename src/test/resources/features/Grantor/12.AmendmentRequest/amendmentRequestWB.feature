@@ -4779,7 +4779,7 @@ Feature: Amendment Request scenarios without background
     When I click on "Add Line Items" icon for "Administrative and legal expenses" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Award Amount |
-      | Extra Salary | The narrative | 800         |
+      | Extra Salary | The narrative | 800          |
     And I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$800.00" for title "Revised Subaward Budget" inside table "---amendment:-:BudgetChangeTableId---"
     #99988 #monu
