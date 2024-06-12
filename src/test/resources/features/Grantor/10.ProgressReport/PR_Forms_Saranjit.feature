@@ -2059,7 +2059,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "2" seconds
     And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "1"
+    And I switch to tab number "2"
     And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
@@ -2367,10 +2367,10 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     And I navigate to "Form" sub tab in split screen
-    And I click on "Splitview" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---"
+    And I click on "Edit" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---"
     And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
-    And I pause execution for "5" seconds
+    And I switch to tab number "2"
+    And I wait for "3" seconds
 #    Then I softly see the text containing "OMB Number: 4040-0018"
 #    Then I see the page contains text " Expiration Date: 11/30/2024"
     And I enter "SF428A_Form" values from "ProgressReport_Field_Values.xlsx"
@@ -2394,6 +2394,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Validate" in the split screen page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
+    And I close the tab
     #282976
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
@@ -2919,9 +2920,10 @@ Feature: Validate scenarios in Progress Report Forms
       | Disposition Report/Request (SF-428-C) is required to be submitted as it is selected in field 6 'Attachment'.    |
     And I close the tab
     And I refresh the page
+    And I switch to parent tab
     #Fill SF428-C Form
     And I click on "View" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "1"
+    And I switch to tab number "2"
     And I pause execution for "3" seconds
     When I click on "Edit" in the page details
     And I pause execution for "3" seconds
