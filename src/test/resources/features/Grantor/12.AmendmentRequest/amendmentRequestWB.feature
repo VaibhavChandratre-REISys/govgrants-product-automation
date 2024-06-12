@@ -18739,10 +18739,9 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
-      | Budget Category | Revised Subaward Budget | Cash Match | Non Cash Match |
-      | Construction    | 1000                    | 100        | 0              |
+      | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
+      | Construction    | 1000                 | 100        | 0              |
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -18864,6 +18863,10 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId1"
     Then I softly see status in Progress-bar is "Created" and is "Green"
+    And I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Carry Forward |
+      | Construction    |   0           |
     And I expand nested table containing column value "BP02"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -18886,7 +18889,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
     Then I softly can see top right button "Submit For Approval" in page detail
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
-    Then I softly can see top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
