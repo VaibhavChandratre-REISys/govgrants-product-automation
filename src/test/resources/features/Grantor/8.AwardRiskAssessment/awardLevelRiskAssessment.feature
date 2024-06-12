@@ -162,6 +162,7 @@ Feature: Validate all scenarios in the Risk Assessment
      And I click on "Edit" in the page details
      When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
      And I click on "Save" in the page details
+     And I wait for "3" seconds
      And I navigate to "Management" sub tab
      When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
      And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -192,7 +193,10 @@ Feature: Validate all scenarios in the Risk Assessment
 
   @hitRun @58171 @forwardToOtherUsersendtoOwnerRiskAssesment @deepika
   Scenario: Validate whether user is to able to forward Risk Assessment for Approval and Send to Owner ts" subheader on left panel
-     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    Given I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
      And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
      And I click modal button "Continue"
      And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
