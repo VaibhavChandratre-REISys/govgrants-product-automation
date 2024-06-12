@@ -341,7 +341,22 @@ Feature: Validate all scenarios in Closeout
     And I enter "TerminationEdition" values from "Closeout_Field_Values.xlsx"
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
-    And I get the "EGMS ID"
+    And I wait for "3" seconds
+    Given I click on "Send To Subrecipient" in the page details
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Closeout" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:CloseoutID}" in "---closeout:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+    When I click on "Edit" in the page details
+    And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I click on "Acknowledge" in the page details
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I navigate to "Closeout" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:CloseoutID}" in "---closeout:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     #Bug434417 @due to bug testcase cannot be completed
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutPeerReviewTableId---" by clicking "New" :
@@ -1905,7 +1920,7 @@ Feature: Validate all scenarios in Closeout
       The EGMS Team
       """
 
-  @ch2 @200170 @ValidateEXEuserCloseoutSubmittedbyPeerRevieweremailshouldbegeneratedinyopmailtonewcloseoutownerwhenownershipistransferfromoneEXEtootherEXEisinReviewedstate @sprint-12-US-226646 @vaibhav @reassignment
+  @ch2 @done @200170 @ValidateEXEuserCloseoutSubmittedbyPeerRevieweremailshouldbegeneratedinyopmailtonewcloseoutownerwhenownershipistransferfromoneEXEtootherEXEisinReviewedstate @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate EXE user 'Closeout Submitted by Peer Reviewer' email should be generated in yopmail to new closeout owner when ownership is transfer from one EXE to other EXE is in 'Reviewed' state
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
