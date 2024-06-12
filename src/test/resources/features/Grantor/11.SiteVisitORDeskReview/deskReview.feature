@@ -567,7 +567,7 @@ Feature: Validate all scenarios in Desk Review
     Then I softly see the following messages in the page details :
       | Reports and Outcomes Tab - Enter corrective actions on all Findings outcomes using the "+" icons. |
 
-  @55364 @deskReviewDeleteAccesstoOwner @deepika
+  @55364 @deskReviewDeleteAccesstoOwner @deepika @bug-430830
   Scenario Outline: Verify that record owner can delete created state desk review from Award level
     Given I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel

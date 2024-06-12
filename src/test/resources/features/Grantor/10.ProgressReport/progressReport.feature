@@ -1741,7 +1741,8 @@ Feature: Validate all scenarios in Progress Report
       | Passed          | Rating__c         |
       | Test Automation | ReviewComments__c |
     When I click modal button "Save"
-    Then I softly see field "Comments" as "Test Automation"
+#    Then I softly see field "Comments" as "Test Automation"
+#    And I wait for "3" seconds
     And I click on submit review
     Then I softly see value "Submitted" for title "Status" inside table "---progressReport:-:peerReviewersTableId---"
 

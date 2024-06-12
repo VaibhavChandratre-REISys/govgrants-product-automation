@@ -358,7 +358,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Name                      | Site Visit |
       | {SavedValue:EXE Username} | Step 1     |
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                     | Site Visit |
+      | Name                     | Site Visift |
       | {SavedValue:FO Username} | Step 2     |
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
@@ -478,6 +478,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Subawards" sub tab
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
+    And I refresh the page
     Given I navigate to "Management" sub tab
     When I perform quick search for "{SavedValue:SiteVisitID}" in "---sitevisits:-:grantorSiteVisitsTableID---" panel
     Then I softly see value "Approved" for title "Status" against the value "{SavedValue:SiteVisitID}" inside table "---sitevisits:-:grantorSiteVisitsTableID---"
@@ -620,6 +621,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I click on "Activate" in the page details
     And I navigate to "Management" tab
     When I perform quick search for "Approved" in "---deskreview:-:managementInitiateDRtableid---" panel
+    And I wait for "3" seconds
     Then I softly see "No Records Found" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -629,6 +631,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Subawards" sub tab
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
+    And I refresh the page
     Given I navigate to "Management" sub tab
     When I perform quick search for "{SavedValue:DeskReviewID}" in "---deskreview:-:managementInitiateDRtableid---" panel
     Then I softly see value "Approved" for title "Status" against the value "{SavedValue:DeskReviewID}" inside table "---deskreview:-:managementInitiateDRtableid---"
