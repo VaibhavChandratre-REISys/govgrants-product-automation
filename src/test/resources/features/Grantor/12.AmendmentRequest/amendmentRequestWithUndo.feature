@@ -7840,7 +7840,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @ch1 @310000 @ValidateFCthatusercannotseeundobuttononFCARinForceClosedstate @Undo
+  @ch3 @310000 @ValidateFCthatusercannotseeundobuttononFCARinForceClosedstate @Undo
   Scenario: Validate FC that user cannot see undo button on FC AR in Force Closed state
 #    And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
 #    When I login to "As a Grantor" app as "PM" user
@@ -7905,6 +7905,7 @@ Feature: Amendment Request scenarios with Undo
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 1000                 | 100        | 100            |
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
+    And I pause execution for "3" seconds
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 1000                 | 100        | 100            |
