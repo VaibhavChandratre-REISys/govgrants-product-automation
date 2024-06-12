@@ -151,7 +151,7 @@ Feature: Validate all scenarios in the Risk Assessment
   Scenario: Validate whether Fiscal approver is to able to Send Risk Assessment Back to Owner
     Given I login to "As a Grantor" app as "dynamicUser" user
      And I navigate to "Grants" tab
-     When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
      And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
      And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
      And I click modal button "Continue"
@@ -191,10 +191,7 @@ Feature: Validate all scenarios in the Risk Assessment
      Then I see status in Progress-bar is "Created" and is "dark blue"
 
   @hitRun @58171 @forwardToOtherUsersendtoOwnerRiskAssesment @deepika
-  Scenario: Validate whether user is to able to forward Risk Assessment for Approval and Send to Owner
-     Given I login to "As a Grantor" app as "dynamicUser" user
-     And I navigate to "Grants" tab
-     When I navigate to "Grants and Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+  Scenario: Validate whether user is to able to forward Risk Assessment for Approval and Send to Owner ts" subheader on left panel
      And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
      And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
      And I click modal button "Continue"
@@ -942,8 +939,8 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Award for Risk Assessment} " in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award for Risk Assessment} " inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table without waiting for record
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for Risk Assessment}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
