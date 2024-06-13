@@ -19,7 +19,7 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutRequestNo"
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see status in Progress-bar is "Created" and is "Green"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
 
   @50975 @50974 @assigningApproversAndsendCloseoutToSubrecipient @smoke
   Scenario: Send Closeout Request to Subrecipient and assigning approvers to the closeout Request
@@ -38,7 +38,7 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:FO Username} | Step 2   |
     Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---closeout:-:closeoutApproverTableId---"
     When I click on "Send To Subrecipient" in the page details
-    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "Green"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
   @50977 @50976 @subrecipientEntersFieldInCloseoutAndAcknowledges
   Scenario: Validate whether Subrecipient enters closeout fields and acknowledges
@@ -65,9 +65,9 @@ Feature: Validate all scenarios in Closeout
     When I click on "Edit" in the page details
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "green"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     And I click on "Acknowledge" in the page details
-    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "green"
+    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
 
   @50979 @50978 @86715 @overrideCloseoutAndSubmitForApproval @smoke
   Scenario Outline: Grant owner overrides the Closeout and is submitted for approval
@@ -171,7 +171,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     When I click on "Override" in the page details
     And I click on "Submit for Approval" in the page details
-    Then I see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Examples:
       | Award Name                                         |
       | {SavedValue:Automation Runtime Award for closeout} |
@@ -217,7 +217,7 @@ Feature: Validate all scenarios in Closeout
       | Navigation | As a Grantor  | Closeout |                   |
       | FlexTable  | Pending Tasks | My Tasks | PhasePendingTasks |
       | Approval   | Start         | Approve  |                   |
-    Then I see status in Progress-bar is "Completed" and is "green"
+    Then I see status in Progress-bar is "Completed" and is "dark blue"
 
   @50982 @scheduledCloseoutHappyPath @notFunctional @wip
   Scenario: Happy path of Scheduled closeout
@@ -260,7 +260,7 @@ Feature: Validate all scenarios in Closeout
       | Navigation | As a Grantor  | Closeout |                   |
       | FlexTable  | Pending Tasks | My Tasks | PhasePendingTasks |
       | Approval   | Start         | Approve  |                   |
-    Then I see status in Progress-bar is "Completed" and is "green"
+    Then I see status in Progress-bar is "Completed" and is "dark blue"
 
   @40066 @40605 @40608  @NavigationAcknowledgementAutoPopulatedFieldsGrantOverview  @Keerti
   Scenario: Navigating to the Closeout Request/Validating whether the Acknowledgement section has Default Null Value before sent to sub-recipient
@@ -575,7 +575,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Send To Subrecipient" in the page details
     Then I softly see field "Status" as "Sent To Subrecipient"
     #76487
-    Then I softly see status in Progress-bar is "Sent To Subrecipient" and is "Green"
+    Then I softly see status in Progress-bar is "Sent To Subrecipient" and is "dark blue"
     #42103
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Home" tab
@@ -594,7 +594,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see "Files" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
     Then I softly can see "Collab" sub tab at view detail page
-    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "Green"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     #86716
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
@@ -604,7 +604,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Acknowledgement" as "checked"
     #86712
     And I click on "Acknowledge" in the page details
-    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "Green"
+    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
     Then I softly see field "Status" as "Acknowledged by Subrecipient"
     #93583
     And I save the field labeled "Acknowledgement" as "AcknowledgementCheck"
@@ -1019,7 +1019,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     When I click on "Send To Subrecipient" in the page details
     Then I softly see field "Status" as "Sent To Subrecipient"
-    Then I softly see status in Progress-bar is "Sent To Subrecipient" and is "Green"
+    Then I softly see status in Progress-bar is "Sent To Subrecipient" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Home" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1032,7 +1032,7 @@ Feature: Validate all scenarios in Closeout
     And I wait for "2" seconds
     Then I softly see field "Acknowledgement" as "checked"
     And I click on "Acknowledge" in the page details
-    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "Green"
+    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
     Then I softly see field "Status" as "Acknowledged by Subrecipient"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
@@ -1102,7 +1102,7 @@ Feature: Validate all scenarios in Closeout
     And I wait for "2" seconds
     Then I softly see field "Acknowledgement" as "checked"
     And I click on "Acknowledge" in the page details
-    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "Green"
+    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
     Then I softly see field "Status" as "Acknowledged by Subrecipient"
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Recipient Closeouts" subheader on left panel
@@ -1286,7 +1286,7 @@ Feature: Validate all scenarios in Closeout
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "green"
+    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
     Then I softly see field "Status" as "Submitted to Grantor"
 
   @95688 @VerifyChecklistFieldsInReadModeOnly @monu
@@ -1400,7 +1400,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Acknowledge" in the page details
     Then I softly see field "Status" as "Acknowledged by Subrecipient"
     #93582 #monu
-    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "green"
+    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
     #################################################################
     And I click on hyperlink containing value "{SavedValue:GrantID}"
     And I navigate to "Requests" sub tab
@@ -1441,7 +1441,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Edit" in the page details
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "green"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     And I click on "Acknowledge" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
