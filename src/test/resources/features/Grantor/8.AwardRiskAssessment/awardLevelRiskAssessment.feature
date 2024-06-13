@@ -1902,7 +1902,7 @@ Feature: Validate all scenarios in the Risk Assessment
   #  When I close "Review" modal by clicking the top right x button
     Then I see status in Progress-bar is "Submitted for Review" and is "dark blue"
 
-  @hitRun @59618 @59872 @editButtonIsHiddensubmittedReviewCompleteFoCannotResubmitComemnts @deepika
+  @59618 @59872 @editButtonIsHiddensubmittedReviewCompleteFoCannotResubmitComemnts @deepika
   Scenario: Validate after submitting the review comments, the Edit button Hidden for reviewer and once RA owner Complete Review then the progress bar changes from Submitted for Review to Reviewed and reviewer cannot submit review activities if the record marked as complete review by the  owner.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2151,7 +2151,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Grant Name                                                | Award Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @hitRun @60208 @validateRecordOwnerISAbleToViewRASnapshot @deepika @skipOnJenkins
+  @60208 @validateRecordOwnerISAbleToViewRASnapshot @deepika @skipOnJenkins
   Scenario: Validate Record Owner user is able to view the Snapshot after Risk Assessment is Submitted for Approval status
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2189,7 +2189,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I download the file
     Then I see "Submitted for Approval" on page "1" of "govgrants" pdf file
 
-  @hitRun @60209 @validateRecordOwnerISAbleToViewActiveRASnapshot @deepika @skipOnJenkins
+  @60209 @validateRecordOwnerISAbleToViewActiveRASnapshot @deepika @skipOnJenkins
   Scenario: Validate whether Snapshot is captured/(taken) automatically  by the system in the table Snapshot History when Risk Assessment is Activated
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2251,7 +2251,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I download the file
     Then I see "Active" on page "1" of "govgrants" pdf file
 
-  @hitRun @60210 @60220 @recordOwnerCannotEditEffectiveDateAndCreatedDateOfRA @deepika
+  @60210 @60220 @recordOwnerCannotEditEffectiveDateAndCreatedDateOfRA @deepika
   Scenario: Validate Record Owner is not able to edit the Effective Dates under Overview tab of Risk Assessment and the Created Date of Risk Assessment display on Overview Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2702,7 +2702,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @60787 @60785  @intialRiskAssessmentToExpiredRAViewedFromMonitoringTable @deepika
+  @hitRun @60787 @60785  @intialRiskAssessmentToExpiredRAViewedFromMonitoringTable @deepika
   Scenario:  Validate when the succeeding Risk Assessments are made active then the  Initial Risk Assessment should be marked as Expired and can be viewed from Risk Asessment table and from the Monitoring table
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2775,7 +2775,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit For Approval" in the page details
+    When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2808,7 +2808,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "View" icon for "{SavedValue:ExpiredID}" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
     Then I see status in Progress-bar is "Expired" and is "dark blue"
 
-  @60811 @60817 @viewExpiredRAOnceAwardIsActivatedFromOrganizationProfilePage @deepika @bug-72469
+  @hitRun @60811 @60817 @viewExpiredRAOnceAwardIsActivatedFromOrganizationProfilePage @deepika @bug-72469
   Scenario:  Validate whether Subrecipients can view the Expired Risk Assessment from the Monitoring Phase level table and  Expired Status should be displayed to SR user from Organizational Profile page.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2908,7 +2908,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit For Approval" in the page details
+    When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
