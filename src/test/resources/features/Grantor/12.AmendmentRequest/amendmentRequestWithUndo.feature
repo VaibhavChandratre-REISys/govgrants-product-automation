@@ -7961,7 +7961,7 @@ Feature: Amendment Request scenarios with Undo
     When I navigate to "Open Items" sub tab
     Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:FundingID}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
     When I click on "Override" in the page details
-    And I refresh the page
+    And I pause execution for "4" seconds
     When I navigate to "Open Items" sub tab
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:FundingID}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
     And I navigate to "Grants" tab
