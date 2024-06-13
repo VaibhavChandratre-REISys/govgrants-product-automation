@@ -143,7 +143,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see "Responsibilities" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
-    Then I softly can see "Collab" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -268,8 +268,10 @@ Feature: Validate all scenarios in Closeout
   /Validating whether the fields are carried forward from the Grant Overview tab to Closeout Grant Overview Tab
     And I navigate to "Overview" sub tab
     And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
-    And I save the field value having link labeled "Subrecipient Organization" as "SubrecipientOrganization"
-    And I save the field value having link labeled "Funding Organization" as "FundingOrganization"
+    And I save the field labeled "Subrecipient Organization" as "SubrecipientOrganization"
+    And I save the field labeled "Funding Organization" as "FundingOrganization"
+#    And I save the field value having link labeled "Subrecipient Organization" as "SubrecipientOrganization"
+#    And I save the field value having link labeled "Funding Organization" as "FundingOrganization"
     And I navigate to "Requests" sub tab
     Then I softly see field "Closeout Requests" inside page block
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -281,8 +283,10 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     And I save the field labeled "Closeout Effective Date" as "CloseoutEffectiveDate"
-    And I save the field value having link labeled "Subrecipient Organization" as "CloseoutSubrecipientOrganization"
-    And I save the field value having link labeled "Funding Organization" as "CloseoutFundingOrganization"
+    And I save the field labeled "Subrecipient Organization" as "CloseoutSubrecipientOrganization"
+    And I save the field labeled "Funding Organization" as "CloseoutFundingOrganization"
+#    And I save the field value having link labeled "Subrecipient Organization" as "CloseoutSubrecipientOrganization"
+#    And I save the field value having link labeled "Funding Organization" as "CloseoutFundingOrganization"
     Then I softly see that the saved value "{SavedValue:AcknowledgementCheck}" and "" are equal
     Then I softly see that the saved value "{SavedValue:AcknowledgementDate}" and "" are equal
     Then I softly see that the saved value "{SavedValue:AcknowledgementBy}" and "" are equal
