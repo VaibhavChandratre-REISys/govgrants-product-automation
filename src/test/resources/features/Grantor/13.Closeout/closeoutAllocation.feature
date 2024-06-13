@@ -301,7 +301,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Spent" as "$500.00"
     Then I softly see value "$500.00" for title "Spent" against the value "Total" inside table "---closeout:-:subrecipientBudgetSummaryFocusAreaTableId---"
 
-  @ch2 @done @265630 @ValidateSPIuserseespentvalueshouldbeupdatedoncloseoutinReviewedstateofcloseout @sprint-20-US-263394 @vaibhav @Allocation
+  @265630 @ValidateSPIuserseespentvalueshouldbeupdatedoncloseoutinReviewedstateofcloseout @sprint-20-US-263394 @vaibhav @Allocation
   Scenario: Validate SPI user see 'spent' value should be updated on closeout in Reviewed state of closeout
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -1054,7 +1054,7 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Overview" sub tab
     Then I softly see field "Spent" as "$500.00"
 
-  @done @ch2 @265592 @ValidateEXEuserseespentvalueshouldbeupdatedoncloseoutinReviewedstateofcloseout @sprint-20-US-246948 @vaibhav @Allocation
+  @265592 @ValidateEXEuserseespentvalueshouldbeupdatedoncloseoutinReviewedstateofcloseout @sprint-20-US-246948 @vaibhav @Allocation
   Scenario: Validate EXE user see 'spent' value should be updated on closeout in Reviewed state of closeout
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -3045,7 +3045,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Open Items" sub tab
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
 
-  @ch2 @done @275296 @ValidateDirectedreviewershouldabletosubmitthereviewtocloseoutowner @Sprint-23-US-283335 @vaibhav @Allocation
+  @275296 @ValidateDirectedreviewershouldabletosubmitthereviewtocloseoutowner @Sprint-23-US-283335 @vaibhav @Allocation
   Scenario: Validate Directed reviewer should able to submit the review to closeout owner
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "THREE_FOCUS_AREA_NO_BUD_CAT_THIRD_FOCUS_BUILD_UP_IND_ORG-Automation EXE user" of type "Directed"
     When I login to "As a Grantor" app as "EXE" user
