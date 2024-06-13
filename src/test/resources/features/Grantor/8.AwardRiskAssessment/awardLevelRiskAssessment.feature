@@ -1947,24 +1947,25 @@ Feature: Validate all scenarios in the Risk Assessment
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I click modal button "Close"
   #  When I close "Review" modal by clicking the top right x button
-    Then I cannot see top right button "Edit" in page detail
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-#    And I click toggle button to select "Subaward Risk Assessments - All"
-#    And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
-#    When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
-#    And I click on "Complete Review" in the page details
-#    Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
-#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-#    And I click toggle button to select "Subaward Risk Assessments - All"
-#    And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
-#    When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
-#    When I navigate to "Responsibilities" sub tab
-#    Then I softly cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "RiskAssessmentApproverRoles"
+    Then I softly cannot see top right button "Edit" in page detail
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
+    And I click on "Complete Review" in the page details
+    Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
+    Then I softly cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "RiskAssessmentApproverRoles"
 
   @59960 @intialRiskAssessmentMarkedAsExpired @deepika @smoke
   Scenario Outline: Validate when the Award is activated whether SR user can view the second Risk Assessment that was in Created Status
@@ -2271,11 +2272,12 @@ Feature: Validate all scenarios in the Risk Assessment
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
     And I wait for "3" seconds
-    Then I see field "StartDate__c" is not editable
+    Then I softly see field "Effective Date" is not editable
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
     And I navigate to "Overview" sub tab
+    Then I softly see field "Created Date" is not editable
     Then I see field "Created Date" is not editable
 
   @60219 @addAttachmentToRiskAssessment @deepika
