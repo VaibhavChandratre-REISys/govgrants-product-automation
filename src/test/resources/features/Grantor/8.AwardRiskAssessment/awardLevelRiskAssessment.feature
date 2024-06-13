@@ -1305,7 +1305,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     When I navigate to "Overview" sub tab
     And I halt execution
-    Then I see "Risk Level" image as "b-ylw.png"
+    Then I see "Risk Level" image as "b-red.png"
 
   @59807 @highRiskRAAssessmentFieldColorRed @deepika
   Scenario: Validate after selecting certain combinations of answers on the  Form and submitting RA for approval, system sets high Risk with color as red
@@ -1357,7 +1357,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     When I navigate to "Overview" sub tab
-    Then I see "Risk Level" image as "b-ylw.png"
+    Then I see "Risk Level" image as "b-red.png"
 
   @59808 @historyOfRiskAssessmentWhenSendBacktoOwnerbyPM @deepika @FieldHistoryExclude
   Scenario: To Validate field history update post Risk Assessment is send back to owner by program approver.
