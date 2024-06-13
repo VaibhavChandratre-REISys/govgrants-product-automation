@@ -1304,7 +1304,6 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     When I navigate to "Overview" sub tab
-    And I halt execution
     Then I see "Risk Level" image as "b-red.png"
 
   @59807 @highRiskRAAssessmentFieldColorRed @deepika
