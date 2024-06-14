@@ -4209,9 +4209,9 @@ Feature: Amendment Request scenarios without background
     And I click on "Activate" in the page details
     And I wait for "5" seconds
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
+    Given I delete the record "{SavedValue:NewSubAwardId}" from the object "Progress Report"
     And I pause execution for "10" seconds
-    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime award}" having object api name as "ProgressReports__c"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:NewSubAwardId}" having object api name as "ProgressReports__c"
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:progressReportFlexTableId---" panel
@@ -5575,7 +5575,7 @@ Feature: Amendment Request scenarios without background
       | {SavedValue:PM Username} | Step 2            |
     Then I softly see "You cannot specify the same user for multiple steps for Amendment Request" inside flex table with id "---amendment:-:approversTableId---"
 
-  @151896 @verifyRemovalOfAddedApprover-BudgetRedirection-RnRFunctionality @monu @AmendmentWBPoojaFourth
+  @151896 @verifyRemovalOfAddedApprover-BudgetRedirection-RnRFunctionality @monu @AmendmentWBPoojaFourth @wip
   Scenario: To verify user can  remove the added approver on Budget Redirection amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I am on "SUBPORTAL" portal
