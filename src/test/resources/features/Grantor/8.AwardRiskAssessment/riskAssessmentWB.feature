@@ -255,7 +255,7 @@ Feature: Risk Assessment scenarios without background
     And I perform quick search for "Record Id" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
     Then I do not see value "Record Id" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
-  @61038 @60332 @60335 @riskScoreSameOnAmendmentAwardSRSideforScopeofWorkChange @deepika @TBExecution
+  @61038 @60332 @60335 @riskScoreSameOnAmendmentAwardSRSideforScopeofWorkChange @deepika
   Scenario Outline: Validate the Risk Score which should remain as is when Award Risk Assessment is copied to new created award when amendment type and SR user can view the Risk Score - Scope of Work Change
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -443,7 +443,7 @@ Feature: Risk Assessment scenarios without background
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @60967 @60336 @60334 @60333 @FundingChangeAmendmentRiskScore @deepika @TBExecution
+  @60967 @60336 @60334 @60333 @FundingChangeAmendmentRiskScore @deepika
   Scenario Outline: Validate the Risk Score which should remain as is when Award Risk Assessment is copied to new created award when amendment type - Funding Change
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -595,7 +595,7 @@ Feature: Risk Assessment scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
-      | Construction  | 2000                 | 100        | 100            |
+      | Construction  | 3000                 | 100        | 100            |
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1175,7 +1175,7 @@ Feature: Risk Assessment scenarios without background
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @61040 @riskscoreSRSideforBudgetPeriodChangeWhenCopiedToamendedAward @deepika @smoke @TBExecution
+  @61040 @riskscoreSRSideforBudgetPeriodChangeWhenCopiedToamendedAward @deepika @smoke
   Scenario Outline: Validate whether SR user can view the Risk Score which remained as is when Award Risk Assessment is copied to new created award when amendment type-Budget Period Change
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
