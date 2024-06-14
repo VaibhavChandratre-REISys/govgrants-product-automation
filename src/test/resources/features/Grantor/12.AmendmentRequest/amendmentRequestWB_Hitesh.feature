@@ -1,4 +1,4 @@
-@amendmentRequestsWB @amendmentRequests @grantor-regression @grantor-parallel-regression @regression
+@amendmentRequestsWB @amendmentRequests @grantor-regression @grantor-parallel-regression @regression @AmendmentWBRunForLWC
 Feature: Amendment Request scenarios without background
 
   @200059 @ValidatePMusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatcreatedstateforScopeofWorkChangeARtype @sprint-5-US-198419 @vaibhav @reassignment
