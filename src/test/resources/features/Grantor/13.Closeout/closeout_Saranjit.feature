@@ -47,12 +47,9 @@ Feature: Validate all scenarios in Closeout
     And I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I navigate to "Files" sub tab
     When I click on "Attach" icon for "Not Applicable" inside flex table with id "CloseoutChecklists" without waiting for record
-    Then I softly see "Upload Document" opens in overLay window
-    When I upload file "AttachmentTesting.pdf" into library
-    And I click modal button "Save"
-    Then I see the following messages in the page details contains:
-      | Attachment saved successfully. |
-    When I close "Upload Document" modal by clicking the top right x button
+    Then I softly see "Add Supporting Documents Checklist" opens in overLay window
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
+    When I close "Add Supporting Documents Checklist" modal by clicking the top right x button
     And I pause execution for "3" seconds
     And I click on hyperlink containing value "View"
     And I pause execution for "3" seconds
@@ -88,9 +85,10 @@ Feature: Validate all scenarios in Closeout
 #    When I enter the following values into flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" by clicking "Add" :
 #      | Description                 | Required  | Status |
 #      | Automation test description | Mandatory | Active |
-    When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" without waiting for record
-    Then I softly see "Upload Template" opens in overLay window
-    When I upload file "AttachmentTesting.pdf" into library
+    When I click on "Attach" icon for "Not Applicable" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" without waiting for record
+    Then I softly see "Add Supporting Documents Checklist" opens in overLay window
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
+    When I close "Add Supporting Documents Checklist" modal by clicking the top right x button
     And I click modal button "Save"
     Then I see the following messages in the page details contains:
       | Attachment saved successfully. |
@@ -251,7 +249,7 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:PM Username} | Step 1   |
     Then I softly see "Saved Successfully!" inside flex table with id "---closeout:-:closeoutApproverTableId---"
 
-  @140331 @141540 @verifyAdditionOfApproverAtCloseoutRequestAfterOverriden-RnRFuntionality @monu
+  @done @140331 @141540 @verifyAdditionOfApproverAtCloseoutRequestAfterOverriden-RnRFuntionality @monu
   Scenario: Verify user is able to add approver on closeout request after it is overriden
   |Verify user is able to add approver on closeout request before it is overridden|
     When I navigate to "Requests" sub tab
