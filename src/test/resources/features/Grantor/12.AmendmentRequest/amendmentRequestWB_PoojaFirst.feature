@@ -4208,7 +4208,7 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "NewSubAwardId"
     And I click on "Activate" in the page details
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
-    And I wait for "5" seconds
+    And I wait for "10" seconds
     When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime award}" having object api name as "ProgressReports__c"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -8317,6 +8317,7 @@ Feature: Amendment Request scenarios without background
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Site work     | 2000                 | 100        | 100            |
     And I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -8555,6 +8556,7 @@ Feature: Amendment Request scenarios without background
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

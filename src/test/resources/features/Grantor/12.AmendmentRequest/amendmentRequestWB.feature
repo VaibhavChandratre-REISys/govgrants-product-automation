@@ -1,7 +1,6 @@
 @amendmentRequestsWB @amendmentRequests @grantor-regression @grantor-parallel-regression @regression
 Feature: Amendment Request scenarios without background
 
-
   @200059 @ValidatePMusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatcreatedstateforScopeofWorkChangeARtype @sprint-5-US-198419 @vaibhav @reassignment
   Scenario: Validate PM user should able to see the AR is updated after change the ownership by Grantor Side at created state for Scope of Work Change AR type
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
