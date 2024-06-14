@@ -24,11 +24,17 @@ Feature: Risk Assessment scenarios without background
       | Description | Required  | Applies To | Status |
       | Automation  | Mandatory | Award      | Active |
     Then I refresh the page
-    And I switch to parent tab
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Announcement Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Announcement Name>" inside table without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
-    Then I softly see "Subaward Risk Assessments" page block displayed
+    Then I softly do not see "Subaward Risk Assessments" page block displayed
     And I navigate to "Files" sub tab
-    Then I softly see value "Not Applicable" for title "Template Link" against the value "Automation" inside table "AwardChecklists"
+    Then I softly see value "Not Applicable" for title "Template Link" against the value "Award" inside table "AwardChecklists"
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "GrantorAwardOwnerRoles"
     Then I softly do not see value "{SavedValue:FO Username}" for title "Reviewer Name" inside table "GrantorAwardReviewer"
@@ -36,7 +42,7 @@ Feature: Risk Assessment scenarios without background
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @59955 @59956 @awardIsActiveSecondRiskAssessmentIsInCreatedState @deepika
+  @59955 @59956 @awardIsActiveSecondRiskAssessmentIsInCreatedState @deepika @wip
   Scenario Outline: Validate when an award was activated with one active risk assessment and has other risk assessment which in created state should not get submitted for approval
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -233,6 +239,7 @@ Feature: Risk Assessment scenarios without background
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "4" seconds
     And I navigate to "Management" sub tab
     And I wait for "5" seconds
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
@@ -416,6 +423,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Management" sub tab
     When I perform quick search for "Active" in "---subAwardStandAlone:-:riskAssessmentTableId---" panel
     And I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "RiskValue"
     When I save the field labeled "OverAll Risk" as "OverAllRisk"
     And I navigate to "Grants" tab
@@ -499,6 +507,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Management" sub tab
     Then I softly see value "Active" for title "Status" against the value "{SavedValue:RiskValue}" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
     When I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "RiskID"
     Then I softly see field "OverAll Risk" as "{SavedValue:OverAllRisk}"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -507,6 +516,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     When I click on "View" icon for "Active" inside flex table with id "---riskassessment:-:organizationprofileviewTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     Then I softly see field "OverAll Risk" as "{SavedValue:OverAllRisk}"
     Examples:
       | Award Name                                                | Grant Name                                                |
@@ -680,6 +690,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Management" sub tab
     When I perform quick search for "Active" in "---subAwardStandAlone:-:riskAssessmentTableId---" panel
     And I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "RiskValue"
     When I save the field labeled "OverAll Risk" as "OverAllRisk"
     And I navigate to "Grants" tab
@@ -770,6 +781,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Management" sub tab
     Then I softly see value "Active" for title "Status" against the value "{SavedValue:RiskValue}" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
     When I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "RiskID"
     Then I softly see field "OverAll Risk" as "{SavedValue:OverAllRisk}"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -778,6 +790,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     When I click on "View" icon for "Active" inside flex table with id "---riskassessment:-:organizationprofileviewTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     Then I softly see field "OverAll Risk" as "{SavedValue:OverAllRisk}"
     Examples:
       | Award Name                                                | Grant Name                                                |
@@ -950,6 +963,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Management" sub tab
     When I perform quick search for "Active" in "---subAwardStandAlone:-:riskAssessmentTableId---" panel
     And I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     When I save the field labeled "EGMS ID" as "Risk1ID"
     When I save the field labeled "OverAll Risk" as "OverAllRisk"
     And I navigate to "Grants" tab
@@ -1218,6 +1232,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Management" sub tab
     When I perform quick search for "Active" in "---subAwardStandAlone:-:riskAssessmentTableId---" panel
     And I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "RiskValue"
     When I save the field labeled "OverAll Risk" as "OverAllRisk"
     And I navigate to "Grants" tab
@@ -1233,7 +1248,7 @@ Feature: Risk Assessment scenarios without background
     When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                    | Field               |
+      | Value                    | Field          |
       | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "EGMSID"
@@ -1294,6 +1309,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Management" sub tab
     Then I softly see value "Active" for title "Status" against the value "{SavedValue:RiskValue}" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
     When I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "RISKID"
     Then I softly see field "OverAll Risk" as "{SavedValue:OverAllRisk}"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1302,6 +1318,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "{SavedValue:RISKID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     When I click on "View" icon for "Active" inside flex table with id "---riskassessment:-:organizationprofileviewTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     Then I softly see field "OverAll Risk" as "{SavedValue:OverAllRisk}"
     Examples:
       | Award Name                                                | Grant Name                                                |
@@ -1474,6 +1491,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Management" sub tab
     When I perform quick search for "Active" in "---subAwardStandAlone:-:riskAssessmentTableId---" panel
     And I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "RiskValue"
     When I save the field labeled "OverAll Risk" as "OverAllRisk"
     And I navigate to "Grants" tab
@@ -1544,6 +1562,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Management" sub tab
     Then I softly see value "Active" for title "Status" against the value "{SavedValue:RiskValue}" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
     When I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "RiskID"
     Then I softly see field "OverAll Risk" as "{SavedValue:OverAllRisk}"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1552,6 +1571,7 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     When I click on "View" icon for "Active" inside flex table with id "---riskassessment:-:organizationprofileviewTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
     Then I softly see field "OverAll Risk" as "{SavedValue:OverAllRisk}"
     Examples:
       | Award Name                                                | Grant Name                                                |
@@ -1630,7 +1650,7 @@ Feature: Risk Assessment scenarios without background
     And I click on "Amend Subaward" in the page details
     And I wait for "5" seconds
     When I click on "Activate" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
