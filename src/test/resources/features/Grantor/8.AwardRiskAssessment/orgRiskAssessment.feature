@@ -92,8 +92,6 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on "Save and Continue" in the page details
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Edit" in the page details
     When I click on "Save" in the page details
     Then I can see top right button "Submit" in page detail
 
