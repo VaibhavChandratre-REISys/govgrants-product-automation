@@ -66,7 +66,7 @@ public final class FlexTable implements FlexTableComponent {
                         + I.amPerforming().sanityOfXpathTo().equals("@title", titleName) + " or "
                         + I.amPerforming().sanityOfXpathTo().equals("text()", titleName) + "] | //div[@id='" + tableId + "']//tr//th//span[contains(text(),'" + titleName + "')]|" +
                         "//div[@id='" + tableId + "']//div/table/thead/tr/th[@title='" + titleName + "' or text()='" + titleName + "'] | " +
-                        "//div[@id='" + tableId + "']//div/table/thead/tr/th/div[contains(text(),'" + titleName + "')] | //div[@id='" + tableId + "']//div//table//th[contains(text(),'" + titleName + "')] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//tr//th[@title='" + titleName + "' or text()='" + titleName + "']");
+                        "//div[@id='" + tableId + "']//div/table/thead/tr/th/div[contains(text(),'" + titleName + "')] | //div[@id='" + tableId + "']//div//table//th[contains(text(),'" + titleName + "')] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//tr//th[@title='" + titleName + "' or text()='" + titleName + "'] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//span[@title='" + titleName + "']");
         return I.amPerforming().getElementReference().of(tableHeaderElement);
     }
 

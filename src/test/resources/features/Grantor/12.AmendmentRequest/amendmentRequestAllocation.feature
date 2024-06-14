@@ -5192,8 +5192,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 20000000000000000.30 | RevisedCommitment__c |
     And I click on "Save" in the page details
     #Bug420758
-#    Then I softly see the following messages in the page details contains:
-#      | Revised Commitment : Number is too large. |
+    Then I softly see the following messages in the page details contains:
+      | Revised Commitment : Number is too large. |
     #256838
     When I enter values into fields
       | Value | Field                |
