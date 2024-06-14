@@ -9988,7 +9988,7 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     When I click on "Start" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
 #    To Do:- Field history deployment not done in LWC hence commented this part
 #    And I navigate to "History" sub tab
 #    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
@@ -10386,7 +10386,7 @@ Feature: Amendment Request scenarios without background
     And I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     When I click on "Start" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    Then I softly can see top right button "Submit For Approval" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
