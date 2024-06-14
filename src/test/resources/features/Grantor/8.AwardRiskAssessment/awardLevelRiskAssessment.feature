@@ -2702,7 +2702,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @hitRun @60787 @60785  @intialRiskAssessmentToExpiredRAViewedFromMonitoringTable @deepika
+  @60787 @60785  @intialRiskAssessmentToExpiredRAViewedFromMonitoringTable @deepika
   Scenario:  Validate when the succeeding Risk Assessments are made active then the  Initial Risk Assessment should be marked as Expired and can be viewed from Risk Asessment table and from the Monitoring table
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2808,7 +2808,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "View" icon for "{SavedValue:ExpiredID}" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
     Then I see status in Progress-bar is "Expired" and is "dark blue"
 
-  @hitRun @60811 @60817 @viewExpiredRAOnceAwardIsActivatedFromOrganizationProfilePage @deepika @bug-72469
+  @60811 @60817 @viewExpiredRAOnceAwardIsActivatedFromOrganizationProfilePage @deepika @bug-72469
   Scenario:  Validate whether Subrecipients can view the Expired Risk Assessment from the Monitoring Phase level table and  Expired Status should be displayed to SR user from Organizational Profile page.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3014,7 +3014,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "{SavedValue:EGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" against the value "Expired" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
-  @60965 @fieldCompares @deepika @skipOnJenkins
+  @hitRun @60965 @fieldCompares @deepika @skipOnJenkins
   Scenario: Validate whether Record Owner user is able to view and Compare field values on UI and PDF match
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3029,6 +3029,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3043,13 +3044,13 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
-    And I click on "Submit For Approval" in the page details
-    And I click on "Menu" in the page details
+    And I click on "Submit for Approval" in the page details
+    And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
     When I navigate to "History" sub tab
     Then I see snapshot with name containing "Subaward Risk Assessment" as name
 
-  @61384 @addButtonAvailabilityafterSubmitforApproval @deepika
+  @hitRun @61384 @addButtonAvailabilityafterSubmitforApproval @deepika
   Scenario: Validate the add button on attachments flextable is not available for Risk Assessment Owner once submitted for Approval
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3064,6 +3065,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3077,11 +3079,11 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit For Approval" in the page details
+    When I click on "Submit for Approval" in the page details
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
 
-  @66869 @RAChangedtoYellowAfterRAisApproved @keerti
+  @hitRun @66869 @RAChangedtoYellowAfterRAisApproved @keerti
   Scenario: Validate the moderate level of Risk Assessment, that changes to yellow color as per the provided Assessment once Risk Assessment is approved
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3097,6 +3099,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3111,7 +3114,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit For Approval" in the page details
+    When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3133,7 +3136,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Overview" sub tab
     Then I see "Risk Level" image as "b-ylw.png"
 
-  @62093 @59255 @overallRiskFieldAvailabilityToSRProfileUserk @deepika
+  @hitRun @62093 @59255 @overallRiskFieldAvailabilityToSRProfileUserk @deepika
   Scenario:  Verify whether SPI profile User can view the section Overview for Overall Risk Calculation for a Sub Recipient Organization
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3149,6 +3152,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3163,7 +3167,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit For Approval" in the page details
+    When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3183,7 +3187,8 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     Then I see field "Overall Risk" as "36.00%"
 
-  @addAttachmentForRecordOnwerInTable @deepika
+  
+  @hitRun @addAttachmentForRecordOnwerInTable @deepika
   Scenario: Validate attachment is added to the flex table after submiting the risk assessment for approval.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3198,6 +3203,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3205,9 +3211,10 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---orgRiskAssessment:-:awardRiskAssessmentTableId---"
     And I upload attachment "Attachment.pdf" of type "Financial Artifacts" from computer
+    And I click modal button "Close"
     Then I softly see "Financial Artifacts" has been added in "Subaward Risk Assessment Files" flex table
 
-  @58825 @monitoringTabListViewsOfRiskAssessment @deepika
+  @hitRun @58825 @monitoringTabListViewsOfRiskAssessment @deepika
   Scenario: Monitoring Tab List Views for all Award level risk assessments in the internal portal
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3222,6 +3229,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3235,7 +3243,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     Then I see that "{SavedValue:Automation Runtime Award for Risk Assessment}" has been added in flextable with Id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 
-  @65460 @riskLevelISNAforCreatedStatusRA @deepika
+  @hitRun @65460 @riskLevelISNAforCreatedStatusRA @deepika
   Scenario: Validate for the Risk Assessment that is in created state the Risk Level is shown as NA inside table
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3250,6 +3258,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3272,7 +3281,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I select "Download as XLS" from parallel lines dropdown of "Risk Assessments - All"
     Then I verify that "xls" file is downloaded
 
-  @65462 @downloadRiskAssessmentInPDF @deepika @skipOnJenkins
+ @65462 @downloadRiskAssessmentInPDF @deepika @skipOnJenkins
   Scenario: Validate whether user can Download the Active Risk Assessment in PDF format from Monitoring Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Monitoring" tab
@@ -3282,7 +3291,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I download the file
     Then I verify that "pdf" file is downloaded
 
-  @65463 @verifyOnlyOneRiskAssessmentInTable @deepika
+  @hitRun @65463 @verifyOnlyOneRiskAssessmentInTable @deepika
   Scenario: Validate when the risk assessment is intiated for draft award then only one risk assessment must be available in the table
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3297,6 +3306,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3315,7 +3325,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-  @65464 @riskFieldAvailbilityOnOverviewTab @deepika
+  @hitRun @65464 @riskFieldAvailbilityOnOverviewTab @deepika
   Scenario: Validate Risk Level field on Overview Tab is not availbale for Risk Assessment that is in Created Status
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3330,6 +3340,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3339,7 +3350,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Overview" sub tab
     Then I cannot see field "Risk Level" inside page block
 
-  @76272 @65550 @raOwnerCanAddMultiplePeerReviewerForRA @deepika
+  @hitRun @76272 @65550 @raOwnerCanAddMultiplePeerReviewerForRA @deepika
   Scenario: Validate Award owner can add Multiple Peer reviewer for Risk Assessment whose status is Submitted to grantor | Validate whether the record owner recieve an email notfication when risk assessment is created
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3355,6 +3366,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
