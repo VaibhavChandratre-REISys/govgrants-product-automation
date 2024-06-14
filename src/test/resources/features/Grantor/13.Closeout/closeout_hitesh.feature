@@ -428,28 +428,28 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see row level action button "Delete" against "ParentChild.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
     #88734
     When I navigate to "Checklist" sub tab
-    And I enter value "Yes" into field "fieldChecklistQuestionPick7__c"
-    And I enter value "Yes" into field "fieldChecklistQuestionPick8__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick7__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick8__c"
     #88735
-    And I enter value "Yes" into field "fieldChecklistQuestionPick9__c"
-    And I enter value "Yes" into field "fieldChecklistQuestionPick10__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick9__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick10__c"
     #88736
-    And I enter value "Yes" into field "fieldChecklistQuestionPick11__c"
-    And I enter value "Yes" into field "fieldChecklistQuestionPick12__c"
-    And I enter value "Yes" into field "fieldChecklistQuestionPick13__c"
-    And I enter value "Yes" into field "fieldChecklistQuestionPick14__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick11__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick12__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick13__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick14__c"
     #88737
-    And I enter value "Yes" into field "fieldChecklistQuestionPick15__c"
-    And I enter value "Yes" into field "fieldChecklistQuestionPick16__c"
-    And I enter value "Yes" into field "fieldChecklistQuestionPick17__c"
-    And I enter value "Yes" into field "fieldChecklistQuestionPick18__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick15__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick16__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick17__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick18__c"
     #88738
-    And I enter value "Yes" into field "fieldChecklistQuestionPick19__c"
-    And I enter value "Yes" into field "fieldChecklistQuestionPick20__c"
-    And I enter value "Yes" into field "fieldChecklistQuestionPick21__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick19__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick20__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick21__c"
     #88739
-    And I enter value "Yes" into field "fieldChecklistQuestionPick22__c"
-    And I enter value "Yes" into field "fieldChecklistQuestionPick23__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick22__c"
+    And I enter value "Yes" into field "ChecklistQuestionPick23__c"
     When I click on "Save" in the page details
     Then I softly see field "Has the subrecipient met the match requirement?" as "Yes"
     Then I softly see field "Has the subrecipient provided supporting documentation for all reported match, including third party in-kind match?" as "Yes"
@@ -505,6 +505,7 @@ Feature: Validate all scenarios in Closeout
     And I switch to parent tab
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     When I upload attachment "Permanent Records.xlsx" of type "Other" from computer
+    And I click modal button "Close"
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---closeout:-:closeoutFilesTableId---"
     Then I softly see value "{SavedValue:AttachedFile}" for title "Title" inside table "---closeout:-:closeoutFilesTableId---"
     And I click on "Download" icon for "{SavedValue:AttachedFile}" inside flex table with id "---closeout:-:closeoutFilesTableId---" with wait for record
@@ -555,7 +556,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see "Responsibilities" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
-    Then I softly can see "Collab" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
     #40644
     And I navigate to "Overview" sub tab
     Then I softly see field "Spent" as "$0.00"
@@ -565,8 +566,8 @@ Feature: Validate all scenarios in Closeout
     #86714
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    And I enter value "07/20/2023" into field "fieldCloseoutDate__c"
-    And I enter value "08/12/2023" into field "fieldCloseoutDueDateGrantor__c"
+    And I enter value "07/20/2023" into field "CloseoutDate__c"
+    And I enter value "08/12/2023" into field "CloseoutDueDateGrantor__c"
     When I click on "Save" in the page details
     Then I softly see field "Closeout Effective Date" as "07/20/2023"
     Then I softly see field "Closeout Activities Due Date" as "08/12/2023"
@@ -597,12 +598,12 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see "Checklist" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
-    Then I softly can see "Collab" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     #86716
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    And I enter value "checked" into field "fieldAggreement__c"
+    And I enter value "checked" into field "Aggreement__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see field "Acknowledgement" as "checked"
