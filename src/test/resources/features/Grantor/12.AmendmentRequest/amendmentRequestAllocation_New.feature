@@ -121,7 +121,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     When I edit the following rows inline in flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "Edit" :
       | Title        | Narrative     | Award Amount |
-      | Extra Salary | The narrative | 2000         |
+      | Construction | The narrative | 2000         |
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "5" seconds
