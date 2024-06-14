@@ -66,7 +66,7 @@ public final class FlexTable implements FlexTableComponent {
                         + I.amPerforming().sanityOfXpathTo().equals("@title", titleName) + " or "
                         + I.amPerforming().sanityOfXpathTo().equals("text()", titleName) + "] | //div[@id='" + tableId + "']//tr//th//span[contains(text(),'" + titleName + "')]|" +
                         "//div[@id='" + tableId + "']//div/table/thead/tr/th[@title='" + titleName + "' or text()='" + titleName + "'] | " +
-                        "//div[@id='" + tableId + "']//div/table/thead/tr/th/div[contains(text(),'" + titleName + "')] | //div[@id='" + tableId + "']//div//table//th[contains(text(),'" + titleName + "')] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//tr//th[@title='" + titleName + "' or text()='" + titleName + "']");
+                        "//div[@id='" + tableId + "']//div/table/thead/tr/th/div[contains(text(),'" + titleName + "')] | //div[@id='" + tableId + "']//div//table//th[contains(text(),'" + titleName + "')] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//tr//th[@title='" + titleName + "' or text()='" + titleName + "'] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//span[@title='" + titleName + "']");
         return I.amPerforming().getElementReference().of(tableHeaderElement);
     }
 
@@ -260,7 +260,8 @@ public final class FlexTable implements FlexTableComponent {
         boolean statusElement = I.amPerforming().getElementReference().of(By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")).getAttribute("icon-name").contains("down");
         try {
             if (statusElement) {
-                I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]"))).click();
+            WebElement collapseElement =  I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")));
+                I.amPerforming().click().withJavaScript(collapseElement);
             }
         } catch (Exception ee) {
             /* Ignore Exception */
@@ -271,7 +272,8 @@ public final class FlexTable implements FlexTableComponent {
         boolean statusElement = I.amPerforming().getElementReference().of(By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")).getAttribute("icon-name").contains("right");
         try {
             if (statusElement) {
-                I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]"))).click();
+                WebElement expandElement = I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")));
+                I.amPerforming().click().withJavaScript(expandElement);
             }
         } catch (Exception ee) {
             /* Ignore Exception */
@@ -812,8 +814,8 @@ public final class FlexTable implements FlexTableComponent {
         WebElement entriesDD = I.amPerforming().getElementReference().of(entriesDropDown);
         By elementDropDown = By.xpath("//span[text()='Show']/parent::div/following-sibling::div//li[@data-id='" + numberofEntries + "']");
         try {
-            I.amPerforming().click().withJavaScript(entriesDD);
-            I.amPerforming().textInput().withJavaScript(entriesDD, numberofEntries);
+            I.amPerforming().click().on(entriesDD);
+            I.amPerforming().scroll().onPageToSpecificElement(elementDropDown);
             I.amPerforming().click().on(elementDropDown);
         } catch (Exception e) {
             I.amPerforming().click().withJavaScript(elementDropDown);

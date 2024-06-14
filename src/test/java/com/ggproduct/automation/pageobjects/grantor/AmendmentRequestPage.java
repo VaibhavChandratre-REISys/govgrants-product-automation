@@ -65,6 +65,7 @@ public class AmendmentRequestPage extends GrantorProjectManager {
             I.amPerforming().waitFor().ElementToBePresent(entriesDropDown,5);
             if (I.amPerforming().checkToSee().isDisplayed(entriesDropDown)
                     || I.amPerforming().checkToSee().isEnabled(entriesDropDown)) {
+                I.amPerforming().scroll().onPageToSpecificElement(entriesDropDown);
                 govgrants.perform().flexTable().flexTableShowEntriesDropDownForLWC(flexTableId, numberofEntries);
             }
         } catch (Exception e) {

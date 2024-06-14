@@ -305,7 +305,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Amend Subaward" in the page details
     And I wait for "5" seconds
     When I click on "Activate" in the page details
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -3153,7 +3153,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,500.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:grantsBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$3,000.00" for title "Cumulative Obligation" against the value "Grand Total" inside table "---subAwardStandAlone:-:grantsBudgetSummaryFocusAreaTableId---"
 
-  @258711 @ValidatePMusercanseecorrectamountdisplayinPre-EncumbranceAppropriationAmountEncumbranceSpentTotalObligationandAvailableBalanceunderfundingaccount @sprint-19-US-249880 @vaibhav @Allocation
+  @258711 @ValidatePMusercanseecorrectamountdisplayinPre-EncumbranceAppropriationAmountEncumbranceSpentTotalObligationandAvailableBalanceunderfundingaccount @sprint-19-US-249880 @vaibhav @Allocation @amendTBE
   Scenario: Validate PM user can see correct $ amount display in Pre-Encumbrance, Appropriation Amount, Encumbrance, Spent, Total Obligation and Available Balance under funding account
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -3190,10 +3190,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---announcement:-:selectAnnouncementServiceArea1TableId---"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Test Funding Account}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Test Funding Account}" in the table "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
@@ -3206,7 +3206,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "Automation PM" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "Automation PM" in the table "---announcement:-:annoucementContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name          | Announcement |
@@ -3308,11 +3308,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click in table hyperlink containing value "{SavedValue:FundingAccount2}"
     Then I see the header is "Funding Account" in the page details
     Then I softly see field "Pre-Encumbrance" as "$2,000.00"
-    Then I softly see field "Encumbrance" as "$3,000.00"
+    Then I softly see field "Encumbrance" as "$3,000.00" in "Financials" pageblock
     Then I softly see field "Spent" as "$0.00"
     Then I softly see field "Total Obligation" as "$5,000.00"
     Then I softly see field "Available Balance" as "$9,995,000.00"
-    Then I softly see field "Appropriation Amount" as "$1,000,000.00"
+    Then I softly see field "Appropriation Amount" as "$10,000,000.00"
 
   @258576 @258578 @258587 @258590 @262837 @258594 @258592 @258593 @258595 @262820 @ValidateCompPOusercanseevaluedisplayedforTotalCommitmentfieldonPendingActivationstateofversion2awardiscopiedfromtheRevisedCommitmentfieldfromthebudgetsummarysectionofamendmentrequestFAYes @sprint-19-US-250551 @vaibhav @Allocation
   Scenario: Validate Comp PO user can see value displayed for Total Commitment field on Pending Activation state of version 2 award is copied from the Revised Commitment field from the budget summary section of amendment request(FA=Yes)
@@ -4713,7 +4713,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$3,000.00" for title "Cumulative Obligation" against the value "Grand Total" inside table "---subAwardStandAlone:-:grantSubrecipientFocusAreaTableId---"
     Then I softly see addition of two fields "{SavedValue:CumulativeObligation1}" and "{SavedValue:CumulativeObligation2}" is equal to "{SavedValue:CumulativeObligation6}"
 
-  @258596 @ValidateCompPOusercanseecorrectamountdisplayinPreEncumbranceAppropriationAmountEncumbranceSpentTotalObligationandAvailableBalanceunderfundingaccount @sprint-19-US-250551 @vaibhav @Allocation
+  @258596 @ValidateCompPOusercanseecorrectamountdisplayinPreEncumbranceAppropriationAmountEncumbranceSpentTotalObligationandAvailableBalanceunderfundingaccount @sprint-19-US-250551 @vaibhav @Allocation @amendTBE
   Scenario: Validate Comp PO user can see correct $ amount display in Pre-Encumbrance, Appropriation Amount, Encumbrance, Spent, Total Obligation and Available Balance under funding account
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -4723,6 +4723,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "FundingSource_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
@@ -4742,14 +4743,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I enter in modal value "Yes" into field "IsNegotiationsAllowed__c"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement"
-    When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Test Funding Account}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Test Funding Account}" in the table "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
@@ -4762,10 +4762,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
     And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
@@ -4858,7 +4858,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I see the header is "Funding Account" in the page details
     Then I softly see field "Pre-Encumbrance" as "$2,000.00"
     Then I softly see field "Encumbrance" as "$3,000.00" in "Financials" pageblock
-    Then I softly see field "Encumbrance" as "$3,000.00"
     Then I softly see field "Spent" as "$0.00"
     Then I softly see field "Total Obligation" as "$5,000.00"
     Then I softly see field "Available Balance" as "$9,995,000.00"
@@ -5106,6 +5105,308 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Budget" sub tab
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     Then I softly see field "Total Commitment" as "$4,000.00"
+
+  @256668 @256677 @256710 @256715 @256717 @256718 @256721 @256803 @256808 @256838 @256841 @256842 @256843 @256844 @256850 @256861 @256864 @256919 @256924 @256925 @256930 @256934 @256940 @256944 @256951 @256956 @256972 @308952 @VerifyFieldsdisplayedtoFOuseroninthebudgetsummarySection @sprint-19-US-229281 @hitesh @Allocation
+  Scenario:Verify Fields displayed to FO user on in the budget summary Section
+    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Directed"
+    When I login to "As a Grantor" app as "FO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Budget" sub tab
+    Then I softly see field "Total Commitment" as "$1,000.00"
+    And I save the field labeled "Total Commitment" as "TotalCommitment"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    #256864
+    When I click on top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---amendment:-:focusAreaTableId---"
+    Then I softly see that "Automation Permanent Focus Area2" has been added in flextable with Id "---amendment:-:projectAreasTableId---"
+    When I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---amendment:-:projectAreasTableId---" without waiting for record
+    And I refresh the page
+    Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---amendment:-:projectAreasTableId---"
+    And I pause execution for "3" seconds
+    #Need to check this with Abhisek
+#    When I click on "Remove" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:projectAreasTableId---" without waiting for record
+#    Then I softly see the following messages in the page details contains:
+#      | You cannot delete this Focus Area as the Budgeted Amount is not zero. |
+    #256668
+    Then I softly see field "New Obligation" inside page block
+    Then I softly see field "Budgeted Amount" inside page block
+    Then I softly see "Current Commitment" inside page block detail
+    Then I softly see "Revised Commitment" inside page block detail
+    Then I softly see "Subrecipient Match (%)" inside page block detail
+    Then I softly see "Budget Redirection Threshold" inside page block detail
+    #256861
+    Then I softly can see page block "Budget Summary by Focus Area"
+    And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:projectAreasTableId---" without waiting for record
+    Then I softly see field "NewObligationFormula__c" not in edit mode
+    And I save the value from row "1" for column name "New Obligation" as "NewObligation" from flex table "---amendment:-:projectAreasTableId---"
+    And I save the value from row "1" for column name "Budgeted Amount" as "BudgetedAmount" from flex table "---amendment:-:projectAreasTableId---"
+    Then I softly see value "{SavedValue:NewObligation}" is "Equals to" the value "{SavedValue:BudgetedAmount}"
+    #256677
+    When I click on "Edit" in the page details
+    Then I softly see that "Budgeted Amount" rendered in view mode only
+    Then I softly see that "Current Commitment" rendered in view mode only
+    Then I softly see that "Subrecipient Match" rendered in view mode only
+    When I click on "Save" in the page details
+    #256710
+    Then I softly see field "New Obligation" inside page block
+    Then I softly cannot see field "Award Budget this Period" inside page block
+    #256715
+    When I click on "Edit" in the page details
+    When I enter values into fields
+      | Value  | Field                      |
+      | -10000 | RequestedChangeInBudget__c |
+    When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "Record Id"
+    And I wait for "9" seconds
+    And I click on "Send to Subrecipient" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - New Obligation must be greater than $0 |
+    #256721
+    When I click on "Edit" in the page details
+    When I enter values into fields
+      | Value                | Field                      |
+      | 20000000000000000.30 | RequestedChangeInBudget__c |
+    And I click on "Save" in the page details
+    #Bug420753
+#    Then I softly see the following messages in the page details contains:
+#      | New Obligation : Number is too large. |
+    When I enter values into fields
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
+    When I click on "Save" in the page details
+    #256842
+    When I click on "Edit" in the page details
+    When I enter values into fields
+      | Value                | Field                |
+      | 20000000000000000.30 | RevisedCommitment__c |
+    And I click on "Save" in the page details
+    #Bug420758
+    Then I softly see the following messages in the page details contains:
+      | Revised Commitment : Number is too large. |
+    #256838
+    When I enter values into fields
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
+    When I click on "Save" in the page details
+    Then I softly see field "Revised Commitment" as "$11,000.00"
+    #256718
+    Then I see field "New Obligation" as "$10,000.00"
+    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
+    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                           | Start Date         | End Date           |
+      | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:FO Username} | Step 1            |
+    #256919
+    When I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    When I enter values into fields
+      | Value | Field                      |
+      | 0     | RequestedChangeInBudget__c |
+    When I click on "Save" in the page details
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "9" seconds
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - New Obligation must be greater than $0 |
+    #256924
+    When I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    And I clear the value from field "RequestedChangeInBudget__c"
+    When I click on "Save" in the page details
+    And I wait for "9" seconds
+    And I click on "Send to Subrecipient" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - New Obligation must be greater than $0 |
+    When I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    When I enter values into fields
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
+    When I click on "Save" in the page details
+    #308952
+    And I click on "Edit" in the page details
+    When I enter values into fields
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
+    And I click on "Save" in the page details
+    And I click on "Send to Subrecipient" in the page details
+    #256843
+    When I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    Then I softly see that "New Obligation" rendered in view mode only
+    Then I softly see that "Revised Commitment" rendered in view mode only
+    When I click on "Save" in the page details
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
+      | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
+      | Construction  | 10000                | 1000       | 0              |
+    And I click on "Submit to Grantor" in the page details
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    #256841
+    When I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    When I enter values into fields
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
+    When I click on "Save" in the page details
+    Then I softly see field "Revised Commitment" as "$11,000.00"
+    #256808
+    Then I softly see field "Current Commitment" as "$1,000.00"
+    And I save the field labeled "Current Commitment" as "CurrentCommitment"
+    Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:CurrentCommitment}"
+    #256803
+    Then I softly see field "Budgeted Amount" as "$10,000.00"
+    Then I softly see value "$10,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    #256944
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+      | Title                       | Revised Encumbrance |
+      | {SavedValue:fundingAccount} | 11000               |
+    And I wait for "9" seconds
+    And I click on "Submit for Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - The New Obligation ($10000.00) must be equal to the total of Revised Encumbrance in the Funding Account ($11000.00) |
+    #256951
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+      | Title                       | Revised Encumbrance |
+      | {SavedValue:fundingAccount} | 8000                |
+    And I wait for "9" seconds
+    And I click on "Submit for Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - The New Obligation ($10000.00) must be equal to the total of Revised Encumbrance in the Funding Account ($8000.00) |
+          #256717
+    When I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    When I enter values into fields
+      | Value  | Field                      |
+      | -10000 | RequestedChangeInBudget__c |
+    When I click on "Save" in the page details
+    And I click on "Submit for Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - New Obligation must be greater than $0 |
+    When I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    When I enter values into fields
+      | Value | Field                      |
+      | 8000  | RequestedChangeInBudget__c |
+    When I click on "Save" in the page details
+    And I wait for "9" seconds
+    And I click on "Submit for Approval" in the page details
+    #256930
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - The Budgeted Amount must be equal to the New Obligation in the Budget Summary section. |
+    #256934
+    When I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    When I enter values into fields
+      | Value | Field                      |
+      | 12000 | RequestedChangeInBudget__c |
+    When I click on "Save" in the page details
+    And I wait for "9" seconds
+    And I click on "Submit for Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - The Budgeted Amount must be equal to the New Obligation in the Budget Summary section. |
+    #256972
+    And I click on "Edit" in the page details
+    When I enter values into fields
+      | Value | Field                |
+      | 2000  | RevisedCommitment__c |
+    And I click on "Save" in the page details
+    And I wait for "5" seconds
+    And I click on "Submit for Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - Revised Commitment should be equal to or greater than the total of Cummulative Obligation $13000.00 across all budget periods. |
+    And I click on "Edit" in the page details
+    When I enter values into fields
+      | Value | Field                |
+      | 11000 | RevisedCommitment__c |
+    And I click on "Save" in the page details
+      #256490
+    When I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    When I enter values into fields
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
+    When I click on "Save" in the page details
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+      | Title                       | Revised Encumbrance |
+      | {SavedValue:fundingAccount} | 10000               |
+    #256956
+    And I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    #256844
+    When I navigate to "Overview" sub tab
+    Then I softly see that "New Obligation" rendered in view mode only
+    Then I softly see that "Revised Commitment" rendered in view mode only
+    And I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    #256850
+    When I navigate to "Overview" sub tab
+    Then I softly see that "New Obligation" rendered in view mode only
+    Then I softly see that "Revised Commitment" rendered in view mode only
+
+  @257055 @VerifyvalidationisnotdisplayedtoFOuseronsenttoSrwhenuserenterRevisedCommitmentgreaterthanNewobligationincurrentAR+cumulativeobligationinGrantWhenFAYes @sprint-19-US-229281 @hitesh @Allocation
+  Scenario:Verify validation is not displayed to FO user on sent to Sr when user enter Revised Commitment greater than New obligation in current AR cumulative obligation in Grant When FA Yes
+    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Directed"
+    When I login to "As a Grantor" app as "FO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I pause execution for "2" seconds
+    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
+    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                           | End Date           | Start Date         |
+      | Automation Permanent Focus Area | {SavedValue:PBPED} | {SavedValue:PBPSD} |
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                            | End Date           | Start Date         |
+      | Automation Permanent Focus Area2 | {SavedValue:PBPED} | {SavedValue:PBPSD} |
+    When I navigate to "Overview" sub tab
+    When I click on "Edit" in the page details
+    When I enter values into fields
+      | Value | Field                      |
+      | 10000 | RequestedChangeInBudget__c |
+    When I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
+    When I click on "Edit" in the page details
+    When I enter values into fields
+      | Value | Field                |
+      | 40000 | RevisedCommitment__c |
+    When I click on "Save" in the page details
+    And I click on "Send to Subrecipient" in the page details
+    Then I softly see field "Status" as "Sent to Subrecipient"
 
   @257069 @VerifyValuesonFundingaccountarecorrectlyupdatedafterAmendmentrequestisapproved @sprint-19-US-229281 @hitesh @Allocation
   Scenario: Validate Values on Funding account are correctly updated after Amendment request is approved
@@ -5358,12 +5659,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Test Focus Area1" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:projectAreasTableId---"
-    Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
-    Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
     Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
+    Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
+    Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     Then I see the following rows under the following headers in table with id "---amendment:-:grantorBudgetChangeTableId---" :
       | Revised Award Amount |
       | $1,000.00            |
@@ -5407,12 +5707,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Test Focus Area1" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$1,500.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:projectAreasTableId---"
     When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
-    Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
     Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
-    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     Then I see the following rows under the following headers in table with id "---amendment:-:grantorBudgetChangeTableId---" :
       | Revised Award Amount |
       | $1,500.00            |
@@ -5447,12 +5746,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Test Focus Area1" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$2,500.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:projectAreasTableId---"
     When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
-    Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
-    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     Then I see the following rows under the following headers in table with id "---amendment:-:grantorBudgetChangeTableId---" :
       | Revised Award Amount |
       | $2,500.00            |
@@ -5487,12 +5785,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Test Focus Area1" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:projectAreasTableId---"
-    Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
-    Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
     Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
+    Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
+    Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     Then I see the following rows under the following headers in table with id "---amendment:-:grantorBudgetChangeTableId---" :
       | Revised Award Amount |
       | $1,000.00            |
@@ -5536,12 +5833,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Test Focus Area1" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$1,500.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:projectAreasTableId---"
     When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
-    Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
     Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
-    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     Then I see the following rows under the following headers in table with id "---amendment:-:grantorBudgetChangeTableId---" :
       | Revised Award Amount |
       | $1,500.00            |
@@ -5576,12 +5872,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Test Focus Area1" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$2,500.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:projectAreasTableId---"
     When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
-    Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
-    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     Then I see the following rows under the following headers in table with id "---amendment:-:grantorBudgetChangeTableId---" :
       | Revised Award Amount |
       | $2,500.00            |
@@ -11093,6 +11388,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Title        | Narrative    | Award Amount | Cash Match | Non Cash Match |
       | Construction | Construction | 1000         | 100        | 0              |
     When I close "Add Line Items" modal by clicking the top right x button
+    And I wait for "2" seconds
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"

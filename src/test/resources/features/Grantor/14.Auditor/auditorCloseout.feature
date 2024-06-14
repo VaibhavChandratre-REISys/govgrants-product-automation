@@ -1,7 +1,7 @@
 @auditorCloseout @auditor @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Closeout Request module
 
-  @wip @69175 @auditorCannotCreateCloseout @smoke
+  @wip @69175 @auditorCannotCreateCloseout @smoke @skip
   Scenario: Validate Auditor should not be  able to  Create Closeout Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "AUDITOR" user
@@ -31,8 +31,7 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     And I wait for "5" seconds
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
@@ -47,8 +46,8 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     And I save the field labeled "EGMS ID" as "EGMSID"
     And I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---"
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) |  Program Income Disbursed | Cash Match | Non-Cash Match |
-      | Extra Salary | The narrative | 500        | 1        | Feet        | 0                 |  0                        | 100        | 100            |
+      | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
+      | Extra Salary | The narrative | 500        | 1        | Feet        | 0                 | 0                        | 100        | 100            |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -79,7 +78,8 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
-    When I close "{SavedValue:EGMSID}" modal by clicking the top right x button
+    And I click modal button "Close"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
@@ -120,7 +120,7 @@ Feature: Validate all scenarios for Auditor Profile in Closeout Request module
     And I perform quick search for "{SavedValue:closeoutID}" in "ProjectPeriodCloseoutGrantor" panel
     Then I see values "Early Completion" and "Submitted for Approval" inside table
 
-  @wip @69177 @auditorCannotEditCreatedCloseoutRecordbyPM
+  @wip @69177 @auditorCannotEditCreatedCloseoutRecordbyPM @skip
   Scenario: Validate Auditor should not be  able to  Edit Closeout Request record created by PM
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user

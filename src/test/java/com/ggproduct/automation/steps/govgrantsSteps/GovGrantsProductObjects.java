@@ -597,9 +597,9 @@ public final class GovGrantsProductObjects {
      */
     public void clickOnHyperLinkContainingDate(boolean noDate, String linkName) {
         if (noDate) {
-            clickOnLink(linkName);
-        } else {
             clickOnLink(linkName + " " + I.amPerforming().dateOperationsToGet().currentDateInDesiredFormat(DateTimeFormatter.ofPattern("M/d/yyyy")));
+        } else {
+            clickOnLink(linkName);
         }
     }
 

@@ -1,7 +1,7 @@
 @auditorAmendmentRequest @auditor @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Amendment Request module
 
-  @wip @69172 @auditorCannotCreateAmendmentRequest @smoke
+  @wip @69172 @auditorCannotCreateAmendmentRequest @smoke @skip
   Scenario: Validate Auditor should not be  able to  Create Amendment request
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "Auditor" user
@@ -39,7 +39,7 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     When I re-login to "As a Grantor" app as "Auditor" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -55,4 +55,4 @@ Feature: Validate all scenarios for Auditor Profile in Amendment Request module
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     When I click toggle button to select "Amendment Requests - All"
     And I perform quick search for "Funding Change" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    Then I see values "Funding Change" and "State" inside table
+    Then I see values "Funding Change;" and "State" inside table

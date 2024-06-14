@@ -521,7 +521,7 @@ public final class PageDetails {
         }
         String fieldValue;
         WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
-                .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd | ./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')]"));
+                .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd | ./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')]"));
         if (fieldData.findElements(By.xpath(".//input[@type='checkbox']")).size() != 0) {
             fieldValue = I.amPerforming().checkToSee().isSelected(I.amPerforming().getElementReference().ofNested(fieldData, By.xpath(".//input[@type='checkbox']")))
                     ? "Checked" : "Unchecked";
