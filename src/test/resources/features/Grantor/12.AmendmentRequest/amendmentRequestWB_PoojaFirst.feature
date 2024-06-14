@@ -4208,7 +4208,7 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "NewSubAwardId"
     And I click on "Activate" in the page details
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
-    And I wait for "10" seconds
+    And I pause execution for "10" seconds
     When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime award}" having object api name as "ProgressReports__c"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
