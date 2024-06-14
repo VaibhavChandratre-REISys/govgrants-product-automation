@@ -5575,7 +5575,7 @@ Feature: Amendment Request scenarios without background
       | {SavedValue:PM Username} | Step 2            |
     Then I softly see "You cannot specify the same user for multiple steps for Amendment Request" inside flex table with id "---amendment:-:approversTableId---"
 
-  @151896 @verifyRemovalOfAddedApprover-BudgetRedirection-RnRFunctionality @monu @AmendmentWBPoojaFourth @wip
+  @151896 @verifyRemovalOfAddedApprover-BudgetRedirection-RnRFunctionality @monu @AmendmentWBPoojaFourth @Debug
   Scenario: To verify user can  remove the added approver on Budget Redirection amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -7004,10 +7004,11 @@ Feature: Amendment Request scenarios without background
     And I wait for "5" seconds
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
-    Then I softly see fields "PurposeRTA__c" is in edit mode
-    Then I softly see fields "Impact__c" is in edit mode
+    And I wait for "5" seconds
+    Then I see textarea field "PurposeRTA__c" is editable
+    Then I see textarea field "Impact__c" is editable
     Then I softly see fields "GrantAwardName__c" is in edit mode
-    Then I softly see fields "GrantAwardDescription__c" is in edit mode
+    Then I see textarea field "GrantAwardDescription__c" is editable
     Then I softly see fields "RequestedChangeInBudget__c" is in edit mode
     Then I softly see fields "BudgetRedirectionThreshhold__c" is in edit mode
 
@@ -7060,13 +7061,13 @@ Feature: Amendment Request scenarios without background
 #    And I navigate to "History" sub tab
 #    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
 #    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
-    And I wait for "10" seconds
+    And I wait for "5" seconds
     And I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
-    Then I softly see fields "PurposeRTA__c" is in edit mode
-    Then I softly see fields "Impact__c" is in edit mode
+    Then I see textarea field "PurposeRTA__c" is editable
+    Then I see textarea field "Impact__c" is editable
     Then I softly see fields "GrantAwardName__c" is in edit mode
-    Then I softly see fields "GrantAwardDescription__c" is in edit mode
+    Then I see textarea field "GrantAwardDescription__c" is editable
     Then I softly see fields "RequestedChangeInBudget__c" is in edit mode
     Then I softly see fields "BudgetRedirectionThreshhold__c" is in edit mode
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
@@ -8378,7 +8379,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @200288 @200296 @200295 @200298 @Validateusercanabletoseeownershiphyperlinkinhomemoduleleftnavigationpanel @sprint-5-US-198235 @vaibhav @reassignment @AmendmentWBPoojaSixth @Debug
+  @200288 @200296 @200295 @200298 @Validateusercanabletoseeownershiphyperlinkinhomemoduleleftnavigationpanel @sprint-5-US-198235 @vaibhav @reassignment @AmendmentWBPoojaSixth
   Scenario: Validate user can able to see ownership hyperlink in home module, left navigation panel
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
