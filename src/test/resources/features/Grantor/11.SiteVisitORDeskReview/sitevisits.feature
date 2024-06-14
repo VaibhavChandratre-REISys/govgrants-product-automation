@@ -1549,7 +1549,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly can see row level action button "Delete" against "Record Id" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
     When I click on "Delete" icon for "Record Id" inside flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
     Then I softly see "No Records Found" inside flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
-  
+
   @65240 @historyOfSiteVisitsendbacktoOwner @deepika @FieldHistoryExclude
   Scenario: Validate History Field is getting Updated at Award owner End when Site Visit status is Submitted to Grantor.
     Given I navigate to "Responsibilities" sub tab

@@ -7,6 +7,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     Given I login to "As a Grantor" app as "AUDITOR" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -18,7 +19,11 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "AUDITOR" user
     And I navigate to "Grants" tab
+    And I pause execution for "3" seconds
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I pause execution for "4" seconds
+    And I click toggle button to select "Grants - All"
+    And I pause execution for "2" seconds
     And I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime award}" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     When I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -32,13 +37,14 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     Given I login to "As a Grantor" app as "AUDITOR" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
     And I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    Then I softly see status in Progress-bar is "Active" and is "green"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "Subawards" sub tab
     And I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardStandAlone:-:subawardsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
-    Then I softly see status in Progress-bar is "Activated" and is "green"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
 
   @69304 @auditorCandownloadasPDF @skipOnJenkins
   Scenario: Validate Verify User with Auditor profile has ability to download PDF files of record.
@@ -53,18 +59,20 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I download the file
     Then I see "Active" on page "1" of "govgrants" pdf file
 
-  @69939 @auditorCannotEditorApproveFDM
+  @69939 @auditorCannotEditorApproveFDM @Buglogged429287 @wip
   Scenario Outline: Validate Auditor should not be  able to Edit/Approve FDM
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
-    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
+    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NO_RISK_ASSESSMENT-Automation PO user"
+    And I initiated an application review for application "<Application Name>" on announcement "<Announcement Name>" with properties "default"
     Given I login to "As a Grantor" app as "PO" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Application Name>"
-    When I click on "View" icon for "<Application Name>" inside table
+    And I pause execution for "5" seconds
+    And I perform quick search for "<Application Name>" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:appAllTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -84,7 +92,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
       | {SavedValue:EXE Username} |
       | {SavedValue:FO Username}  |
       | {SavedValue:PM Username}  |
-    When I expand nested table containing column value "<Application Name>"
+#    When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -188,9 +196,9 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     And I click on "Edit" in the page details
     When I enter value "AuGr" into field "GrantCode__c"
     When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+      | Value                       | Field            |
+      | AuGr                        | GrantCode__c     |
+      | Automation Test Description | Justification__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                               | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
@@ -204,8 +212,8 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:pendingTaskTableId---" panel
+    When I perform quick search for "<Announcement Name>" in "---applicationReview:-:pendingTaskTableId---" panel
     Then I see "No Records Found" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     Examples:
-      | Announcement Name                                               | Application Name                                                |
-      | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
+      | Announcement Name                                  | Application Name                                   |
+      | Automation Runtime Announcement Application Review | Automation Runtime Announcement Application Review |

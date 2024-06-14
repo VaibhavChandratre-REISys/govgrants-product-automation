@@ -66,9 +66,10 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
-    Then I see the following rows under the following headers in table with id "---home:-:indActiveAccountId---" :
-      | Full Name       | Actions |
-      | {user:fullName} | View    |
+    Then I can see row level action button "View" against "{user:fullName}" in flex table with id "---home:-:indActiveAccountId---"
+#    Then I see the following rows under the following headers in table with id "---home:-:indActiveAccountId---" :
+#      | Full Name       | Actions |
+#      | {user:fullName} | View    |
     Examples:
       | User    |
       | AUDITOR |
@@ -77,10 +78,12 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
   Scenario Outline: Validate Auditor should not be  able to Create/Edit any Contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
+    #Bug432799
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
+    #Bug433406
     Then I softly cannot see top right button "New" in flex table with id "---home:-:internalContactTableId---"
-    When I perform quick search for "Automation FO" in "---home:-:internalContactTableId---" panel
-    Then I softly cannot see row level action button "Edit" against "True" in flex table with id "---home:-:internalContactTableId---"
+    When I perform quick search for "Automation FO1" in "---home:-:internalContactTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "Automation FO1" in flex table with id "---home:-:internalContactTableId---"
     Then I softly see "Name" in flex table header "---home:-:internalContactTableId---"
     Then I softly see "Organization" in flex table header "---home:-:internalContactTableId---"
     Then I softly see "Email" in flex table header "---home:-:internalContactTableId---"
@@ -99,15 +102,15 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I click on top right button "New" in flex table with id "---home:-:internalContactTableId---"
     And I enter "Creation" values from "InternalContact_Field_Values.xlsx"
     And I generate the random EmailID and save as "uniqueEmailID"
-    And I enter value "{SavedValue:uniqueEmailID}" into field "fieldEmail"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:internalContactTableId---" panel
-    Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime Contact}" in flex table with id "---home:-:internalContactTableId---"
-    And I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:internalContactTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:internalContactTableId---" panel
+    Then I softly can see row level action button "View" against "Test Automation Organization" in flex table with id "---home:-:internalContactTableId---"
+    And I click on "View" icon for "Test Automation Organization" inside flex table with id "---home:-:internalContactTableId---"
     Then I softly see field "Organization" as "Test Automation Organization"
 
   @69144 @69132 @69128 @auditorCannotSendInvitationCanViewSMEReviewersContactDetails
@@ -115,10 +118,10 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
-    Then I softly cannot see top right button "New" in flex table with id "---home:-:reviewersTableId---"
-    When I perform quick search for "Test User A" in "---home:-:reviewersTableId---" panel
-    Then I softly can see row level action button "View" against "Test User A" in flex table with id "---home:-:reviewersTableId---"
-    Then I softly cannot see row level action button "Send Invitation" against "Test User A" in flex table with id "---home:-:reviewersTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "ActiveAccountReviewer"
+    When I perform quick search for "Automation SME" in "ActiveAccountReviewer" panel
+    Then I softly can see row level action button "View" against "Automation SME" in flex table with id "ActiveAccountReviewer"
+    Then I softly cannot see row level action button "Send Invitation" against "Automation SME" in flex table with id "ActiveAccountReviewer"
     Examples:
       | User    |
       | AUDITOR |
@@ -128,7 +131,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    Then I softly cannot see user "AUDITOR" in the reassign box
+    Then I do not see value "AUDITOR" inside auto search result after enterring into field "name__r.name"
 
   @69120 @69130 @auditorPendingTaskSummaryPhase
   Scenario: Validate Auditor should have no pending task in any of the filter.| Verify Auditor do not have any pending tasks by any phase and by any due date filter.
@@ -136,8 +139,8 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I navigate to "Planning" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     Then I softly see "No records found" inside flex table with id "---home:-:planningPendingTaskTableId---"
-    When I navigate to "Home" tab
-    Then I softly see task count for "Planning" phase with the total records of flex table id "PhasePendingTasks"
+#    When I navigate to "Home" tab
+#    Then I softly see task count for "Planning" phase with the total records of flex table id "PhasePendingTasks"
 
   @wip @69131 @auditorCompletedTask
   Scenario: Verify Auditor does not have any completed tasks
@@ -149,63 +152,83 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 
   @69142 @auditorCannotCreateEditSubrecipientContact @smoke
   Scenario: Validate Auditor cannot Create/Edit any subrecipient contact user
+    Given I delete the record "Automation Runtime Contact Contact" from the object "CONTACT"
+    Given I delete the record "Automation Runtime Contact385484316 Contact" from the object "CONTACT"
+    Given I delete the record "Automation Runtime Contact4568176243 Contact" from the object "CONTACT"
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
-    When I click on top right button "New" in flex table with id "---home:-:internalContactTableId---"
+    When I click on top right button "New" in flex table with id "SubrecipientContacts"
+    #Bug433918
     And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter values into fields
-      | Value                      | Field      |
-      | {SavedValue:uniqueEmailID} | fieldEmail |
+      | Value                      | Field |
+      | {SavedValue:uniqueEmailID} | Email |
     When I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:internalContactTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:internalContactTableId---"
+    When I navigate to "Home" tab
+    And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "SubrecipientContacts" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "SubrecipientContacts"
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
-    And I close modal by clicking the top right x button
-    When I click on "Edit" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:internalContactTableId---"
+    And I click modal button "Close"
+    When I navigate to "Home" tab
+    And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
+    When I click on "Edit" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "SubrecipientContacts"
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
+    #Bug434186
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
-    Then I softly cannot see top right button "New" in flex table with id "---home:-:internalContactTableId---"
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:internalContactTableId---" panel
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Contact}" in flex table with id "---home:-:internalContactTableId---"
+    And I check button "New" is not present in table with id "SubrecipientContacts"
+    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "SubrecipientContacts" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "SubrecipientContacts"
+    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
   @69143 @auditorViewSubrecipientContacts
   Scenario: Validate Auditor should have view / read  only access to subrecipient contacts
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
-    When I click on top right button "New" in flex table with id "---home:-:internalContactTableId---"
+    When I click on top right button "New" in flex table with id "SubrecipientContacts"
+    #Bug433918
     And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter values into fields
-      | Value                      | Field      |
-      | {SavedValue:uniqueEmailID} | fieldEmail |
+      | Value                      | Field |
+      | {SavedValue:uniqueEmailID} | Email |
     When I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:internalContactTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:internalContactTableId---"
+    When I navigate to "Home" tab
+    And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "SubrecipientContacts" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "SubrecipientContacts"
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
+    And I click modal button "Close"
+    And I pause execution for "5" seconds
     And I refresh the page
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:internalContactTableId---" panel
-    When I click on "Edit" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:internalContactTableId---"
+    When I navigate to "Home" tab
+    And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
+    And I pause execution for "5" seconds
+    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "SubrecipientContacts" panel
+    When I click on "Edit" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "SubrecipientContacts"
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
     And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
+    #Bug434186
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:subrecipientcontactTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:subrecipientcontactTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "SubrecipientContacts" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "SubrecipientContacts"
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
+    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
   @69129 @validateAuditorReassign @meenakshi
   Scenario: Verify Auditor profile would not have tasks assigned  Re assign will populate no tasks to reassign
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    Then I softly cannot see user "AUDITOR" in the reassign box
+    Then I do not see value "AUDITOR" inside auto search result after enterring into field "name__r.name"

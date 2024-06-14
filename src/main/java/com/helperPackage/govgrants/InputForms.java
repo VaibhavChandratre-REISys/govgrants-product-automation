@@ -574,7 +574,7 @@ public final class InputForms {
                 handleRichTextAreaInput(fieldWrapper, fieldValue);
                 break;
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper,
-                    By.xpath(".//input[@type='text'] | .//textarea[not(@warningchar)]"))
+                            By.xpath(".//input[@type='text'] | .//textarea[not(@warningchar)]"))
                     .size() > 0) {
                 /*if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//*[contains(@class, 'datetimepicker')]")).size() > 0) {
                     handleDatePickerInput(fieldWrapper, fieldValue);
@@ -844,8 +844,8 @@ public final class InputForms {
     private void handleClearingTextInputForTable(WebElement fieldWrapper) {
         By inputBoxSelector = By.xpath(".//input[@type='text'] | .//textarea");
         WebElement inputBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector);
-                    I.amPerforming().click().withJavaScript(inputBox);
-                    I.amPerforming().textInput().toClear(inputBox);
+        I.amPerforming().click().withJavaScript(inputBox);
+        I.amPerforming().textInput().toClear(inputBox);
     }
 
     /**
