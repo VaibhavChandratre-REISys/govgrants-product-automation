@@ -68,6 +68,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Override" in the page details
     Then I softly see the following messages in the page details :
       | Overview Tab - Provide Justification for overriding open items to closure and proceed with the closeout. |
+    When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
@@ -110,8 +111,8 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Sent to Subrecipient" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
     When I perform quick search for "Overridden" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
     Then I softly see value "Overridden" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
-    When I perform quick search for "Submitted to Grantor" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
-    Then I softly see value "Submitted to Grantor" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
+    When I perform quick search for "Acknowledged by Subrecipient" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
+    Then I softly see value "Acknowledged by Subrecipient" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
     When I perform quick search for "Rejected" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
     Then I softly see value "Rejected" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
     When I perform quick search for "Completed" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
@@ -229,6 +230,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see "History" sub tab at view detail page
     Then I softly can see "Messages" sub tab at view detail page
     #93255 #monu
+    When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
@@ -250,6 +252,7 @@ Feature: Validate all scenarios in Closeout
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
+    And I clear the value from field "Reason__c"
     And I enter value "Automation Test Reason" into field "Reason__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
@@ -264,7 +267,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Requests" sub tab
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "---closeout:-:closeoutTableId---"
 
-  @93258 @42108 @VerifyExpectedStatusOfCloseoutRequest-Overridden  @monu @buglogged141587
+  @93258 @42108 @VerifyExpectedStatusOfCloseoutRequest-Overridden  @monu @wip
   Scenario: verify Status change as Submit for Approval after clicking submit for Approval button for closeout request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -352,7 +355,9 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:CloseoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+    And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
+    And I clear the value from field "Justification__c"
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
@@ -466,11 +471,15 @@ Feature: Validate all scenarios in Closeout
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
     When I navigate to "Requests" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---closeout:-:closeoutTableId---" without waiting for record
-    When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    And I enter value "07/20/2023" into field "CloseoutDate__c"
-    And I enter value "08/12/2023" into field "CloseoutDueDateGrantor__c"
+    When I click on "Edit" in the page details
+    And I enter "Edition" values from "Closeout_Field_Values.xlsx"
+    And I wait for "2" seconds
+    And I enter value "Automation Test justification" into field "Justification__c"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Send To Subrecipient" in the page details
     Then I softly see field "Status" as "Sent To Subrecipient"
     And I navigate to "Closeout" tab
@@ -484,11 +493,8 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:CloseoutEGMSID}" in "---closeout:-:externalHomePendingTasktableId---" panel
     And I click on "Start" icon for "{SavedValue:CloseoutEGMSID}" inside flex table with id "---closeout:-:externalHomePendingTasktableId---"
     When I click on "Edit" in the page details
-    When I navigate to "Overview" sub tab
-    And I enter value "checked" into field "Aggreement__c"
+    And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see field "Acknowledgement" as "checked"
     And I click on "Acknowledge" in the page details
     Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
     Then I softly see field "Status" as "Acknowledged by Subrecipient"
@@ -502,9 +508,6 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
-    When I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "Justification__c"
-    When I click on "Save" in the page details
     When I click on "Override" in the page details
     And I wait for "5" seconds
     And I navigate to "Closeout" tab
@@ -545,6 +548,7 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:CloseoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+    When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
