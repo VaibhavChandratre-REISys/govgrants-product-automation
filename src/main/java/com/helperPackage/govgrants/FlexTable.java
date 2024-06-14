@@ -66,7 +66,7 @@ public final class FlexTable implements FlexTableComponent {
                         + I.amPerforming().sanityOfXpathTo().equals("@title", titleName) + " or "
                         + I.amPerforming().sanityOfXpathTo().equals("text()", titleName) + "] | //div[@id='" + tableId + "']//tr//th//span[contains(text(),'" + titleName + "')]|" +
                         "//div[@id='" + tableId + "']//div/table/thead/tr/th[@title='" + titleName + "' or text()='" + titleName + "'] | " +
-                        "//div[@id='" + tableId + "']//div/table/thead/tr/th/div[contains(text(),'" + titleName + "')] | //div[@id='" + tableId + "']//div//table//th[contains(text(),'" + titleName + "')] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//tr//th[@title='" + titleName + "' or text()='" + titleName + "']");
+                        "//div[@id='" + tableId + "']//div/table/thead/tr/th/div[contains(text(),'" + titleName + "')] | //div[@id='" + tableId + "']//div//table//th[contains(text(),'" + titleName + "')] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//tr//th[@title='" + titleName + "' or text()='" + titleName + "'] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//span[@title='" + titleName + "']");
         return I.amPerforming().getElementReference().of(tableHeaderElement);
     }
 
@@ -814,7 +814,6 @@ public final class FlexTable implements FlexTableComponent {
         try {
             I.amPerforming().click().withJavaScript(entriesDD);
             I.amPerforming().textInput().withJavaScript(entriesDD, numberofEntries);
-            I.amPerforming().scroll().onPageToSpecificElement(elementDropDown);
             I.amPerforming().click().on(elementDropDown);
         } catch (Exception e) {
             I.amPerforming().click().withJavaScript(elementDropDown);

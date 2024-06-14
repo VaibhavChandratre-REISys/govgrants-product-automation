@@ -15,7 +15,7 @@ public final class Approvals {
             userLookupLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//span[@class='select2-chosen'] | //input[@placeholder='Search' and @type='text']"),
             userLookupSearchLocator = By.xpath("//div[@id='select2-drop']/div[@class='select2-search']/input | //input[@placeholder='Search' and @type='text']"),
             userLookupResultsLocator = By.xpath("//div[@id='select2-drop']//ul[contains(@class, 'select2-results')]/li/div | //div[@class='slds-combobox_container']//div//ul//li//div"),
-            commentBoxLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//textarea | //c-approval-decision//textarea"),
+            commentBoxLocator = By.xpath("//c-approval-decision//textarea"),
             submitButtonLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//input[@value='Submit'] | //c-approval-decision//button[@title='Submit' and text()='Submit']"),
             submitConfirmationLocator = By.xpath("//div[contains(@class,'modal-dialog')]/div[@class='modal-content']//button[contains(text(),'Continue')] | //div[@class='confirm-modal']//button[contains(text(),'Continue')]"),
             approvalMessagesLocator = By.xpath("//div[@id='ApprovalDecisionComponent']//div[contains(@class, 'alert')]//span | //div[contains(@id,'toastDescription')]//span");

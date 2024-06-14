@@ -2248,12 +2248,7 @@ public final class GovGrantsAssertionObjects {
 
     private WebElement getOverLayTitle(String titleName) {
         return I.amPerforming().getElementReference().of(ByUsing.xpath(
-                "//iframe[contains(@ng-src,'apex') or contains(@src,'apex')]//ancestor::div[contains(@class,'modal-content')][1]//p[text()='"
-                        + titleName
-                        + "']|//iframe[contains(@ng-src,'apex') or contains(@src,'apex')]//ancestor::div[contains(@class,'modal-content')][1]//p[text()='"
-                        + titleName
-                        + "']| //iframe[contains(@ng-src,'apex') or contains(@src,'apex')]//ancestor::div[contains(@class,'modal-content')][1]//div[contains(text(),'"
-                        + titleName + "')] | //header[contains(@class,'modal-header')]//h2[text()='" + titleName + "']"));
+                "//header[contains(@class,'modal-header')]//h2[text()='" + titleName + "']"));
     }
 
     /**

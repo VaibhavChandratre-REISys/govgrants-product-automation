@@ -1534,14 +1534,10 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantor" app as "PO" user
-    And I wait for "5" seconds
-    When I navigate to "Actuals" sub tab
-    And I save the value from row "3" for column name "Award Amount" as "AutoFA1ConstActAwd2PaySummSR" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
-    Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
-    Then I softly see value "{SavedValue:AutoFA1ConstActAwd1PaySumm}" is "Equals to" the value "{SavedValue:AutoFA1ConstActAwd2PaySummSR}"
-    And I select value inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---" is "10"
-    And I click on page navigation arrow "---subAwardStandAlone:-:paymentSummaryBudgetTableId---" for table id "Next"
-    And I save the value from row "5" for column name "Award Amount" as "AutoFA2ConstActAwd2PaySummSR" from flex table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
-    Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
-    Then I softly see value "{SavedValue:AutoFA2ConstActAwd1PaySumm}" is "Equals to" the value "{SavedValue:AutoFA2ConstActAwd2PaySummSR}"
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I halt execution
+    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
+    Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
+    And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
+    Then I softly see value "$1,700.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
