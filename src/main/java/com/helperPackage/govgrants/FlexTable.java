@@ -260,7 +260,7 @@ public final class FlexTable implements FlexTableComponent {
         boolean statusElement = I.amPerforming().getElementReference().of(By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")).getAttribute("icon-name").contains("down");
         try {
             if (statusElement) {
-            WebElement collapseElement =  I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")));
+                WebElement collapseElement =  I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")));
                 I.amPerforming().click().withJavaScript(collapseElement);
             }
         } catch (Exception ee) {

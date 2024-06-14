@@ -365,7 +365,7 @@ public class GrantorProjectManager extends ProjectManager {
      * To verify RIsk level image
      */
     public Boolean assertRiskLevelImage(String fieldLabel, String imageName) throws IOException {
-        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[@class='customLabelstyle' and contains(text(),'" + fieldLabel + "')]/ancestor::dl[1]//dd//img[contains(@src,'" + imageName + "')]"))) {
+        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[@class='customLabelstyle' and contains(text(),'" + fieldLabel + "')]/ancestor::dl[1]//dd//img[contains(@src,'" + imageName + "')] | //label[@class='slds-text-title header-field-label' and contains(text(),'" + fieldLabel + "')]//parent::div//lightning-formatted-rich-text//span//img[contains(@src,'" + imageName + "')]"))) {
             return true;
         } else {
             return false;
