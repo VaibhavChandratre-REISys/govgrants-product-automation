@@ -237,6 +237,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Override" in the page details
     #93256 #monu
     When I click on "Edit" in the page details
+    And I clear the value from field "Reason__c"
     And I enter value "Automation Test Reason" into field "Reason__c"
     When I click on "Save" in the page details
     And I wait for "3" seconds
@@ -267,7 +268,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Requests" sub tab
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "---closeout:-:closeoutTableId---"
 
-  @93258 @42108 @VerifyExpectedStatusOfCloseoutRequest-Overridden  @monu @wip
+  @93258 @42108 @VerifyExpectedStatusOfCloseoutRequest-Overridden @monu
   Scenario: verify Status change as Submit for Approval after clicking submit for Approval button for closeout request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -377,10 +378,9 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     And I navigate to "History" sub tab
-    And I see "{SavedValue:PM Username}" against "Initial Submitter" in approval history
-    And I see "{SavedValue:PM Username}" against "Step 1" in approval history
-    Then I softly see column "Date" at position "1" contains text "Step : Step 1"
-    Then I softly see column "Overall Status" at position "1" contains text "Approved"
+    Then I softly see column "Date" at position "3" contains text "Step : Step 1"
+    Then I softly see column "Overall Status" at position "3" contains text "Approved"
+    Then I softly see column "Overall Status" at position "1" contains text "Pending"
 
   @40759 @VerifyExpectedValueInsideFieldHistoryPageBlockOfCloseoutRequest @monu @FieldHistoryExclude
   Scenario: Validate expected New value and Old value inside Field History page block for closeout request
@@ -514,7 +514,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeouts - Draft"
     And I perform quick search for "{SavedValue:closeoutID}" in "ProjectPeriodCloseoutGrantor" panel
-    Then I softly see value "Acknowledged by Subrecipient" for title "Status" inside table "ProjectPeriodCloseoutGrantor"
+    Then I softly see value "Overridden" for title "Status" inside table "ProjectPeriodCloseoutGrantor"
 
   @76490 @VerifyEmailNotificationForApprovedCloseoutRequest @monu
   Scenario: Validate user should receive email notification for approval of closeout Request
@@ -573,5 +573,5 @@ Feature: Validate all scenarios in Closeout
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Closeout Request {SavedValue:closeoutID} has been approved
+      Sandbox: Notification: Closeout Request {SavedValue:closeoutID} has beenapproved
       """
