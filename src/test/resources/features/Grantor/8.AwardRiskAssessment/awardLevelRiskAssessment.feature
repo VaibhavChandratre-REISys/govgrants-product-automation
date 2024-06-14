@@ -2279,7 +2279,6 @@ Feature: Validate all scenarios in the Risk Assessment
     When I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     Then I softly see field "Created Date" is not editable
-    Then I see field "Created Date" is not editable
 
   @60219 @addAttachmentToRiskAssessment @deepika
   Scenario: Add attachment to Risk Assessment
