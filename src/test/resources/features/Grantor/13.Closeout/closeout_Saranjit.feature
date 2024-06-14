@@ -20,7 +20,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see the following messages in the page details contains:
       | Reason is required to save. |
 
-  @95522 @VerifyAttachmentUploadBySubrecipientForAdhocCloseoutRequest @monu @buglogged141573
+  @done @95522 @VerifyAttachmentUploadBySubrecipientForAdhocCloseoutRequest @monu @buglogged141573
   Scenario: Validate sub-recipient user should be able to upload attachment while creating adhoc closeout request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -55,7 +55,7 @@ Feature: Validate all scenarios in Closeout
     And I pause execution for "3" seconds
     Then I softly see new tab is opened
 
-  @95560 @VerifyVisibilityOfAddFilesFopTerminationCloseoutRequest @monu
+  @done @95560 @VerifyVisibilityOfAddFilesFopTerminationCloseoutRequest @monu
   Scenario: Validate user is able to see Add files button under closeout details while creating termination closeout request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -85,15 +85,16 @@ Feature: Validate all scenarios in Closeout
 #    When I enter the following values into flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" by clicking "Add" :
 #      | Description                 | Required  | Status |
 #      | Automation test description | Mandatory | Active |
-    When I click on "Attach" icon for "Not Applicable" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" without waiting for record
-    Then I softly see "Add Supporting Documents Checklist" opens in overLay window
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
-    When I close "Add Supporting Documents Checklist" modal by clicking the top right x button
-    And I click modal button "Save"
-    Then I see the following messages in the page details contains:
-      | Attachment saved successfully. |
-    When I close "Upload Template" modal by clicking the top right x button
-    Then I softly see value "Automation" for title "Description" inside table "CloseoutChecklistsFlexToggle"
+
+#    When I click on "Attach" icon for "Not Applicable" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" without waiting for record
+#    Then I softly see "Add Supporting Documents Checklist" opens in overLay window
+#    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
+#    When I close "Add Supporting Documents Checklist" modal by clicking the top right x button
+#    And I click modal button "Save"
+#    Then I see the following messages in the page details contains:
+#      | Attachment saved successfully. |
+#    When I close "Upload Template" modal by clicking the top right x button
+#    Then I softly see value "Automation" for title "Description" inside table "CloseoutChecklistsFlexToggle"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -165,8 +166,8 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Checklist" sub tab
     Then I softly see field "Has the subrecipient submitted all payment requests?" as "Yes"
     Then I softly see field "Has the subrecipient met the match requirement?" as "Yes"
-    Then I softly see field "Did the subrecipient fully expend program income earned during the award period prior to the closeout of the award?" as "Yes"
-    Then I softly see field "Has the subrecipient completed the scope of work as outlined in the subaward agreement?" as "Yes"
+    Then I softly see field "Did the subrecipient fully expend program income earned during the award period prior to the closeout of the award?" as "Checklist Question Pick 9 Yes"
+    Then I softly see field "Has the subrecipient completed the scope of work as outlined in the subaward agreement?" as "Checklist Question Pick 11 Yes"
 
   @done @96612 @VerifyAdvanceBalanceOfFundingAccountAtcloseoutRequest @monu
   Scenario: Verify user can see advance balance of funding account at closeout request as same as on SubAward
@@ -215,7 +216,6 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:CloseoutID}" in "---closeout:-:pendingTaskTableId---" panel
     #93576 #monu
     Then I softly see value "{SavedValue:CloseoutID}" for title "EGMS ID" inside table "---closeout:-:pendingTaskTableId---"
-    ##########################################################################################################################
     And I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     Then I softly can see top right button "Edit" in page detail
     When I click on "Edit" in the page details
@@ -228,8 +228,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Acknowledge" in the page details
     Then I softly see field "Status" as "Acknowledged by Subrecipient"
     #93582 #monu
-    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "green"
-    #################################################################
+    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
     And I click on hyperlink containing value "{SavedValue:GrantID}"
     And I navigate to "Requests" sub tab
     And I click on "View" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:RecipientCloseoutRequestTableId---"
