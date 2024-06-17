@@ -3401,7 +3401,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @hitRun @65876 @65877 @65879 @verifyUsersCanSeeNewButtonSPiViewCreatedRiskAssessment @deepika
+  @65876 @65877 @65879 @verifyUsersCanSeeNewButtonSPiViewCreatedRiskAssessment @deepika
   Scenario: Verify that users can see new button to create Risk Assessment on Management Tab list view |Validate whether record owner and SPI user can view the RA that is in Created state under Monitoring Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3498,7 +3498,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
       | Name        | Project Role             | Is Key Personnel |
-      | Product SA  | Project Director/Manager | Checked          |
+      | SPI4        | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
@@ -3568,7 +3568,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
-  @hitRun @59701 @addApproversForRiskAssessment @meenakshi
+  @59701 @addApproversForRiskAssessment @meenakshi
   Scenario: Validate whether user is able to Add Approvers to Risk Assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3600,9 +3600,10 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
+    And I wait for "3" seconds
     Then I softly see that "Automation PM" has been added in flextable with Id "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
 
- @hitRun  @142056 @verifyUserNotAbleToSkipApproverForAwardRiskAssesment-RnRFuntionality @monu
+ @142056 @verifyUserNotAbleToSkipApproverForAwardRiskAssesment-RnRFuntionality @monu
   Scenario: Validate system enforces the user to atleast enter step 1 approval for award risk assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3636,7 +3637,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @hitRun @142062 @VerifyUpdationOfInheritedApproverAtRiskAssesmentFromAward-RnRFunctnality @monu
+  @142062 @VerifyUpdationOfInheritedApproverAtRiskAssesmentFromAward-RnRFunctnality @monu
   Scenario Outline: Validate user can modify the approver entered on award for Risk assessment are copied on the Risk Assessments
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3746,7 +3747,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @hitRun @142100 @Verify1StepAddApproverAtForAwardRiskAssesment-RnRFuntionality @monu
+  @142100 @Verify1StepAddApproverAtForAwardRiskAssesment-RnRFuntionality @monu
   Scenario: Validate user can defined one step approval for Risk Assessment on Award
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3782,7 +3783,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | {SavedValue:EXE Username} | Step 1          |
     Then I softly see "Saved Successfully!" inside flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
 
-  @hitRun @142119 @VerifyErrorMessageWhileSkippingStepsForAwardRiskAssesment-RnRFuntionality @monu
+  @142119 @VerifyErrorMessageWhileSkippingStepsForAwardRiskAssesment-RnRFuntionality @monu
   Scenario: Verify user cannot skip the approver step on subaward risk assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3824,7 +3825,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 
-  @hitRun @142414 @VerifyAdditionOfAdditionalApproverRiskAssesmentFromAward-RnRFunctnality @monu
+  @142414 @VerifyAdditionOfAdditionalApproverRiskAssesmentFromAward-RnRFunctnality @monu
   Scenario Outline: Validate user can add additional approvers on risk assesment if step1 was configured on award
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3940,7 +3941,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @hitRun @142415 @VerifyFourStepApprovalProcessForRiskAssesmentFromAward-RnRFunctnality @monu
+  @142415 @VerifyFourStepApprovalProcessForRiskAssesmentFromAward-RnRFunctnality @monu
   Scenario Outline: Given the step 4 approver has approved validate Risk Assessment is marked as Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -4089,7 +4090,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @hitRun @142417 @VerifyRejectFunctionalityOfRiskAssessmentWithThirdApprover-RnRFunctnality @monu
+  @142417 @VerifyRejectFunctionalityOfRiskAssessmentWithThirdApprover-RnRFunctnality @monu
   Scenario Outline:  Validate risk assessment status is Rejected In a 3 step approval set up if step 3 approver has rejected it
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -4274,6 +4275,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
+    And I wait for "3" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"

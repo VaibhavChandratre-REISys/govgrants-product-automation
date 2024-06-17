@@ -80,8 +80,7 @@ Feature: Validate all scenarios in Closeout
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
@@ -538,6 +537,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Subrecipient Organization" as "{SavedValue:SubrecipientOrganization}"
     Then I softly see field "Funding Organization" as "{SavedValue:FundingOrganization}"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -566,11 +566,11 @@ Feature: Validate all scenarios in Closeout
     #86714
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    And I enter value "07/20/2023" into field "CloseoutDate__c"
-    And I enter value "08/12/2023" into field "CloseoutDueDateGrantor__c"
+    And I enter value "06/20/2024" into field "CloseoutDate__c"
+    And I enter value "07/12/2024" into field "CloseoutDueDateGrantor__c"
     When I click on "Save" in the page details
-    Then I softly see field "Closeout Effective Date" as "07/20/2023"
-    Then I softly see field "Closeout Activities Due Date" as "08/12/2023"
+    Then I softly see field "Closeout Effective Date" as "06/20/2024"
+    Then I softly see field "Closeout Activities Due Date" as "07/12/2024"
     #76488
     Then I softly see value "---AUTOEnvData:-:fundingAccount---" for title "Funding Account" inside table "---closeout:-:closeoutFundingAccountsTableId---"
     And I softly see value "$1,000.00" for title "Encumbrance" inside table "---closeout:-:closeoutFundingAccountsTableId---"
