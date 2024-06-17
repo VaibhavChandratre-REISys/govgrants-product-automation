@@ -3276,17 +3276,19 @@ Feature: Validate all scenarios in the Risk Assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Monitoring" tab
     And I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-    When I click on top right parallel lines bar for "Risk Assessments - All"
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    When I click on top right parallel lines bar for "Subaward Risk Assessments - All"
     And I select "Download as XLS" from parallel lines dropdown of "Risk Assessments - All"
     Then I verify that "xls" file is downloaded
 
- @65462 @downloadRiskAssessmentInPDF @deepika @skipOnJenkins
+ @debug @65462 @downloadRiskAssessmentInPDF @deepika @skipOnJenkins
   Scenario: Validate whether user can Download the Active Risk Assessment in PDF format from Monitoring Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Monitoring" tab
     And I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-    When I click on top right parallel lines bar for "Risk Assessments - All"
-    And I select "Download as PDF" from parallel lines dropdown of "Risk Assessments - All"
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    When I click on top right parallel lines bar for "Subaward Risk Assessments - All"
+    And I select "Download as PDF" from parallel lines dropdown of "Subaward Risk Assessments - All"
     And I download the file
     Then I verify that "pdf" file is downloaded
 

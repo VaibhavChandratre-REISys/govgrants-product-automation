@@ -227,14 +227,7 @@ public final class PhasePanel {
      * @modifier Monu.Kumar
      */
     public By getParallelBarsLocator(String panelTitleName) {
-        return By.xpath("//div[text()='" + panelTitleName + "']/../../../.."
-                + "/following-sibling::div/div[contains(@class,'header-bars')]//a[@title='Menu']//span[contains(@class,'fa fa-bars')] | "
-                + "//div//a/following-sibling::span[text()='" + panelTitleName + "']/.."
-                + "/following-sibling::div/span[contains(@class,'header-bars')]//a[@title='Menu']//span[contains(@class,'fa fa-bars')] | "
-                + "//span[text()='" + panelTitleName
-                + "']/..//div[@class='header-bars']//a[@title='Menu']//span[contains(@class,'fa fa-bars')]|//div//a[contains(text(),'"
-                + panelTitleName
-                + "')]/../following-sibling::div/span//a[@title='Menu']//span[contains(@class,'fa fa-bars')]");
+        return By.xpath("//div//span[contains(text(),' " + panelTitleName + " ')]/../following-sibling::div//button[@title='Menu']");
     }
 
     /**
