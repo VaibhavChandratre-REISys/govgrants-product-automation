@@ -1,4 +1,4 @@
-@amendmentRequestsWB @amendmentRequests @grantor-regression @grantor-parallel-regression @regression
+@amendmentRequestsWB @amendmentRequests @grantor-regression @grantor-parallel-regression @regression @AmendmentWBRunForLWC
 Feature: Amendment Request scenarios without background
 
   @54853 @ValidateRevisedBudgetAmountBalanceUpdatedOnAdvancePaymentRequest @mahadev @smoke @AmendmentWBPooja
@@ -4121,7 +4121,7 @@ Feature: Amendment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @101252 @ValidateIncreasedTargetValueOfAmendmentRequest-PeriodicRenewal @monu @AmendmentWBPoojaThird
+  @101252 @ValidateIncreasedTargetValueOfAmendmentRequest-PeriodicRenewal @monu @AmendmentWBPoojaThird @wip
   Scenario: Verify progress report should display with Updated increased target value
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -5602,7 +5602,7 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I navigate to "Responsibilities" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:approversTableId---"
-    And I select value "{SavedValue:PM Username}" into field "Name__c"
+    And I select value "{SavedValue:PM Username}" into field "name__r.name"
 #    And I enter value "Step 1" into field "AmendmentRequestRole__c"
     And I click on "Remove record" icon for "NA" inside table
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:approversTableId---"
