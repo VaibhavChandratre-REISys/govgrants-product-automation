@@ -1,7 +1,7 @@
 @home @grantor-regression @ch1 @grantor-parallel-regression @regression
 Feature: Validate all scenarios in the home tab
 
-  @56710 @56708 @internalOrganizationViewADMINEditPMView @smoke
+  @done @56710 @56708 @internalOrganizationViewADMINEditPMView @smoke
   Scenario: Validate whether all7 users have view access to Internal Organization
     Given I login to "As a Grantor" app as "Admin" user
     When I navigate to "Home" tab
@@ -41,7 +41,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @56712 @56713 @activeINDandsubrecipientOrganizationView
+  @done @56712 @56713 @activeINDandsubrecipientOrganizationView
   Scenario Outline: Validate whether all users have view access to Subrecipient Organization and Active Individual Subrecipients
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -201,7 +201,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @56728 @UEIRegistration
+  @done @56728 @UEIRegistration
   Scenario Outline: Validate whether ADMIN have view access to DUNSRegistration
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -225,7 +225,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @56730 @contactUs
+  @done @56730 @contactUs
   Scenario Outline: Validate whether all users have view access to Contactview
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -422,7 +422,7 @@ Feature: Validate all scenarios in the home tab
     When I click on "Delete" icon for "New IDC" inside flex table with id "---home:-:indirectRateFlextableId---" without waiting for record
     Then I do not see values "New IDC" and "Title" inside table
 
-  @56883 @56912 @adminOrPMEditAccessToOwnOrgInternalOrganizationPageHeader
+  @ch2 @56883 @56912 @adminOrPMEditAccessToOwnOrgInternalOrganizationPageHeader
   Scenario Outline: Validate whether Users with Admin/ PM profiles can edit their own organizations and Internal organization page has Header
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -711,7 +711,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @62103 @pageBlockSectionsRelatedLog @deepika
+  @ch2 @62103 @pageBlockSectionsRelatedLog @deepika
   Scenario Outline:  Validate whether the Related Log displays Active Federal/NGO Applications (Grantee) and Active Federal/NGO Grants (Grantee).
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -719,8 +719,8 @@ Feature: Validate all scenarios in the home tab
     When I click on "View" icon for "Test Automation Organization" inside flex table with id "---home:-:internalOrganizationId---" with wait for record
     And I navigate to "Related Log" sub tab
     Then I can see page block "Internal Programs"
-    Then I can see page block "Active Announcements (Grantor) "
-    Then I can see page block "Active Applications "
+    Then I can see page block "Announcements"
+    Then I can see page block "Applications"
     Then I can see page block "Active Grants"
     Examples:
       | User  |
@@ -847,7 +847,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @33882 @34674 @validatingcreateSMEReviewer @meenakshi
+  @ch2 @33882 @34674 @validatingcreateSMEReviewer @meenakshi
   Scenario: To verify internal user able to Create new SME reviewer
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -855,21 +855,24 @@ Feature: Validate all scenarios in the home tab
     #33882
     When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
     And I enter "Creation" values from "PotentialReviewersContact_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
     #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-    And I save the contact name as "Automation Runtime Contact"
-    And I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:reviewersTableId---" panel
-    Then I softly see value "{SavedValue:Automation Runtime Contact}" for title "Full Name" inside table "---home:-:reviewersTableId---"
+#    And I save the contact name as "Automation Runtime Contact"
+    And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
+    Then I softly see value "{SavedValue:Automation Runtime Contact} Contact" for title "Full Name" inside table "---home:-:reviewersTableId---"
     Then I softly see value "automation.sme143@yopmail.com" for title "Email" inside table "---home:-:reviewersTableId---"
     Then I softly see value "New" for title "Status" inside table "---home:-:reviewersTableId---"
     Then I softly see value "Test Automation Organization" for title "Sponsoring Agency" inside table "---home:-:reviewersTableId---"
     #34674
-    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
+    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     And I wait for "2" seconds
     And I enter value "Test Automation Description" in email body
     And I click "Send" button in modal
     Then I see the following messages in the page details :
       | Email Sent Successfully |
+    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
   @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI user should not able to edit following fields a. First Name b. Last Name c. Email d. User Role already read-only on external profile user
