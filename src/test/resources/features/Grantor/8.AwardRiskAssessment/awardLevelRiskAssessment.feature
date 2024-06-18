@@ -3278,8 +3278,8 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Subaward Risk Assessments - All"
     When I click on top right parallel lines bar for "Subaward Risk Assessments - All"
-    And I select "Download as XLS" from parallel lines dropdown of "Risk Assessments - All"
-    Then I verify that "xls" file is downloaded
+    And I select "Download as CSV" from parallel lines dropdown of "Subaward Risk Assessments - All"
+    Then I verify that "csv" file is downloaded
 
  @debug @65462 @downloadRiskAssessmentInPDF @deepika @skipOnJenkins
   Scenario: Validate whether user can Download the Active Risk Assessment in PDF format from Monitoring Tab
@@ -3499,7 +3499,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click modal button "Save"
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name        | Project Role             | Is Key Personnel |
+      | Name                             | Project Role             | Is Key Personnel |
       | {SavedValue:SPI4 Username}       | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
@@ -4354,7 +4354,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @hitRun @142907 @VerifyChangeOfUserAndStepsTooOfCopiedApproverFromAwardToRiskAssessment-RnRFunctnality @monu
+  @142907 @VerifyChangeOfUserAndStepsTooOfCopiedApproverFromAwardToRiskAssessment-RnRFunctnality @monu
   Scenario Outline: Validate user can change the user and step 2 on approver for risk assessment defined on award
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -4477,7 +4477,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @hitRun @142909 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtRiskAssessment-RnRFunctnality @monu
+  @142909 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtRiskAssessment-RnRFunctnality @monu
   Scenario Outline: Validate user cannot add the same steps for Risk assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab

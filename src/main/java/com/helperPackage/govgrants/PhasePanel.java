@@ -227,7 +227,7 @@ public final class PhasePanel {
      * @modifier Monu.Kumar
      */
     public By getParallelBarsLocator(String panelTitleName) {
-        return By.xpath("//div//span[contains(text(),' " + panelTitleName + " ')]/../following-sibling::div//button[@title='Menu']");
+        return By.xpath("//div//span[contains(@title,'" + panelTitleName + "')]/../following-sibling::div//button[@title='Menu']");
     }
 
     /**
@@ -261,6 +261,7 @@ public final class PhasePanel {
      */
     public void clickParallelMenuBars(String panelTitleName) {
         By parallelMenuBars = getParallelBarsLocator(panelTitleName);
+        I.amPerforming().waitFor().ElementToBeClickable(parallelMenuBars);
         I.amPerforming().click().on(parallelMenuBars);
     }
 
