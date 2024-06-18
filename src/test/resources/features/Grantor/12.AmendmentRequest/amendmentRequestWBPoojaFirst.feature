@@ -5575,7 +5575,7 @@ Feature: Amendment Request scenarios without background
       | {SavedValue:PM Username} | Step 2            |
     Then I softly see "You cannot specify the same user for multiple steps for Amendment Request" inside flex table with id "---amendment:-:approversTableId---"
 
-  @151896 @verifyRemovalOfAddedApprover-BudgetRedirection-RnRFunctionality @monu @AmendmentWBPoojaFourth @Debug
+  @151896 @verifyRemovalOfAddedApprover-BudgetRedirection-RnRFunctionality @monu @AmendmentWBPoojaFourth
   Scenario: To verify user can  remove the added approver on Budget Redirection amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I am on "SUBPORTAL" portal
