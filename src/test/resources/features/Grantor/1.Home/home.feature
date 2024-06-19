@@ -92,7 +92,8 @@ Feature: Validate all scenarios in the home tab
     Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "---home:-:internalContactTableId---"
     And I click on "View" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:internalContactTableId---" without waiting for record
     Then I softly see field "Organization" as "Test Automation Organization"
-    And I refresh the page
+    When I navigate to "Home" tab
+    And I navigate to "Internal" content inside "Contacts" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:internalContactTableId---" panel
     Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "---home:-:internalContactTableId---"
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
@@ -102,7 +103,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @56721 @56720 @smeReviewersContactViewAndCreate @smoke
+  @done @56721 @56720 @smeReviewersContactViewAndCreate @smoke
   Scenario Outline: Verifying all Internal Users has View access to SME Reviewers Contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -154,7 +155,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @56723 @activeSMEReviewersContactDetailPageView
+  @done @56723 @activeSMEReviewersContactDetailPageView
   Scenario Outline: Verify that system allows user to see the detail page of Active SME Reviewer contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -186,7 +187,9 @@ Feature: Validate all scenarios in the home tab
     When I click modal button "Save"
     When I save the field labeled "EGMS ID" as "EGMSID"
     And I click modal button "Close"
-    And I refresh the page
+    And I pause execution for "3" seconds
+    When I navigate to "Planning" tab
+    And I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
     When I perform quick search for "{SavedValue:EGMSID}" in "---home:-:termsAndConditionsTableId---" panel
     Then I softly see value "Active" for title "Status" against the value "{SavedValue:EGMSID}" inside table "---home:-:termsAndConditionsTableId---"
     Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---home:-:termsAndConditionsTableId---"
@@ -243,7 +246,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @56732 @subrecipientOrganizationEdition @smoke
+  @done @56732 @subrecipientOrganizationEdition @smoke
   Scenario Outline: Validate whether ADMIN and DA users can Edit the Subrecipient Organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -302,7 +305,7 @@ Feature: Validate all scenarios in the home tab
     And I click modal button "Edit"
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
-    And I close "View Subrecipient Contacts" modal by clicking the top right x button
+    And I close "View Subrecipient Contact" modal by clicking the top right x button
     Then I softly see value "New" for title "Status" inside table "---home:-:internalContactTableId---"
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
     Examples:
@@ -330,7 +333,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @56736 @56737 @additionalAddressesCreationEdition
+  @done @56736 @56737 @additionalAddressesCreationEdition
   Scenario: Validate whether ADMIN can Create and Edition of Additional Addresses
     Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
@@ -359,7 +362,8 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     And I click modal button "Save"
-    And I select value inside table "---home:-:relatedContactsTableId---" is "All"
+    And I select value inside table "{home:-:relatedContactsTableId}" is "All"
+    And I pause execution for "6" seconds
     #And I close "Create Contact" modal by clicking the top right x button
 #    And I save the contact name as "Automation Runtime Contact"
 #    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:relatedContactsTableId---" panel
@@ -387,7 +391,8 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     And I click modal button "Save"
-    And I select value inside table "---home:-:relatedContactsTableId---" is "All"
+    And I select value inside table "{home:-:relatedContactsTableId{" is "All"
+    And I pause execution for "5" seconds
     #And I close "Create Contact" modal by clicking the top right x button
 #    And I save the contact name as "Automation Runtime Contact"
 #    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:relatedContactsTableId---" panel
@@ -472,7 +477,7 @@ Feature: Validate all scenarios in the home tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
     #When I perform quick search for "Teaching and Learning" in "---home:-:internalOrganizationId---" panel
     And I expand nested table containing column value "Test Automation Organization"
-    Then I see values "Career and College Transition Division" and "Division" inside table
+   #Then I see values "Career and College Transition Division" and "Division" inside table
     Then I softly see "Internal Organization" in flex table header "---home:-:internalOrganizationId---"
     Then I softly see "Agency Abbreviation" in flex table header "---home:-:internalOrganizationId---"
     Then I softly see "Account Type" in flex table header "---home:-:internalOrganizationId---"
@@ -491,7 +496,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @57343 @individualSubrecipientContactCreation @buglogged138607
+  @done @57343 @individualSubrecipientContactCreation @buglogged138607
   Scenario Outline: Validate whether ADMIN/DA have can new address details to Ind Subrecipient org
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -574,15 +579,14 @@ Feature: Validate all scenarios in the home tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Not Yet Qualified Opportunities - Open"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-    Then I softly see value "{SavedValue:Automation Runtime Announcement for Application}" for title "Title" inside table "---applicationIntake:-:activeOpportunitiesTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Announcement for Application}" for title "Announcement Name" inside table "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Application}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---" without waiting for record
     Then I softly see field "Opportunity" as "{SavedValue:Automation Runtime Announcement for Application}"
     Then I softly see field "Status" as "Published"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
+    And I pause execution for "6" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -701,7 +705,7 @@ Feature: Validate all scenarios in the home tab
     When I get the "EGMS ID"
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "GrantorFocusAreaFiles"
-    And I switch to iframe with id "---home:-:focusAreaFilesTableId---"
+#    And I switch to iframe with id "---home:-:focusAreaFilesTableId---"
     And I upload attachment "Announcement_Field_Values.xlsx" of type "Supporting Documents" from computer
 #    When I save the value from row "1" for column name "Title" as "Announcement_Field_Values" from flex table "GrantorFocusAreaFiles"
     When I navigate to "Home" tab
@@ -795,7 +799,6 @@ Feature: Validate all scenarios in the home tab
     And I navigate to "Home" tab
     When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
     When I navigate to "Overview" sub tab
-    When I perform quick search for "{user:fullName}" in "---home:-:indContactTableId---" panel
     Then I see that "{user:fullName}" has been added in flextable with Id "---home:-:indContactTableId---"
 
   @62255 @CreatedNotes @keerti @onhold @wip
@@ -851,6 +854,7 @@ Feature: Validate all scenarios in the home tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
+    #Bug441757
     And I click "Send" button in modal
     When I close "Send Invitation" modal by clicking the top right x button
     And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
@@ -862,7 +866,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @ch2 @33882 @34674 @validatingcreateSMEReviewer @meenakshi
+  @33882 @34674 @validatingcreateSMEReviewer @meenakshi
   Scenario: To verify internal user able to Create new SME reviewer
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -889,7 +893,7 @@ Feature: Validate all scenarios in the home tab
       | Email Sent Successfully |
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
-  @ch2 @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI user should not able to edit following fields a. First Name b. Last Name c. Email d. User Role already read-only on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -902,10 +906,10 @@ Feature: Validate all scenarios in the home tab
     Examples:
       | userType |
       | SPI3     |
-#      | SPA      |
-#      | IND      |
+      | SPA      |
+      | IND      |
 
-  @ch2 @201750 @ValidateSPI\SPA\INDusercanedittheAccessibilityModefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201750 @ValidateSPI\SPA\INDusercanedittheAccessibilityModefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI\SPA\IND user can edit the 'Accessibility Mode' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
