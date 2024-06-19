@@ -1532,12 +1532,6 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @12
+  @840
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
-    And I halt execution
-    When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
-    Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
-    And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
-    Then I softly see value "$1,700.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
+    Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
