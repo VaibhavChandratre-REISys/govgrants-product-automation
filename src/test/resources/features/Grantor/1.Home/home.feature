@@ -73,7 +73,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @56717 @56716 @56718 @internalContactsViewCreateEdit @smoke
+  @done @56717 @56716 @56718 @internalContactsViewCreateEdit @smoke
   Scenario Outline: Validate that Internal contacts are accessible across agencies and can be create, Edit and view access to Contacts by any Internal users
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -177,7 +177,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @56725 @56724 @56726 @termsandConditionsViewCreateAdminEdit @smoke
+  @done @56725 @56724 @56726 @termsandConditionsViewCreateAdminEdit @smoke
   Scenario Outline: Verifying all Internal Users has View, Create and Edit access to Terms and Conditions
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Planning" tab
@@ -306,13 +306,13 @@ Feature: Validate all scenarios in the home tab
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
     And I close "View Subrecipient Contact" modal by clicking the top right x button
-    Then I softly see value "New" for title "Status" inside table "---home:-:internalContactTableId---"
+    Then I softly see value "New" for title "Status" inside table "---home:-:subrecipientContactTableId---"
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
     Examples:
       | User  |
       | ADMIN |
 
-  @56735 @smereviewersContactEdition
+  @done @56735 @smereviewersContactEdition
   Scenario Outline: Verifying all Internal Users has Edit access to SME Contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -470,7 +470,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @57341 @listpageViewChildOrganizations
+  @done @57341 @listpageViewChildOrganizations
   Scenario Outline:: Verify system allows access to all Internal users to view the List page
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -792,7 +792,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "Record Id" in "---home:-:externalPendingTasktableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---home:-:externalPendingTasktableId---"
 
-  @62106 @indUserEditProfile @deepika
+  @done @62106 @indUserEditProfile @deepika
   Scenario: Verify whether the Individual Sub Profile Users can view their own contact information under Overview Tab
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "IND" user
@@ -827,7 +827,7 @@ Feature: Validate all scenarios in the home tab
     And I perform quick search inside global search "{SavedValue:ProgramID}"
     #And I click toggle button to select "Internal Programs"
 #    And I perform quick search for "{SavedValue:ProgramID}" in "Program__c" panel
-    Then I see value "{SavedValue:ProgramID}" for title "EGMS ID" inside table "Program__c"
+    Then I see value "{SavedValue:ProgramID}" for title "EGMS ID" inside table "Programs||List View"
 
   @62912 @VerifyrecentlyViewedRecordAndDetailsOnMiniPageLayoutAndHoverLink @keerti @wip
   Scenario: The Internal User should be able to view the recently viewed record and details on the Mini pagelayout and the hover link  will take to the record
@@ -909,7 +909,7 @@ Feature: Validate all scenarios in the home tab
       | SPA      |
       | IND      |
 
-  @201750 @ValidateSPI\SPA\INDusercanedittheAccessibilityModefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @done @201750 @ValidateSPI\SPA\INDusercanedittheAccessibilityModefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI\SPA\IND user can edit the 'Accessibility Mode' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -948,7 +948,7 @@ Feature: Validate all scenarios in the home tab
     And I login to "Grants Portal" app as "<userType>" user
     And I select "Profile" from user dropdown
     And I click on "Edit" in the page details
-    Then I softly see "Address Line 2" inside page block detail
+    Then I softly see "Address" inside page block detail
     Then I softly see "City" inside page block detail
     Examples:
       | userType |
@@ -961,7 +961,7 @@ Feature: Validate all scenarios in the home tab
     And I login to "Grants Portal" app as "<userType>" user
     And I select "Profile" from user dropdown
     And I click on "Edit" in the page details
-    Then I softly see "Zip Code" inside page block detail
+    Then I softly see "Zip/Postal Code" inside page block detail
     Then I softly see "Country" inside page block detail
     Examples:
       | userType |
@@ -969,7 +969,7 @@ Feature: Validate all scenarios in the home tab
       | SPA      |
       | IND      |
 
-  @201759 @ValidateSPI\SPA\INDuserIshouldnotseetheProfileDescriptionsectiononexternalprofileuseronexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @done @201759 @ValidateSPI\SPA\INDuserIshouldnotseetheProfileDescriptionsectiononexternalprofileuseronexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI\SPA\IND user I should not see the 'Profile Description' section on external profile user on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
