@@ -1557,4 +1557,4 @@ Feature: Validate all scenarios of every modules flow
 #    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
 #    When I check "{SavedValue:Automation Runtime Announcement Application Review}" boxes in flex table with id "---applicationReview:-:appTableId---"
 #    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
-    And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Formula_By_Applicant"
+    And I activated standalone subaward "Automation Runtime Award" with properties "Automation PM user" of type "Formula_By_Applicant"
