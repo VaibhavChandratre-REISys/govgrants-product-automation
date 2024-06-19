@@ -665,7 +665,7 @@ public final class GovGrantsProductObjects {
     }
 
     public void selectDropDownOptions(String option) {
-        I.amPerforming().click().on(By.xpath("//lightning-combobox//button[@aria-label='Select Module']"));
+        I.amPerforming().click().on(By.xpath("//lightning-combobox//button[@aria-label='Select Module'] | //button[contains(@id,'combobox-button')]"));
         I.amPerforming().click().on(By.xpath("//div[@role='listbox']//lightning-base-combobox-item//span[@title='" + option + "']"));
     }
 
