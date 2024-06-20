@@ -381,7 +381,7 @@ Feature: Validate all scenarios in the home tab
       | EXE  |
       | PM   |
 
-  @56738 @deletionOfRelatedContact
+  @ch2 @56738 @deletionOfRelatedContact
   Scenario:  Validate whether the admin is able to Delete Related Contacts
     Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
@@ -394,10 +394,10 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     And I click modal button "Save"
+#    And I click on "Full Name" column header inside table with id "---home:-:relatedContactsTableId---"
+#    And I pause execution for "5" seconds
     And I select value inside table "---home:-:relatedContactsTableId---" is "All"
-    And I pause execution for "3" seconds
-    And I click on "Full Name" column header inside table with id "---home:-:relatedContactsTableId---"
-    And I pause execution for "5" seconds
+    And I pause execution for "7" seconds
     #And I close "Create Contact" modal by clicking the top right x button
 #    And I save the contact name as "Automation Runtime Contact"
 #    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:relatedContactsTableId---" panel
@@ -574,7 +574,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @73851 @73856 @73850 @57347 @57348 @viewActiveGrantsSubmittedApplicationsOnRelatedLog
+  @ch2 @73851 @73856 @73850 @57347 @57348 @viewActiveGrantsSubmittedApplicationsOnRelatedLog
   Scenario Outline: Verify all profiles users should be able to view the Submitted Applications and Active Grants.
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
@@ -610,7 +610,7 @@ Feature: Validate all scenarios in the home tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I navigate to "Files" sub tab
+    And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---" without waiting for record
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -900,7 +900,7 @@ Feature: Validate all scenarios in the home tab
     Then I see the text "Email Sent Successfully" in modal
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
-  @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @ch2 @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI user should not able to edit following fields a. First Name b. Last Name c. Email d. User Role already read-only on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
