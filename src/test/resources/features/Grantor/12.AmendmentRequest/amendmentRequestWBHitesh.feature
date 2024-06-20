@@ -356,6 +356,7 @@ Feature: Amendment Request scenarios without background
     When I click on "Edit" in the page details
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "scopeWorkId"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
