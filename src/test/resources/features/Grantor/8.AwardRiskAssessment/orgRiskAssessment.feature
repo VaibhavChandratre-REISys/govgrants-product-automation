@@ -14,10 +14,14 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
   Scenario: Verify Task is generated for Signing Authority to Create Risk Assessment for an Organization and once the pending is created, the user can create the org risk asssesment
     Then I softly see that "Automation Permanent Organization for Risk Assessment" has been added in flextable with Id "---orgRiskAssessment:-:pendingTaskTableId---"
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    When I click modal button "Save and Continue"
+    And I navigate to "Assessment" sub tab
+    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I get the "EGMS ID"
+    When I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
   @61976 @61975 @requestNewAssessmentActiveRA @deepika @smoke
