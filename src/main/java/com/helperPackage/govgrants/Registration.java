@@ -16,13 +16,10 @@ import java.util.stream.Collectors;
 
 public class Registration {
 
-    public void beginRegistration(String officeType) {
+    public void beginRegistration(String officeType, String userType) {
         navigateToExternalPortal("SUBPORTAL");
-        clickRegisterationLink("Register");
-        if (!officeType.equalsIgnoreCase("Default")) {
-            clickRegistrationType(officeType);
-        }
-        clickOfficeTypeButton(officeType, "Begin Registration");
+        clickRegisterationLink(officeType);
+        clickRegistrationType(userType);
     }
 
     public void navigateToExternalPortal(String portalName) {
@@ -33,22 +30,20 @@ public class Registration {
         }
     }
 
-    public void clickRegisterationLink(String linkText) {
+    public void clickRegisterationLink(String officeType) {
         try {
-            I.amPerforming().waitFor().ElementToBeClickable(getSignInLinkLocator(linkText));
-            I.amPerforming().click().on(getSignInLinkLocator(linkText));
+            I.amPerforming().waitFor().ElementToBeClickable(getSignInLinkLocator(officeType));
+            I.amPerforming().click().on(getSignInLinkLocator(officeType));
         } catch (TimeoutException e) {
             I.amPerforming().updatingOfReportWith().write(LogLevel.PROJECT_LAYER_ERROR,
                     String.format("Form Link '%s' was not able to be clicked.%n"
-                            + "These are the form Links available to click: %s", linkText, getSignInLinkNames()));
+                            + "These are the form Links available to click: %s", officeType, getSignInLinkNames()));
             throw e;
         }
     }
 
-    public By getSignInLinkLocator(String linkText) {
-        return By.xpath("//form//a[" + I.amPerforming().sanityOfXpathTo().equals("text()", linkText) + "]"
-                + " | "
-                + "//form//input[@type='submit' and " + I.amPerforming().sanityOfXpathTo().equals("@value", linkText) + "]");
+    public By getSignInLinkLocator(String officeType) {
+        return By.xpath("//c-external-login-home//button[text()='" + officeType + "']");
     }
 
     public List<String> getSignInLinkNames() {
@@ -325,8 +320,8 @@ public class Registration {
         }
     }
 
-    public void clickRegistrationType(String registrationType) {
-        I.amPerforming().waitFor().ElementToBeClickable(ByUsing.xpath("//a[contains(text(),'" + registrationType + "')]"));
-        I.amPerforming().click().on(ByUsing.xpath("//a[contains(text(),'" + registrationType + "')]"));
+    public void clickRegistrationType(String userType) {
+        I.amPerforming().waitFor().ElementToBeClickable(ByUsing.xpath("//section//button[text()='" + userType + "']"));
+        I.amPerforming().click().on(ByUsing.xpath("//section//button[text()='" + userType + "']"));
     }
 }

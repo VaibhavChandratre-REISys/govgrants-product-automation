@@ -1532,13 +1532,14 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug
+  @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I login to "As a Grantor" app as "PM" user
     And I halt execution
-    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
-    And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
-      | Title                           | Allocation Amount |
-      | Automation Permanent Focus Area | 1000              |
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation EXE" for title "User" inside field history table
+    Then I softly see value "4/19/2024 10:41 AM" for title "Date" inside field history table
+    Then I softly see value "Approved" for title "New Value" inside field history table
+#    And I click on back arrow
     And I halt execution
