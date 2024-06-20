@@ -899,7 +899,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     Then I see the following messages in the page details :
-      | Provide a positive value for Required Match %.  |
+      | If you select Subrecipient Match Required setting as Yes then you need to set value for Required Match %|
 
   @65084 @VerifyActiveGrantsOnSubportal @mahadev @PoojaAward
   Scenario: Verify SR user can view Active grant
@@ -974,7 +974,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see field "Program Income Allowed?" as "Yes"
     Then I softly see field "Advance Payment Allowed?" as "Yes"
     Then I softly see field "Is Detailed Budget Required on the Subaward?" as "No"
-    Then I softly see field "Focus Area Required?" as "No"
+    Then I softly see field "Focus Areas Required?" as "No"
     Then I softly see field "Objectives Required?" as "Yes"
     Then I softly see field "KPI" as "Yes"
     Then I softly see field "Are Expense Details Required on Reimbursements?" as "Yes"
@@ -1161,7 +1161,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---" without waiting for record
     When I enter the following values into flex table with id "---subAwardStandAlone:-:budgetLineItems---" by clicking "New" :
-      | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
+      | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
     Then I softly see value "$1,000.00" for title "Award Amount" against the value "Extra Salary" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly see value "$100.00" for title "Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
@@ -1222,7 +1222,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter "SourceError" values from "SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details :
-      | Source is required to save under Overview |
+      | Source is required to save under Overview. |
 
   @66223 @67954 @67925 @67916 @67917 @ErrorMsgForPurposeField @jitendra @PoojaAward
   Scenario: To verify that if Purpose field in plan table is left unfilled in site visit review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation error must be thrown
@@ -1245,7 +1245,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter value "To fulfill pass-through monitoring responsibilities" into field "SourceSiteVisit__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details :
-      | Purpose is required to save under Overview |
+      | Purpose is required to save under Overview. |
 
   @53967 @NoIfAreExpenseDetailRequiredonReimbursements @jitendra @smoke @wip
   Scenario Outline: Verify that If Are Expense Details Required on Reimbursements? field is No then user should see only edit action at Reimbursement Payment request Budget category table.
@@ -1473,7 +1473,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter "InstructionError" values from "SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I see the following messages in the page details :
-      | Instructions for Subrecipient is required to save under Overview |
+      | Instructions for Subrecipient is required to save under Overview.|
 
   @66215 @validateCreatedStatusSV @mahadev @PoojaAward
   Scenario: To verify that after the general information in the modal window of site visit is filled by the award owner the status change to created.
@@ -1528,7 +1528,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter "SourceError" values from "DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I see the following messages in the page details :
-      | Source is required to save under Overview |
+      | Source is required to save under Overview. |
 
   @66410 @validateInstructionFieldInDeskReview  @mahadev @PoojaAward
   Scenario: To verify that if instruction field is left unfilled in Desk review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation message must be thrown
@@ -1548,7 +1548,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter "InstructionError" values from "DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I see the following messages in the page details :
-      | Instructions for Subrecipient is required to save under Overview |
+      | Instructions for Subrecipient is required to save under Overview. |
 
   @68078 @redirectionThresholdCheck @jitendra @smoke @PoojaAward
   Scenario Outline: validate that Budget Redirection threshold is default set to 10% on amendment,For a Grant with No Budget redirection threshold set
@@ -1742,13 +1742,6 @@ Feature: Validate all scenarios of grants and award without background
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
-    And I navigate to "Budget" sub tab
-    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
-    And I wait for "5" seconds
-    When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    And I click modal button "Close"
-    And I refresh the page
     And I navigate to "Budget" sub tab
     When I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
@@ -3167,6 +3160,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     #196576
     When I navigate to "Records of Source User" sub tab
+    And I reset the table
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     #196587
@@ -5045,8 +5039,8 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     And I "Send back" in the approval decision
-    And I refresh the page
     And I wait for "5" seconds
     Then I softly see field "Status" as "Created"
     And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
@@ -7194,7 +7188,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
-    And I click on "Save" in the page details
+
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I click on "Edit" in the page details
@@ -7537,7 +7531,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
-    And I click on "Save" in the page details
+    And I click modal button "Close"
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I click on "Edit" in the page details
@@ -10665,7 +10659,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
-    When I click "Associate" after selection of "Test Focus Area" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
+    When I click "Associate" after selection of "Test Focus Area1" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"

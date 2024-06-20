@@ -1,4 +1,4 @@
-@amendmentRequestsWB @amendmentRequest @grantor-regression @grantor-parallel-regression @regression
+@amendmentRequestsWB @amendmentRequest @grantor-regression @grantor-parallel-regression @regression @AmendmentWBRunForLWC
 Feature: Amendment Request scenarios without background
 
   @196615 @Validateusershouldnotabletoreassignownershiptothenewuserforamendedaward @sprint-12-US-226646 @vaibhav @reassignment @buglogged-240523

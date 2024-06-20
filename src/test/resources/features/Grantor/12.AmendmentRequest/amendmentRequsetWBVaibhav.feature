@@ -1,4 +1,4 @@
-@amendmentRequestsWBVaibhav @amendmentRequests @grantor-regression @grantor-parallel-regression @regression
+@amendmentRequestsWBVaibhav @amendmentRequests @grantor-regression @grantor-parallel-regression @regression @AmendmentWBRunForLWC
 Feature: Amendment Request scenarios without background
 
   @200456 @ValidateKeypersonalchangeAmendmentRequestRejectedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment

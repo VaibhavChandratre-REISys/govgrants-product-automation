@@ -158,6 +158,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
     When I click modal button "Close"
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab

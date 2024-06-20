@@ -92,8 +92,6 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on "Save and Continue" in the page details
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I click on "Edit" in the page details
     When I click on "Save" in the page details
     Then I can see top right button "Submit" in page detail
 
@@ -1171,7 +1169,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
     And I navigate to "Assessment" sub tab
-    And I clear the value from field "fieldQuality_Question_1__c"
+    And I clear the value from field "Quality_Question_1__c"
     And I click on "Save" in the page details
     When I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Submit" in the page details

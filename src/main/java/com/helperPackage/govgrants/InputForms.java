@@ -1133,7 +1133,7 @@ public final class InputForms {
             String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
             By selectList = By.xpath("//div[@data-field_api_name='" + field + "']//ul//li[contains(@class,'listbox__item')]");
             if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, selectList).size() > 1) {
-                By addButtonSelector = By.xpath("//div[@data-field_api_name='" + field + "']//button[@title='Move selection to Chosen']");
+                By addButtonSelector = By.xpath("//div[@data-field_api_name='" + field + "']//button[@title='Move selection to Chosen'] | //div[@data-field_api_name='" + field + "']//button[@title='Move to Chosen']");
                 for (String value : valueList) {
                     I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + field + "']//ul//li[contains(@class,'listbox__item')]//span[text()='" + value + "']"));
                 }
