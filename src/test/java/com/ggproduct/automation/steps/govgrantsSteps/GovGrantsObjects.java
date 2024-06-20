@@ -107,7 +107,7 @@ public final class GovGrantsObjects {
      * click logout to log out
      */
     protected void clickLogOut() {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             govgrants.perform().mainPage().clickLoginDropDown();
             govgrants.perform().mainPage().clickLoginDropDownItems("Log Out");
         } else {
