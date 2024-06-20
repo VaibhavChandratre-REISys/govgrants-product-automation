@@ -264,7 +264,7 @@ public final class PageDetails {
     }
 
     public void clickSubTabsInsideTableViewForSplitScreen(String tabName) {
-        By desiredTab = By.xpath("//div[@class='uiTabBar']//ul//li//a[@title='" + tabName + "']");
+        By desiredTab = By.xpath("//div[@class='uiTabBar']//ul//li//a[@title='" + tabName + "'] | //div[@class='slds-tabs_card']//ul//li//a[text()='" + tabName + "']");
         I.amPerforming().click().withJavaScript(desiredTab);
     }
 
@@ -775,7 +775,7 @@ public final class PageDetails {
     public void clickOnLink(boolean checkTable, String usage, String linkName) {
         if (usage.equalsIgnoreCase("hyperlink")) {
             if (!checkTable) {
-                I.amPerforming().click().withJavaScript(By.xpath("//a[contains(text(),'" + linkName + "')] | //span[contains(text(),'" + linkName + "')] | //a[contains(@href,'" + linkName + "')]"));
+                I.amPerforming().click().withJavaScript(By.xpath("//a[contains(text(),'" + linkName + "')] | //span[contains(text(),'" + linkName + "')] | //a[contains(@href,'" + linkName + "')] | //a//span[@class='" + linkName + "' or text()='" + linkName + "']"));
             } else {
                 I.amPerforming().click().withJavaScript(By.xpath("//td//a[contains(text(),'" + linkName + "')]"));
             }

@@ -1532,29 +1532,14 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @840
+  @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-#    And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA"
-#    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
-#    And I created approved FDM on application "{SavedValue:Automation Runtime Announcement Application Review}"
-#    And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA"
-#    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
-#    When I login to "As a Grantor" app as "PM" user
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-#    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
-#    And I wait for "2" seconds
-#    And I get the "EGMS ID"
-#    And I wait for "10" seconds
-#    When I navigate to "Applications" tab
-#    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-#    When I click toggle button to select "Application Reviews - All"
-#    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:announcementListTableId---" panel
-#    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-#    And I navigate to "Related Log" sub tab
-#    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-#    When I check "{SavedValue:Automation Runtime Announcement Application Review}" boxes in flex table with id "---applicationReview:-:appTableId---"
-#    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
-    And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Formula_By_Applicant"
+    When I login to "As a Grantor" app as "PM" user
+    And I halt execution
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation EXE" for title "User" inside field history table
+    Then I softly see value "4/19/2024 10:41 AM" for title "Date" inside field history table
+    Then I softly see value "Approved" for title "New Value" inside field history table
+#    And I click on back arrow
+    And I halt execution
