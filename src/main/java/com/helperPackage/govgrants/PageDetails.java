@@ -264,7 +264,7 @@ public final class PageDetails {
     }
 
     public void clickSubTabsInsideTableViewForSplitScreen(String tabName) {
-        By desiredTab = By.xpath("//div[@class='uiTabBar']//ul//li//a[@title='" + tabName + "'] | //div[@class='slds-tabs_card']//ul//li//a[text()='" + tabName + "']");
+        By desiredTab = By.xpath("//div[@class='uiTabBar']//ul//li//a[@title='" + tabName + "'] | //div[@class='slds-tabs_card']//ul//li//a[text()='" + tabName + "'] | //div[contains(@class,'forceCommunityTabLayout')]//ul//li//a[text()='" + tabName + "']");
         I.amPerforming().click().withJavaScript(desiredTab);
     }
 
