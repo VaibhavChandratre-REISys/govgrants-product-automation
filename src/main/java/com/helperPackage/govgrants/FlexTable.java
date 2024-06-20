@@ -812,12 +812,13 @@ public final class FlexTable implements FlexTableComponent {
         By entriesDropDown = ByUsing.xpath(
                 "//*[@data-flextablename='" + flexTableId + "']//div//input[@placeholder='Select an Option']");
         WebElement entriesDD = I.amPerforming().getElementReference().of(entriesDropDown);
-        By elementDropDown = By.xpath("//span[text()='Show']/parent::div/following-sibling::div//li[@data-id='" + numberofEntries + "']");
+        By elementDropDown = By.xpath("//span[text()='Show']/parent::div/following-sibling::div//li[@data-id='" + numberofEntries + "'] | //span[normalize-space()='" + numberofEntries + "']");
         try {
             I.amPerforming().click().on(entriesDD);
             I.amPerforming().scroll().onPageToSpecificElement(elementDropDown);
             I.amPerforming().click().on(elementDropDown);
         } catch (Exception e) {
+            I.amPerforming().click().withJavaScript(entriesDD);
             I.amPerforming().click().withJavaScript(elementDropDown);
         }
     }

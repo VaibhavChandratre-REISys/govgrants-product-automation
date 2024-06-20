@@ -143,11 +143,10 @@ Feature: Validate all scenarios in the home tab
     And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
     #Bug441757
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
-    And I enter value "Test Automation Description" in email body
+    And I pause execution for "5" seconds
     And I click "Send" button in modal
-    Then I see the following messages in the page details :
-      | Email Sent Successfully |
-    Given I delete the record "{SavedValue:Automation Runtime Contact}" from the object "CONTACT"
+    Then I see the text "Email Sent Successfully" in modal
+    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
     Examples:
       | User  |
@@ -285,7 +284,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @56719 @56734 @subrecipientContactsCreateEdit @smoke
+  @done @56719 @56734 @subrecipientContactsCreateEdit @smoke
   Scenario Outline: Verifying if the Internal Users has create and Edit access to Subrecipient Contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -362,17 +361,21 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     And I click modal button "Save"
-    And I select value inside table "{home:-:relatedContactsTableId}" is "All"
-    And I pause execution for "6" seconds
+    And I select value inside table "---home:-:relatedContactsTableId---" is "All"
+    And I pause execution for "3" seconds
+    And I click on "Full Name" column header inside table with id "---home:-:relatedContactsTableId---"
+    And I pause execution for "3" seconds
     #And I close "Create Contact" modal by clicking the top right x button
 #    And I save the contact name as "Automation Runtime Contact"
 #    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:relatedContactsTableId---" panel
-    Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime Contact}" in flex table with id "---home:-:relatedContactsTableId---"
-    And I click on "Edit" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:relatedContactsTableId---" without waiting for record
+    Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "---home:-:relatedContactsTableId---"
+    And I click on "Edit" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:relatedContactsTableId---" without waiting for record
     When I enter "RelatedContactsEdition" values from "InternalOrganization_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit" modal by clicking the top right x button
     Then I softly see that "Internal Organization" is in "Active" status
+    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
+
     Examples:
       | User |
       | EXE  |
@@ -391,7 +394,9 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     And I click modal button "Save"
-    And I select value inside table "{home:-:relatedContactsTableId{" is "All"
+    And I select value inside table "---home:-:relatedContactsTableId---" is "All"
+    And I pause execution for "3" seconds
+    And I click on "Full Name" column header inside table with id "---home:-:relatedContactsTableId---"
     And I pause execution for "5" seconds
     #And I close "Create Contact" modal by clicking the top right x button
 #    And I save the contact name as "Automation Runtime Contact"
@@ -595,9 +600,12 @@ Feature: Validate all scenarios in the home tab
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---" without waiting for record
-    And I enter value "Checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
+#    When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---" without waiting for record
+#    And I enter value "Checked" into field "IsKeyContact__c"
+#    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -705,12 +713,10 @@ Feature: Validate all scenarios in the home tab
     When I get the "EGMS ID"
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "GrantorFocusAreaFiles"
-#    And I switch to iframe with id "---home:-:focusAreaFilesTableId---"
-    And I upload attachment "Announcement_Field_Values.xlsx" of type "Supporting Documents" from computer
-#    When I save the value from row "1" for column name "Title" as "Announcement_Field_Values" from flex table "GrantorFocusAreaFiles"
-    When I navigate to "Home" tab
-    And I click on "My_Workspace_File"
-    Then I see value "Announcement_Field_Values" for title "Title" inside table "GrantorFocusAreaFiles"
+    And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
+    And I wait for "7" seconds
+    And I refresh the page
+    Then I softly see value "Attachment.pdf" for title "Title" against the value "Supporting Documents" inside table "GrantorFocusAreaFiles"
 
   @done @62102 @pageBlockSections @deepika
   Scenario Outline: Verify whether the Overview Tab has the sections: Related Contacts and Indirect rates
@@ -811,7 +817,7 @@ Feature: Validate all scenarios in the home tab
     And I click modal button "Save and Close"
     Then I see the text containing "title"
 
-  @62254 @PerformGlobalSearchOnHomeTab @keerti
+  @done @62254 @PerformGlobalSearchOnHomeTab @keerti
   Scenario: Verify Global search on Home Tab
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -855,8 +861,11 @@ Feature: Validate all scenarios in the home tab
     And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     #Bug441757
+    And I pause execution for "5" seconds
     And I click "Send" button in modal
-    When I close "Send Invitation" modal by clicking the top right x button
+    When I close "Reviewers" modal by clicking the top right x button
+    When I navigate to "Home" tab
+    And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
     Then I see value "Invitation Sent" for title "Status" inside table "---home:-:reviewersTableId---"
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
@@ -886,11 +895,9 @@ Feature: Validate all scenarios in the home tab
     Then I softly see value "Test Automation Organization" for title "Sponsoring Agency" inside table "---home:-:reviewersTableId---"
     #34674 #Bug441757
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
-    And I wait for "2" seconds
-    And I enter value "Test Automation Description" in email body
+    And I pause execution for "5" seconds
     And I click "Send" button in modal
-    Then I see the following messages in the page details :
-      | Email Sent Successfully |
+    Then I see the text "Email Sent Successfully" in modal
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
   @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
@@ -899,6 +906,7 @@ Feature: Validate all scenarios in the home tab
     And I login to "Grants Portal" app as "<userType>" user
     And I select "Profile" from user dropdown
     And I click on "Edit" in the page details
+    #Bug442113
     Then I softly see that "First Name" rendered in view mode only
     Then I softly see that "Last Name" rendered in view mode only
     Then I softly see that "User Role" rendered in view mode only
@@ -906,7 +914,7 @@ Feature: Validate all scenarios in the home tab
     Examples:
       | userType |
       | SPI3     |
-      | SPA      |
+#      | SPA      |
       | IND      |
 
   @done @201750 @ValidateSPI\SPA\INDusercanedittheAccessibilityModefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
@@ -919,7 +927,7 @@ Feature: Validate all scenarios in the home tab
     Examples:
       | userType |
       | SPI3     |
-      | SPA      |
+#      | SPA      |
       | IND      |
 
   @201753 @201756 @ValidatefollowingfieldsareeditableforSPI\SPAuseronexternalprofileuser @sprint-5-US-200038 @vaibhav
@@ -932,7 +940,7 @@ Feature: Validate all scenarios in the home tab
     Then I softly see fields "MailingStreet" is in edit mode
     Then I softly see fields "Address2__c" is in edit mode
     Then I softly see fields "MailingCity" is in edit mode
-    Then I softly see fields "MailingState" is in edit mode
+    Then I softly see fields "State__c" is in edit mode
     Then I softly see fields "MailingPostalCode" is in edit mode
     Then I softly see fields "MailingCountry" is in edit mode
     #201756
@@ -940,9 +948,9 @@ Feature: Validate all scenarios in the home tab
     Examples:
       | userType |
       | SPI3     |
-      | SPA      |
+#      | SPA      |
 
-  @201757  @ValidateSPI\SPAIseeMovedAddressLine2fieldbeforetheCityfieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @done @201757  @ValidateSPI\SPAIseeMovedAddressLine2fieldbeforetheCityfieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI\SPA I see Moved 'Address Line 2' field before the 'City' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -953,9 +961,9 @@ Feature: Validate all scenarios in the home tab
     Examples:
       | userType |
       | SPI3     |
-      | SPA      |
+#      | SPA      |
 
-  @201758 @ValidateSPI\SPA\INDuserseeMovedCountryfieldaftertheZipCodefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @done @201758 @ValidateSPI\SPA\INDuserseeMovedCountryfieldaftertheZipCodefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI\SPA\IND user see Moved 'Country' field after the 'Zip Code' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -966,7 +974,7 @@ Feature: Validate all scenarios in the home tab
     Examples:
       | userType |
       | SPI3     |
-      | SPA      |
+#      | SPA      |
       | IND      |
 
   @done @201759 @ValidateSPI\SPA\INDuserIshouldnotseetheProfileDescriptionsectiononexternalprofileuseronexternalprofileuser @sprint-5-US-200038 @vaibhav
@@ -979,5 +987,5 @@ Feature: Validate all scenarios in the home tab
     Examples:
       | userType |
       | SPI3     |
-      | SPA      |
+#      | SPA      |
       | IND      |

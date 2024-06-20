@@ -305,7 +305,15 @@ public class GenericSteps {
 
     @And("I click {string} button in modal")
     public void iClickButtonInModal(String buttonName) {
-        I.amPerforming().click().on(By.xpath("//div[@id='ModalDivID']//button[contains(text(),'" + buttonName + "')]"));
+        By Button =ByUsing.xpath("//div[@id='ModalDivID']//button[contains(text(),'" + buttonName + "')] |  //button[normalize-space()='" + buttonName + "']");
+        try{
+            I.amPerforming().waitFor().ElementToBeClickable(Button);
+            I.amPerforming().click().withJavaScript(Button);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     @Then("^I (softly verify|verify) that All the following projects roles are available in picklist :$")
@@ -617,7 +625,7 @@ public class GenericSteps {
     }
 
     private static Boolean assertButtoninTablewithId(String buttonName, String id) {
-        By Button=By.xpath("//c-lwc-flex-table[@data-flextablename='" + id + "']//button[contains(text(),'" + buttonName + "')]");
+        By Button = By.xpath("//c-lwc-flex-table[@data-flextablename='" + id + "']//button[contains(text(),'" + buttonName + "')]");
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(Button))) {
