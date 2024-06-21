@@ -1031,7 +1031,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I softly see field "Status" as "Published"
 
-  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 @TBExecution
+  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 
   Scenario: Validate the activation of Formula By Applicant Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -1202,7 +1202,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
 #    Then I see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @72346 @applicationReviewHappyPath @ProdSan2 @TBExecution1
+  @72346 @applicationReviewHappyPath @ProdSan2 
   Scenario Outline: Validate the complete review process for an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2569,7 +2569,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept And Close" in the page details
 #    Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72358 @activationOfBudgetPeriodAmendmentRequest @ProdSan2 @TBExecution
+  @72358 @activationOfBudgetPeriodAmendmentRequest @ProdSan2 
   Scenario: Validate the Budget period amendment activation
     And I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -2913,7 +2913,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
 
-  @ScopeOfWorkChangeAmendmentRequest @ProdSan2 @TBExecution
+  @ScopeOfWorkChangeAmendmentRequest @ProdSan2 
   Scenario Outline: Validate end to end flow for scope of work change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     And I login to "As a Grantor" app as "PM" user
@@ -3346,7 +3346,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @CombinationOfSubrecipientBRandKPCandSOW @ProdSan2 @TBExecution
+  @CombinationOfSubrecipientBRandKPCandSOW @ProdSan2 
   Scenario: Validate Combinations of Subrecipient BR and KPC and SOW
     Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation PO user" of type "Formula_By_Applicant"
     When I am on "SUBPORTAL" portal

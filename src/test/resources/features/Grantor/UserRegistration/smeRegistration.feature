@@ -133,46 +133,48 @@ Feature: Validate all scenarios for SME Registration
   Scenario: Validate user is able to see all expected contacts
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
-    When I navigate to "{grantor_sidebar:InternalLink}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
-    When I perform quick search for "{grantee_testData:InternalContacts}" in "{grantor_tableId:InternalContactsTableId}" panel
-    Then I softly see value "{grantee_testData:InternalContacts}" for title "Full Name" inside table "{grantor_tableId:InternalContactsTableId}"
+    And I navigate to "Internal" content inside "Contacts" subheader on left panel
+    When I perform quick search for "Automation PM" in "{grantor_tableId:InternalContactsTableId}" panel
+    Then I softly see value "Automation PM" for title "Name" inside table "{grantor_tableId:InternalContactsTableId}"
     When I navigate to "{grantor_sidebar:SubrecipientsLink}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
-    When I perform quick search for "{grantee_testData:SMEContact}" in "{grantor_tableId:InternalContactsTableId}" panel
-    Then I softly see value "{grantee_testData:SMEContact}" for title "Full Name" inside table "{grantor_tableId:InternalContactsTableId}"
-    When I navigate to "{grantor_sidebar:SMEReviewersLink}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
-    When I perform quick search for "{grantee_testData:SMEReviewerContact}" in "{grantor_tableId:PotentialReviewerContactTableId}" panel
-    Then I softly see value "{grantee_testData:SMEReviewerContact}" for title "Full Name" inside table "{grantor_tableId:PotentialReviewerContactTableId}"
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST}" in "---home:-:subrecipientContactTableId---" panel
+    Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Name" inside table "---home:-:subrecipientContactTableId---"
+    And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
+    When I perform quick search for "robbin Thomos" in "ActiveAccountReviewer" panel
+    Then I softly see value "robbin Thomos" for title "Name" inside table "ActiveAccountReviewer"
 
   @33837 @VerifySystemDisplayAllRelatedTasks @monu
   Scenario: Validate user is able to see all expected contacts
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "{grantor_sidebar:PendingTaskLink}" content inside "{grantor_sidebar:MyTasksLinkName}" subheader on left panel
-    Then I softly can see page block "Pending Tasks (Assigned To Me)"
-    Then I softly can see page block "Pending Tasks (Assigned By Me)"
-    Then I softly see "In Progress" value in flex table id "---grantor_tableId:-:PendingTaskAssignedToMeTableId---"
-    Then I softly see "Not Started" value in flex table id "---grantor_tableId:-:PendingTaskAssignedToMeTableId---"
+    Then I softly see "Pending Tasks (Assigned To Me)" page block displayed
+    Then I softly see "Pending Tasks (Assigned By Me)" page block displayed
+    And I perform quick search for "In Progress" in "---grantor_tableId:-:PendingTaskAssignedToMeTableId---" panel
+    Then I softly see value "In Progress" for title "Status" inside table "---grantor_tableId:-:PendingTaskAssignedToMeTableId---"
+    And I perform quick search for "Not Started" in "---grantor_tableId:-:PendingTaskAssignedToMeTableId---" panel
+    Then I softly see value "Not Started" for title "Status" inside table "---grantor_tableId:-:PendingTaskAssignedToMeTableId---"
     When I navigate to "{grantor_sidebar:CompletedTaskLink}" content inside "{grantor_sidebar:MyTasksLinkName}" subheader on left panel
-    Then I softly can see page block "Completed Tasks (Assigned To Me)"
-    Then I softly can see page block "Completed Tasks (Assigned By Me)"
-    Then I softly see "Completed" value in flex table id "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---"
+    Then I softly see "Completed Tasks (Assigned To Me)" page block displayed
+    Then I softly see "Completed Tasks (Assigned By Me)" page block displayed
+    Then I softly see value "Completed" for title "Status" inside table "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---"
 
   @94345 @validatingEmailNotificationForSMEReviewer @meenakshi
   Scenario: To verify Email notification should be received to SME contact after sending invitation by internal  user
     Given I login to "As a Grantor" app as "PM" user
-    When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
-    When I click on top right button "New" in flex table with id "---home:-:reviewersTableId---"
-    And I enter "Creation" values from "PotentialReviewersContact_Field_Values.xlsx"
-    When I click modal button "Save"
-    And I save the contact name as "Automation Runtime Contact"
-    And I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:reviewersTableId---" panel
-    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
-    And I wait for "2" seconds
-    And I enter value "Test Automation Description" in email body
+    And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
+    And I enter in modal "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+    And I click modal button "Save"
+    And I wait for "4" seconds
+    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
+    When I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I click "Send" button in modal
-    And I checkout to yopmail with mailid "IndividualRegistration@yopmail.com"
-    And I pause execution for "20" seconds
+    And I wait for "2" seconds
+    And I checkout to yopmail with mailid "{SavedValue:uniqueEmailID}"
+    And I pause execution for "200" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
