@@ -1534,7 +1534,8 @@ Feature: Validate all scenarios of every modules flow
 
  @debug @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-   Given I login to "As a Grantor" app as "ADMIN" user
+   When I am on "SUBPORTAL" portal
+   And I login to "Grants Portal" app as "SPI3" user
     And I halt execution
    Then I softly see status in Progress-bar is "Created" and is "dark blue"
    And I halt execution
