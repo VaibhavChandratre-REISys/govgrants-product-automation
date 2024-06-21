@@ -3,14 +3,30 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
 
   Background: To create a Organizational Risk Assessment
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
-    When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
+#    When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SA" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Risk Assessment" sub tab
+    When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    And I wait for "3" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    Given I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Home" tab
+    And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
+    When I click on "View" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:activeOrgTableID---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    When I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
+    And I click on top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    And I wait for "3" seconds
+    When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
 
-  @61970 @61971 @orgRiskAssessmentCreationAndTaskcreatedForSPI @deepika
+  @61970 @61971 @orgRiskAssessmentCreationAndTaskcreatedForSPI @deepika @Debug
   Scenario: Verify Task is generated for Signing Authority to Create Risk Assessment for an Organization and once the pending is created, the user can create the org risk asssesment
     Then I softly see that "Automation Permanent Organization for Risk Assessment" has been added in flextable with Id "---orgRiskAssessment:-:pendingTaskTableId---"
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
@@ -24,16 +40,19 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @61976 @61975 @requestNewAssessmentActiveRA @deepika @smoke
+  @61976 @61975 @requestNewAssessmentActiveRA @deepika @smoke @OrgRiskAssesmetFirst
   Scenario: Validate whether Request New Assessment button is available for Authorized Signatory and  User can view the Active risk asssessment from Organization profile page
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    When I click modal button "Save and Continue"
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     When I click on "Submit" in the page details
+    And I wait for "3" seconds
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
@@ -44,8 +63,10 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
   @61977 @moderateRiskLevelColorChangesToYellow @deepika @wip
   Scenario: Validate the moderate level of Risk Assessment, that changes to Yellow color as per the provided Assessment.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    When I click modal button "Save and Continue"
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -56,16 +77,19 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     Then I see "Risk Level" image as "yellow.png"
 
-  @61982 @61978 @additonOfAttachmentWhenRAISActive @deepika
+  @61982 @61978 @additonOfAttachmentWhenRAISActive @deepika @OrgRiskAssesmetFirst
   Scenario: Validate one the Org RA is Active then there will be no add or Edit button on attachments flextable
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    When I click modal button "Save and Continue"
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I get the "EGMS ID"
     When I click on "Submit" in the page details
+    And I wait for "3" seconds
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
@@ -75,11 +99,13 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:OrganizationRiskAssesmentFilesTableId---"
 
-  @61983 @completedTaskOnceOrgRAIsCreated @deepika
+  @61983 @completedTaskOnceOrgRAIsCreated @deepika @OrgRiskAssesmetFirst
   Scenario: Validate whether SPI user is able to view the Completed task once Org Risk Assessment is Created
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    When I click modal button "Save and Continue"
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -89,14 +115,16 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:completedTaskTableId---" panel
     Then I see value "Automation Permanent Organization for Risk Assessment" for title "EGMS ID" inside table "---orgRiskAssessment:-:completedTaskTableId---"
 
-  @61973 @assessmentFormEdition @deepika
+  @61973 @assessmentFormEdition @deepika @OrgRiskAssesmetFirst
   Scenario: Validate once the pending is created, the spi user can create the org risk asssesment
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    When I click modal button "Save and Continue"
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click on "Save" in the page details
     Then I can see top right button "Submit" in page detail
 
   @61980 @addingAnAttachmentToOrgRA @deepika @buglogged112066
@@ -112,7 +140,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I upload attachment "Attachment.pdf" of type "AGENCY DETAILS" from computer
     Then I softly see "AGENCY DETAILS" has been added in "Organization Risk Assessment Files" flex table
 
-  @62197 @pendingTaskCreatedForGrantor @deepika
+  @62197 @pendingTaskCreatedForGrantor @deepika @OrgRiskAssesmetFirst
   Scenario: Validate whether pending task is created for grantor when Authorized Signatory requested for Revision
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -122,6 +150,8 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I click on "Save" in the page details
     When I get the "EGMS ID"
     When I click on "Submit" in the page details
+    And I wait
+    
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
