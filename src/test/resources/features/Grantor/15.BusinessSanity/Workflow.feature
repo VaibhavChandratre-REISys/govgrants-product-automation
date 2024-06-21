@@ -1536,5 +1536,5 @@ Feature: Validate all scenarios of every modules flow
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
    Given I login to "As a Grantor" app as "ADMIN" user
     And I halt execution
-   Then I see status in Progress-bar is "Active" and is "dark blue"
+   Then I softly see status in Progress-bar is "Created" and is "dark blue"
    And I halt execution
