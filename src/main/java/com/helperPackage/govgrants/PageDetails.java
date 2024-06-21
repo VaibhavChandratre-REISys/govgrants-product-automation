@@ -384,7 +384,8 @@ public final class PageDetails {
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(160, 160, 160)")) {
             trueColor = "grey";
         } else if (I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgba(3, 24, 48, 1")
-                || I.amPerforming().actionToGet().cssProperty(statusElement, "background", false).contains("rgb(1, 68, 134")
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "background", false).contains("rgb(7, 47, 87")
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgb(1, 68, 134")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(1, 68, 134)")) {
             trueColor = "dark blue";
         }

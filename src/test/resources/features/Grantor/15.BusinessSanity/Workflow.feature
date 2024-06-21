@@ -1534,7 +1534,7 @@ Feature: Validate all scenarios of every modules flow
 
  @debug @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I am on "SUBPORTAL" portal
+   Given I login to "As a Grantor" app as "ADMIN" user
     And I halt execution
-    Then I softly see fields "PaymentAddressLine1__c" is not visible
-    And I wait for "5" seconds
+   Then I see status in Progress-bar is "Active" and is "dark blue"
+   And I halt execution
