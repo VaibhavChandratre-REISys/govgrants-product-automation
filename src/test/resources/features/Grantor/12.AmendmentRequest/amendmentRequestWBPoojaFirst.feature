@@ -826,6 +826,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 200                 |
@@ -2120,6 +2121,7 @@ Feature: Amendment Request scenarios without background
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 3            |
+    And I wait for "3" seconds
     Then I softly see that "{SavedValue:EXE Username}" has been added in flextable with Id "---amendment:-:approversTableId---"
     And I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -3597,6 +3599,7 @@ Feature: Amendment Request scenarios without background
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
     When I click on "Activate" in the page details
+    And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "NewSubAwardId"
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3803,6 +3806,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1000                 | 100        | 100            |
@@ -4839,9 +4843,10 @@ Feature: Amendment Request scenarios without background
       | {SavedValue:PM Username} | Step 1            |
     Then I softly see "Saved Successfully!" inside flex table with id "---amendment:-:approversTableId---"
 
-  @150163 @verify1StepApprovalFor-PeriodicRenewal-RnRFunctionality @monu @AmendmentWBPoojaThird
+  @150163 @verify1StepApprovalFor-PeriodicRenewal-RnRFunctionality @monu @AmendmentWBPoojaThird @Debug
   Scenario: Verify user can add one step approver for Periodic Renewal amendment and approve it
-    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "AMENDMENT_REQUEST_BUILDUP_MATCH_YES"
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+#    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "AMENDMENT_REQUEST_BUILDUP_MATCH_YES"
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
