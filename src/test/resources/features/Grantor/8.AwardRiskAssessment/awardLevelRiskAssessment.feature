@@ -3281,7 +3281,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I select "Download as CSV" from parallel lines dropdown of "Subaward Risk Assessments - All"
     Then I verify that "csv" file is downloaded
 
- @debug @65462 @downloadRiskAssessmentInPDF @deepika @skipOnJenkins
+  @65462 @downloadRiskAssessmentInPDF @deepika @skipOnJenkins
   Scenario: Validate whether user can Download the Active Risk Assessment in PDF format from Monitoring Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Monitoring" tab

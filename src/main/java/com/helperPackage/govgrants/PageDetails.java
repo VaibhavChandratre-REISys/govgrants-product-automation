@@ -264,7 +264,7 @@ public final class PageDetails {
     }
 
     public void clickSubTabsInsideTableViewForSplitScreen(String tabName) {
-        By desiredTab = By.xpath("//div[@class='uiTabBar']//ul//li//a[@title='" + tabName + "'] | //div[@class='slds-tabs_card']//ul//li//a[text()='" + tabName + "']");
+        By desiredTab = By.xpath("//div[@class='uiTabBar']//ul//li//a[@title='" + tabName + "'] | //div[@class='slds-tabs_card']//ul//li//a[text()='" + tabName + "'] | //div[contains(@class,'forceCommunityTabLayout')]//ul//li//a[text()='" + tabName + "']");
         I.amPerforming().click().withJavaScript(desiredTab);
     }
 
@@ -383,9 +383,11 @@ public final class PageDetails {
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgb(160, 160, 160")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(160, 160, 160)")) {
             trueColor = "grey";
-        } else if (I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgba(3, 24, 48, 1")
+        } else if (I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgba(7, 47, 87, 1")
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "background", false).contains("rgb(7, 47, 87")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "background", false).contains("rgb(1, 68, 134")
-                || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(1, 68, 134)")) {
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgb(7, 47, 87")
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(7, 47, 87)")) {
             trueColor = "dark blue";
         }
 

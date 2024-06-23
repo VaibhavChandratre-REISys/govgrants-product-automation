@@ -1532,14 +1532,10 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @test
+ @debug @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantor" app as "PM" user
+   When I am on "SUBPORTAL" portal
+   And I login to "Grants Portal" app as "SPI3" user
     And I halt execution
-    And I navigate to "Field Audit" sub tab in split screen
-    And I click on hyperlink containing value "View All"
-    Then I softly see value "Automation EXE" for title "User" inside field history table
-    Then I softly see value "4/19/2024 10:41 AM" for title "Date" inside field history table
-    Then I softly see value "Approved" for title "New Value" inside field history table
-#    And I click on back arrow
-    And I halt execution
+   Then I softly see status in Progress-bar is "Created" and is "dark blue"
+   And I halt execution
