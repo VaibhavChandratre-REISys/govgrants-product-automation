@@ -131,6 +131,11 @@ public final class GovGrantsProductSteps {
         ggProductObjects.assertPageBlockIsNotDisplayed(usage, titleName);
     }
 
+    @Then("^I (see|do not see|softly see|softly do not see) \"([^\"]*)\" page block displayed on modal$")
+    public void iSoftlySeePageBlockDisplayedOnModal(String usage, String titleName) {
+        ggProductObjects.assertPageBlockIsNotDisplayedOnModal(usage, titleName);
+    }
+
     /****** Product Generic Consolidated Steps ***********/
 
     @Description("To complete all the fields from the given sheet in the given excel")

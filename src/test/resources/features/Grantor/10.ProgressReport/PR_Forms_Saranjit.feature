@@ -23,7 +23,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" in flex table with id "---progressReport:-:formTableId---"
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -40,7 +40,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
     And I click on "Save" in the page details
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "View" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---"
     And I switch to tab number "1"
     #Bug423851
@@ -76,7 +76,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "Preview" against "Federal Financial Report - SF-425" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Federal Financial Report - SF-425" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Federal Financial Report - SF-425" in flex table with id "---progressReport:-:formTableId---"
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---"
     And I pause execution for "4" seconds
     And I switch to tab number "1"
@@ -2057,7 +2057,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
 #    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "2"
     And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
@@ -2082,7 +2082,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
 #    And I select value inside table "---progressReport:-:formTableId---" is "All"
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -2121,7 +2121,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Tangible Personal Property Report - SF-428" in flex table with id "---progressReport:-:formTableId---"
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -2366,7 +2366,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "Preview" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "View" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Tangible Personal Property Report - Annual Report - SF-428-A" in flex table with id "---progressReport:-:formTableId---"
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---"
     And I wait for "3" seconds
     And I switch to tab number "2"
