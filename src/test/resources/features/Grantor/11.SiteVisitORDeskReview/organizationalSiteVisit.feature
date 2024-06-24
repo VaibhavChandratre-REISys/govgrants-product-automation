@@ -2,56 +2,55 @@
 Feature: Validate all scenarios in Organizational Site Visit
 
   Background: Creation of Organizational Site Visit
-#    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Site Visit" and properties "default"
-#    Given I am on "SUBPORTAL" portal
-#    When I login to "Grants Portal" app as "SPI3" user
-#    And I navigate to "Opportunities" tab
-#    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-#    When I click toggle button to select "Not Yet Qualified Opportunities - All"
-#    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Site Visit}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-#    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Site Visit}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
-#    When I click on "Qualify" in the page details
-#    And I pause execution for "3" seconds
-#    When I click on "Create Application" in the page details
-#    And I wait for "3" seconds
-#    And I click modal button "Save and Continue"
-#    And I pause execution for "3" seconds
-#    And I enter "Edition" values from "Application_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    And I navigate to "Budget" sub tab
-#    Given I expand nested table containing column value "BP01"
-#    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
-#      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-#      | Construction  | 1000   | 100        | 100            | 100            |
-#    When I navigate to "Proposal" sub tab
-#    When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
-#      | EGMS ID                  | Target |
-#      | Automation Permanent KPI | 10     |
-#    And I navigate to "Forms and Files" sub tab
-#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-#    And I switch to tab number "1"
-#    And I pause execution for "3" seconds
-#    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-#    And I click on "Save" in the page details
-#    And I pause execution for "3" seconds
-#    And I close the tab
-#    And I refresh the page
-#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-#    And I switch to tab number "1"
-#    And I pause execution for "3" seconds
-#    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-#    And I click on "Save" in the page details
-#    And I pause execution for "3" seconds
-#    And I close the tab
-#    And I refresh the page
-#    When I navigate to "Overview" sub tab
-#    And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
-#      | Name                       | Project Role             | Is Key Contact |
-#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
-#    When I click on "Submit Application" in the page details
-#    And I pause execution for "3" seconds
-#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    Given I login to "As a Grantor" app as "PM" user
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Site Visit" and properties "default"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Site Visit}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Site Visit}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
+    When I click on "Qualify" in the page details
+    And I pause execution for "3" seconds
+    When I click on "Create Application" in the page details
+    And I wait for "3" seconds
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
+    And I enter "Edition" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 1000   | 100        | 100            | 100            |
+    When I navigate to "Proposal" sub tab
+    When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
+      | EGMS ID                  | Target |
+      | Automation Permanent KPI | 10     |
+    And I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
+    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I pause execution for "3" seconds
+    And I close the tab
+    And I refresh the page
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I switch to tab number "1"
+    And I pause execution for "3" seconds
+    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I pause execution for "3" seconds
+    And I close the tab
+    And I refresh the page
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    When I click on "Submit Application" in the page details
+    And I pause execution for "3" seconds
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -968,15 +967,15 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I see the following messages in the page details :
       | Reports and Outcomes Tab - Complete all data in the form. |
 
-  @ch2 @56005 @uploadsupportingDocumentChecklistFromWorkSpace @deepika
+  @56005 @uploadsupportingDocumentChecklistFromWorkSpace @deepika
   Scenario: User will be able to review the supporting document checklist submitted by the subrecipient
     When I navigate to "Files" sub tab
     And I click on "Upload Template" icon for "Automation" inside flex table with id "---orgRiskAssessment:-:orgriskSupportingDocTableId---" with wait for record
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I click modal button "Close"
     #Bug429276
-    And I click on Link containing value "View" in flex table id "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
-#    And I click in table hyperlink containing value "View"
+    And I click on hyperlink against "Automation" in table "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
+    And I download the file
     Then I softly see "A Simple PDF File " on page "1" of "govgrants" pdf file
 
   @61398 @56044 @submittingForApprovalFieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByProgramApprover @keerti @FieldHistoryExclude

@@ -634,4 +634,8 @@ public class GenericSteps {
         }
         return flag;
     }
+        @And("I click on hyperlink against {string} in table {string}")
+    public void iClickOnHyperlinkAgainstInTable(String value, String id) {
+        grantorProjectManager.clickHyperLinkAgainstValueinTable(value,id);
+    }
 }

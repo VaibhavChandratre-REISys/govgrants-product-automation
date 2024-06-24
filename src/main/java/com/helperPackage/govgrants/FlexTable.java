@@ -1197,6 +1197,7 @@ public final class FlexTable implements FlexTableComponent {
         I.amPerforming().click().on(By.xpath("//*[@id='" + tableId + "']//a[contains(text(),'" + linkText + "')]|//*[@id='" + tableId + "']//span[contains(text(),'" + linkText + "')]"));
     }
 
+
     /**
      * To click on the top right button of a flex table based on the flex table id without processing
      *

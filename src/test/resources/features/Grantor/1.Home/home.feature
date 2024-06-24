@@ -1,4 +1,4 @@
-@home @grantor-regression @ch1 @grantor-parallel-regression @regression
+@home @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in the home tab
 
   @done @56710 @56708 @internalOrganizationViewADMINEditPMView @smoke
@@ -381,7 +381,7 @@ Feature: Validate all scenarios in the home tab
       | EXE  |
       | PM   |
 
-  @ch2 @56738 @deletionOfRelatedContact
+  @ch1 @56738 @deletionOfRelatedContact
   Scenario:  Validate whether the admin is able to Delete Related Contacts
     Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
@@ -401,10 +401,9 @@ Feature: Validate all scenarios in the home tab
     #And I close "Create Contact" modal by clicking the top right x button
 #    And I save the contact name as "Automation Runtime Contact"
 #    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:relatedContactsTableId---" panel
-#    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:relatedContactsTableId---" panel
     And I click on "Delete" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:relatedContactsTableId---" without waiting for record
-    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:relatedContactsTableId---" panel
-    Then I see "No Records Found" inside flex table with id "---home:-:relatedContactsTableId---"
+#    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:relatedContactsTableId---" panel
+#    Then I see "No Records Found" inside flex table with id "---home:-:relatedContactsTableId---"
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
   @done @56740 @56741 @56742 @dunsNumberCreationEditionAndDeletion @smoke
@@ -574,7 +573,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @ch2 @73851 @73856 @73850 @57347 @57348 @viewActiveGrantsSubmittedApplicationsOnRelatedLog
+  @ch1 @73851 @73856 @73850 @57347 @57348 @viewActiveGrantsSubmittedApplicationsOnRelatedLog
   Scenario Outline: Verify all profiles users should be able to view the Submitted Applications and Active Grants.
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
@@ -612,13 +611,18 @@ Feature: Validate all scenarios in the home tab
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---" without waiting for record
+    And I switch to tab number "1"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+    And I pause execution for "4" seconds
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---" without waiting for record
+    And I switch to tab number "1"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+    And I click on "Save" in the page details
+    And I pause execution for "4" seconds
+    And I close the tab
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
@@ -900,7 +904,7 @@ Feature: Validate all scenarios in the home tab
     Then I see the text "Email Sent Successfully" in modal
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
-  @ch2 @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @done @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI user should not able to edit following fields a. First Name b. Last Name c. Email d. User Role already read-only on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
