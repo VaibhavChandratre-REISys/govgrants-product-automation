@@ -133,11 +133,15 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
   @61980 @addingAnAttachmentToOrgRA @deepika @buglogged112066 @OrgRiskRun
   Scenario: Validate whether SPI user can Add an attachment to Risk Assessment
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
+    And I refresh the page
+    And I navigate to "Risk Assessment" sub tab
+    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click on "Save and Continue" in the page details
+    When I click modal button "Save and Continue"
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentFileTableId---"
     And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
