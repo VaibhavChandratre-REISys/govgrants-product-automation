@@ -2096,7 +2096,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
     When I enter in modal "SF428A_Federal_Property" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save"
-    And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1.a Individual item information" from computer
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
@@ -2374,12 +2373,11 @@ Feature: Validate scenarios in Progress Report Forms
 #    Then I softly see the text containing "OMB Number: 4040-0018"
 #    Then I see the page contains text " Expiration Date: 11/30/2024"
     And I enter "SF428A_Form" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
+    And I click on "Save" in the page details
     And I wait for "2" seconds
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
     When I enter in modal "SF428A_Federal_Property" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save"
-    And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1.a Individual item information" from computer
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
@@ -2391,7 +2389,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly can see top right button "Edit" in page detail
 #    Then I softly can see top right button "Back" in page detail
     And I wait for "7" seconds
-    And I click on "Validate" in the split screen page details
+    And I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
@@ -2958,7 +2956,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
-    And I switch to parent tab
+    And I close the tab
     #Fill SF428-A Form
     And I click on "View" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -2970,7 +2968,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
     When I enter in modal "SF428A_Federal_Property" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save"
-    And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1.a Individual item information" from computer
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"

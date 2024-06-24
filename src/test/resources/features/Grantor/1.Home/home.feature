@@ -381,7 +381,7 @@ Feature: Validate all scenarios in the home tab
       | EXE  |
       | PM   |
 
-  @ch1 @56738 @deletionOfRelatedContact
+  @56738 @deletionOfRelatedContact
   Scenario:  Validate whether the admin is able to Delete Related Contacts
     Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
@@ -404,7 +404,6 @@ Feature: Validate all scenarios in the home tab
     And I click on "Delete" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:relatedContactsTableId---" without waiting for record
 #    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:relatedContactsTableId---" panel
 #    Then I see "No Records Found" inside flex table with id "---home:-:relatedContactsTableId---"
-    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
   @done @56740 @56741 @56742 @dunsNumberCreationEditionAndDeletion @smoke
   Scenario: Validate whether ADMIN and DA users can Create, Edit and delete the DUNS Number
@@ -619,7 +618,6 @@ Feature: Validate all scenarios in the home tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---" without waiting for record
     And I switch to tab number "1"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
     And I click on "Save" in the page details
     And I pause execution for "4" seconds
     And I close the tab
