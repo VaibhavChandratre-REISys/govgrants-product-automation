@@ -260,7 +260,7 @@ public final class FlexTable implements FlexTableComponent {
         boolean statusElement = I.amPerforming().getElementReference().of(By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")).getAttribute("icon-name").contains("down");
         try {
             if (statusElement) {
-                WebElement collapseElement = I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")));
+                WebElement collapseElement =  I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")));
                 I.amPerforming().click().withJavaScript(collapseElement);
             }
         } catch (Exception ee) {
@@ -814,6 +814,7 @@ public final class FlexTable implements FlexTableComponent {
         WebElement entriesDD = I.amPerforming().getElementReference().of(entriesDropDown);
         By elementDropDown = By.xpath("//span[text()='Show']/parent::div/following-sibling::div//li[@data-id='" + numberofEntries + "'] | //span[normalize-space()='" + numberofEntries + "']");
         try {
+            I.amPerforming().scroll().onPageToSpecificElement(entriesDropDown);
             I.amPerforming().click().on(entriesDD);
             I.amPerforming().scroll().onPageToSpecificElement(elementDropDown);
             I.amPerforming().click().on(elementDropDown);

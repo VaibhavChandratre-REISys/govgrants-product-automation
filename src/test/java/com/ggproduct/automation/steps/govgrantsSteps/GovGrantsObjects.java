@@ -607,4 +607,21 @@ public final class GovGrantsObjects {
     public void backNavigation() {
         I.amPerforming().browserOperationsTo().navigateBack();
     }
+
+    public void toCheckValueForTitleInsideFieldHistoryTable(boolean isSoftly,String rowValue, String headerName) {
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(isFileHistoryDisplayedInsidetable(rowValue,headerName)).isTrue();
+        } else {
+            Assert.assertTrue(isFileHistoryDisplayedInsidetable(rowValue,headerName));
+        }
+    }
+
+    public boolean isFileHistoryDisplayedInsidetable(String rowValue, String headerName) {
+        Boolean flag = false;
+        try {
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//table//tr//th[@data-label='" + headerName + "']//span[@title='" + rowValue + "' or text()='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//*[text()='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//a[@title='" + rowValue + "']"));
+        } catch (Exception e) {
+        }
+        return false;
+    }
 }

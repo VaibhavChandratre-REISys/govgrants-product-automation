@@ -1532,13 +1532,10 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug
+ @debug @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantor" app as "PM" user
+   When I am on "SUBPORTAL" portal
+   And I login to "Grants Portal" app as "SPI3" user
     And I halt execution
-    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
-    And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
-      | Title                           | Allocation Amount |
-      | Automation Permanent Focus Area | 1000              |
-    And I halt execution
+   Then I softly see status in Progress-bar is "Created" and is "dark blue"
+   And I halt execution

@@ -3287,7 +3287,7 @@ public final class GovGrantsAssertionObjects {
      * @author meenakshi.jha
      */
     public void enterValueIntoFieldAtOldForms(String enterValue, String labelName) {
-        By getField = ByUsing.xpath("//span[text()='" + labelName + "']/ancestor::div/following-sibling::div//input");
+        By getField = ByUsing.xpath("//label[normalize-space(text())='" + labelName + "']/..//input");
         I.amPerforming().textInput().toClear(getField);
         I.amPerforming().textInput().in(getField, enterValue);
     }

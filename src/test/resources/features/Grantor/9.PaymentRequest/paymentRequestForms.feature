@@ -1090,7 +1090,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Application Report" for title "Report Type" inside table "---applicationReview:-:allFormsTableId---"
     Then I softly see value "Program Application Form" for title "Form Name" inside table "---applicationReview:-:allFormsTableId---"
     Then I softly see value "Application Report" for title "Report Type" inside table "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"

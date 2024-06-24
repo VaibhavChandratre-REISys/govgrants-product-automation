@@ -773,7 +773,7 @@ public class InternalOrganizationPage extends GranteeProjectManager {
      * validate if fields is not visible at page details
      */
     private boolean isFieldsVisibleAtPAgeDetails(String fieldApiName) {
-        By fieldsAtPage = By.xpath("//div[@id='" + fieldApiName + "']/ancestor::div[contains(@class,'textFieldWrapFlex')]/div[contains(@class,'textFieldWrap') and contains(@style,'none')]");
+        By fieldsAtPage = By.xpath("//div[@data-field_api_name='" + fieldApiName + "' and @class='slds-hide']");
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(fieldsAtPage)) {

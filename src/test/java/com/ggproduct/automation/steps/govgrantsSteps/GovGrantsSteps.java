@@ -1009,9 +1009,9 @@ public final class GovGrantsSteps {
         govgrants.perform().registration().clickOnTabName(tabName);
     }
 
-    @When("^I begin \"([^\"]*)\" registration$")
-    public void startRegistration(String officeType) {
-        govgrants.perform().registration().beginRegistration(officeType);
+    @When("^I begin \"([^\"]*)\" registration as \"([^\"]*)\"$")
+    public void startRegistration(String officeType, String userType) {
+        govgrants.perform().registration().beginRegistration(officeType,userType);
     }
 
     @And("^I click on \"([^\"]*)\" button$")
@@ -1150,5 +1150,10 @@ public final class GovGrantsSteps {
     @And("I click on advance filter of table id {string} for LWC")
     public void iClickOnAdvanceFilterOfTableIdForLWC(String tableId) {
         ggObjects.performClickOnAdvanceFilterWithTableIdForLWC(tableId);
+    }
+
+    @Then("I (softly see|see) value \"([^\"]*)\" for title \"([^\"]*)\" inside field history table$")
+    public void iSoftlySeeValueForTitleInsideFieldHistoryTable(String usage, String rowValue, String headerName) {
+        ggObjects.toCheckValueForTitleInsideFieldHistoryTable(usage.contains("softly"),rowValue,headerName);
     }
 }

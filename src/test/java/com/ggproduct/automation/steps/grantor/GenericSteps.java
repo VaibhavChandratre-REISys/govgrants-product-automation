@@ -313,7 +313,6 @@ public class GenericSteps {
         catch(Exception e){
             e.printStackTrace();
         }
-
     }
 
     @Then("^I (softly verify|verify) that All the following projects roles are available in picklist :$")

@@ -242,6 +242,18 @@ public final class GovGrantsProductObjects {
         }
     }
 
+    public void assertPageBlockIsNotDisplayedOnModal(String usage, String titleName) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isPageBlockTitleDisplayedOnModal(titleName));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isPageBlockTitleDisplayedOnModal(titleName));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isPageBlockTitleDisplayedOnModal(titleName)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isPageBlockTitleDisplayedOnModal(titleName)).isFalse();
+        }
+    }
+
     /**
      * @param titleName
      * @return true if page block title is displayed
@@ -257,6 +269,18 @@ public final class GovGrantsProductObjects {
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-page-block-section//span[contains(@class,'text-heading') and normalize-space(text())='" + titleName + "'] | //c-page-block-section//span[normalize-space(text())='" + titleName + "'] | //c-lwc-flex-table//span[contains(text(),'" + titleName + "')] | //c-file-upload//a[contains(text(),'" + titleName + "')]"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
+
+    private boolean isPageBlockTitleDisplayedOnModal(String titleName) {
+        titleName = titleName.trim();
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@class='slds-modal__container']//c-page-block-section//span[contains(@class,'text-heading') and normalize-space(text())='" + titleName + "'] | //div[@class='slds-modal__container']//c-page-block-section//span[normalize-space(text())='" + titleName + "'] | //div[@class='slds-modal__container']//c-lwc-flex-table//span[contains(text(),'" + titleName + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {
@@ -665,7 +689,7 @@ public final class GovGrantsProductObjects {
     }
 
     public void selectDropDownOptions(String option) {
-        I.amPerforming().click().on(By.xpath("//lightning-combobox//button[@aria-label='Select Module']"));
+        I.amPerforming().click().on(By.xpath("//lightning-combobox//button[@aria-label='Select Module'] | //button[contains(@id,'combobox-button')]"));
         I.amPerforming().click().on(By.xpath("//div[@role='listbox']//lightning-base-combobox-item//span[@title='" + option + "']"));
     }
 
