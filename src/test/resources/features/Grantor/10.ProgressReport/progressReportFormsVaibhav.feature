@@ -826,7 +826,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @282676 @288908 @ValidateSF429eSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF429form @sprint-26-US-282688 @vaibhav @Forms
+  @282676 @288908 @ValidateSF429eSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF429form @sprint-26-US-282688 @vaibhav @Forms @TBExecution
   Scenario: Validate SF429 SPI user can able to save & validate form after entering correct & valid data on all fields present on SF-429 form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -982,7 +982,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
-  @282826 @288910 @ValidateSF429ASPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldpresentonSF429Aform @sprint-26-US-282688 @vaibhav @Forms
+  @282826 @288910 @ValidateSF429ASPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldpresentonSF429Aform @sprint-26-US-282688 @vaibhav @Forms @TBExecution
   Scenario: Validate SF429A SPI user can able to save & validate form after entering correct & valid data on all fields present on SF429A form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1143,7 +1143,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Adding file is required in "Files section" with classification "NHPA", if "Yes" option in "14k" is checked.                                  |
       | Adding file is required in "Files section", if "Yes" option in "15" checked.                                                                 |
 
-  @282918 @288917 @ValidateSF429BSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF429Bform @sprint-26-US-282693 @vaibhav @Forms
+  @282918 @288917 @ValidateSF429BSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF429Bform @sprint-26-US-282693 @vaibhav @Forms @TBExecution
   Scenario: Validate SF429B SPI user can able to save & validate form after entering correct & valid data on all fields present on SF429B form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1317,7 +1317,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Federal Share Percentage must be equal to or less than 100%.     |
       | Non-Federal Share Percentage must be equal to or less than 100%. |
 
-  @282930 @288918 @ValidateSF429CSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF429Cform @sprint-26-US-282693 @vaibhav @Forms
+  @282930 @288918 @ValidateSF429CSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF429Cform @sprint-26-US-282693 @vaibhav @Forms @TBExecution
   Scenario: Validate SF429C SPI user can able to save & validate form after entering correct & valid data on all fields present on SF-429C form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1490,7 +1490,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Federal Share Percentage must be equal to or less than 100%.     |
       | Non-Federal Share Percentage must be equal to or less than 100%. |
 
-  @282701 @298878 @ValidateSF429SPIusercannotabletosaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF429form @sprint-26-US-282688 @vaibhav @Forms
+  @282701 @298878 @ValidateSF429SPIusercannotabletosaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF429form @sprint-26-US-282688 @vaibhav @Forms @TBExecution
   Scenario: Validate SF429 SPI user cannot able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF429 form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1599,7 +1599,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @298928 @298929 @282025 @ValidateSF429thatuserwillseeAttachmentsSectionAttachmentABCcheckbox @sprint-26-US-282688 @vaibhav @Forms
+  @298928 @298929 @282025 @ValidateSF429thatuserwillseeAttachmentsSectionAttachmentABCcheckbox @sprint-26-US-282688 @vaibhav @Forms @TBExecution
   Scenario: Validate SF 429 that user will see Attachments Section-Attachment A,B,C check box
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1771,7 +1771,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Certify the Real Property Status Report (Cover Page)-SF-429 by checking the Acknowledgment Box before submitting to Grantor. |
 
-  @288253 @288898 @ValidateSF271SPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF271form @sprint-1-US-282698 @vaibhav @Forms
+  @288253 @288898 @ValidateSF271SPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF271form @sprint-1-US-282698 @vaibhav @Forms @TBExecution
   Scenario: Validate SF271 SPI user can able to save & validate form after entering correct & valid data on all fields present on SF271 form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2785,7 +2785,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "Active" for title "Status" against the value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside table "---program:-:previewPackageTableId---"
     Then I softly do not see "Is Available" in flex table header "---program:-:previewPackageTableId---"
 
-  @340112 @ValidateSF429AthatUsershouldnotbeabletoenterfromdategreaterthanTodate @sprint-12-US-328869
+  @340112 @ValidateSF429AthatUsershouldnotbeabletoenterfromdategreaterthanTodate @sprint-12-US-328869 @TBExecution
   Scenario: Validate SF 429A that User should not be able to enter from date greater than To date
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2839,7 +2839,7 @@ Feature: Validate scenarios in Progress Report Forms
       | From date cannot be after To date in the "Period and type of Federal Interest" section.  |
       | To date cannot be before From date in the "Period and type of Federal Interest" section. |
 
-  @329629 @Validateusershouldabletosubmitandapprovedprogressreportwithoutfillingdatainanyfieldinall13forms @sprint-11-US-328863 @vaibhav @Forms
+  @329629 @Validateusershouldabletosubmitandapprovedprogressreportwithoutfillingdatainanyfieldinall13forms @sprint-11-US-328863 @vaibhav @Forms @TBExecution
   Scenario: Validate user should able to submit and approved progress report without filling data in any field in all 13 forms
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2954,7 +2954,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Please enter Zip code in the Zip + 4 codes format (e.g. 12345-1234) in the 'Zip / Postal code' field. |
 
-  @339610 @Validateusershouldbeabletosubmitandapprovedprogressreportwithfillingalldataonall13forms @sprint-12-US-328869 @vaibhav @Forms  @EndToEndFlow
+  @339610 @Validateusershouldbeabletosubmitandapprovedprogressreportwithfillingalldataonall13forms @sprint-12-US-328869 @vaibhav @Forms  @EndToEndFlow @TBExecution
   Scenario: Validate user should be able to submit and approved progress report with filling all data on all 13 forms
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"

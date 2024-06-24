@@ -312,7 +312,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
 
-  @236036  @sprint-12-US-234322 @hitesh @Notes
+  @236036  @sprint-12-US-234322 @hitesh @Notes @TBExecution
   Scenario: Verify that <Admin > Can not Add Notes In Progress report Record ,when record  is in Created state And Can only /Edit /Delete his own notes
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation ADMIN user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1082,7 +1082,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Delete" icon for "Notes Record3" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record3" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
 
-  @236187  @sprint-12-US-234322 @hitesh @Notes @ProgressFailedScenarios
+  @236187  @sprint-12-US-234322 @hitesh @Notes @ProgressFailedScenarios @TBExecution
   Scenario:Verify that <SPI> User cannot add notes in Progress report record in Force closed states and edit /delete only his own notes
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1329,7 +1329,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
 
-  @238029 @VerifythatSPAUsercannotaddnotesinProgressreportrecordinSubmittedforapprovalstatesandeditdeleteonlyhisownnotes @sprint-12-US-234322 @hitesh @Notes
+  @238029 @VerifythatSPAUsercannotaddnotesinProgressreportrecordinSubmittedforapprovalstatesandeditdeleteonlyhisownnotes @sprint-12-US-234322 @hitesh @Notes @TBExecution
   Scenario:VerifythatSPAUsercannotaddnotesinProgressreportrecordinSubmittedforapprovalstatesandeditdeleteonlyhisownnotes
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation ADMIN user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"

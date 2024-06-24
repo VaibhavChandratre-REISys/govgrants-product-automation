@@ -932,7 +932,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @59283 @validateSubrecipientDocumentLinkFieldValueIsNotApplicableWhenOptional @mahadev
+  @59283 @validateSubrecipientDocumentLinkFieldValueIsNotApplicableWhenOptional @mahadev @TBExecution
   Scenario Outline: Validate by default Template Link field value is Not Applicable at Progress report if template is not uploaded by award owner at Grant
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -1085,7 +1085,7 @@ Feature: Validate scenarios in Progress Report without background
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I wait for "3" seconds
     Then I see the following messages in the page details contains:
-      | Attachment saved successfully |
+      | Saved Successfully! |
     Examples:
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
