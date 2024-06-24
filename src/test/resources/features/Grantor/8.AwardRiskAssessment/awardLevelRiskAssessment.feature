@@ -4996,7 +4996,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @hitRun @142086 @142072 @VerifyInheritatedApproverAtRiskAssessmentFromAward-RnRFunctionality @monu @buglogged-175563
+  @142086 @142072 @VerifyInheritatedApproverAtRiskAssessmentFromAward-RnRFunctionality @monu @buglogged-175563
   Scenario Outline: Verify approvers from sub award are inherited to subaward risk assessment
   |Validate the columns and table name in the Risk Assessment approver Section|
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -5093,7 +5093,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @hitRun @142063 @Verify2StepApprovalAtRiskAssessmentFromAward-RnRFuntionality @monu
+  @142063 @Verify2StepApprovalAtRiskAssessmentFromAward-RnRFuntionality @monu
   Scenario Outline: Validate user can defined 2 step approval for Risk Assessment on Award
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -5189,6 +5189,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Save" in the page details
     And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I wait for "5" seconds
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
@@ -5670,7 +5671,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
 
-  @198632 @ValidateEXEprofileuserasRA1ownershouldnotgetaffectedwhenownershipofGrantistransferredfromEXE1toEXE2whichisinCreatedstatusaftercreatingtheRAonthataward @sprint-12-US-226646 @vaibhav @reassignment
+  @hitRun @198632 @ValidateEXEprofileuserasRA1ownershouldnotgetaffectedwhenownershipofGrantistransferredfromEXE1toEXE2whichisinCreatedstatusaftercreatingtheRAonthataward @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate EXE profile user as RA1 owner should not get affected when ownership of Grant is transferred from EXE1 to EXE2 which is in 'Created' status after creating the RA on that award
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -5754,7 +5755,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation EXE" for title "Name" inside table "---riskassessment:-:riskAssOwnerTableId---"
 
-  @hitRun @200365 @ValidateFieldHistorywithRespecttoRiskAssessmentisupdatedforcorrespondingawardwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @200365 @ValidateFieldHistorywithRespecttoRiskAssessmentisupdatedforcorrespondingawardwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Field History with Respect to Risk Assessment is updated for corresponding award with respect to owner ship transfer of a Active Risk Assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5824,7 +5825,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Automation PM1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
 
-  @hitRun @198628 @ValidatePMprofileusercansendbacktheawardriskassessmentforstep2approvalswhenownershipistransferredforaRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @198628 @ValidatePMprofileusercansendbacktheawardriskassessmentforstep2approvalswhenownershipistransferredforaRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PM profile user can send back the award risk assessment for step 2 approvals when ownership is transferred for a RA which is in Submitted for approval status
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab

@@ -14072,7 +14072,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitment3"
     Then I softly see value "{SavedValue:TotalCommitment1}" is "Equals to" the value "{SavedValue:TotalCommitment3}"
 
-   @hitTemp1 @274169 @VerifyPOSPAusercanseeSpentfieldunderPaymentSummarysectiononversion2AwardisinPendingActivationstatepostBPCAR&valuecopiedfromSpentfieldonversion1AwardonARiscreatedifFANo @sprint-23-US-273843 @hitesh @Allocation
+   @274169 @VerifyPOSPAusercanseeSpentfieldunderPaymentSummarysectiononversion2AwardisinPendingActivationstatepostBPCAR&valuecopiedfromSpentfieldonversion1AwardonARiscreatedifFANo @sprint-23-US-273843 @hitesh @Allocation
   Scenario: Verify PO/SPA user can see Spent field under Payment Summary section on version 2 Award is in Pending Activation state post BPC AR & value copied from Spent field on version 1 Award on AR is created if (FA=No)
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -14305,7 +14305,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Save" in the page details
     And I click on top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---amendment:-:projectAreasTableId---"
-    And I click modal button "Close"
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---amendment:-:projectAreasTableId---"
     When I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---amendment:-:projectAreasTableId---" without waiting for record
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---amendment:-:projectAreasTableId---"
@@ -14642,6 +14641,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "3800" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate1"
     Then I softly see value "{SavedValue:updatedBudgetPeriodDate}" is "less than" the value "{SavedValue:updatedBudgetPeriodDate1}"
     And I navigate to "Responsibilities" sub tab
