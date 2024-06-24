@@ -151,7 +151,7 @@ Feature: Validate all registration related scenarios
 
   @82030 @verifyEmailNotificationForOrganizationRegistration-Organization @monu @wip
   Scenario:Verify user should be able to see email notificatio after queued email is approved
-    Given I begin "Organization" registration
+    Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
