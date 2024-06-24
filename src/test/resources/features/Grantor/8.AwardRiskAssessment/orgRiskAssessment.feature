@@ -39,7 +39,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @61976 @61975 @requestNewAssessmentActiveRA @deepika @smoke @OrgRiskAssesmetFirst
+  @61976 @61975 @requestNewAssessmentActiveRA @deepika @smoke @OrgRiskAssesmetFirst2
   Scenario: Validate whether Request New Assessment button is available for Authorized Signatory and  User can view the Active risk asssessment from Organization profile page
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Risk Assessment" sub tab
@@ -76,7 +76,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     Then I see "Risk Level" image as "yellow.png"
 
-  @61982 @61978 @additonOfAttachmentWhenRAISActive @deepika @OrgRiskAssesmetFirst
+  @61982 @61978 @additonOfAttachmentWhenRAISActive @deepika @OrgRiskAssesmetFirst2
   Scenario: Validate one the Org RA is Active then there will be no add or Edit button on attachments flextable
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Risk Assessment" sub tab
@@ -149,8 +149,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I click on "Save" in the page details
     When I get the "EGMS ID"
     When I click on "Submit" in the page details
-    And I wait
-    
+    And I wait for "3" seconds
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
