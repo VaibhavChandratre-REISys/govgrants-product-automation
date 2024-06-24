@@ -2059,7 +2059,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "2" seconds
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "2"
+    And I switch to tab number "1"
     And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
@@ -2369,7 +2369,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---"
     And I wait for "3" seconds
-    And I switch to tab number "2"
+    And I switch to tab number "1"
     And I wait for "3" seconds
 #    Then I softly see the text containing "OMB Number: 4040-0018"
 #    Then I see the page contains text " Expiration Date: 11/30/2024"
