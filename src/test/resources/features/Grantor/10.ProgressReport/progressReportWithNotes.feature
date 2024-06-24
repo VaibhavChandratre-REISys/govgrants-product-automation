@@ -1159,8 +1159,8 @@ Feature: Validate scenarios in Progress Report Notes
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I refresh the page
     When I click on "Override" in the page details
+    And I wait for "2" seconds
     When I click on "Submit for Approval" in the page details
-    And I refresh the page
     And I wait for "3" seconds
     When I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -1343,7 +1343,6 @@ Feature: Validate scenarios in Progress Report Notes
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -1360,7 +1359,6 @@ Feature: Validate scenarios in Progress Report Notes
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
-    And I refresh the page
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab

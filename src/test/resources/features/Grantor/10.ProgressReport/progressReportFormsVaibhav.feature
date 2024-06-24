@@ -858,7 +858,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     And I enter "SF429A_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-#    And I wait for "2" seconds
+    And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I refresh the page
@@ -1017,7 +1017,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     And I enter "SF429A_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-#    And I wait for "2" seconds
+    And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I refresh the page
@@ -1039,7 +1039,6 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I refresh the page
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
@@ -1179,7 +1178,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     And I enter "SF429B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-#    And I wait for "2" seconds
+    And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I refresh the page
@@ -1201,7 +1200,6 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I refresh the page
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
@@ -1354,7 +1352,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     And I enter "SF429C_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-#    And I wait for "2" seconds
+    And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I refresh the page
@@ -1388,7 +1386,6 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I refresh the page
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
@@ -1580,11 +1577,11 @@ Feature: Validate scenarios in Progress Report Forms
     #298878
 #    When I click on "Back" in the page details
     And I close the tab
+    And I wait for "2" seconds
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I refresh the page
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
@@ -1626,7 +1623,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I switch to tab number "1"
     And I enter "SF429_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-#    And I wait for "2" seconds
+    And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I wait for "9" seconds
@@ -1644,7 +1641,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     And I enter "SF429A_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-#    And I wait for "2" seconds
+    And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I refresh the page
@@ -1666,7 +1663,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     And I enter "SF429B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-#    And I wait for "2" seconds
+    And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I refresh the page
@@ -1688,7 +1685,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     And I enter "SF429C_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-#    And I wait for "2" seconds
+    And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I refresh the page
@@ -1809,7 +1806,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     And I enter "SF271_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-#    And I wait for "2" seconds
+    And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I edit the following rows inline in flex table with id "---progressReport:-:sf271FormTableId---" by clicking "Edit" :
@@ -1844,7 +1841,6 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I refresh the page
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
@@ -2826,7 +2822,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I enter value "150" into field "PeriodStartDate__c"
     And I enter value "50" into field "PeriodEndDate__c"
     When I click on "Save" in the page details
-#    And I wait for "2" seconds
+    And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I refresh the page
@@ -2869,7 +2865,6 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I refresh the page
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
@@ -3055,7 +3050,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "2. Additional File for Comments" from computer
     When I click modal button "Close"
-    And I wait for "2" seconds
     And I wait for "8" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -3071,6 +3065,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428AFederallyOwnedTableId---"
     When I enter in modal "SF428A_Federal_Property" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "1" seconds
     And I refresh the page
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "1.a Individual item information" from computer
@@ -3100,6 +3095,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428SDetailIndividualTableId---"
     When I enter in modal "SF428S_Details_Individual" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "1" seconds
     And I refresh the page
     And I wait for "9" seconds
     When I click on "Validate" in the page details
@@ -3164,7 +3160,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     And I enter "SF429C_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-#    And I wait for "2" seconds
+    And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I refresh the page
@@ -3254,7 +3250,6 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I refresh the page
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
