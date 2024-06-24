@@ -3,7 +3,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
 
   Background: To create a Organizational Risk Assessment
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
-    When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
+#    When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SA" user
     And I navigate to "Home" tab

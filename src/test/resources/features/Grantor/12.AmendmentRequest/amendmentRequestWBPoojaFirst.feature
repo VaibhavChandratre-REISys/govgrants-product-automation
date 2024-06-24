@@ -2533,7 +2533,7 @@ Feature: Amendment Request scenarios without background
     And I click modal button "Save"
     Then I softly see value "Automation Permanent KPI" for title "Title" inside table "---amendment:-:RecipientKPITableId---"
 
-  @99213 @99239 @99224 @99235 @VerifySubRecipientAbleToCreateAmendmentRequest-BudgetRedirection @monu @AmendmentWBPoojaSecond @Debug
+  @99213 @99239 @99224 @99235 @VerifySubRecipientAbleToCreateAmendmentRequest-BudgetRedirection @monu @AmendmentWBPoojaSecond
   Scenario: Validate that subrecipient user able to create Budget Redirection Amendment
     And I activated standalone subaward "Automation Runtime Direct Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     And I am on "SUBPORTAL" portal

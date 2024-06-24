@@ -95,11 +95,14 @@ public class UsersAndURL implements UsersController {
             case "ADMIN":
                 password = "Salesforce2036";
                 break;
-            case "SPA":
-                password = "Salesforce2039";
-                break;
             case "SA":
                 password = "Salesforce2039";
+                break;
+            case "IND":
+                password = "Salesforce2035";
+                break;
+            case "SPA":
+                password = "Salesforce2033";
                 break;
             case "PM":
                 password = "Salesforce2035";
@@ -107,7 +110,8 @@ public class UsersAndURL implements UsersController {
             default:
                 password = "Salesforce2034";
         }
-        return password;
+        return
+                password;
     }
 
     private String getQAEnvironmentPassword(String userLevel) {
