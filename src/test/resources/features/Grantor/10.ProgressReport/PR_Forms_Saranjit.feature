@@ -2067,7 +2067,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I upload attachment without random number "Attachment.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "2. Additional File for Comments" from computer
-    And I refresh the page
     And I wait for "3" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
@@ -2102,7 +2101,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I upload attachment without random number "Attachment.pdf" of type "1.b Consolidated Annual Report Attachments" from computer
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-    And I refresh the page
     And I click on "Validate" in the split screen page details
     And I wait for "7" seconds
     Then I softly see the following messages in the page details :
@@ -2403,6 +2401,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I pause execution for "5" seconds
     And I click modal button "Close"
+    And I refresh the page
     And I click on "Submit to Grantor" in the page details
     And I pause execution for "5" seconds
     #Bug393048
@@ -2980,7 +2979,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
-    And I switch to parent tab
+    And I close the tab
     And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I pause execution for "3" seconds

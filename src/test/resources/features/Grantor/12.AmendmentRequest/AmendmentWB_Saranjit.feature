@@ -2100,7 +2100,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @ch1 @229672 @ValidateemailshouldbetriggeredofAmendmentRequestRejected&forTaskreassignmenttonewuser @sprint-13-US-231194 @vaibhav @reassignment
+  @229672 @ValidateemailshouldbetriggeredofAmendmentRequestRejected&forTaskreassignmenttonewuser @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate email should be triggered of Amendment Request Rejected & for Task reassignment to new user
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2286,7 +2286,7 @@ Feature: Amendment Request scenarios without background
      The EGMS Team
       """
 
-  @ch1 @229677 @ValidateemailshouldbetriggeredofAmendmentRequestApproved&forTaskreassignmenttonewuser @sprint-13-US-231194 @vaibhav @reassignment
+  @229677 @ValidateemailshouldbetriggeredofAmendmentRequestApproved&forTaskreassignmenttonewuser @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate email should be triggered of Amendment Request Approved & for Task reassignment to new user
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user

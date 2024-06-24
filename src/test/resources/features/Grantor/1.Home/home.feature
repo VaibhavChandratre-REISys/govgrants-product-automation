@@ -601,9 +601,6 @@ Feature: Validate all scenarios in the home tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
-#    When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---applicationReview:-:flexGridAppContactTableId---" without waiting for record
-#    And I enter value "Checked" into field "IsKeyContact__c"
-#    And I click on top right button "Save" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -621,11 +618,12 @@ Feature: Validate all scenarios in the home tab
     And I click on "Save" in the page details
     And I pause execution for "4" seconds
     And I close the tab
-    And I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+#    And I navigate to "Overview" sub tab
+#    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Contact |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     Given I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     When I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
