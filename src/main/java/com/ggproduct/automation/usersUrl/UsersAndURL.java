@@ -229,6 +229,7 @@ public class UsersAndURL implements UsersController {
         username.put("SPI3", "automationspi30@yopmail.com.qaorg");
         username.put("SPA", "spa.automation@yopmail.com");
         username.put("SA", "automationspi2@yopmail.com");
+        username.put("IND", "ind12.automation@yopmail.com.qaorg");
         username.put("AUDITOR", "automationauditor@yopmail.com.qaorg");
         username.put("SARAH PM", "sarah.pm@ggp.test8.qaorg");
 
