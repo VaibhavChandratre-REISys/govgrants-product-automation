@@ -1104,8 +1104,10 @@ Feature: Validate all scenarios for program
     Then  I can see top right button "Add" in flex table with id "---program:-:internalProgramNotesTableId---"
     #195347
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM" for title "New Value" inside table "---program:-:historyTableId---"
-    Then I softly see value "Automation PM1" for title "Old Value" inside table "---program:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM" for title "New Value" inside field history table
+    Then I softly see value "Automation PM1" for title "Old Value" inside field history table
 
   @195340 @Validatenameoftheownershouldgetupdatedinresponsibilitytab @sprint-1 @vaibhav @reassignment
   Scenario: Validate name of the owner should  get updated in responsibility tab

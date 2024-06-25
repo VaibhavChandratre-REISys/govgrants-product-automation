@@ -70,7 +70,7 @@ public final class PageDetails {
         By topRightButton = getAnyTopRightButton(buttonName);
         try {
             I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -800);
-//            I.amPerforming().waitFor().makeThreadSleep(2000);
+            I.amPerforming().waitFor().makeThreadSleep(2000);
             try {
 //                I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
                 I.amPerforming().waitFor().ElementToBeVisible(topRightButton);
