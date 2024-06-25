@@ -286,6 +286,7 @@ Feature: Validate all registration related scenarios
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
+    And I wait for "5" seconds
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
