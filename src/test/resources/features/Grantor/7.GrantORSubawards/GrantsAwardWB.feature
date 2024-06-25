@@ -1,7 +1,7 @@
 @grantsAwardWB @grantor-regression @grantor-parallel-regression @grantAndAward @regression @AwardExecution
 Feature: Validate all scenarios of grants and award without background
 
-  @35555 @VerifyUsersCanSeeNewButtonOnGrantListView @keerti @PoojaAward
+  @35555 @VerifyUsersCanSeeNewButtonOnGrantListView @keerti @PoojaAwardExclude
   Scenario Outline: Verify that users can see new button on grant list view
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Grants" tab
@@ -13,7 +13,7 @@ Feature: Validate all scenarios of grants and award without background
       | PM   |
       | EXE  |
 
-  @69453 @verifySupportingDocumentMustAddByOwner @aashish @PoojaAward
+  @69453 @verifySupportingDocumentMustAddByOwner @aashish @PoojaAwardExclude
   Scenario: Validate that supporting document cannot be added by anyone except the award owner(Except FO user) |
   Award owner can see add supporting document
     When I login to "As a Grantor" app as "dynamicUser" user
