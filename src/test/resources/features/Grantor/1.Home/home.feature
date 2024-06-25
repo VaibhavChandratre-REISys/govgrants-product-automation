@@ -572,7 +572,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @ch1 @73851 @73856 @73850 @57347 @57348 @viewActiveGrantsSubmittedApplicationsOnRelatedLog
+  @73851 @73856 @73850 @57347 @57348 @viewActiveGrantsSubmittedApplicationsOnRelatedLog
   Scenario Outline: Verify all profiles users should be able to view the Submitted Applications and Active Grants.
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"

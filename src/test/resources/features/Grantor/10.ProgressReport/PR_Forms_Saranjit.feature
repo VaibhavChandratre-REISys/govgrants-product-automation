@@ -2014,7 +2014,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @ch1 @281840 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF428form @sprint-25-US-280119 @vaibhav @Forms
+  @281840 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF428form @sprint-25-US-280119 @vaibhav @Forms
   Scenario: Validate SPI user can able to save & validate form after entering correct & valid data on all fields present on SF-428 form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2339,7 +2339,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Select the Disposition Report/Request (SF-428-C) as required form is filled.    |
       | Select Supplement Sheet as Yes as required form is filled.                      |
 
-  @ch1 @282976 @282974 @ValidateSF428ASPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF428AformandCompleteBusinessFlow @sprint-26-US-282679 @vaibhav @Forms
+  @282976 @282974 @ValidateSF428ASPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF428AformandCompleteBusinessFlow @sprint-26-US-282679 @vaibhav @Forms
   Scenario: Validate SF428 A SPI user can able to save & validate form after entering correct & valid data on all fields present on SF-428-A form and Complete Business flow
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2934,6 +2934,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
+    And I close the tab
     And I refresh the page
     And I switch to parent tab
     #Fill SF428-B Form
@@ -2978,7 +2979,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "7" seconds
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
-    And I close the tab
     And I close the tab
     And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
