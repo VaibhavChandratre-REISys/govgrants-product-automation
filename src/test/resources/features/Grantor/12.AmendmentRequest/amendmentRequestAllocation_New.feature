@@ -15532,6 +15532,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter values into fields
       | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "FundingID"
