@@ -74,11 +74,16 @@ public final class PageDetails {
             try {
 //                I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
                 I.amPerforming().waitFor().ElementToBeVisible(topRightButton);
-                I.amPerforming().click().withJavaScript(topRightButton);
-                govgrants.perform().modal().acceptPopUp();
+              try {
+                  I.amPerforming().click().on(topRightButton);
+              }catch (Exception e) {
+                  I.amPerforming().click().withJavaScript(topRightButton);
+              }
+                  govgrants.perform().modal().acceptPopUp();
             } catch (Exception ex) {
-                I.amPerforming().click().withJavaScript(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
-                I.amPerforming().click().withJavaScript(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+                I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//gnt-header-overview//lightning-button-menu//button"));
+                I.amPerforming().click().on(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
+                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
                 govgrants.perform().modal().acceptPopUp();
             }
 
