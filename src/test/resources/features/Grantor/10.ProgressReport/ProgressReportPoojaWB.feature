@@ -689,7 +689,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I see the following messages in the page details contains:
       | Performance Tab - Provide a value for Plans for Progress Report before submitting to Grantor. |
 
-  @59137 @58524 @NoPRSubmitToGrantorIfSupportDocIsMissing @jitendra @ProgressRerunPooja @ReRunProgress @TBExecution
+  @59137 @58524 @NoPRSubmitToGrantorIfSupportDocIsMissing @jitendra @ProgressRerunPooja @ReRunProgress
   Scenario Outline: Validate Sub-recipient user is not allowed to submit progress report to grantor when Supporting document is missing under Forms and Attachments Tab.
   Validate User is allowed to change frequency as Quarterly, on progress report schedule when progress report status is Submitted to Approval on active award
     Given I activated standalone subaward "Automation Runtime Award" with properties "PROGRESS_REPORT_QUARTERLY" of type "Competitive"
@@ -934,7 +934,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @59283 @validateSubrecipientDocumentLinkFieldValueIsNotApplicableWhenOptional @mahadev @TBExecution1
+  @59283 @validateSubrecipientDocumentLinkFieldValueIsNotApplicableWhenOptional @mahadev
   Scenario Outline: Validate by default Template Link field value is Not Applicable at Progress report if template is not uploaded by award owner at Grant
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     When I am on "INTERNAL" portal

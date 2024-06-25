@@ -1049,7 +1049,7 @@ Feature: Validate all scenarios in Progress Report
     When I download the file
     Then I softly see "Test Automation Organization" on page "1" of "govgrants" pdf file
 
-  @61093 @59198 @61096 @PRISNotEditableOnPerformanceTabAfterPRStatusSummitedForGrantor @keerti @TBExecution
+  @61093 @59198 @61096 @PRISNotEditableOnPerformanceTabAfterPRStatusSummitedForGrantor @keerti
   Scenario: Validate Objectives table at Performance Tab on Progress report should not be editable at Award owner end when Progress report status is Submitted to Grantor. | Validate SR User is able to take snapshot of the Progress report when it is submitted to Grantor on active subaward
   Validate SR User can View the Objectives associated at award on progress report.
     When I navigate to "Performance" sub tab
@@ -1094,7 +1094,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
     And I navigate to "Performance" sub tab
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:Record Id}" in flex table with id "GrantorAwardGoalsObjectives"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:ObjectiveEGMSID}" in flex table with id "GrantorAwardGoalsObjectives"
 
  @PRISNoteditableAtPAOnPerformaceTab @keerti
   Scenario: Validate Objectives table at Performance Tab on Progress report should not be editable at Program approver end when Progress report status is Submitted for Approval.
