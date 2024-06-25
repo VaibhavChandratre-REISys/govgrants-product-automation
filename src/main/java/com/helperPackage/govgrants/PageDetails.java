@@ -82,8 +82,8 @@ public final class PageDetails {
                   govgrants.perform().modal().acceptPopUp();
             } catch (Exception ex) {
                 I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//gnt-header-overview//lightning-button-menu//button"));
-                I.amPerforming().click().on(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
-                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+                I.amPerforming().click().withJavaScript(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
+                I.amPerforming().click().withJavaScript(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
                 govgrants.perform().modal().acceptPopUp();
             }
 

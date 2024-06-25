@@ -931,8 +931,9 @@ Feature: Validate all scenarios in Desk Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I "Send to Owner" in the approval decision
     When I navigate to "History" sub tab
-    When I perform quick search for "{SavedValue:DeskReview}" in "History" panel
-    Then I see value "Created" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I see value "Created" for title "Old Value" inside field history table
 
   @61054 @FieldHistoryUpdatePostAwardLevelDeskReviewIsSendBackToOwnerByProgramApprover @Keerti @FieldHistoryExclude @DeskReviewFirst
   Scenario: To Validate field history update post Award level Desk Review is send back to owner by program approver.
@@ -984,8 +985,9 @@ Feature: Validate all scenarios in Desk Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I "Send to Owner" in the approval decision
     When I navigate to "History" sub tab
-    When I perform quick search for "{SavedValue:DeskReview}" in "History" panel
-    Then I see value "Created" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I see value "Created" for title "Old Value" inside field history table
 
   @69411 @61057 @61055 @55370 @66139 @77253 @66274 @snapshotAfterSubmitForApprovalDeskReviewIsAcceptedAndClosed @Keerti @skipOnJenkins
   Scenario: Validate whether record Owner is able to view the Accept and Close Button and User view the Snapshot after Desk Review is Submitted for Approval status also after Accepted and Closed |Subrecipient can view Closed Desk Review
@@ -1132,7 +1134,7 @@ Feature: Validate all scenarios in Desk Review
     And I perform quick search for "Record Id" in "---deskreview:-:managementInitiateDRtableid---" panel
     Then I softly see "No Records Found" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
 
-  @65245 @historyOfDeskReviewsendbacktoOwner @deepika @FieldHistoryExclude @wip
+  @65245 @historyOfDeskReviewsendbacktoOwner @deepika @FieldHistoryExclude
   Scenario: Validate History Field is getting Updated at Award owner End when Desk Review status is Submitted to Grantor.
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -1176,7 +1178,9 @@ Feature: Validate all scenarios in Desk Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I "Send to Owner" in the approval decision
     When I navigate to "History" sub tab
-    Then I see value "In Progress" for title "New Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I see value "In Progress" for title "New Value" inside field history table
 
   @65246 @69407 @corerctiveActionsDueDateDeskReview @deepika @DeskReviewFirst
   Scenario: Validate Desk Review Submit to Grantor and Corrective Actions By Subrecipient
