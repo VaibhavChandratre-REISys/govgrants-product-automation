@@ -369,8 +369,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I "Disapprove" in the approval decision
     And I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
-    When I navigate to "History" sub tab
-#    Then I softly see value "Rejected" for title "New Value" inside table "History"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Rejected" for title "New Value" inside field history table
+    And I click on back arrow
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Rejected Formula Announcements"

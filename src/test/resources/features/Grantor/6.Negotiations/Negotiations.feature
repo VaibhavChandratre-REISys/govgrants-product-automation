@@ -746,7 +746,7 @@ Feature: Validate all scenarios in Negotiations
     When I download the file
     Then I see "Negotiation Initiated" on page "1" of "govgrants" pdf file
 
-  @64851 @historyBeforeAndAfterNegotitionComplete @deepika @FieldHistoryExclude @wip
+  @64851 @historyBeforeAndAfterNegotitionComplete @deepika @FieldHistoryExclude
   Scenario: Validate whether user is able to Create Subaward from the Applications Tab Once Negitiation is completed and user is able to view the completed Negotiation from it
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -776,10 +776,16 @@ Feature: Validate all scenarios in Negotiations
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:phasePendingTasksTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
-    When I navigate to "History" sub tab
-    Then I softly see value "Negotiation Submitted" for title "New Value" inside table "History"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Negotiation Submitted" for title "New Value" inside field history table
+    And I click on back arrow
     When I click on "Complete Negotiation" in the page details
-    Then I softly see value "Reviewed" for title "New Value" inside table "History"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Reviewed" for title "New Value" inside field history table
 
   @64852 @fieldValuesAFterNegotiationComplete @deepika @NegotiationRuNByPooja
   Scenario: Validate whether user is able to see the fields that after Negotiation is Completed

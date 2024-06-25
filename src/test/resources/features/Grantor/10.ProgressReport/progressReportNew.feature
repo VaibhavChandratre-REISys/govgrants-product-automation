@@ -2803,6 +2803,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 2            |
     When I get the "EGMS ID"
+    And I refresh the page
     And I wait for "4" seconds
     And I click on "Send to Subrecipient" in the page details
     Then I see field "Status" as "Sent to Subrecipient"
