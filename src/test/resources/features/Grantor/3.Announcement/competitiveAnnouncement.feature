@@ -190,10 +190,13 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I enter value "6000" into field "---announcement:-:subawardceiling---"
     And I click on "Save" in the page details
     And I navigate to "History" sub tab
-    Then I softly see value "$4,000.00" for title "New Value" inside table "History"
-    Then I softly see value "$2,000.00" for title "Old Value" inside table "History"
-    Then I softly see value "$6,000.00" for title "New Value" inside table "History"
-    Then I softly see value "$3,000.00" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "$4,000.00" for title "New Value" inside field history table
+    Then I softly see value "$2,000.00" for title "Old Value" inside field history table
+    Then I softly see value "$6,000.00" for title "New Value" inside field history table
+    Then I softly see value "$3,000.00" for title "Old Value" inside field history table
+    And I click on back arrow
     And I navigate to "Financials" sub tab
     And I perform quick search for "Construction" in "---announcement:-:announcementBudgetCategory---" panel
     Then I softly see value "Construction" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
@@ -375,8 +378,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Save" in the page details
     And I save the field labeled "Application Due Date" as "AppDueDate1"
     And I navigate to "History" sub tab
-    Then I softly see value "{SavedValue:AppDueDate}" for title "Old Value" inside table "History"
-    Then I softly see value "{SavedValue:AppDueDate1}" for title "New Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "{SavedValue:AppDueDate1}" for title "New Value" inside field history table
+    Then I softly see value "{SavedValue:AppDueDate}" for title "Old Value" inside field history table
+    And I click on back arrow
     And I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :

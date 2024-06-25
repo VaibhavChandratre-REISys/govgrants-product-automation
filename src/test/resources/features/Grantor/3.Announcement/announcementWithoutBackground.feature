@@ -552,7 +552,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | FO    |
       | FD    |
 
-  @73630 @73626 @SystemsErrorAfterApplyingWrongFilter @jitendra @FieldHistoryExclude
+  @73630 @73626 @SystemsErrorAfterApplyingWrongFilter @jitendra
   Scenario: To validate system is getting displayed error message while adding invalid values into the filter for Approves section on responsibility tab of announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -580,7 +580,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I click on advance filter "#advfAnnoucementPackagesGrantor" of table id "---announcement:-:businessFormlistTableId---"
 #    And I enter advance filter values inside id "advfAnnoucementPackagesGrantor"
 #      | Name | Contains | Anything |
-    And I pause execution for "50" seconds
+    And I pause execution for "10" seconds
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:businessFormlistTableId---"
 
   @73854 @73855 @73852 @73853 @jitendra @filterNotYetQualifiedSPAUser @wip
@@ -1663,8 +1663,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation EXE1" for title "New Value" inside table "---announcement:-:annFieldHistory---"
-    Then I softly see value "Automation EXE" for title "Old Value" inside table "---announcement:-:annFieldHistory---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation EXE1" for title "New Value" inside field history table
+    Then I softly see value "Automation EXE" for title "Old Value" inside field history table
 
   @PoojaAnnouncmentRun @196847 @Validateuserapprovedtheannouncement&reassignownershiptonewuserthenpublishoptionshoulddisplaytonewowner @sprint-4 @vaibhav @reassignment @ownershipcheck
   Scenario: Validate user approved the announcement & reassign ownership to  new user then publish option should display to new owner
@@ -3222,9 +3224,11 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly can see top right button "Publish" in page detail
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM1" for title "New Value" against the value "Owner" inside table "---announcement:-:annFieldHistory---"
-#    Then I softly see value "Automation PM" for title "Old Value" inside table "---announcement:-:annFieldHistory---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Old Value" inside field history table
 
   @195677 @Validatethatnewapproversnameshouldbeupdatentheresponsibilitytabwhenapprovaltaskisreassigned @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate that new approver's name should be update in the responsibility tab when approval task is reassigned
