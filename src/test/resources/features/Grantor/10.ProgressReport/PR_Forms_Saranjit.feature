@@ -2889,16 +2889,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I close the tab
-    And I refresh the page
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
-    When I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I wait for "2" seconds
-    When I navigate to "Forms and Files" sub tab
-    And I wait for "2" seconds
-    And I click on "View" icon for "Tangible Personal Property Report - Annual Report - SF-428-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    #SF428
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -2920,7 +2910,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I switch to parent tab
     #Fill SF428-C Form
     And I click on "View" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "2"
+    And I switch to tab number "1"
     And I pause execution for "3" seconds
     When I click on "Edit" in the page details
     And I pause execution for "3" seconds
@@ -2933,7 +2923,6 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
-    And I close the tab
     And I close the tab
     And I refresh the page
     And I switch to parent tab
