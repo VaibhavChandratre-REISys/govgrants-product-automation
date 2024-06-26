@@ -59,7 +59,7 @@ Feature: Validate all registration related scenarios
       | Provide Zip Code for Payment Address                                   |
       | You must enter an effective date when selecting a parent organization. |
 
-  @82053 @verifyVisibilityOfPaymentAddressFields-Organization @monu @Debug
+  @82053 @verifyVisibilityOfPaymentAddressFields-Organization @monu
   Scenario:Verify user should not be able to see Expected fields of payment address if same organization address field is selected as yes
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -267,7 +267,7 @@ Feature: Validate all registration related scenarios
     And I enter value "No" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
 
-  @82028 @verifyOrganizationDetailPageDuringApproval-Organization @monu
+  @82028 @verifyOrganizationDetailPageDuringApproval-Organization @monu @Debug
   Scenario:Verify if user can see organization detail page while approval
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
