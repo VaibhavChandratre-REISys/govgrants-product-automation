@@ -3079,7 +3079,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
   @hitTemp @256780 @256911 @256921 @257014 @VerifyusershouldabletoseePriorawardedbudgetAwardedbudgetshouldberenamedFAyes @sprint-19-US-255590-255591 @hitesh @Allocation
   Scenario: Verify user should able to see Budget Summary by Focus Area Section, only if Focus area is Yes
     And I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "DETAILE_BUDGET_YES-Automation PM user"
-    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "BUDGET_CAT_DETAILS_BUD_YES"
     And I created approved FDM on application "{SavedValue:Automation Runtime Announcement}"
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Announcement}" and properties "Automation PM user"
     And I activate award from FDM having application name "{SavedValue:Automation Runtime Announcement}"
@@ -12996,7 +12996,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Spent" as "Spent4"
     Then I softly see value "{SavedValue:awardSpent}" is "Equals to" the value "{SavedValue:Spent4}"
 
- @hitTemp2 @264325 @VerifyusercanenteronlypositivevalueincarryforwardamountsubmittograntorstateFANo @sprint-20-US-263305 @hitesh @Allocation
+ @264325 @VerifyusercanenteronlypositivevalueincarryforwardamountsubmittograntorstateFANo @sprint-20-US-263305 @hitesh @Allocation
   Scenario: Verify user can enter only positive value in  carry forward amount submit to grantor state (FA No)
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -17709,7 +17709,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$1,000.00"
     Then I softly see value "{SavedValue:TotalCommitmentAwd}" is "Equals to" the value "{SavedValue:TotalCommitmentGrantSr}"
     #272609
-#    When I expand nested table containing column value "BP01"
+    When I expand nested table containing column value "BP01"
     And I select value inside table "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---" is "All"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:grantsBudgetCategoryTableIdSubrecipient---" :
       | Award Amount |
@@ -17741,6 +17741,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$1,000.00"
     Then I softly see value "{SavedValue:TotalCommitmentAwd1}" is "Equals to" the value "{SavedValue:TotalCommitmentAwdSR}"
     #272609, 272601
+    And I select value inside table "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---" is "All"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---" :
       | Award Amount |
       | $1,000.00    |
