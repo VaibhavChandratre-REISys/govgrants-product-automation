@@ -1238,8 +1238,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I get the "EGMS ID"
     When I click on "Submit" in the page details
     And I wait for "3" seconds
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "IND" user
+    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
@@ -1366,10 +1365,10 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
-    And I navigate to "Assessment" sub tab
-    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I wait for "3" seconds
+#    And I navigate to "Assessment" sub tab
+#    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I wait for "3" seconds
     When I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Submit" in the page details
     Then I see the following messages in the page details contains:
@@ -1396,6 +1395,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
     When I perform quick search for "Record Id" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
+    And I wait for "3" seconds
     Then I softly see value "{SavedValue:EffectiveDate}" for title "Effective From" inside table "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
   @63077 @VerifyTaskForNoPopUpWhenClickedOnRequestNewAssessment @keerti
@@ -1416,7 +1416,8 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
     When I click table top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I click "No" on modal confirmation box
+    And I click "Cancel" on modal confirmation box
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1713,7 +1714,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I see field name "StartDate__c" is blank in flex table with Id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     Then I see field name "EndDate__c" is blank in flex table with Id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @63983 @acknowledgementOfRiskAssessment @deepika
+  @63983 @acknowledgementOfRiskAssessment @deepika @LWCRemoved @wip
   Scenario:  Validate that no records has been added to the Org Risk Assessment table when record is cancelled
     WWhen I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
