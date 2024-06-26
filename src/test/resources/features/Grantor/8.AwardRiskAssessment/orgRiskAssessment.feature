@@ -947,13 +947,13 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I click on "Save" in the page details
     #62948
     Then I see status in Progress-bar is "Created" and is "dark blue"
+    And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
     When I perform quick search for "Created" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     #62947
     Then I see value "Record Id" for title "EGMS ID" inside table "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-
-
+    
   @62949 @assessmentValuesareEditable @deepika 
   Scenario: Validate whether user is able to edit the assessment form once Grantor Provided Access for Revision
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
@@ -971,6 +971,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
     When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
