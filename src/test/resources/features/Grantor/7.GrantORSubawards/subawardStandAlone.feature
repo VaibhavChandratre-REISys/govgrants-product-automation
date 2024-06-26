@@ -3446,14 +3446,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
 
   @65228 @VerifyRelatedFocusAreasField @keerti
   Scenario Outline: Verify Key Performance Indicators (KPIs) value Performance tab Subaward overview is same as Program Key Performance Indicators (KPIs) table setup Tab.
-    When I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "Automation Permanent Internal Program" in "Programs" panel
-    And I click on "View" icon for "Automation Permanent Internal Program" inside table
-    When I navigate to "Setup" sub tab
-    And I click on "View" icon for "Information Technology" inside table
-    And I save the field labeled "Domain" as "Domain"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -3463,7 +3455,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "<Award Name>" inside table
     When I navigate to "Performance" sub tab
-    Then I see value "{SavedValue:Domain}" for title "Domain" inside table "---subAwardStandAlone:-:kpiTableId---"
+    Then I see value "Automation Permanent KPI" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
@@ -5602,6 +5594,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I refresh the page
+    And I navigate to "Budget" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
