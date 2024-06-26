@@ -44,7 +44,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @37228 @34932 @34938 @34945 @34946 @45732 @58534 @validateScheduleFrequencyAnnuallyScheduleBaseAsCalendar @mahadev @ReRunProgress @TBExecution1
+  @37228 @34932 @34938 @34945 @34946 @45732 @58534 @validateScheduleFrequencyAnnuallyScheduleBaseAsCalendar @mahadev @ReRunProgress
   Scenario Outline: Verify on Active award User is allowed to select Frequency as  Annually when schedule base is Calendar | Validate User is allowed to change frequency as Annually, schedule base as calendar on progress report schedule when the award is active
   Verify on Active award User is allowed to select Frequency as Semi-Annually  when schedule base is Calendar | Verify on Active award User is allowed to select Frequency as Bi-Monthly when schedule base is Calendar
   Verify Sub-recipient user are not allowed to Edit the Progress Report Schedule table on active subaward | Validate User is allowed to change frequency as Annually, schedule base as calendar on active award and progress report should be created

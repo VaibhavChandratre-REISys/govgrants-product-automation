@@ -70,7 +70,7 @@ Feature: Validate scenarios in Progress Report without background
     And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     Then I do not see value "Record Id" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
-  @59671 @validateSupportingDocumentUploadedIsAbleToViewByAwardOwner @mahadev @TBExecution1
+  @59671 @validateSupportingDocumentUploadedIsAbleToViewByAwardOwner @mahadev
   Scenario Outline: Validate Internal User is able to view the uploaded supporting documents by SPI3 user when Progress report status is submitted to Grantor
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -1029,7 +1029,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @60304 @validateAwardOwnerCanSendFinalPrforApproval @jitendra @TBExecution2
+  @60304 @validateAwardOwnerCanSendFinalPrforApproval @jitendra @TBExecution
   Scenario Outline: Validate Program report Marked as Final is Submitted for Approval when it is Submitted to Grantor after send back to Sub-recipient Status
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1075,6 +1075,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Performance" sub tab
     Given I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Actual | Reported Date |
@@ -1617,7 +1618,7 @@ Feature: Validate scenarios in Progress Report without background
     And I navigate to "Performance" sub tab
     Then I see field "Current Obligation" as "{savedValue:BudgetPeriodAmount}"
 
-  @60924 @orgNameOnPROverviewTab @jitendra @TBExecution
+  @60924 @orgNameOnPROverviewTab @jitendra
   Scenario: Validate on Progress report Organization Name field at Report Overview table under Overview tab is same as at Award.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
@@ -1633,7 +1634,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "View" icon for "Record Id" inside flex table with id "---progressreport:-:recipientGrantProgressReportTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     And I wait for "5" seconds
-    Then I softly see field "Extrenal Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
+    Then I softly see field "External Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
 
   @60879 @validateProgramApprovercannotApprovePRWhenFinalPRAlreadyApproved @mahadev @smoke @buglogged135383 
   Scenario Outline: Validate Program approver is not allowed to approve the pending progress report if another Final Progress report is approved
@@ -2162,7 +2163,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62245 @62238 @validateSubmittedForReviewPRAfterTCAmendmentIsCarryForwardedAonAwardAtInternalportal @mahadev @TBExecution1
+  @62245 @62238 @validateSubmittedForReviewPRAfterTCAmendmentIsCarryForwardedAonAwardAtInternalportal @mahadev
   Scenario Outline: Validate progress report with Submitted for Review status is carry forwarded at internal portal on award after Terms and conditions amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2397,7 +2398,7 @@ Feature: Validate scenarios in Progress Report without background
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - Active"
+    And I click toggle button to select "Grants - All"
     When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     When I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:activeGrantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
@@ -2501,7 +2502,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @63105 @validateSubmittedForGrantorPRStatusAfterCloseoutApprovalAtEarlyCompletion @jitendra @TBExecution1
+  @63105 @validateSubmittedForGrantorPRStatusAfterCloseoutApprovalAtEarlyCompletion @jitendra
   Scenario Outline: Verify Progress report with Submitted to Grantor status changed to Force Closed when closeout request is approved with type as Early completion by award owner.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2719,7 +2720,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @63107 @validatePRStatusAfterCloseoutApprovalAtSPIEnd @mahadev @TBExecution1
+  @63107 @validatePRStatusAfterCloseoutApprovalAtSPIEnd @mahadev @TBExecution
   Scenario Outline: Verify Progress report with Send back to Sub-recipient status changed to Force Closed when closeout request is approved with type as Early completion by award owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2801,7 +2802,6 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Override" in the page details
     And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
-    And I refresh the page
     And I wait for "2" seconds
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -5065,7 +5065,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:progID}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:progID}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197377 @197382 @Validateprogressreportiscreatedstate&userchangedOwnershiptonewownerofPRreport&afterPRissubmittograntorthenSendtoS/Risdisplaytonewowner @sprint-4 @vaibhav @reassignment @TBExecution1
+  @197377 @197382 @Validateprogressreportiscreatedstate&userchangedOwnershiptonewownerofPRreport&afterPRissubmittograntorthenSendtoS/Risdisplaytonewowner @sprint-4 @vaibhav @reassignment @TBExecution
   Scenario: Validate progress report is created state & user changed Ownership to new owner of PR report & after PR is submit to grantor then Send to S/R is display to new owner
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -5140,7 +5140,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Responsibilities" sub tab
     Then I cannot see top right button "New" in flex table with id "---progressreport:-:peerReviewersTableId---"
 
-  @197383 @ValidatestateissubmitforapprovalofPR&thenchangetheOwnershipofPRthenPRissamestatebothnew&oldowner @sprint-4 @vaibhav @reassignment @TBExecution
+  @197383 @ValidatestateissubmitforapprovalofPR&thenchangetheOwnershipofPRthenPRissamestatebothnew&oldowner @sprint-4 @vaibhav @reassignment
   Scenario: Validate state is submit for approval of PR & then change the Ownership of PR  then PR is same state both new & old owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -5475,7 +5475,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PO1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @197668 @Validateawardownerischangedinbetweenthelifecycleoftheprogressreportthenawardshouldnotaffecttheinternalowneroftheprogressreport @sprint-4 @vaibhav @reassignment @TBExecution1
+  @197668 @Validateawardownerischangedinbetweenthelifecycleoftheprogressreportthenawardshouldnotaffecttheinternalowneroftheprogressreport @sprint-4 @vaibhav @reassignment @TBExecution
   Scenario: Validate award owner is changed in between the life cycle of the progress report then award should not affect the internal owner of the progress report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"

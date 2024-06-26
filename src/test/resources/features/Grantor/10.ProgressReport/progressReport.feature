@@ -276,14 +276,14 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @57646 @57690 @verifyProgressReportTablUpdatedWithStatusSubmittedForApprovalAtSubPortal @mahadev @NewProgressFinal @TBExecution
+  @57646 @57690 @verifyProgressReportTablUpdatedWithStatusSubmittedForApprovalAtSubPortal @mahadev @NewProgressFinal
   Scenario Outline: Verify Progress report table get updated with status Submitted for Approval at grantee portal | To edit Progress Report
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I navigate to "Performance" sub tab
-    Then I softly see field "Key Accomplishments" as "Key accomplishments for this reporting period"
+    Then I softly see value "Key Accomplishments" for the field "Key accomplishments for this reporting period"
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
@@ -833,7 +833,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:internalProgressReportFlexTableId---"
 
-  @58959 @NoViewAccessToOtherOrganisationuSERPR @jitendra @TBExecution1
+  @58959 @NoViewAccessToOtherOrganisationuSERPR @jitendra
   Scenario: Validate Internal User with different organization should not be able to view the Progress report with submitted to Grantor state.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
