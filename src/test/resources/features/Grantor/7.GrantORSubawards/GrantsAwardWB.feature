@@ -47,7 +47,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click toggle button to select "Grants - Rejected"
     Then I softly see value "Terminated" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsTableId---"
 
-  @66740 @documentattacmentatgrant @jitendra @PoojaAward
+  @66740 @documentattacmentatgrant @jitendra @PoojaAwardExclude
   Scenario: To verify that the document can be added in the Supporting Document checklist table in the Grant Attachment tab in the Draft state
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -63,7 +63,7 @@ Feature: Validate all scenarios of grants and award without background
       | Automation  | Mandatory | Award      | Active |
     Then I see "Automation" inside flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
-  @68057 @createGrantEXE @jitendra @PoojaAward
+  @68057 @createGrantEXE @jitendra @PoojaAwardExclude
   Scenario: Valiadate EXE user can create Direct Grant
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -78,7 +78,7 @@ Feature: Validate all scenarios of grants and award without background
     And I get the "EGMS ID"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @68058 @cannotCreateGrantFOUser @jitendra @PoojaAward
+  @68058 @cannotCreateGrantFOUser @jitendra @PoojaAwardExclude
   Scenario Outline: validate that FO user cannot create Direct Grant
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Grants" tab
@@ -88,7 +88,7 @@ Feature: Validate all scenarios of grants and award without background
       | User |
       | FO   |
 
-  @69084 @createdGrantVisibleToUserFromSameOrganisation @jitendra @smoke @PoojaAward
+  @69084 @createdGrantVisibleToUserFromSameOrganisation @jitendra @smoke @PoojaAwardExclude
   Scenario: Validate that  Grant in draft state created by one pm user is visible to the other user(PM/EXE) of the same organisation
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
