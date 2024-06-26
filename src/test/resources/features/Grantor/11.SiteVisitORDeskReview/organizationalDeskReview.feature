@@ -1,4 +1,4 @@
-@organizationalDeskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression
+@organizationalDeskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @t3
 Feature: Validate all scenarios in Organizational Desk Review
 
   Background: Creation of Organizational Desk Review
