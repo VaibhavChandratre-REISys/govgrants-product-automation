@@ -5229,7 +5229,7 @@ Then I softly see field "Status" as "Active"
     When I click on "Save" in the page details
     When I navigate to "Files" sub tab
     Then I can see top right button "New" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
-    When I enter the following values into flex table with id "---riskassessment:-:riskAssNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---riskassessment:-:riskAssNotesTableId---" by clicking "New" :
       | Title           | Description      |
       | Automation Test | Automation Notes |
     Then I softly can see row level action button "Edit" against "Automation Test" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
@@ -5542,7 +5542,7 @@ Then I softly see field "Status" as "Active"
     Then I softly can see row level action button "View" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
     Then I softly can see row level action button "Edit" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
     Then I softly can see row level action button "Delete" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Automation Finding" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Automation Finding" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -6515,7 +6515,7 @@ Then I softly see field "Status" as "Active"
     Then I softly can see row level action button "View" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
     Then I softly can see row level action button "Edit" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
     Then I softly can see row level action button "Delete" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
-    Then I can see top right button "Add" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Automation Finding" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Automation Finding" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
