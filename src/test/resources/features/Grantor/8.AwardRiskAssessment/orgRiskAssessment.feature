@@ -1623,7 +1623,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I download the file
     Then I see "Active" on page "1" of "govgrants" pdf file
 
-  @63981 @totalRecordsofOrgRiskAssesment @deepika 
+  @63981 @totalRecordsofOrgRiskAssesment @deepika  @runOrgRisk
   Scenario: Validate whether user is able is see total record when first risk assessment is expired and second is active
     Given I delete the record "Automation Desk Review Org level" from the object "Desk Review"
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
@@ -1638,9 +1638,11 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Submit" in the page details
     And I wait for "3" seconds
+    And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
     When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
@@ -1669,9 +1671,10 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
-    Then I see total records count "Total Records:3" in flex table "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    And I save the total records from the flex table id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" as "totalRecords"
+    Then I see total records count "{SavedValue:totalRecords}" in flex table "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @63982 @effectiveDatesOnOrgRiskAssessmentIsBlackDraftOnCreated @deepika
+  @63982 @effectiveDatesOnOrgRiskAssessmentIsBlackDraftOnCreated @deepika @runOrgRisk
   Scenario: Verify that Effective and Expiration dates are blank when Org risk assessment is in created state
     Given I delete the record "Automation Desk Review Org level" from the object "Desk Review"
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
@@ -1680,6 +1683,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    And I wait for "3" seconds
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -1702,7 +1706,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I see "No Records Found" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @64128 @grantorViewOrgRA @deepika
+  @64128 @grantorViewOrgRA @deepika @runOrgRisk
   Scenario: Validate Risk Assessment data/status should be displayed to internal user irrespective of the state of Risk Assessment.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -1725,7 +1729,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I click on "View" icon for "Record Id" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @64127 @cretedStateOrgRiskAssessment @deepika 
+  @64127 @cretedStateOrgRiskAssessment @deepika @runOrgRisk
   Scenario: Validate Risk Assessment should remain in created State if the 'AS' Edit the Risk Assessment and fill in the questionnaire and click Save
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -1743,6 +1747,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
     When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
@@ -1773,7 +1778,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I perform quick search for "Created" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I see that "Created" has been added in flextable with Id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @64126 @editdeleteButtonsOndraftORAPresentOnOrgProfilePage @deepika
+  @64126 @editdeleteButtonsOndraftORAPresentOnOrgProfilePage @deepika @runOrgRisk
   Scenario: Verify on Draft Organization Risk Assessment user should have the basic Edit Delete view Privileges for the SA of the Organization
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
