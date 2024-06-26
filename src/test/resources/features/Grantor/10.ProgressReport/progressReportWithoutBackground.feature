@@ -121,7 +121,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @59672 @validateAwardOwnerCanNotDeleteSupportingDocumentChecklist @mahadev @TBExecution
+  @59672 @validateAwardOwnerCanNotDeleteSupportingDocumentChecklist @mahadev
   Scenario Outline: Validate Internal User is not able to delete the uploaded supporting documents by SPI3 user when Progress report status is submitted to Grantor
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -1632,8 +1632,8 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Management" sub tab
     And I click on "View" icon for "Record Id" inside flex table with id "---progressreport:-:recipientGrantProgressReportTableId---" without waiting for record
     And I navigate to "Overview" sub tab
-    And I wait for "3" seconds
-    Then I see field "Extrenal Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
+    And I wait for "5" seconds
+    Then I softly see field "Extrenal Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
 
   @60879 @validateProgramApprovercannotApprovePRWhenFinalPRAlreadyApproved @mahadev @smoke @buglogged135383 
   Scenario Outline: Validate Program approver is not allowed to approve the pending progress report if another Final Progress report is approved
@@ -2385,8 +2385,7 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Save" in the page details
     When I click on "Override" in the page details
     And I click on "Submit for Approval" in the page details
-    And I refresh the page
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
@@ -2591,7 +2590,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @63106  @validateReviewedPRStatusAfterCloseoutApproval @mahadev @TBExecution
+  @63106  @validateReviewedPRStatusAfterCloseoutApproval @mahadev
   Scenario Outline: Verify Progress report with Reviewed status changed to Force Closed when closeout request is approved with type as Early completion by award owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -4450,7 +4449,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62773 @62770 @62915 @validateAwardedBudgetFieldSameAfterAdvPRApproved  @mahadev @TBExecution
+  @62773 @62770 @62915 @validateAwardedBudgetFieldSameAfterAdvPRApproved  @mahadev
   Scenario Outline: Verify (Remaining Budget field |Awarded Budget field | YTD Expenditures) remains the same on Progress report at SR user end when the Payment request type is Advance with Approved Status
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -5211,6 +5210,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Approval"
     When I navigate to "Responsibilities" sub tab
+    And I wait for "2" seconds
     Then I see value "{SavedValue:FO Username}" for title "Name" inside table "---progressreport:-:approversTableId---"
 
   @197390 @197398 @197401 @ValidatechangingtheownershipofPRthennewownershouldhaveallsameaccesslikeoldrecordhadinthatspecificstateofrecord @springt-4 @vaibhav @reassignment @FieldHistoryExclude

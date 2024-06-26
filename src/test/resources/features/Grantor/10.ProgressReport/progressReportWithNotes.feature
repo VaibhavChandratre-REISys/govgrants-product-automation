@@ -348,12 +348,9 @@ Feature: Validate scenarios in Progress Report Notes
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I wait for "3" seconds
-#    And I select "Progress Reports" from dropdown for Global search
-    And I navigate to "Monitoring" tab
-    And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
-    When I click toggle button to select "Progress Reports - All"
-    And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
-    And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
+    And I select "Progress Report" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:progID}"
+    And I click on hyperlink containing value "{SavedValue:progID}"
     When I navigate to "Forms and Files" sub tab
     Then I cannot see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
 
