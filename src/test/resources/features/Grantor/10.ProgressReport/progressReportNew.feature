@@ -466,7 +466,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @61442 @61448 @validateSentBackToRecipientPRAfterBPCAmendmentIsCarryForwarded @jitendra @TBExecution
+  @61442 @61448 @validateSentBackToRecipientPRAfterBPCAmendmentIsCarryForwarded @jitendra
   Scenario Outline: Validate Send Back to Subrecipient Progress reports is carried forward after BPC amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal

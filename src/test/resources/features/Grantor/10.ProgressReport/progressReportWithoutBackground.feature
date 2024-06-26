@@ -1900,7 +1900,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            | Error Message                                                                                                                                                                                                       |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | Any approval decision on the Progress Report cannot be made at this time because a report marked as the Final Report has already been approved.Send Back to Owner will allow the owner to notify the Subrecipient. |
 
-  @62779 @PercentagePeriodAtPRAfterPaymentRequest @jitendra @TBExecution1
+  @62779 @PercentagePeriodAtPRAfterPaymentRequest @jitendra
   Scenario Outline: Verify Submitted for approval report Percentage of Budget Remaining field remains the same on Progress report when the Payment request type is Reimbursement with Approved Status.
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2021,7 +2021,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62246 @62237 @validateReviewedPRAfterTCAmendmentIsCarryForwardedA @mahadev @TBExecution
+  @62246 @62237 @validateReviewedPRAfterTCAmendmentIsCarryForwardedA @mahadev
   Scenario Outline: Validate progress report with reviewed status is carry forwarded after TC amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3037,7 +3037,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @63104 @validateSubmittedForApprovalPRStatusAfterCloseoutApprovalWithTypeEarlyCompletion @jitendra @TBExecution1
+  @63104 @validateSubmittedForApprovalPRStatusAfterCloseoutApprovalWithTypeEarlyCompletion @jitendra
   Scenario Outline: Verify Progress report with Submitted for approval status changed to  Force Closed when closeout request is approved with type as Termination by award owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3256,7 +3256,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @63113 @validateSentBackTOSRPRStatusAfterCloseoutApproval  @mahadev @TBExecution
+  @63113 @validateSentBackTOSRPRStatusAfterCloseoutApproval  @mahadev
   Scenario Outline: Verify Progress report with Sent Back to SR User status changed to Force Closed when closeout request is approved with type as Termination by award owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3670,7 +3670,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @63117 @validateFormsTableOnceCloseoutApproved @mahadev @TBExecution
+  @63117 @validateFormsTableOnceCloseoutApproved @mahadev
   Scenario Outline: Verify Progress report All Forms table under Forms and attachment should not be editable once closeout request is approved
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "INTERNAL" portal
@@ -3745,7 +3745,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62765 @62777 @62774 @VerifyYTDExpendituresFieldAfterPRSubmittedForReview  @keerti @TBExecution1
+  @62765 @62777 @62774 @VerifyYTDExpendituresFieldAfterPRSubmittedForReview  @keerti
   Scenario Outline: Verify Submitted for review report YTD Expenditures field remains the same on Progress report at Award Owner end when the Payment request type is Reimbursement with Approved Status.
   Verify Submitted to Grantor report YTD Expenditures field remains the same on Progress report at Award Owner end when the Payment request type is Reimbursement with Approved Status. | Verify YTD Expenditures field get updated on Progress report at SR user end when the Payment request type is Reimbursement with Approved Status.
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
