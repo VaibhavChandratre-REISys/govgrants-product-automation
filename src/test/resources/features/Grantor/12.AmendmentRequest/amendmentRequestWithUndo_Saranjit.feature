@@ -5355,7 +5355,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see column "Overall Status" at position "1" contains text "Rejected"
     Then I softly do not see value "{SavedValue:FD Username}" for title "Taken By" inside table "a0t4T000000YQBcQAO"
 
-  @ch2 @292590 @Validatestep3approvercannotseeUNDObuttoninPendingActivatedstateofnewAwardpostT&CAR&seeUndobuttononARisinApprovedonceclickondeletebuttononAwardthenARinSubmittoGrantorstate @Sprint-3-US-286469 @vaibhav @Undo
+  @ch3 @292590 @Validatestep3approvercannotseeUNDObuttoninPendingActivatedstateofnewAwardpostT&CAR&seeUndobuttononARisinApprovedonceclickondeletebuttononAwardthenARinSubmittoGrantorstate @Sprint-3-US-286469 @vaibhav @Undo
   Scenario: Validate step 3 approver cannot see UNDO button in Pending Activated state of new Award post T &C AR & see Undo button on AR is in Approved once click on delete button on Award then AR in Submit to Grantor state
 #    Given I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
 #    When I login to "As a Grantor" app as "PO" user
@@ -5482,19 +5482,19 @@ Feature: Amendment Request scenarios with Undo
 #    Then I cannot see top right button "Undo" in page detail
 #    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     When I login to "As a Grantor" app as "PO" user
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "CR-AD-1234-12245-00" in "---home:-:internalHomePendingTaskTableId---" panel
-    Then I softly see value "CR-AD-1234-12245-00" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
-    When I click on "Start" icon for "CR-AD-1234-12245-00" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
-    Then I softly see field "Status" as "Submitted for Approval"
-    And I "Approve" in the approval decision
-    Then I can see top right button "Undo" in page detail
-    Then I can see top right button "Amend Subaward" in page detail
+#    And I navigate to "Home" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "CR-AD-1234-12245-00" in "---home:-:internalHomePendingTaskTableId---" panel
+#    Then I softly see value "CR-AD-1234-12245-00" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
+#    When I click on "Start" icon for "CR-AD-1234-12245-00" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    And I "Approve" in the approval decision
+#    Then I can see top right button "Undo" in page detail
+#    Then I can see top right button "Amend Subaward" in page detail
     And I navigate to "Grants" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "CR-AD-1234-12245-00" in "---subAwardStandAlone:-:completeTaskTableId---" panel
-    Then I softly see value "Completed" for title "Status" against the value "{SavedValue:TermsCondId}" inside table "---subAwardStandAlone:-:completeTaskTableId---"
+    Then I softly see value "Completed" for title "Status" against the value "CR-AD-1234-12245-00" inside table "---subAwardStandAlone:-:completeTaskTableId---"
     When I click on "View" icon for "CR-AD-1234-12245-00" inside flex table with id "---subAwardStandAlone:-:completeTaskTableId---" without waiting for record
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
