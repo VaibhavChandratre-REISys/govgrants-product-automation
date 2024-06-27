@@ -3079,7 +3079,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
   @hitTemp @256780 @256911 @256921 @257014 @VerifyusershouldabletoseePriorawardedbudgetAwardedbudgetshouldberenamedFAyes @sprint-19-US-255590-255591 @hitesh @Allocation
   Scenario: Verify user should able to see Budget Summary by Focus Area Section, only if Focus area is Yes
     And I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "DETAILE_BUDGET_YES-Automation PM user"
-    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "BUDGET_CAT_DETAILS_BUD_YES"
+    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "BUDGET_CAT_DETAILS_BUD_YES"
     And I created approved FDM on application "{SavedValue:Automation Runtime Announcement}"
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Announcement}" and properties "Automation PM user"
     And I activate award from FDM having application name "{SavedValue:Automation Runtime Announcement}"
@@ -8920,11 +8920,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I "Approve" in the approval decision
     And I pause execution for "3" seconds
     And I click on "Amend Subaward" in the page details
-    And I pause execution for "10" seconds
-    And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
+    And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I click on "Activate" in the page details
+   And I pause execution for "3" seconds
     Then I softly see field "Status" as "Activated"
+   And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     And I navigate to "Budget" sub tab
     Then I softly see field "Cumulative Obligation" as "$2,000.00"
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation"
