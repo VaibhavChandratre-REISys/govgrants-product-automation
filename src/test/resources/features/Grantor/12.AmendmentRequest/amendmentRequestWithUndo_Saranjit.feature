@@ -3705,17 +3705,17 @@ Feature: Amendment Request scenarios with Undo
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter value "Automation Justification" into field "PurposeRTA__c"
-    And I wait for "5" seconds
     When I click on "Save" in the page details
+    And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    And I refresh the page
     And I edit the following rows inline in flex table with id "---amendment:-:carryForwardFocusAreaTableId---" by clicking "Edit" :
       | Title                           | Carry Forward Amount |
       | Automation Permanent Focus Area | 200                  |
     And I edit the following rows inline in flex table with id "---amendment:-:carryForwardFocusAreaTableId---" by clicking "Edit" :
       | Title                            | Carry Forward Amount |
       | Automation Permanent Focus Area2 | 500                  |
+    When I click on button "resetIcon" in flex table with id "RecAmendmentRequestCarryForwardBudget"
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "RecAmendmentRequestCarryForwardBudget" by clicking "Edit" :
       | Budget Category | Carry Forward |
