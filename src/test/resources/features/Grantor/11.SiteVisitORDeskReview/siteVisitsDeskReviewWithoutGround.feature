@@ -683,7 +683,9 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I softly see field "Project Period End Date" as "{SavedValue:EndDate}"
     And I click "{SavedValue:GrantId}" lookup link
     And I navigate to "History" sub tab
-    And I softly see value "{SavedValue:EndDate}" for title "New Value" against the value "Project Period End Date" inside table "---sitevisits:-:grantHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "{SavedValue:EndDate}" for title "New Value" against the value "Project Period End Date" inside field history table
 
   @54160 @pendingTaskForSiteVisit @meenakshi
   Scenario: Verify the pending task for the Applicants - Site Visits
@@ -1135,12 +1137,9 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    Then I see the text containing "Site Visit/Desk Review"
-    And I Click on "Reassign Records" icon for "Site Visit/Desk Review" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
     Then I see value "Notified" for title "Status" inside table "---sitevisits:-:siteVisitSourceTableId---"
@@ -1148,8 +1147,9 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
@@ -1160,8 +1160,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:manageSiteVisitTableId---"
     And I click on "View" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @197431 @ValidateEXEuserownershipofSVrecordisassigntonewEXEusermeansthatSVrecordownerwillbethenewassignedownerinanystatebutuserwantinitiateothersitevisitthenownerofthatsitevisitwillberequestinitiatorofSV @sprint-4 @vaibhav @reassignment
   Scenario: Validate EXE user ownership of SV record is assign to new EXE user means that SV record owner will be the new assigned owner in any state but if user want initiate other site visit then owner of that site visit will be request initiator of SV
@@ -2553,8 +2555,10 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @197644 @ValidateEXEuserownershipofDRrecordisassigntonewEXEusermeansthatDRrecordownerwillbethenewassignedownerinanystatebutifuserwantinitiateotherdeskreviewthenownerofthatdeskreviewwillbeinitiatorofDR @sprint-4-US-196236 @vaibhav @reassignment @ownershipcheck
   Scenario: Validate EXE user ownership of DR record is assign to new EXE user means that DR record owner will be the new assigned owner in any state but if user want initiate other desk review then owner of that desk review will be initiator of DR
@@ -4756,8 +4760,11 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "Start" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---" without waiting for record
     #199426
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PO1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
-    Then I softly see value "Automation PO" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
+    And I click on back arrow
     #198039
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
     Then I softly can see top right button "Accept and Close" in page detail
@@ -5971,8 +5978,11 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "Start" icon for "{SavedValue:DeskReview}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---" without waiting for record
     #199428
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PO1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
-    Then I softly see value "Automation PO" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
+    And I click on back arrow
     #198064
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
     Then I softly can see top right button "Accept and Close" in page detail

@@ -924,7 +924,9 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I "Send to Owner" in the approval decision
     When I navigate to "History" sub tab
-    Then I softly see value "In Progress" for title "New Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "In Progress" for title "New Value" inside field history table
 
   @60833 @theSnapshotAfterSiteVisitsIsSendToSubrecipient @keerti @skipOnJenkins
   Scenario: Validate whether record Owner is able to view the Snapshot after Site Visits Send to Subrecipient
@@ -1205,8 +1207,9 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I "Send to Owner" in the approval decision
     When I navigate to "History" sub tab
-#    When I perform quick search for "Record Id" in "History" panel
-    Then I softly see value "Created" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Created" for title "Original Value" inside field history table
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1606,7 +1609,9 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I "Send to Owner" in the approval decision
     When I navigate to "History" sub tab
-    Then I see value "In Progress" for title "Original Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I see value "In Progress" for title "Original Value" inside field history table
 
   @65241 @69410 @corerctiveActionsDueDateSiteVisit @deepika
   Scenario: Validate Site Visit Submit to Grantor and Corrective Actions By Subrecipient

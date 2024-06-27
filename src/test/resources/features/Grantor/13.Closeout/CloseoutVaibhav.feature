@@ -441,9 +441,10 @@ Feature: Validate all scenarios in Closeout
     When I click on "Override" in the page details
     And I wait for "4" seconds
     And I navigate to "History" sub tab
-    And I perform quick search for "{SavedValue:CloseoutEGMSID}" in "History" panel
-    Then I softly see value "Acknowledged by Subrecipient" for title "New Value" inside table "History"
-    Then I softly see value "Sent to Subrecipient" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Acknowledged by Subrecipient" for title "New Value" inside field history table
+    Then I softly see value "Sent to Subrecipient" for title "Original Value" inside field history table
 
   @87355 @VerifyCloseoutRequestWithMultipleStatusInListVIew @monu
   Scenario: Validate user should be able to see Created, Send to sub-recipient, Overridden, Submitted to grantor status of closeout request inside closeout request list view

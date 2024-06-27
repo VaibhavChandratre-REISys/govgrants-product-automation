@@ -11550,8 +11550,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see value "$2,000.00" for title "New Value" inside field history table
     #268456
     Then I softly see value "Cumulative Obligation" for title "Changed Field" inside field history table
-    Then I softly see value "$1,000.00" for title "New Value" against the value "Cumulative Obligation" inside table "---subAwardStandAlone:-:historyTableId---"
-    Then I softly see value "$0.00" for title "Old Value" against the value "Cumulative Obligation" inside table "---subAwardStandAlone:-:historyTableId---"
+    Then I softly see value "$1,000.00" for title "New Value" against the value "Cumulative Obligation" inside field history table
+    Then I softly see value "$0.00" for title "Original Value" against the value "Cumulative Obligation" inside field history table
     And I click on back arrow
     #270275
     And I click on "Submit For Approval" in the page details

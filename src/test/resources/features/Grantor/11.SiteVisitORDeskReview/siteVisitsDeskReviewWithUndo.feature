@@ -281,11 +281,9 @@ Feature: Validate all scenarios in the Site Visit with Undo
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "History" sub tab
     #284428
-    When I perform quick search for "{SavedValue:SitevVisitId}" in "History" panel
-    Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "History"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Changed By" inside table "History"
-    Then I softly see value "Approved" for title "Old Value" inside table "History"
-    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Changed By" inside field history table
+    Then I softly see value "Approved" for title "Original Value" inside field history table
+    Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
@@ -381,9 +379,12 @@ Feature: Validate all scenarios in the Site Visit with Undo
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
     And I click on "View" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation FD1" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
-    Then I softly see value "Automation FD" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
-    Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Approved"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation FD1" for title "New Value" inside field history table
+    Then I softly see value "Automation FD" for title "Original Value" inside field history table
+    And I click on back arrow
+    Then I softly see column "Overall Status" at position "1" contains text "Approved"
     Given I navigate to "Responsibilities" sub tab
     Then I softly see value "Step 1" for title "Site Visit" against the value "Automation FD1" inside table "---sitevisits:-:approverSiteVisitTableId---"
     Then I softly see value "NA" for title "Site Visit" against the value "Automation FD" inside table "---sitevisits:-:approverSiteVisitTableId---"
@@ -1250,9 +1251,11 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Given I navigate to "Responsibilities" sub tab
     Then I softly see value "Step 2" for title "Site Visit" against the value "Automation PO" inside table "---sitevisits:-:approverSiteVisitTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation EXE" for title "New Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
-    Then I softly see value "Automation PO" for title "Old Value" inside table "---sitevisits:-:siteVisitHistoryTableId---"
-    Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Approved"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation EXE" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
+    Then I softly see column "Overall Status" at position "1" contains text "Approved"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel

@@ -295,8 +295,10 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I can see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I can see top right button "New" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewNotesTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation FO1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation FO" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation FO1" for title "New Value" inside field history table
+    Then I softly see value "Automation FO" for title "Original Value" inside field history table
 
   @236022 @ValidateDeskReviewPMusercanabletoreassigndeskreviewownershipfromPMtootherPMuserInProgressstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PM user can able to reassign desk review ownership from PM to other PM user 'In Progress' state of desk review
@@ -413,8 +415,10 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I can see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I can see top right button "New" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewNotesTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @236039 @ValidateDeskreviewEXEusercanabletochangeownershipinApprovedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk review EXE user can able to change ownership in 'Approved' state of desk review
@@ -545,8 +549,10 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation EXE1" for title "Name" inside table "---deskreview:-:deskReviewOwnerTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation EXE1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation EXE" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation EXE1" for title "New Value" inside field history table
+    Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
   @236049 @ValidateDeskReviewPOusercanabletochangeownershipinsenttosubrecipientstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PO user can able to change ownership in 'sent to subrecipient' state of desk review
@@ -627,8 +633,10 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation PO1" for title "Name" inside table "---deskreview:-:deskReviewOwnerTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PO1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation PO" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
 
   @236065 @ValidateDeskReviewFOusercanabletochangetheownershipSubmittoGrantorstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FO user can able to change the ownership in 'Submit to Grantor'state of desk review
@@ -738,8 +746,10 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation FO1" for title "Name" inside table "---deskreview:-:deskReviewOwnerTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation FO1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation FO" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation FO1" for title "New Value" inside field history table
+    Then I softly see value "Automation FO" for title "Original Value" inside field history table
 
   @236076 @ValidateDeskReviewPMusercanabletoseetochangeownershipinClosedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PM user can able to see to change ownership in 'Closed' state of desk review
@@ -901,8 +911,10 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation PM1" for title "Name" inside table "---deskreview:-:deskReviewOwnerTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @236172 @236184 @ValidateDeskReviewPOusecanabletoreassignownershipofdeskreviewfromPOtootherPOuserinSentforreviewstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PO user can able to reassign ownership of desk review from PO to other PO user in 'Sent for review' state of desk review
@@ -978,8 +990,11 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I can see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I can see top right button "New" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewNotesTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PO1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation PO" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
+    And I click on back arrow
     #236184
     And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
@@ -1164,8 +1179,10 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I can see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I can see top right button "New" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewNotesTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation FO1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation FO" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation FO1" for title "New Value" inside field history table
+    Then I softly see value "Automation FO" for title "Original Value" inside field history table
 
   @236178 @ValidateDeskReviewEXEusercanabletodobusinessflowafterreassignownershipofdeskreviewfromEXEtootherEXEuserinINprogressstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review EXE user can able to do business flow after reassign ownership of desk review from EXE to other EXE user in 'IN progress' state of desk review
@@ -1230,8 +1247,11 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I can see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I can see top right button "New" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewNotesTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation EXE1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation EXE" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation EXE1" for title "New Value" inside field history table
+    Then I softly see value "Automation EXE" for title "Original Value" inside field history table
+    And I click on back arrow
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name            | Desk Review |
@@ -1723,8 +1743,10 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly cannot see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I can see top right button "New" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewNotesTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation FD1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation FD" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation FD1" for title "New Value" inside field history table
+    Then I softly see value "Automation FD" for title "Original Value" inside field history table
 
   @236027 @ValidateDeskReviewFDusercanabletochangeownershipinSubmittedforApprovalstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FD user can able to change ownership in 'Submitted for Approval' state of desk review
@@ -1801,8 +1823,10 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation FD1" for title "Name" inside table "---deskreview:-:deskReviewOwnerTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation FD1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation FD" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation FD1" for title "New Value" inside field history table
+    Then I softly see value "Automation FD" for title "Original Value" inside field history table
 
   @236192 @ValidateDeskReviewifDR1ownerFD1changehisownershiptoFD2thenFD1againcreateDR2thentheownerofSV2isFD1onlynotnewownerincreatedstateofDR @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review if DR1 owner FD1 change his ownership to FD2 and then FD1 again create DR2 then then owner of SV2 is FD1 only not new owner in created state of DR
@@ -1912,8 +1936,11 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly can see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I softly can see top right button "New" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewNotesTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation FD1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation FD" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation FD1" for title "New Value" inside field history table
+    Then I softly see value "Automation FD" for title "Original Value" inside field history table
+    And I click on back arrow
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel

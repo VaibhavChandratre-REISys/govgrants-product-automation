@@ -1534,12 +1534,8 @@ Feature: Validate all scenarios of every modules flow
 
  @debug @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-   When I login to "As a Grantor" app as "PM" user
+   When I login to "As a Grantor" app as "ADMIN" user
     And I halt execution
-   Then I see value "{SavedValue:FO Username}" for title "Name" inside table "---progressreport:-:approversTableId---"
-   And I halt execution
-   And I navigate to "Field Audit" sub tab in split screen
-   And I click on hyperlink containing value "View All"
-#   Then I softly see value "Approved" for title "New Value" inside field history table
-#   And I click on back arrow
+   Then I softly see value "Active" for title "New Value" against the value "Automation FO" inside field history table
+   Then I softly see value "Active" for title "New Value" against the value "Status" inside field history table
    And I halt execution

@@ -3512,7 +3512,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "Amend Subaward" in the page details
     And I wait for "3" seconds
     When I click on "Activate" in the page details
-    And I wait for "5" seconds
+    And I wait for "8" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -5194,7 +5194,8 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter in modal "Progress Report Monthly" values from "Award_Field_Values.xlsx"
-    And I enter in modal value "30" into field "CalReportingEndDate__c"
+    And I enter in modal value "300" into field "CalReportingStartDate__c"
+    And I enter in modal value "365" into field "CalReportingEndDate__c"
     And I click modal button "Save"
     And I wait for "3" seconds
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button

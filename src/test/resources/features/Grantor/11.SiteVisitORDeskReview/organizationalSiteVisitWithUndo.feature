@@ -98,18 +98,19 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Approve | Send Back | Forward |
     #291842 #289809
     When I navigate to "History" sub tab
-    Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
-    When I perform quick search for "{SavedValue:SitevVisitId}" in "History" panel
-    Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "History"
-    Then I softly see value "{SavedValue:PM Username}" for title "Changed By" inside table "History"
-    Then I softly see value "Approved" for title "Old Value" inside table "History"
-    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
+    Then I softly see column "Overall Status" at position "1" contains text "Pending"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "{SavedValue:PM Username}" for title "Changed By" inside field history table
+    Then I softly see value "Approved" for title "Original Value" inside field history table
+    Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
     Then I refresh the page
     Then I softly see snapshot with name containing "Organizational Site Visit - Undo Approval.pdf" as name
     When I click on "Menu" in the page details
     And I select "Take Snapshot" from dropdown
     When I navigate to "History" sub tab
     And I refresh the page
+    And I wait for "5" seconds
     Then I see snapshot with name containing "SnapShot" as name
     #289808
     And I navigate to "Home" tab

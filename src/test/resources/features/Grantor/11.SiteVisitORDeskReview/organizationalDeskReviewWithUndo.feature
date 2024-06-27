@@ -378,11 +378,11 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I softly see column "Assigned To" at position "2" contains text "{SavedValue:EXE Username}"
     Then I softly see column "Date" at position "1" contains text "Step : Re-approval (Pending for approval)"
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
-    When I perform quick search for "{SavedValue:DeskReviewID}" in "History" panel
-    Then I softly see value "{SavedValue:DeskReviewID}" for title "EGMS ID" inside table "History"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Changed By" inside table "History"
-    Then I softly see value "Approved" for title "Old Value" inside table "History"
-    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Changed By" inside field history table
+    Then I softly see value "Approved" for title "Original Value" inside field history table
+    Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
     #296073
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:homeCompletedTaskTableId---" panel
@@ -1560,21 +1560,22 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Send Back | Forward |
     And I navigate to "History" sub tab
-    Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
-    When I perform quick search for "{SavedValue:DeskReviewID}" in "History" panel
-    Then I softly see value "{SavedValue:DeskReviewID}" for title "EGMS ID" inside table "History"
-    Then I softly see value "{SavedValue:PM Username}" for title "Changed By" inside table "History"
-    Then I softly see value "Approved" for title "Old Value" inside table "History"
-    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
+    Then I softly see column "Overall Status" at position "1" contains text "Pending"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "{SavedValue:PM Username}" for title "Changed By" inside field history table
+    Then I softly see value "Approved" for title "Original Value" inside field history table
+    Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
+    And I click on back arrow
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "History" sub tab
     Then I softly see column "Overall Status" at position "1" contains text "Approved"
-    When I perform quick search for "{SavedValue:DeskReviewID}" in "History" panel
-    Then I softly see value "{SavedValue:DeskReviewID}" for title "EGMS ID" inside table "History"
-    Then I softly see value "{SavedValue:PM Username}" for title "Changed By" inside table "History"
-    Then I softly see value "Submitted for Approval" for title "Old Value" inside table "History"
-    Then I softly see value "Approved" for title "New Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "{SavedValue:PM Username}" for title "Changed By" inside field history table
+    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
+    Then I softly see value "Approved" for title "New Value" inside field history table
 
   @329514 @ValidateOrgDRundobuttonshouldnotdisplayonOrgDRwhenOrgdeskreviewisinInprogressstate @Undo
   Scenario: Validate Org DR undo button should not display on Org DR when Org desk review is in In progress state
