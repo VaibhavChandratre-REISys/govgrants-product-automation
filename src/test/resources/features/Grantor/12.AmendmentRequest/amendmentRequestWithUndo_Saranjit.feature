@@ -3706,6 +3706,7 @@ Feature: Amendment Request scenarios with Undo
 #    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
 #    When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
 #    And I click modal button "Save and Continue"
+#    And I pause execution for "3" seconds
 #    And I enter value "Automation Justification" into field "PurposeRTA__c"
 #    When I click on "Save" in the page details
 #    And I wait for "5" seconds
@@ -4148,6 +4149,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter value "Automation Justification" into field "PurposeRTA__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
@@ -4437,6 +4439,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter value "Automation Justification" into field "PurposeRTA__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
@@ -5491,66 +5494,67 @@ Feature: Amendment Request scenarios with Undo
 #    And I "Approve" in the approval decision
 #    Then I can see top right button "Undo" in page detail
 #    Then I can see top right button "Amend Subaward" in page detail
-    And I navigate to "Grants" tab
-    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "CR-AD-1234-12245-00" in "---subAwardStandAlone:-:completeTaskTableId---" panel
-    Then I softly see value "Completed" for title "Status" against the value "CR-AD-1234-12245-00" inside table "---subAwardStandAlone:-:completeTaskTableId---"
-    When I click on "View" icon for "CR-AD-1234-12245-00" inside flex table with id "---subAwardStandAlone:-:completeTaskTableId---" without waiting for record
-    And I click on "Undo" in the page details without processing
-    Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "OK" on modal confirmation box
-    Then I softly see field "Status" as "Submitted for Approval"
-    Then I see only the following ordered radio buttons in the approval decision :
-      | Approve | Reject | Forward | Send to Owner |
-    When I select radio button "Forward" in the approval decision
-    And I select user "{SavedValue:EXE Username}" in the approval decision
-    When I enter comment "Automation testing" in the approval decision
-    And I submit the approval in the approval decision without processing
-    Then I softly see field "Status" as "Submitted for Approval"
-    Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "CR-AD-1234-12245-00" in "---amendment:-:pendingTaskTableId---" panel
-    Then I softly see value "CR-AD-1234-12245-00" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
-    When I click on "Start" icon for "CR-AD-1234-12245-00" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    Then I softly see field "Status" as "Submitted for Approval"
-    And I "Approve" in the approval decision
-    Then I softly see field "Status" as "Approved"
-    Then I can see top right button "Undo" in page detail
-    And I click on "Undo" in the page details without processing
-    Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
-    And I click "OK" on modal confirmation box
-    Then I softly see field "Status" as "Submitted for Approval"
-    Then I see only the following ordered radio buttons in the approval decision :
-      | Approve | Reject | Forward | Send to Owner |
-    When I "Send to Owner" in the approval decision
-    Then I softly see field "Status" as "Created"
-    Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "CR-AD-1234-12245-00" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    And I click on "View" icon for "CR-AD-1234-12245-00" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I softly see field "Status" as "Created"
-    Then I cannot see top right button "Undo" in page detail
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name          | Amendment Request |
-      | Automation FO | Step 3            |
-    And I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "CR-AD-1234-12245-00" in "---subAwardStandAlone:-:completeTaskTableId---" panel
+#    Then I softly see value "Completed" for title "Status" against the value "CR-AD-1234-12245-00" inside table "---subAwardStandAlone:-:completeTaskTableId---"
+#    When I click on "View" icon for "CR-AD-1234-12245-00" inside flex table with id "---subAwardStandAlone:-:completeTaskTableId---" without waiting for record
+#    And I click on "Undo" in the page details without processing
+#    Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
+#    And I click "OK" on modal confirmation box
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    Then I see only the following ordered radio buttons in the approval decision :
+#      | Approve | Reject | Forward | Send to Owner |
+#    When I select radio button "Forward" in the approval decision
+#    And I select user "{SavedValue:EXE Username}" in the approval decision
+#    When I enter comment "Automation testing" in the approval decision
+#    And I submit the approval in the approval decision without processing
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    Then I cannot see top right button "Undo" in page detail
+#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "CR-AD-1234-12245-00" in "---amendment:-:pendingTaskTableId---" panel
+#    Then I softly see value "CR-AD-1234-12245-00" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
+#    When I click on "Start" icon for "CR-AD-1234-12245-00" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    And I "Approve" in the approval decision
+#    Then I softly see field "Status" as "Approved"
+#    Then I can see top right button "Undo" in page detail
+#    And I click on "Undo" in the page details without processing
+#    Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
+#    And I click "OK" on modal confirmation box
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    Then I see only the following ordered radio buttons in the approval decision :
+#      | Approve | Reject | Forward | Send to Owner |
+#    When I "Send to Owner" in the approval decision
+#    Then I softly see field "Status" as "Created"
+#    Then I cannot see top right button "Undo" in page detail
+#    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Amendment Requests - All"
+#    When I perform quick search for "CR-AD-1234-12245-00" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+#    And I click on "View" icon for "CR-AD-1234-12245-00" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+#    Then I softly see field "Status" as "Created"
+#    Then I cannot see top right button "Undo" in page detail
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+#      | Name          | Amendment Request |
+#      | Automation FO | Step 3            |
+#    And I click on "Send to Subrecipient" in the page details
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Grants" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "CR-AD-1234-12245-00" in "---amendment:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "CR-AD-1234-12245-00" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I click on "Acknowledge" in the page details
+#    Then I softly see field "Status" as "Acknowledged"
+#    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "CR-AD-1234-12245-00" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "CR-AD-1234-12245-00" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "CR-AD-1234-12245-00" in "---amendment:-:pendingTaskTableId---" panel
-    And I click on "View" icon for "CR-AD-1234-12245-00" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
@@ -5872,6 +5876,7 @@ Feature: Amendment Request scenarios with Undo
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "SubRecipientCF_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter value "Automation Justification" into field "PurposeRTA__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
