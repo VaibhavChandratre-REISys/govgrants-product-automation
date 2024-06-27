@@ -3440,7 +3440,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62144 @validateCreatedPRAfterSWAmendmentIsNotCarryForwardedAonAward @mahadev @TBExecution
+  @62144 @validateCreatedPRAfterSWAmendmentIsNotCarryForwardedAonAward @mahadev
   Scenario Outline: Validate progress report with Created status is not carry forwarded at internal portal on grant after scope of work change amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -5102,7 +5102,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62924 @validateFrequencyAfterPeriodicAmendmentIsSameOnPR @mahadev @TBExecution
+  @62924 @validateFrequencyAfterPeriodicAmendmentIsSameOnPR @mahadev
   Scenario Outline: Verify Report Frequency field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward and Frequency is updated
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -5194,8 +5194,8 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter in modal "Progress Report Monthly" values from "Award_Field_Values.xlsx"
-    And I enter in modal value "300" into field "CalReportingStartDate__c"
-    And I enter in modal value "365" into field "CalReportingEndDate__c"
+    And I enter in modal value "{SavedValue:PBPSD}" into field "CalReportingStartDate__c"
+    And I enter in modal value "{SavedValue:PBPED}" into field "CalReportingEndDate__c"
     And I click modal button "Save"
     And I wait for "3" seconds
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
