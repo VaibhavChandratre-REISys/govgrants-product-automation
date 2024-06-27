@@ -1020,14 +1020,22 @@ Feature: Validate all scenarios of grants and award without background
 
   @65681 @65683 @verifyTermsAndConditions @mahadev @buglogged142219 @AwardPoojaRerun @LWC-Bug-415720
   Scenario: Verify Award owner can Associate Terms and Conditions on Subaward Terms Tab | Verify Associated Mandatory Terms and Conditions are not Editable by award owner on Subaward
+#    When I login to "As a Grantor" app as "dynamicUser" user
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+#    And I enter "GrantCreate22" values from "Award_Field_Values.xlsx"
+#    And I wait for "3" seconds
+#    And I click modal button "Continue"
+#    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
+#    When I click modal button "Save and Continue"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I enter "GrantCreate22" values from "Award_Field_Values.xlsx"
-    And I wait for "3" seconds
+    And I enter "Grant_Creation" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
-    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
+    And I enter "GrantEditionYes" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I wait for "3" seconds
     And I navigate to "Subawards" sub tab
@@ -1039,6 +1047,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly can see row level action button "Edit" against "Random" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I save the value from row "1" for column name "EGMS ID" as "NonMandatoryT_C" from flex table "---subAwardStandAlone:-:grantTermConditionPopUp---"
+    And I wait for "3" seconds
     When I click "Associate" after selection of "{SavedValue:NonMandatoryT_C}" in the table "---subAwardStandAlone:-:grantTermConditionPopUp---"
     And I click modal button "Close"
     And I wait for "3" seconds
@@ -1551,21 +1560,8 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the following messages in the page details :
       | Instructions for Subrecipient is required to save under Overview. |
 
-  @68078 @redirectionThresholdCheck @jitendra @smoke @PoojaAward
+  @68078 @redirectionThresholdCheck @jitendra @smoke
   Scenario Outline: validate that Budget Redirection threshold is default set to 10% on amendment,For a Grant with No Budget redirection threshold set
-#    Given I activated standalone subaward "Automation Runtime Execution Award" with properties "NO_BUDGETRedirectionThreshhold" of type "Competitive"
-#    Given I am on "SUBPORTAL" portal
-#    When I login to "Grants Portal" app as "SPI3" user
-#    And I navigate to "Grants" tab
-#    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Subawards  - Active"
-#    When I perform quick search for "{SavedValue:Automation Runtime Execution Award}" in "---subAwardStandAlone:-:recipientsSubawardTableId---" panel
-#    And I click on "View" icon for "{SavedValue:Automation Runtime Execution Award}" inside flex table with id "---subAwardStandAlone:-:recipientsSubawardTableId---" without waiting for record
-#    Given I navigate to "Management" sub tab
-#    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
-#    And I wait for "10" seconds
-#    When I enter in modal "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
-#    And I click modal button "Save and Continue"
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -7206,7 +7202,6 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
-
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I click on "Edit" in the page details
@@ -7218,9 +7213,10 @@ Feature: Validate all scenarios of grants and award without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit to Grantor" in the page details
     And I wait for "4" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -7464,7 +7460,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation EXE" for title "Name" inside table "---closeout:-:closeoutOwnerTableId---"
 
-  @224420  @sprint-12-US-226646 @vaibhav @reassignment @PoojaAwardFinalRun
+  @224420  @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Reassignment Task all simultaneous reassignment task ownership should reassigned to new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -7561,9 +7557,10 @@ Feature: Validate all scenarios of grants and award without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I activated standalone subaward "Automation Runtime Award Desk Review" with properties "Automation EXE user" of type "Competitive"
@@ -9479,6 +9476,7 @@ Feature: Validate all scenarios of grants and award without background
       | Reviewer Name            | Role            | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
+    And I wait for "4" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -10066,6 +10064,7 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I click on "Accept after Approval" in the page details
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -10148,6 +10147,7 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I click on "Accept after Approval" in the page details
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
