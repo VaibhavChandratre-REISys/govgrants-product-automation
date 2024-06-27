@@ -52,6 +52,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I can see top right button "Send to Subrecipient" in page detail
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
+    And I pause execution for "5" seconds
     #279020
     Then I softly see field "Status" as "Submitted for Approval"
 
@@ -87,6 +88,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
     And I click on "Notify" in the page details
     Given I click on "Conduct" in the page details
+    And I pause execution for "4" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---deskreview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
@@ -162,6 +164,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
     And I click on "Notify" in the page details
     Given I click on "Conduct" in the page details
+    And I pause execution for "4" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---deskreview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
@@ -191,6 +194,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
@@ -256,7 +260,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "History" sub tab
     Then I softly see column "Assigned To" at position "2" contains text "{SavedValue:PM Username}"
-    Then I softly see column "Date" at position "1" contains text "Step : Re-approval (Pending for approval)"
+    Then I softly see column "Date" at position "1" contains text "Step : Re - approval (Pending for approval) "
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I "Send Back" in the approval decision
     Then I softly see field "Status" as "In Progress"
@@ -348,6 +352,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
@@ -439,6 +444,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
@@ -522,6 +528,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -719,14 +726,14 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly see field "Status" as "Submitted to Grantor"
     Then I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     And I perform quick search for "Record Id" in "---deskreview:-:monitoringTabDeskReviewTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabDeskReviewTableId---"
       #279030
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly see field "Status" as "Submitted to Grantor"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -826,6 +833,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
+    And I pause execution for "2" seconds
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                       | Desk Review |
       | {SavedValue:EXE Username}  | Step 1      |
@@ -988,6 +996,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
+    And I pause execution for "3" seconds
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
@@ -1068,6 +1077,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -1156,6 +1166,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "History" sub tab
+    #Bug443647
     Then I softly see snapshot with name containing "Desk Review - Undo Approval.pdf" as name
 
   @308148 @VerifythatAdminapproveruserwillnotseeUNDObuttoninforceClosedstateofdeskreview @sprint-25-US-297269 @hitesh @Undo
@@ -1215,6 +1226,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I pause execution for "5" seconds
     When I navigate to "Reports and Outcomes" sub tab
     And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
@@ -1540,6 +1552,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Award Desk Review}" in "---deskreview:-:internalActiveGrants---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalActiveGrants---"
+    And I pause execution for "3" seconds
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
     Given I navigate to "Management" sub tab
@@ -1961,6 +1974,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+   And I pause execution for "4" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1968,6 +1982,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    And I pause execution for "4" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 

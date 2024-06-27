@@ -1,4 +1,4 @@
-@closeoutExecution @closeout @t4 @grantor-regression @t4 @grantor-parallel-regression @regression
+@closeoutExecution @closeout @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in Closeout
 
   Background: Navigate to award
