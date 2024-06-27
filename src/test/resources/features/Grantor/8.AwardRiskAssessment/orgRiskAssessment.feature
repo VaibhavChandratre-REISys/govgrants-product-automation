@@ -2009,6 +2009,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I get the "EGMS ID"
     When I click on "Submit" in the page details
     And I wait for "3" seconds
+    And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
     When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
