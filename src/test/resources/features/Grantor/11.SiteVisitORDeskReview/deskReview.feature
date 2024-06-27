@@ -30,16 +30,19 @@ Feature: Validate all scenarios in Desk Review
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
-    Then I softly see that "{SavedValue:EXE Username}" has been added in flextable with Id "---deskreview:-:participantsTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
+    Then I softly see that "{SavedValue:EXE1 Username}" has been added in flextable with Id "---deskreview:-:participantsTableId---"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                      | Desk Review |
-      | {SavedValue:EXE Username} | Step 1      |
+      | {SavedValue:EXE1 Username} | Step 1      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                     | Desk Review |
       | {SavedValue:FO Username} | Step 2      |
-    Then I softly see that "{SavedValue:EXE Username}" has been added in flextable with Id "---deskreview:-:approverDeskReviewTableId---"
+    And I pause execution for "3" seconds
+    And I refresh the page
+    Given I navigate to "Responsibilities" sub tab
+    Then I softly see that "{SavedValue:EXE1 Username}" has been added in flextable with Id "---deskreview:-:approverDeskReviewTableId---"
     And I navigate to "Overview" sub tab
     Then I softly see field "Created Date" is not editable
 

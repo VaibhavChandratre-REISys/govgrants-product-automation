@@ -2733,7 +2733,7 @@ Feature: Amendment Request scenarios without background
     #100459 #monu
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I upload attachment "Attachment.pdf" of type "Others" from computer
     And I pause execution for "5" seconds
     Then I softly see "Other" has been added in "Amendment Files" flex table
     #99261 #monu
@@ -8261,7 +8261,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @ch1 @200829 @ValidateawardhistorytableshouldbeupdateT&CARownershipreassigntonewowner @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200829 @ValidateawardhistorytableshouldbeupdateT&CARownershipreassigntonewowner @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: ValidateawardhistorytableshouldbeupdateT&CARownershipreassigntonewowner
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -8309,6 +8309,8 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Subawards" sub tab
     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    When I navigate to "Management" sub tab
+    And I click on "View" icon for "{SavedValue:TermsCondId}" inside flex table with id "---amendment:-:amendmentRequestTableId---" without waiting for record
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
@@ -9403,8 +9405,8 @@ Feature: Amendment Request scenarios without background
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "Automation PM1" for title "New Value" inside field history table
-    Then I softly see value "Automation PM" for title "Original Value" inside field history table
+    Then I softly see value "Automation PM" for title "New Value" inside field history table
+    Then I softly see value "Automation PM1" for title "Original Value" inside field history table
     And I click on back arrow
     When I navigate to "Files" sub tab
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
