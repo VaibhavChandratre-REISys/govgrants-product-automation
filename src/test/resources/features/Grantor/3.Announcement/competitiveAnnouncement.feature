@@ -193,9 +193,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "$4,000.00" for title "New Value" inside field history table
-    Then I softly see value "$2,000.00" for title "Old Value" inside field history table
+    Then I softly see value "$2,000.00" for title "Original Value" inside field history table
     Then I softly see value "$6,000.00" for title "New Value" inside field history table
-    Then I softly see value "$3,000.00" for title "Old Value" inside field history table
+    Then I softly see value "$3,000.00" for title "Original Value" inside field history table
     And I click on back arrow
     And I navigate to "Financials" sub tab
     And I perform quick search for "Construction" in "---announcement:-:announcementBudgetCategory---" panel
@@ -381,7 +381,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "{SavedValue:AppDueDate1}" for title "New Value" inside field history table
-    Then I softly see value "{SavedValue:AppDueDate}" for title "Old Value" inside field history table
+    Then I softly see value "{SavedValue:AppDueDate}" for title "Original Value" inside field history table
     And I click on back arrow
     And I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"

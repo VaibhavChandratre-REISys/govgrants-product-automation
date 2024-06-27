@@ -3807,7 +3807,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
-    Then I softly see value "Automation PM" for title "Old Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @196621 @Validateusershouldabletocreatetheownershiptasktonewownerforgrantmodule @sprint-4 @vaibhav @reassignment
   Scenario: Validate user should able to create the ownership task to new owner for grant module
@@ -4841,7 +4841,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
-    Then I softly see value "Automation PM" for title "Old Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @198595 @198598  @sprint-4 @vaibhav @reassignment
   Scenario: Validate  user should able to see email in yopmail when award rejected by approver after task is created for award & acknowledge by subrecipient
@@ -8220,7 +8220,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
-    Then I softly see value "Automation PM" for title "Old Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @218010  @sprint-11-US-224734 @vaibhav @reassignment @PoojaAwardFinalRun
   Scenario: Validate Award for peer review pending task & completed task should generate correctly
@@ -8405,7 +8405,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
-    Then I softly see value "Automation PM" for title "Old Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @195696  @sprint-7-US-191250 @vaibhav @reassignment
   Scenario: Validate Award If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility reassignment fails

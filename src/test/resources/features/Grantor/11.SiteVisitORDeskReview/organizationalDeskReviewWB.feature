@@ -109,8 +109,10 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I can see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I can see top right button "New" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewNotesTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PO1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation PO" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
 
   @235438 @235438 @ValidateDeskReviewEXEusercanabletoreassigndeskreviewownershipfromEXEtootherEXEuserinNotifiedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review EXE user can able to reassign desk review ownership from EXE to other EXE user in 'Notified' state of desk review
@@ -224,8 +226,10 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I cannot see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I can see top right button "New" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewNotesTableId---"
     And I navigate to "History" sub tab
-    Then I softly see value "Automation EXE1" for title "New Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
-    Then I softly see value "Automation EXE" for title "Old Value" inside table "---deskreview:-:deskReviewHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation EXE1" for title "New Value" inside field history table
+    Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
   @235444 @ValidateDeskReviewFOusercanabletoreassigndeskreviewownershipfromFOtootherFOuserInProgressstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FO user can able to reassign desk review ownership from FO to other FO user 'In Progress' state of desk review

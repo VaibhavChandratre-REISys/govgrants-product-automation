@@ -1076,13 +1076,14 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     #284439
     And I navigate to "History" sub tab
-    And I see "{SavedValue:EXE Username}" against "Re-approval (Pending for first approval)" in approval history
-    Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
-    When I perform quick search for "{SavedValue:DeskReview}" in "History" panel
-    Then I softly see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "History"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Changed By" inside table "History"
-    Then I softly see value "Approved" for title "Old Value" inside table "History"
-    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
+    Then I softly see column "Date" at position "1" contains text "Step : Re-approval (Pending for approval)"
+    Then I softly see column "Overall Status" at position "1" contains text "Pending"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Changed By" inside field history table
+    Then I softly see value "Approved" for title "Original Value" inside field history table
+    Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
+    And I click on back arrow
     And I navigate to "Monitoring" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:homeCompletedTaskTableId---" panel

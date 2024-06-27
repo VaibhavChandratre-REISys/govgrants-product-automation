@@ -1490,7 +1490,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
-    Then I softly see value "Approved" for title "Old Value" inside field history table
+    Then I softly see value "Approved" for title "Original Value" inside field history table
     Then I softly see value "Automation PM" for title "Changed By" inside field history table
 
 

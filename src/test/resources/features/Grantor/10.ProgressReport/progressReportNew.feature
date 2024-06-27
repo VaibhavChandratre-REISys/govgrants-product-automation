@@ -1,7 +1,7 @@
 @progressReportNew @grantor-regression @grantor-parallel-regression @progressReport @regression
 Feature: Validate all scenarios in Progress Report with respect to Amendment Request
 
-  @60726 @60727 @6072 @60656 @60657 @validateReviewedPRAfterFundingChangeAmendmentIsCarryForwarded @mahadev @TBExecution
+  @60726 @60727 @6072 @60656 @60657 @validateReviewedPRAfterFundingChangeAmendmentIsCarryForwarded @mahadev
   Scenario Outline: Validate Progress report with Reviewed/Submitted for Review Status is carried forwarded on grant and  Subaward Overview at SR user end when Award owner performed Funding Change Amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal

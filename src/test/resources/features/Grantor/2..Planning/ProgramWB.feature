@@ -1107,7 +1107,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM" for title "New Value" inside field history table
-    Then I softly see value "Automation PM1" for title "Old Value" inside field history table
+    Then I softly see value "Automation PM1" for title "Original Value" inside field history table
 
   @195340 @Validatenameoftheownershouldgetupdatedinresponsibilitytab @sprint-1 @vaibhav @reassignment
   Scenario: Validate name of the owner should  get updated in responsibility tab
@@ -1929,7 +1929,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM" for title "New Value" inside field history table
-    Then I softly see value "Automation PM1" for title "Old Value" inside field history table
+    Then I softly see value "Automation PM1" for title "Original Value" inside field history table
 
   @198789 @ValidateapprovaltaskassignedtoinitialownerofprogramEXEisnottransferredtonewownerwhenaexternalprograminsubmitforapprovalstatusistransferredtonewownerEXE&emailissenttocorrectowneruponrejecting @sprint-4 @vaibhav @reassignment
   Scenario: Validate approval task assigned to initial owner of program <EXE> is not transferred to new owner when a external program in submit for approval status is transferred to new owner (EXE) & email is sent to correct owner upon rejecting
@@ -3589,7 +3589,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
-    Then I softly see value "Automation PM" for title "Old Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
     And I click on back arrow
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab

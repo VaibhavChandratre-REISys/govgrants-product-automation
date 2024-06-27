@@ -632,7 +632,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Delete" icon for "Notes Record4" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record4" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
 
-  @236158  @sprint-12-US-234322 @hitesh @Notes @ProgressFailedScenarios @TBExecution
+  @236158  @sprint-12-US-234322 @hitesh @Notes @ProgressFailedScenarios
   Scenario:Verify that <Admin> Can not Add Notes In Progress report Record ,when record  is in Force closed state And Can only /Edit /Delete his own notes
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -727,6 +727,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---progressReport:-:internalProgressReportFlexTableId---"
     And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Force Closed"
     Then I softly see status in Progress-bar is "Force Closed" and is "red"
     When I navigate to "Forms and Files" sub tab

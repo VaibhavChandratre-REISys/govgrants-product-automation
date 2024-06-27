@@ -1029,7 +1029,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @60304 @validateAwardOwnerCanSendFinalPrforApproval @jitendra @TBExecution
+  @60304 @validateAwardOwnerCanSendFinalPrforApproval @jitendra
   Scenario Outline: Validate Program report Marked as Final is Submitted for Approval when it is Submitted to Grantor after send back to Sub-recipient Status
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2365,7 +2365,6 @@ Feature: Validate scenarios in Progress Report without background
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
       | {SavedValue:FO Username} | Step 2   |
-    And I refresh the page
     And I wait for "2" seconds
     Given I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -2720,7 +2719,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @63107 @validatePRStatusAfterCloseoutApprovalAtSPIEnd @mahadev @TBExecution
+  @63107 @validatePRStatusAfterCloseoutApprovalAtSPIEnd @mahadev
   Scenario Outline: Verify Progress report with Send back to Sub-recipient status changed to Force Closed when closeout request is approved with type as Early completion by award owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -5065,7 +5064,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:progID}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:progID}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197377 @197382 @Validateprogressreportiscreatedstate&userchangedOwnershiptonewownerofPRreport&afterPRissubmittograntorthenSendtoS/Risdisplaytonewowner @sprint-4 @vaibhav @reassignment @TBExecution
+  @197377 @197382 @Validateprogressreportiscreatedstate&userchangedOwnershiptonewownerofPRreport&afterPRissubmittograntorthenSendtoS/Risdisplaytonewowner @sprint-4 @vaibhav @reassignment
   Scenario: Validate progress report is created state & user changed Ownership to new owner of PR report & after PR is submit to grantor then Send to S/R is display to new owner
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -5475,7 +5474,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PO1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @197668 @Validateawardownerischangedinbetweenthelifecycleoftheprogressreportthenawardshouldnotaffecttheinternalowneroftheprogressreport @sprint-4 @vaibhav @reassignment @TBExecution
+  @197668 @Validateawardownerischangedinbetweenthelifecycleoftheprogressreportthenawardshouldnotaffecttheinternalowneroftheprogressreport @sprint-4 @vaibhav @reassignment
   Scenario: Validate award owner is changed in between the life cycle of the progress report then award should not affect the internal owner of the progress report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"

@@ -1666,7 +1666,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation EXE1" for title "New Value" inside field history table
-    Then I softly see value "Automation EXE" for title "Old Value" inside field history table
+    Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
   @PoojaAnnouncmentRun @196847 @Validateuserapprovedtheannouncement&reassignownershiptonewuserthenpublishoptionshoulddisplaytonewowner @sprint-4 @vaibhav @reassignment @ownershipcheck
   Scenario: Validate user approved the announcement & reassign ownership to  new user then publish option should display to new owner
@@ -3228,7 +3228,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
-    Then I softly see value "Automation PM" for title "Old Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @195677 @Validatethatnewapproversnameshouldbeupdatentheresponsibilitytabwhenapprovaltaskisreassigned @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate that new approver's name should be update in the responsibility tab when approval task is reassigned

@@ -1538,8 +1538,8 @@ Feature: Validate all scenarios of every modules flow
     And I halt execution
    Then I see value "{SavedValue:FO Username}" for title "Name" inside table "---progressreport:-:approversTableId---"
    And I halt execution
-#   And I navigate to "Field Audit" sub tab in split screen
-#   And I click on hyperlink containing value "View All"
+   And I navigate to "Field Audit" sub tab in split screen
+   And I click on hyperlink containing value "View All"
 #   Then I softly see value "Approved" for title "New Value" inside field history table
 #   And I click on back arrow
    And I halt execution
