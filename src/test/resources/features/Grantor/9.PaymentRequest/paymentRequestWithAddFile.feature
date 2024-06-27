@@ -620,7 +620,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I wait for "2" seconds
     Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
 
-  @TestApi @193944 @VerifyINDusercannotseetopleveleditbuttonandnotabletoaddfileonAd-hocreimbursementPRinforceclosedstate @sprint-14-US-225425 @addFiles @hitesh
+  @193944 @VerifyINDusercannotseetopleveleditbuttonandnotabletoaddfileonAd-hocreimbursementPRinforceclosedstate @sprint-14-US-225425 @addFiles @hitesh
   Scenario:Verify IND user can not see top level edit button and not able to add file on Ad-hoc reimbursement PR in force closed state
     Given I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal

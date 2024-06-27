@@ -1055,7 +1055,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Standard Pre-Application form" for title "Form Name" inside table "---preApplication:-:preAppFormTableId---"
     Then I softly see value "Pre-Application Report" for title "Report Type" inside table "---preApplication:-:preAppFormTableId---"
 
-  @TestApi @293628 @293645 @ValidatePOandSPIusercanseeReportTypeclmApplicationFormunderFormssectiononFilesandFormstabofApplication @sprint-3-US-288713 @vaibhav @Forms
+  @293628 @293645 @ValidatePOandSPIusercanseeReportTypeclmApplicationFormunderFormssectiononFilesandFormstabofApplication @sprint-3-US-288713 @vaibhav @Forms
   Scenario: Validate PO and SPI user can see Report Type clm on Application Form under Forms section on Files and Forms tab of Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "INVITED_APPLICANT_IND_ORG"
     When I am on "SUBPORTAL" portal
@@ -1197,7 +1197,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "General Review Form" for title "Form Name" inside table "---sitevisits:-:reportsTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" inside table "---sitevisits:-:reportsTableId---"
 
-  @TestApi @293633 @ValidateFDandINDusercanseeReportTypeclmonDeskReviewFormunderAllFormssectiononReports&OutcomestabofDeskreview @sprint-3-US-288713 @vaibhav @Forms
+  @293633 @ValidateFDandINDusercanseeReportTypeclmonDeskReviewFormunderAllFormssectiononReports&OutcomestabofDeskreview @sprint-3-US-288713 @vaibhav @Forms
   Scenario: Validate FD and IND user can see Report Type clm on Desk Review Form under All Forms section on Reports & Outcomes tab of Desk review
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
