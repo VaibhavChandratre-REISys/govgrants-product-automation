@@ -200,7 +200,7 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly see value "Draft" for title "Status" against the value "{SavedValue:Automation Runtime Execution Award}" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @65688 @validateTnCAssociate @jitendra @PoojaAward
+  @65688 @validateTnCAssociate @jitendra
   Scenario: Verify Associated Terms and Conditions are Editable by award owner on Subaward.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -220,8 +220,13 @@ Feature: Validate all scenarios of grants and award without background
     When I click "Associate" after selection of "TC-14744164" in the table "---subAwardStandAlone:-:grantTermConditionPopUp---"
     And I click modal button "Close"
     And I refresh the page
+    And I save the value from row "1" for column name "EGMS ID" as "NonMandatoryT_C" from flex table "---subAwardStandAlone:-:grantTermConditionPopUp---"
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "{SavedValue:NonMandatoryT_C}" in the table "---subAwardStandAlone:-:grantTermConditionPopUp---"
+    And I click modal button "Close"
     And I click on "Edit" icon for "Standard" inside flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---" without waiting for record
     And I enter value "2" into field "Sequence__c"
+    And I enter value "2" into field "Description__c"
     And I click modal button "Save"
     Then I softly see field "Sequence" as "2"
 
@@ -1020,15 +1025,6 @@ Feature: Validate all scenarios of grants and award without background
 
   @65681 @65683 @verifyTermsAndConditions @mahadev @buglogged142219 @AwardPoojaRerun @LWC-Bug-415720
   Scenario: Verify Award owner can Associate Terms and Conditions on Subaward Terms Tab | Verify Associated Mandatory Terms and Conditions are not Editable by award owner on Subaward
-#    When I login to "As a Grantor" app as "dynamicUser" user
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-#    And I enter "GrantCreate22" values from "Award_Field_Values.xlsx"
-#    And I wait for "3" seconds
-#    And I click modal button "Continue"
-#    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
-#    When I click modal button "Save and Continue"
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1167,7 +1163,6 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" in the page details
     When I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---" without waiting for record
     When I enter the following values into flex table with id "---subAwardStandAlone:-:budgetLineItems---" by clicking "New" :
