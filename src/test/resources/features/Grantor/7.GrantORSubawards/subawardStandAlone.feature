@@ -2228,6 +2228,9 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
 
   @55293 @ScheduleEndDateAfterStartDate @jitendra @buglogged128297 @Re-RunStandAlone
   Scenario: Verify While creating schedule user is not allowed to select the Schedule End Date after Project Period End Date.
+    And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    And I enter value "Automation Description" into field "GrantAwardDescription__c"
     And I navigate to "Budget" sub tab
     And I click on "Edit" in the page details
     And I enter value "4000" into field "BudgetPeriodEndDate__c"
