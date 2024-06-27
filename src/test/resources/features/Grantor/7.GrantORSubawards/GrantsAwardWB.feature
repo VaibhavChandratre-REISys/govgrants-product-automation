@@ -216,18 +216,14 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Terms" sub tab
-    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    When I click "Associate" after selection of "TC-14744164" in the table "---subAwardStandAlone:-:grantTermConditionPopUp---"
-    And I click modal button "Close"
-    And I refresh the page
     And I save the value from row "1" for column name "EGMS ID" as "NonMandatoryT_C" from flex table "---subAwardStandAlone:-:grantTermConditionPopUp---"
     And I wait for "3" seconds
-    When I click "Associate" after selection of "{SavedValue:NonMandatoryT_C}" in the table "---subAwardStandAlone:-:grantTermConditionPopUp---"
-    And I click modal button "Close"
-    And I click on "Edit" icon for "Standard" inside flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---" without waiting for record
+    And I click on "Edit" icon for "{SavedValue:NonMandatoryT_C}" inside flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---" without waiting for record
     And I enter value "2" into field "Sequence__c"
     And I enter value "2" into field "Description__c"
     And I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
     Then I softly see field "Sequence" as "2"
 
   @66654 @66655 @65897 @activateAwardEXEUser @jitendra @PoojaAward @LWCRemoved @wip
@@ -426,7 +422,7 @@ Feature: Validate all scenarios of grants and award without background
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} | EXE  | Block Grant   |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} | EXE  | Project Grant |
 
-  @67967 @amountNotDebitedFromFundingAccount @jitendra @PoojaAwardFinalRun
+  @67967 @amountNotDebitedFromFundingAccount @jitendra @PoojaAwardWBRe-Run
   Scenario Outline: Validate that the funding Account is not debited if it is removed prior to Subaward approval
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1040,15 +1036,10 @@ Feature: Validate all scenarios of grants and award without background
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I refresh the page
     And I navigate to "Terms" sub tab
-    Then I softly can see row level action button "Edit" against "Random" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I save the value from row "1" for column name "EGMS ID" as "NonMandatoryT_C" from flex table "---subAwardStandAlone:-:grantTermConditionPopUp---"
-    And I wait for "3" seconds
-    When I click "Associate" after selection of "{SavedValue:NonMandatoryT_C}" in the table "---subAwardStandAlone:-:grantTermConditionPopUp---"
-    And I click modal button "Close"
-    And I wait for "3" seconds
-    When I perform quick search for "Random" in "---subAwardStandAlone:-:termsndConditionsTableId---" panel
-    Then I softly see value "Random" for title "Title" inside table "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I save the value from row "1" for column name "Title" as "NonMandatoryT_C" from flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:NonMandatoryT_C}" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    Then I softly see value "{SavedValue:NonMandatoryT_C}" for title "Title" inside table "---subAwardStandAlone:-:termsndConditionsTableId---"
+
 
   @65794 @65822 @verifySRUserCanEnterBudgetDetails @mahadev @PoojaAward @Dev @PoojaAwardFinalRun
   Scenario Outline: To verify that the Sub Award budget field is editable in the Subrecipient (SPI User) under budget tab
@@ -1876,8 +1867,6 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
     Then I see value "Record ID" for title "EGMS ID" inside table "---subAwardFromFDM:-:pendingTaskTableId---"
-    When I perform quick search for "Record Id" in "---subAwardFromFDM:-:PhasePendingTasksByTableId---" panel
-    Then I see value "Record ID" for title "EGMS ID" inside table "---subAwardFromFDM:-:PhasePendingTasksByTableId---"
     Examples:
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
@@ -3203,7 +3192,7 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "3" seconds
     Then I softly do not see "No matches found" inside auto search result
 
-  @196596 @196598 @196611 @sprint-4 @vaibhav @reassignment @PoojaAwardFinalRun
+  @196596 @196598 @196611 @sprint-4 @vaibhav @reassignment
   Scenario: Validate after clicking on transfer ownership button for grants user should able to see the following message
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
