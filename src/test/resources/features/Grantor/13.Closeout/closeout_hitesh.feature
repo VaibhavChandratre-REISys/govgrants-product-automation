@@ -21,7 +21,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @50975 @50974 @assigningApproversAndsendCloseoutToSubrecipient @smoke
+  @50975 @50974 @assigningApproversAndsendCloseoutToSubrecipient @smoke @TBExecution
   Scenario: Send Closeout Request to Subrecipient and assigning approvers to the closeout Request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -29,6 +29,7 @@ Feature: Validate all scenarios in Closeout
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -38,6 +39,7 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:FO Username} | Step 2   |
     Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---closeout:-:closeoutApproverTableId---"
     When I click on "Send To Subrecipient" in the page details
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
   @50977 @50976 @subrecipientEntersFieldInCloseoutAndAcknowledges
@@ -293,7 +295,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see that the saved value "{SavedValue:SubrecipientOrganization}" and "{SavedValue:CloseoutSubrecipientOrganization}" are equal
     Then I softly see that the saved value "{SavedValue:FundingOrganization}" and "{SavedValue:CloseoutFundingOrganization}" are equal
 
-  @40636 @40747 @ChecklistSupportingDocumentNotes @Keerti @buglogged141573
+  @40636 @40747 @ChecklistSupportingDocumentNotes @Keerti @buglogged141573 @TBExecution
   Scenario: Verifying the Checklist of Closeout Request/ Validate the Supporting Document Checklist Section / Validate the user can add the Notes for Closeout Requests
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -335,18 +337,19 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Files" sub tab
     Then I softly see value "Automation" for title "Description" inside table "---closeout:-:closeoutSupportingDocumentChecklist---"
     And I pause execution for "4" seconds
-    When I enter the following values into flex table with id "---closeout:-:closeoutNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---closeout:-:closeoutNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---closeout:-:closeoutNotesTableId---"
 
-  @40729 @87356 @VerifyErrorMessageForCloseoutRequest @monu
+  @40729 @87356 @VerifyErrorMessageForCloseoutRequest @monu @TBExecution
   Scenario: Validate user should get error message on closeout request for Type and Reason fields
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     #87356
     Then I softly see "Create Closeout Request" opens in overLay window
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     #40729
     Then I softly see the following messages in the page details contains:
       | Type is required to save.   |
@@ -513,7 +516,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Download" icon for "{SavedValue:AttachedFile}" inside flex table with id "---closeout:-:closeoutFilesTableId---" with wait for record
     Then I softly verify that the file "{SavedValue:AttachedFile}" is downloaded
 
-  @87353 @86713  @93106 @40644 @86714 @76488 @42103 @87351 @76487 @86716 @86712 @87346 @ValidatingSentToSubrecipientInCloseoutRequest @meenakshi @buglogged141586
+  @87353 @86713  @93106 @40644 @86714 @76488 @42103 @87351 @76487 @86716 @86712 @87346 @ValidatingSentToSubrecipientInCloseoutRequest @meenakshi @buglogged141586 @TBExecution
   Scenario: To validate status : Sent to Subrecipient in closeout request section when closeout request is Sent to Subrecipient by an internal user
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
@@ -572,6 +575,7 @@ Feature: Validate all scenarios in Closeout
     And I enter value "06/20/2024" into field "CloseoutDate__c"
     And I enter value "07/12/2024" into field "CloseoutDueDateGrantor__c"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Closeout Effective Date" as "06/20/2024"
     Then I softly see field "Closeout Activities Due Date" as "07/12/2024"
     #76488

@@ -115,7 +115,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "green"
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @95688 @VerifyChecklistFieldsInReadModeOnly @monu
+  @95688 @VerifyChecklistFieldsInReadModeOnly @monu @TBExecution
   Scenario: Verify user can is not able to edit the checklist details filled by grantor
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
@@ -161,7 +161,6 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:closeoutID1}" in "---closeout:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:closeoutID1}" inside flex table with id "---closeout:-:pendingTaskTableId---"
-    When I click on "Edit" in the page details
     And I navigate to "Checklist" sub tab
     Then I softly see field "Has the subrecipient submitted all payment requests?" as "Yes"
     Then I softly see field "Has the subrecipient met the match requirement?" as "Yes"
@@ -228,7 +227,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Acknowledge" in the page details
     Then I softly see field "Status" as "Acknowledged by Subrecipient"
     #93582 #monu
-    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "green"
+    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
     #################################################################
     And I click on hyperlink containing value "{SavedValue:GrantID}"
     And I navigate to "Requests" sub tab
