@@ -1,4 +1,4 @@
-@deskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @t3
+@deskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @CheckDesk
 Feature: Validate all scenarios in Desk Review
 
   Background: Create Desk Review
