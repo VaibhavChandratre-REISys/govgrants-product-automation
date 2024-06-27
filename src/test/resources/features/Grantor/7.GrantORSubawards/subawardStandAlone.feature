@@ -1429,7 +1429,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Risk Assessment | Name                     |
       | Step 1          | {SavedValue:PM Username} |
@@ -1437,7 +1437,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Risk Assessment | Name                     |
       | Step 2          | {SavedValue:FO Username} |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
@@ -1991,7 +1991,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I refresh the page
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I expand nested table containing column value "Progress Report"
-    Then I see total records count "Total Records: 11" in flex table "---subAwardStandAlone:-:progressReportScheduleTableId---"
+    And I save the total records from the flex table id "---subAwardStandAlone:-:progressReportScheduleTableId---" as "totalRecords"
+    Then I see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:progressReportScheduleTableId---"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
@@ -2232,7 +2233,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Overview" sub tab
     And I enter value "Automation Description" into field "GrantAwardDescription__c"
     And I navigate to "Budget" sub tab
-    And I click on "Edit" in the page details
     And I enter value "4000" into field "BudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I navigate to "Terms" sub tab
@@ -2751,6 +2751,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Progress Report"
     #And I navigate to last page in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
     And I get the value from row "last row" for column name "Reporting Period End Date" in flex table "---subAwardStandAlone:-:progressReportScheduleChildTableId---"
+    And I wait for "3" seconds
     Then I verify that the Schedule end date is matching with Reporting Period End Date
 
   @55315 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @jitendra @Re-RunStandAlone

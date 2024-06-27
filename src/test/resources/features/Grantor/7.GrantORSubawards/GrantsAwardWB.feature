@@ -625,7 +625,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @65686 @65684 @65685 @NoDeleteBtnTermsAndCondition @jitendra @bug-LWC-416798 @PoojaAward
+  @65686 @65684 @65685 @NoDeleteBtnTermsAndCondition @jitendra @bug-LWC-416798
   Scenario: Verify Associated Mandatory Terms and Conditions cannot be deleted by award owner on Subaward.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -640,6 +640,7 @@ Feature: Validate all scenarios of grants and award without background
     And I get the "EGMS ID"
     And I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I wait for "5" seconds
     Then I softly see "check" symbol against the value "Mandatory" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     #Bug-416798
     Then I softly can see row level action button "Remove" against "Term" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -5586,7 +5587,7 @@ Feature: Validate all scenarios of grants and award without background
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---subAwardStandAlone:-:grantSupportDocTableId---" without waiting for record
     And I wait for "3" seconds
-    And I click modal button "Cancel"
+    And I click "Cancel" on modal confirmation box
     And I click modal button "Close"
     Then I see value "Not Applicable" for title "Template Link" against the value "Active" inside table "---subAwardStandAlone:-:grantSupportDocTableId---"
 
@@ -6019,7 +6020,7 @@ Feature: Validate all scenarios of grants and award without background
 #    And I navigate to "History" sub tab
 #    Then I softly see value "Automation PM" for title "Changed By" inside table "---subAwardStandAlone:-:historyTableId---"
 
-  @196982  @sprint-12-US-226646 @vaibhav @reassignment @PoojaAwardFinalRun
+  @196982  @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate new owner PM can create sub-award after FDM is approves from app after it's related Ann ownership will assign to other PM user
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -6049,7 +6050,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I navigate to "Responsibilities" sub tab
     And I wait for "3" seconds
     Then I softly see value "Automation PM1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
