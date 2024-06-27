@@ -905,7 +905,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     Then I see the following messages in the page details :
-      | If you select Subrecipient Match Required setting as Yes then you need to set value for Required Match %|
+      | If you select Subrecipient Match Required setting as Yes then you need to set value for Required Match % |
 
   @65084 @VerifyActiveGrantsOnSubportal @mahadev @PoojaAwardExclude
   Scenario: Verify SR user can view Active grant
@@ -1478,7 +1478,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter "InstructionError" values from "SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I see the following messages in the page details :
-      | Instructions for Subrecipient is required to save under Overview.|
+      | Instructions for Subrecipient is required to save under Overview. |
 
   @66215 @validateCreatedStatusSV @mahadev @PoojaAwardExclude
   Scenario: To verify that after the general information in the modal window of site visit is filled by the award owner the status change to created.
@@ -1576,7 +1576,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I see field "Budget Redirection Threshold" as "10.00%"
     Examples:
-      | Award Name                                   | Grant Name                  |
+      | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime award} | {SavedValue:Automation Runtime award} |
 
   @66750 @68152 @validateBlockGrantCreation @mahadev @PoojaAwardExclude
@@ -2478,7 +2478,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
-  @65909 @checkAawrdIsPresentUnderAnotherPMuSER @jitendra 
+  @65909 @checkAawrdIsPresentUnderAnotherPMuSER @jitendra
   Scenario:  Verify that other internal users of organization(ex-Community Health & Equity) are not able to view draft grants with the different organization(Ex-Test Automation Organization).
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "Sarah PM" user
@@ -2764,8 +2764,8 @@ Feature: Validate all scenarios of grants and award without background
 
   @66938 @doNotSeeSubawardButtonAfterRejectingByEXE @monu @smoke @buglogged125748 @PoojaAwardFinalRun
   Scenario Outline: To Validate that if FDM is rejected by EXE user, subaward button in Action column cannot be seen for the Application. in Recommended Application table.
-    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
-    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
+    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -2773,6 +2773,7 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I get the "EGMS ID"
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -2789,12 +2790,12 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    And I click modal button "Close"
+    When I click modal button "Close"
     And I refresh the page
-    And I wait for "3" seconds
+    And I pause execution for "5" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I wait for "3" seconds
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2817,6 +2818,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "3" seconds
     And I click on "Next Review Step" in the page details
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
@@ -2834,20 +2836,23 @@ Feature: Validate all scenarios of grants and award without background
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
+#    When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
+#    When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
+    And I refresh the page
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2895,10 +2900,14 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "<Announcement Name>" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+    Then I softly can see top right button "Previous Review Step" in page detail
+    Then I softly can see top right button "Back to Announcement" in page detail
+    Then I softly can see top right button "Next Review Step" in page detail
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -2908,28 +2917,35 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    Then I softly see that "Promoted to Management Review Step" has been added in flextable with Id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
       | Management Review | 5           |
+    Then I softly see that "5" has been added in flextable with Id "---applicationReview:-:formTableId---"
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:FO Username} |
+    Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---applicationReview:-:reviewersTableId---"
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    And I click modal button "Close"
+    When I click modal button "Close"
     And I refresh the page
-    And I wait for "3" seconds
+    And I pause execution for "5" seconds
+    Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I wait for "3" seconds
+    Then I softly see that "Sent for Review" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
@@ -2944,32 +2960,36 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-   And I wait for "3" seconds
+    Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    Then I softly can see top right button "Funding Decision Memo" in page detail
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see field "Status" as "Completed"
+    And I pause execution for "3" seconds
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
-    And I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description |Justification__c |
+      | Value                       | Field            |
+      | AuGr                        | GrantCode__c     |
+      | Automation Test Description | Justification__c |
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
-      | Application Title                                | Recommended Budget | Recommend for Funding | Comments    |
-      | {SavedValue:Automation Runtime FDM Announcement} | 500                | Yes                   | Recommended |
+      | Application Title                                               | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
+      | {SavedValue:Automation Runtime Announcement Application Review} | 500                | Yes                   | Recommended | 500                     |
     And I refresh the page
-    And I wait for "3" seconds
     Then I softly see that "Recommended" has been added in flextable with Id "FundingDecisionMemoApplications"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                      | FDM |
+      | {SavedValue:EXE Username} | NA  |
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
       | {SavedValue:EXE Username} | Step 1 |
+    Then I softly see that "{SavedValue:EXE Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I click on "Submit for Approval" in the page details
-    And I wait for "3" seconds
+    And I get the "EGMS ID"
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Grants" tab
@@ -2981,12 +3001,12 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
-    When I perform quick search for "<Application Name>" in "---subAwardFromFDM:-:fdmTableId---" panel
-    And I click on "View" icon for "<Application Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
+    When I perform quick search for "Record Id" in "---subAwardFromFDM:-:fdmTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     Then I softly cannot see row level action button "Create Subaward" against "<Application Name>" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     Examples:
-      | Announcement Name                                | Application Name                                 |
-      | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
+      | Announcement Name                                               | Application Name                                     |
+      | {SavedValue:Automation Runtime Announcement Application Review} | {Automation Runtime Announcement Application Review} |
 
   @64787 @validateUploadedDocumentAtTemplateLink @skipOnJenkins
   Scenario Outline: Verify that uploaded document at supporting document checklist getting displayed on template link
@@ -3364,7 +3384,7 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "3" seconds
     And I click on "Send to Subrecipient" in the page details
     And I wait for "5" seconds
-   Then I softly see field "Status" as "Sent to Subrecipient"
+    Then I softly see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3936,7 +3956,7 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "4" seconds
     Then I softly do not see "Undertaker FO" inside auto search result
 
-  @196635 @Validateusershouldabletoseethefuturetasktonewuserforgrantmodule @sprint-4 @vaibhav @reassignment 
+  @196635 @Validateusershouldabletoseethefuturetasktonewuserforgrantmodule @sprint-4 @vaibhav @reassignment
   Scenario: Validate user should able to see the future task to new user for grant module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5289,7 +5309,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly can see row level action button "View" against "{SavedValue:AwardEGMSID}" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:AwardEGMSID}" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
 
-  @198323 @198418 @sprint-4 @vaibhav @reassignment 
+  @198323 @198418 @sprint-4 @vaibhav @reassignment
   Scenario: Validate user should able to reassign the task from Victor EXE  to Scott EXE after approved the award
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -10736,7 +10756,7 @@ Feature: Validate all scenarios of grants and award without background
       | Construction  | 500    | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                      | Is Key Contact |
+      | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
