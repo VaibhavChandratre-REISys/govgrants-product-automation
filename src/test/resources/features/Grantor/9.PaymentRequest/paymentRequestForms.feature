@@ -1,7 +1,7 @@
 @paymntRequestForms @grantor-parallel-regression @paymentRequest @regression @paymentRequestExecution
 Feature: Payment Request Forms scenarios
 
-  @308590 @308685 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-282692 @vaibhav @Forms
+  @TestApi @308685 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-282692 @vaibhav @Forms
   Scenario: Validate SPI user can able to save & validate form after entering correct & valid data on all fields present on form
     And I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Payment Request"
@@ -203,7 +203,7 @@ Feature: Payment Request Forms scenarios
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
-  @307326 @ValidateSF270SPIusercanabletoSaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF270form @sprint-1-US-282692 @vaibhav @Forms
+ @TestApi @307326 @ValidateSF270SPIusercanabletoSaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF270form @sprint-1-US-282692 @vaibhav @Forms
   Scenario: Validate SF270 SPI user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF270 form
     And I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Payment Request"
@@ -393,7 +393,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see the following messages in the page details :
       | From date and To date cannot be same in Period Covered By This Request section. |
 
-  @287722 @ValidateEXEusercanseebelowformonReimbursementPaymentRequestunderFilesFormssectionofPaymentRequest @sprint-1-US-278368 @vaibhav @Forms
+  @TestApi @287722 @ValidateEXEusercanseebelowformonReimbursementPaymentRequestunderFilesFormssectionofPaymentRequest @sprint-1-US-278368 @vaibhav @Forms
   Scenario: Validate EXE user can see below form on Reimbursement Payment Request under Files & Forms section of Payment Request
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1055,7 +1055,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Standard Pre-Application form" for title "Form Name" inside table "---preApplication:-:preAppFormTableId---"
     Then I softly see value "Pre-Application Report" for title "Report Type" inside table "---preApplication:-:preAppFormTableId---"
 
-  @293628 @293645 @ValidatePOandSPIusercanseeReportTypeclmApplicationFormunderFormssectiononFilesandFormstabofApplication @sprint-3-US-288713 @vaibhav @Forms
+  @TestApi @293628 @293645 @ValidatePOandSPIusercanseeReportTypeclmApplicationFormunderFormssectiononFilesandFormstabofApplication @sprint-3-US-288713 @vaibhav @Forms
   Scenario: Validate PO and SPI user can see Report Type clm on Application Form under Forms section on Files and Forms tab of Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "INVITED_APPLICANT_IND_ORG"
     When I am on "SUBPORTAL" portal
@@ -1067,6 +1067,7 @@ Feature: Payment Request Forms scenarios
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
@@ -1196,7 +1197,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "General Review Form" for title "Form Name" inside table "---sitevisits:-:reportsTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" inside table "---sitevisits:-:reportsTableId---"
 
-  @293633 @ValidateFDandINDusercanseeReportTypeclmonDeskReviewFormunderAllFormssectiononReports&OutcomestabofDeskreview @sprint-3-US-288713 @vaibhav @Forms
+  @TestApi @293633 @ValidateFDandINDusercanseeReportTypeclmonDeskReviewFormunderAllFormssectiononReports&OutcomestabofDeskreview @sprint-3-US-288713 @vaibhav @Forms
   Scenario: Validate FD and IND user can see Report Type clm on Desk Review Form under All Forms section on Reports & Outcomes tab of Desk review
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"

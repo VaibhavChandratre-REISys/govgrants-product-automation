@@ -152,7 +152,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @153110 @VerifyErrorMessageAtApproverSectionWhileSkippingAt-ScheduledPaymentRequest-RnRFunctionality @monu
+  @TestApi @153110 @VerifyErrorMessageAtApproverSectionWhileSkippingAt-ScheduledPaymentRequest-RnRFunctionality @monu
   Scenario Outline: Verify the validation message when approval step has <NA>  on schedule reimbursement payment request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -278,7 +278,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @153109 @VerifyInheritatedApproverAtScheduledPaymentRequestFromAward-RnRFunctionality @monu @PaymentRerun
+  @TestApi @153109 @VerifyInheritatedApproverAtScheduledPaymentRequestFromAward-RnRFunctionality @monu @PaymentRerun
   Scenario Outline: Validate Approvers are getting inherited from award record to schedule reimbursement payment request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "dynamicUser" user

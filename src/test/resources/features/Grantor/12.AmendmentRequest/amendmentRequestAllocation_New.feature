@@ -3076,7 +3076,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Current Obligation" as "CurrentObligation"
     Then I softly see value "{SavedValue:CumulativeObligation}" is "Equals to" the value "{SavedValue:CurrentObligation}"
 
-  @hitTemp @256780 @256911 @256921 @257014 @VerifyusershouldabletoseePriorawardedbudgetAwardedbudgetshouldberenamedFAyes @sprint-19-US-255590-255591 @hitesh @Allocation
+  @hitTemp1 @256780 @256911 @256921 @257014 @VerifyusershouldabletoseePriorawardedbudgetAwardedbudgetshouldberenamedFAyes @sprint-19-US-255590-255591 @hitesh @Allocation
   Scenario: Verify user should able to see Budget Summary by Focus Area Section, only if Focus area is Yes
     And I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "DETAILE_BUDGET_YES-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "BUDGET_CAT_DETAILS_BUD_YES"
@@ -5211,7 +5211,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "New Obligation" as "$0.00"
     Then I softly see that "New Obligation" rendered in view mode only
 
- @hitTemp @264193 @264204 @264206 @264209 @264218 @264219 @264215 @264216 @264213 @264208 @VerifySPIusershouldabletoShowCumulativeObligationcolumnisBudgetsummarybyfocusareasectiononamendedoldAwardFAyes @sprint-20-US-263426 @hitesh @Allocation
+ @hitTemp1 @264193 @264204 @264206 @264209 @264218 @264219 @264215 @264216 @264213 @264208 @VerifySPIusershouldabletoShowCumulativeObligationcolumnisBudgetsummarybyfocusareasectiononamendedoldAwardFAyes @sprint-20-US-263426 @hitesh @Allocation
   Scenario: Verify SPI user should able to Show Cumulative Obligation column is Budget summary by focus area section on amended(old Award) (FA yes)
     And I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -7619,7 +7619,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Save" in the page details
     Then I softly see field "Carry Forward Amount" as "$900.00"
 
- @hitTemp @265092 @265110 @265221 @265230 @265090 @265140 @265147 @265148 @265169 @265170 @265180 @265193 @265202 @265208 @265209 @265132 @265096 @265022 @265061 @ValidateusercanseetheOldValuesmustremainthesameonamendedawardFAYes @sprint-20-US-263391 @vaibhav @Allocation
+ @hitTemp1 @265092 @265110 @265221 @265230 @265090 @265140 @265147 @265148 @265169 @265170 @265180 @265193 @265202 @265208 @265209 @265132 @265096 @265022 @265061 @ValidateusercanseetheOldValuesmustremainthesameonamendedawardFAYes @sprint-20-US-263391 @vaibhav @Allocation
   Scenario: Validate user can see the Old Values must remain the same on amended award FA Yes
     And I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -8858,7 +8858,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Award Amount |
       | $2,700.00    |
 
- @hitTemp @265602 @265603 @ValidateAdminusercanseeTotalCommitmentamountunderBudgetSummarysectiononActiveGrant&valuecopiedfromTotalcommitmentfieldfromtheversion2awardwhichisactiveFANO @sprint-20-US-263392 @vaibhav @Allocation
+ @265602 @265603 @ValidateAdminusercanseeTotalCommitmentamountunderBudgetSummarysectiononActiveGrant&valuecopiedfromTotalcommitmentfieldfromtheversion2awardwhichisactiveFANO @sprint-20-US-263392 @vaibhav @Allocation
   Scenario: Validate Admin user can see Total Commitment amount under Budget Summary section on Active Grant & value copied from Total commitment field from the version 2 award which is active FA NO
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation ADMIN user" of type "Competitive"
     When I login to "As a Grantor" app as "ADMIN" user

@@ -113,16 +113,17 @@ public class UsersAndURL implements UsersController {
                 password;
         }
 
+
     private String getQAEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
-            case "SARAH PM":
-                password = "Salesforce@2034";
-                break;
             case "SPA":
                 password = "Salesforce2034";
                 break;
             case "SA":
+                password = "Salesforce2035";
+                break;
+            case "EXE1":
                 password = "Salesforce2035";
                 break;
             default:
