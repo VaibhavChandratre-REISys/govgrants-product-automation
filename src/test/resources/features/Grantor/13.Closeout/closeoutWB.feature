@@ -3814,7 +3814,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Automation PO1" for title "New Value" inside field history table
     Then I softly see value "Automation PO" for title "Original Value" inside field history table
 
-  @224656 @ValidateCloseoutnewownerofpeerreviewershouldabletosubmitthereviewcommentforcloseout @sprint-11-US-218319 @vaibhav @reassignment
+  @224656 @89222 @ValidateCloseoutnewownerofpeerreviewershouldabletosubmitthereviewcommentforcloseout @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Closeout new owner of peer reviewer should able to submit the review comments for closeout
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -3862,6 +3862,10 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---closeout:-:closeoutPeerReviewTableId---" by clicking "New" :
       | Reviewer Name             | Responsibility   | Description                 | Due Date |
       | {SavedValue:EXE Username} | Program Reviewer | Automation Test Description | 5        |
+    #89222
+    Then I softly see value "{SavedValue:FO Username}" for title "Reviewer Name" inside table "---closeout:-:closeoutPeerReviewTableId---"
+    Then I softly see value "Program Reviewer" for title "Responsibility" inside table "---closeout:-:closeoutPeerReviewTableId---"
+    Then I softly see value "Automation Test Description" for title "Description" inside table "---closeout:-:closeoutPeerReviewTableId---"
     When I click on "Send for Review" icon for "{SavedValue:FO Username}" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---" without waiting for record
     When I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"

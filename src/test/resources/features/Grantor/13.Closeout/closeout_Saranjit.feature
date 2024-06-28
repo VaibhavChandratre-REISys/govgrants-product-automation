@@ -115,7 +115,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "green"
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @95688 @VerifyChecklistFieldsInReadModeOnly @monu @TBExecution
+  @95688 @VerifyChecklistFieldsInReadModeOnly @monu
   Scenario: Verify user can is not able to edit the checklist details filled by grantor
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"

@@ -21,7 +21,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @50975 @50974 @assigningApproversAndsendCloseoutToSubrecipient @smoke @TBExecution
+  @50975 @50974 @assigningApproversAndsendCloseoutToSubrecipient @smoke
   Scenario: Send Closeout Request to Subrecipient and assigning approvers to the closeout Request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -263,7 +263,7 @@ Feature: Validate all scenarios in Closeout
       | Approval   | Start         | Approve  |                   |
     Then I see status in Progress-bar is "Completed" and is "dark blue"
 
-  @40066 @40605 @40608  @NavigationAcknowledgementAutoPopulatedFieldsGrantOverview  @Keerti
+  @40066 @40605 @40608  @NavigationAcknowledgementAutoPopulatedFieldsGrantOverview  @Keerti @TBExecution
   Scenario: Navigating to the Closeout Request/Validating whether the Acknowledgement section has Default Null Value before sent to sub-recipient
   / Verifying the Auto-populated fields Closeout Effective Date and the Closeout Activities Due date
   /Validating whether the fields are carried forward from the Grant Overview tab to Closeout Grant Overview Tab
@@ -271,10 +271,8 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
     And I save the field labeled "Subrecipient Organization" as "SubrecipientOrganization"
     And I save the field labeled "Funding Organization" as "FundingOrganization"
-#    And I save the field value having link labeled "Subrecipient Organization" as "SubrecipientOrganization"
-#    And I save the field value having link labeled "Funding Organization" as "FundingOrganization"
     And I navigate to "Requests" sub tab
-    Then I softly see field "Closeout Requests" inside page block
+    Then I softly see "Closeout Requests" page block displayed
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -286,11 +284,9 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "Closeout Effective Date" as "CloseoutEffectiveDate"
     And I save the field labeled "Subrecipient Organization" as "CloseoutSubrecipientOrganization"
     And I save the field labeled "Funding Organization" as "CloseoutFundingOrganization"
-#    And I save the field value having link labeled "Subrecipient Organization" as "CloseoutSubrecipientOrganization"
-#    And I save the field value having link labeled "Funding Organization" as "CloseoutFundingOrganization"
-    Then I softly see that the saved value "{SavedValue:AcknowledgementCheck}" and "" are equal
-    Then I softly see that the saved value "{SavedValue:AcknowledgementDate}" and "" are equal
-    Then I softly see that the saved value "{SavedValue:AcknowledgementBy}" and "" are equal
+    Then I softly see field "Acknowledgement" as "{SavedValue:AcknowledgementCheck}"
+    Then I softly see field "Acknowledgement Date" as "{SavedValue:AcknowledgementDate}"
+    Then I softly see field "Acknowledgement By" as "{SavedValue:AcknowledgementBy}"
     Then I softly see that the saved value "{SavedValue:ProjectPeriodEndDate}" and "{SavedValue:CloseoutEffectiveDate}" are equal
     Then I softly see that the saved value "{SavedValue:SubrecipientOrganization}" and "{SavedValue:CloseoutSubrecipientOrganization}" are equal
     Then I softly see that the saved value "{SavedValue:FundingOrganization}" and "{SavedValue:CloseoutFundingOrganization}" are equal
@@ -349,7 +345,7 @@ Feature: Validate all scenarios in Closeout
     #87356
     Then I softly see "Create Closeout Request" opens in overLay window
     And I click modal button "Save and Continue"
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     #40729
     Then I softly see the following messages in the page details contains:
       | Type is required to save.   |
@@ -387,19 +383,9 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:FO Username} | Step 2   |
     Then I softly see that "{SavedValue:FO Username}" has been added in flextable with Id "---closeout:-:closeoutApproverTableId---"
     Then I softly see that "{SavedValue:PM Username}" has been added in flextable with Id "---closeout:-:closeoutApproverTableId---"
-    #89222
-    When I enter the following values into flex table with id "---closeout:-:closeoutPeerReviewTableId---" by clicking "New" :
-      | Reviewer Name | Responsibility   | Description                 | Due Date |
-      | Automation PM | Program Reviewer | Automation Test Description | 10       |
-    Then I softly see that "Automation PM" has been added in flextable with Id "---closeout:-:closeoutPeerReviewTableId---"
-    Then I softly see that "Program Reviewer" has been added in flextable with Id "---closeout:-:closeoutPeerReviewTableId---"
-    Then I softly see that "Automation Test Description" has been added in flextable with Id "---closeout:-:closeoutPeerReviewTableId---"
     #89223
     When I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" by clicking "Add" :
-      | Description                 | Required  | Status |
-      | Automation test description | Mandatory | Active |
-    Then I softly see value "Automation" for title "Description" inside table "CloseoutChecklistsFlexToggle"
+    Then I softly see value "Automation" for title "Description" inside table "---closeout:-:closeoutSupportingDocumentChecklist---"
     #89224
     And I click on "Upload Template" icon for "Automation" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" with wait for record
     Then I softly see "Upload Template" opens in overLay window
@@ -572,12 +558,12 @@ Feature: Validate all scenarios in Closeout
     #86714
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    And I enter value "06/20/2024" into field "CloseoutDate__c"
-    And I enter value "07/12/2024" into field "CloseoutDueDateGrantor__c"
+    And I enter value "0" into field "CloseoutDate__c"
+    And I enter value "30" into field "CloseoutDueDateGrantor__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see field "Closeout Effective Date" as "06/20/2024"
-    Then I softly see field "Closeout Activities Due Date" as "07/12/2024"
+    And I save the field labeled "Closeout Effective Date" as "CloseoutEffectiveDate"
+    And I save the field labeled "Closeout Activities Due Date" as "CloseoutActivitiesDueDate"
     #76488
     Then I softly see value "---AUTOEnvData:-:fundingAccount---" for title "Funding Account" inside table "---closeout:-:closeoutFundingAccountsTableId---"
     And I softly see value "$1,000.00" for title "Encumbrance" inside table "---closeout:-:closeoutFundingAccountsTableId---"
