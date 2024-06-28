@@ -32,6 +32,8 @@ Feature: Validate all scenarios in Desk Review
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
     And I click modal button "Close"
+    And I pause execution for "3" seconds
+    And I refresh the page
     Then I softly see that "{SavedValue:EXE1 Username}" has been added in flextable with Id "---deskreview:-:participantsTableId---"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
