@@ -56,7 +56,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     #279020
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @279021 @279022 @VerifywhenPmapprovercanclickonundobuttonindeskreviewrecordwhenrecordisinApprovedstate @sprint-25-US-297269 @hitesh @Undo
+  @rerun @279021 @279022 @VerifywhenPmapprovercanclickonundobuttonindeskreviewrecordwhenrecordisinApprovedstate @sprint-25-US-297269 @hitesh @Undo
   Scenario: Verify when Pm approver can click on undo button in desk review record when record is in Approved state
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"
@@ -207,7 +207,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @279024 @VerifythatwhenpmapproverSendbacktheDeskreviewrecordpmwillnotseeUNDObutton @sprint-25-US-297269 @hitesh @Undo
+  @rerun @279024 @VerifythatwhenpmapproverSendbacktheDeskreviewrecordpmwillnotseeUNDObutton @sprint-25-US-297269 @hitesh @Undo
   Scenario: Verify that when pm approver Send back the Desk review record, pm will not see UNDO button
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"
@@ -334,6 +334,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    #Bug443764
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -426,6 +427,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+   #Bug443764
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -519,6 +521,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    #Bug443764
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -1068,6 +1071,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    #Bug443764
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -1169,7 +1173,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     #Bug443647
     Then I softly see snapshot with name containing "Desk Review - Undo Approval.pdf" as name
 
-  @308148 @VerifythatAdminapproveruserwillnotseeUNDObuttoninforceClosedstateofdeskreview @sprint-25-US-297269 @hitesh @Undo
+  @rerun @308148 @VerifythatAdminapproveruserwillnotseeUNDObuttoninforceClosedstateofdeskreview @sprint-25-US-297269 @hitesh @Undo
   Scenario: Verify that Admin approver user will not see UNDO button in force Closed state of desk review
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"
@@ -1245,7 +1249,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I collapse nested table containing column value "Automation Finding"
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     Given I delete the record "{SavedValue:Automation Runtime Award Desk Review}" from the object "Closeout"
     When I create a post award record "Closeout" for the Award "{SavedValue:Automation Runtime Award Desk Review}" having object api name as "Closeout"
@@ -1975,6 +1979,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
    And I pause execution for "4" seconds
+    #Bug443764
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal

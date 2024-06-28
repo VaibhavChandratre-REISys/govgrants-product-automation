@@ -63,7 +63,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click modal button "Save and Continue"
     Then I see field "Desk Review Type" as "Award"
 
-  @54425 @addParticipantsT0OrgDeskReviewInternalUser @deepika @organizationalDeskReviewFirst
+  @rerun @54425 @addParticipantsT0OrgDeskReviewInternalUser @deepika @organizationalDeskReviewFirst
   Scenario Outline: User will be able to add contacts or users from both internal and subrecipient organizations.
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"

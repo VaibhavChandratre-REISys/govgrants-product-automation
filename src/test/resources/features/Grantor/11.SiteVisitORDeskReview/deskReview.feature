@@ -21,7 +21,7 @@ Feature: Validate all scenarios in Desk Review
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReview"
 
-  @51010 @51011 @51012 @51013 @62109 @deskReviewCreationEditionParticipantAssociationApproverSelection @smoke
+  @rerun @51010 @51011 @51012 @51013 @62109 @deskReviewCreationEditionParticipantAssociationApproverSelection @smoke
   Scenario: Validate the Creation, Created Date, Edition, Participant Association of Desk Review and Approver selection of Desk Review
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Edit" in the page details
@@ -31,15 +31,15 @@ Feature: Validate all scenarios in Desk Review
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
+    And I click modal button "Close"
     Then I softly see that "{SavedValue:EXE1 Username}" has been added in flextable with Id "---deskreview:-:participantsTableId---"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                      | Desk Review |
+      | Name                       | Desk Review |
       | {SavedValue:EXE1 Username} | Step 1      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                     | Desk Review |
       | {SavedValue:FO Username} | Step 2      |
-    When I close "Associate Contacts" modal by clicking the top right x button
     Given I navigate to "Responsibilities" sub tab
     Then I softly see that "{SavedValue:EXE1 Username}" has been added in flextable with Id "---deskreview:-:approverDeskReviewTableId---"
     And I navigate to "Overview" sub tab
@@ -232,7 +232,7 @@ Feature: Validate all scenarios in Desk Review
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @51021 @66557 @51022 @66549 @51023 @66146 @66485 @77256 @66550 @deskReviewSendToSubrecipientdAndCorrectiveActionsBySubrecipient @DeskReviewFirst
+  @rerun @51021 @66557 @51022 @66549 @51023 @66146 @66485 @77256 @66550 @deskReviewSendToSubrecipientdAndCorrectiveActionsBySubrecipient @DeskReviewFirst
   Scenario: Send Desk Review to Subrecipient, Corrective Actions and Submit to Grantor by Subrecipient |Validate whether pending task is created for Program approver under Home Tab when the award owner submits the Desk Review for approval
   Validate when the desk review is submitted by the Subrecipient to grantor, the internal user recieves an email notification
     Given I navigate to "Responsibilities" sub tab
@@ -497,7 +497,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
     And I click on "Notify" in the page details
-     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
@@ -703,12 +703,12 @@ Feature: Validate all scenarios in Desk Review
 #    When I perform quick search for "General Review Form" in "---deskreview:-:reportsTableId---" panel
     Then I softly cannot see row level action button "Edit" against "General Review Form" in flex table with id "---deskreview:-:reportsTableId---"
 
-  @55791 @internalUserParticipantAssociationDeskReview @deepika @DeskReviewFirst
+  @rerun @55791 @internalUserParticipantAssociationDeskReview @deepika @DeskReviewFirst
   Scenario Outline: Internal User participant Association of Desk Review
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
     When I click "Associate" after selection of "<Internal>" in the table "---deskreview:-:deskReviewContactsTableId---"
-    When I close "Associate Contacts" modal by clicking the top right x button
+    And I click modal button "Close"
     Then I see that "<Internal>" has been added in flextable with Id "---deskreview:-:participantsTableId---"
     Examples:
       | Internal                  |
@@ -739,7 +739,7 @@ Feature: Validate all scenarios in Desk Review
     And I wait for "5" seconds
     Then I cannot see "Reports and Outcomes" sub tab at view detail page
 
-  @56017 @62112 @peerReviewIntiationfFDeskReview @deepika @smoke @DeskReviewFirst
+  @rerun @56017 @62112 @peerReviewIntiationfFDeskReview @deepika @smoke @DeskReviewFirst
   Scenario: Validate whether user is to able to initiate the peer review on their process for Desk Review
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -788,7 +788,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     When I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
-    Then I softly see field "Status" as "In Progress"
+    Then I softly see field "Status" as "Reviewed"
 
   @56015 @sendBacktoOwnerReceivePendingTaskdv @deepika @smoke @DeskReviewFirst
   Scenario: Validate the supporting document checklist submitted by the subrecipient and record sent back to Recipients when outcomes are not properly addressed and recipients receive a pending task
@@ -940,7 +940,7 @@ Feature: Validate all scenarios in Desk Review
     When I perform quick search for "{SavedValue:DeskReview}" in "History" panel
     Then I see value "Created" for title "Old Value" inside table "History"
 
-  @61054 @FieldHistoryUpdatePostAwardLevelDeskReviewIsSendBackToOwnerByProgramApprover @Keerti @FieldHistoryExclude @DeskReviewFirst
+  @rerun @61054 @FieldHistoryUpdatePostAwardLevelDeskReviewIsSendBackToOwnerByProgramApprover @Keerti @FieldHistoryExclude @DeskReviewFirst
   Scenario: To Validate field history update post Award level Desk Review is send back to owner by program approver.
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -993,7 +993,7 @@ Feature: Validate all scenarios in Desk Review
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
 #    When I perform quick search for "{SavedValue:DeskReview}" in "History" panel
-    Then I see value "Created" for title "Original Value" inside table "History"
+    Then I see value "In Progress" for title "New Value" inside table "History"
 
   @69411 @61057 @61055 @55370 @66139 @77253 @66274 @snapshotAfterSubmitForApprovalDeskReviewIsAcceptedAndClosed @Keerti @skipOnJenkins
   Scenario: Validate whether record Owner is able to view the Accept and Close Button and User view the Snapshot after Desk Review is Submitted for Approval status also after Accepted and Closed |Subrecipient can view Closed Desk Review
