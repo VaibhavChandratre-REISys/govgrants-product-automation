@@ -1024,7 +1024,7 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
- @TestApi @55308 @validateProgressReportSchedulesAtGranteePortalOnActiveAwardAfterEditingSchedules @mahadev
+ @55308 @validateProgressReportSchedulesAtGranteePortalOnActiveAwardAfterEditingSchedules @mahadev
   Scenario Outline: Validate progress report schedules getting updated on active award after editing schedule
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "INTERNAL" portal
@@ -1078,7 +1078,7 @@ Feature: Payment Request scenarios without background
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @TestApi @55689 @canNotCreateAnotherPaymentRequestAfterFinalPaymentRequest @jitendra @needtocheckThisScenario
+  @Test1 @55689 @canNotCreateAnotherPaymentRequestAfterFinalPaymentRequest @jitendra @needtocheckThisScenario
   Scenario Outline: Verify that once User select Is final Payment request option then User cannot create New Payment request.
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -1134,6 +1134,7 @@ Feature: Payment Request scenarios without background
     When I click on "Mark As Paid" in the page details
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
+    And I click modal button "Close"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3053,7 +3054,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @TestApi @197393 @ValidatependingtaskshouldbegeneratedforPMasnewowneradvancepaymentrequestownershiptaskreassigntootherPM @sprint-4 @vaibhav @reassignment
+  @197393 @ValidatependingtaskshouldbegeneratedforPMasnewowneradvancepaymentrequestownershiptaskreassigntootherPM @sprint-4 @vaibhav @reassignment
   Scenario: Validate pending task should be generated for PM as new owner if advance payment request ownership task reassign to other PM
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM1 user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -3723,7 +3724,7 @@ Feature: Payment Request scenarios without background
     And I navigate to "Forms and Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---paymentRequest:-:reimburseFilesTableId---"
 
-  @TestApi @198604 @Validatecheckeffectsongrantafterpaymentrequestownershipreassigntonewuser @sprint-4 @vaibhav @reassignment @ownvai
+  @198604 @Validatecheckeffectsongrantafterpaymentrequestownershipreassigntonewuser @sprint-4 @vaibhav @reassignment @ownvai
   Scenario: Validate check effects on grant after payment request ownership reassign to new user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -3773,7 +3774,7 @@ Feature: Payment Request scenarios without background
     And I wait for "3" seconds
     Then I softly see field "Created by" as "Automation ADMIN"
 
-  @TestApi @197509 @Validatenewownerofadvancepaymentrequestshouldhavefollowingbuttonsaccessafterpaymentrequestsubmittograntor @sprint-4 @vaibhav @reassignment
+  @197509 @Validatenewownerofadvancepaymentrequestshouldhavefollowingbuttonsaccessafterpaymentrequestsubmittograntor @sprint-4 @vaibhav @reassignment
   Scenario: Validate new owner of advance payment request should have following buttons access after payment request submit to grantor
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM1 user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -5366,7 +5367,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team.
       """
 
- @TestApi @223289 @ValidatePaymentRequestModuleeusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-12-US-226646 @vaibhav @reassignment
+ @223289 @ValidatePaymentRequestModuleeusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Payment Request Module user should able to reassign the task to new user of more than 10 records & 1 email should be triggered for all records
     And I activated standalone subaward "Automation Runtime Bulk award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -6388,7 +6389,7 @@ Feature: Payment Request scenarios without background
       """
 
 
-  @TestApi @223500 @ValidatePaymentRequestModuleaftertransferringthemorethan10or10recordtonewownerthenallfuturetaskaccessvisibletonewowner @sprint-11-US-217998 @vaibhav @reassignment
+  @223500 @ValidatePaymentRequestModuleaftertransferringthemorethan10or10recordtonewownerthenallfuturetaskaccessvisibletonewowner @sprint-11-US-217998 @vaibhav @reassignment
   Scenario: Validate Payment Request Module after transferring the more than 10 or 10 record to new owner then all future task access visible to new owner
     And I activated standalone subaward "Automation Runtime Bulk award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -6891,7 +6892,7 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @TestApi @117404 @Validateusercantreimbursemore$thantheawardbudgetusingsimultaneouspaymentrequestinapproval @Sprint-23-US-273843 @vaibhav @Allocation
+  @Test1 @117404 @Validateusercantreimbursemore$thantheawardbudgetusingsimultaneouspaymentrequestinapproval @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate user cant reimburse more $ than the award budget using simultaneous payment request in approval
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -6984,12 +6985,13 @@ Feature: Payment Request scenarios without background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId1}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId1}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
     When I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I see the following messages in the page details contains:
       | Financials Tab - Reimbursed Amount cannot be greater than the reimbursement balance. Subrecipient needs to apply advance. Please Send Request back. |
 
-  @TestApi @116558 @Validatethatpaymentrequestrelatedsettingsarecarriedproperlyfromannouncementtograntlevel @Sprint-23-US-273843 @vaibhav @Allocation
+  @116558 @Validatethatpaymentrequestrelatedsettingsarecarriedproperlyfromannouncementtograntlevel @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate that payment request related settings are carried properly from announcement to grant level
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

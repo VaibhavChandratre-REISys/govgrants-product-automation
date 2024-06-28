@@ -1,7 +1,7 @@
 @paymntRequestForms @grantor-parallel-regression @paymentRequest @regression @paymentRequestExecution
 Feature: Payment Request Forms scenarios
 
-  @TestApi @308685 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-282692 @vaibhav @Forms
+  @Test1 @308685 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-282692 @vaibhav @Forms
   Scenario: Validate SPI user can able to save & validate form after entering correct & valid data on all fields present on form
     And I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Payment Request"
@@ -40,8 +40,8 @@ Feature: Payment Request Forms scenarios
       | 3rd month                                        | 12345    | 12345     | 12345      |
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
-    When I click on "Save" in the page details
     And I wait for "3" seconds
+    When I click on "Save" in the page details
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     Then I softly can see top right button "Validate" in page detail
@@ -394,7 +394,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see the following messages in the page details :
       | From date and To date cannot be same in Period Covered By This Request section. |
 
-  @TestApi @287722 @ValidateEXEusercanseebelowformonReimbursementPaymentRequestunderFilesFormssectionofPaymentRequest @sprint-1-US-278368 @vaibhav @Forms
+  @287722 @ValidateEXEusercanseebelowformonReimbursementPaymentRequestunderFilesFormssectionofPaymentRequest @sprint-1-US-278368 @vaibhav @Forms
   Scenario: Validate EXE user can see below form on Reimbursement Payment Request under Files & Forms section of Payment Request
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"

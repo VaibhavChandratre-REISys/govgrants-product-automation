@@ -1010,7 +1010,7 @@ Feature: Validate all scenarios in Payment Request
     And I navigate to "Financials" sub tab
     Then I see field "Program Income" as "$1,000.00"
 
-  @TestApi @54667 @71175 @validateProgramIncomeTrackingFieldOnAwardGrantorSide @mahadev
+  @Test1 @54667 @71175 @validateProgramIncomeTrackingFieldOnAwardGrantorSide @mahadev
   Scenario Outline: Validate Program Income tracking gets updated on award at grantor side after approval of reimbursement PR
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"

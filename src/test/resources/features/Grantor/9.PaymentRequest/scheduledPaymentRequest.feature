@@ -278,7 +278,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @TestApi @153109 @VerifyInheritatedApproverAtScheduledPaymentRequestFromAward-RnRFunctionality @monu @PaymentRerun
+  @153109 @VerifyInheritatedApproverAtScheduledPaymentRequestFromAward-RnRFunctionality @monu @PaymentRerun
   Scenario Outline: Validate Approvers are getting inherited from award record to schedule reimbursement payment request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "dynamicUser" user

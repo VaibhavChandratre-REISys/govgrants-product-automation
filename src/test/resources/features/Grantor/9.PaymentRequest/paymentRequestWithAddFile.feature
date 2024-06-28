@@ -69,7 +69,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I wait for "2" seconds
     Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
 
-  @TestApi @193842 @VerifyINDusercanaddfileonschedulereimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles @hitesh
+  @193842 @VerifyINDusercanaddfileonschedulereimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles @hitesh
   Scenario:Verify IND user can add file on schedule reimbursement PR if user has edit access on top edit button for PR in created state
     Given I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Payment Request"
