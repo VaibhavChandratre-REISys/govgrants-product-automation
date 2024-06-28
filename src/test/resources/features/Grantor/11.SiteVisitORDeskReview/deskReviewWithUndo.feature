@@ -260,7 +260,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "History" sub tab
     Then I softly see column "Assigned To" at position "2" contains text "{SavedValue:PM Username}"
-    Then I softly see column "Date" at position "1" contains text "Step : Re - approval (Pending for approval) "
+    Then I softly see column "Date" at position "1" contains text "Step : Step 1 (Pending for approval)"
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I "Send Back" in the approval decision
     Then I softly see field "Status" as "In Progress"

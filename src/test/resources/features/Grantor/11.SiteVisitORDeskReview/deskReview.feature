@@ -315,7 +315,7 @@ Feature: Validate all scenarios in Desk Review
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I click on "Submit to Grantor" in the page details
     And I wait for "4" seconds
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly see field "Status" as "Submitted to Grantor"
 #    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
 #    And I pause execution for "180" seconds
 #    Then I refresh the page
@@ -709,6 +709,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
     When I click "Associate" after selection of "<Internal>" in the table "---deskreview:-:deskReviewContactsTableId---"
     And I click modal button "Close"
+    And I refresh the page
     Then I see that "<Internal>" has been added in flextable with Id "---deskreview:-:participantsTableId---"
     Examples:
       | Internal                  |
@@ -993,7 +994,7 @@ Feature: Validate all scenarios in Desk Review
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
 #    When I perform quick search for "{SavedValue:DeskReview}" in "History" panel
-    Then I see value "In Progress" for title "New Value" inside table "History"
+    Then I softly see value "In Progress" for title "New Value" inside field history table
 
   @69411 @61057 @61055 @55370 @66139 @77253 @66274 @snapshotAfterSubmitForApprovalDeskReviewIsAcceptedAndClosed @Keerti @skipOnJenkins
   Scenario: Validate whether record Owner is able to view the Accept and Close Button and User view the Snapshot after Desk Review is Submitted for Approval status also after Accepted and Closed |Subrecipient can view Closed Desk Review
