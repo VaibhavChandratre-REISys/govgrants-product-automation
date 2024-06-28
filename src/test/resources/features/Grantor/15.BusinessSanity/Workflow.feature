@@ -1560,3 +1560,8 @@ Feature: Validate all scenarios of every modules flow
 #    And I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
 #    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Formula_By_Applicant_Focus_Area"
 #    And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation PM user"
+    And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
+    And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
+    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}" and properties "Automation EXE user"
+    When I login to "As a Grantor" app as "EXE" user
