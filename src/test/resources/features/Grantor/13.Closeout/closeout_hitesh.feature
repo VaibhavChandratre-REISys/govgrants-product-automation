@@ -291,7 +291,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see that the saved value "{SavedValue:SubrecipientOrganization}" and "{SavedValue:CloseoutSubrecipientOrganization}" are equal
     Then I softly see that the saved value "{SavedValue:FundingOrganization}" and "{SavedValue:CloseoutFundingOrganization}" are equal
 
-  @40636 @40747 @ChecklistSupportingDocumentNotes @Keerti @buglogged141573 @TBExecution
+  @40636 @40747 @ChecklistSupportingDocumentNotes @Keerti @buglogged141573
   Scenario: Verifying the Checklist of Closeout Request/ Validate the Supporting Document Checklist Section / Validate the user can add the Notes for Closeout Requests
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -338,7 +338,7 @@ Feature: Validate all scenarios in Closeout
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---closeout:-:closeoutNotesTableId---"
 
-  @40729 @87356 @VerifyErrorMessageForCloseoutRequest @monu @TBExecution
+  @40729 @87356 @VerifyErrorMessageForCloseoutRequest @monu
   Scenario: Validate user should get error message on closeout request for Type and Reason fields
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -573,7 +573,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Send To Subrecipient" in the page details
     Then I softly see field "Status" as "Sent To Subrecipient"
     #76487
-    Then I softly see status in Progress-bar is "Sent To Subrecipient" and is "dark blue"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     #42103
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Home" tab

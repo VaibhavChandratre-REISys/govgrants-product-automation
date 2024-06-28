@@ -1534,8 +1534,6 @@ Feature: Validate all scenarios of every modules flow
 
  @debug @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-   When I login to "As a Grantor" app as "ADMIN" user
-    And I halt execution
-   Then I softly see value "Active" for title "New Value" against the value "Automation FO" inside field history table
-   Then I softly see value "Active" for title "New Value" against the value "Status" inside field history table
-   And I halt execution
+   Given I am on "INTERNAL" portal
+   And I navigate to yopmail portal for "automationruntime82268@yopmail.com" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
+
