@@ -1,7 +1,7 @@
 @paymentRequestWithBackground @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression @paymentRequestExecution
 Feature: Validate all scenarios in Payment Request with add file
 
-  @TestApi @193832 @193959 @VerifySPIusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles @hitesh
+  @193832 @193959 @VerifySPIusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles @hitesh
   Scenario:Verify SPI user can add file on ad-hoc reimbursement PR if user has edit access on top edit button for PR in created state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -865,7 +865,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I wait for "2" seconds
     Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
 
-  @TestApi @193986 @VerifySPIusercanseetopleveleditbuttonandabletoaddfileonad-hocreimbursementPRwhengrantorusersendbacktoSRwhileapproval @sprint-14-US-225425 @addFiles @hitesh
+  @193986 @VerifySPIusercanseetopleveleditbuttonandabletoaddfileonad-hocreimbursementPRwhengrantorusersendbacktoSRwhileapproval @sprint-14-US-225425 @addFiles @hitesh
   Scenario:Verify SPI user can see top level edit button and able to add file on ad-hoc reimbursement PR when grantor user send back to S\R while approval
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal

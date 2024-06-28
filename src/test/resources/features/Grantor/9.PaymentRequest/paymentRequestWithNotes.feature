@@ -1,7 +1,7 @@
 @paymentRequestNotes @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression @paymentRequestExecution
 Feature: Validate all scenarios in Payment Request With Notes
 
- @TestApi @236237 @VerifyPMPOEXEADMINFDsameOrgusershouldbeabletoAddnotesbutEditDeletetheirownnotesonadhocreimbursementpaymentrequestisinSubmittograntorstate @sprint-14-US-225425 @hitesh @Notes
+ @236237 @VerifyPMPOEXEADMINFDsameOrgusershouldbeabletoAddnotesbutEditDeletetheirownnotesonadhocreimbursementpaymentrequestisinSubmittograntorstate @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify PM/PO/EXE/ADMIN/FD same Org user should be able to 'Add' notes but 'Edit/Delete' their own notes on ad-hoc reimbursement payment request is in 'Submit to grantor' state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -960,7 +960,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I navigate to "Forms and Files" sub tab
     Then I cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
-  @TestApi @236259 @VerifyPMPOFDusershouldnotabletoAddnotesnotesonad-hocreimbursementpaymentrequestisinRejectedstate @sprint-14-US-225425 @hitesh @Notes
+  @236259 @VerifyPMPOFDusershouldnotabletoAddnotesnotesonad-hocreimbursementpaymentrequestisinRejectedstate @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify PM/PO/FD user should not able to 'Add' notes notes on ad-hoc reimbursement payment request is in 'Rejected' state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1162,7 +1162,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I navigate to "Forms and Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
-  @TestApi @236271 @236273 @VerifyPMFOFDusershouldnotabletoAddnotesonschedulereimbursementpaymentrequestisinSubmittedforApprovalstate @sprint-14-US-225425 @hitesh @Notes
+  @236271 @236273 @VerifyPMFOFDusershouldnotabletoAddnotesonschedulereimbursementpaymentrequestisinSubmittedforApprovalstate @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify PM/FO/FD user should not able to 'Add' notes notes on schedule reimbursement payment request is in 'Submitted for Approval' state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Payment Request"
@@ -1475,7 +1475,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
-  @TestApi @236285 @VerifyPMFOFDusershouldnotabletoAddnotesnotesonschedulereimbursementpaymentrequestisinPaidstate @sprint-14-US-225425 @hitesh @Notes
+  @236285 @VerifyPMFOFDusershouldnotabletoAddnotesnotesonschedulereimbursementpaymentrequestisinPaidstate @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify PM/FO/FD user should not able to 'Add' notes notes on schedule reimbursement payment request is in 'Paid' state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Payment Request"
@@ -2468,7 +2468,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
-  @TestApi @236334 @VerifyINDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonadhocreimbursementpaymentrequestisinCreatedstate @sprint-14-US-225425 @hitesh @Notes
+  @236334 @VerifyINDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonadhocreimbursementpaymentrequestisinCreatedstate @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify IND user should be able to 'Add' notes but 'Edit/Delete' their own notes on ad-hoc reimbursement payment request is in 'Created' state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_SUB_ORG_IND" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2897,7 +2897,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record1" for title "Title" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
 
-  @TestApi @236341 @VerifyINDusershouldnotabletoAddnotesnotesbutcaneditdeleteownnotesonadvancepaymentrequestisinSubmittedtoGrantorSubmittedforApprovalApprovedPaidstates @sprint-14-US-225425 @hitesh @Notes
+  @236341 @VerifyINDusershouldnotabletoAddnotesnotesbutcaneditdeleteownnotesonadvancepaymentrequestisinSubmittedtoGrantorSubmittedforApprovalApprovedPaidstates @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify IND user should not able to 'Add' notes notes but can edit/delete own notes on advance payment request is in Submitted to Grantor/Submitted for Approval/Approved/Paid  states
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_SUB_ORG_IND" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3017,7 +3017,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
 
- @TestApi @236342 @VerifyINDusershouldnotabletoAddnotesnotesbutcaneditdeleteownnotesonadhocreimbursementpaymentrequestisinRejectedstate @sprint-14-US-225425 @hitesh @Notes
+ @236342 @VerifyINDusershouldnotabletoAddnotesnotesbutcaneditdeleteownnotesonadhocreimbursementpaymentrequestisinRejectedstate @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify IND user should not able to 'Add' notes notes but can edit/delete own notes on ad-hoc reimbursement payment request is in  Rejected state
     Given I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3355,7 +3355,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     Then I cannot see row level action button "Edit" against "Notes Record1" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record1" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
-  @TestApi @236322 @VerifyotherOrginternalusercannotabletoseePRrecord @sprint-14-US-225425 @hitesh @Notes
+  @236322 @VerifyotherOrginternalusercannotabletoseePRrecord @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify other Org internal user can not able to see PR record
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
