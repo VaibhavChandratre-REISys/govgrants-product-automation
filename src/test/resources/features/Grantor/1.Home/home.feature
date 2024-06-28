@@ -1,7 +1,7 @@
 @home @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in the home tab
 
-  @done @56710 @56708 @internalOrganizationViewADMINEditPMView @smoke
+  @56710 @56708 @internalOrganizationViewADMINEditPMView @smoke
   Scenario: Validate whether all7 users have view access to Internal Organization
     Given I login to "As a Grantor" app as "Admin" user
     When I navigate to "Home" tab
@@ -29,7 +29,7 @@ Feature: Validate all scenarios in the home tab
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
     Then I softly see that "Internal Organization" is in "Active" status
 
-  @done @56709 @ValidateViewEditAccessOfInternalOrganization @smoke
+  @56709 @ValidateViewEditAccessOfInternalOrganization @smoke
   Scenario Outline: Validate system allows Edit access to Internal Organizations to the ADMIN/DA
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -41,7 +41,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @done @56712 @56713 @activeINDandsubrecipientOrganizationView
+  @56712 @56713 @activeINDandsubrecipientOrganizationView
   Scenario Outline: Validate whether all users have view access to Subrecipient Organization and Active Individual Subrecipients
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -60,7 +60,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @done @56715 @56714 @activeIndividualSubrecipientsEdit
+  @56715 @56714 @activeIndividualSubrecipientsEdit
   Scenario Outline: Validate whether ADMIN/DA have Edit access to Active Individual Subrecipients and Subrecipient Organizations
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -73,7 +73,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @done @56717 @56716 @56718 @internalContactsViewCreateEdit @smoke
+  @56717 @56716 @56718 @internalContactsViewCreateEdit @smoke
   Scenario Outline: Validate that Internal contacts are accessible across agencies and can be create, Edit and view access to Contacts by any Internal users
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -103,7 +103,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @done @56721 @56720 @smeReviewersContactViewAndCreate @smoke
+  @56721 @56720 @smeReviewersContactViewAndCreate @smoke
   Scenario Outline: Verifying all Internal Users has View access to SME Reviewers Contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -154,7 +154,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @done @56723 @activeSMEReviewersContactDetailPageView
+  @56723 @activeSMEReviewersContactDetailPageView
   Scenario Outline: Verify that system allows user to see the detail page of Active SME Reviewer contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -176,7 +176,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @done @56725 @56724 @56726 @termsandConditionsViewCreateAdminEdit @smoke
+  @56725 @56724 @56726 @termsandConditionsViewCreateAdminEdit @smoke
   Scenario Outline: Verifying all Internal Users has View, Create and Edit access to Terms and Conditions
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Planning" tab
@@ -197,7 +197,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @done @56727 @einRegistration
+  @56727 @einRegistration
   Scenario Outline: Validate whether all users have view access to EINRegistration
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -209,7 +209,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @done @56728 @UEIRegistration
+  @56728 @UEIRegistration
   Scenario Outline: Validate whether ADMIN have view access to DUNSRegistration
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -221,7 +221,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @done @56729 @samgovRegistration
+  @56729 @samgovRegistration
   Scenario Outline: Validate whether all users have view access to SAM.Gov Registration
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -233,7 +233,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @done @56730 @contactUs
+  @56730 @contactUs
   Scenario Outline: Validate whether all users have view access to Contactview
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -245,7 +245,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @done @56732 @subrecipientOrganizationEdition @smoke
+  @56732 @subrecipientOrganizationEdition @smoke
   Scenario Outline: Validate whether ADMIN and DA users can Edit the Subrecipient Organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -284,7 +284,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @done @56719 @56734 @subrecipientContactsCreateEdit @smoke
+  @56719 @56734 @subrecipientContactsCreateEdit @smoke
   Scenario Outline: Verifying if the Internal Users has create and Edit access to Subrecipient Contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -311,7 +311,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @done @56735 @smereviewersContactEdition
+  @56735 @smereviewersContactEdition
   Scenario Outline: Verifying all Internal Users has Edit access to SME Contact
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -332,7 +332,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @done @56736 @56737 @additionalAddressesCreationEdition
+  @56736 @56737 @additionalAddressesCreationEdition
   Scenario: Validate whether ADMIN can Create and Edition of Additional Addresses
     Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
@@ -405,7 +405,7 @@ Feature: Validate all scenarios in the home tab
 #    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:relatedContactsTableId---" panel
 #    Then I see "No Records Found" inside flex table with id "---home:-:relatedContactsTableId---"
 
-  @done @56740 @56741 @56742 @dunsNumberCreationEditionAndDeletion @smoke
+  @56740 @56741 @56742 @dunsNumberCreationEditionAndDeletion @smoke
   Scenario: Validate whether ADMIN and DA users can Create, Edit and delete the DUNS Number
     Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
@@ -438,7 +438,7 @@ Feature: Validate all scenarios in the home tab
     When I click on "Delete" icon for "New IDC" inside flex table with id "---home:-:indirectRateFlextableId---" without waiting for record
     Then I do not see values "New IDC" and "Title" inside table
 
-  @done @56883 @56912 @adminOrPMEditAccessToOwnOrgInternalOrganizationPageHeader
+  @56883 @56912 @adminOrPMEditAccessToOwnOrgInternalOrganizationPageHeader
   Scenario Outline: Validate whether Users with Admin/ PM profiles can edit their own organizations and Internal organization page has Header
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -454,7 +454,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @done @56911 @foUserCannotEditOrg
+  @56911 @foUserCannotEditOrg
   Scenario: Validate whether Fo User Can edit Internal Organizations
     Given I login to "As a Grantor" app as "FO" user
     When I navigate to "Home" tab
@@ -473,7 +473,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @done @57341 @listpageViewChildOrganizations
+  @57341 @listpageViewChildOrganizations
   Scenario Outline:: Verify system allows access to all Internal users to view the List page
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -489,7 +489,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @done @57342 @agencyBelongsToOneParent
+  @57342 @agencyBelongsToOneParent
   Scenario Outline: Verify whether an Agency belongs to only one Parent
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -499,7 +499,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @done @57343 @individualSubrecipientContactCreation @buglogged138607
+  @57343 @individualSubrecipientContactCreation @buglogged138607
   Scenario Outline: Validate whether ADMIN/DA have can new address details to Ind Subrecipient org
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -514,7 +514,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @done @57344 @57345 @homePendingTaskCompletedAndTaskCount
+  @57344 @57345 @homePendingTaskCompletedAndTaskCount
   Scenario: Validate whether user is able to view the total count of pending Tasks assigned to user and Pending Task and Completed Task on the left Navigation shows Pending Tasks across all the Modules
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -561,7 +561,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "Record Id" in "---home:-:completedAssignedToMe---" panel
     Then I softly see values "Approve Program" and "Completed" inside table
 
-  @done @57346 @subrecipientOrganizationDUNSandEINS
+  @57346 @subrecipientOrganizationDUNSandEINS
   Scenario Outline: Verify whether the Organization has at least one DUNS Numbers
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -618,10 +618,6 @@ Feature: Validate all scenarios in the home tab
     And I click on "Save" in the page details
     And I pause execution for "4" seconds
     And I close the tab
-#    And I navigate to "Overview" sub tab
-#    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
-#      | Name                       | Project Role             | Is Key Contact |
-#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I click on "Submit Application" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     Given I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
@@ -640,7 +636,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @done @57349 @viewActiveIndividualOrganizations
+  @57349 @viewActiveIndividualOrganizations
   Scenario Outline: The Internal Users should be able to view all the Active Individual Subrecipients that are registered in the system and may be recipients of grants
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -718,7 +714,7 @@ Feature: Validate all scenarios in the home tab
     And I refresh the page
     Then I softly see value "Attachment.pdf" for title "Title" against the value "Supporting Documents" inside table "GrantorFocusAreaFiles"
 
-  @done @62102 @pageBlockSections @deepika
+  @62102 @pageBlockSections @deepika
   Scenario Outline: Verify whether the Overview Tab has the sections: Related Contacts and Indirect rates
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -733,7 +729,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @done @62103 @pageBlockSectionsRelatedLog @deepika
+  @62103 @pageBlockSectionsRelatedLog @deepika
   Scenario Outline:  Validate whether the Related Log displays Active Federal/NGO Applications (Grantee) and Active Federal/NGO Grants (Grantee).
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -750,7 +746,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @done @62104 @indProfileEditAccess @deepika
+  @62104 @indProfileEditAccess @deepika
   Scenario: Verify other than Admin and Ind Profile Users, other users cannot edit the Ind subrecipient profile Information
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -758,7 +754,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
     Then I cannot see row level action button "Edit" against "{user:fullName}" in flex table with id "---home:-:indActiveAccountId---"
 
-  @done @62105 @externalUserhomePendingTask @deepika
+  @62105 @externalUserhomePendingTask @deepika
   Scenario: The Pending Task on the left Navigation shows Pending Tasks that are created for Subrecipient Users
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -798,7 +794,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "Record Id" in "---home:-:externalPendingTasktableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---home:-:externalPendingTasktableId---"
 
-  @done @62106 @indUserEditProfile @deepika
+  @62106 @indUserEditProfile @deepika
   Scenario: Verify whether the Individual Sub Profile Users can view their own contact information under Overview Tab
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "IND" user
@@ -817,7 +813,7 @@ Feature: Validate all scenarios in the home tab
     And I click modal button "Save and Close"
     Then I see the text containing "title"
 
-  @done @62254 @PerformGlobalSearchOnHomeTab @keerti
+  @62254 @PerformGlobalSearchOnHomeTab @keerti
   Scenario: Verify Global search on Home Tab
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -900,7 +896,7 @@ Feature: Validate all scenarios in the home tab
     Then I see the text "Email Sent Successfully" in modal
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
-  @done @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI user should not able to edit following fields a. First Name b. Last Name c. Email d. User Role already read-only on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -917,7 +913,7 @@ Feature: Validate all scenarios in the home tab
 #      | SPA      |
       | IND      |
 
-  @done @201750 @ValidateSPI\SPA\INDusercanedittheAccessibilityModefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201750 @ValidateSPI\SPA\INDusercanedittheAccessibilityModefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI\SPA\IND user can edit the 'Accessibility Mode' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -950,7 +946,7 @@ Feature: Validate all scenarios in the home tab
       | SPI3     |
 #      | SPA      |
 
-  @done @201757  @ValidateSPI\SPAIseeMovedAddressLine2fieldbeforetheCityfieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201757  @ValidateSPI\SPAIseeMovedAddressLine2fieldbeforetheCityfieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI\SPA I see Moved 'Address Line 2' field before the 'City' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -963,7 +959,7 @@ Feature: Validate all scenarios in the home tab
       | SPI3     |
 #      | SPA      |
 
-  @done @201758 @ValidateSPI\SPA\INDuserseeMovedCountryfieldaftertheZipCodefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201758 @ValidateSPI\SPA\INDuserseeMovedCountryfieldaftertheZipCodefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI\SPA\IND user see Moved 'Country' field after the 'Zip Code' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -977,7 +973,7 @@ Feature: Validate all scenarios in the home tab
 #      | SPA      |
       | IND      |
 
-  @done @201759 @ValidateSPI\SPA\INDuserIshouldnotseetheProfileDescriptionsectiononexternalprofileuseronexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201759 @ValidateSPI\SPA\INDuserIshouldnotseetheProfileDescriptionsectiononexternalprofileuseronexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI\SPA\IND user I should not see the 'Profile Description' section on external profile user on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user

@@ -21,7 +21,7 @@ Feature: Validate all scenarios in Desk Review
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReview"
 
-  @rerun @51010 @51011 @51012 @51013 @62109 @deskReviewCreationEditionParticipantAssociationApproverSelection @smoke
+  @51010 @51011 @51012 @51013 @62109 @deskReviewCreationEditionParticipantAssociationApproverSelection @smoke
   Scenario: Validate the Creation, Created Date, Edition, Participant Association of Desk Review and Approver selection of Desk Review
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Edit" in the page details
@@ -234,7 +234,7 @@ Feature: Validate all scenarios in Desk Review
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @rerun @51021 @66557 @51022 @66549 @51023 @66146 @66485 @77256 @66550 @deskReviewSendToSubrecipientdAndCorrectiveActionsBySubrecipient @DeskReviewFirst
+  @51021 @66557 @51022 @66549 @51023 @66146 @66485 @77256 @66550 @deskReviewSendToSubrecipientdAndCorrectiveActionsBySubrecipient @DeskReviewFirst
   Scenario: Send Desk Review to Subrecipient, Corrective Actions and Submit to Grantor by Subrecipient |Validate whether pending task is created for Program approver under Home Tab when the award owner submits the Desk Review for approval
   Validate when the desk review is submitted by the Subrecipient to grantor, the internal user recieves an email notification
     Given I navigate to "Responsibilities" sub tab
@@ -705,7 +705,7 @@ Feature: Validate all scenarios in Desk Review
 #    When I perform quick search for "General Review Form" in "---deskreview:-:reportsTableId---" panel
     Then I softly cannot see row level action button "Edit" against "General Review Form" in flex table with id "---deskreview:-:reportsTableId---"
 
-  @rerun @55791 @internalUserParticipantAssociationDeskReview @deepika @DeskReviewFirst
+  @55791 @internalUserParticipantAssociationDeskReview @deepika @DeskReviewFirst
   Scenario Outline: Internal User participant Association of Desk Review
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -742,7 +742,7 @@ Feature: Validate all scenarios in Desk Review
     And I wait for "5" seconds
     Then I cannot see "Reports and Outcomes" sub tab at view detail page
 
-  @rerun @56017 @62112 @peerReviewIntiationfFDeskReview @deepika @smoke @DeskReviewFirst
+  @56017 @62112 @peerReviewIntiationfFDeskReview @deepika @smoke @DeskReviewFirst
   Scenario: Validate whether user is to able to initiate the peer review on their process for Desk Review
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -943,7 +943,7 @@ Feature: Validate all scenarios in Desk Review
     When I perform quick search for "{SavedValue:DeskReview}" in "History" panel
     Then I see value "Created" for title "Old Value" inside table "History"
 
-  @rerun @61054 @FieldHistoryUpdatePostAwardLevelDeskReviewIsSendBackToOwnerByProgramApprover @Keerti @FieldHistoryExclude @DeskReviewFirst
+  @61054 @FieldHistoryUpdatePostAwardLevelDeskReviewIsSendBackToOwnerByProgramApprover @Keerti @FieldHistoryExclude @DeskReviewFirst
   Scenario: To Validate field history update post Award level Desk Review is send back to owner by program approver.
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
