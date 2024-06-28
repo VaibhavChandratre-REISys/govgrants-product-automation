@@ -1353,8 +1353,7 @@ Feature: Validate all scenarios for program
      The EGMS Team
       """
 
-
-  @ProgramExcludeScenarios @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138 @hitesh @Undo
+   @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138 @hitesh @Undo
   Scenario:Verify reassign approver should see Undo button after forwarded approver change approval task ownership
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2079,7 +2078,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
-  @ProgramExcludeScenarios @279528 @VerifyIfFDasstep4approverclickonUndobuttonthenemailshouldbegeneratedforallpreviousassignapproverandprogramowner @sprint-25-US-291914 @hitesh @Undo
+   @279528 @VerifyIfFDasstep4approverclickonUndobuttonthenemailshouldbegeneratedforallpreviousassignapproverandprogramowner @sprint-25-US-291914 @hitesh @Undo
   Scenario:Verify If FD as step 4 approver click on Undo button then email should be generated for all previous assign approver and program owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2265,7 +2264,8 @@ Feature: Validate all scenarios for program
      The EGMS Team
      """
 
-  @ProgramExcludeScenarios @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914 @hitesh @Undo
+
+   @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914 @hitesh @Undo
   Scenario: Verify step 2 approver can Reject the program after click on Undo button and active program task should cancel and display under completed task table
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2685,7 +2685,7 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @ProgramExcludeScenarios @279567 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-291914 @hitesh
+   @279567 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-291914 @hitesh
   Scenario: Verify notification email should generate to new owner of program after click on Undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
