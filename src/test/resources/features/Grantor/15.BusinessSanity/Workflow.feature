@@ -1560,10 +1560,5 @@ Feature: Validate all scenarios of every modules flow
 #    And I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
 #    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Formula_By_Applicant_Focus_Area"
 #    And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation PM user"
-    And I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
-    And I navigate to "Monitoring" tab
-    When I navigate to "Reimbursements" content inside "Payments" subheader on left panel
-    And I click toggle button to select "Reimbursements - All"
-    And I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:RecipientpaymentrequestReimbursementTableId---" panel
-    When I click on "View" icon for "{SavedValue:PayreqId}" inside fle
+    When I login to "As a Grantor" app as "PM1" user
+    And I navigate to "Grants" tab

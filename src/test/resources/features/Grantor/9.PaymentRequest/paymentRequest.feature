@@ -1063,6 +1063,7 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Actuals" sub tab
+    And I wait for "3" seconds
     Then I see field "Program Income" as "{SavedValue:incomeProgramThis}"
     Then I see field "Program Income Spent" as "{SavedValue:abc}"
     Then I see field "Available Program Income" as "{SavedValue:AvailableIncome}"

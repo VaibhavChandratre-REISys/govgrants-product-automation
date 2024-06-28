@@ -1097,6 +1097,7 @@ Feature: Payment Request scenarios without background
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
@@ -3769,7 +3770,7 @@ Feature: Payment Request scenarios without background
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardFromFDM:-:grantsTableId---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---subAwardFromFDM:-:grantsTableId---" without waiting for record
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I softly see field "Created by" as "Automation ADMIN"
 
   @TestApi @197509 @Validatenewownerofadvancepaymentrequestshouldhavefollowingbuttonsaccessafterpaymentrequestsubmittograntor @sprint-4 @vaibhav @reassignment
@@ -5747,7 +5748,6 @@ Feature: Payment Request scenarios without background
     And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
-    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6883,7 +6883,7 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @TestApi @Validateusercantreimbursemore$thantheawardbudgetusingsimultaneouspaymentrequestinapproval @Sprint-23-US-273843 @vaibhav @Allocation
+  @TestApi @117404 @Validateusercantreimbursemore$thantheawardbudgetusingsimultaneouspaymentrequestinapproval @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate user cant reimburse more $ than the award budget using simultaneous payment request in approval
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -6977,6 +6977,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId1}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId1}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "2" seconds
     Then I see the following messages in the page details contains:
       | Financials Tab - Reimbursed Amount cannot be greater than the reimbursement balance. Subrecipient needs to apply advance. Please Send Request back. |
 
