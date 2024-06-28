@@ -5631,8 +5631,7 @@ Feature: Payment Request scenarios without background
     And I select value "Automation PM" into field "input-1"
     And I select value "Automation PM1" into field "input-2"
     And I select module "Payment Request" from reassign ownership dropdown
-    And I wait for "2" seconds
-    And I reset the table
+    And I wait for "3" seconds
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
