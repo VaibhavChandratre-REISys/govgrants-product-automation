@@ -1369,8 +1369,8 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click modal button "Save and Continue"
 #    And I navigate to "Assessment" sub tab
 #    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-#    And I click on "Save" in the page details
-#    And I wait for "3" seconds
+    And I click on "Save" in the page details
+    And I wait for "3" seconds
     When I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Submit" in the page details
     Then I see the following messages in the page details contains:
