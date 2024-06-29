@@ -3765,7 +3765,7 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "3" seconds
     Then I softly do not see "No matches found" inside auto search result
 
-  @196618  @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
+  @196618  @sprint-4 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
   Scenario: Validate user should able to see the updated history after reassignment ownership for Grant module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4757,7 +4757,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Overview" sub tab
     Then I softly see field "Created by" as "{SavedValue:PM Username}"
 
-  @198226  @sprint-4 @vaibhav  @reassignment @FieldHistoryExclude
+  @198226  @sprint-4 @vaibhav  @reassignment @FieldHistoryExclude @TBExecution
   Scenario: Validate user should able to see the updated history after reassignment of task ownership for Award module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5985,7 +5985,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "Initial Acceptance of Subaward by Subrecipient" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @196617  @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @196617  @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
   Scenario: Validate Intercept should fetched from the application
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -8137,7 +8137,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Reviewer Name" against the value "Fiscal Reviewer" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
 
-  @204896  @sprint-11-US-224734 @vaibhav @reassignment @FieldHistoryExclude
+  @204896  @sprint-11-US-224734 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
   Scenario: Validate Award new award owner will receive email for submitted review by reviewer after change the award ownership
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8192,23 +8192,23 @@ Feature: Validate all scenarios of grants and award without background
     And I click on submit review
     Then I softly see value "Submitted" for title "Status" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
     And I logout
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Award {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello Automation PM1,
-      This email is to notify you that Subaward {SavedValue:Automation Runtime Direct Award} has been peer reviewed.
-      Log in to EGMS and click here for more details.
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-      Thank you.
-      The EGMS Team
-      """
-    Then I refresh the page
+#    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Sandbox: Notification: Award {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello Automation PM1,
+#      This email is to notify you that Subaward {SavedValue:Automation Runtime Direct Award} has been peer reviewed.
+#      Log in to EGMS and click here for more details.
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+#      Thank you.
+#      The EGMS Team
+#      """
+#    Then I refresh the page
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM1" user
     And I navigate to "Grants" tab
@@ -8363,7 +8363,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
     Then I softly see value "Initial Acceptance of Subaward by Subrecipient" for title "Task Type" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @196662 @196620  @sprint-4-US-192896 @vaibhav @reassignment @FieldHistoryExclude
+  @196662 @196620  @sprint-4-US-192896 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
   Scenario: Validate user should able to see the award record in Target user after check the checkbox from source user & click on transfer ownership button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab

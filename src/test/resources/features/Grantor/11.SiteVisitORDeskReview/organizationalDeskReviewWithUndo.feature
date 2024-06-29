@@ -287,7 +287,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     #296049
     Then I cannot see top right button "Undo" in page detail
 
-  @296041 @296073 @296074 @VerifythatwhenlastApproverandOwnerofOrganizationalSiteVisitarenotsameLastApproverwillSeeonlyUNDObutton @sprint-4-US-288692 @hitesh @Undo @FieldHistoryExclude
+  @296041 @296073 @296074 @VerifythatwhenlastApproverandOwnerofOrganizationalSiteVisitarenotsameLastApproverwillSeeonlyUNDObutton @sprint-4-US-288692 @hitesh @Undo @FieldHistoryExclude @TBExecution
   Scenario:Verify that when last Approver and Owner of Organizational Site Visit are not same , Last Approver will See only UNDO button
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1495,7 +1495,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @329508 @ValidateOrgDRFieldhistoryshouldgetupdatedafterclickonundobuttoaftertakingapprovaldecisionApproved @Undo @FieldHistoryExclude
+  @329508 @ValidateOrgDRFieldhistoryshouldgetupdatedafterclickonundobuttoaftertakingapprovaldecisionApproved @Undo @FieldHistoryExclude @TBExecution
   Scenario: Validate Org DR Field history should get updated after click on undo button & after taking approval decision Approved
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
