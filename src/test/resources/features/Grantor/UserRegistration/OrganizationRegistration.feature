@@ -267,7 +267,7 @@ Feature: Validate all registration related scenarios
     And I enter value "No" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
 
-  @82028 @verifyOrganizationDetailPageDuringApproval-Organization @monu @Debug
+  @82028 @verifyOrganizationDetailPageDuringApproval-Organization @monu
   Scenario:Verify if user can see organization detail page while approval
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details

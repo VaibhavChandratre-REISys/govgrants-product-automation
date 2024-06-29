@@ -228,7 +228,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Created" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I can see row level action button "Delete" against "Created" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @62313 @deleteMessageDisplayed @deepika
+  @62313 @deleteMessageDisplayed @deepika @wip @LWCRemoved
   Scenario: Validate whether Authorized Signatory has capable to delete the created Risk Assessment
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -239,7 +239,6 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I get the "EGMS ID"
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
@@ -1225,7 +1224,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
-  @62952 @orRiskAssessmentIsNotDisplayedForINDUser @deepika @issuewithINDUser
+  @62952 @orRiskAssessmentIsNotDisplayedForINDUser @deepika @issuewithINDUser @wip
   Scenario:  Validate Data related to organization risk assessment should not be displayed on the Individual Profile view .
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
