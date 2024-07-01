@@ -305,15 +305,13 @@ public class GenericSteps {
 
     @And("I click {string} button in modal")
     public void iClickButtonInModal(String buttonName) {
-        By Button =ByUsing.xpath("//div[@id='ModalDivID']//button[contains(text(),'" + buttonName + "')] | //button[normalize-space()='" + buttonName + "']");
+        By Button =ByUsing.xpath("//div[@id='ModalDivID']//button[contains(text(),'" + buttonName + "')] |  //button[normalize-space()='" + buttonName + "']");
         try{
             I.amPerforming().waitFor().ElementToBeClickable(Button);
             I.amPerforming().click().withJavaScript(Button);
         }
         catch(Exception e){
-
             e.printStackTrace();
-
         }
     }
 
@@ -626,7 +624,7 @@ public class GenericSteps {
     }
 
     private static Boolean assertButtoninTablewithId(String buttonName, String id) {
-        By Button=By.xpath("//c-lwc-flex-table[@data-flextablename='" + id + "']//button[contains(text(),'" + buttonName + "')]");
+        By Button = By.xpath("//c-lwc-flex-table[@data-flextablename='" + id + "']//button[contains(text(),'" + buttonName + "')]");
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(Button))) {
@@ -635,5 +633,9 @@ public class GenericSteps {
         } catch (Exception e) {
         }
         return flag;
+    }
+        @And("I click on hyperlink against {string} in table {string}")
+    public void iClickOnHyperlinkAgainstInTable(String value, String id) {
+        grantorProjectManager.clickHyperLinkAgainstValueinTable(value,id);
     }
 }

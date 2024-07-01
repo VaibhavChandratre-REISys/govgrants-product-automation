@@ -65,8 +65,7 @@ public class UsersAndURL implements UsersController {
             userName = getTest8EnvironmentUser(setUpUserLevel(userLevel));
         }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("PROLWC"))) {
             userName = getProLwcEnvironmentUser(setUpUserLevel(userLevel));
-        }
-        else {
+        }else {
             userName = getAUTOEnvironmentUser(setUpUserLevel(userLevel));
         }
         return userName;
@@ -116,6 +115,9 @@ public class UsersAndURL implements UsersController {
     private String getQAEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
+            case "SARAH PM":
+                password = "Salesforce@2034";
+                break;
             case "SPA":
                 password = "Salesforce2034";
                 break;

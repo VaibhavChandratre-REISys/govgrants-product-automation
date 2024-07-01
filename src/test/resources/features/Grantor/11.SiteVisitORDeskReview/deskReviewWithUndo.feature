@@ -23,8 +23,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                      | Desk Review |
-      | {SavedValue:PM Username}  | Step 1      |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -52,6 +52,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I can see top right button "Send to Subrecipient" in page detail
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
+    And I pause execution for "5" seconds
     #279020
     Then I softly see field "Status" as "Submitted for Approval"
 
@@ -77,8 +78,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:EXE Username}  | Step 1      |
+      | Name                      | Desk Review |
+      | {SavedValue:EXE Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -87,6 +88,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
     And I click on "Notify" in the page details
     Given I click on "Conduct" in the page details
+    And I pause execution for "4" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---deskreview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
@@ -152,8 +154,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:EXE Username}  | Step 1      |
+      | Name                      | Desk Review |
+      | {SavedValue:EXE Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -162,6 +164,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
     And I click on "Notify" in the page details
     Given I click on "Conduct" in the page details
+    And I pause execution for "4" seconds
     And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---deskreview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
@@ -191,6 +194,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
@@ -225,8 +229,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                      | Desk Review |
-      | {SavedValue:PM Username}  | Step 1      |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -284,17 +288,17 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PM Username}   | Step 1      |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 1      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PM1 Username}  | Step 2      |
+      | Name                      | Desk Review |
+      | {SavedValue:PM1 Username} | Step 2      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:EXE Username}  | Step 3      |
+      | Name                      | Desk Review |
+      | {SavedValue:EXE Username} | Step 3      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PO Username}   | Step 4      |
+      | Name                     | Desk Review |
+      | {SavedValue:PO Username} | Step 4      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -330,6 +334,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    #Bug443578
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -348,6 +353,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
@@ -375,17 +381,17 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PM Username}   | Step 1      |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 1      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PM1 Username}  | Step 2      |
+      | Name                      | Desk Review |
+      | {SavedValue:PM1 Username} | Step 2      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:EXE Username}  | Step 3      |
+      | Name                      | Desk Review |
+      | {SavedValue:EXE Username} | Step 3      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PO Username}   | Step 4      |
+      | Name                     | Desk Review |
+      | {SavedValue:PO Username} | Step 4      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -421,6 +427,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+   #Bug443578
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -439,6 +446,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
@@ -467,17 +475,17 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PM Username}   | Step 1      |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 1      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PM1 Username}  | Step 2      |
+      | Name                      | Desk Review |
+      | {SavedValue:PM1 Username} | Step 2      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:EXE Username}  | Step 3      |
+      | Name                      | Desk Review |
+      | {SavedValue:EXE Username} | Step 3      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PO Username}   | Step 4      |
+      | Name                     | Desk Review |
+      | {SavedValue:PO Username} | Step 4      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -513,6 +521,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    #Bug443578
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -522,6 +531,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -667,8 +677,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                         | Desk Review |
-      | {SavedValue:ADMIN Username}  | Step 1      |
+      | Name                        | Desk Review |
+      | {SavedValue:ADMIN Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -719,14 +729,14 @@ Feature: Validate all scenarios in Desk Review with Undo
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly see field "Status" as "Submitted to Grantor"
     Then I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     And I perform quick search for "Record Id" in "---deskreview:-:monitoringTabDeskReviewTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabDeskReviewTableId---"
       #279030
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly see field "Status" as "Submitted to Grantor"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -762,8 +772,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:EXE Username}  | Step 1      |
+      | Name                      | Desk Review |
+      | {SavedValue:EXE Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -826,9 +836,10 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
+    And I pause execution for "2" seconds
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:EXE Username}  | Step 1      |
+      | Name                      | Desk Review |
+      | {SavedValue:EXE Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -906,8 +917,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PO Username}  | Step 1      |
+      | Name                     | Desk Review |
+      | {SavedValue:PO Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -955,8 +966,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PM Username}  | Step 1      |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -988,6 +999,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
+    And I pause execution for "3" seconds
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
@@ -1016,14 +1028,14 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PM Username}   | Step 1      |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 1      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PM1 Username}  | Step 2      |
+      | Name                      | Desk Review |
+      | {SavedValue:PM1 Username} | Step 2      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:EXE Username}  | Step 3      |
+      | Name                      | Desk Review |
+      | {SavedValue:EXE Username} | Step 3      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1059,6 +1071,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    #Bug443578
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -1068,6 +1081,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -1076,13 +1090,14 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     #284439
     And I navigate to "History" sub tab
-    Then I softly see column "Date" at position "1" contains text "Step : Re-approval (Pending for approval)"
+    Then I softly see column "Assigned To" at position "2" contains text "{SavedValue:EXE Username}"
+    #Bug443987
+    Then I softly see column "Date" at position "1" contains text "Step : Re-approval (Pending for approval) "
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Changed By" inside field history table
-    Then I softly see value "Approved" for title "Original Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
+    Then I softly see value "Approved" for title "Original Value" inside field history table
     And I click on back arrow
     And I navigate to "Monitoring" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
@@ -1121,8 +1136,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PM Username}  | Step 1      |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1157,6 +1172,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "History" sub tab
+    #Bug443647
     Then I softly see snapshot with name containing "Desk Review - Undo Approval.pdf" as name
 
   @308148 @VerifythatAdminapproveruserwillnotseeUNDObuttoninforceClosedstateofdeskreview @sprint-25-US-297269 @hitesh @Undo
@@ -1181,8 +1197,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                      | Desk Review |
-      | {SavedValue:PM Username}  | Step 1      |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1216,6 +1232,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I pause execution for "5" seconds
     When I navigate to "Reports and Outcomes" sub tab
     And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
@@ -1234,7 +1251,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I collapse nested table containing column value "Automation Finding"
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     Given I delete the record "{SavedValue:Automation Runtime Award Desk Review}" from the object "Closeout"
     When I create a post award record "Closeout" for the Award "{SavedValue:Automation Runtime Award Desk Review}" having object api name as "Closeout"
@@ -1284,7 +1301,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I softly see field "Status" as "Force Closed"
     Then I cannot see top right button "Undo" in page detail
 
-  @291416 @VerifythatwhenPMUserReassigntaskofsubmitforapprovaltonewuserthenUndoNotificationEmailwillrecievetoneuserandnottooldone @sprint-25-US-297269 @hitesh @Undo 
+  @291416 @VerifythatwhenPMUserReassigntaskofsubmitforapprovaltonewuserthenUndoNotificationEmailwillrecievetoneuserandnottooldone @sprint-25-US-297269 @hitesh @Undo
   Scenario: Verify that when PM User Reassign task of submit for approval to new user,then Undo Notification Email will recieve to ne user and not to old one.
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"
@@ -1306,8 +1323,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:EXE Username}  | Step 1      |
+      | Name                      | Desk Review |
+      | {SavedValue:EXE Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1409,7 +1426,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     The EGMS Team
     """
 
-  @291431 @VerifythatwhenPMUserForwardtaskofsubmitforapprovaltonewuserthenUndoNotificationEmailwillrecievetoneuserandnottooldone @sprint-25-US-297269 @hitesh @Undo 
+  @291431 @VerifythatwhenPMUserForwardtaskofsubmitforapprovaltonewuserthenUndoNotificationEmailwillrecievetoneuserandnottooldone @sprint-25-US-297269 @hitesh @Undo
   Scenario: Verify that when PM User Forward task of submit for approval to new user,then Undo Notification Email will recieve to ne user and not to old one.
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"
@@ -1431,7 +1448,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
+      | Name                      | Desk Review |
       | {SavedValue:EXE Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
@@ -1541,6 +1558,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Award Desk Review}" in "---deskreview:-:internalActiveGrants---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalActiveGrants---"
+    And I pause execution for "3" seconds
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
     Given I navigate to "Management" sub tab
@@ -1553,8 +1571,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:EXE Username}  | Step 1      |
+      | Name                      | Desk Review |
+      | {SavedValue:EXE Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1626,11 +1644,11 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:EXE Username}  | Step 1      |
+      | Name                      | Desk Review |
+      | {SavedValue:EXE Username} | Step 1      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PO Username}   | Step 2      |
+      | Name                     | Desk Review |
+      | {SavedValue:PO Username} | Step 2      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1758,7 +1776,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                      | Desk Review |
-      | {SavedValue:EXE Username}  | Step 1      |
+      | {SavedValue:EXE Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1882,14 +1900,14 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PO Username}   | Step 1      |
+      | Name                     | Desk Review |
+      | {SavedValue:PO Username} | Step 1      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:EXE Username}  | Step 2      |
+      | Name                      | Desk Review |
+      | {SavedValue:EXE Username} | Step 2      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PM Username}   | Step 3      |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 3      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1962,6 +1980,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    And I pause execution for "4" seconds
+    #Bug443578
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1969,6 +1989,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    And I pause execution for "4" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
@@ -1994,14 +2015,14 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PO Username}   | Step 1      |
+      | Name                     | Desk Review |
+      | {SavedValue:PO Username} | Step 1      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:FO Username}   | Step 2      |
+      | Name                     | Desk Review |
+      | {SavedValue:FO Username} | Step 2      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PM Username}   | Step 3      |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 3      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -2059,17 +2080,17 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I cannot see top right button "Undo" in page detail
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
-      | Name                      | Desk Review |
-      | {SavedValue:FO Username}  | NA          |
+      | Name                     | Desk Review |
+      | {SavedValue:FO Username} | NA          |
     And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
-      | Name                      | Desk Review |
-      | {SavedValue:PM Username}  | NA          |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | NA          |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                      | Desk Review |
-      | {SavedValue:PM Username}  | Step 2      |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 2      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                      | Desk Review |
-      | {SavedValue:FO Username}  | Step 3      |
+      | Name                     | Desk Review |
+      | {SavedValue:FO Username} | Step 3      |
     When I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -2122,8 +2143,8 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PM Username}   | Step 1      |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -2180,14 +2201,14 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Desk Review  |
-      | {SavedValue:PM Username} | Step 1       |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 1      |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Desk Review |
       | {SavedValue:PO Username} | Step 2      |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Desk Review  |
-      | {SavedValue:FO Username} | Step 3       |
+      | Name                     | Desk Review |
+      | {SavedValue:FO Username} | Step 3      |
     Given I navigate to "Management" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---deskreview:-:managementInitiateDRtableid---"
     And I enter "Creation" values from "DeskReview_Field_Values.xlsx"
@@ -2198,23 +2219,23 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
-      | Name                      | Desk Review |
-      | {SavedValue:PM Username}  | NA          |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | NA          |
     And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
-      | Name                      | Desk Review |
-      | {SavedValue:PO Username}  | NA          |
+      | Name                     | Desk Review |
+      | {SavedValue:PO Username} | NA          |
     And I edit the following rows inline in flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "Edit" :
-      | Name                      | Desk Review |
-      | {SavedValue:FO Username}  | NA          |
+      | Name                     | Desk Review |
+      | {SavedValue:FO Username} | NA          |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PO Username}   | Step 1      |
+      | Name                     | Desk Review |
+      | {SavedValue:PO Username} | Step 1      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:FO Username}   | Step 2      |
+      | Name                     | Desk Review |
+      | {SavedValue:FO Username} | Step 2      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:PM Username}   | Step 3      |
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | Step 3      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"

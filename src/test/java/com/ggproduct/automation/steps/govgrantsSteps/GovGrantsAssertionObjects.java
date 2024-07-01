@@ -2306,7 +2306,16 @@ public final class GovGrantsAssertionObjects {
     }
 
     private boolean isFieldsIsInEditModeAtPAgeDetails(String fieldApiName) {
-        By fieldsAtPageDetails = ByUsing.xpath("//div[@id='" + fieldApiName + "']//div[contains(@class,'field-value')]//label//following-sibling::span[1] | //*[@field-name='" + fieldApiName + "']//span[contains(@class,'requiredField h-line-left')]|//*[@id='" + fieldApiName + "'] | //lightning-input[contains(@id,'" + fieldApiName + "')]//input[not(@disabled)] | //div[contains(@class,'modal__content')]//div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)] | //div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)] | //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//input[not(@disabled)]");
+        By fieldsAtPageDetails = ByUsing.xpath("//div[@id='" + fieldApiName + "']//div[contains(@class,'field-value')]//label//following-sibling::span[1] " +
+                "| //*[@field-name='" + fieldApiName + "']//span[contains(@class,'requiredField h-line-left')]" +
+                "|//*[@id='" + fieldApiName + "'] " +
+                "| //lightning-input[contains(@id,'" + fieldApiName + "')]//input[not(@disabled)] " +
+                "| //div[contains(@class,'modal__content')]//div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)] " +
+                "| //div[@data-field_api_name='" + fieldApiName + "']//input[not(@disabled)] " +
+                "| //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//input[not(@disabled)]" +
+                "|//input[@name='" + fieldApiName + "' and @part='input']" +
+                "|//div[@data-field_api_name='" + fieldApiName + "']//textarea" +
+                "|//div[@data-field_api_name='" + fieldApiName + "']//button[contains(@aria-controls,'dropdown-element')]");
         boolean flag = false;
         try {
             if (I.amPerforming().actionToGet().attribute(fieldsAtPageDetails, "id").toLowerCase().contains("j_id0") || I.amPerforming().checkToSee().isDisplayed(fieldsAtPageDetails)) {
@@ -2317,6 +2326,7 @@ public final class GovGrantsAssertionObjects {
         }
         return flag;
     }
+
 
     private boolean isDateFieldsIsInEditModeAtPAgeDetails(String fieldApiName) {
         By DatefieldsAtPageDetails = ByUsing.xpath("//*[@id='" + fieldApiName + "']//input[@placeholder='mm/dd/yyyy' and contains(@onchange,'DATE')]");

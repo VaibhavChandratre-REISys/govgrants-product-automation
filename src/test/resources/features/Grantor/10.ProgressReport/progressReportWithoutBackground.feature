@@ -222,7 +222,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @59298 @MandatorySuppDocState @jitendra 
+  @59298 @MandatorySuppDocState @jitendra
   Scenario Outline: Validate Previous created Progress report remains the same at SR user end when Supporting checklist Table is updated by Award Owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -391,7 +391,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @60106 @60025 @60107 @validateFinalReportFieldIsEditable @mahadev 
+  @60106 @60025 @60107 @validateFinalReportFieldIsEditable @mahadev
   Scenario Outline: Validate Final Report? field is editable when the Progress report status is Sent Back to Subrecipient | Validate System should generate pending task for award owner for the Final Progress report when the status is Submitted to Grantor
   Validate SR User is able to submit final progress report by selecting the checkbox and marking the Progress report as final
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
@@ -444,7 +444,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @60108 @60109 @validatePendingTaskForFinalProgressReportForProgramApproval @mahadev 
+  @60108 @60109 @validatePendingTaskForFinalProgressReportForProgramApproval @mahadev
   Scenario Outline: Validate pending task for Program approver for the Final Progress report when the status is Submitted for Approval
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -621,7 +621,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @59903 @validateProgressReportTableOnGrant @mahadev 
+  @59903 @validateProgressReportTableOnGrant @mahadev
   Scenario Outline: Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is Created at SR User End
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     Given I delete the record "<Award Name>" from the object "Progress Report"
@@ -727,7 +727,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @60191 @NotAbleToSubmitProgressReportForApproval-OnceFinalReportSubmittedForApproval @jitendra 
+  @60191 @NotAbleToSubmitProgressReportForApproval-OnceFinalReportSubmittedForApproval @jitendra
   Scenario Outline: Verify user should not be able to submit progress report for approval once final report is already approved
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -926,7 +926,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @60303 @validateAwardOwnerCanSendBackFinalPR @mahadev 
+  @60303 @validateAwardOwnerCanSendBackFinalPR @mahadev
   Scenario Outline: Validate Award Owner can send Progress report to Sub-recipient for edition which is marked as Final
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -969,7 +969,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @60196 @validateSRUserCanSubmitPR @mahadev 
+  @60196 @validateSRUserCanSubmitPR @mahadev
   Scenario Outline: Validate SR User can Submit another Progress report if Final marked Progress report is pending for Submit for approval at Award owner end
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1208,7 +1208,7 @@ Feature: Validate scenarios in Progress Report without background
 
     Examples:
       | Award Name                            | Grant Name                            | Error Message                                                                                                                                                              |
-      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award}  | This Progress Report cannot be approved because a report marked as the Final report has been approved. Send Back to Owner will allow the Owner to notify the Subrecipient. |
+      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | This Progress Report cannot be approved because a report marked as the Final report has been approved. Send Back to Owner will allow the Owner to notify the Subrecipient. |
 
   @60883 @validateProgramApproverCanSendBackProgressReportWhenFinalprogressreportAlreadyApproved @mahadev
   Scenario Outline: Validate Program Approver can Send back Progress report to Owner when Final progress report request is already approved
@@ -1592,7 +1592,7 @@ Feature: Validate scenarios in Progress Report without background
     And I navigate to "Overview" sub tab
     Then I see field matches exactly "Budget Period" as "{savedValue:BudgetPeriod}"
 
-  @60922 @budgetPeriodOnPROverviewTab @jitendra 
+  @60922 @budgetPeriodOnPROverviewTab @jitendra
   Scenario: Validate on Progress report Awarded Budget field at Subaward Spending table under Performance tab is same as Award
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
@@ -1636,7 +1636,7 @@ Feature: Validate scenarios in Progress Report without background
     And I wait for "5" seconds
     Then I softly see field "External Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
 
-  @60879 @validateProgramApprovercannotApprovePRWhenFinalPRAlreadyApproved @mahadev @smoke @buglogged135383 
+  @60879 @validateProgramApprovercannotApprovePRWhenFinalPRAlreadyApproved @mahadev @smoke @buglogged135383
   Scenario Outline: Validate Program approver is not allowed to approve the pending progress report if another Final Progress report is approved
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1746,7 +1746,7 @@ Feature: Validate scenarios in Progress Report without background
     And I wait for "2" seconds
     Then I can see the message "<Error Message>" in the approval decision
     Examples:
-      | Award Name                            | Grant Name                            | Error Message                                                                                                                                                              |
+      | Award Name                            | Grant Name                            | Error Message                                                                                                                                                             |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | This Progress Report cannot be approved because a report marked as the Final report has been approved.Send Back to Owner will allow the Owner to notify the Subrecipient. |
 
   @61090 @validateObjectiveNotDisplayedInPR @mahadev
@@ -1898,7 +1898,7 @@ Feature: Validate scenarios in Progress Report without background
     And I wait for "2" seconds
     Then I can see the message "<Error Message>" in the approval decision
     Examples:
-      | Award Name                            | Grant Name                            | Error Message                                                                                                                                                                                                       |
+      | Award Name                            | Grant Name                            | Error Message                                                                                                                                                                                                      |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | Any approval decision on the Progress Report cannot be made at this time because a report marked as the Final Report has already been approved.Send Back to Owner will allow the owner to notify the Subrecipient. |
 
   @62779 @PercentagePeriodAtPRAfterPaymentRequest @jitendra
@@ -5275,14 +5275,16 @@ Feature: Validate scenarios in Progress Report without background
     Then I can see top right button "New" in flex table with id "---progressreport:-:peerReviewersTableId---"
     Then I can see top right button "New" in flex table with id "---progressreport:-:approversTableId---"
     When I navigate to "Forms and Files" sub tab
-    Then I can see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
     #197398
     When I navigate to "Responsibilities" sub tab
     Then I see value "Automation PM1" for title "Name" inside table "---progressreport:-:progressOwnerTableId---"
     #197401
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---progressreport:-:progressHistoryTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---progressreport:-:progressHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @197403 @Validateadminusershouldnotabletoseetheinactiveuser&targetuserforPRmodule @sprint-4 @vaibhav @reassignment
   Scenario: Validate admin user should not able to see the inactive user & target user for PR  module
@@ -5310,7 +5312,7 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly do not see "Undertaker FO" inside auto search result
 
 
-  @197664 @197732 @Validateprogressreport1internalownershouldchangedinanystate&progressreport2iscreatedbyschedulethentheinternalownershouldawardowneronly @sprint-4 @vaibhav @reassignment 
+  @197664 @197732 @Validateprogressreport1internalownershouldchangedinanystate&progressreport2iscreatedbyschedulethentheinternalownershouldawardowneronly @sprint-4 @vaibhav @reassignment
   Scenario: Validate progress report 1 internal owner should changed in any state & progress report 2 is created by schedule then the internal owner should award owner only
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -5574,7 +5576,7 @@ Feature: Validate scenarios in Progress Report without background
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-      | Construction    | 1000           | 100        | 100            |
+      | Construction    | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |

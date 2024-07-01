@@ -974,8 +974,9 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I click modal button "Close"
     #Bug429276
-    And I click in table hyperlink containing value "View"
-    Then I softly verify that the file "Attachment.pdf" is downloaded
+    And I click on hyperlink against "Automation" in table "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
+    And I download the file
+    Then I softly see "A Simple PDF File " on page "1" of "govgrants" pdf file
 
   @61398 @56044 @submittingForApprovalFieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByProgramApprover @keerti @FieldHistoryExclude @TBExecution
   Scenario: To Validate User will be able to view the Submit for Approval button  and field history update post Org level Site Visit is send back to owner by program approver

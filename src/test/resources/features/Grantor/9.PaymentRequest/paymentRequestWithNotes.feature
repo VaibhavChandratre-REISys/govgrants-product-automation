@@ -1,7 +1,7 @@
 @paymentRequestNotes @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression @paymentRequestExecution
 Feature: Validate all scenarios in Payment Request With Notes
 
-  @236237 @VerifyPMPOEXEADMINFDsameOrgusershouldbeabletoAddnotesbutEditDeletetheirownnotesonadhocreimbursementpaymentrequestisinSubmittograntorstate @sprint-14-US-225425 @hitesh @Notes
+ @236237 @VerifyPMPOEXEADMINFDsameOrgusershouldbeabletoAddnotesbutEditDeletetheirownnotesonadhocreimbursementpaymentrequestisinSubmittograntorstate @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify PM/PO/EXE/ADMIN/FD same Org user should be able to 'Add' notes but 'Edit/Delete' their own notes on ad-hoc reimbursement payment request is in 'Submit to grantor' state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3017,7 +3017,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:advancePaymentNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:advancePaymentNotesTableId---"
 
-  @236342 @VerifyINDusershouldnotabletoAddnotesnotesbutcaneditdeleteownnotesonadhocreimbursementpaymentrequestisinRejectedstate @sprint-14-US-225425 @hitesh @Notes
+ @236342 @VerifyINDusershouldnotabletoAddnotesnotesbutcaneditdeleteownnotesonadhocreimbursementpaymentrequestisinRejectedstate @sprint-14-US-225425 @hitesh @Notes
   Scenario:Verify IND user should not able to 'Add' notes notes but can edit/delete own notes on ad-hoc reimbursement payment request is in  Rejected state
     Given I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     And I am on "SUBPORTAL" portal

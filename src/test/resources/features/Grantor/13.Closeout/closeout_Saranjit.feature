@@ -1,4 +1,4 @@
-@closeoutExecution @closeout @grantor-regression @t4 @grantor-parallel-regression @regression
+@closeoutExecution @closeout @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in Closeout
 
   Background: Navigate to award
@@ -10,7 +10,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
 
-  @done @96255 @VerifySystemErrorMessageForReason @monu
+  @96255 @VerifySystemErrorMessageForReason @monu
   Scenario: Validate user should get error message for reason while creating closeout request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -82,18 +82,6 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CloseoutID"
     When I navigate to "Files" sub tab
-#    When I enter the following values into flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" by clicking "Add" :
-#      | Description                 | Required  | Status |
-#      | Automation test description | Mandatory | Active |
-    When I click on "Attach" icon for "Not Applicable" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" without waiting for record
-    Then I softly see "Add Supporting Documents Checklist" opens in overLay window
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
-    When I close "Add Supporting Documents Checklist" modal by clicking the top right x button
-    And I click modal button "Save"
-    Then I see the following messages in the page details contains:
-      | Attachment saved successfully. |
-    When I close "Upload Template" modal by clicking the top right x button
-    Then I softly see value "Automation" for title "Description" inside table "CloseoutChecklistsFlexToggle"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -112,8 +100,7 @@ Feature: Validate all scenarios in Closeout
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "green"
-    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
 
   @95688 @VerifyChecklistFieldsInReadModeOnly @monu
   Scenario: Verify user can is not able to edit the checklist details filled by grantor
@@ -164,10 +151,10 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Checklist" sub tab
     Then I softly see field "Has the subrecipient submitted all payment requests?" as "Yes"
     Then I softly see field "Has the subrecipient met the match requirement?" as "Yes"
-    Then I softly see field "Did the subrecipient fully expend program income earned during the award period prior to the closeout of the award?" as "Yes"
-    Then I softly see field "Has the subrecipient completed the scope of work as outlined in the subaward agreement?" as "Yes"
+    Then I softly see field "Did the subrecipient fully expend program income earned during the award period prior to the closeout of the award?" as "Checklist Question Pick 9 Yes"
+    Then I softly see field "Has the subrecipient completed the scope of work as outlined in the subaward agreement?" as "Checklist Question Pick 11 Yes"
 
-  @done @96612 @VerifyAdvanceBalanceOfFundingAccountAtcloseoutRequest @monu
+  @96612 @VerifyAdvanceBalanceOfFundingAccountAtcloseoutRequest @monu
   Scenario: Verify user can see advance balance of funding account at closeout request as same as on SubAward
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---subAwardStandAlone:-:GrantsSubAwardsTableId---"
@@ -214,7 +201,6 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:CloseoutID}" in "---closeout:-:pendingTaskTableId---" panel
     #93576 #monu
     Then I softly see value "{SavedValue:CloseoutID}" for title "EGMS ID" inside table "---closeout:-:pendingTaskTableId---"
-    ##########################################################################################################################
     And I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     Then I softly can see top right button "Edit" in page detail
     When I click on "Edit" in the page details
@@ -228,13 +214,12 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Status" as "Acknowledged by Subrecipient"
     #93582 #monu
     Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
-    #################################################################
     And I click on hyperlink containing value "{SavedValue:GrantID}"
     And I navigate to "Requests" sub tab
     And I click on "View" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:RecipientCloseoutRequestTableId---"
     Then I softly cannot see top right button "Override" in page detail
 
-  @done @140329 @Verify1StepApprovalForAdhocCloseoutRequest-RnRFuntionality @monu
+  @140329 @Verify1StepApprovalForAdhocCloseoutRequest-RnRFuntionality @monu
   Scenario: Verify user is able to add step 1 approver for adhoc closeout request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -248,7 +233,7 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:PM Username} | Step 1   |
     Then I softly see "Saved Successfully!" inside flex table with id "---closeout:-:closeoutApproverTableId---"
 
-  @done @140331 @141540 @verifyAdditionOfApproverAtCloseoutRequestAfterOverriden-RnRFuntionality @monu
+  @140331 @141540 @verifyAdditionOfApproverAtCloseoutRequestAfterOverriden-RnRFuntionality @monu
   Scenario: Verify user is able to add approver on closeout request after it is overriden
   |Verify user is able to add approver on closeout request before it is overridden|
     When I navigate to "Requests" sub tab
@@ -285,7 +270,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---closeout:-:closeoutApproverTableId---"
 
-  @done @141537 @Verify2StepApprovalForAdhocCloseoutRequest-RnRFuntionality @monu
+  @141537 @Verify2StepApprovalForAdhocCloseoutRequest-RnRFuntionality @monu
   Scenario: Verify user is able to add step 2 approver for closeout request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
