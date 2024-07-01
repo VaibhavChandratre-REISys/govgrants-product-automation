@@ -1,4 +1,4 @@
-@programExecution @grantor-regression @grantor-parallel-regression @planning @regression
+@programExecution @grantor-regression @grantor-parallel-regression @planning @regression @checksr
 Feature: Validate all scenarios for program
 
   Background: Create Program
@@ -71,7 +71,7 @@ Feature: Validate all scenarios for program
       | SME Review        | 50              |
       | Management Review | 50              |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details :
       | There are no errors with the review step templates. |
@@ -213,7 +213,7 @@ Feature: Validate all scenarios for program
       | Section Order | Section Header |
       | 2             | Match Test     |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     And I softly see value "Match Test" for title "Section Header" inside table "---program:-:programReviewPanel---"
       #76125
     Then I softly see total records count "Total Records: 3" in flex table "---program:-:programReviewPanel---"
@@ -233,7 +233,7 @@ Feature: Validate all scenarios for program
       | Section Order | Section Header |
       | 2             | Impact Test    |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     And I softly see value "Impact Test" for title "Section Header" inside table "---program:-:programReviewPanel---"
       #76126
     Then I softly see total records count "Total Records: 3" in flex table "---program:-:programReviewPanel---"
@@ -251,7 +251,7 @@ Feature: Validate all scenarios for program
       | Section Order | Section Header   |
       | 1             | Eligibility Test |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     And I softly see value "Eligibility Test" for title "Section Header" inside table "---program:-:programReviewPanel---"
       #76131
     And I click on "Delete" icon for "Eligibility Test" inside flex table with id "---program:-:programReviewPanel---" without waiting for record
@@ -269,7 +269,7 @@ Feature: Validate all scenarios for program
       | Section Order | Section Header   |
       | 2             | Environment Test |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     And I softly see value "Environment Test" for title "Section Header" inside table "---program:-:programReviewPanel---"
       #76132
     And I click on "Delete" icon for "Environment Test" inside flex table with id "---program:-:programReviewPanel---" without waiting for record
@@ -574,7 +574,7 @@ Feature: Validate all scenarios for program
       | 2              | Yes/No |
       #76943 following 2 assertion belongs to this
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I refresh the page
     And I expand nested table containing column value "Pre-Screen Review"
@@ -585,7 +585,7 @@ Feature: Validate all scenarios for program
       | 3              | Test 2   | Yes/No | 0         |
       #76944 following 5 assertion belongs to this
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "3" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "Test 2" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -595,7 +595,7 @@ Feature: Validate all scenarios for program
       | 2              | Written |
        #76948 following 2 assertion belongs to this
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I softly see value "Written" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on "Delete" icon for "2" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
       #76947 following 2 assertion belongs to this
@@ -609,7 +609,7 @@ Feature: Validate all scenarios for program
       | 5              | Test 5   | Yes/No | 0         |
       #76984 following 5 assertion belongs to this
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "5" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "Test 5" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -629,7 +629,7 @@ Feature: Validate all scenarios for program
       | 4              | Test 4   | Yes/No | 0         |
       #77098 following 5 assertion belongs to this
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "Test 4" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -727,7 +727,7 @@ Feature: Validate all scenarios for program
       | Form Name         | Minimum Number of Reviews per Application | Required? |
       | Automation Review | 1                                         | Checked   |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PM Username} |
@@ -744,12 +744,13 @@ Feature: Validate all scenarios for program
       | Title                           |
       | Automation Permanent Focus Area |
 
-  @passed @106094 @VerifyDeletionOfAssociatedFocusArea @monu
+  @106094 @VerifyDeletionOfAssociatedFocusArea @monu
   Scenario Outline: Validate user is able to delete associated focus area for the Internal Program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "<Title>" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
     And I wait for "3" seconds
+    When I click modal button "Close"
     Then I softly see that "<Title>" has been added in flextable with Id "---program:-:focusAreaTableId---"
     And I click on "Remove" icon for "<Title>" inside flex table with id "---program:-:focusAreaTableId---" without waiting for record
    # Then I softly see the following messages in the page details contains:
@@ -824,7 +825,7 @@ Feature: Validate all scenarios for program
       | Section Order | Section Header    |
       | 4             | Automation Header |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Automation Header" for title "Section Header" inside table "---program:-:programReviewPanel---"
     And I close "Review Form" modal by clicking the top right x button
     And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
@@ -833,7 +834,7 @@ Feature: Validate all scenarios for program
       | Section Order | Section Header    |
       | 4             | Automation Header |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Automation Header" for title "Section Header" inside table "---program:-:programReviewPanel---"
     And I close "Review Form" modal by clicking the top right x button
     And I click on "Review Form" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
@@ -844,7 +845,7 @@ Feature: Validate all scenarios for program
       | Section Order | Section Header    |
       | 3             | Automation Header |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Automation Header" for title "Section Header" inside table "---program:-:programReviewPanel---"
     And I click on "Delete" icon for "Automation Header" inside flex table with id "---program:-:programReviewPanel---" without waiting for record
     And I click on "Delete" icon for "Schedule" inside flex table with id "---program:-:programReviewPanel---" without waiting for record
@@ -869,11 +870,13 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @passed @106288 @VerifyDeletionOfAssociatedProgramObjective @monu
+  @106288 @VerifyDeletionOfAssociatedProgramObjective @monu
   Scenario Outline: Validate user is able to delete associated objective from program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
     Then I softly see that "<Objective>" has been added in flextable with Id "---program:-:objectivesTableId---"
     And I click on "Remove" icon for "<Objective>" inside flex table with id "---program:-:objectivesTableId---" without waiting for record
  #   Then I softly see the following messages in the page details contains:
@@ -889,6 +892,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "<EGMS Id>" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    And I wait for "3" seconds
+    When I click modal button "Close"
     Then I softly see that "<EGMS Id>" has been added in flextable with Id "---program:-:kpiTableId---"
     And I pause execution for "2" seconds
     And I expand nested table containing column value "Management Review"
@@ -897,7 +902,7 @@ Feature: Validate all scenarios for program
       | Form Name         | Minimum Number of Reviews per Application | Required? |
       | Automation Review | 1                                         | Checked   |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     When I collapse nested table containing column value "Management Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "Management Review"
@@ -911,7 +916,7 @@ Feature: Validate all scenarios for program
       | Reviewer                 |
       | {SavedValue:PO Username} |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     When I collapse nested table containing column value "Management Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "Management Review"
@@ -922,17 +927,19 @@ Feature: Validate all scenarios for program
       | Section Order | Section Header    |
       | 3             | Automation Header |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
 
     Examples:
       | EGMS Id                  |
       | Automation Permanent KPI |
 
-  @passed @106096 @verifyDeletionOfAssociatedProgramKPI @monu
+  @106096 @verifyDeletionOfAssociatedProgramKPI @monu
   Scenario Outline: Validate user is able to delete associated kpi from program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "<EGMS Id>" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
     Then I softly see that "<EGMS Id>" has been added in flextable with Id "---program:-:kpiTableId---"
     And I click on "Remove" icon for "<EGMS Id>" inside flex table with id "---program:-:kpiTableId---" without waiting for record
    # Then I softly see the following messages in the page details contains:
@@ -1039,7 +1046,7 @@ Feature: Validate all scenarios for program
       | Section Order | Section Header    |
       | 3             | Automation Header |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Automation Header" for title "Section Header" inside table "---program:-:programReviewPanel---"
     Then I softly see value "Eligibility" for title "Section Header" inside table "---program:-:programReviewPanel---"
     Then I softly see value "Completeness" for title "Section Header" inside table "---program:-:programReviewPanel---"
@@ -1899,7 +1906,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type    | Max Score |
       | 4              | Test     | Written | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Written" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -1927,7 +1934,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type    | Max Score |
       | 3              | Test 1   | Written | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "3" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 1" for title "Question" against the value "3" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Written" for title "Type" against the value "3" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -1965,7 +1972,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type | Max Score |
       | 4              | Test 4   | Date | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I wait for "2" seconds
     When I collapse nested table containing column value "Return on Investment (ROI)"
     And I wait for "2" seconds
@@ -1974,7 +1981,7 @@ Feature: Validate all scenarios for program
       | Question Order | Type    |
       | 4              | Written |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I wait for "2" seconds
     When I collapse nested table containing column value "Return on Investment (ROI)"
     And I wait for "2" seconds
@@ -1997,7 +2004,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type | Max Score |
       | 3              | Test 3   | Date | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I click on "Delete" icon for "3" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly do not see value "3" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Examples:
@@ -2048,6 +2055,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "5" seconds
     And I navigate to "Setup" sub tab
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
+    #Bug444555
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review - Pre-Screen: A weighted form must contain weighted sections. |
     And I collapse nested table containing column value "Pre-Screen Review"
@@ -2062,7 +2070,7 @@ Feature: Validate all scenarios for program
       | 4              | Test 4   | Date | 0         |
     And I pause execution for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     When I collapse nested table containing column value "Environment"
     And I wait for "1" seconds
     And I expand nested table containing column value "Environment"
@@ -2071,7 +2079,7 @@ Feature: Validate all scenarios for program
       | 4              | Number |
     And I pause execution for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Number" for title "Type" against the value "4" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on "Delete" icon for "4" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly do not see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2118,7 +2126,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type    | Max Score |
       | 4              | Test     | Written | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Written" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2129,7 +2137,7 @@ Feature: Validate all scenarios for program
       | Question Order | Type |
       | 4              | Date |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Date" for title "Type" against the value "3" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on "Delete" icon for "4" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly see the following messages in the page details contains:
@@ -2179,7 +2187,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type    | Max Score |
       | 7              | Test 7   | Written | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 7" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Written" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2195,7 +2203,7 @@ Feature: Validate all scenarios for program
       | 7              | Date |
     Then I softly see value "Date" for title "Type" against the value "7" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Examples:
       | Objective                      |
       | Automation Permanent Objective |
@@ -2235,7 +2243,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "Match"
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 4" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2284,7 +2292,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type    | Max Score |
       | 7              | Test 7   | Written | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 7" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Written" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2295,7 +2303,7 @@ Feature: Validate all scenarios for program
       | Question Order | Type |
       | 7              | Date |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Date" for title "Type" against the value "7" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on "Delete" icon for "7" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly see the following messages in the page details contains:
@@ -2333,7 +2341,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "Program Income"
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "3" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 3" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Written" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2586,7 +2594,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type | Max Score |
       | 11             | Test 11  | Date | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "11" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 11" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Date" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2597,7 +2605,7 @@ Feature: Validate all scenarios for program
       | Question Order | Type    |
       | 11             | Written |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Written" for title "Type" against the value "11" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on "Delete" icon for "11" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly see the following messages in the page details contains:
@@ -2632,7 +2640,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type   | Max Score |
       | 4              | Test 4   | Yes/No | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 4" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2659,7 +2667,7 @@ Feature: Validate all scenarios for program
       | Question Order | Type |
       | 4              | Date |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Date" for title "Type" against the value "4" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Examples:
       | Objective                      |
@@ -2678,6 +2686,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    And I wait for "3" seconds
+    When I click modal button "Close"
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -2688,6 +2698,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Management Review | 100             | 0                                         | Unchecked |
+    #Bug444611 - attach new screenshot
     Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
     When I collapse nested table containing column value "Management Review"
@@ -2874,7 +2885,7 @@ Feature: Validate all scenarios for program
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Management Review | 0               | 1                                         | Checked   |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
@@ -2922,7 +2933,7 @@ Feature: Validate all scenarios for program
       | Form Name      | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Program Review | 0               | 1                                         | Checked   |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
@@ -2967,7 +2978,7 @@ Feature: Validate all scenarios for program
       | Form Name     | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Fiscal Review | 0               | 1                                         | Checked   |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
@@ -3012,7 +3023,7 @@ Feature: Validate all scenarios for program
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Compliance Review | 0               | 1                                         | Checked   |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
@@ -3197,7 +3208,7 @@ Feature: Validate all scenarios for program
       | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Pre-Screen | 0               | 0                                         | Unchecked |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%.                               |
@@ -3211,7 +3222,7 @@ Feature: Validate all scenarios for program
       | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
       | Pre-Screen | 0               | 1                                         | Checked   |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%.                               |
@@ -4225,7 +4236,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Required? |
       | Program Review | Checked   |
@@ -4244,7 +4255,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Required? |
       | Fiscal Review | Checked   |
@@ -4263,7 +4274,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? |
       | Compliance Review | Checked   |
@@ -4279,7 +4290,7 @@ Feature: Validate all scenarios for program
       | Form Name  | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Pre-Screen | Unchecked | 0                                         | 0               |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     When I collapse nested table containing column value "Pre-Screen Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
@@ -4316,7 +4327,7 @@ Feature: Validate all scenarios for program
       | Form Name      | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Program Review | Unchecked | 0               | 0                                         |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     When I collapse nested table containing column value "SME Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
@@ -4335,7 +4346,7 @@ Feature: Validate all scenarios for program
       | Form Name     | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Fiscal Review | Unchecked | 0               | 0                                         |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     When I collapse nested table containing column value "SME Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
@@ -4354,7 +4365,7 @@ Feature: Validate all scenarios for program
       | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Compliance Review | Unchecked | 0               | 0                                         |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     When I collapse nested table containing column value "SME Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
@@ -4389,7 +4400,7 @@ Feature: Validate all scenarios for program
       | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Management Review | Unchecked | 0               | 0                                         |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     And I collapse nested table containing column value "Management Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "Management Review"
@@ -4574,6 +4585,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Program Review | Unchecked | 40              | 0                                         |
+    #Bug444611
     Then I softly see the following messages in the page details :
       | You cannot associate a weight to an optional panel |
     And I refresh the page
@@ -4622,7 +4634,7 @@ Feature: Validate all scenarios for program
       | Form Name         | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
       | Compliance Review | 0               | Unchecked | 0                                         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
@@ -5024,7 +5036,7 @@ Feature: Validate all scenarios for program
       | Form Name         | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Management Review | Checked   | 1                                         | 100             |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     And I wait for "2" seconds
     And I collapse nested table containing column value "Management Review"
     And I wait for "2" seconds
@@ -5061,7 +5073,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "Edit" :
       | Question Order | Max Score |
       | 2              | 0         |
-    And I close "Review Form" modal by clicking the top right x button
+    And I click modal button "Close"
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Management Review - Management Review: A score must be associated to at least one question in the Return on Investment (ROI) section because it is weighted. |
@@ -5598,7 +5610,7 @@ Feature: Validate all scenarios for program
       | Question Order | Type    |
       | 3              | Written |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Written" for title "Type" against the value "3" inside table "---program:-:programReviewPanelQuestionsTableId---"
     #77101
     And I click on "Delete" icon for "3" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
@@ -5611,7 +5623,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type   | Max Score |
       | 4              | Test 4   | Yes/No | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 4" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -5629,7 +5641,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type   | Max Score |
       | 5              | Test 5   | Yes/No | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "5" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 5" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -5765,13 +5777,14 @@ Feature: Validate all scenarios for program
       | Focus Area                      |
       | Automation Permanent Focus Area |
 
-  @passed @105969 @VerifyAllActiveFocusArea @monu
+  @105969 @VerifyAllActiveFocusArea @monu
   Scenario: Validate user is able to see all active focus area on associate modal
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     And I check "All" boxes in flex table with id "---program:-:associateFocusAreaTableId---"
     And I click on top right button "Associate" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I wait for "5" seconds
+    And I wait for "3" seconds
+    And I click modal button "Close"
     Then I see value "Active" for title "Status" against the value "Automation Permanent Focus Area2" inside table "---program:-:focusAreaTableId---"
     Then I see value "Active" for title "Status" against the value "Automation Permanent Focus Area" inside table "---program:-:focusAreaTableId---"
 
@@ -5839,7 +5852,7 @@ Feature: Validate all scenarios for program
       Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
       """
 
-  @passed @109790 @VerifyValidationMessageForReviewFormWeightLessThan100%  @monu
+  @109790 @VerifyValidationMessageForReviewFormWeightLessThan100%  @monu
   Scenario: validate user is able to see validation message when review form weight is les than 100%
     And I navigate to "Setup" sub tab
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
@@ -5851,6 +5864,7 @@ Feature: Validate all scenarios for program
       | Pre-Screen | 30              | 1                                         | Checked   |
     And I pause execution for "5" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
+    #Bug444555
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 30.00%. |
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 130.00%.                                       |
@@ -5924,7 +5938,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:FO Username} | Step 3  |
-    Then I softly see "Saved successfully!" inside flex table with id "---program:-:approverTableId---"
+    Then I softly see "Saved Successfully!" inside flex table with id "---program:-:approverTableId---"
 
   @138467 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtProgramApprover-RnRFuntionality @monu
   Scenario: Validate program owner cant add same step for multiple users for program while defining approvers on program record
@@ -6042,7 +6056,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:FD Username} | Step 4  |
-    Then I softly see "Saved successfully!" inside flex table with id "---program:-:approverTableId---"
+    Then I softly see "Saved Successfully!" inside flex table with id "---program:-:approverTableId---"
 
   @passed @138465 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtProgram-RnRFunctionality @monu @buglogged154221
   Scenario: Validate program owner cant add same user for multiple steps  while assigning approvers for program on program record
