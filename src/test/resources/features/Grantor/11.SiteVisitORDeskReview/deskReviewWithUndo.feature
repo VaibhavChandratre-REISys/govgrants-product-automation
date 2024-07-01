@@ -132,8 +132,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  1 @279023 @VerifythatwhenExeapproverForwardthedeskreviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-25-US-297269 @hitesh @Undo
-
+  @279023 @VerifythatwhenExeapproverForwardthedeskreviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-25-US-297269 @hitesh @Undo
   Scenario: Verify that when Exe approver Forward the desk review Approval task , Forwarded Approver will see UNDO button and not previous One.
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"
