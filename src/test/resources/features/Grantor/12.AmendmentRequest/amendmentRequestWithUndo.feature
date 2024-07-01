@@ -1,4 +1,4 @@
-@amendmentRequestsWB @CheckAmendment @amendmentRequests @check11 @grantor-regression @grantor-parallel-regression @regression @amendmentRequestUndo
+@amendmentRequestsWB @amendmentRequests @check11 @grantor-regression @grantor-parallel-regression @regression @amendmentRequestUndo
 Feature: Amendment Request scenarios with Undo
 
   @292867 @292869 @292871 @ValidatePmapprovercanclickonundobuttoninCarryFwdAmmendrequestAmmendrequestrecordwhenrecordisinApprovedstate @Sprint-3-US-288693 @vaibhav @Undo
@@ -803,7 +803,7 @@ Feature: Amendment Request scenarios with Undo
     And I navigate to "History" sub tab
     And I click on hyperlink containing value "Amendment - Undo Approval.pdf"
     When I download the file
-    Then I softly see "{SavedValue:ActivatedSubAwardId}" on page "1" of "govgrants" pdf file
+    Then I softly see "{SavedValue:ActivatedSubAwardId}" on page "1" of "govgrant" pdf file
     Then I softly see following details in "govgrants" pdf file:
       | Detail                     | Page Number |
       | {SavedValue:CFAmendmentId} | 1           |
@@ -8998,6 +8998,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     Then I refresh the page
     And I navigate to "History" sub tab
+    #444059
     Then I softly see snapshot with name containing "Amendment - Undo Approval.pdf" as name
 
   @287070 @VerifythatwhenApproverClicksonyesButtonOnConfirmationBoxUsercanproceedwithFlowAndOnClickonNOUsercanStoptheFlow @sprint-1-US-285148 @hitesh @Undo

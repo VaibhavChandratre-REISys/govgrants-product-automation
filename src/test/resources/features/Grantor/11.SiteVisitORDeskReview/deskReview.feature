@@ -1,4 +1,4 @@
-@deskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @CheckDesk
+@deskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression
 Feature: Validate all scenarios in Desk Review
 
   Background: Create Desk Review
@@ -318,13 +318,13 @@ Feature: Validate all scenarios in Desk Review
     When I click on "Submit to Grantor" in the page details
     And I wait for "4" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "180" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Desk Review Report Submitted by Subrecipient
-#      """
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "180" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Desk Review Report Submitted by Subrecipient
+      """
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -995,7 +995,6 @@ Feature: Validate all scenarios in Desk Review
     When I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-#    When I perform quick search for "{SavedValue:DeskReview}" in "History" panel
     Then I softly see value "In Progress" for title "New Value" inside field history table
 
   @69411 @61057 @61055 @55370 @66139 @77253 @66274 @snapshotAfterSubmitForApprovalDeskReviewIsAcceptedAndClosed @Keerti @skipOnJenkins

@@ -1,4 +1,4 @@
-@amendmentRequestsWB @CheckAmendment @amendmentRequest @grantor-regression @grantor-parallel-regression @regression
+@amendmentRequestsWB @amendmentRequest @grantor-regression @grantor-parallel-regression @regression
 Feature: Amendment Request scenarios without background
 
   @196615 @Validateusershouldnotabletoreassignownershiptothenewuserforamendedaward @sprint-12-US-226646 @vaibhav @reassignment @buglogged-240523
@@ -3020,6 +3020,7 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---amendment:-:recipientAwardsTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Management" sub tab
+    #Bug444060
     And I click on top right button "New" in flex table with id "---amendment:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BPCSOW_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"

@@ -82,19 +82,6 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CloseoutID"
     When I navigate to "Files" sub tab
-    #As per TC below steps are not required
-#    When I enter the following values into flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" by clicking "Add" :
-#      | Description                 | Required  | Status |
-#      | Automation test description | Mandatory | Active |
-#    When I click on "Attach" icon for "Not Applicable" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" without waiting for record
-#    Then I softly see "Add Supporting Documents Checklist" opens in overLay window
-#    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
-#    When I close "Add Supporting Documents Checklist" modal by clicking the top right x button
-#    And I click modal button "Save"
-#    Then I see the following messages in the page details contains:
-#      | Attachment saved successfully. |
-#    When I close "Upload Template" modal by clicking the top right x button
-#    Then I softly see value "Automation" for title "Description" inside table "CloseoutChecklistsFlexToggle"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
