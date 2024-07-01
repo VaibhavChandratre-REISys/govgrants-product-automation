@@ -29,13 +29,13 @@ public final class Modal {
                 govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
             }
         }
-        if(buttonName.equals("Save and Continue")){
-           I.amPerforming().waitFor().makeThreadSleep(5000);
+        if (buttonName.equals("Save and Continue")) {
+            I.amPerforming().waitFor().makeThreadSleep(5000);
         }
     }
 
     public By getModalContentSpecificButton(String buttonName) {
-        return By.xpath("//div[contains(@class,'modal__footer')]//button[@title='" + buttonName + "' or text()='" + buttonName + "']");
+        return By.xpath("//div[contains(@class,'modal__footer')]//button[@title='" + buttonName + "' or text()='" + buttonName + "'] | //button[contains(text(),'" + buttonName + "')]");
     }
 
     /**
@@ -56,7 +56,7 @@ public final class Modal {
      * Modifier - saranjit.modak Added Xpath - 17/05/2023
      */
     public void closeModalByClickingTopRightCloseButton(String titleName) {
-        By closeButton = By.xpath("//iframe[contains(@ng-src, '/') or contains(@src,'/')]//ancestor::div[contains(@class,'modal-content')][1]//div[contains(@class, 'modal-header')]/p[text()='" + titleName + "']//parent::div//button[contains(@class, 'close')] | //*[@id='customLookupModalTitle' and contains(text(),'"+titleName+"')]/../..//button[contains(text(),'×')] | //div[contains(@class,'modal')]//h2[text()='"+titleName+"']/parent::header//button[@title='Close']");
+        By closeButton = By.xpath("//iframe[contains(@ng-src, '/') or contains(@src,'/')]//ancestor::div[contains(@class,'modal-content')][1]//div[contains(@class, 'modal-header')]/p[text()='" + titleName + "']//parent::div//button[contains(@class, 'close')] | //*[@id='customLookupModalTitle' and contains(text(),'" + titleName + "')]/../..//button[contains(text(),'×')] | //div[contains(@class,'modal')]//h2[text()='" + titleName + "']/parent::header//button[@title='Close']");
         I.amPerforming().click().on(closeButton);
     }
 
@@ -96,6 +96,7 @@ public final class Modal {
         } catch (Exception e) {
         }
     }
+
     /**
      * To handle enter comments and click button
      *
@@ -140,7 +141,7 @@ public final class Modal {
             } else {
                 I.amPerforming().switchTo().rejectAlert();
             }
-        }catch (org.openqa.selenium.NoAlertPresentException noAlertPresentException) {
+        } catch (org.openqa.selenium.NoAlertPresentException noAlertPresentException) {
             I.amPerforming().waitFor().makeThreadSleep(2000);
             if (buttonName.contains("OK")) {
                 I.amPerforming().switchTo().acceptAlert();
@@ -151,7 +152,7 @@ public final class Modal {
     }
 
     public void clickAlertContentSpecificButtonForLwc(String buttonName) {
-        I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__footer')]//button[text()='"+buttonName+"']"));
+        I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
     }
 }
 

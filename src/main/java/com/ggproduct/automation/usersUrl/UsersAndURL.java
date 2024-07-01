@@ -120,6 +120,9 @@ public class UsersAndURL implements UsersController {
             case "SPA":
                 password = "Salesforce2034";
                 break;
+            case "EXE1":
+                password = "Salesforce2035";
+                break;
             case "SA":
                 password = "Salesforce2035";
                 break;

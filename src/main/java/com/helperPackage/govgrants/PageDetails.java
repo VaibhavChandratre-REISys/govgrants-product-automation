@@ -39,7 +39,7 @@ public final class PageDetails {
                 + I.amPerforming().sanityOfXpathTo().equals("text()", buttonName) + " or "
                 + I.amPerforming().sanityOfXpathTo().equals("@value", buttonName) + ")] |" +
                 "//*[contains(@class,'overview-header') or contains(@class,'panel-footer')]//*[(local-name()='a' or local-name()='button' or local-name()='input') and not(contains(@class,'hidden'))]//span[(text()='" + buttonName + "') and not(contains(@class,'hidden'))] |" +
-                "//*[contains(@class,'panel-heading')]//*[local-name()='a' and contains(@class,'menuLinks') and @title='" + buttonName + "'] | //*[@value='" + buttonName + "' and @class='customBtn'] | //lightning-button//button[@title='" + buttonName + "' or text()='" + buttonName + "'] | //div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "'] | //lightning-menu-item//div//*[text()='" + buttonName + "']");
+                "//*[contains(@class,'panel-heading')]//*[local-name()='a' and contains(@class,'menuLinks') and @title='" + buttonName + "'] | //*[@value='" + buttonName + "' and @class='customBtn'] | //lightning-button//button[@title='" + buttonName + "' or text()='" + buttonName + "'] | //div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "'] | //lightning-menu-item//div//*[text()='" + buttonName + "'] | //li/a/div[@title='" + buttonName + "']");
     }
 
     /**
@@ -265,7 +265,15 @@ public final class PageDetails {
 
     public void clickSubTabsInsideTableViewForSplitScreen(String tabName) {
         By desiredTab = By.xpath("//div[@class='uiTabBar']//ul//li//a[@title='" + tabName + "'] | //div[@class='slds-tabs_card']//ul//li//a[text()='" + tabName + "'] | //div[contains(@class,'forceCommunityTabLayout')]//ul//li//a[text()='" + tabName + "']");
-        I.amPerforming().click().withJavaScript(desiredTab);
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(desiredTab)){
+                I.amPerforming().click().withJavaScript(desiredTab);
+            }
+        }catch (Exception e){
+            I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//div[contains(@class,'slds-tabs_card')]//ul//li//button[text()='More']"));
+            I.amPerforming().click().withJavaScript(By.xpath("//div[contains(@class,'slds-tabs_card')]//ul//li//button[text()='More']"));
+            I.amPerforming().click().withJavaScript(By.xpath("//a//span[text()='" + tabName + "']"));
+        }
     }
 
     /**
@@ -838,7 +846,7 @@ public final class PageDetails {
      */
     public void selectBelowCheckboxOptionsForField(String fieldName, List<String> checkboxes) {
         for (int i = 0; i < checkboxes.size(); i++) {
-            I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='"+ fieldName +"']//span[text()='" + checkboxes.get(i) + "']/parent::label//span[@class='slds-checkbox_faux']"));
+            I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='" + fieldName + "']//span[text()='" + checkboxes.get(i) + "']/parent::label//span[@class='slds-checkbox_faux']"));
         }
     }
 
