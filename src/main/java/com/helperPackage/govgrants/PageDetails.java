@@ -547,6 +547,46 @@ public final class PageDetails {
         return fieldValue;
     }
 
+    public String getFieldValueOnModal(String fieldLabel, boolean matchLabelExactly) {
+        By fieldLabelLocator = null;
+        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+            fieldLabelLocator = By.xpath(String.format(""
+                                    // This option should work in all situations, if using the latest version of GovGrants
+                                    + "//div[@class='slds-modal__container']//div//label[contains(@class,'label') and %s]",
+                            matchLabelExactly
+                                    ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
+                                    : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
+                    )
+            );
+        } else {
+
+            fieldLabelLocator = By.xpath(String.format(""
+                                    // This option should work in all situations, if using the latest version of GovGrants
+                                    + "//dt//span[contains(@class, 'customLabelstyle') and %s]",
+                            matchLabelExactly
+                                    ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
+                                    : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
+                    )
+            );
+        }
+        String fieldValue;
+        WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
+                .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd | ./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')]"));
+        if (fieldData.findElements(By.xpath(".//input[@type='checkbox']")).size() != 0) {
+            fieldValue = I.amPerforming().checkToSee().isSelected(I.amPerforming().getElementReference().ofNested(fieldData, By.xpath(".//input[@type='checkbox']")))
+                    ? "Checked" : "Unchecked";
+        } else {
+            fieldValue = StringUtils.normalizeSpace(I.amPerforming().actionToGet().text(fieldData));
+        }
+
+        if (fieldLabel.equalsIgnoreCase("EGMS ID")) {
+            idOfRecord = fieldValue;
+        } else if (fieldLabel.equalsIgnoreCase("GovGrants ID")) {
+            idOfRecord = fieldValue;
+        }
+        return fieldValue;
+    }
+
     public String getFieldValueInForm(String fieldLabel, boolean matchLabelExactly) {
         By fieldLabelLocator = null;
         fieldLabelLocator = By.xpath(String.format(""

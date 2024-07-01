@@ -1,6 +1,7 @@
 @paymntRequestForms @grantor-parallel-regression @paymentRequest @regression @paymentRequestExecution
 Feature: Payment Request Forms scenarios
 
+
   @308590 @308685 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-1-US-282692 @vaibhav @Forms
   Scenario: Validate SPI user can able to save & validate form after entering correct & valid data on all fields present on form
     And I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
@@ -40,6 +41,7 @@ Feature: Payment Request Forms scenarios
       | 3rd month                                        | 12345    | 12345     | 12345      |
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
+    And I wait for "3" seconds
     When I click on "Save" in the page details
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
@@ -62,7 +64,7 @@ Feature: Payment Request Forms scenarios
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     And I wait for "2" seconds
     When I close "Add Line Items" modal by clicking the top right x button
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I wait for "2" seconds
@@ -203,7 +205,7 @@ Feature: Payment Request Forms scenarios
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
-  @307326 @ValidateSF270SPIusercanabletoSaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF270form @sprint-1-US-282692 @vaibhav @Forms
+ @307326 @ValidateSF270SPIusercanabletoSaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF270form @sprint-1-US-282692 @vaibhav @Forms
   Scenario: Validate SF270 SPI user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF270 form
     And I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Payment Request"
@@ -1067,6 +1069,7 @@ Feature: Payment Request Forms scenarios
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds

@@ -2327,6 +2327,7 @@ public final class GovGrantsAssertionObjects {
         return flag;
     }
 
+
     private boolean isDateFieldsIsInEditModeAtPAgeDetails(String fieldApiName) {
         By DatefieldsAtPageDetails = ByUsing.xpath("//*[@id='" + fieldApiName + "']//input[@placeholder='mm/dd/yyyy' and contains(@onchange,'DATE')]");
         boolean flag = false;

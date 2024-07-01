@@ -185,4 +185,13 @@ public class HomePage extends GrantorProjectManager {
         } catch (Exception e) {
         }
     }
+
+    public void enterValueInLookupfield(String userName) {
+        try {
+            I.amPerforming().click().on(By.xpath("//div[contains(@class,'panel-body')]//span[@class='select2-chosen'] | //div[contains(@class,'combobox__form-element')]//lightning-input"));
+            I.amPerforming().textInput().in(By.xpath("//div[@id='select2-drop']//div/input | //div[contains(@class,'combobox__form-element')]//lightning-input//input"), userName);
+            I.amPerforming().click().on(By.xpath(" //div[@data-id='lookup-dropdown']//tr//td"));
+        } catch (Exception e) {
+        }
+    }
 }
