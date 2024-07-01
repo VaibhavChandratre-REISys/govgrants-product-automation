@@ -128,7 +128,7 @@ Feature: Validate all scenarios for program
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     Then I cannot see top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
 
-  @111167 @VerifyDeletionOfAssociatedContactAtNGOProgram @monu @wip @buglogged138933
+  @111167 @VerifyDeletionOfAssociatedContactAtNGOProgram @monu @buglogged138933
   Scenario: Verifying user is able to delete associated contacts from NGO program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -147,7 +147,7 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
     And I click on "Remove" icon for "NGO Contact" inside flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    Then I softly see "Record deleted successfully." inside flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly see "Record removed successfully." inside flex table with id "---program:-:ExternalNGOProgramContactTableId---"
 
   @111264 @111183 @VerifyTaskCreationForNGOProgramActivation @monu @buglogged138933
   Scenario: Verifying record owner should receive generated task inside pending for Program activation after approval of program

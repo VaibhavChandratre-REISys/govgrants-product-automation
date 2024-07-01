@@ -1078,7 +1078,7 @@ Feature: Payment Request scenarios without background
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @Test1 @55689 @canNotCreateAnotherPaymentRequestAfterFinalPaymentRequest @jitendra @needtocheckThisScenario
+  @55689 @canNotCreateAnotherPaymentRequestAfterFinalPaymentRequest @jitendra @needtocheckThisScenario
   Scenario Outline: Verify that once User select Is final Payment request option then User cannot create New Payment request.
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
