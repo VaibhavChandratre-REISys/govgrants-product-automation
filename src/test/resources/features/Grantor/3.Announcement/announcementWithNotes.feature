@@ -1,4 +1,4 @@
-@announcement @grantor-regression @grantor-parallel-regression @regression @annWithNotes
+@announcement @grantor-regression @grantor-parallel-regression @regression @annWithNotes @checksr1
 Feature: Validate all notes scenarios in the  Announcement tab
 
   @219720 @ValidatePMADMINusercanAddeditdeletehisnotesonacompetitiveannouncmentincreatedstatus @sprint-9-US-201923 @hitesh @Notes
