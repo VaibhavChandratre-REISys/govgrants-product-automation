@@ -2672,8 +2672,8 @@ Feature: Amendment Request scenarios without background
     When I close "Associate Contacts" modal by clicking the top right x button
     Then I softly see value "{SavedValue:SPA Username}" for title "Proposed Contact" inside table "---amendment:-:RecipientKeyPersonalTableId---"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
-      | Name                       | Project Role   |
-      | {SavedValue:SPI3 Username} | Other          |
+      | Name                       | Project Role |
+      | {SavedValue:SPI3 Username} | Other        |
     Then I softly see value "Other" for title "Project Role" inside table "---amendment:-:RecipientKeyPersonalTableId---"
     #98495 #monu
     Then I softly can see row level action button "Edit" against "Project Director/Manager" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
@@ -2725,15 +2725,15 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
-      | Name                       | Project Role   |
-      | {SavedValue:SPI3 Username} | Other          |
+      | Name                       | Project Role |
+      | {SavedValue:SPI3 Username} | Other        |
     And I softly see the following messages in the page details contains:
       | Saved Successfully! |
     Then I softly see value "Other" for title "Project Role" inside table "---amendment:-:RecipientKeyPersonalTableId---"
     #100459 #monu
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I upload attachment "Attachment.pdf" of type "Others" from computer
     And I pause execution for "5" seconds
     Then I softly see "Other" has been added in "Amendment Files" flex table
     #99261 #monu
@@ -2748,8 +2748,11 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:AmendmentId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:AmendmentId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
-    Then I softly see value "Created" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted to Grantor" for title "New Value" inside field history table
+    Then I softly see value "Created" for title "Original Value" inside field history table
+    And I click on back arrow
     #100037 #monu
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
@@ -2859,8 +2862,8 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
-      | Name                       | Project Role   |
-      | {SavedValue:SPI3 Username} | Other          |
+      | Name                       | Project Role |
+      | {SavedValue:SPI3 Username} | Other        |
     Then I softly see value "Other" for title "Project Role" inside table "---amendment:-:RecipientKeyPersonalTableId---"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2922,8 +2925,8 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
-      | Name                       | Project Role   |
-      | {SavedValue:SPI3 Username} | Other          |
+      | Name                       | Project Role |
+      | {SavedValue:SPI3 Username} | Other        |
     Then I softly see value "Other" for title "Project Role" inside table "---amendment:-:RecipientKeyPersonalTableId---"
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2949,10 +2952,12 @@ Feature: Amendment Request scenarios without background
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     And I navigate to "History" sub tab
-    Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Rejected"
+    Then I softly see column "Overall Status" at position "1" contains text "Rejected"
     #100134 #monu
-    Then I softly see value "Rejected" for title "New Value" inside table "History"
-    Then I softly see value "Submitted for Approval" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Rejected" for title "New Value" inside field history table
+    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
 
   @99268 @ValidateEditOfKPIAfterSubmittedToGrantor-KPCAmendmentRequest @monu @AmendmentWBPoojaSecond
   Scenario: Validate internal user is not able to edit KPI of amendment request which is submitted to grantor having checked Is Key Contact
@@ -6262,16 +6267,18 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:FundingID}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
-#    And I pause execution for "2" seconds
-#    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Amendment Requests - All"
-#    When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I pause execution for "2" seconds
+    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    And I click on "View" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @200483 @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaFourth
   Scenario: Validate Funding change Verify EXE user can reassign ownership to other user in created state of FC amendment
@@ -6314,15 +6321,17 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:amendmentTargetOwnerTableId---" panel
     Then I see value "{SavedValue:FundingID}" for title "Amendment Request ID" inside table "---amendment:-:amendmentTargetOwnerTableId---"
     And I pause execution for "2" seconds
-#    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Amendment Requests - All"
-#    When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    And I click on "View" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation EXE1" for title "New Value" inside field history table
+    Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
   @200503 @ValidatePMusercanreassignownershiptootheruserinsubmittograntorstateofFCamendment @sprint-5-US-196841 @vaibhav @reassignment @AmendmentWBPoojaFourth
   Scenario: Validate PM user can reassign ownership to other user in submit to grantor state of FC amendment
@@ -6476,9 +6485,12 @@ Feature: Amendment Request scenarios without background
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation FO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation FO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation FO1" for title "New Value" inside field history table
+    Then I softly see value "Automation FO" for title "Original Value" inside field history table
+    And I click on back arrow
     When I navigate to "Files" sub tab
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
@@ -6651,9 +6663,12 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     Then I softly see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation EXE1" for title "New Value" inside field history table
+    Then I softly see value "Automation EXE" for title "Original Value" inside field history table
+    And I click on back arrow
     Then I softly see field "Status" as "Rejected"
 
   @200524 @Validatefieldhistoryshouldbeupdatedfornewownerofamendmentrequest @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaFourth
@@ -6724,8 +6739,10 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
     And I click on "Start" icon for "{SavedValue:FundingID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @200533 @ValidateAmendmentRequestSubmittedGrantorNotifyemailshouldbegenerateforPMnewownerofamendmentrequest @sprint-5-US-196841 @vaibhav @reassignment @AmendmentWBPoojaFourth
   Scenario: Validate Amendment Request Submitted Grantor Notify' email should be generate for PM new owner of amendment request
@@ -6953,7 +6970,9 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM" for title "New Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM" for title "New Value" inside field history table
 
   @200559 @ValidatePMusercanreassignownershiptootheruserincreatedstateofPRamendment @sprint-5-US-196841 @vaibhav @reassignment @AmendmentWBPoojaFifth
   Scenario: Validate PM user can reassign ownership to other user in created state of PR amendment
@@ -7058,9 +7077,12 @@ Feature: Amendment Request scenarios without background
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
+    And I click on back arrow
     And I wait for "5" seconds
     And I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
@@ -7321,8 +7343,10 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
 
   @200655 @ValidatePMusercanreassignownershiptootheruserinRejectedstateofPeriodicrenewalamendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaFifth
   Scenario: Validate PM user can reassign ownership to other user in Rejected  state of Periodic renewal amendment
@@ -7408,9 +7432,12 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     Then I softly see value "{SavedValue:PERIODICRENEWAL}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PM1" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM" for title "New Value" inside field history table
+    Then I softly see value "Automation PM1" for title "Original Value" inside field history table
+    And I click on back arrow
     Then I softly see field "Status" as "Rejected"
 
   @200657 @Validatefieldhistoryshouldbeupdatedfornewownerofamendmentrequest @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaFifth
@@ -7459,8 +7486,10 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:PERIODICRENEWAL}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:PERIODICRENEWAL}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @200658 @ValidateAmendmentRequestSubmittedGrantorNotifyemailshouldbegenerateforPMnewownerofamendmentrequest @sprint-5-US-196841 @vaibhav @reassignment @AmendmentWBPoojaFifth
   Scenario: Validate Amendment Request Submitted Grantor Notify' email should be generate for PM new owner of amendment request
@@ -7754,8 +7783,10 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:TermsCondId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     #200790
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @200772 @ValidateFOusercanreassignownershiptootheruserincreatedstateofT&Camendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaFifth
   Scenario: Validate FO user can reassign ownership to other user in created state of T & C amendment
@@ -7804,8 +7835,10 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:TermsCondId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:TermsCondId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation FO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation FO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation FO1" for title "New Value" inside field history table
+    Then I softly see value "Automation FO" for title "Original Value" inside field history table
 
   @200786 @ValidateFOusercanreassignownershiptootheruserinsubmittoapprovalstateofT&Camendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaFifth
   Scenario: Validate FO user can reassign ownership to other user in submit to approval state of T & C amendment
@@ -7871,9 +7904,12 @@ Feature: Amendment Request scenarios without background
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:TermsCondId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:TermsCondId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation FO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation FO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation FO1" for title "New Value" inside field history table
+    Then I softly see value "Automation FO" for title "Original Value" inside field history table
+    And I click on back arrow
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
@@ -7949,8 +7985,10 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:TermsCondId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:TermsCondId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
 
   @200789 @ValidatefollowingbuttonsshouldbedisplayfornewPMownerincreatedstateofT&C @sprint-5-US-196841 @vaibhav @reassignment @AmendmentWBPoojaFifth
   Scenario: Validate following buttons should be display for new PM owner in created state of T & C
@@ -8271,10 +8309,13 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Subawards" sub tab
     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    When I navigate to "Management" sub tab
+    And I click on "View" icon for "{SavedValue:TermsCondId}" inside flex table with id "---amendment:-:amendmentRequestTableId---" without waiting for record
     And I navigate to "History" sub tab
-    And I select "Amendment Request" from dropdown present on top right of flex table id "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @200812 @ValidatePMusercanreassignownerofcombinationoffundingchangeandT&CARtootherownerincreatedstateofAR @sprint-5-US-196841 @vaibhav @reassignment @buglogged-226730 @AmendmentWBPoojaSixth
   Scenario: Validate PM user can reassign owner of combination of funding change and T & C AR to other owner in created state of AR
@@ -8643,8 +8684,10 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:BudgetRedirectId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     When I click on "Start" icon for "{SavedValue:BudgetRedirectId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation EXE1" for title "New Value" inside field history table
+    Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
   @200313 @ValidateBudgetredirectionthatchangeinawardownershouldnotaffectamendmentrequestowner @sprint-5-US-198235 @vaibhav @reassignment @AmendmentWBPoojaSixth
   Scenario: Validate Budget redirection that change in award owner should not affect amendment request owner
@@ -8793,8 +8836,8 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
-      | Name                       | Project Role   |
-      | {SavedValue:SPI3 Username} | Other          |
+      | Name                       | Project Role |
+      | {SavedValue:SPI3 Username} | Other        |
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
@@ -8880,8 +8923,8 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
-      | Name                       | Project Role   |
-      | {SavedValue:SPI3 Username} | Other          |
+      | Name                       | Project Role |
+      | {SavedValue:SPI3 Username} | Other        |
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
@@ -8922,8 +8965,8 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
-      | Name                       | Project Role   |
-      | {SavedValue:SPI3 Username} | Other          |
+      | Name                       | Project Role |
+      | {SavedValue:SPI3 Username} | Other        |
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
@@ -8952,8 +8995,10 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:kpcId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     When I click on "Start" icon for "{SavedValue:kpcId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation EXE1" for title "New Value" inside field history table
+    Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
   @200502 @ValidateKeyPersonalChangethatchangeinawardownershouldnotaffectamendmentrequestowner @sprint-5-US-198235 @vaibhav @reassignment @ownvai @AmendmentWBPoojaSixth
   Scenario: Validate Key Personal Change that change in award owner should not affect amendment request owner
@@ -8980,8 +9025,8 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
-      | Name                       | Project Role   |
-      | {SavedValue:SPI3 Username} | Other          |
+      | Name                       | Project Role |
+      | {SavedValue:SPI3 Username} | Other        |
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
@@ -9082,8 +9127,8 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
-      | Name                       | Project Role   |
-      | {SavedValue:SPI3 Username} | Other          |
+      | Name                       | Project Role |
+      | {SavedValue:SPI3 Username} | Other        |
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -9113,8 +9158,8 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "kpcId"
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
-      | Name                       | Project Role   |
-      | {SavedValue:SPI3 Username} | Other          |
+      | Name                       | Project Role |
+      | {SavedValue:SPI3 Username} | Other        |
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -9225,9 +9270,12 @@ Feature: Amendment Request scenarios without background
     And I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:CFAmendmentId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     When I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
+    And I click on back arrow
     #201067
     And I navigate to "Overview" sub tab
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
@@ -9354,9 +9402,12 @@ Feature: Amendment Request scenarios without background
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PM1" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM" for title "New Value" inside field history table
+    Then I softly see value "Automation PM1" for title "Original Value" inside field history table
+    And I click on back arrow
     When I navigate to "Files" sub tab
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
@@ -9481,9 +9532,12 @@ Feature: Amendment Request scenarios without background
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
+    And I click on back arrow
     When I navigate to "Files" sub tab
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
@@ -9609,10 +9663,12 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     Then I see value "{SavedValue:CFAmendmentId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
     Then I softly see field "Status" as "Rejected"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @201086 @ValidateCarryforwardonlyawardownercanseeactivatebuttonandactivatenewawardevenifARownerinitiateamendsubaward @sprint-5-US-198235 @vaibhav @reassignment @AmendmentWBPoojaSeven
   Scenario: Validate Carry forward only award owner can see activate button and activate new award even if AR owner initiate amend sub award
@@ -9854,8 +9910,10 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:CFAmendmentId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     When I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @199845 @ValidatePMusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatcreatedstateforBudgetPeriodChangeARtype @sprint-5-US-198419  @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaSeven
   Scenario: Validate PM user should able to see the AR is updated after change the ownership by Grantor Side at created state for Budget Period Change AR type
@@ -9921,9 +9979,11 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @199849 @ValidateEXEusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedtoGrantorstateforBudgetPeriodChangeARtype @sprint-5-US-198419  @vaibhav @reassignment @AmendmentWBPoojaSevenRe-Run
   Scenario: Validate EXE user should able to see the AR is updated after change the ownership by Grantor Side at Submitted to Grantor state for Budget Period Change AR type
@@ -9992,9 +10052,12 @@ Feature: Amendment Request scenarios without background
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
 #    To Do:- Field history deployment not done in LWC hence commented this part
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation EXE1" for title "New Value" inside field history table
+    Then I softly see value "Automation EXE" for title "Original Value" inside field history table
+    And I click on back arrow
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -10097,10 +10160,12 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-#    To Do:- Field history deployment not done in LWC hence commented this part
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
+    And I click on back arrow
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -10196,9 +10261,11 @@ Feature: Amendment Request scenarios without background
     Then I softly see field "Status" as "Rejected"
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---amendment:-:amendmentOwnerTableId---"
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -10207,9 +10274,11 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @199868  @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaSevenRE-Run
   Scenario: Validate PO user should able to see the AR is updated after change the ownership by Grantor Side at approved state for budget period change
@@ -10292,9 +10361,12 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Approved"
     When I navigate to "Responsibilities" sub tab
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
+    And I click on back arrow
     Then I softly can see top right button "Amend Subaward" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -10304,9 +10376,12 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Approved"
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
+    And I click on back arrow
     Then I softly cannot see top right button "Amend Subaward" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -10316,9 +10391,12 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Approved"
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
+    And I click on back arrow
     Then I softly cannot see top right button "Amend Subaward" in page detail
 
   @200052 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatSubmittedtoGrantorStateforBudgetPeriodChangeARtype @sprint-5-US-198419  @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaSevenRe-Run
@@ -10397,9 +10475,11 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly cannot see top right button "Submit for Approval" in page detail
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @200053 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatcreatedstateforBudgetPeriodChangeARtype @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaSevenRe-Run
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R  Side at created state for Budget Period Change AR type
@@ -10453,9 +10533,12 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     When I click on "Start" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     Then I softly can see top right button "Submit for Approval" in page detail
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
+    And I click on back arrow
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -10464,9 +10547,11 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly cannot see top right button "Submit for Approval" in page detail
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @200054 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatrejectedstateforbudgetperiodchange @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaSeven
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R Side at rejected state for budget period change
@@ -10541,9 +10626,11 @@ Feature: Amendment Request scenarios without background
     Then I softly see field "Status" as "Rejected"
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -10552,9 +10639,11 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @200057  @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaSeven
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R at Submitted for approval state for Budget Period Change AR type
@@ -10637,9 +10726,11 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation EXE1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation EXE" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation EXE1" for title "New Value" inside field history table
+    Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
   @200058 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatapprovedstateforbudgetperiodchange @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaSeven
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R Side at approved state for budget period change
@@ -10712,9 +10803,12 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Approved"
     When I navigate to "Responsibilities" sub tab
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
+    And I click on back arrow
     Then I softly can see top right button "Amend Subaward" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -10724,7 +10818,10 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
     And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly see field "Status" as "Approved"
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PO1" for title "New Value" inside table "---amendment:-:historyTableId---"
-#    Then I softly see value "Automation PO" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PO1" for title "New Value" inside field history table
+    Then I softly see value "Automation PO" for title "Original Value" inside field history table
+    And I click on back arrow
     Then I softly cannot see top right button "Amend Subaward" in page detail
