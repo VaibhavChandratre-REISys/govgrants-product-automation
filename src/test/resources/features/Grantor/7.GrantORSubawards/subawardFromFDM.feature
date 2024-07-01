@@ -736,7 +736,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @38222 @50994 @65418 @65420 @awardApprovalAndSendToRecipientAfterApproval @ErrorMessageForTargetFields @Debug
+  @38222 @50994 @65418 @65420 @awardApprovalAndSendToRecipientAfterApproval @ErrorMessageForTargetFields
   Scenario Outline: Validate award approval and send to subrecipient after approval | validate submit for approval button displayed
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"

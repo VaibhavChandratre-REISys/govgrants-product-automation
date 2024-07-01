@@ -118,7 +118,7 @@ Feature: Validate all scenarios in Strategic Plan
     Then I softly see value "Execution Strategic Objective" for the field "Description"
 #    Then I softly see field "Description" as "Execution Strategic Objective"
 
-  @51049 @additionOfAttachmentToObjective
+  @51049 @additionOfAttachmentToObjective @Debug
   Scenario: Addition of Attachment to Objective inside a Strategic Goal by User - Admin/EXE/PM
     When I enter value "Automation Test Description" into field "StrategyDescription__c"
     And I click on "Save" in the page details
