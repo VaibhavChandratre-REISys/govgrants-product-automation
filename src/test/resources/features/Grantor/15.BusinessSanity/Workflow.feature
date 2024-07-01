@@ -1560,7 +1560,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
 #    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Formula_By_Applicant_Focus_Area"
 #    And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation PM user"
-    When I login to "As a Grantor" app as "PM1" user
+    When I login to "As a Grantor" app as "Automation FO" user
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation PM"
