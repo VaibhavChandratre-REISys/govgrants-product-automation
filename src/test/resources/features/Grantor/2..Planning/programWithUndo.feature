@@ -470,6 +470,8 @@ Feature: Validate all scenarios for program
     When I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Strategic Objectives Admin" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     When I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+    When I perform quick search for "Automation Permanent KPI For Admin" in "---program:-:associateKPITableId---" panel
+    And I wait for "3" seconds
     When I click "Associate" after selection of "Automation Permanent KPI For Admin" in the table "---program:-:associateKPITableId---"
 #    When I click "Associate" after selection of "Automation Permanent KPI For Admin" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
