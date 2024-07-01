@@ -266,8 +266,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I softly see field "Status" as "In Progress"
     Then I cannot see top right button "Undo" in page detail
 
-  1 @279026 @Verifywhen4ApproversareaddedtoapprovedeskreviewonlylastapproverwillseeUNDObutton @sprint-25-US-297269 @hitesh @Undo
-
+  @279026 @Verifywhen4ApproversareaddedtoapprovedeskreviewonlylastapproverwillseeUNDObutton @sprint-25-US-297269 @hitesh @Undo
   Scenario: Verify when 4 Approvers are added to approve desk review , only last approver will see UNDO button
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"
@@ -360,8 +359,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
-  1 @279027 @verifyiflastApproverandOwnerofDeskreviewissameRobertPOthenPOwillseeUNDOandSendtoSrbutton @sprint-25-US-297269 @hitesh @Undo
-
+  @279027 @verifyiflastApproverandOwnerofDeskreviewissameRobertPOthenPOwillseeUNDOandSendtoSrbutton @sprint-25-US-297269 @hitesh @Undo
   Scenario: verify if last Approver and Owner of Desk review is same, Robert PO then PO will see UNDO and Send to S/r button
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"
@@ -455,8 +453,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I can see top right button "Send to Subrecipient" in page detail
     Then I can see top right button "Undo" in page detail
 
-  1 @279028 @279033 @verifyiflastApproverandOwnerofDeskreviewissameRobertPOthenPOwillseeUNDOandSendtoSrbutton @sprint-25-US-297269 @hitesh @Undo
-
+  @279028 @279033 @verifyiflastApproverandOwnerofDeskreviewissameRobertPOthenPOwillseeUNDOandSendtoSrbutton @sprint-25-US-297269 @hitesh @Undo
   Scenario: verify if last Approver and Owner of Desk review is same, Robert PO then PO will see UNDO and Send to S/r button
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"
@@ -1010,8 +1007,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  1 @284438 @284439 @Verifywhen3ApproversapprovetheDeskreviewandlastapproverclickonundobuttononlylastapproverstaskshouldgetremovedfromcompletedtask @sprint-25-US-297269 @hitesh @Undo @FieldHistoryExclude
-
+  @284438 @284439 @Verifywhen3ApproversapprovetheDeskreviewandlastapproverclickonundobuttononlylastapproverstaskshouldgetremovedfromcompletedtask @sprint-25-US-297269 @hitesh @Undo @FieldHistoryExclude
   Scenario: Verify when 3 Approvers approve the Desk review and last approver click on undo button, only last approver's task should get removed from completed task
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"
