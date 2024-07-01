@@ -958,6 +958,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID1}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID1}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
 
@@ -1513,7 +1514,6 @@ Feature: Validate all scenarios for program
     And I click "Ok" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
-    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
