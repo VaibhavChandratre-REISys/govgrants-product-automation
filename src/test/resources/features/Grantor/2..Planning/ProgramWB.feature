@@ -1,7 +1,7 @@
 @programWB @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
-   @109448 @VerifySelectionOfChildOrganization @monu @ProgramExcludeScenarios
+   @hitTest @109448 @VerifySelectionOfChildOrganization @monu @ProgramExcludeScenarios
   Scenario: Verifying if the user is able to change or add child organization to created program
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -128,7 +128,7 @@ Feature: Validate all scenarios for program
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     Then I cannot see top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
 
-  @111167 @VerifyDeletionOfAssociatedContactAtNGOProgram @monu @buglogged138933
+  @hitTest @111167 @VerifyDeletionOfAssociatedContactAtNGOProgram @monu @buglogged138933
   Scenario: Verifying user is able to delete associated contacts from NGO program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -912,7 +912,7 @@ Feature: Validate all scenarios for program
     And I select module "Program" from reassign ownership dropdown
     Then I softly see "Programs Available for Reassignment " page block displayed
 
-  @195251 @195254 @ValidateProgramSourceusershouldshowalltheprogramsInternalProgramNGOexternalprogramsofthesourceuser @sprint-4 @vaibhav @reassignment @ProgramExcludeScenarios
+  @hitTest @195251 @195254 @ValidateProgramSourceusershouldshowalltheprogramsInternalProgramNGOexternalprogramsofthesourceuser @sprint-4 @vaibhav @reassignment @ProgramExcludeScenarios
   Scenario: Validate Program -Source user should show all the programs(Internal Program/NGO external programs of the source user
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1144,7 +1144,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---program:-:programOwnerTableId---"
 
-  @196652 @ValidateownershipistransferredforaProgramSubmittedforapprovalValidateapprovercanapprovetheprogram&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUI @sprint-4 @vaibhav @reassignment
+  @hitTest @196652 @ValidateownershipistransferredforaProgramSubmittedforapprovalValidateapprovercanapprovetheprogram&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUI @sprint-4 @vaibhav @reassignment
   Scenario: Validate ownership is transferred for a Program Submitted for approval Validate approver can approve the program  & new program owner gets the Activate related task and has buttons on UI
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -1457,7 +1457,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     Then  I cannot see top right button "New" in flex table with id "---program:-:peerReviewTableId---"
 
-  @196693 @Validatetasksareremovedforoldowner&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUIwhenownershipistransferredforaProgramofapprovedstatus @sprint-4 @vaibhav @reassignment
+  @hitTest @196693 @Validatetasksareremovedforoldowner&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUIwhenownershipistransferredforaProgramofapprovedstatus @sprint-4 @vaibhav @reassignment
   Scenario: Validate tasks are removed for old owner & new program owner gets the Activate related task and has buttons on UI when ownership is transferred for a Program of approved status
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -2020,7 +2020,7 @@ Feature: Validate all scenarios for program
       """
 
 
-  @198790 @ValidatenewlyassignedownerPMreceivesanemailafterinternalprogramissenttoownerduringapprovalswhenownershipistransferredbeforepostprogramisReviewed @sprint-4 @vaibhav @reassignment @ProgramExcludeScenarios
+  @hitTest @198790 @ValidatenewlyassignedownerPMreceivesanemailafterinternalprogramissenttoownerduringapprovalswhenownershipistransferredbeforepostprogramisReviewed @sprint-4 @vaibhav @reassignment @ProgramExcludeScenarios
   Scenario: Validate newly assigned owner PM receives an email after internal program is sent to owner during approvals when ownership is transferred before post program is Reviewed
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -2308,7 +2308,7 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
 
-  @197549 @ValidateownershiptasksareroutedtoretainedbyappropriateuserwhentaskshavingdifferentpurposearereassignedsimultaneouslytoanotherPMuserfor3differentexternalprograms @sprint-4 @vaibhav @reassignment @taskreassign @ProgramExcludeScenarios
+  @hitTest @197549 @ValidateownershiptasksareroutedtoretainedbyappropriateuserwhentaskshavingdifferentpurposearereassignedsimultaneouslytoanotherPMuserfor3differentexternalprograms @sprint-4 @vaibhav @reassignment @taskreassign @ProgramExcludeScenarios
   Scenario: Validate ownership & tasks are routed to retained by appropriate user when tasks having different purpose are reassigned simultaneously to another PM user for 3 different external programs
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2593,7 +2593,7 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
 
-  @199405 @ValidatereassignedtaskownerADMINuserisabletoactivatetheinternalprogramifanotherADMINtransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskasNotstarted @sprint-4 @vaibhav @reassignment
+  @hitTest @199405 @ValidatereassignedtaskownerADMINuserisabletoactivatetheinternalprogramifanotherADMINtransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskasNotstarted @sprint-4 @vaibhav @reassignment
   Scenario: Validate reassigned task owner ADMIN user is able to activate the internal program if another ADMIN transfers task of the task type Activate the Program when status of task as Not started
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Planning" tab
@@ -3151,7 +3151,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Active"
     Then I can see top right button "Amend Program" in page detail
 
-  @162651 @ValidateSystemAdminSAuserscannotreassignpendingtasksforAuditorprofileuser @sprint-12-US-226646 @vaibhav @reassignment
+  @hitTest @162651 @ValidateSystemAdminSAuserscannotreassignpendingtasksforAuditorprofileuser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate System Admin SA users cannot reassign pending tasks for Auditor profile user
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Planning" tab
@@ -3833,7 +3833,7 @@ Feature: Validate all scenarios for program
       The EGMS Team.
       """
 
-  @224662 @ValidateInternalProgramfailureemailshouldgeneratedforapproversandsuccessemailgeneratedforpeerreviewers @sprint-12-US-226646 @vaibhav @reassignment @ProgramExcludeScenarios
+  @hitTest @224662 @ValidateInternalProgramfailureemailshouldgeneratedforapproversandsuccessemailgeneratedforpeerreviewers @sprint-12-US-226646 @vaibhav @reassignment @ProgramExcludeScenarios
   Scenario: Validate Internal Program failure email should generated for approvers and success email generated for peer reviewers
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -5656,7 +5656,7 @@ Feature: Validate all scenarios for program
       """
 
 
-  @224336 @ValidateInternalProgapprovershouldabletoapproveprogramafterreassigntheforwardedapprovaltasktootherapprover @sprint-11-US-218319 @vaibhav @reassignment @ProgramExcludeScenarios
+  @hitTest @224336 @ValidateInternalProgapprovershouldabletoapproveprogramafterreassigntheforwardedapprovaltasktootherapprover @sprint-11-US-218319 @vaibhav @reassignment @ProgramExcludeScenarios
   Scenario: Validate Internal Prog approver should able to approve program after reassign the forwarded approval task to other approver
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -7312,7 +7312,7 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---program:-:externalProgramNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record1" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
 
-  @204590 @ValidatePMEXEFOPOusercanaddeditdeletenotesonExternalPrograminActivestatus @sprint-7-US-201927 @hitesh @Notes
+  @hitTest @204590 @ValidatePMEXEFOPOusercanaddeditdeletenotesonExternalPrograminActivestatus @sprint-7-US-201927 @hitesh @Notes
   Scenario: Validate PM,EXE, FO,PO user can add/edit/delete notes on  External Program in Active status
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
