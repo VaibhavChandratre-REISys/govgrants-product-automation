@@ -68,6 +68,13 @@ public  class HomeSteps {
             homePage.enterValueInReassignLookup(userName);
     }
 
+    @Description("To enter the value in lookup")
+    @And("I enter in the value {string} in lookup field")
+    public void iEnterValueLookupField(String userName) {
+        homePage.enterValueInLookupfield(userName);
+    }
+
+
     /*@When("I login to portal")
     public void iLoginToPortal() {
         I.amPerforming().textInput().in(ByUsing.healingWebIdName("loginPage_userName"), TestSetupController.usersController.getUserName("Admin"));
