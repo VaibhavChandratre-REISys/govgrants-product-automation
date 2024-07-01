@@ -99,8 +99,8 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-   And I wait for "2" seconds
-Then I softly see field "Status" as "Active"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Active"
     When I navigate to "History" sub tab
     Then I softly see value "Active" for title "New Value" inside table "History"
 
@@ -196,7 +196,7 @@ Then I softly see field "Status" as "Active"
     And I click on "Submit for Approval" in the page details
     And I "Reassign" to user "{SavedValue:EXE Username}" in the approval decision
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    
+
   @58172 @58816 @riskAssesmentSetToNowhileAwardCreation @deepika
   Scenario: Validate Activation of Award Risk Assessment is not required and filling/creating risk assessment is not applicable if Grant has setting Risk Assessment=No.
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -539,7 +539,7 @@ Then I softly see field "Status" as "Active"
     And I navigate to "Management" sub tab
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-   @58820 @58180 @58937 @61383 @66070 @recipientCanViewActiveRAeditButtonAfterSubmitforApprovalcreationofSecondRA @deepika @smoke @buglogged101142
+  @58820 @58180 @58937 @61383 @66070 @recipientCanViewActiveRAeditButtonAfterSubmitforApprovalcreationofSecondRA @deepika @smoke @buglogged101142
   Scenario: Validate Subrecipients can view the Active Risk Assessment and Award Owner is not allowed to Edit the Risk Assessment post submitting it for approval and Pending task is created for the Fiscal approver when Program approver approves the RA and completed task
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -716,7 +716,7 @@ Then I softly see field "Status" as "Active"
     And I perform quick search for "{SavedValue:ActiveID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
     Then I softly see "{SavedValue:ActiveID}" inside flex table with id "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
-   @58821 @validateEditionOfRiskAssessment @deepika
+  @58821 @validateEditionOfRiskAssessment @deepika
   Scenario: Validate whether user can Edit the created Risk Assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3014,7 +3014,7 @@ Then I softly see field "Status" as "Active"
     And I perform quick search for "{SavedValue:EGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" against the value "Expired" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
-   @60965 @fieldCompares @deepika @skipOnJenkins
+  @60965 @fieldCompares @deepika @skipOnJenkins
   Scenario: Validate whether Record Owner user is able to view and Compare field values on UI and PDF match
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3050,7 +3050,7 @@ Then I softly see field "Status" as "Active"
     When I navigate to "History" sub tab
     Then I see snapshot with name containing "Subaward Risk Assessment" as name
 
-   @61384 @addButtonAvailabilityafterSubmitforApproval @deepika
+  @61384 @addButtonAvailabilityafterSubmitforApproval @deepika
   Scenario: Validate the add button on attachments flextable is not available for Risk Assessment Owner once submitted for Approval
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3083,7 +3083,7 @@ Then I softly see field "Status" as "Active"
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
 
-   @66869 @RAChangedtoYellowAfterRAisApproved @keerti
+  @66869 @RAChangedtoYellowAfterRAisApproved @keerti
   Scenario: Validate the moderate level of Risk Assessment, that changes to yellow color as per the provided Assessment once Risk Assessment is approved
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3136,7 +3136,7 @@ Then I softly see field "Status" as "Active"
     When I navigate to "Overview" sub tab
     Then I see "Risk Level" image as "b-ylw.png"
 
-   @62093 @59255 @overallRiskFieldAvailabilityToSRProfileUserk @deepika
+  @62093 @59255 @overallRiskFieldAvailabilityToSRProfileUserk @deepika
   Scenario:  Verify whether SPI profile User can view the section Overview for Overall Risk Calculation for a Sub Recipient Organization
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3187,8 +3187,8 @@ Then I softly see field "Status" as "Active"
     And I navigate to "Risk Assessment" sub tab
     Then I see field "Overall Risk" as "36.00%"
 
-  
-   @addAttachmentForRecordOnwerInTable @deepika
+
+  @addAttachmentForRecordOnwerInTable @deepika
   Scenario: Validate attachment is added to the flex table after submiting the risk assessment for approval.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3214,7 +3214,7 @@ Then I softly see field "Status" as "Active"
     And I click modal button "Close"
     Then I softly see "Financial Artifacts" has been added in "Subaward Risk Assessment Files" flex table
 
-   @58825 @monitoringTabListViewsOfRiskAssessment @deepika
+  @58825 @monitoringTabListViewsOfRiskAssessment @deepika
   Scenario: Monitoring Tab List Views for all Award level risk assessments in the internal portal
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3243,7 +3243,7 @@ Then I softly see field "Status" as "Active"
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     Then I see that "{SavedValue:Automation Runtime Award for Risk Assessment}" has been added in flextable with Id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 
-   @65460 @riskLevelISNAforCreatedStatusRA @deepika
+  @65460 @riskLevelISNAforCreatedStatusRA @deepika
   Scenario: Validate for the Risk Assessment that is in created state the Risk Level is shown as NA inside table
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3293,7 +3293,7 @@ Then I softly see field "Status" as "Active"
     And I download the file
     Then I verify that "pdf" file is downloaded
 
-   @65463 @verifyOnlyOneRiskAssessmentInTable @deepika
+  @65463 @verifyOnlyOneRiskAssessmentInTable @deepika
   Scenario: Validate when the risk assessment is intiated for draft award then only one risk assessment must be available in the table
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3327,7 +3327,7 @@ Then I softly see field "Status" as "Active"
     And I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-   @65464 @riskFieldAvailbilityOnOverviewTab @deepika
+  @65464 @riskFieldAvailbilityOnOverviewTab @deepika
   Scenario: Validate Risk Level field on Overview Tab is not availbale for Risk Assessment that is in Created Status
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3352,7 +3352,7 @@ Then I softly see field "Status" as "Active"
     And I navigate to "Overview" sub tab
     Then I cannot see field "Risk Level" inside page block
 
-   @76272 @65550 @raOwnerCanAddMultiplePeerReviewerForRA @deepika
+  @76272 @65550 @raOwnerCanAddMultiplePeerReviewerForRA @deepika
   Scenario: Validate Award owner can add Multiple Peer reviewer for Risk Assessment whose status is Submitted to grantor | Validate whether the record owner recieve an email notfication when risk assessment is created
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3502,8 +3502,8 @@ Then I softly see field "Status" as "Active"
     And I click modal button "Save"
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                             | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI4 Username}       | Project Director/Manager | Checked          |
+      | Name                       | Project Role             | Is Key Personnel |
+      | {SavedValue:SPI4 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
@@ -3608,7 +3608,7 @@ Then I softly see field "Status" as "Active"
     And I wait for "3" seconds
     Then I softly see that "Automation PM" has been added in flextable with Id "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
 
- @142056 @verifyUserNotAbleToSkipApproverForAwardRiskAssesment-RnRFuntionality @monu
+  @142056 @verifyUserNotAbleToSkipApproverForAwardRiskAssesment-RnRFuntionality @monu
   Scenario: Validate system enforces the user to atleast enter step 1 approval for award risk assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -4748,7 +4748,7 @@ Then I softly see field "Status" as "Active"
       | Automation Permanent Focus Area | 0          | 3650     |
     And I refresh the page
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Encumbrance|
+      | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -5279,7 +5279,7 @@ Then I softly see field "Status" as "Active"
     And I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
     Then I softly can see top right button "Submit for Approval" in page detail
-  
+
   @198041 @ValidatePOusercansubmittheawardriskassessmentforapprovalpostrevieweraddcommentswhenownershipistransferredforRAwhichisinSubmittedforReviewstatus @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PO user can submit the award risk assessment for approval post reviewer add comments when ownership is transferred for a RA which is in Submitted for Review status
     Given I login to "As a Grantor" app as "PO" user
@@ -5476,7 +5476,7 @@ Then I softly see field "Status" as "Active"
       The EGMS Team
       """
 
- @hitRun @197973 @201283 @ValidateADMINhasanoptiontochangeownershipofAwardRiskAssessmenttransferitsownershipwhenithasstatusascreatedandownerisPM @sprint-12-US-226646 @vaibhav @reassignment @buglogged-201264
+  @hitRun @197973 @201283 @ValidateADMINhasanoptiontochangeownershipofAwardRiskAssessmenttransferitsownershipwhenithasstatusascreatedandownerisPM @sprint-12-US-226646 @vaibhav @reassignment @buglogged-201264
   Scenario: Validate ADMIN has an option to change ownership of Award Risk Assessment, transfer its ownership when it has status as created and owner is PM
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5509,18 +5509,18 @@ Then I softly see field "Status" as "Active"
       | Automation Finding | Automation Description |
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
-   Then I see "Ownership" inside "Reassign" is displayed
-   When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-   And I select value "Automation PM" into field "input-1"
-   And I select value "Automation PM1" into field "input-2"
-   And I select module "Risk Assessment" from reassign ownership dropdown
+    Then I see "Ownership" inside "Reassign" is displayed
+    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Risk Assessment" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssSourceTableId---" panel
     When I check "{SavedValue:RAEGMSID}" boxes in flex table with id "---riskassessment:-:riskAssSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---riskassessment:-:riskAssSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
-   When I navigate to "Records of Target User" sub tab
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -5665,7 +5665,7 @@ Then I softly see field "Status" as "Active"
       The EGMS Team
       """
 
-   @198632 @ValidateEXEprofileuserasRA1ownershouldnotgetaffectedwhenownershipofGrantistransferredfromEXE1toEXE2whichisinCreatedstatusaftercreatingtheRAonthataward @sprint-12-US-226646 @vaibhav @reassignment
+  @198632 @ValidateEXEprofileuserasRA1ownershouldnotgetaffectedwhenownershipofGrantistransferredfromEXE1toEXE2whichisinCreatedstatusaftercreatingtheRAonthataward @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate EXE profile user as RA1 owner should not get affected when ownership of Grant is transferred from EXE1 to EXE2 which is in 'Created' status after creating the RA on that award
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -5790,8 +5790,8 @@ Then I softly see field "Status" as "Active"
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-   And I wait for "2" seconds
-Then I softly see field "Status" as "Active"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Active"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -5994,8 +5994,8 @@ Then I softly see field "Status" as "Active"
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-   And I wait for "2" seconds
-Then I softly see field "Status" as "Active"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Active"
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PO1" for title "Name" inside table "---riskassessment:-:riskAssOwnerTableId---"
 
@@ -6124,8 +6124,8 @@ Then I softly see field "Status" as "Active"
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-   And I wait for "2" seconds
-Then I softly see field "Status" as "Active"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Active"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -6155,8 +6155,8 @@ Then I softly see field "Status" as "Active"
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-   And I wait for "2" seconds
-Then I softly see field "Status" as "Active"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Active"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -6304,8 +6304,8 @@ Then I softly see field "Status" as "Active"
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-   And I wait for "2" seconds
-Then I softly see field "Status" as "Active"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Active"
 
   @201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Email Notification is sent to ADMIN old owner & new owner with respect to ownership transfer of a Active Risk Assessment
@@ -6346,8 +6346,8 @@ Then I softly see field "Status" as "Active"
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-   And I wait for "2" seconds
-Then I softly see field "Status" as "Active"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Active"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -6538,7 +6538,7 @@ Then I softly see field "Status" as "Active"
     Then I softly cannot see row level action button "Edit" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
     Then I softly cannot see row level action button "Delete" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
 
- @201675 @ValidatePMprofileusercantransferownershipoftherejectedawardriskassessment @sprint-4-US-197126 @vaibhav @reassignment @FieldHistoryExclude
+  @201675 @ValidatePMprofileusercantransferownershipoftherejectedawardriskassessment @sprint-4-US-197126 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PM profile user can transfer ownership of the rejected award risk assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6580,11 +6580,11 @@ Then I softly see field "Status" as "Active"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
-   Then I see "Ownership" inside "Reassign" is displayed
-   When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-   And I select value "Automation PM" into field "input-1"
-   And I select value "Automation PM1" into field "input-2"
-   And I select module "Risk Assessment" from reassign ownership dropdown
+    Then I see "Ownership" inside "Reassign" is displayed
+    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Risk Assessment" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssSourceTableId---" panel
     When I check "{SavedValue:RAEGMSID}" boxes in flex table with id "---riskassessment:-:riskAssSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---riskassessment:-:riskAssSourceTableId---"
@@ -7596,8 +7596,8 @@ Then I softly see field "Status" as "Active"
     And I perform quick search for "{SavedValue:RAEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-   And I wait for "2" seconds
-Then I softly see field "Status" as "Active"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Active"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -7721,7 +7721,7 @@ Then I softly see field "Status" as "Active"
     Then I softly see value "{SavedValue:RAEGMSID1}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
     Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID1}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
-   @116310 @ValidateAwardOwnerhasthepermissiontorevisetheawardRiskAssessmentuntilawardactivation @Sprint-23-US-273843 @vaibhav @Allocation
+  @116310 @ValidateAwardOwnerhasthepermissiontorevisetheawardRiskAssessmentuntilawardactivation @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate Award Owner has the permission to revise the award Risk Assessment until award activation
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -7787,8 +7787,8 @@ Then I softly see field "Status" as "Active"
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
-   And I wait for "2" seconds
-Then I softly see field "Status" as "Active"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Active"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -7900,8 +7900,8 @@ Then I softly see field "Status" as "Active"
     And I click toggle button to select "Subaward Risk Assessments - All"
     And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
-   And I wait for "2" seconds
-Then I softly see field "Status" as "Active"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Active"
     And I navigate to "History" sub tab
     Then I softly see value "Submitted for Approval" for title "New Value" inside table "---riskassessment:-:riskAssessmentHistoryTableId---"
     Then I softly see value "Created" for title "Old Value" inside table "---riskassessment:-:riskAssessmentHistoryTableId---"
@@ -7912,7 +7912,7 @@ Then I softly see field "Status" as "Active"
     Then I softly see value "Risk Assessment Activation/Rejection.pdf" for title "File Name" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
     Then I softly see value "{SavedValue:FD Username}" for title "Taken By" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
 
- @119401 @Validatetheriskassessmentisapprovedstep4setupactivatedpostalltheapprovalarecompletewhenpeerreviewwasperformedonit @Sprint-23-US-273843 @vaibhav @Allocation
+  @119401 @Validatetheriskassessmentisapprovedstep4setupactivatedpostalltheapprovalarecompletewhenpeerreviewwasperformedonit @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate the risk assessment is approved step4 set up activated post all the approval are complete when peer review was performed on it
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -8009,5 +8009,5 @@ Then I softly see field "Status" as "Active"
     And I click toggle button to select "Subaward Risk Assessments - All"
     And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
-   And I wait for "2" seconds
-Then I softly see field "Status" as "Active"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Active"
