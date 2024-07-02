@@ -346,7 +346,7 @@ public class UsersAndURL implements UsersController {
         password.put("EXE", "FwLwc@02July");
         password.put("PM", "FwLwc@02July");
         password.put("FO", "FwLwc@02July");
-        password.put("SPI3", "FwLwc@02July");
+        password.put("SPI3", "FwLwc@03July");
         password.put("PM1", "FwLwc@02July");
         password.put("Automation PM", "FwLwc@02July");
         password.put("SA", "FwLwc@02July");
