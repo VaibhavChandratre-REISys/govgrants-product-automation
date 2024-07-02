@@ -11507,7 +11507,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see the following messages in the page details contains:
       | The Total Commitment cannot be less than zero. |
 
-  @268454 @268455 @268456 @270275 @ValidateAdminusercanseeFieldHistoryismaintainedforNewObligationField @sprint-21-US-265545 @vaibhav @Allocation @FieldHistoryExclude
+  @268454 @268455 @268456 @270275 @ValidateAdminusercanseeFieldHistoryismaintainedforNewObligationField @sprint-21-US-265545 @vaibhav @Allocation @FieldHistoryExclude @TBExecution
   Scenario: Validate Admin user can see Field History is maintained for New Obligation Field
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -11540,16 +11540,19 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:fundingAccount} | 1000        |
     And I refresh the page
     And I navigate to "History" sub tab
-    Then I softly see value "New Obligation" for title "Changed Field" inside table "---subAwardStandAlone:-:historyTableId---"
-    Then I softly see value "$1,000.00" for title "New Value" against the value "New Obligation" inside table "---subAwardStandAlone:-:historyTableId---"
-    Then I softly see value "$0.00" for title "Old Value" against the value "New Obligation" inside table "---subAwardStandAlone:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "New Obligation" for title "Changed Field" inside field history table
+    Then I softly see value "$1,000.00" for title "New Value" inside field history table
+    Then I softly see value "$0.00" for title "Old Value" inside field history table
     #268455
-    Then I softly see value "Total Commitment" for title "Changed Field" inside table "---subAwardStandAlone:-:historyTableId---"
-    Then I softly see value "$2,000.00" for title "New Value" against the value "Total Commitment" inside table "---subAwardStandAlone:-:historyTableId---"
+    Then I softly see value "Total Commitment" for title "Changed Field" inside field history table
+    Then I softly see value "$2,000.00" for title "New Value" inside field history table
     #268456
-    Then I softly see value "Cumulative Obligation" for title "Changed Field" inside table "---subAwardStandAlone:-:historyTableId---"
-    Then I softly see value "$1,000.00" for title "New Value" against the value "Cumulative Obligation" inside table "---subAwardStandAlone:-:historyTableId---"
-    Then I softly see value "$0.00" for title "Old Value" against the value "Cumulative Obligation" inside table "---subAwardStandAlone:-:historyTableId---"
+    Then I softly see value "Cumulative Obligation" for title "Changed Field" inside field history table
+    Then I softly see value "$1,000.00" for title "New Value" against the value "Cumulative Obligation" inside field history table
+    Then I softly see value "$0.00" for title "Original Value" against the value "Cumulative Obligation" inside field history table
+    And I click on back arrow
     #270275
     And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details contains:

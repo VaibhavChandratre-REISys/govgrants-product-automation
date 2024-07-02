@@ -616,10 +616,27 @@ public final class GovGrantsObjects {
         }
     }
 
+    public void toCheckValueForTitleInsideFieldHistoryTableAgainstValue(boolean isSoftly, String rowValue, String headerName, String uniqueValue) {
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(isFileHistoryDisplayedInsidetableAgainstValue(rowValue,headerName,uniqueValue)).isTrue();
+        } else {
+            Assert.assertTrue(isFileHistoryDisplayedInsidetableAgainstValue(rowValue,headerName,uniqueValue));
+        }
+    }
+
     public boolean isFileHistoryDisplayedInsidetable(String rowValue, String headerName) {
         Boolean flag = false;
         try {
             return I.amPerforming().checkToSee().isDisplayed(By.xpath("//table//tr//th[@data-label='" + headerName + "']//span[@title='" + rowValue + "' or text()='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//*[text()='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//a[@title='" + rowValue + "']"));
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+    public boolean isFileHistoryDisplayedInsidetableAgainstValue(String rowValue, String headerName, String uniqueValue) {
+        Boolean flag = false;
+        try {
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//table//tr//th[@data-label='" + headerName + "']//span[@title='" + rowValue + "' or text()='" + rowValue + "']/ancestor::tr//td//*[@title='" + uniqueValue + "' or text()='" + uniqueValue + "'] | //table//tr//td//a[@title='" + uniqueValue + "' or text()='" + uniqueValue + "']/ancestor::tr//td[@data-label='" + headerName + "']//a[text()='" + rowValue + "'] | //table//tr//td//*[@title='" + uniqueValue + "' or text()='" + uniqueValue + "']/ancestor::tr//td[@data-label='" + headerName + "']//*[text()='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//a[@title='" + rowValue + "']/ancestor::tr//td//a[@title='" + uniqueValue + "' or text()='" + uniqueValue + "']"));
         } catch (Exception e) {
         }
         return false;
