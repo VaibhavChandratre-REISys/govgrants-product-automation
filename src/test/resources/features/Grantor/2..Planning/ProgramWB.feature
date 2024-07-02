@@ -1043,7 +1043,7 @@ Feature: Validate all scenarios for program
     When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
     And I click "OK" on modal confirmation box
     Then I softly see the following messages in the page details contains:
-      | Transfer is in progress, kindly wait for email confirmation. |
+      | Transfer is in progress, Kindly wait for email confirmation (Warning: if another user has already performed this action, no further processing will take place) |
 
   @195317 @195347 @ValidateownershipistransferredforaProgramincreatedstateValidateallthevisibilityofallthebuttonsoftheprogramisavailabletothenewowner @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate ownership is transferred for a Program in created state Validate all the visibility of all the buttons of the program is available to the new owner
@@ -2947,6 +2947,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
       | Reviewer Name  | Responsibility  | Description                 | Due Date |
       | Automation EXE | Fiscal Reviewer | Automation Test Description | 10       |
+    And I refresh the page
     Then I softly can see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
     Then I softly can see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
     Then I softly can see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
@@ -3161,8 +3162,10 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+    And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "SYSTEM" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I perform quick search for "Automation ADMIN" in "---program:-:associateKPITableId---" panel
     When I click "Associate" after selection of "Automation Permanent KPI For Admin" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
