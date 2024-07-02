@@ -212,6 +212,7 @@ public final class GovGrantsProductSteps {
     @Description("To click on table header column using table id")
     @When("^I click on \"([^\"]*)\" column header inside table with id \"([^\"]*)\"$")
     public void ClickOnSpecificTableHeaderColumn(String titleName, String tableId) {
+        I.amPerforming().waitFor().makeThreadSleep(3000);
         ggProductObjects.performClickOnSpecificTableColumnHeader(tableId, titleName);
     }
 

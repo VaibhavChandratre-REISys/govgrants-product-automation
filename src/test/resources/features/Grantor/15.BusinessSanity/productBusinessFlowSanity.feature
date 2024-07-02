@@ -1031,7 +1031,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I softly see field "Status" as "Published"
 
-  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 
+  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 @sanTest
   Scenario: Validate the activation of Formula By Applicant Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -1202,7 +1202,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @72346 @applicationReviewHappyPath @ProdSan2 
+  @72346 @applicationReviewHappyPath @ProdSan2
   Scenario Outline: Validate the complete review process for an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2404,7 +2404,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72355 @siteVisitAcceptAndCloseOrgLevel @ProdSan2
+  @72355 @siteVisitAcceptAndCloseOrgLevel @ProdSan2 @sanTest
   Scenario: Validate once the Org Level Site Visit is clicked on Accept and Close butted then status changes to closed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -2425,20 +2425,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I wait for "3" seconds
     Given I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                     | Site Visit |
-      | {SavedValue:PM Username} | NA         |
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                     | Site Visit |
       | {SavedValue:PM Username} | Step 1     |

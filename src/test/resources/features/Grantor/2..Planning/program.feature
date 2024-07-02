@@ -1065,7 +1065,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details :
       | Setup Tab - Management Review - Management Review: At least one section must be added to this form. |
 
-  @34750 @106291 @110156 @110141 @submittingProgramForApproval @monu @FieldHistoryExclude
+  @34750 @106291 @110156 @110141 @submittingProgramForApproval @monu @FieldHistoryExclude @TBExecution
   Scenario: Validate the submission of Program for Approval
     And I wait for "5" seconds
     And I click on "Edit" in the page details
@@ -1082,9 +1082,6 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
@@ -1109,9 +1106,11 @@ Feature: Validate all scenarios for program
     #106291 #monu
     Then I softly cannot see top right button "Edit" in page detail
     #110156 #monu
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
-#    Then I softly see value "Created" for title "Old Value" inside table "History"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
+    Then I softly see value "Created" for title "Original Value" inside field history table
 
   @34754 @programApproval @smoke
   Scenario: Validate the approval of Internal Program

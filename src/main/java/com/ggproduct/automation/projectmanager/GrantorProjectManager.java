@@ -1,11 +1,13 @@
 package com.ggproduct.automation.projectmanager;
 
+import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.handlers.*;
 import com.helperPackage.misclib.Emails;
 import com.helperPackage.objects.Elements;
 import com.helperPackage.register.EnvironmentFactory;
 import com.helperPackage.register.I;
+import org.apache.poi.sl.usermodel.Hyperlink;
 import org.assertj.core.util.Files;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -787,4 +789,9 @@ public class GrantorProjectManager extends ProjectManager {
         return false;
     }
 
+    public void clickHyperLinkAgainstValueinTable(String value, String id) {
+        By hyperlnk = ByUsing.xpath("//c-lwc-flex-table[@data-flextablename='" + id + "']/ancestor::c-flex-gridlwc//span[normalize-space()='" + value + "']/ancestor::tr//a");
+        I.amPerforming().waitFor().ElementToBeClickable(hyperlnk);
+        I.amPerforming().click().on(hyperlnk);
+    }
 }

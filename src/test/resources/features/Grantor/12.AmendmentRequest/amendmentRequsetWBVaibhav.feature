@@ -1336,8 +1336,11 @@ Feature: Amendment Request scenarios without background
     Then I see value "Review Amendment Request" for title "Task Type" inside table "---amendment:-:pendingTaskTableId---"
     And I click on "Start" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
+    And I click on back arrow
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1345,8 +1348,10 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @200511 @ValidateusershouldabletoseethefieldhistoryisupdatedafterchangingthetaskownershipfromS/RsideofBPC/SOWAR @sprint-7-US-198153 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the field history is updated after changing the task ownership from S/R side of BPC/SOW AR
@@ -1405,8 +1410,11 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:budgetPC&ScopeId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     And I click on "Start" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
+    And I click on back arrow
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1414,8 +1422,10 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @200417 @ValidateBudgetRedirectionAmendmentRequestApprovedemailshouldbegenerateforPMnewownerofamendmentrequestaftertheReviewAmendmentRequestownershiptaskreassigntohim @sprint-5-US-197424 @vaibhav @reassignment
   Scenario: Validate Budget Redirection_ Verify 'Amendment Request Approved' email should be generate for PM new owner of amendment request after the 'Review Amendment Request' ownership task reassign to him

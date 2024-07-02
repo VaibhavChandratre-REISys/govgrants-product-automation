@@ -748,6 +748,11 @@ public final class GovGrantsSteps {
         I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, govgrants.perform().pageDetails().getFieldValue(fieldLabel, labeledOrContaining.equalsIgnoreCase("labeled")));
     }
 
+    @When("^I save the field (labeled|containing) \"([^\"]*)\" as \"([^\"]*)\" on modal$")
+    public void saveFieldValueOnModal(String labeledOrContaining, String fieldLabel, String fieldKey) {
+        I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, govgrants.perform().pageDetails().getFieldValueOnModal(fieldLabel, labeledOrContaining.equalsIgnoreCase("labeled")));
+    }
+
     @When("^I save the field in the form (labeled|containing) \"([^\"]*)\" as \"([^\"]*)\"$")
     public void saveFieldValueInForm(String labeledOrContaining, String fieldLabel, String fieldKey) {
         I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, govgrants.perform().pageDetails().getFieldValueInForm(fieldLabel, labeledOrContaining.equalsIgnoreCase("labeled")));
@@ -1157,5 +1162,11 @@ public final class GovGrantsSteps {
     @Then("I (softly see|see) value \"([^\"]*)\" for title \"([^\"]*)\" inside field history table$")
     public void iSoftlySeeValueForTitleInsideFieldHistoryTable(String usage, String rowValue, String headerName) {
         ggObjects.toCheckValueForTitleInsideFieldHistoryTable(usage.contains("softly"),rowValue,headerName);
+    }
+
+
+    @Then("I (softly see|see) value \"([^\"]*)\" for title \"([^\"]*)\" against the value \"([^\"]*)\" inside field history table$")
+    public void iSoftlySeeValueForTitleAgainstTheValueInsideFieldHistoryTable(String usage,String rowValue, String headerName, String uniqueValue) {
+        ggObjects.toCheckValueForTitleInsideFieldHistoryTableAgainstValue(usage.contains("softly"),rowValue,headerName,uniqueValue);
     }
 }

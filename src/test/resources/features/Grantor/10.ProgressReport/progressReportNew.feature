@@ -97,6 +97,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I perform quick search for "{SavedValue:PR1}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "View" icon for "{SavedValue:PR1}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I click on "Complete Review" in the page details
+    And I wait for "4" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PR2}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -123,6 +124,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Automation Test Description | FundingChangeJustification__c |
       | 100                         | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -131,9 +133,9 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 2            |
     When I get the "EGMS ID"
-    And I refresh the page
     And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "5" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -330,7 +332,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @61450 @61449 @62251 @validateApprovedPRAfterBPCAmendmentIsCarryForwarded @jitendra @buglogged137546 @buglogged150462
+  @61450 @61449 @62251 @validateApprovedPRAfterBPCAmendmentIsCarryForwarded @jitendra @buglogged137546
   Scenario Outline: Validate Approved Progress reports is not carried forward after BPC Amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -391,8 +393,10 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "<Grant Name>" in "---progressReport:-:activeGrantsTableId---" panel
     When I click on "View" icon for "<Grant Name>" inside flex table with id "---progressReport:-:activeGrantsTableId---" without waiting for record
+    And I wait for "2" seconds
     And I navigate to "Subawards" sub tab
     When I click on "View" icon for "<Award Name>" inside flex table with id "---progressreport:-:subawardsTableId---" without waiting for record
+    And I wait for "2" seconds
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
@@ -696,7 +700,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62925 @62926 @62927 @BudgerPeriodFieldUpdateAfterFundingChangeAmendment @PercentageRemainSameAfterFundingChangeAmmendment @jitendra @buglogged-171710
+  @62925 @62926 @62927 @BudgerPeriodFieldUpdateAfterFundingChangeAmendment @PercentageRemainSameAfterFundingChangeAmmendment @jitendra
   Scenario Outline: Verify Budget Period field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward at SR user end.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -716,6 +720,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Automation Test Description | FundingChangeJustification__c |
       | 1000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -2341,7 +2346,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "Amend Subaward" in the page details
     And I wait for "2" seconds
     When I click on "Activate" in the page details
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     And I save the field containing "EGMS ID" as "amendedSubawardId"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2550,6 +2555,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Automation Test Description | FundingChangeJustification__c |
       | 100                         | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -2795,6 +2801,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Automation Test Description | FundingChangeJustification__c |
       | 100                         | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -2804,6 +2811,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | {SavedValue:FO Username} | Step 2            |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
+    Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3003,6 +3011,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Automation Test Description | FundingChangeJustification__c |
       | 100                         | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -3431,7 +3440,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62144 @validateCreatedPRAfterSWAmendmentIsNotCarryForwardedAonAward @mahadev @buglogged-171710
+  @62144 @validateCreatedPRAfterSWAmendmentIsNotCarryForwardedAonAward @mahadev
   Scenario Outline: Validate progress report with Created status is not carry forwarded at internal portal on grant after scope of work change amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -3503,7 +3512,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click on "Amend Subaward" in the page details
     And I wait for "3" seconds
     When I click on "Activate" in the page details
-    And I wait for "3" seconds
+    And I wait for "8" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -3711,7 +3720,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62376 @validateFrequencyAfterPeriodicAmendmentIsSameAsSemiAnnuallyOnAward @jitendra @buglogged-171710
+  @62376 @validateFrequencyAfterPeriodicAmendmentIsSameAsSemiAnnuallyOnAward @jitendra
   Scenario Outline: Validate frequency remains the same for Progress report schedules after Periodic renewal amendment when frequency type is Semi-annual at Award Owner end.
     Given I activated standalone subaward "Automation Runtime Award" with properties "PROGRESS_REPORT_SEMI_ANNUALLY" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -4972,7 +4981,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62928 @validateAwardedBudgetAfterFCAmendmentOnInternalPortal @mahadev @smoke 
+  @62928 @validateAwardedBudgetAfterFCAmendmentOnInternalPortal @mahadev @smoke
   Scenario Outline: Verify Awarded Budget field value on Progress report should get updated after funding change amendment is done by award owner at Award owner end
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -4993,6 +5002,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Automation Test Description | FundingChangeJustification__c |
       | 100                         | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -5092,7 +5102,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62924 @validateFrequencyAfterPeriodicAmendmentIsSameOnPR @mahadev 
+  @62924 @validateFrequencyAfterPeriodicAmendmentIsSameOnPR @mahadev
   Scenario Outline: Verify Report Frequency field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward and Frequency is updated
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -5184,6 +5194,8 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter in modal "Progress Report Monthly" values from "Award_Field_Values.xlsx"
+    And I enter in modal value "{SavedValue:PBPSD}" into field "CalReportingStartDate__c"
+    And I enter in modal value "{SavedValue:PBPED}" into field "CalReportingEndDate__c"
     And I click modal button "Save"
     And I wait for "3" seconds
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
@@ -5765,6 +5777,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I click modal button "Save and Continue"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
@@ -6027,7 +6040,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @60733 @60722 @validateApprovedPRAfterFundingChangeAmendmentIsCarryForwarded @mahadev 
+  @60733 @60722 @validateApprovedPRAfterFundingChangeAmendmentIsCarryForwarded @mahadev
   Scenario Outline: Validate Progress report with Approved Status is carried forwarded when Award owner performed Funding Change Amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -6096,6 +6109,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Automation Test Description | FundingChangeJustification__c |
       | 100                         | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -6213,6 +6227,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Automation Test Description | FundingChangeJustification__c |
       | 100                         | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -6284,7 +6299,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @60728  @validateSubmittedForApprovalPRAfterFCAmendmentIsCarryForwardedAtAwardOwnerEndOnAward @mahadev 
+  @60728  @validateSubmittedForApprovalPRAfterFCAmendmentIsCarryForwardedAtAwardOwnerEndOnAward @mahadev
   Scenario Outline: Validate Submitted for approval Progress reports is carried forward at Performance Tab Subaward Overview at Award Owner end when Award owner performed Funding Change Amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I delete the record "<Award Name>" from the object "Progress Report"
@@ -6346,6 +6361,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Automation Test Description | FundingChangeJustification__c |
       | 100                         | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -6492,7 +6508,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62921 @validateAwardedBudgetDecreasedAfterFCAmendment @mahadev @smoke 
+  @62921 @validateAwardedBudgetDecreasedAfterFCAmendment @mahadev @smoke
   Scenario Outline: Verify Awarded Budget field values at performance tab on progress report decrease when award owner performed Funding change amendment on subaward
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -6513,6 +6529,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Automation Test Description | FundingChangeJustification__c |
       | -100                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -6733,6 +6750,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Automation Test Description | FundingChangeJustification__c |
       | 100                         | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |

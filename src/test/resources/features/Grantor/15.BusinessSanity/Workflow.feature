@@ -1534,8 +1534,8 @@ Feature: Validate all scenarios of every modules flow
 
  @debug @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-   When I am on "SUBPORTAL" portal
-   And I login to "Grants Portal" app as "SPI3" user
-    And I halt execution
-   Then I softly see status in Progress-bar is "Created" and is "dark blue"
-   And I halt execution
+   Given I am on "INTERNAL" portal
+#   And I generate the random EmailID and save as "uniqueEmailID" for maildrop
+#   And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
+

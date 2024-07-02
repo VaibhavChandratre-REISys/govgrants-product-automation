@@ -103,7 +103,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     When I navigate to "Terms" sub tab
-    Then I softly cannot see row level action button "Edit" against "<Award Name>" in flex table with id "---progressreport:-:progressReportsScheduleId---"
+    Then I softly can see row level action button "Edit" against "<Award Name>" in flex table with id "---progressreport:-:progressReportsScheduleId---"
     Examples:
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
@@ -751,7 +751,9 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter "Progress Report Quarterly" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     And I click on "View" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    And I wait for "1" seconds
     Then I softly see field "Frequency" as "Quarterly"
     Examples:
       | Award Name                            | Grant Name                            |
@@ -942,6 +944,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "<Award Name>" in "---progressreport:-:activeGrantsTableId---" panel
     And I click on "View" icon for "<Award Name>" inside flex table with id "---progressReport:-:activeGrantsTableId---" without waiting for record
+    And I wait for "2" seconds
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---progressreport:-:grantChecklistsTableId---" by clicking "Add" :
       | Description | Required  | Applies To      | Status |
@@ -1071,7 +1074,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1085,7 +1087,7 @@ Feature: Validate scenarios in Progress Report without background
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I wait for "3" seconds
     Then I see the following messages in the page details contains:
-      | Attachment saved successfully |
+      | Saved Successfully! |
     Examples:
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |

@@ -57,6 +57,11 @@ public  class HomeSteps {
         homePage.NavigateToYopmailPortalForWithSubject(emailId,subject);
     }
 
+    @And("I navigate to maildrop portal for {string} with subject {string}")
+    public void iNavigateToMailDropPortalForWithSubject(String emailId, String subject) {
+        homePage.NavigateToMailDropPortalForWithSubject(emailId,subject);
+    }
+
     @And("I navigate to yopmail portal for {string} with click on subject {string}")
     public void iNavigateToYopmailPortalForWithClickOnSubject(String emailId, String subject) {
         homePage.NavigateToYopmailPortalForWithClickOnSubject(emailId,subject);
@@ -67,6 +72,13 @@ public  class HomeSteps {
     public void iEnterValueReassignLookup(String userName) {
             homePage.enterValueInReassignLookup(userName);
     }
+
+    @Description("To enter the value in lookup")
+    @And("I enter in the value {string} in lookup field")
+    public void iEnterValueLookupField(String userName) {
+        homePage.enterValueInLookupfield(userName);
+    }
+
 
     /*@When("I login to portal")
     public void iLoginToPortal() {

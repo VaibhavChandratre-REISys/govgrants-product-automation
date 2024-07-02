@@ -39,7 +39,7 @@ public final class PageDetails {
                 + I.amPerforming().sanityOfXpathTo().equals("text()", buttonName) + " or "
                 + I.amPerforming().sanityOfXpathTo().equals("@value", buttonName) + ")] |" +
                 "//*[contains(@class,'overview-header') or contains(@class,'panel-footer')]//*[(local-name()='a' or local-name()='button' or local-name()='input') and not(contains(@class,'hidden'))]//span[(text()='" + buttonName + "') and not(contains(@class,'hidden'))] |" +
-                "//*[contains(@class,'panel-heading')]//*[local-name()='a' and contains(@class,'menuLinks') and @title='" + buttonName + "'] | //*[@value='" + buttonName + "' and @class='customBtn'] | //lightning-button//button[@title='" + buttonName + "' or text()='" + buttonName + "'] | //div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "'] | //lightning-menu-item//div//*[text()='" + buttonName + "']");
+                "//*[contains(@class,'panel-heading')]//*[local-name()='a' and contains(@class,'menuLinks') and @title='" + buttonName + "'] | //*[@value='" + buttonName + "' and @class='customBtn'] | //lightning-button//button[@title='" + buttonName + "' or text()='" + buttonName + "'] | //div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "'] | //lightning-menu-item//div//*[text()='" + buttonName + "'] | //li/a/div[@title='" + buttonName + "']");
     }
 
     /**
@@ -72,12 +72,17 @@ public final class PageDetails {
             I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -800);
             I.amPerforming().waitFor().makeThreadSleep(2000);
             try {
-                I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
-                I.amPerforming().click().withJavaScript(topRightButton);
-                govgrants.perform().modal().acceptPopUp();
+                I.amPerforming().waitFor().ElementToBeVisible(topRightButton);
+              try {
+                  I.amPerforming().click().on(topRightButton);
+              }catch (Exception e) {
+                  I.amPerforming().click().withJavaScript(topRightButton);
+              }
+                  govgrants.perform().modal().acceptPopUp();
             } catch (Exception ex) {
+                I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//gnt-header-overview//lightning-button-menu//button"));
                 I.amPerforming().click().withJavaScript(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
-                I.amPerforming().click().withJavaScript(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
                 govgrants.perform().modal().acceptPopUp();
             }
 
@@ -265,7 +270,15 @@ public final class PageDetails {
 
     public void clickSubTabsInsideTableViewForSplitScreen(String tabName) {
         By desiredTab = By.xpath("//div[@class='uiTabBar']//ul//li//a[@title='" + tabName + "'] | //div[@class='slds-tabs_card']//ul//li//a[text()='" + tabName + "'] | //div[contains(@class,'forceCommunityTabLayout')]//ul//li//a[text()='" + tabName + "']");
-        I.amPerforming().click().withJavaScript(desiredTab);
+       try {
+           if (I.amPerforming().checkToSee().isDisplayed(desiredTab)){
+               I.amPerforming().click().withJavaScript(desiredTab);
+           }
+       }catch (Exception e){
+           I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//div[contains(@class,'slds-tabs_card')]//ul//li//button[text()='More']"));
+           I.amPerforming().click().withJavaScript(By.xpath("//div[contains(@class,'slds-tabs_card')]//ul//li//button[text()='More']"));
+           I.amPerforming().click().withJavaScript(By.xpath("//a//span[text()='" + tabName + "']"));
+       }
     }
 
     /**
@@ -524,6 +537,46 @@ public final class PageDetails {
         String fieldValue;
         WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
                 .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd | ./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')]"));
+        if (fieldData.findElements(By.xpath(".//input[@type='checkbox']")).size() != 0) {
+            fieldValue = I.amPerforming().checkToSee().isSelected(I.amPerforming().getElementReference().ofNested(fieldData, By.xpath(".//input[@type='checkbox']")))
+                    ? "Checked" : "Unchecked";
+        } else {
+            fieldValue = StringUtils.normalizeSpace(I.amPerforming().actionToGet().text(fieldData));
+        }
+
+        if (fieldLabel.equalsIgnoreCase("EGMS ID")) {
+            idOfRecord = fieldValue;
+        } else if (fieldLabel.equalsIgnoreCase("GovGrants ID")) {
+            idOfRecord = fieldValue;
+        }
+        return fieldValue;
+    }
+
+    public String getFieldValueOnModal(String fieldLabel, boolean matchLabelExactly) {
+        By fieldLabelLocator = null;
+        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+            fieldLabelLocator = By.xpath(String.format(""
+                                    // This option should work in all situations, if using the latest version of GovGrants
+                                    + "//div[@class='slds-modal__container']//div//label[contains(@class,'label') and %s]",
+                            matchLabelExactly
+                                    ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
+                                    : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
+                    )
+            );
+        } else {
+
+            fieldLabelLocator = By.xpath(String.format(""
+                                    // This option should work in all situations, if using the latest version of GovGrants
+                                    + "//dt//span[contains(@class, 'customLabelstyle') and %s]",
+                            matchLabelExactly
+                                    ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
+                                    : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
+                    )
+            );
+        }
+        String fieldValue;
+        WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
+                .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd | ./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')] | ./parent::div//div//lightning-formatted-text[not(@part='help-text')]"));
         if (fieldData.findElements(By.xpath(".//input[@type='checkbox']")).size() != 0) {
             fieldValue = I.amPerforming().checkToSee().isSelected(I.amPerforming().getElementReference().ofNested(fieldData, By.xpath(".//input[@type='checkbox']")))
                     ? "Checked" : "Unchecked";
@@ -798,7 +851,7 @@ public final class PageDetails {
      */
     public void selectBelowCheckboxOptionsForField(String fieldName, List<String> checkboxes) {
         for (int i = 0; i < checkboxes.size(); i++) {
-            I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='"+ fieldName +"']//span[text()='" + checkboxes.get(i) + "']/parent::label//span[@class='slds-checkbox_faux']"));
+            I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='" + fieldName + "']//span[text()='" + checkboxes.get(i) + "']/parent::label//span[@class='slds-checkbox_faux']"));
         }
     }
 

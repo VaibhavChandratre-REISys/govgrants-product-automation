@@ -30,16 +30,20 @@ Feature: Validate all scenarios in Desk Review
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
-    Then I softly see that "{SavedValue:EXE Username}" has been added in flextable with Id "---deskreview:-:participantsTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
+    And I click modal button "Close"
+    And I pause execution for "3" seconds
+    And I refresh the page
+    Then I softly see that "{SavedValue:EXE1 Username}" has been added in flextable with Id "---deskreview:-:participantsTableId---"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                      | Desk Review |
-      | {SavedValue:EXE Username} | Step 1      |
+      | Name                       | Desk Review |
+      | {SavedValue:EXE1 Username} | Step 1      |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                     | Desk Review |
       | {SavedValue:FO Username} | Step 2      |
-    Then I softly see that "{SavedValue:EXE Username}" has been added in flextable with Id "---deskreview:-:approverDeskReviewTableId---"
+    Given I navigate to "Responsibilities" sub tab
+    Then I softly see that "{SavedValue:EXE1 Username}" has been added in flextable with Id "---deskreview:-:approverDeskReviewTableId---"
     And I navigate to "Overview" sub tab
     Then I softly see field "Created Date" is not editable
 
@@ -293,6 +297,7 @@ Feature: Validate all scenarios in Desk Review
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I pause execution for "4" seconds
     When I navigate to "Reports and Outcomes" sub tab
     And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
@@ -312,14 +317,14 @@ Feature: Validate all scenarios in Desk Review
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I click on "Submit to Grantor" in the page details
     And I wait for "4" seconds
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "180" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Desk Review Report Submitted by Subrecipient
-#      """
+    Then I softly see field "Status" as "Submitted to Grantor"
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "180" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Desk Review Report Submitted by Subrecipient
+      """
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -381,7 +386,7 @@ Feature: Validate all scenarios in Desk Review
     When I perform quick search for "{SavedValue:dvID}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:dvID}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I "Send to Owner" in the approval decision
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     And I pause execution for "5" seconds
     Then I refresh the page
@@ -606,7 +611,7 @@ Feature: Validate all scenarios in Desk Review
     And I "Send to Owner" in the approval decision
     And I refresh the page
     And I wait for "10" seconds
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -633,6 +638,7 @@ Feature: Validate all scenarios in Desk Review
     When I click on "Remove" icon for "{SavedValue:Automation Runtime Award Record}" inside flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
     Then I do not see value "{SavedValue:Automation Runtime Award Record}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
     And I click on "Notify" in the page details
+    Then I softly see field "Status" as "Notified"
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
@@ -704,6 +710,8 @@ Feature: Validate all scenarios in Desk Review
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
     When I click "Associate" after selection of "<Internal>" in the table "---deskreview:-:deskReviewContactsTableId---"
+    And I click modal button "Close"
+    And I refresh the page
     Then I see that "<Internal>" has been added in flextable with Id "---deskreview:-:participantsTableId---"
     Examples:
       | Internal                  |
@@ -751,6 +759,7 @@ Feature: Validate all scenarios in Desk Review
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
     And I click on "Notify" in the page details
     Given I click on "Conduct" in the page details
+    And I pause execution for "4" seconds
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:reviewersFlexTableId---" by clicking "New" :
       | Reviewer Name            | Responsibility  | Description              | Due Date | Allow Record Editing |
@@ -782,7 +791,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     When I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
-    Then I softly see field "Status" as "In Progress"
+    Then I softly see field "Status" as "Reviewed"
 
   @56015 @sendBacktoOwnerReceivePendingTaskdv @deepika @smoke @DeskReviewFirst
   Scenario: Validate the supporting document checklist submitted by the subrecipient and record sent back to Recipients when outcomes are not properly addressed and recipients receive a pending task
@@ -886,7 +895,7 @@ Feature: Validate all scenarios in Desk Review
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     Then I softly see that "Approve Desk Review" has been added in flextable with Id "---deskreview:-:monitoringTabPhasePendingTasks---"
 
-  @61053 @FieldHistoryUpdatePostAwardLevelDeskReviewIsSendBackToOwnerByProgramApprover @Keerti @FieldHistoryExclude @DeskReviewFirst @wip
+  @61053 @FieldHistoryUpdatePostAwardLevelDeskReviewIsSendBackToOwnerByProgramApprover @Keerti @FieldHistoryExclude @TBExecution
   Scenario: To Validate field history update post Award level Desk Review is send back to owner by program approver.
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -931,10 +940,11 @@ Feature: Validate all scenarios in Desk Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I "Send to Owner" in the approval decision
     When I navigate to "History" sub tab
-    When I perform quick search for "{SavedValue:DeskReview}" in "History" panel
-    Then I see value "Created" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I see value "Created" for title "Original Value" inside field history table
 
-  @61054 @FieldHistoryUpdatePostAwardLevelDeskReviewIsSendBackToOwnerByProgramApprover @Keerti @FieldHistoryExclude @DeskReviewFirst
+  @61054 @FieldHistoryUpdatePostAwardLevelDeskReviewIsSendBackToOwnerByProgramApprover @Keerti @FieldHistoryExclude @TBExecution
   Scenario: To Validate field history update post Award level Desk Review is send back to owner by program approver.
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -984,8 +994,9 @@ Feature: Validate all scenarios in Desk Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I "Send to Owner" in the approval decision
     When I navigate to "History" sub tab
-    When I perform quick search for "{SavedValue:DeskReview}" in "History" panel
-    Then I see value "Created" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "In Progress" for title "New Value" inside field history table
 
   @69411 @61057 @61055 @55370 @66139 @77253 @66274 @snapshotAfterSubmitForApprovalDeskReviewIsAcceptedAndClosed @Keerti @skipOnJenkins
   Scenario: Validate whether record Owner is able to view the Accept and Close Button and User view the Snapshot after Desk Review is Submitted for Approval status also after Accepted and Closed |Subrecipient can view Closed Desk Review
@@ -1129,10 +1140,9 @@ Feature: Validate all scenarios in Desk Review
     When I click on "Delete" icon for "Record Id" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
     And I refresh the page
     Given I navigate to "Management" sub tab
-    And I perform quick search for "Record Id" in "---deskreview:-:managementInitiateDRtableid---" panel
     Then I softly see "No Records Found" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
 
-  @65245 @historyOfDeskReviewsendbacktoOwner @deepika @FieldHistoryExclude @wip
+  @65245 @historyOfDeskReviewsendbacktoOwner @deepika @FieldHistoryExclude @TBExecution
   Scenario: Validate History Field is getting Updated at Award owner End when Desk Review status is Submitted to Grantor.
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -1176,7 +1186,9 @@ Feature: Validate all scenarios in Desk Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     And I "Send to Owner" in the approval decision
     When I navigate to "History" sub tab
-    Then I see value "In Progress" for title "New Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I see value "In Progress" for title "New Value" inside field history table
 
   @65246 @69407 @corerctiveActionsDueDateDeskReview @deepika @DeskReviewFirst
   Scenario: Validate Desk Review Submit to Grantor and Corrective Actions By Subrecipient
@@ -1259,8 +1271,7 @@ Feature: Validate all scenarios in Desk Review
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
     Given I navigate to "Management" sub tab
-    When I perform quick search for "{SavedValue:Automation Runtime Award Desk}" in "---deskreview:-:managementInitiateDRtableid---" panel
-    Then I softly see "{SavedValue:Automation Runtime Award Desk}" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
+    Then I softly see value "{SavedValue:Automation Runtime Award Desk}" for title "Title" inside table "---deskreview:-:managementInitiateDRtableid---"
 
   @56368 @viewCreatedDeskReview @meenakshi @DeskReviewFirst
   Scenario: User will be able to view the list of all Site Visit / Desk Review created for Awards under Monitoring tab - Desk Review

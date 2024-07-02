@@ -680,10 +680,10 @@ public final class FlexTable implements FlexTableComponent {
      */
     public boolean assertCoulmnValueAgainstColumnTitle(String columnValue, String columnTitle, String flexTableDivId) {
         try {
-            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//tr | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "'] | //article[contains(@aria-label,'" + flexTableDivId + "')]")));
-            WebElement row = I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1] | //article[contains(@aria-label,'" + flexTableDivId + "')]//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1]")));
+            I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//tr | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "'] | //*[contains(@aria-label,'" + flexTableDivId + "')]")));
+            WebElement row = I.amPerforming().getElementReference().of((By.xpath("//div[@id='" + flexTableDivId + "']//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1] | //*[contains(@aria-label,'" + flexTableDivId + "')]//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "]//ancestor::tr[1]")));
             Map<String, Integer> columnMapping = constructColumnMapping(row, Collections.singleton(columnTitle));
-            I.amPerforming().getElementReference().ofNested(row, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "] | //span[@class='uiOutputText'][normalize-space()='" + columnValue + "']"));
+            I.amPerforming().getElementReference().ofNested(row, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + columnMapping.get(columnTitle) + "]//descendant-or-self::*[" + I.amPerforming().sanityOfXpathTo().equals("text()", columnValue) + "] | //span[@class='uiOutputText'][normalize-space()='" + columnValue + "']|//*[@title='" + columnValue + "']"));
             return true;
         } catch (Exception e) {
             return false;
@@ -813,13 +813,14 @@ public final class FlexTable implements FlexTableComponent {
         By entriesDropDown = ByUsing.xpath(
                 "//*[@data-flextablename='" + flexTableId + "']//div//input[@placeholder='Select an Option']");
         WebElement entriesDD = I.amPerforming().getElementReference().of(entriesDropDown);
-        By elementDropDown = By.xpath("//span[text()='Show']/parent::div/following-sibling::div//li[@data-id='" + numberofEntries + "']");
+        By elementDropDown = By.xpath("//span[text()='Show']/parent::div/following-sibling::div//li[@data-id='" + numberofEntries + "'] | //span[normalize-space()='" + numberofEntries + "']");
         try {
             I.amPerforming().scroll().onPageToSpecificElement(entriesDropDown);
             I.amPerforming().click().on(entriesDD);
             I.amPerforming().scroll().onPageToSpecificElement(elementDropDown);
             I.amPerforming().click().on(elementDropDown);
         } catch (Exception e) {
+            I.amPerforming().click().withJavaScript(entriesDD);
             I.amPerforming().click().withJavaScript(elementDropDown);
         }
     }
@@ -1196,6 +1197,7 @@ public final class FlexTable implements FlexTableComponent {
     public void clickOnLinkInsideTable(String tableId, String linkText) {
         I.amPerforming().click().on(By.xpath("//*[@id='" + tableId + "']//a[contains(text(),'" + linkText + "')]|//*[@id='" + tableId + "']//span[contains(text(),'" + linkText + "')]"));
     }
+
 
     /**
      * To click on the top right button of a flex table based on the flex table id without processing
