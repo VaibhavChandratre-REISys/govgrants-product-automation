@@ -3,15 +3,15 @@ Feature: Validate all scenarios for program
 
   Background: Create Program
     When I login to "As a Grantor" app as "dynamicUser" user
-#    And I navigate to "Planning" tab
-#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-#    And I click toggle button to select "Internal Programs - Draft"
-#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-#    And I click modal button "Save and Continue"
-#    And I get the "EGMS ID"
-#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-#    And I click on "Save" in the page details
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I click on "Save" in the page details
 
   @34730 @programListView
   Scenario Outline: Verifying if the EXE,PM,PO has access to Internal Programs list view
@@ -2721,24 +2721,22 @@ Feature: Validate all scenarios for program
   Scenario Outline: To validate system generated error message, if Form Weight (%) :100% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Management Review form in Management Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :20% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for compliance Review form in SME Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :40% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Fiscal Review form in SME Review step in planning phase
-#    And I click on "Edit" in the page details
-#    When I enter "Edition" values from "Program_Field_Values.xlsx"
-#    And I click on "Save" in the page details
-#    When I navigate to "Overview" sub tab
-#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I navigate to url "https://test8-internal--qaorg.sandbox.lightning.force.com/lightning/r/Program__c/a3775000000LQJzAAO/view"
+    And I click on "Edit" in the page details
+    When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Setup" sub tab
-#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-#    When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-#    And I wait for "3" seconds
-#    When I click modal button "Close"
-#    When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
-#      | Step Name         | Step Weight (%) |
-#      | Management Review | 25              |
-#      | SME Review        | 75              |
-#      | Pre-Screen Review | 0               |
-    
+    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+    When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    And I wait for "3" seconds
+    When I click modal button "Close"
+    When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Step Name         | Step Weight (%) |
+      | Management Review | 25              |
+      | SME Review        | 75              |
+      | Pre-Screen Review | 0               |
     And I expand nested table containing column value "Management Review"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
