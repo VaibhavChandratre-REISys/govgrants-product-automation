@@ -2136,7 +2136,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @62966 @97938 @97976 @97966 @97942 @97917 @98482  @smoke @wip @poojaAmendmnetThird
+  @62966 @97938 @97976 @97966 @97942 @97917 @98482  @smoke @wip
   Scenario: Validate whether SR user can view the Risk Score which remained as is when Award Risk Assessment is copied to new created award when amendment type -  Terms and conditions amendment
     And I navigate to "Management" sub tab
     When I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
@@ -2544,7 +2544,7 @@ Feature: Validate all scenarios in the Amendment Request
       | {SavedValue:FD Username} | Step 4            |
     Then I softly see "Saved successfully!" inside flex table with id "---amendment:-:approversTableId---"
 
-  @148948 @verifyRemovalOfAddedApprover-TCAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird @wip @holdForNewStep
+  @148948 @verifyRemovalOfAddedApprover-TCAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird  @holdForNewStep
   Scenario: To verify user can remove the added approver on terms and condition amendment
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2559,9 +2559,9 @@ Feature: Validate all scenarios in the Amendment Request
     And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---amendment:-:approversTableId---"
     And I select value "{SavedValue:PM Username}" into field "name__r.name"
-    And I select value "Step 1" into field "AmendmentRequestRole__c"
+#    And I select value "Step 1" into field "AmendmentRequestRole__c"
 #    And I enter value "Step 1" into field "AmendmentRequestRole__c"
-    And I click on "Remove record" icon for "Step 1" inside table
+    And I click on "Remove record" icon for "NA" inside table
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:approversTableId---"
 
   @148947 @verifyUserNotAbleToSkipApprover-TCAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird
@@ -2635,7 +2635,7 @@ Feature: Validate all scenarios in the Amendment Request
       | {SavedValue:FD Username} | Step 4            |
     Then I softly see "Saved Successfully!" inside flex table with id "---amendment:-:fundingChangeApproversTableId---"
 
-  @149402 @verifyRemovalOfAddedApprover-BPCAmendmentRequest-RnRFuntionality @monu @poojaAmendmnetThird @wip @holdForNewStep
+  @149402 @verifyRemovalOfAddedApprover-BPCAmendmentRequest-RnRFuntionality @monu @poojaAmendmnetThird  @holdForNewStep
   Scenario: Verify user can remove the added approver on Budget Period Change amendment
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2788,7 +2788,7 @@ Feature: Validate all scenarios in the Amendment Request
       | {SavedValue:FD Username} | Step 4            |
     Then I softly see "Saved Successfully!" inside flex table with id "---amendment:-:approversTableId---"
 
-  @151385 @verifyRemovalOfAddedApprover-FundingChangeAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird @wip @holdForNewStep
+  @151385 @verifyRemovalOfAddedApprover-FundingChangeAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird  @holdForNewStep
   Scenario: To verify user can  remove the new added approver on funding change amendment
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"

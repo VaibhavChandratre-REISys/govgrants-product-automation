@@ -3955,7 +3955,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
@@ -6714,7 +6714,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
