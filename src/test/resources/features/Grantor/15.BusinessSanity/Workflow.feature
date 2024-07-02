@@ -1530,3 +1530,8 @@ Feature: Validate all scenarios of every modules flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Completed"
+
+  @debug @test
+  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
+    Given I am on "INTERNAL" portal
+    And I navigate to yopmail portal for "automationruntime82268@yopmail.com" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"

@@ -99,59 +99,20 @@ public class UsersAndURL implements UsersController {
     private String getTest8EnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
-            case "ADMIN":
-                password = "Salesforce@2033";
-                break;
-            case "ADMIN1":
-                password = "Salesforce@2033";
-                break;
             case "SPI3":
-                password = "Salesforce@2034";
-                break;
-            case "SA":
-                password = "Salesforce@2033";
-                break;
-            case "IND":
-                password = "Salesforce@2034";
-                break;
-            case "PM":
-                password = "Salesforce@2033";
-                break;
-            case "PM1":
-                password = "Salesforce@2033";
-                break;
-            case "PO1":
-                password = "Salesforce@2033";
-                break;
-            case "PO":
-                password = "Salesforce@2033";
-                break;
-            case "SPA":
-                password = "Salesforce@2033";
-                break;
-            case "FD":
-                password = "Salesforce@2033";
+                password = "Salesforce@2025";
                 break;
             case "EXE":
-                password = "Salesforce@2033";
-                break;
-            case "FD1":
-                password = "Salesforce@2033";
-                break;
-            case "FO1":
-                password = "Salesforce@2033";
-                break;
-            case "EXE1":
-                password = "Salesforce@2033";
+                password = "Salesforce@2025";
                 break;
             case "FO":
-                password = "Salesforce@2033";
+                password = "Salesforce@2025";
                 break;
-            case "AUDITOR":
-                password = "Salesforce@2033";
+            case "PM":
+                password = "Salesforce@2025";
                 break;
             default:
-                password = "Salesforce@2032";
+                password = "Salesforce@2024";
         }
         return password;
     }
@@ -255,25 +216,11 @@ public class UsersAndURL implements UsersController {
 
     private String getTest8EnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsautomation@yopmail.com");
-        username.put("ADMIN1", "manu.admin@ggp.test8");
-        username.put("EXE", "test@gmaildemo.com.atm");
-        username.put("PM", "donald_pm@ggp.test7.atm");
-        username.put("FO", "auto.fm@auto.com.atm");
-        username.put("SPA", "automation.spa@yopmail.com");
-        username.put("IND", "ind1.automation@yopmail.com");
-        username.put("SA", "automationspi1@yopmail.com");
-        username.put("SPI3", "automationspi30@yopmail.com");
-        username.put("AUDITOR", "test8.automationauditor@yopmail.com");
-        username.put("PO", "test8.automationpo@yopmail.com");
-        username.put("FD", "test8.automationfd@yopmail.com");
-        username.put("PM1", "test8.pm1.automation@yopmail.com");
-        username.put("EXE1", "test8.exe1.automation@yopmail.com");
-        username.put("FO1", "test8.fo1.automation@yopmail.com");
-        username.put("PO1", "test8.automationpo1@yopmail.com");
-        username.put("FD1", "test8.automationfd1@yopmail.com");
-        username.put("SME", "sme1@yopmail.com");
-        username.put("SARAH PM", "sarah.pm@ggp.test8");
+        username.put("ADMIN", "sumit.warke@reisystems.in.edudemoorg");
+        username.put("EXE", "john.rambo@mccs.com");
+        username.put("PM", "simon.barlow@mccs.com");
+        username.put("FO", "smith.daniel@mccs.com");
+        username.put("SPI3", "victoria.leeds@govgrants.com");
 
 
         if (userLevel.toUpperCase() != null) {

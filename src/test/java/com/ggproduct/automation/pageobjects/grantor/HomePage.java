@@ -38,7 +38,7 @@ public class HomePage extends GrantorProjectManager {
         I.amPerforming().browserOperationsTo().navigateToUrl("http://www.yopmail.com/");
         I.amPerforming().textInput().toClear(By.xpath("//input[@id='login' and @type='text']"));
         I.amPerforming().textInput().in(By.xpath("//input[@id='login' and @type='text']"), emailId);
-        I.amPerforming().click().on(By.xpath("//input[@type='submit']"));
+        I.amPerforming().click().on(By.xpath("//input[@type='submit'] | //button[@title='Check Inbox @yopmail.com']/i"));
         I.amPerforming().click().on(By.xpath("//div[@class='m']//div[@class='lms' and text()='" + subject + "']"));
         I.amPerforming().click().on(By.xpath("//span/a[text()='here']| //div[@id='mailctn']//a"));
     }
