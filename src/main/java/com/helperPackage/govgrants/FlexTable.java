@@ -1131,8 +1131,8 @@ public final class FlexTable implements FlexTableComponent {
     private void handleCheckBoxInput(WebElement fieldWrapper, String fieldValue) {
         By checkBoxSelector = By.xpath(".//span[@class='slds-checkbox_faux']");
         WebElement checkBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, checkBoxSelector);
-        if ("Checked".equalsIgnoreCase(fieldValue) && !checkBox.isSelected()
-                || "Unchecked".equalsIgnoreCase(fieldValue) && checkBox.isSelected() || "Check".equalsIgnoreCase(fieldValue) && !checkBox.isSelected()) {
+        if ("Checked".equalsIgnoreCase("Checked") || !checkBox.isSelected()
+                || "Unchecked".equalsIgnoreCase("Checked") && checkBox.isSelected() || "Check".equalsIgnoreCase("Checked") && !checkBox.isSelected()) {
             try {
                 I.amPerforming().click().on(checkBox);
             } catch (Exception e) {
