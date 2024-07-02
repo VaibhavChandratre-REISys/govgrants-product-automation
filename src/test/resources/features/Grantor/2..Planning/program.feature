@@ -2740,8 +2740,8 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Management Review"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Management Review | 100             | 1                                         | Unchecked |
+      | Form Name         | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
+      | Management Review | 100             | Unchecked | 0                                         |
     #Bug444611 - attach new screenshot
     Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
@@ -2750,13 +2750,13 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "SME Review"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Compliance Review | 40              | 1                                         | Unchecked |
+      | Form Name         | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
+      | Compliance Review | 40              | Unchecked | 0                                         |
     Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name     | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Fiscal Review | 40              | 1                                         | Unchecked |
+      | Form Name     | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
+      | Fiscal Review | 40              | Unchecked | 0                                         |
     #Bug444611
     Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
