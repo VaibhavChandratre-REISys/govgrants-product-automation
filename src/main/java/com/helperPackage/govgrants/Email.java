@@ -64,9 +64,9 @@ public class Email {
             String[] mailArray = mailid.split("@", 2);
             mailid=mailArray[0];
             I.amPerforming().browserOperationsTo().navigateToUrl("http://www.maildrop.cc/");
-            I.amPerforming().textInput().toClear(By.xpath("//div[contains(@class,'logotype')]/ancestor::div/following-sibling::div//input[@placeholder='view-this-inbox']"));
-            I.amPerforming().textInput().in(By.xpath("//div[contains(@class,'logotype')]/ancestor::div/following-sibling::div//input[@placeholder='view-this-inbox']"), mailid);
-            I.amPerforming().click().on(By.xpath("//div[contains(@class,'logotype')]/ancestor::div/following-sibling::div//button/span[text()='View Inbox']"));
+            I.amPerforming().textInput().toClear(By.xpath("//div[@id='navbar']//input[@placeholder='view-this-mailbox']"));
+            I.amPerforming().textInput().in(By.xpath("//div[@id='navbar']//input[@placeholder='view-this-mailbox']"), mailid);
+            I.amPerforming().click().on(By.xpath("//div[@id='navbar']//button[@type='submit']"));
         }else {
             I.amPerforming().browserOperationsTo().navigateToUrl("http://www.yopmail.com/en/");
             I.amPerforming().textInput().toClear(By.xpath("//input[@id='login']"));

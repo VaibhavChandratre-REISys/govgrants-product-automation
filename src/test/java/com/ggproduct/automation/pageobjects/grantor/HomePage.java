@@ -46,6 +46,20 @@ public class HomePage extends GrantorProjectManager {
     }
 
     /**
+     * handles yopmail portal emails notification
+     */
+    public void NavigateToMailDropPortalForWithSubject(String emailId, String subject) {
+        I.amPerforming().browserOperationsTo().navigateToUrl("http://www.maildrop.cc/");
+        I.amPerforming().textInput().toClear(By.xpath("//div[@id='navbar']//input[@placeholder='view-this-mailbox']"));
+        I.amPerforming().textInput().in(By.xpath("//div[@id='navbar']//input[@placeholder='view-this-mailbox']"), emailId);
+        I.amPerforming().click().on(By.xpath("//div[@id='navbar']//button[@type='submit']"));
+//        I.amPerforming().click().on(By.xpath("//div[@class='m']//div[@class='lms' and text()='" + subject + "']"));
+        I.amPerforming().waitFor().makeThreadSleep(10000);
+        I.amPerforming().switchTo().frame(By.xpath("//iframe"));
+        I.amPerforming().click().withJavaScript(By.xpath("//body//tr//a[text()='here']"));
+    }
+
+    /**
      * @param tabName - Main tab name
      * @param tableID - pending task table ID
      * @return - count of total records available in pending task

@@ -8,7 +8,7 @@ Feature: Validate all scenarios for SME Registration
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"
     And I enter in modal "smeReviewerRegistration" values from "Registration_Field_Values.xlsx"
-    And I generate the random EmailID and save as "uniqueEmailID"
+    And I generate the random EmailID and save as "uniqueEmailID" for maildrop
     And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
     And I click modal button "Save"
     And I wait for "4" seconds
@@ -18,7 +18,7 @@ Feature: Validate all scenarios for SME Registration
     And I click "Send" button in modal
     And I wait for "3" seconds
     And I pause execution for "180" seconds
-    And I navigate to yopmail portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
     #34840 #monu
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
