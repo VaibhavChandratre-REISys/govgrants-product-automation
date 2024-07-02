@@ -54,6 +54,13 @@ public class RegistrationSteps {
             I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, randomNumbers);
     }
 
+    @And("I generate the random (EmailID) and save as \"([^\"]*)\" for maildrop$")
+    public void iGenerateTheRandomEmailIDAndSaveAsForMaildrop(String usage, String fieldKey) {
+        String randomNumbers = String.valueOf(I.amPerforming().addOnsTo().getRandomNumber()).substring(0, 5);
+        if (usage.equalsIgnoreCase("EmailID"))
+            I.amPerforming().propertiesFileOperationsTo().saveValue(fieldKey, ("AutomationRuntime" + randomNumbers + "@maildrop.cc"));
+    }
+
     @And("I navigate to reset password link")
     public void iNavigateToResetPasswordPage() {
         registrationPage.iNavigateToResetPasswordLink();
