@@ -162,6 +162,9 @@ public class ProjectWebServices {
         } else if (EnvironmentFactory.getEnvironmentName().contains("TEST8"))
             defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG90D5vR7Utjboc8b3nxgWl_TIAtGV_TgV2OQsaOZNGnhetFSjnMGSvL67KfRN99.Z0ne32YZHHlzdyCb_a&client_secret=F1F4C218C1E6AB1ECA2DD46CDCFB204D66FCEFA2DB939003C5C4B207DAF0A736&username=govgrantsautomation@yopmail.com&password=Salesforce@2031";
 
+        else if (EnvironmentFactory.getEnvironmentName().contains("FWLWC")) {
+            defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_secret=602E8F44B6C42A0E40F434DB9C13C76E96DAF72BC651559C967C35197C33FC5D&client_id=3MVG9Yb5IgqnkB4rr0P0YQvg0Nymcbc7DCffD9_vjpZ90gBaQtGkocMDwffuCUs5SmuyOWffhq2.zDgQEYDII&username=govgrantsautomation@yopmail.com.frwklwcaut&password=FwLwc@02July";
+        }
         else if (EnvironmentFactory.getEnvironmentName().contains("PROLWC"))
             defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG90D5vR7Utjboc8b3nxgWl_TIAtGV_TgV2OQsaOZNGnhetFSjnMGSvL67KfRN99.Z0ne32YZHHlzdyCb_a&client_secret=F1F4C218C1E6AB1ECA2DD46CDCFB204D66FCEFA2DB939003C5C4B207DAF0A736&username=govgrantsautomation@yopmail.com.prolwcut&password=Salesforce2036";
 
