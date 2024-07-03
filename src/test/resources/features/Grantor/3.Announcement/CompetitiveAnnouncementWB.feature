@@ -458,6 +458,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:FO Username} |
+    And I refresh the page
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -1227,7 +1228,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "View" icon for "<Application2>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I save the field labeled "EGMS ID" as "App1EgmdId"
     And I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "<Announcement Name>" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     And I navigate to "Related Log" sub tab
@@ -1304,7 +1305,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "<Announcement Name>" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     And I navigate to "Related Log" sub tab
@@ -1338,7 +1339,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click alert button "OK"
     And I wait for "5" seconds
     And I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "<Announcement Name>" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     And I navigate to "Related Log" sub tab
@@ -1522,7 +1523,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "<Announcement Name>" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     And I navigate to "Related Log" sub tab
@@ -1558,7 +1559,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
-    And I click toggle button to select "All Announcements"
+    And I click toggle button to select "Announcements - All"
     When I perform quick search for "<Announcement Name>" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     And I navigate to "Related Log" sub tab

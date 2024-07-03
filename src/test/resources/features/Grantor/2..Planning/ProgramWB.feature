@@ -2314,7 +2314,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Responsibilities" sub tab
+     And I click modal button "Close"
+     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name          | Program |
       | Automation PM | NA      |
@@ -2340,7 +2341,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Responsibilities" sub tab
+     And I click modal button "Close"
+     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name          | Program |
       | Automation PM | NA      |
@@ -2366,7 +2368,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Responsibilities" sub tab
+     And I click modal button "Close"
+     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name          | Program |
       | Automation PM | NA      |
@@ -2394,9 +2397,7 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
-     And I navigate to "Home" tab
-     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-     When I reassign task to "Automation PM"
+    And I refresh the page
     And I enter advance filter values inside id "---program:-:grantorTaskReassignTableId---" for LWC
       | EGMS ID | contains | {SavedValue:ProgramEGMSID1} |
     And I pause execution for "5" seconds
@@ -2407,9 +2408,7 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID1}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
-     And I navigate to "Home" tab
-     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-     When I reassign task to "Automation PM"
+     And I refresh the page
     And I click on advance filter of table id "---program:-:grantorTaskReassignTableId---" for LWC
     And I enter advance filter values inside id "---program:-:grantorTaskReassignTableId---" for LWC
       | EGMS ID | contains | {SavedValue:ProgramEGMSID2} |
