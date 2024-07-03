@@ -2744,7 +2744,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @t1 @debug @77418 @77422 @77421 @ValidatingErrorMessageInManagamentComplianceFiscalReviewForm @keerti
+  @t1 @77418 @77422 @77421 @ValidatingErrorMessageInManagamentComplianceFiscalReviewForm @keerti
   Scenario Outline: To validate system generated error message, if Form Weight (%) :100% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Management Review form in Management Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :20% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for compliance Review form in SME Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :40% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Fiscal Review form in SME Review step in planning phase
