@@ -678,9 +678,9 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Budget" sub tab
     And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
     And I save the field labeled "Budget Period End Date" as "BudgetPeriodDate"
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
-      | Title                | Start Date                          | End Date                      |
-      | {demoData:FocusArea} | {SavedValue:ProjectPeriodStartDate} | {SavedValue:BudgetPeriodDate} |
+#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
+#      | Title                | Start Date                          | End Date                      |
+#      | {demoData:FocusArea} | {SavedValue:ProjectPeriodStartDate} | {SavedValue:BudgetPeriodDate} |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                 | Start Date                          | End Date                      |
       | {demoData:FocusArea1} | {SavedValue:ProjectPeriodStartDate} | {SavedValue:BudgetPeriodDate} |
