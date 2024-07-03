@@ -3,16 +3,15 @@ Feature: Validate all scenarios for program
 
   Background: Create Program
     When I login to "As a Grantor" app as "dynamicUser" user
-#    And I navigate to "Planning" tab
-#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-#    And I click toggle button to select "Internal Programs - Draft"
-#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-#    And I click modal button "Save and Continue"
-#    And I get the "EGMS ID"
-#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-#    And I click on "Save" in the page details
-    And I navigate to url "https://test8-internal--qaorg.sandbox.lightning.force.com/lightning/r/Program__c/a3775000000LQJzAAO/view"
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I click on "Save" in the page details
 
   @34730 @programListView
   Scenario Outline: Verifying if the EXE,PM,PO has access to Internal Programs list view
