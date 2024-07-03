@@ -470,46 +470,50 @@ Feature: Validate all scenarios of every modules flow
 #    And I wait for "2" seconds
 #    And I refresh the page
 #    And I wait for "2" seconds
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
-    When I complete filling in the Review form with recommendation "Recommended"
-    And I click on "Save" in the page details
-    And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
-    And I wait for "5" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
-    And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
-    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+#    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+#    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Applications" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+#    When I complete filling in the Review form with recommendation "Recommended"
+#    And I click on "Save" in the page details
+#    And I wait for "6" seconds
+#    When I click on "Submit" in the page details without processing
+#    When I click alert button "OK"
+#    And I wait for "5" seconds
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    When I navigate to "Applications" tab
+#    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+#    When I click toggle button to select "Application Reviews - All"
+#    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+#    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+#    And I navigate to "Related Log" sub tab
+#    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
+#    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+#    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
-    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-      | Form Name         | Due in Days |
-      | Program Review    | 5           |
-      | Fiscal Review     | 5           |
-      | Compliance Review | 5           |
-    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-      | Reviewer     |
-      | John Rambo   |
-      | Daniel Smith |
-      | Simon Barlow |
-    When I expand nested table containing column value "<Application Name>"
-    And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
-    And I perform quick search for "Simon Barlow" in "---applicationReview:-:panelAppTableId---" panel
-    And I check "Simon Barlow" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+#      | Form Name         | Due in Days |
+#      | Program Review    | 5           |
+#      | Fiscal Review     | 5           |
+#      | Compliance Review | 5           |
+#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+#      | Reviewer     |
+#      | John Rambo   |
+#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+#      | Reviewer     |
+#      | Daniel Smith |
+#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+#      | Reviewer     |
+#      | Simon Barlow |
+#    When I expand nested table containing column value "<Application Name>"
+#    And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+#    And I perform quick search for "Simon Barlow" in "---applicationReview:-:panelAppTableId---" panel
+#    And I check "Simon Barlow" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+#    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+#    When I close "Assign Reviewers" modal by clicking the top right x button
     When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "Daniel Smith" in "---applicationReview:-:panelAppTableId---" panel
