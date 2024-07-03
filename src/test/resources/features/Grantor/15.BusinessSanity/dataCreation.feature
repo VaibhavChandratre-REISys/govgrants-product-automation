@@ -313,41 +313,36 @@ Feature: Validate all scenarios of every modules flow
   Scenario:
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
-#    When I navigate to "Opportunities" tab
-#    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-#    When I click toggle button to select "Not Yet Qualified Opportunities - All"
-#    And I perform quick search for "Department of Health" in "---preApplication:-:notYetQualifiedTable---" panel
-#    When I click on "View" icon for "Department of Health" inside table
-#    When I click on "Qualify" in the page details
-#    And I click on "Create Pre-Application" in the page details
-#    When I click modal button "Save and Continue"
-#    And I get the "EGMS ID"
-#    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-    When I navigate to "Applications" tab
-    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Pre-Applications - Draft"
-    And I perform quick search for "Department of Health" in "RecipientPreApplications" panel
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "Department of Health" in "---preApplication:-:notYetQualifiedTable---" panel
     When I click on "View" icon for "Department of Health" inside table
-#    And I navigate to "Forms and Files" sub tab
-#    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
-#    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    And I click on "Back" in the page details
-#    And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
-#    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-#    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "Add" :
-#      | Title           | Description           |
-#      | Pre-Application | Pre-Application Notes |
-#    And I navigate to "Collab" sub tab
-#    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
-#    And I send the email under collab tab with following details:
-#      | To                              | Subject              | Body                      |
-#      | internal.user.product@gmail.com | Department Education | Department Education Body |
-#    When I navigate to "Overview" sub tab
-#    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-#      | Name           | Project Role             | Is Key Contact |
-#      | Victoria Leeds | Project Director/Manager | Checked        |
+    When I click on "Qualify" in the page details
+    And I click on "Create Pre-Application" in the page details
+    When I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I click on "Back" in the page details
+    And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "Add" :
+      | Title           | Description           |
+      | Pre-Application | Pre-Application Notes |
+    And I navigate to "Collab" sub tab
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To                              | Subject              | Body                      |
+      | internal.user.product@gmail.com | Department Education | Department Education Body |
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name           | Project Role             | Is Key Contact |
+      | Victoria Leeds | Project Director/Manager | Checked        |
     When I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
@@ -394,19 +389,19 @@ Feature: Validate all scenarios of every modules flow
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 2000   | 200        | 200            |
+      | Construction  | 5000   | 500        | 500            |
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name                      | Budget | Cash Match | Non-Cash Match |
-      | Architectural and engineering fees | 2000   | 200        | 200            |
+      | Architectural and engineering fees | 5000   | 500        | 500            |
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Equipment     | 2000   | 200        | 200            |
+      | Equipment     | 5000   | 500        | 500            |
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name                     | Budget | Cash Match | Non-Cash Match |
-      | Administrative and legal expenses | 2000   | 200        | 200            |
+      | Administrative and legal expenses | 5000   | 500        | 500            |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                 | Target |
