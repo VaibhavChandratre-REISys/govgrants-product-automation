@@ -15,6 +15,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     When I hovering mouse on help text icon inside page block detail "Applicants"
+    And I wait for "2" seconds
     Then I softly see "Verify that all invited applicants are eligible to submit an application based on the eligibility criteria associated with this announcement" shown as help text
     #219166
     Then I softly see "Focus Areas" page block displayed
@@ -204,8 +205,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:directedAddInviteApplicantTableId---" panel
     And I wait for "2" seconds
     Then I see the following rows under the following headers in table with id "---announcement:-:directedAddInviteApplicantTableId---" :
-    | EGMS ID                | Organization                        | Organization Type        |
-    | RG-001298              | SAN DIEGO ELECTRICAL TRAINING TRUST | For-profit organizations |
+    | EGMS ID                | *Organization                        | Organization Type        |
+    | RG-001298              | SAN DIEGO ELECTRICAL TRAINING TRUST  | For-profit organizations |
     And I wait for "3" seconds
     #219104
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
@@ -286,13 +287,13 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     And I navigate to "Financials" sub tab
     Then I softly can see page block "Budget Summary"
-    Then I softly cannot see page block "Financial Details"
+    Then I softly do not see "Financial Details" page block displayed
     Then I softly see field "Subaward Floor" inside page block
     Then I softly see field "Subaward Ceiling" inside page block
     When I click on "Qualify" in the page details
     And I navigate to "Financials" sub tab
     Then I softly can see page block "Budget Summary"
-    Then I softly cannot see page block "Financial Details"
+    Then I softly do not see "Financial Details" page block displayed
     Then I softly see field "Subaward Floor" inside page block
     Then I softly see field "Subaward Ceiling" inside page block
     And I navigate to "Opportunities" tab
@@ -301,7 +302,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:qualifiedTableId---" without waiting for record
     And I navigate to "Financials" sub tab
     Then I softly can see page block "Budget Summary"
-    Then I softly cannot see page block "Financial Details"
+    Then I softly do not see "Financial Details" page block displayed
     Then I softly see field "Subaward Floor" inside page block
     Then I softly see field "Subaward Ceiling" inside page block
     Examples:
@@ -318,14 +319,14 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationReview:-:reviewsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     And I navigate to "Financials" sub tab
-    Then I softly can see page block "Budget Summary"
-    Then I softly cannot see page block "Financial Details"
+    Then I softly see "Budget Summary" page block displayed
+    Then I softly do not see "Financial Details" page block displayed
     Then I softly see field "Subaward Floor" inside page block
     Then I softly see field "Subaward Ceiling" inside page block
     When I click on "Qualify" in the page details
     And I navigate to "Financials" sub tab
     Then I softly can see page block "Budget Summary"
-    Then I softly cannot see page block "Financial Details"
+    Then I softly do not see "Financial Details" page block displayed
     Then I softly see field "Subaward Floor" inside page block
     Then I softly see field "Subaward Ceiling" inside page block
     And I navigate to "Opportunities" tab
@@ -334,7 +335,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationIntake:-:qualifiedTableId---" without waiting for record
     And I navigate to "Financials" sub tab
     Then I softly can see page block "Budget Summary"
-    Then I softly cannot see page block "Financial Details"
+    Then I softly do not see "Financial Details" page block displayed
     Then I softly see field "Subaward Floor" inside page block
     Then I softly see field "Subaward Ceiling" inside page block
     Examples:
@@ -909,6 +910,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:FO Username} |
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -1273,6 +1276,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:FO Username} |
+    And I refresh the page
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -1629,7 +1633,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AppEgmdId"
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1726,6 +1730,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:FO Username} |
+    And I refresh the page
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -2775,6 +2780,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I navigate to "Overview" sub tab
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
       | EGMS ID | Applicants | Application EGMS ID | Application Status | Last Updated By | Last Updated |
+    And I wait for "5" seconds
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Directed Announcements"
