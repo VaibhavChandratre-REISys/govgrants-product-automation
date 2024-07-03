@@ -1014,7 +1014,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
 
-  @hitTest @195273 @195278 @195277 @Validateuserclickontransferbuttonusershouldgetfollowingwarningmessage @sprint-4 @vaibhav @reassignment @ProgramExcludeScenarios
+  @195273 @195278 @195277 @Validateuserclickontransferbuttonusershouldgetfollowingwarningmessage @sprint-4 @vaibhav @reassignment @ProgramExcludeScenarios
   Scenario: Validate user click on transfer button user should  get following warning message
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -2298,7 +2298,7 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
 
-   @hitTest @197549 @ValidateownershiptasksareroutedtoretainedbyappropriateuserwhentaskshavingdifferentpurposearereassignedsimultaneouslytoanotherPMuserfor3differentexternalprograms @sprint-4 @vaibhav @reassignment @taskreassign @ProgramExcludeScenarios
+   @197549 @ValidateownershiptasksareroutedtoretainedbyappropriateuserwhentaskshavingdifferentpurposearereassignedsimultaneouslytoanotherPMuserfor3differentexternalprograms @sprint-4 @vaibhav @reassignment @taskreassign @ProgramExcludeScenarios
   Scenario: Validate ownership & tasks are routed to retained by appropriate user when tasks having different purpose are reassigned simultaneously to another PM user for 3 different external programs
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2895,7 +2895,7 @@ Feature: Validate all scenarios for program
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     Then I do not see "Cancel" button is disabled at modal under library
 
-  @hitTest @198791 @ValidateemailnotificationregardingReviewcompletionoftheinternalprogramissenttothenewowneruponreviewcompletionwhenownershipistransferredforPrograminSubmittedforReviewstate @sprint-5-US-195182 @vaibhav @reassignment @buglogged-199105 @ProgramExcludeScenarios
+  @198791 @ValidateemailnotificationregardingReviewcompletionoftheinternalprogramissenttothenewowneruponreviewcompletionwhenownershipistransferredforPrograminSubmittedforReviewstate @sprint-5-US-195182 @vaibhav @reassignment @buglogged-199105 @ProgramExcludeScenarios
   Scenario: Validate email notification regarding Review completion of the internal program is sent to the new owner upon review completion when ownership is transferred for a Program in Submitted for Review state
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -5650,7 +5650,7 @@ Feature: Validate all scenarios for program
       """
 
 
-  @hitTest @224336 @ValidateInternalProgapprovershouldabletoapproveprogramafterreassigntheforwardedapprovaltasktootherapprover @sprint-11-US-218319 @vaibhav @reassignment @ProgramExcludeScenarios
+  @224336 @ValidateInternalProgapprovershouldabletoapproveprogramafterreassigntheforwardedapprovaltasktootherapprover @sprint-11-US-218319 @vaibhav @reassignment @ProgramExcludeScenarios
   Scenario: Validate Internal Prog approver should able to approve program after reassign the forwarded approval task to other approver
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
