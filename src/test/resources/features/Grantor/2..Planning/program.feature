@@ -1082,7 +1082,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details :
       | Setup Tab - Management Review - Management Review: At least one section must be added to this form. |
 
-  @t1 @34750 @106291 @110156 @110141 @submittingProgramForApproval @monu @FieldHistoryExclude
+  @34750 @106291 @110156 @110141 @submittingProgramForApproval @monu @FieldHistoryExclude
   Scenario: Validate the submission of Program for Approval
     And I wait for "5" seconds
     And I click on "Edit" in the page details
@@ -1629,7 +1629,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Management Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
 
-  @t1 @76478 @PrescreenReviewPanelCategoriesWithoutAssociated @keerti
+  @76478 @PrescreenReviewPanelCategoriesWithoutAssociated @keerti
   Scenario Outline: To validate system generated error message,for Prescreen Review form, If Review Panel Categories not associated with review question in  Prescreening review step of setup tab in planing
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -2089,13 +2089,13 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name  | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Pre-Screen | 100             | Checked   | 1                                         |
+      | Pre-Screen | 100             | Check     | 1                                         |
     And I collapse nested table containing column value "Pre-Screen Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 10.00%          | 1                                         | Checked   |
+      | Pre-Screen | 10.00%          | 1                                         | Check     |
     And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
@@ -2768,7 +2768,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Management Review | 100             | Unchecked | 0                                         |
+      | Management Review | 100             | Unchecked | 1                                         |
     #Bug444611 - attach new screenshot
     Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
@@ -2778,12 +2778,12 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Compliance Review | 40              | Unchecked | 0                                         |
+      | Compliance Review | 40              | Unchecked | 1                                         |
     Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Fiscal Review | 40              | Unchecked | 0                                         |
+      | Fiscal Review | 40              | Unchecked | 1                                         |
     #Bug444611
     Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
@@ -2935,8 +2935,8 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 25              |
     And I expand nested table containing column value "Management Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Management Review | 0               | 0                                         | Unchecked |
+      | Form Name         | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
+      | Management Review | 0               | Unchecked | 0                                         |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
@@ -3141,8 +3141,8 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 25              |
     And I expand nested table containing column value "Management Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Management Review | 0               | 1                                         | Unchecked |
+      | Form Name         | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
+      | Management Review | 0               | Unchecked | 1                                         |
     Then I softly see the following messages in the page details contains:
       | Reviewers are not required for optional panels |
     Examples:
@@ -3623,7 +3623,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @t1 @77805 @77806 @validatingErrorMessagePrescreeningReviewForm @keerti
+  @77805 @77806 @validatingErrorMessagePrescreeningReviewForm @keerti
   Scenario Outline: To validate system generated error message, Max score set as 0 on all questions and weight as 60% on Review Panel Categories of "Completeness" under prescreening review form of the prescreening reviews steps of setup tab of planning phase.
   | To validate system generated error message, Max score set as 0 on all questions and weight as 60% on Review Panel Categories of "Eligibility" under prescreening review form of the prescreening reviews steps of setup tab of planning phase.
     And I click on "Edit" in the page details
@@ -4091,7 +4091,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @t1 @77403 @validatingSMEReviewFormQuestionsForMatchReviewPanel @meenakshi
+  @77403 @validatingSMEReviewFormQuestionsForMatchReviewPanel @meenakshi
   Scenario: To validate system generated validation message, When Max score:0, for all review questions under the Capability review panel categories and  Weight is present, in program review form of SME review steps in planning phase
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -4140,8 +4140,8 @@ Feature: Validate all scenarios for program
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     #Bug445204
     Then I softly see the following messages in the page details contains:
-  |Setup Tab - SME Review - Fiscal Review: A score must be associated to at least one question in the Match section because it is weighted.|
-  |Setup Tab - SME Review - Fiscal Review: The total section weight must equal 100% or 0%. It is currently 115%.                           |
+      | Setup Tab - SME Review - Fiscal Review: A score must be associated to at least one question in the Match section because it is weighted. |
+      | Setup Tab - SME Review - Fiscal Review: The total section weight must equal 100% or 0%. It is currently 115%.                            |
 
   @77404 @validatingSMEReviewFormQuestions-ForProgramIncomeReviewPanel @monu @needToCheckErrorMessage
   Scenario: To validate system generated validation message, When Max score:0, for all review questions under the Program Income review panel categories and  Weight is present, in program review form of SME review steps in planning phase
@@ -5534,7 +5534,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @t1 @80051 @38864 @76503 @76946 @77105 @validatingComplianceReviewFormQuestionsInSMEReview @meenakshi
+  @80051 @38864 @76503 @76946 @77105 @validatingComplianceReviewFormQuestionsInSMEReview @meenakshi
   Scenario: To verify,review question displayed by default for all review panel categories for Compliance Review review form in SME review step of planning phase
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
