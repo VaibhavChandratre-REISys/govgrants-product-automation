@@ -443,13 +443,13 @@ Feature: Validate all scenarios of every modules flow
 #    And I pause execution for "5" seconds
 #    When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
 #    And I pause execution for "5" seconds
-#    When I navigate to "Applications" tab
-#    And I navigate to "Applications" content inside "Applications" subheader on left panel
-#    When I click toggle button to select "Applications - All"
-#    And I perform quick search for "<Application Name>"
-#    When I click on "View" icon for "<Application Name>" inside table
-#    And I get the "EGMS ID"
-#    And I pause execution for "8" seconds
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "<Application Name>"
+    When I click on "View" icon for "<Application Name>" inside table
+    And I get the "EGMS ID"
+    And I pause execution for "8" seconds
 #    When I navigate to "Applications" tab
 #    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
 #    When I click toggle button to select "Application Reviews - All"
