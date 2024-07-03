@@ -101,7 +101,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "{SavedValue:AnnEgmsId}" in "---announcement:-:formulaAnnouncementTableId---" panel
     Then I softly cannot see row level action button "Delete" against "{SavedValue:AnnEgmsId}" in flex table with id "---announcement:-:formulaAnnouncementTableId---"
 
-  @70613 @70677 @announcementWithBlankBudgetPeriodFA
+  @hitTest1 @70613 @70677 @announcementWithBlankBudgetPeriodFA
   Scenario: Validate that user should not submit announcement with blank budget period dates | To verify that if announcement type is -Formula then user can remove applicant organization in Invited Applicants section while creating the  Announcement
     And I wait for "7" seconds
     And I click on "Edit" in the page details
@@ -167,7 +167,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following messages in the page details :
       | Financial Tab - There should be no gap between the dates. Enter the correct Budget Periods Start Dates and End Dates. |
 
-  @announcementApprovalFA @announcementPendingTaskPostApprovalFA @announcementCompletedTaskPostApprovalFA
+  @hitTest1 @announcementApprovalFA @announcementPendingTaskPostApprovalFA @announcementCompletedTaskPostApprovalFA
   Scenario: Validate that after approval of an Announcement task get added to its completed task table. || Validate the approval of an Announcement||Validate that after approval of an Announcement task get deleted from pending task table.
     When I click on "Edit" in the page details
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
@@ -246,7 +246,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @announcementSendBackToOwnerFA @announcementPostSendBackCheckFieldHistoryFA @announcementSendBackPendingTaskToOwnerFA @smoke
+  @hitTest1 @announcementSendBackToOwnerFA @announcementPostSendBackCheckFieldHistoryFA @announcementSendBackPendingTaskToOwnerFA @smoke
   Scenario: Validate the send back functionality of an Announcement || Validate that after send back from approvers owner should not get pending task
     When I click on "Edit" in the page details
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"

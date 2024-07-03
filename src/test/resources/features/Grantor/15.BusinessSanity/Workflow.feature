@@ -1563,8 +1563,8 @@ Feature: Validate all scenarios of every modules flow
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I perform quick search for "AP-TAO modified-421" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "AP-TAO modified-421" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
