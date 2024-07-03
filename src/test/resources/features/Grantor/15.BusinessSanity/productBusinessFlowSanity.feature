@@ -1115,8 +1115,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "10" seconds
     When I click modal button "Save and Continue"
+    And I wait for "10" seconds
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1161,9 +1162,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "10" seconds
     And I click modal button "Save and Continue"
-    And I wait for "2" seconds
+    And I wait for "10" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     And I navigate to "Overview" sub tab
     And I enter value "VA" into field "Addressline1__c"
