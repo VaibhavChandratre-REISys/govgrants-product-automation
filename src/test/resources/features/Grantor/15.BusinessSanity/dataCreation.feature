@@ -449,6 +449,8 @@ Feature: Validate all scenarios of every modules flow
     And I perform quick search for "<Application Name>"
     When I click on "View" icon for "<Application Name>" inside table
     And I get the "EGMS ID"
+    And I pause execution for "5" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
