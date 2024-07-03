@@ -348,7 +348,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
 #      | Name           | Project Role             | Is Key Contact |
 #      | Victoria Leeds | Project Director/Manager | Checked        |
-#    When I navigate to "Budget" sub tab
+    When I navigate to "Budget" sub tab
 #    Given I expand nested table containing column value "BP01"
 #    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
 #      | Category Name | Budget | Cash Match | Non-Cash Match |
@@ -618,7 +618,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title    | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
-      | Department of Health | 5000               | Yes                   | Recommended | 5000                    |
+      | Department of Health | 2000               | Yes                   | Recommended | 2000                    |
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
