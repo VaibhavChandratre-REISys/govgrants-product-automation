@@ -126,16 +126,16 @@ Feature: Validate all scenarios of every modules flow
       | Daniel Smith | Step 2  |
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Department Of Money Education" in the table "---program:-:associateFocusAreaTableId---"
+    When I click "Associate" after selection of "{demoData:FocusArea}" in the table "---program:-:associateFocusAreaTableId---"
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Department Of Education" in the table "---program:-:associateFocusAreaTableId---"
+    When I click "Associate" after selection of "{demoData:FocusArea1}" in the table "---program:-:associateFocusAreaTableId---"
     When I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Plan for Health" in the table "---program:-:associateObjectivesTableId---"
+    When I click "Associate" after selection of "{demoData:Objectives}" in the table "---program:-:associateObjectivesTableId---"
     When I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Department of Education" in the table "---program:-:associateKPITableId---"
+    When I click "Associate" after selection of "{demoData:KPI}" in the table "---program:-:associateKPITableId---"
     When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
-      | Description                  | Required | Applies To  | Status |
-      | Departmental Suapporting Doc | Optional | Application | Active |
+      | Description                 | Required | Applies To  | Status |
+      | Departmental Supporting Doc | Optional | Application | Active |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
       | Reviewer Name | Responsibility  | Description              | Due Date | Allow Record Editing |
@@ -217,12 +217,12 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
+    When I click "Associate" after selection of "{demoData:FundingAccountName}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 10000           |
+      | {demoData:FundingAccountId} | 10000           |
     When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
@@ -316,8 +316,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I perform quick search for "Department of Health" in "---preApplication:-:notYetQualifiedTable---" panel
-    When I click on "View" icon for "Department of Health" inside table
+    And I perform quick search for "{demoData:AnnouncementName}" in "---preApplication:-:notYetQualifiedTable---" panel
+    When I click on "View" icon for "{demoData:AnnouncementName}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
@@ -379,8 +379,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - Submitted"
-    And I perform quick search for "Department of Health" in "RecipientPreApplications" panel
-    When I click on "View" icon for "Department of Health" inside table
+    And I perform quick search for "{demoData:PreApplicationName}" in "RecipientPreApplications" panel
+    When I click on "View" icon for "{demoData:PreApplicationName}" inside table
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -614,8 +614,8 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "flexGridFundingDecisionMemoApplications" by clicking "Edit" :
-      | Application Title    | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
-      | Department of Health | 2000               | Yes                   | Recommended | 2000                    |
+      | Application Title   | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
+      | <Announcement Name> | 2000               | Yes                   | Recommended | 2000                    |
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
@@ -639,8 +639,8 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Approved"
 
     Examples:
-      | Announcement Name    | Application Name     |
-      | Department of Health | Department of Health |
+      | Announcement Name           | Application Name           |
+      | {demoData:AnnouncementName} | {demoData:ApplicationName} |
 
   @AwardDemoData
   Scenario:
@@ -648,9 +648,9 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
-    When I perform quick search for "Department of Health" in "---subAwardFromFDM:-:fdmTableId---" panel
-    And I click on "View" icon for "Department of Health" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
-    And I click on "Create Subaward" icon for "Department of Health" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    When I perform quick search for "{demoData:AnnouncementName}" in "---subAwardFromFDM:-:fdmTableId---" panel
+    And I click on "View" icon for "{demoData:AnnouncementName}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
+    And I click on "Create Subaward" icon for "{demoData:AnnouncementName}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "8" seconds
     And I enter value "Department of Education Description" into field "fieldGrantAwardDescription__c"
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -662,14 +662,14 @@ Feature: Validate all scenarios of every modules flow
     And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
     And I save the field labeled "Budget Period End Date" as "BudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
-      | Title                   | Start Date                          | End Date                      |
-      | Department Of Education | {SavedValue:ProjectPeriodStartDate} | {SavedValue:BudgetPeriodDate} |
+      | Title                | Start Date                          | End Date                      |
+      | {demoData:FocusArea} | {SavedValue:ProjectPeriodStartDate} | {SavedValue:BudgetPeriodDate} |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
-      | Title                         | Start Date                          | End Date                      |
-      | Department Of Money Education | {SavedValue:ProjectPeriodStartDate} | {SavedValue:BudgetPeriodDate} |
+      | Title                 | Start Date                          | End Date                      |
+      | {demoData:FocusArea1} | {SavedValue:ProjectPeriodStartDate} | {SavedValue:BudgetPeriodDate} |
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
-      | {SavedValue:fundingAccount} | 20000       |
+      | {demoData:FundingAccountId} | 20000       |
     When I navigate to "Overview" sub tab
 #    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
 #      | Name                       | Project Role             | Is Key Personnel |
@@ -677,8 +677,8 @@ Feature: Validate all scenarios of every modules flow
 #    And I click on "Remove" icon for "Project Director/Manager" inside flex table with id "---subAwardFromFDM:-:associateContactTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
-      | Title                   | Target |
-      | Department of Education | 10     |
+      | Title          | Target |
+      | {demoData:KPI} | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
     And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
@@ -783,14 +783,14 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "Department of Health" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "Department of Health" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    When I perform quick search for "{demoData:Subawardname}" in "---paymentRequest:-:recipientGrantTableId---" panel
+    And I click on "View" icon for "{demoData:Subawardname}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "Department of Health" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+    And I click on "View" icon for "{demoData:Subawardname}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
-    When I enter value "Department of Health" into field "Title__c"
+    When I enter value "{demoData:PaymentRequestTitle}" into field "Title__c"
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -843,8 +843,8 @@ Feature: Validate all scenarios of every modules flow
 
   @ProgressReportDemo
   Scenario:
-    Given I delete the record "Department of Health" from the object "Progress Report"
-    When I create a post award record "ProgressReport" for the Award "Department of Health" having object api name as "ProgressReports__c"
+    Given I delete the record "{demoData:Subawardname}" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "{demoData:Subawardname}" having object api name as "ProgressReports__c"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Monitoring" tab
@@ -912,10 +912,10 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    And I perform quick search for "Department of Health" in "GrantorActiveGrantsgrid" panel
-    And I click on "View" icon for "Department of Health" inside flex table with id "GrantorActiveGrantsgrid"
+    And I perform quick search for "{demoData:Subawardname}" in "GrantorActiveGrantsgrid" panel
+    And I click on "View" icon for "{demoData:Subawardname}" inside flex table with id "GrantorActiveGrantsgrid"
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "Department of Health" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
+    And I click on "View" icon for "{demoData:Subawardname}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
     And I pause execution for "4" seconds
@@ -1013,10 +1013,10 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award Desk Review}" in "---deskreview:-:internalActiveGrants---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalActiveGrants---"
+    When I perform quick search for "{demoData:Subawardname}" in "---deskreview:-:internalActiveGrants---" panel
+    And I click on "View" icon for "{demoData:Subawardname}" inside flex table with id "---deskreview:-:internalActiveGrants---"
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
+    And I click on "View" icon for "{demoData:Subawardname}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
     Given I navigate to "Management" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---deskreview:-:managementInitiateDRtableid---"
     And I enter "Creation" values from "DeskReview_Field_Values.xlsx"
@@ -1112,8 +1112,8 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Grants" tab
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "Department of Health" in "---subAwardStandAlone:-:SubAwardTableId---" panel
-    And I click on "View" icon for "Department of Health" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+    When I perform quick search for "{demoData:Subawardname}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
+    And I click on "View" icon for "{demoData:Subawardname}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
