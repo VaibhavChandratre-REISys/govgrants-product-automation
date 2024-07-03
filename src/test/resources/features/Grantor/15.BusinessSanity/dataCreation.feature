@@ -667,7 +667,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I click on "Save" in the page details
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
+    And I click toggle button to select "Grant - All"
     When I perform quick search for "{demoData:AnnouncementName}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{demoData:AnnouncementName}" inside table
     When I navigate to "Subawards" sub tab
