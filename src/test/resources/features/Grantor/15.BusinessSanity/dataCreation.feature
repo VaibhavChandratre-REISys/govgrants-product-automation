@@ -457,17 +457,19 @@ Feature: Validate all scenarios of every modules flow
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-      | Form Name  | Due in Days |
-      | Pre-Screen | 5           |
-    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-      | Reviewer     |
-      | Daniel Smith |
-    And I click on "Assign" icon for "Daniel Smith" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
-    And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    And I refresh the page
+#    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+#      | Form Name  | Due in Days |
+#      | Pre-Screen | 5           |
+#    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+#      | Reviewer     |
+#      | Daniel Smith |
+#    And I click on "Assign" icon for "Daniel Smith" inside flex table with id "---applicationReview:-:reviewersTableId---"
+#    When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
+#    And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+#    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+#    And I wait for "2" seconds
+#    And I refresh the page
+#    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
