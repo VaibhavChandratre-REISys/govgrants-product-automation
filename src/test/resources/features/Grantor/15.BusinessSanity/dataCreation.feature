@@ -385,7 +385,11 @@ Feature: Validate all scenarios of every modules flow
 #    And I click modal button "Save and Continue"
 #    And I enter "Edition" values from "Application_Field_Values.xlsx"
 #    When I click on "Save" in the page details
-#    And I navigate to "Budget" sub tab
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "Department of Health" in "---applicationIntake:-:recipientApplications---" panel
+    When I click on "View" icon for "Department of Health" inside flex table with id "---applicationIntake:-:recipientApplications---"
+    And I navigate to "Budget" sub tab
 #    Given I expand nested table containing column value "BP01"
 #    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
 #      | Category Name | Budget | Cash Match | Non-Cash Match |
@@ -398,10 +402,6 @@ Feature: Validate all scenarios of every modules flow
 #    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
 #      | Category Name                     | Budget | Cash Match | Non-Cash Match |
 #      | Administrative and legal expenses | 5000   | 500        | 500            |
-    When I navigate to "Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Applications - All"
-    And I perform quick search for "Department of Health" in "---applicationIntake:-:recipientApplications---" panel
-    When I click on "View" icon for "Department of Health" inside flex table with id "---applicationIntake:-:recipientApplications---"
     And I click on page navigation arrow "---applicationIntake:-:budgetPeriodTableId---" for table id "Next"
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
