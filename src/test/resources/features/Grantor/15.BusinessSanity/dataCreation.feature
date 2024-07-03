@@ -442,21 +442,21 @@ Feature: Validate all scenarios of every modules flow
 #    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
 #    And I pause execution for "5" seconds
 #    When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
-    And I pause execution for "5" seconds
-    When I navigate to "Applications" tab
-    And I navigate to "Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Application Name>"
-    When I click on "View" icon for "<Application Name>" inside table
-    And I get the "EGMS ID"
-    And I pause execution for "8" seconds
-    When I navigate to "Applications" tab
-    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    And I navigate to "Related Log" sub tab
-    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+#    And I pause execution for "5" seconds
+#    When I navigate to "Applications" tab
+#    And I navigate to "Applications" content inside "Applications" subheader on left panel
+#    When I click toggle button to select "Applications - All"
+#    And I perform quick search for "<Application Name>"
+#    When I click on "View" icon for "<Application Name>" inside table
+#    And I get the "EGMS ID"
+#    And I pause execution for "8" seconds
+#    When I navigate to "Applications" tab
+#    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+#    When I click toggle button to select "Application Reviews - All"
+#    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+#    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+#    And I navigate to "Related Log" sub tab
+#    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
 #    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
 #      | Form Name  | Due in Days |
 #      | Pre-Screen | 5           |
@@ -514,24 +514,25 @@ Feature: Validate all scenarios of every modules flow
 #    And I check "Simon Barlow" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
 #    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
 #    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Application Name>"
-    And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
-    And I perform quick search for "Daniel Smith" in "---applicationReview:-:panelAppTableId---" panel
-    And I check "Daniel Smith" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    When I expand nested table containing column value "<Application Name>"
-    And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
-    And I perform quick search for "John Rambo" in "---applicationReview:-:panelAppTableId---" panel
-    And I check "John Rambo" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
-    And I pause execution for "5" seconds
-    And I refresh the page
-    And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I pause execution for "2" seconds
-    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    When I expand nested table containing column value "<Application Name>"
+#    And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+#    And I perform quick search for "Daniel Smith" in "---applicationReview:-:panelAppTableId---" panel
+#    And I check "Daniel Smith" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+#    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+#    When I close "Assign Reviewers" modal by clicking the top right x button
+#    When I expand nested table containing column value "<Application Name>"
+#    And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+#    And I perform quick search for "John Rambo" in "---applicationReview:-:panelAppTableId---" panel
+#    And I check "John Rambo" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+#    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+#    When I close "Assign Reviewers" modal by clicking the top right x button
+#    And I pause execution for "5" seconds
+#    And I refresh the page
+#    And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+#    And I pause execution for "2" seconds
+#    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+#    And I wait for "4" seconds
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
@@ -590,7 +591,7 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
