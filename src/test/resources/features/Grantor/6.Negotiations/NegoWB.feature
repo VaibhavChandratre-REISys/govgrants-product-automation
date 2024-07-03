@@ -1,7 +1,7 @@
 @negotiations @negotiationWB @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in Negotiations
 
-  @164572  @ValidateEXEUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3 @Vaibhav
+  @164572  @ValidateEXEUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3 @Vaibhav @NegoRerun
   Scenario: Validate EXE User Allow Edit Select At Least One Form Error Message
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation EXE user"
     When I login to "As a Grantor" app as "EXE" user
@@ -133,7 +133,7 @@ Feature: Validate all scenarios in Negotiations
       | Saved successfully! |
     Then I softly see "check" symbol against the value "Standard Assurances Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
 
-  @164569  @sprint-3 @vaibhv
+  @164569  @sprint-3 @vaibhv @NegoRerun
   Scenario: Validate EXE User Able To Select File And Forms For Revision Picklist When Application In reviewed State
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
@@ -164,7 +164,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "5" seconds
     Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
 
-  @164568  @sprint-3 @vaibhav 
+  @164568  @sprint-3 @vaibhav @NegoRerun
   Scenario: Validate PO User Able To Select File And Forms For Revision Picklist When Application In reviewed State
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
@@ -194,7 +194,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
 
-  @164573 @ValidatePOUserselecttheAlloweditforatleastoneformintheavailableformsforRevisionstable
+  @164573 @ValidatePOUserselecttheAlloweditforatleastoneformintheavailableformsforRevisionstable @Debug
   Scenario: Validate PO User select the Allow edit for atleast one form in the available forms for Revisions table
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
@@ -339,7 +339,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see "check" symbol against the value "Standard Assurances Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
     Then I softly see "check" symbol against the value "Program Application Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
 
-  @165879 @ValidateEXEUserIsShowAllowEditButton @sprint-3 @vaibhav
+  @165879 @ValidateEXEUserIsShowAllowEditButton @sprint-3 @vaibhav @NegoRerun
   Scenario: Validate EXE User Is Show Allow Edit Button
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
@@ -497,6 +497,7 @@ Feature: Validate all scenarios in Negotiations
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 2000   | 100        | 100            |
+    And I wait for "4" seconds
     Then I softly see value "$2,000.00" for title "Budget" against the value "Construction" inside table "---applicationReview:-:budgetTableId---"
 
   @189567 @sprint-23-US-273843
@@ -543,6 +544,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
     When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
+    When I navigate to "Forms and Files" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
       | Standard Pre-Application form | Checked           |
