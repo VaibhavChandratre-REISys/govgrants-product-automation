@@ -1531,11 +1531,3 @@ Feature: Validate all scenarios of every modules flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
-
- @debug @test
-  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-   When I am on "SUBPORTAL" portal
-   And I login to "Grants Portal" app as "SPI3" user
-    And I halt execution
-   Then I softly see status in Progress-bar is "Created" and is "dark blue"
-   And I halt execution

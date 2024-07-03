@@ -260,7 +260,7 @@ public final class FlexTable implements FlexTableComponent {
         boolean statusElement = I.amPerforming().getElementReference().of(By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")).getAttribute("icon-name").contains("down");
         try {
             if (statusElement) {
-                WebElement collapseElement =  I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")));
+                WebElement collapseElement = I.amPerforming().getElementReference().of((By.xpath(".//td//*[text()='" + uniqueColumnValue + "']//ancestor::tr[1]//lightning-icon[contains(@class, 'chevron')]")));
                 I.amPerforming().click().withJavaScript(collapseElement);
             }
         } catch (Exception ee) {
@@ -1131,11 +1131,11 @@ public final class FlexTable implements FlexTableComponent {
     private void handleCheckBoxInput(WebElement fieldWrapper, String fieldValue) {
         By checkBoxSelector = By.xpath(".//span[@class='slds-checkbox_faux']");
         WebElement checkBox = I.amPerforming().getElementReference().ofNested(fieldWrapper, checkBoxSelector);
-        if ("Checked".equalsIgnoreCase("Checked") && !checkBox.isSelected()
-                || "Unchecked".equalsIgnoreCase("Checked") || checkBox.isSelected() && "Check".equalsIgnoreCase("Checked") && !checkBox.isSelected()) {
+        if ("Checked".equalsIgnoreCase(fieldValue) && !checkBox.isSelected() || "Unchecked".equalsIgnoreCase(fieldValue) && !checkBox.isSelected()
+                || "Unchecked".equalsIgnoreCase(fieldValue) && checkBox.isSelected() || "Check".equalsIgnoreCase(fieldValue) && !checkBox.isSelected()) {
             try {
                 I.amPerforming().click().on(checkBox);
-            } catch (Exception e){
+            } catch (Exception e) {
                 I.amPerforming().click().withJavaScript(checkBox);
             }
         }

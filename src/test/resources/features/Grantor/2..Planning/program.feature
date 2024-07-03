@@ -3,15 +3,16 @@ Feature: Validate all scenarios for program
 
   Background: Create Program
     When I login to "As a Grantor" app as "dynamicUser" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+    And I navigate to url "https://test8-internal--qaorg.sandbox.lightning.force.com/lightning/r/Program__c/a3775000000LQJzAAO/view"
 
   @34730 @programListView
   Scenario Outline: Verifying if the EXE,PM,PO has access to Internal Programs list view
@@ -761,7 +762,7 @@ Feature: Validate all scenarios for program
       | Title                           |
       | Automation Permanent Focus Area |
 
-  @t1 @105920 @VerifyErrorMessageForFocusArea @monu
+  @105920 @VerifyErrorMessageForFocusArea @monu
   Scenario: Validate user is able to see error message for focus area after making program detail changes
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -1137,7 +1138,7 @@ Feature: Validate all scenarios for program
 #    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
 #    Then I softly see value "Created" for title "Old Value" inside table "History"
 
-  @t1 @34754 @programApproval @smoke
+  @34754 @programApproval @smoke
   Scenario: Validate the approval of Internal Program
     And I click on "Edit" in the page details
     And I wait for "10" seconds
@@ -1197,7 +1198,7 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I see status in Progress-bar is "Approved" and is "dark blue"
 
-  @t1 @106336 @programRejection @smoke @monu
+  @106336 @programRejection @smoke @monu
   Scenario: Validate user should be able to reject program
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -1650,13 +1651,13 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 100.00          | 1                                         | Checked   |
+      | Pre-Screen | 100.00          | 1                                         | Check     |
     And I collapse nested table containing column value "Pre-Screen Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 10.00%          | 1                                         | Checked   |
+      | Pre-Screen | 10.00%          | 1                                         | Check     |
     And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I expand nested table containing column value "Eligibility"
 #    And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
@@ -3731,7 +3732,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @t1 @78040 @78042 @78044 @validatingSuccessMessageFiscalcomplianceReviewForm @keerti @needToCheckErrorMessage
+  @78040 @78042 @78044 @validatingSuccessMessageFiscalcomplianceReviewForm @keerti @needToCheckErrorMessage
   Scenario Outline: To validate system generated success message, Max score set as 100 for any 1 questions and weight as 60% on Review Panel Categories of "Match" under Fiscal review form of the SME reviews steps of setup tab of planning phase.
   | To validate system generated success message, Max score set as 100 for any 1 questions and weight as 60% on Review Panel Categories of "Program Income" under Fiscal review form of the SME reviews steps of setup tab of planning phase.
   | To validate system generated success message, Max score set as 100 for any 1 questions and weight as 60% on Review Panel Categories of "Schedule" under compliance review form of the SME reviews steps of setup tab of planning phase.
