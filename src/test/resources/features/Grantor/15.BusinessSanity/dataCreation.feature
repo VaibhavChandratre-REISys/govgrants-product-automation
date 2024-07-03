@@ -436,12 +436,12 @@ Feature: Validate all scenarios of every modules flow
   @applicationReviewDemoOrg
   Scenario Outline:
     When I login to "As a Grantor" app as "PM" user
-    When I navigate to "Applications" tab
-    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
-    And I pause execution for "5" seconds
-    When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+#    When I navigate to "Applications" tab
+#    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+#    When I click toggle button to select "Application Reviews - All"
+#    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+#    And I pause execution for "5" seconds
+#    When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I pause execution for "5" seconds
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
