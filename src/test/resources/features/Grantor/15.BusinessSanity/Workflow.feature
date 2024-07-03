@@ -1560,10 +1560,6 @@ Feature: Validate all scenarios of every modules flow
 #    And I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
 #    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Formula_By_Applicant_Focus_Area"
 #    And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation PM user"
-    When I login to "As a Grantor" app as "Automation FO" user
-    And I navigate to "Home" tab
-    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    When I reassign task to "Automation PM"
-    And I click on advance filter of table id "---program:-:grantorTaskReassignTableId---" for LWC
-    And I enter advance filter values inside id "---program:-:grantorTaskReassignTableId---" for LWC
-      | EGMS ID | contains | {SavedValue:ProgramEGMSID} |
+    When I login to "As a Grantor" app as "FO1" user
+    And I navigate to "Planning" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
