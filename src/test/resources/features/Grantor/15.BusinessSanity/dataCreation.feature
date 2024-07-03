@@ -633,6 +633,7 @@ Feature: Validate all scenarios of every modules flow
 #      | John Rambo   | Step 2 |
 #    And I click on "Submit for Approval" in the page details
     And I get the "EGMS ID"
+    And I wait for "4" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
