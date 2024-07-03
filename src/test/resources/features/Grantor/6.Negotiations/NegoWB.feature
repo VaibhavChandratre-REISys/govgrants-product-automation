@@ -1,7 +1,7 @@
 @negotiations @negotiationWB @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in Negotiations
 
-  @164572  @ValidateEXEUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3 @Vaibhav @NegoRerun
+  @164572  @ValidateEXEUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3 @Vaibhav
   Scenario: Validate EXE User Allow Edit Select At Least One Form Error Message
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation EXE user"
     When I login to "As a Grantor" app as "EXE" user
@@ -500,7 +500,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "4" seconds
     Then I softly see value "$2,000.00" for title "Budget" against the value "Construction" inside table "---applicationReview:-:budgetTableId---"
 
-  @189567 @sprint-23-US-273843
+  @189567 @sprint-23-US-273843 @NegoWBRerun
   Scenario: Validate the subrecipient should be able to provide Negotiation  Summary comments in the Negotiations tab before re-submitting  pre-application to the grantor in Negotiation Details under Negotiation Tab
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -513,6 +513,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Qualify" in the page details
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I click on "Create Pre-Application" in the page details
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
