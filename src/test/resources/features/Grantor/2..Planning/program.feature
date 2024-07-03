@@ -1402,7 +1402,7 @@ Feature: Validate all scenarios for program
       | Focus Area                      | Program Name                                     |
       | Automation Permanent Focus Area | {SavedValue:Automation Runtime Internal Program} |
 
-  @76333 @76334 @76332 @SMEProgramReviewFormAndFiscalReviewForm @keerti @wip
+  @76333 @76334 @76332 @SMEProgramReviewFormAndFiscalReviewForm @keerti
   Scenario Outline: To verify Filter functionality for review panel categories section in program review form in SME review step of setup tab in planning
   /To validate system is getting displayed error message for program review form, while adding invalid values into the filter for review panel categories section on setup tab of planning
   /To validate system is getting displayed error message for fiscal review form, while adding invalid values into the filter for review panel categories section on setup tab of planning
