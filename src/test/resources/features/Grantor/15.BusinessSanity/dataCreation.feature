@@ -309,48 +309,113 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Publish" in the page details
     Then I softly see field "Status" as "Published"
 
-   @Pre-Application-ApplicationDemo
-     Scenario:
-     Given I am on "SUBPORTAL" portal
-     When I login to "Grants Portal" app as "SPI3" user
-     When I navigate to "Opportunities" tab
-     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-     When I click toggle button to select "Not Yet Qualified Opportunities - All"
-     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---preApplication:-:notYetQualifiedTable---" panel
-     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-Application}" inside table
-     When I click on "Qualify" in the page details
-     And I click on "Create Pre-Application" in the page details
-     When I click modal button "Save and Continue"
-     And I get the "EGMS ID"
-     And I enter "Edition1" values from "PreApplication_Field_Values.xlsx"
-     When I click on "Save" in the page details
-     When I navigate to "Forms and Files" sub tab
-     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
-     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-     When I click on "Save" in the page details
-     And I click on "Back" in the page details
-     When I navigate to "Overview" sub tab
-     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-       | Name                       | Project Role             | Is Key Contact |
-       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
-     And I click on "Edit" in the page details
-     And I enter value "Checked" into field "Agreement5__c"
-     And I click on "Save" in the page details
-     When I navigate to "Budget" sub tab
-     Given I expand nested table containing column value "BP01"
-     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
-       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-       | Construction  | 5000   | 500        | 500            | 100            |
-     And I get the "EGMS ID"
-     When I click on "Submit to Grantor" in the page details
-     Then I softly see field "Status" as "Submitted to Grantor"
-     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-     When I navigate to "Applications" tab
-     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-     When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
-     And I click on "Start" icon for "Record Id" inside table
-     When I click on "Accept" in the page details
-     Then I softly see field "Status" as "Accepted"
+  @Pre-ApplicationDemo
+  Scenario:
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "Department of Health" in "---preApplication:-:notYetQualifiedTable---" panel
+    When I click on "View" icon for "Department of Health" inside table
+    When I click on "Qualify" in the page details
+    And I click on "Create Pre-Application" in the page details
+    When I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I click on "Back" in the page details
+    And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "Add" :
+      | Title           | Description           |
+      | Pre-Application | Pre-Application Notes |
+    And I navigate to "Collab" sub tab
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To                              | Subject              | Body                      |
+      | internal.user.product@gmail.com | Department Education | Department Education Body |
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name           | Project Role             | Is Key Contact |
+      | Victoria Leeds | Project Director/Manager | Checked        |
+    When I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 5000   | 500        | 500            | 100            |
+    And I get the "EGMS ID"
+    When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside table
+    When I click on "Accept" in the page details
+    Then I softly see field "Status" as "Accepted"
+
+  @ApplicationDemo
+  Scenario:
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - Submitted"
+    And I perform quick search for "Department of Health" in "RecipientPreApplications" panel
+    When I click on "View" icon for "Department of Health" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    When I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I enter "Edition" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match |
+      | Construction  | 2000   | 200        | 200            |
+    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Category Name                      | Budget | Cash Match | Non-Cash Match |
+      | Architectural and engineering fees | 2000   | 200        | 200            |
+    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match |
+      | Equipment     | 2000   | 200        | 200            |
+    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Category Name                     | Budget | Cash Match | Non-Cash Match |
+      | Administrative and legal expenses | 2000   | 200        | 200            |
+    When I navigate to "Proposal" sub tab
+    When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
+      | EGMS ID                 | Target |
+      | Department of Education | 10     |
+    And I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    Given I click on "Back" in the page details
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    Given I click on "Back" in the page details
+    And I click on top right button "Add Files" in flex table with id "---applicationIntake:-:ApplicationAttachmentTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+      | Title       | Description       |
+      | Application | Application Notes |
+    And I navigate to "Collab" sub tab
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To                              | Subject              | Body                      |
+      | internal.user.product@gmail.com | Department Education | Department Education Body |
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
+      | Name           | Project Role             | Is Key Contact |
+      | Victoria Leeds | Project Director/Manager | Checked        |
+    When I click on "Submit Application" in the page details
+    Then I softly see status in Progress-bar is "Submitted" and is "Green"
 
   @dataCreationScenarios
   Scenario:
