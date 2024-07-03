@@ -346,8 +346,17 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-      | Construction  | 5000   | 500        | 500            | 100            |
+      | Category Name | Budget | Cash Match | Non-Cash Match |
+      | Construction  | 2000   | 200        | 200            |
+    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
+      | Category Name                      | Budget | Cash Match | Non-Cash Match |
+      | Architectural and engineering fees | 2000   | 200        | 200            |
+    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match |
+      | Equipment     | 2000   | 200        | 200            |
+    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
+      | Category Name                     | Budget | Cash Match | Non-Cash Match |
+      | Administrative and legal expenses | 2000   | 200        | 200            |
     And I get the "EGMS ID"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
