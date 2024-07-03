@@ -493,7 +493,7 @@ Feature: Validate all scenarios of every modules flow
 #    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
 #    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
 #    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
-    And I click on "Next Review Step" in the page details
+#    And I click on "Next Review Step" in the page details
 #    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
 #      | Form Name         | Due in Days |
 #      | Program Review    | 5           |
