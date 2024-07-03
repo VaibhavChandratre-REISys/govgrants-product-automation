@@ -473,6 +473,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -1018,6 +1020,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -1093,6 +1097,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -1414,6 +1420,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Approved"
 
     Examples:
@@ -2620,7 +2628,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    And I wait for "3" seconds
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2825,7 +2834,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:FundingID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:FundingID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    And I wait for "8" seconds
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2944,6 +2954,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     And I "Approve" in the approval decision
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Approved"
     And I pause execution for "3" seconds
     And I click on "Amend Subaward" in the page details
@@ -2999,7 +3011,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit for Approval" in the page details
     And I pause execution for "3" seconds
     And I "Approve" in the approval decision
-    And I pause execution for "3" seconds
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Amend Subaward" in the page details
     And I pause execution for "3" seconds
@@ -3233,6 +3246,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3323,6 +3338,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:FundTermsID}" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:FundTermsID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3410,6 +3427,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:budRedKPCSOWId}" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:budRedKPCSOWId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
