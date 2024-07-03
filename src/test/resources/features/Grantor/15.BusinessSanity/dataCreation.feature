@@ -377,31 +377,36 @@ Feature: Validate all scenarios of every modules flow
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Applications" tab
-    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Pre-Applications - Submitted"
-    And I perform quick search for "Department of Health" in "RecipientPreApplications" panel
-    When I click on "View" icon for "Department of Health" inside table
-    When I click on "Create Application" in the page details
-    And I click modal button "Save and Continue"
-    And I enter "Edition" values from "Application_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I navigate to "Budget" sub tab
-    Given I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 5000   | 500        | 500            |
-    Given I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Category Name                      | Budget | Cash Match | Non-Cash Match |
-      | Architectural and engineering fees | 5000   | 500        | 500            |
+#    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+#    When I click toggle button to select "Pre-Applications - Submitted"
+#    And I perform quick search for "Department of Health" in "RecipientPreApplications" panel
+#    When I click on "View" icon for "Department of Health" inside table
+#    When I click on "Create Application" in the page details
+#    And I click modal button "Save and Continue"
+#    And I enter "Edition" values from "Application_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I navigate to "Budget" sub tab
+#    Given I expand nested table containing column value "BP01"
+#    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
+#      | Category Name | Budget | Cash Match | Non-Cash Match |
+#      | Construction  | 5000   | 500        | 500            |
+#    Given I expand nested table containing column value "BP01"
+#    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
+#      | Category Name                      | Budget | Cash Match | Non-Cash Match |
+#      | Architectural and engineering fees | 5000   | 500        | 500            |
+#    Given I expand nested table containing column value "BP01"
+#    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
+#      | Category Name                     | Budget | Cash Match | Non-Cash Match |
+#      | Administrative and legal expenses | 5000   | 500        | 500            |
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "Department of Health" in "---applicationIntake:-:recipientApplications---" panel
+    When I click on "View" icon for "Department of Health" inside flex table with id "---applicationIntake:-:recipientApplications---"
+    And I click on page navigation arrow "---applicationIntake:-:budgetPeriodTableId---" for table id "Next"
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Equipment     | 5000   | 500        | 500            |
-    Given I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Category Name                     | Budget | Cash Match | Non-Cash Match |
-      | Administrative and legal expenses | 5000   | 500        | 500            |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                 | Target |
@@ -642,7 +647,7 @@ Feature: Validate all scenarios of every modules flow
       | Department of Health | Department of Health |
 
   @AwardDemoData
-    Scenario:
+  Scenario:
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
@@ -654,24 +659,29 @@ Feature: Validate all scenarios of every modules flow
     And I enter value "Department of Education Description" into field "fieldGrantAwardDescription__c"
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Budget" sub tab
     And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
     And I save the field labeled "Budget Period End Date" as "BudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
-      | Title                           | Start Date                          | End Date                      |
-      | Automation Permanent Focus Area | {SavedValue:ProjectPeriodStartDate} | {SavedValue:BudgetPeriodDate} |
+      | Title                   | Start Date                          | End Date                      |
+      | Department Of Education | {SavedValue:ProjectPeriodStartDate} | {SavedValue:BudgetPeriodDate} |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
+      | Title                         | Start Date                          | End Date                      |
+      | Department Of Money Education | {SavedValue:ProjectPeriodStartDate} | {SavedValue:BudgetPeriodDate} |
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
-      | {SavedValue:fundingAccount} | 1000        |
+      | {SavedValue:fundingAccount} | 20000       |
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
-    And I click on "Remove" icon for "Project Director/Manager" inside flex table with id "---subAwardFromFDM:-:associateContactTableId---" without waiting for record
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    And I click on "Remove" icon for "Project Director/Manager" inside flex table with id "---subAwardFromFDM:-:associateContactTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
-      | Title                    | Target |
-      | Automation Permanent KPI | 10     |
+      | Title                   | Target |
+      | Department of Education | 10     |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
     And I switch to iframe with id "---paymentRequest:-:PaymentRequestModalIframeId---"
@@ -686,36 +696,37 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Responsibilities" sub tab
     And I get the "EGMS ID"
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
-      | Name           | Award  |
-      | Automation EXE | Step 1 |
-    And I click on "Send to Subrecipient" in the page details
-    Then I see field "Status" as "Sent to Subrecipient"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
-    And I click on "Accept" in the page details
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "<Grant Name>" in "---subAwardFromFDM:-:grantsTableId---" panel
-    And I click on "View" icon for "<Grant Name>" inside table
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
+      | Name         | Award  |
+      | John Rambo   | Step 1 |
+      | Daniel Smith | Step 2 |
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
-    And I navigate to "Budget" sub tab
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
-    And I wait for "3" seconds
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    And I navigate to "Budget" sub tab
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
+    And I wait for "3" seconds
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Approved" and is "green"
     And I click on "Send to Subrecipient" in the page details
-    And I navigate to "Budget" sub tab
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
+
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
