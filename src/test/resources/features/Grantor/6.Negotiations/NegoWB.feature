@@ -133,7 +133,7 @@ Feature: Validate all scenarios in Negotiations
       | Saved successfully! |
     Then I softly see "check" symbol against the value "Standard Assurances Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
 
-  @164569  @sprint-3 @vaibhv @NegoRerun
+  @164569  @sprint-3 @vaibhv @NegoWBRerun
   Scenario: Validate EXE User Able To Select File And Forms For Revision Picklist When Application In reviewed State
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
@@ -162,9 +162,9 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "5" seconds
-    Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
 
-  @164568  @sprint-3 @vaibhav @NegoRerun
+  @164568  @sprint-3 @vaibhav @NegoWBRerun
   Scenario: Validate PO User Able To Select File And Forms For Revision Picklist When Application In reviewed State
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
@@ -192,7 +192,7 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
 
   @164573 @ValidatePOUserselecttheAlloweditforatleastoneformintheavailableformsforRevisionstable @Debug
   Scenario: Validate PO User select the Allow edit for atleast one form in the available forms for Revisions table
@@ -369,7 +369,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
 
-  @165831  @sprint-3 @vaibhav
+  @165831  @sprint-3 @vaibhav @NegoWBRerun
   Scenario: Validate EXE User Able To Select File Forms Application In Submitted To Grantor Status
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
@@ -409,9 +409,9 @@ Feature: Validate all scenarios in Negotiations
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
 
-  @165830 @sprint-3 @vaibhav
+  @165830 @sprint-3 @vaibhav @NegoWBRerun
   Scenario: Validate PO User Able To Select File Forms Application In Submitted To Grantor Status
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
@@ -452,7 +452,7 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
 
   @274714  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Competitive Validate user can send the Application for Negotiation post FDM is approved when FA is no
