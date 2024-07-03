@@ -1136,14 +1136,11 @@ public final class FlexTable implements FlexTableComponent {
             try {
                 I.amPerforming().click().on(checkBox);
             } catch (Exception e) {
-                if(!checkBox.isSelected() && "Unchecked".equalsIgnoreCase(fieldValue)){
-                    I.amPerforming().click().withJavaScript(checkBox);
-                }
-                else if(checkBox.isSelected() && "Unchecked".equalsIgnoreCase(fieldValue)){
-                    I.amPerforming().click().withJavaScript(checkBox);
-                }
-
+                I.amPerforming().click().withJavaScript(checkBox);
             }
+        }
+        else if("Unchecked".equalsIgnoreCase(fieldValue)){
+            I.amPerforming().click().withJavaScript(checkBox);
         }
     }
 
