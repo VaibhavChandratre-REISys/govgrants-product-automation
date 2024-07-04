@@ -2062,7 +2062,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @t1 @38246 @77115 @77106 @ValidatingPre-ScreenReviewFormAndComplianceReviewAdditionDeletion @keerti @needToCheckErrorMessage
+  @38246 @77115 @77106 @ValidatingPre-ScreenReviewFormAndComplianceReviewAdditionDeletion @keerti @needToCheckErrorMessage
   Scenario: To validate system generated error message ,When Total section Weight is 0% for all Review Panel Categories in prescreening review form for prescreening review step in planning phase
   | To verify user able to modify review question  in Environment of Review Panel Categories in compliance review form for SME review step in planning phase
   | To verify user able to add new review question with success message in Permits of Review Panel Categories in compliance review form for SME review step in planning phase
@@ -2112,7 +2112,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     #Bug444555
     Then I softly see the following messages in the page details contains:
-      | Setup Tab - Pre-Screen Review - Pre-Screen: A weighted form must contain weighted sections. |
+      | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
     And I collapse nested table containing column value "Pre-Screen Review"
     And I navigate to "Setup" sub tab
     And I wait for "2" seconds
@@ -2745,7 +2745,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @t1 @77418 @77422 @77421 @ValidatingErrorMessageInManagamentComplianceFiscalReviewForm @keerti
+  @77418 @77422 @77421 @ValidatingErrorMessageInManagamentComplianceFiscalReviewForm @keerti
   Scenario Outline: To validate system generated error message, if Form Weight (%) :100% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Management Review form in Management Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :20% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for compliance Review form in SME Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :40% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Fiscal Review form in SME Review step in planning phase
@@ -2820,7 +2820,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @t1 @77484 @77483 @77482 @ValidatingReviewrsAreNotRequiredForOptionalPanelsInSMEReview @keerti
+  @77484 @77483 @77482 @ValidatingReviewrsAreNotRequiredForOptionalPanelsInSMEReview @keerti
   Scenario Outline: To validate system generated error message, if Form Weight (%) :30% ,Minimum Number of Reviews per Application : 1 , Required? : Unchecked ,for compliance Review Review form in SME Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :30% ,Minimum Number of Reviews per Application : 1 , Required? : Unchecked ,for fiscal Review Review form in SME Review step in planning phase
   | To validate system generated error message, if Form Weight (%) : 50% ,Minimum Number of Reviews per Application : 1 , Required? : unchecked ,for Program Review Review form in SME Review step in planning phase
@@ -2850,7 +2850,7 @@ Feature: Validate all scenarios for program
       | Form Name     | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
       | Fiscal Review | 30              | Unchecked | 1                                         |
     Then I softly see the following messages in the page details contains:
-      | Reviewers are not required for optional panels |
+      | Saved Successfully! |
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
       | Program Review | 50              | Unchecked | 1                                         |
@@ -2916,7 +2916,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @t1 @77605 @ValidatingTotalReviewFormWeightErrorMessageUncheckedManagementReviewForm @keerti
+  @77605 @ValidatingTotalReviewFormWeightErrorMessageUncheckedManagementReviewForm @keerti
   Scenario Outline: To validate system generated error message, if Form Weight (%) :100% , Minimum Number of Reviews per Application : 1 , Required? : Unchecked ,for management Review form in management Review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -4824,7 +4824,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @t1 @78047 @78085 @validatingSuccessMessagePreScreenReviewForm @meenakshi
+  @78047 @78085 @validatingSuccessMessagePreScreenReviewForm @meenakshi
   Scenario Outline: To validate system generated success message, Max score set as 100 for any 1 questions and weight as 60% on Review Panel Categories of "Eligibility" under prescreening review form of the prescreening reviews steps of setup tab of planning phase.
     And I wait for "5" seconds
     And I click on "Edit" in the page details
@@ -5155,7 +5155,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @t1 @77331 @77344 @validatingErrorMessageManagementReviewFormQuestions @meenakshi
+  @77331 @77344 @validatingErrorMessageManagementReviewFormQuestions @meenakshi
   Scenario Outline:To validate system generated error message, Max score set as 0 on all questions and weight as 40% on Review Panel Categories of "Return on Investment (ROI)" under management review of the reviews steps section of setup tab of planning phase.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -5178,7 +5178,7 @@ Feature: Validate all scenarios for program
       | Form Name         | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Management Review | Checked   | 1                                         | 100             |
     Then I softly see the following messages in the page details :
-      | Saved Successfully! |
+      | Reviewers are not required for optional panels |
     And I wait for "2" seconds
     And I collapse nested table containing column value "Management Review"
     And I wait for "2" seconds
@@ -5892,8 +5892,12 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "<Focus Area>" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+    And I wait for "3" seconds
+    When I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    And I wait for "3" seconds
+    When I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I wait for "3" seconds
@@ -6119,7 +6123,7 @@ Feature: Validate all scenarios for program
       | {SavedValue:EXE Username} | Step 1  |
     Then I softly see "You cannot specify the same step for multiple users for Program." inside flex table with id "---program:-:approverTableId---"
 
-  @t1@138463 @VerifyApprovalOfProgramWithApproverStep-RnRFuntionality @monu
+  @138463 @VerifyApprovalOfProgramWithApproverStep-RnRFuntionality @monu
   Scenario:  Validate the approval is completed in one step on program when only one approver is defined
     And I click on "Edit" in the page details
     And I wait for "10" seconds

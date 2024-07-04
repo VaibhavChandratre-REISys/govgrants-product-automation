@@ -1480,7 +1480,6 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Submit For Approval" in the page details
     And I pause execution for "3" seconds
     And I "Reject" in the approval decision
-    And I refresh the page
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
