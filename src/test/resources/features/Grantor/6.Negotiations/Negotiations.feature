@@ -1058,7 +1058,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     And I pause execution for "5" seconds
     #133251
-    Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
     When I click on "Send to Subrecipient" in the page details
     Then I softly see the following messages in the page details contains:
       | Negotiations Tab - Select at least one form for negotiation, because Form section is added for negotiation. |
@@ -1391,7 +1391,7 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I pause execution for "5" seconds
-    Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
 
   @166360  @sprint-3 @vrishali @bug-190352
   Scenario: Verify validation is displayed to PM user to select the "Allow edit" for at least one form in the available forms for Revisions table
@@ -1913,7 +1913,7 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
-    Then I softly see field "Application Sections for Negotiation" as "Files: Forms"
+    Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     Then I softly see field "Due Date" as "10/18/2142" in "Negotiation Request Details" pageblock
 
