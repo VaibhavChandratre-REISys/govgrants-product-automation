@@ -7,7 +7,7 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
-    When I enter value "Department Of Money" into field "Title__c"
+    When I enter value "Department Of Money for Education" into field "Title__c"
     When I click modal button "Save and Continue"
     And I enter value "Department Details" into field "Description__c"
     And I click on "Save" in the page details
@@ -930,19 +930,24 @@ Feature: Validate all scenarios of every modules flow
       | Department of Education | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
+    And I close the tab
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "SF-PPR" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
     When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title              | Description                    |
       | Departmental Notes | Departmental Notes Description |
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                              | Subject              | Body                      |
       | internal.user.product@gmail.com | Department Education | Department Education Body |
+    And I wait for "2" seconds
+    When I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -952,9 +957,9 @@ Feature: Validate all scenarios of every modules flow
     When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
-      | Name         | Progress Report |
-      | John Rambo   | Step 1          |
-      | Daniel Smith | Step 2          |
+      | Name                      | Progress Report |
+      | {SavedValue:EXE Username} | Step 1          |
+      | {SavedValue:FO Username}  | Step 2          |
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I pause execution for "2" seconds
