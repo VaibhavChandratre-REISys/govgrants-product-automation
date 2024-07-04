@@ -1532,7 +1532,7 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @840
+  @debug @840
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #    And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA"
 #    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -1560,13 +1560,15 @@ Feature: Validate all scenarios of every modules flow
 #    And I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
 #    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Formula_By_Applicant_Focus_Area"
 #    And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation PM user"
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "AP-TAO modified-421" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "AP-TAO modified-421" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
-    And I click on "Edit" in the page details
-    When I complete filling in the Review form with recommendation "Recommended"
-    And I click on "Save" in the page details
-    And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
+    When I login to "As a Grantor" app as "EXE" user
+    And I wait for "10" seconds
+    When I navigate to "Overview" sub tab
+    #219102
+    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
+    Then I softly see "Add Organizations" opens in overLay window
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:directedAddInviteApplicantTableId---" panel
+    And I wait for "2" seconds
+    Then I see the following rows under the following headers in table with id "---announcement:-:directedAddInviteApplicantTableId---" :
+      | EGMS ID                | * Organization                       | Organization Type        |
+      | RG-001298              | SAN DIEGO ELECTRICAL TRAINING TRUST  | For-profit organizations |
+    And I wait for "3" seconds

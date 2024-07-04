@@ -205,7 +205,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:directedAddInviteApplicantTableId---" panel
     And I wait for "2" seconds
     Then I see the following rows under the following headers in table with id "---announcement:-:directedAddInviteApplicantTableId---" :
-    | EGMS ID                | *Organization                        | Organization Type        |
+    | EGMS ID                | Organization                       | Organization Type        |
     | RG-001298              | SAN DIEGO ELECTRICAL TRAINING TRUST  | For-profit organizations |
     And I wait for "3" seconds
     #219104
@@ -911,7 +911,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Reviewer                 |
       | {SavedValue:FO Username} |
     And I refresh the page
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
