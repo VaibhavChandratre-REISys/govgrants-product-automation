@@ -51,6 +51,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    And I wait for "5" seconds
     When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     Then I softly can see top right button "Save" in page detail
     And I click on "Save" in the page details
