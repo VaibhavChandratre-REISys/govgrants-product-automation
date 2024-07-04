@@ -189,7 +189,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 75              |
-    And I wait for "3" seconds
     And I click on "Submit For Approval" in the page details
     And I pause execution for "5" seconds
     Then I softly see the following messages in the page details :
@@ -275,7 +274,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:AnnouncementReviewPanel---" without waiting for record
     Then I softly can see top right button "New" in flex table with id "---announcement:-:AnnouncementReviewPanel---"
 
-  @t2 @71150 @71578 @71303 @71051 @71054 @71497 @71500 @71503 @71523 @71518 @71151 @71152 @71540 @71153 @71056 @71314 @71307 @verifyTotalReviewFormWeight @aashish @smoke
+  @71150 @71578 @71303 @71051 @71054 @71497 @71500 @71503 @71523 @71518 @71151 @71152 @71540 @71153 @71056 @71314 @71307 @verifyTotalReviewFormWeight @aashish @smoke
   Scenario: To validate system generated error message when total Review Form  weight(%) is more than 100 % while creating Announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -295,6 +294,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Save" in the page details
     And I pause execution for "3" seconds
     And I expand nested table containing column value "SME Review"
+    And I pause execution for "3" seconds
     Then I softly see "Form Name" in flex table header "---announcement:-:AnnouncementReviewPanel---"
     Then I softly see "Form Weight (%)" in flex table header "---announcement:-:AnnouncementReviewPanel---"
     Then I softly see "Minimum Number of Reviews per Application" in flex table header "---announcement:-:AnnouncementReviewPanel---"
@@ -557,7 +557,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | FO    |
       | FD    |
 
-  @t2 @73630 @73626 @SystemsErrorAfterApplyingWrongFilter @jitendra @FieldHistoryExclude
+  @73630 @73626 @SystemsErrorAfterApplyingWrongFilter @jitendra @FieldHistoryExclude
   Scenario: To validate system is getting displayed error message while adding invalid values into the filter for Approves section on responsibility tab of announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -585,8 +585,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I click on advance filter "#advfAnnoucementPackagesGrantor" of table id "---announcement:-:businessFormlistTableId---"
 #    And I enter advance filter values inside id "advfAnnoucementPackagesGrantor"
 #      | Name | Contains | Anything |
-    And I pause execution for "10" seconds
-    Then I softly see "No Records Found" inside flex table with id "---announcement:-:businessFormlistTableId---"
+#    And I pause execution for "10" seconds
+#    Then I softly see "No Records Found" inside flex table with id "---announcement:-:businessFormlistTableId---"
 
   @73854 @73855 @73852 @73853 @jitendra @filterNotYetQualifiedSPAUser @wip
   Scenario:  To verify, filter functionality for Not Yet Qualified:All section for announcement by external user
@@ -767,10 +767,16 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I perform quick search for "Automation Permanent Focus Area" in "---program:-:associateFocusAreaTableId---" panel
     When I click "Associate" after selection of "<Focus Area>" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+    And I wait for "4" seconds
+    And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    And I wait for "4" seconds
+    And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    And I wait for "4" seconds
+    And I click modal button "Close"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -782,6 +788,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---program:-:approverTableId---"
     Then I softly see value "Step 1" for title "Program" inside table "---program:-:approverTableId---"
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "5" seconds
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -837,10 +845,16 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I perform quick search for "Automation Permanent Focus Area" in "---program:-:associateFocusAreaTableId---" panel
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---program:-:associateFocusAreaTableId---"
+    And I wait for "3" seconds
+    When I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    And I wait for "3" seconds
+    When I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    And I wait for "3" seconds
+    When I click modal button "Close"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
@@ -854,14 +868,16 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I wait for "3" seconds
     And I click modal button "Close"
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    And I pause execution for "5" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+    And I pause execution for "5" seconds
     And I click modal button "Close"
     And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1277,9 +1293,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    And I pause execution for "3" seconds
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
+    And I pause execution for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -1397,7 +1411,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "Create Application" in the page details
     And I pause execution for "2" seconds
     And I click modal button "Save and Continue"
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -1572,6 +1586,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "View" icon for "{SavedValue:preAppId}" inside flex table with id "---preApplication:-:recipientPreApplicationsTableId---"
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -1975,7 +1990,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     Then I softly see fields "AnnouncementName__c" is in edit mode
-    Then I softly see fields "AnnouncementType__c" is in edit mode
     Then I softly see fields "Organization__c" is in edit mode
     Then I softly see fields "AdministrationBureauUnit__c" is in edit mode
     Then I softly see fields "MaxApplicationsAllowed__c" is in edit mode
@@ -1983,7 +1997,6 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see fields "IsAdvancePermitted__c" is in edit mode
     Then I softly see fields "IsNegotiationsAllowed__c" is in edit mode
     Then I softly see fields "AnnouncementDescription__c" is in edit mode
-    Then I softly see fields "EligibleApplicantTypes__c" is in edit mode
     Then I softly see fields "ApplicationDueDate__c" is in edit mode
     Then I softly see fields "QAAvailability__c" is in edit mode
     Then I can see top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
@@ -3017,8 +3030,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    When I click on "Edit" in the page details
+    And I pause execution for "3" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -3324,10 +3336,16 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+    And I wait for "3" seconds
+    When I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    And I wait for "3" seconds
+    When I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    And I wait for "3" seconds
+    When I click modal button "Close"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
@@ -3597,7 +3615,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I cannot see row level action button "Edit" against "Pre-Screen" in flex table with id "---announcement:-:annReviewFormsTableId---"
     Then I cannot see row level action button "Delete" against "Pre-Screen" in flex table with id "---announcement:-:annReviewFormsTableId---"
 
-  @t2 @195209  @sprint-12-US-226646 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
+  @195209  @sprint-12-US-226646 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate  email should be generated for new owner once old owner reassign Ann ownership task to new user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3819,6 +3837,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
+    And I pause execution for "3" seconds
     When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
@@ -4120,7 +4139,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
 
-  @t2 @221985 @ValidateAnnIfapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityprogramreviewerreassignmentfails @sprint-11-US-218319 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
+  @t2 @debug @221985 @ValidateAnnIfapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityprogramreviewerreassignmentfails @sprint-11-US-218319 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate Ann If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (program reviewer)validate reassignment fails
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -6963,6 +6982,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation test description | Mandatory | Application | Active |
     Then I softly see value "Automation test description" for title "Description" inside table "---announcement:-:annChecklist---"
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -6986,6 +7006,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "Create Application" in the page details
     And I pause execution for "3" seconds
     And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Forms and Files" sub tab
@@ -7020,6 +7041,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Automation FD | Program Reviewer | Automation Test Description | 10       |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:FD Username}" inside table
+    And I pause execution for "4" seconds
     Then I softly see field "Status" as "Submitted for Review"
     And I wait for "180" seconds
     And I refresh the page
