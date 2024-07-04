@@ -9,7 +9,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
     When I enter value "Department Of Money" into field "Title__c"
     When I click modal button "Save and Continue"
-    And I enter value "Department Details" into field "fieldDescription__c"
+    And I enter value "Department Details" into field "Description__c"
     And I click on "Save" in the page details
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---focusarea:-:FocusAreaFilesTableId---"
@@ -37,7 +37,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
     When I enter value "Department Of Education" into field "Title__c"
     When I click modal button "Save and Continue"
-    And I enter value "Department Details" into field "fieldDescription__c"
+    And I enter value "Department Details" into field "Description__c"
     And I click on "Save" in the page details
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "GrantorFocusAreaFilesgrid"
