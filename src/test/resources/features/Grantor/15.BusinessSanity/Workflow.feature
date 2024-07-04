@@ -1534,8 +1534,15 @@ Feature: Validate all scenarios of every modules flow
 
  @debug @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-   Given I am on "INTERNAL" portal
+#   Given I am on "INTERNAL" portal
 #   And I generate the random EmailID and save as "uniqueEmailID" for maildrop
 #   And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
-   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
-
+#   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
+   Given I login to "As a Grantor" app as "PM" user
+   And I halt execution
+   And I navigate to "Messages" sub tab
+   And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+   And I send the email under collab tab with following details:
+     | To                              | Subject              | Body                      |
+     | internal.user.product@gmail.com | Department Education | Department Education Body |
+   And I halt execution
