@@ -460,6 +460,8 @@ Feature: Validate all scenarios of every modules flow
     And I close the tab
     And I click on top right button "Add Files" in flex table with id "---applicationIntake:-:ApplicationAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "General Assurances" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
     When I enter the following values into flex table with id "---applicationIntake:-:ApplicationNotesTableId---" by clicking "New" :
       | Title       | Description       |
       | Application | Application Notes |
