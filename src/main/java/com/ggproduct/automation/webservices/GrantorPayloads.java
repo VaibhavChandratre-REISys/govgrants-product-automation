@@ -489,6 +489,8 @@ public class GrantorPayloads {
         switch (filter) {
             case "BUDGETPERIODDATES":
                 return updateBudgetPeridDateForAnnouncement(json);
+            case "DETAILE_BUDGET_YES":
+                return updateDetailebudgetYesForAnnouncement(json);
             case "NO_RISK_ASSESSMENT":
                 return updateRiskAssesmentAsNoForAnnouncement(json);
             case "PRE_APPLICATION_YES":
@@ -1331,6 +1333,15 @@ public class GrantorPayloads {
         risk_assessment.addProperty("RiskAssessment_Required", "No");
         risk.add(risk_assessment);
         json.add("Announcement", risk);
+        return json;
+    }
+
+    private JsonObject updateDetailebudgetYesForAnnouncement(JsonObject json) {
+        JsonObject jsonObject1 = json.getAsJsonArray("Announcement").get(0).getAsJsonObject();
+        JsonArray data = new JsonArray();
+        jsonObject1.addProperty("DetailedBudgetingRequired", "Yes");
+        data.add(jsonObject1);
+        json.add("Announcement", data);
         return json;
     }
 

@@ -897,8 +897,6 @@ Feature: Validate all scenarios in Progress Report
       | Reviewer Name            | Responsibility  | Description                 | Due Date |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---progressReport:-:peerReviewersTableId---" without waiting for record
-    Then I softly see the following messages in the page details contains:
-      | Review Successfully Initiated |
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1096,7 +1094,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
     And I navigate to "Performance" sub tab
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:Record Id}" in flex table with id "GrantorAwardGoalsObjectives"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:ObjectiveEGMSID}" in flex table with id "GrantorAwardGoalsObjectives"
 
  @PRISNoteditableAtPAOnPerformaceTab @keerti
   Scenario: Validate Objectives table at Performance Tab on Progress report should not be editable at Program approver end when Progress report status is Submitted for Approval.

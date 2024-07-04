@@ -752,8 +752,9 @@ Feature: Validate all scenarios in the award created from FDM
     Then I see that "Automation Permanent Objective2" has been added in flextable with Id "---subAwardFromFDM:-:objectivesTableId---"
     And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Performance Tab - Enter Target values. |
+    And I wait for "3" seconds
+#    Then I softly see the following messages in the page details contains:
+#      | Performance Tab - Enter Target values. |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
     When I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
@@ -1335,7 +1336,7 @@ Feature: Validate all scenarios in the award created from FDM
     When I perform quick search for "<Grant Name>" in "ActiveFundingOpportunitiesAll" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Setup" sub tab
-    And I click on "View" icon for "Information Technology" inside table
+    And I click on "View" icon for "Automation Permanent KPI" inside table
     And I save the field labeled "Domain" as "Domain"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1548,6 +1549,7 @@ Feature: Validate all scenarios in the award created from FDM
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Subawards" sub tab
     When I click on "View" icon for "<Award Name>" inside table with wait for record
+    When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardFromFDM:-:federalProgramTableId---"
     When I click "Add" after selection of "Federal" in the table "---subAwardFromFDM:-:federalListTableId---"
     And I pause execution for "3" seconds

@@ -40,9 +40,23 @@ public class HomePage extends GrantorProjectManager {
         I.amPerforming().browserOperationsTo().navigateToUrl("http://www.yopmail.com/");
         I.amPerforming().textInput().toClear(By.xpath("//input[@id='login' and @type='text']"));
         I.amPerforming().textInput().in(By.xpath("//input[@id='login' and @type='text']"), emailId);
-        I.amPerforming().click().on(By.xpath("//input[@type='submit']"));
+        I.amPerforming().click().on(By.xpath("//input[@type='submit'] | //button[@title='Check Inbox @yopmail.com']/i"));
         I.amPerforming().click().on(By.xpath("//div[@class='m']//div[@class='lms' and text()='" + subject + "']"));
         I.amPerforming().click().on(By.xpath("//span/a[text()='here']| //div[@id='mailctn']//a"));
+    }
+
+    /**
+     * handles yopmail portal emails notification
+     */
+    public void NavigateToMailDropPortalForWithSubject(String emailId, String subject) {
+        I.amPerforming().browserOperationsTo().navigateToUrl("http://www.maildrop.cc/");
+        I.amPerforming().textInput().toClear(By.xpath("//div[@id='navbar']//input[@placeholder='view-this-mailbox']"));
+        I.amPerforming().textInput().in(By.xpath("//div[@id='navbar']//input[@placeholder='view-this-mailbox']"), emailId);
+        I.amPerforming().click().on(By.xpath("//div[@id='navbar']//button[@type='submit']"));
+//        I.amPerforming().click().on(By.xpath("//div[@class='m']//div[@class='lms' and text()='" + subject + "']"));
+        I.amPerforming().waitFor().makeThreadSleep(10000);
+        I.amPerforming().switchTo().frame(By.xpath("//iframe"));
+        I.amPerforming().click().withJavaScript(By.xpath("//body//tr//a[text()='here']"));
     }
 
     /**
@@ -182,6 +196,15 @@ public class HomePage extends GrantorProjectManager {
         try {
             I.amPerforming().click().on(By.xpath("//div[contains(@class,'panel-body')]//span[@class='select2-chosen'] | //div[contains(@class,'combobox__form-element')]//lightning-input"));
             I.amPerforming().textInput().in(By.xpath("//div[@id='select2-drop']//div/input | //div[contains(@class,'combobox__form-element')]//lightning-input//input"), userName);
+        } catch (Exception e) {
+        }
+    }
+
+    public void enterValueInLookupfield(String userName) {
+        try {
+            I.amPerforming().click().on(By.xpath("//div[contains(@class,'panel-body')]//span[@class='select2-chosen'] | //div[contains(@class,'combobox__form-element')]//lightning-input"));
+            I.amPerforming().textInput().in(By.xpath("//div[@id='select2-drop']//div/input | //div[contains(@class,'combobox__form-element')]//lightning-input//input"), userName);
+            I.amPerforming().click().on(By.xpath(" //div[@data-id='lookup-dropdown']//tr//td"));
         } catch (Exception e) {
         }
     }

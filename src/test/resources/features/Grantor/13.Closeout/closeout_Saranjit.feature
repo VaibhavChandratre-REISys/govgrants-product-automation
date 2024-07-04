@@ -148,7 +148,6 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:closeoutID1}" in "---closeout:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:closeoutID1}" inside flex table with id "---closeout:-:pendingTaskTableId---"
-    When I click on "Edit" in the page details
     And I navigate to "Checklist" sub tab
     Then I softly see field "Has the subrecipient submitted all payment requests?" as "Yes"
     Then I softly see field "Has the subrecipient met the match requirement?" as "Yes"
