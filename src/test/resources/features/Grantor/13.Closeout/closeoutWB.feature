@@ -642,6 +642,7 @@ Feature: Validate all scenarios in Closeout
     And I enter "TerminationEdition" values from "Closeout_Field_Values.xlsx"
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
+    And I pause execution for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
