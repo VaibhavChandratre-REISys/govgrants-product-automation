@@ -145,8 +145,8 @@ Feature: Validate all scenarios of every modules flow
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:FO Username}  | Step 2  |
+      | Name                     | Program |
+      | {SavedValue:FO Username} | Step 2  |
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "{demoData:FocusArea}" in the table "---program:-:associateFocusAreaTableId---"
@@ -1005,7 +1005,9 @@ Feature: Validate all scenarios of every modules flow
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                      | Site Visit |
       | {SavedValue:EXE Username} | Step 1     |
-      | {SavedValue:FO Username}  | Step 2     |
+    When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
+      | Name                     | Site Visit |
+      | {SavedValue:FO Username} | Step 2     |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
@@ -1115,12 +1117,14 @@ Feature: Validate all scenarios of every modules flow
     And I save the field labeled "EGMS ID" as "DeskReview"
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name         | Desk Review |
-      | John Rambo   | Step 1      |
-      | Daniel Smith | Step 2      |
+      | Name                      | Desk Review |
+      | {SavedValue:EXE Username} | Step 1      |
+    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
+      | Name                     | Desk Review |
+      | {SavedValue:FO Username} | Step 2      |
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
-    When I click "Associate" after selection of "Victoria Leeds" in the table "---deskreview:-:deskReviewContactsTableId---"
+    When I click "Associate" after selection of "Automation SPI3" in the table "---deskreview:-:deskReviewContactsTableId---"
 #    And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
 #    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
     And I click on "Notify" in the page details
@@ -1132,20 +1136,25 @@ Feature: Validate all scenarios of every modules flow
       | Department of Health Concern     | Department of Health Description | Concern     |
       | Department of Health Observation | Department of Health Description | Observation |
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "GrantorDeskReviewFilesgrid"
+    And I click on top right button "Add Files" in flex table with id "GrantorDeskReviewFiles"
     And I upload attachment without random number "Attachment.pdf" of type "Desk Review Final Report" from computer
-    When I enter the following values into flex table with id "flexGridDeskReviewNotes" by clicking "New" :
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    When I enter the following values into flex table with id "DeskReviewContentNote" by clicking "New" :
       | Title              | Description                    |
       | Departmental Notes | Departmental Notes Description |
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                              | Subject              | Body                      |
       | internal.user.product@gmail.com | Department Education | Department Education Body |
+    And I wait for "2" seconds
+    When I click modal button "Close"
     When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -1174,16 +1183,22 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Reports and Outcomes" sub tab
     And I expand nested table containing column value "Department of Health Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
-      | Title                               | Description                        | Status      | Due Date | Assigned To    |
-      | Department Observation Subrecipient | Department Observation Description | In-Progress | 30       | Victoria Leeds |
+      | Title                               | Description                        | Status      | Due Date | Assigned To                |
+      | Department Observation Subrecipient | Department Observation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+    When I collapse nested table containing column value "Department of Health Observation"
+    And I wait for "2" seconds
     And I expand nested table containing column value "Department of Health Concern"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
-      | Title                           | Description                    | Status      | Due Date | Assigned To    |
-      | Department Concern Subrecipient | Department Concern Description | In-Progress | 30       | Victoria Leeds |
+      | Title                           | Description                    | Status      | Due Date | Assigned To                |
+      | Department Concern Subrecipient | Department Concern Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+    When I collapse nested table containing column value "Department of Health Concern"
+    And I wait for "2" seconds
     And I expand nested table containing column value "Department of Health Finding"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
-      | Title                           | Description                    | Status      | Due Date | Assigned To    |
-      | Department Finding Subrecipient | Department Finding Description | In-Progress | 30       | Victoria Leeds |
+      | Title                           | Description                    | Status      | Due Date | Assigned To                |
+      | Department Finding Subrecipient | Department Finding Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+    When I collapse nested table containing column value "Department of Health Finding"
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
