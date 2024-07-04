@@ -439,7 +439,6 @@ Feature: Validate all scenarios of every modules flow
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name                     | Budget | Cash Match | Non-Cash Match |
       | Administrative and legal expenses | 5000   | 500        | 500            |
-    And I click on page navigation arrow "---applicationIntake:-:budgetPeriodTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Equipment     | 5000   | 500        | 500            |
@@ -482,18 +481,18 @@ Feature: Validate all scenarios of every modules flow
   @applicationReviewDemoOrg
   Scenario Outline:
     When I login to "As a Grantor" app as "PM" user
-    When I navigate to "Applications" tab
-    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
-    And I pause execution for "5" seconds
-    When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
-    And I pause execution for "5" seconds
+#    When I navigate to "Applications" tab
+#    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+#    When I click toggle button to select "Application Reviews - All"
+#    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+#    And I pause execution for "5" seconds
+#    When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+#    And I pause execution for "5" seconds
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Application Name>"
-    When I click on "View" icon for "<Application Name>" inside table
+    And I perform quick search for "<Application Name>" in "---applicationIntake:-:appAllTableId---" panel
+    When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:appAllTableId---"
     And I get the "EGMS ID"
     And I pause execution for "8" seconds
     When I navigate to "Applications" tab
