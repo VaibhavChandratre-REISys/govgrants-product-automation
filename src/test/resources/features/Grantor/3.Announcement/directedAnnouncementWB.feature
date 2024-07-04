@@ -15,8 +15,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     When I hovering mouse on help text icon inside page block detail "Applicants"
-    And I wait for "2" seconds
     Then I softly see "Verify that all invited applicants are eligible to submit an application based on the eligibility criteria associated with this announcement" shown as help text
+    And I wait for "3" seconds
     #219166
     Then I softly see "Focus Areas" page block displayed
 
