@@ -3823,8 +3823,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team
       """
 
-
-  @t2 @221973  @sprint-11-US-218319 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
+  @221973  @sprint-11-US-218319 @vaibhav @reassignment @Re-RunPlanningAndAnnouncement
   Scenario: Validate task reassignment does not happen when a user tries to reassign his task to another user is responsible for different step of same module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
