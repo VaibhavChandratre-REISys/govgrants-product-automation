@@ -369,7 +369,8 @@ Feature: Validate all scenarios of every modules flow
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I switch to parent tab
+    And I wait for "2" seconds
+    And I close the tab
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I click modal button "Close"
