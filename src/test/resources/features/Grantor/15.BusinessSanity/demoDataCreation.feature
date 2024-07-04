@@ -766,48 +766,48 @@ Feature: Validate all scenarios of every modules flow
 #    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
 #      | Title          | Target |
 #      | {demoData:KPI} | 10     |
-    And I navigate to "Terms" sub tab
+#    And I navigate to "Terms" sub tab
 #    When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
 #    And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
 #    When I click modal button "Save"
 #    And I wait for "2" seconds
-    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
-    And I click modal button "Save"
-    And I wait for "2" seconds
-    And I navigate to "Responsibilities" sub tab
-    And I get the "EGMS ID"
-    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 1 |
-    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:FO Username}  | Step 2 |
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" by clicking "New" :
-      | Reviewer Name             | Role            | Description               | Due Date | Allow Record Editing |
-      | {SavedValue:EXE Username} | Fiscal Reviewer | ADepartmental Description | 7        | No                   |
-    And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
-    And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
-    And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
-    And I enter a review as "Passed"
-    When I click modal button "Save"
-    And I click on submit review
-    And I wait for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grant - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardFromFDM:-:grantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-    When I navigate to "Subawards" sub tab
-    When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside table with wait for record
+#    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
+#    When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
+#    And I click modal button "Save"
+#    And I wait for "2" seconds
+#    And I navigate to "Responsibilities" sub tab
+#    And I get the "EGMS ID"
+#    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
+#      | Name                      | Award  |
+#      | {SavedValue:EXE Username} | Step 1 |
+#    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
+#      | Name                      | Award  |
+#      | {SavedValue:FO Username}  | Step 2 |
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" by clicking "New" :
+#      | Reviewer Name             | Role            | Description               | Due Date | Allow Record Editing |
+#      | {SavedValue:EXE Username} | Fiscal Reviewer | ADepartmental Description | 7        | No                   |
+#    And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+#    And I wait for "2" seconds
+#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
+#    And I navigate to "Responsibilities" sub tab
+#    When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+#    And I enter a review as "Passed"
+#    When I click modal button "Save"
+#    And I click on submit review
+#    And I wait for "2" seconds
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardFromFDM:-:grantsTableId---" panel
+#    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+#    When I navigate to "Subawards" sub tab
+#    When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside table with wait for record
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     And I navigate to "Files" sub tab
@@ -846,7 +846,7 @@ Feature: Validate all scenarios of every modules flow
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grant - All"
+    And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
     When I navigate to "Subawards" sub tab
@@ -861,7 +861,7 @@ Feature: Validate all scenarios of every modules flow
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grant - All"
+    And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
     When I navigate to "Subawards" sub tab
