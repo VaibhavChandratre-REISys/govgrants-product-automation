@@ -799,26 +799,25 @@ Feature: Validate all scenarios of every modules flow
     And I click on "View" icon for "{demoData:Subawardname}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Actuals" sub tab
-    And I click on "View" icon for "PR-AuGr-00" inside flex table with id "---paymentRequest:-:paymentRequestTableId---" without waiting for record
-#    And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
-#    When I enter value "{demoData:PaymentRequestTitle}" into field "Title__c"
-#    And I click modal button "Save and Continue"
-#    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
-#    When I click on "Save" in the page details
+    And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+    When I enter value "{demoData:PaymentRequestTitle}" into field "Title__c"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PayreqId"
-#    And I navigate to "Financials" sub tab
-#    And I edit the following rows inline in flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" by clicking "Edit" :
-#      | Budget Category | Spent This Action |
-#      | Construction    | 1000              |
-#    And I edit the following rows inline in flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" by clicking "Edit" :
-#      | Budget Category                    | Spent This Action |
-#      | Architectural and engineering fees | 1000              |
-#    And I edit the following rows inline in flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" by clicking "Edit" :
-#      | Budget Category                   | Spent This Action |
-#      | Administrative and legal expenses | 1000              |
-#    And I edit the following rows inline in flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" by clicking "Edit" :
-#      | Budget Category | Spent This Action |
-#      | Equipment       | 1000              |
+    And I navigate to "Financials" sub tab
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Spent This Action |
+      | Construction    | 1000              |
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" by clicking "Edit" :
+      | Budget Category                    | Spent This Action |
+      | Architectural and engineering fees | 1000              |
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" by clicking "Edit" :
+      | Budget Category                   | Spent This Action |
+      | Administrative and legal expenses | 1000              |
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Spent This Action |
+      | Equipment       | 1000              |
     And I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     And I upload attachment "Announcement_Field_Values.xlsx" of type "Invoice" from computer
