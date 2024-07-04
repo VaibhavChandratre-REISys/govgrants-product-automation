@@ -481,13 +481,13 @@ Feature: Validate all scenarios of every modules flow
   @applicationReviewDemoOrg
   Scenario Outline:
     When I login to "As a Grantor" app as "PM" user
-#    When I navigate to "Applications" tab
-#    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-#    When I click toggle button to select "Application Reviews - All"
-#    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
-#    And I pause execution for "5" seconds
-#    When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
-#    And I pause execution for "5" seconds
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    And I pause execution for "5" seconds
+    When I click on "Initiate Review Process" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I pause execution for "5" seconds
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -692,6 +692,13 @@ Feature: Validate all scenarios of every modules flow
       | Name                      | FDM    |
       | {SavedValue:FO Username}  | Step 1 |
       | {SavedValue:EXE Username} | Step 2 |
+    And I navigate to "Messages" sub tab
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To                              | Subject              | Body                      |
+      | internal.user.product@gmail.com | Department Education | Department Education Body |
+    And I wait for "2" seconds
+    When I click modal button "Close"
     And I click on "Submit for Approval" in the page details
     And I get the "EGMS ID"
     And I wait for "4" seconds
@@ -765,12 +772,15 @@ Feature: Validate all scenarios of every modules flow
     When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
+    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
+      | Name                      | Award  |
       | {SavedValue:FO Username}  | Step 2 |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" by clicking "New" :
       | Reviewer Name             | Role            | Description               | Due Date | Allow Record Editing |
       | {SavedValue:EXE Username} | Fiscal Reviewer | ADepartmental Description | 7        | No                   |
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
