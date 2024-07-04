@@ -194,7 +194,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     Then I softly see field "Application Sections for Negotiation" as "Forms and Files:Forms"
 
-  @164573 @ValidatePOUserselecttheAlloweditforatleastoneformintheavailableformsforRevisionstable @Debug
+  @164573 @ValidatePOUserselecttheAlloweditforatleastoneformintheavailableformsforRevisionstable
   Scenario: Validate PO User select the Allow edit for atleast one form in the available forms for Revisions table
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
