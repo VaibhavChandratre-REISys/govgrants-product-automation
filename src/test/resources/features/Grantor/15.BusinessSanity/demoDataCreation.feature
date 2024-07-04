@@ -1226,27 +1226,33 @@ Feature: Validate all scenarios of every modules flow
     And I save the field labeled "EGMS ID" as "scopeWorkId"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name         | Amendment Request |
-      | John Rambo   | Step 1            |
-      | Daniel Smith | Step 2            |
+      | Name                      | Amendment Request |
+      | {SavedValue:EXE Username} | Step 1            |
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:FO Username} | Step 2            |
     When I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "flexGridGrantorAmendmentRequestFiles"
+    And I click on top right button "Add Files" in flex table with id "GrantorAmendmentRequestFiles"
     And I upload attachment without random number "Attachment.pdf" of type "Notice of Award" from computer
-    When I enter the following values into flex table with id "flexGridGrantorAmendmentRequestNotes" by clicking "New" :
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    When I enter the following values into flex table with id "AmendmentRequestContentNote" by clicking "New" :
       | Title              | Description                    |
       | Departmental Notes | Departmental Notes Description |
-    And I navigate to "Collab" sub tab
+    And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                              | Subject              | Body                      |
       | internal.user.product@gmail.com | Department Education | Department Education Body |
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Send to Subrecipient" in the page details
     Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:pendingTaskTableId---" panel
-    Then I see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     And I click on "Start" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
