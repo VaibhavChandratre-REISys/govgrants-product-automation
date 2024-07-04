@@ -723,16 +723,26 @@ Feature: Validate all scenarios of every modules flow
   @AwardDemoData
   Scenario:
     When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Applications" tab
-    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
-    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
-    When I perform quick search for "{demoData:AnnouncementName}" in "---subAwardFromFDM:-:fdmTableId---" panel
-    And I click on "View" icon for "{demoData:AnnouncementName}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
-    And I click on "Create Subaward" icon for "{demoData:AnnouncementName}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
-    And I pause execution for "8" seconds
+#    And I navigate to "Applications" tab
+#    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+#    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+#    When I perform quick search for "{demoData:AnnouncementName}" in "---subAwardFromFDM:-:fdmTableId---" panel
+#    And I click on "View" icon for "{demoData:AnnouncementName}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
+#    And I click on "Create Subaward" icon for "{demoData:AnnouncementName}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+#    And I pause execution for "8" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{demoData:AnnouncementName}" in "---subAwardFromFDM:-:grantsTableId---" panel
+    And I click on "View" icon for "{demoData:AnnouncementName}" inside flex table with id "---subAwardFromFDM:-:grantsTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{demoData:AnnouncementName}" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
+    And I click on "Edit" in the page details
+    And I wait for "2" seconds
     And I enter value "Department of Education Description" into field "GrantAwardDescription__c"
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     And I save the field labeled "Grant ID" as "GrantEGMSID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
