@@ -3839,8 +3839,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Continue"
+    When I enter in modal "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I pause execution for "3" seconds
-    When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
