@@ -100,6 +100,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
     When I enter the following values into flex table with id "GrantorFundingSourceContentNotes" by clicking "New" :
       | Title                | Description                |
       | Department Education | Department Education Notes |
