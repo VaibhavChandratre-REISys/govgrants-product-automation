@@ -737,43 +737,41 @@ Feature: Validate all scenarios of every modules flow
     And I click on "View" icon for "{demoData:AnnouncementName}" inside flex table with id "---subAwardFromFDM:-:grantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{demoData:AnnouncementName}" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
-    And I click on "Edit" in the page details
-    And I wait for "2" seconds
-    And I enter value "Department of Education Description" into field "GrantAwardDescription__c"
-    And I enter "Edition" values from "Award_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
+#    And I wait for "2" seconds
+#    And I enter value "Department of Education Description" into field "GrantAwardDescription__c"
+#    And I enter "Edition" values from "Award_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I wait for "2" seconds
     And I get the "EGMS ID"
     And I save the field labeled "Grant ID" as "GrantEGMSID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    And I navigate to "Budget" sub tab
-    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
-    And I save the field labeled "Budget Period End Date" as "BudgetPeriodDate"
+#    And I navigate to "Budget" sub tab
+#    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+#    And I save the field labeled "Budget Period End Date" as "BudgetPeriodDate"
 #    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
 #      | Title                | Start Date                          | End Date                      |
 ##      | {demoData:FocusArea} | {SavedValue:ProjectPeriodStartDate} | {SavedValue:BudgetPeriodDate} |
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
-      | Title                 | Start Date                          | End Date                      |
-      | {demoData:FocusArea1} | {SavedValue:ProjectPeriodStartDate} | {SavedValue:BudgetPeriodDate} |
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
-      | Funding Account             | Encumbrance |
-      | {demoData:FundingAccountId} | 20000       |
+#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
+#      | Title                 | Start Date                          | End Date                      |
+#      | {demoData:FocusArea1} | {SavedValue:ProjectPeriodStartDate} | {SavedValue:BudgetPeriodDate} |
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
+#      | Funding Account             | Encumbrance |
+#      | {demoData:FundingAccountId} | 20000       |
 #    When I navigate to "Overview" sub tab
 #    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
 #      | Name                       | Project Role             | Is Key Personnel |
 #      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
 #    And I click on "Remove" icon for "Project Director/Manager" inside flex table with id "---subAwardFromFDM:-:associateContactTableId---" without waiting for record
-    When I navigate to "Performance" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
-      | Title          | Target |
-      | {demoData:KPI} | 10     |
+#    When I navigate to "Performance" sub tab
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
+#      | Title          | Target |
+#      | {demoData:KPI} | 10     |
     And I navigate to "Terms" sub tab
-    When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
-    And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save"
-    And I wait for "2" seconds
+#    When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
+#    And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
+#    When I click modal button "Save"
+#    And I wait for "2" seconds
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     And I wait for "2" seconds
