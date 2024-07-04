@@ -1,7 +1,7 @@
 @grantor-regression @grantor-parallel-regression @announcement @regression @announcement-undo
 Feature: Validate all scenarios in the Announcement with Undo
 
-  @hitTest1 @283963 @283966 @283973 @283965 @VerifywhenPmapprovercanclickonundobuttoninAnnouncementrecordwhenrecordisinApprovedstate @sprint-4-US-295141 @hitesh @Undo
+  @hitTest @283963 @283966 @283973 @283965 @VerifywhenPmapprovercanclickonundobuttoninAnnouncementrecordwhenrecordisinApprovedstate @sprint-4-US-295141 @hitesh @Undo
   Scenario: Verify when Pm approver can click on undo button in Announcement  record when record is in Approved state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -605,7 +605,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I perform quick search for "Record Id" in "---announcement:-:announcementCompletedTaskTable---" panel
     Then I softly see value "Completed" for title "Status" against the value "{SavedValue:AnnEGMSID}" inside table "---announcement:-:announcementCompletedTaskTable---"
 
-  @hitTest1 @285570 @285574 @VerifythatOwnerofAnnwillnotseeUndobuttonwhenAnnissenttoreviewState @sprint-4-US-295141 @hitesh @Undo
+  @285570 @285574 @VerifythatOwnerofAnnwillnotseeUndobuttonwhenAnnissenttoreviewState @sprint-4-US-295141 @hitesh @Undo
   Scenario: Verify that Owner of Ann will not see Undo button when Ann is sent to review State
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -1491,7 +1491,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I softly see value "Automation PM" for title "Changed By" inside table "---announcement:-:annFieldHistory---"
     Then I softly see snapshot with name containing "Snapshot_Announcement_Submission.pdf" as name
 
-  @hitTest1 @302658 @VerifythatUserWillNotSeeUndowhenAnnouncementisinClosed @sprint-26-US-299251 @hitesh @Undo
+  @302658 @VerifythatUserWillNotSeeUndowhenAnnouncementisinClosed @sprint-26-US-299251 @hitesh @Undo
   Scenario: Verify that User Will Not See Undo when Announcement is in Closed state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1502,7 +1502,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @hitTest1 @342791 @342362 @342488 @AnnouncementVerifythatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApprover @sprint-13-US-331643 @hitesh @Undo
+  @342791 @342362 @342488 @AnnouncementVerifythatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApprover @sprint-13-US-331643 @hitesh @Undo
   Scenario: Announcement Verify that approval task and email is generated to last step approver on click of undo button by Last Approver
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab

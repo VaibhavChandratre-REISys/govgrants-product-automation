@@ -1,7 +1,7 @@
 @directedAnnouncementsWB @grantor-regression @grantor-parallel-regression @announcement @regression @annoucementTemp
 Feature: Validate all scenarios in the directed Announcement tab
 
- @hitTest1 @219074 @219166 @AdminUserVerifiesInfoTextForDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
+ @hitTest @219074 @219166 @AdminUserVerifiesInfoTextForDirectedAnnouncement @sprint-9-US-208408 @komal @Allocation
   Scenario: Verify when Admin user should able to see the Info Text for Directed Announcement
   |Verify focus area table should display above the Applicant Section for Directed Announcement|
     When I login to "As a Grantor" app as "ADMIN" user
@@ -276,7 +276,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | User |
       | IND  |
 
-  @hitTest1 @219614 @SPIUserVerifyforDirectedannouncementinbudgetsummarysectionSubawardfloor&Subawardcellingfieldshouldbedisplay @sprint-11-US-204998 @komal @Allocation
+  @219614 @SPIUserVerifyforDirectedannouncementinbudgetsummarysectionSubawardfloor&Subawardcellingfieldshouldbedisplay @sprint-11-US-204998 @komal @Allocation
   Scenario Outline: SPI User for Directed announcement in budget summary section Subaward floor & Subaward celling field should be display.
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -309,7 +309,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | User |
       | SPI3 |
 
-  @hitTest1 @219617 @219612 @SPASPIUserVerifyforCompetitiveannouncementinbudgetsummarysectionSubawardfloor&Subawardcellingfieldshouldbedisplay @sprint-11-US-204998 @komal @Allocation
+  @219617 @219612 @SPASPIUserVerifyforCompetitiveannouncementinbudgetsummarysectionSubawardfloor&Subawardcellingfieldshouldbedisplay @sprint-11-US-204998 @komal @Allocation
   Scenario Outline: SPA SPI User for Competitive announcement in budget summary section Subaward floor & Subaward celling field should be display.
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -376,7 +376,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | User |
       | IND  |
 
-  @hitTest1 @238301 @237744 @VerifyvalidationmessageisdisplayedtoPMuserwhenenteredrecommendedbudgetisGreaterOrlessthantheBudgetedAmountonFDMrecordwhichiscreatedfromDirectedannouncement @sprint-14-US-224179 @komal @Allocation
+  @hitTest @238301 @237744 @VerifyvalidationmessageisdisplayedtoPMuserwhenenteredrecommendedbudgetisGreaterOrlessthantheBudgetedAmountonFDMrecordwhichiscreatedfromDirectedannouncement @sprint-14-US-224179 @komal @Allocation
   Scenario Outline: Verify validation message is displayed to PM user when entered recommended budget is greater than the Budgeted Amount on FDM record which is created from Directed announcement
   | Verify validation message is displayed to PM user when entered recommended budget is less than the Budgeted Amount on FDM record which is created from Directed announcement  |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "NEGOTIATION_NO"
@@ -461,6 +461,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -500,6 +501,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
+    And I wait for "3" seconds
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
@@ -557,7 +559,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @hitTest1 @237897 @VerifyAdminuserisabletocreatesubawardfromFDMwhenenteredrecommendedbudgetisequaltoBudgetedAmountonFDMrecordwhichiscreatedfromDirectedannouncement @sprint-14-US-224179 @komal @Allocation
+  @hitTest @237897 @VerifyAdminuserisabletocreatesubawardfromFDMwhenenteredrecommendedbudgetisequaltoBudgetedAmountonFDMrecordwhichiscreatedfromDirectedannouncement @sprint-14-US-224179 @komal @Allocation
   Scenario Outline: Verify Admin user is able to create subaward from FDM when entered recommended budget is equal to Budgeted Amount on FDM record which is created from Directed announcement
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "NEGOTIATION_NO-Automation ADMIN user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -643,6 +645,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -684,6 +687,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -800,7 +804,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
- @hitTest1 @234354 @234372 @DirectAnnVerifyPMusercanseetheRecommendedAmountBudgetedAmount&StateAllocationcolumnonRecommendedapplicationsectiononFDMlayout @sprint-13-US-224612 @komal @Allocation
+ @hitTest @234354 @234372 @DirectAnnVerifyPMusercanseetheRecommendedAmountBudgetedAmount&StateAllocationcolumnonRecommendedapplicationsectiononFDMlayout @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Direct Ann PM user can see the 'Recommended Amount' 'Budgeted Amount' 'State Allocation' column on Recommended application section on FDM layout
   | Direct Ann PM user can see the Show Subaward floor and Subaward Ceiling under overview section on FDM layout |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
@@ -887,6 +891,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+   And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -960,7 +965,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @hitTest1 @234360 @DirectAnnVerifyPMusercanseeeditedtheBudgetedAmountfieldwhenusersendtheapplicationtosrfornegotiation&subrecipientaddbudgetonitwhenonceFDMisapproved @sprint-13-US-224612 @komal @Allocation
+  @hitTest @234360 @DirectAnnVerifyPMusercanseeeditedtheBudgetedAmountfieldwhenusersendtheapplicationtosrfornegotiation&subrecipientaddbudgetonitwhenonceFDMisapproved @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Direct Ann PM user can see edited the Budgeted Amount field when user send the application to sr for negotiation subrecipient add budget on it when once FDM is approved
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1045,6 +1050,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1168,7 +1174,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @hitTest1 @234362 @DirectAnnVerifyPOusercanseethevalidationwhenthebudgetedAmountisnotequaltotheRecommendedamountwhenusertriedtoconverttoaward @sprint-13-US-224612 @komal @Allocation
+  @hitTest @234362 @DirectAnnVerifyPOusercanseethevalidationwhenthebudgetedAmountisnotequaltotheRecommendedamountwhenusertriedtoconverttoaward @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Direct Ann PO user can see the validation when the budgeted Amount is not equal to the Recommended amount when user tried to convert to award
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default-Automation PO user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1253,6 +1259,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1294,6 +1301,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1621,7 +1629,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            |
       | {SavedValue:Automation Runtime Announcement} |
 
-  @hitTest1 @234368 @234371 @DirectAnnVerifyEXEusercaninlineedittheRecommendedBudgetfieldunderRecommendedApplicationsectionbeforeFDMapproval @sprint-13-US-224612 @komal @Allocation
+  @hitTest @234368 @234371 @DirectAnnVerifyEXEusercaninlineedittheRecommendedBudgetfieldunderRecommendedApplicationsectionbeforeFDMapproval @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Direct Ann EXE user can inline edit the Recommended Budget field under Recommended Application section before FDM approval
   | DirectAnn>>Verify EXE when negotiation is initiated during FDM or from app layout then it must mandatory for user to select the "Budget: Budget Details " picklist value  for Negotiation field when the budgeted Amount is not equal to the Recommended Budget |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APPLICANT_IND_ORG-Automation EXE user"
@@ -1707,6 +1715,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -2033,7 +2042,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @hitTest1 @234235 @234239 @234237 @DirectAnnINDusercanseeErrormessageonsubmittograntorbuttonwhenuserresubmittheapplicationafternegotiationFromFDMifcheckwhentheBudgetedamountmustbeequaltotheRecommendedAmount @sprint-13-US-224176 @komal @Allocation
+  @hitTest @234235 @234239 @234237 @DirectAnnINDusercanseeErrormessageonsubmittograntorbuttonwhenuserresubmittheapplicationafternegotiationFromFDMifcheckwhentheBudgetedamountmustbeequaltotheRecommendedAmount @sprint-13-US-224176 @komal @Allocation
   Scenario Outline: Direct Ann IND user can see Error message on submit to grantor button when user resubmit the application after negotiation From FDM if check when the Budgeted amount must be equal to the Recommended Amount
   | Direct Ann>> Verify IND user can able to edit the Budget Summary by focus area section When the grantor select this Budget Tab: Budget Summary by Focus Area" in the picklist for negotiation (From FDM)& submit application to s/r side |
   | Direct Ann>> Verify IND user can not see Error message on submit to grantor button when user resubmit the application after negotiation (From FDM), if  Budgeted amount is equal to the  Recommended Amount  |
@@ -2046,7 +2055,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AppEgmdId"
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -2121,6 +2130,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -2162,6 +2172,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -2706,7 +2717,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @hitTest1 @274013  @Sprint-23-US-273843 @vaibhav @Allocation @Re-RunPlanningAndAnnouncement
+  @274013  @Sprint-23-US-273843 @vaibhav @Allocation @Re-RunPlanningAndAnnouncement
   Scenario: Validate Ann owner(PM User) should see following column names in the table under invited applicants section when Ann is in Published, Approved, Closed, and Under Revision status
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab

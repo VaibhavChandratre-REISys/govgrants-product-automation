@@ -133,6 +133,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -408,7 +409,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
-    And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -440,6 +440,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -482,6 +483,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -726,6 +728,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I see the sub-header is "SME Review" in the page details
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
+    And I wait for "3" seconds
     And I enter value "7" into field "NagotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
@@ -876,6 +879,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -918,6 +922,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1077,7 +1082,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-   And I wait for "3" seconds
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1120,6 +1125,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1309,6 +1315,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:App1EgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1404,6 +1411,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Funding Decision Memo" sub tab
     When I click on "Initiate Negotiation" icon for "{SavedValue:App2EgmdId}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
+    And I wait for "3" seconds
     And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget: Budget Details" into field "ApplicationSectionsForRevision__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
@@ -1529,6 +1537,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:App1EgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1567,6 +1576,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:App1EgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1669,7 +1679,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Extra Salary | The narrative | 500          | 50         | 50             |
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---applicationReview:-:addLineItemsModalTableId---"
 
-  @hitTest1 @319874 @VerifyusercannotseebudgetsummarybyfocusareasectiononfundingchangeamendmentrequestFANo @Sprint-9-US-318292 @hitesh
+  @319874 @VerifyusercannotseebudgetsummarybyfocusareasectiononfundingchangeamendmentrequestFANo @Sprint-9-US-318292 @hitesh
   Scenario:Verify IND user can budgeted amount get updated after remove focus area when budget associated with that focus area & also easily remove FAs having zero dollar budget associated with that FA on Application layout
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "SECOND_FOCUS_AREA_APPLICANT_IND_ORG_PRE_APPLICATION-Automation PM user"
     And I am on "SUBPORTAL" portal
@@ -1736,7 +1746,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I refresh the page
     Then I softly see field "Budgeted Amount" as "$0.00"
 
- @hitTest1 @274123 @VerifyPOusernotifytoSRuserforcompletednegotiation @sprint-23-US-273843 @hitesh
+ @274123 @VerifyPOusernotifytoSRuserforcompletednegotiation @sprint-23-US-273843 @hitesh
   Scenario Outline:Verify PO user notify to S\R user for completed negotiation.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "NEGOTIATION-Automation PO user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
