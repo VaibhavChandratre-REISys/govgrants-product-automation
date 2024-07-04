@@ -40,7 +40,6 @@ Feature: Validate all scenarios of every modules flow
     And I enter value "Department Details" into field "Description__c"
     And I click on "Save" in the page details
     And I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "GrantorFocusAreaFilesgrid"
     And I click on top right button "Add Files" in flex table with id "---focusarea:-:FocusAreaFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
     And I wait for "2" seconds
@@ -72,6 +71,8 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---keyperformanceindicator:-:GrantorKPIFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
     When I enter the following values into flex table with id "GrantorKPIContentNotes" by clicking "New" :
       | Title                | Description                |
       | Department Education | Department Education Notes |
