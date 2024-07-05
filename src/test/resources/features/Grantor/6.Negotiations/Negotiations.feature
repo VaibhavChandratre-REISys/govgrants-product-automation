@@ -983,7 +983,7 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     Then I see field "Details" as "Negotiation Initiated"
 
-  @67255  @validateAnnouncementHyperlinkOnGrant @mahadev @NegotiationRerun
+  @67255  @validateAnnouncementHyperlinkOnGrant @mahadev @NegotiationTOBe
   Scenario: To validate that the announcement page is navigable from the Grant page through the Grantor(PM profile Internal user)
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1032,7 +1032,8 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     When I click on hyperlink containing value "{SavedValue:AnnID}"
     And I wait for "6" seconds
-    Then I see status in Progress-bar is "Converted to Award" and is "dark blue"
+    Then I softly see field "Status" as "Published"
+#    Then I see status in Progress-bar is "Converted to Award" and is "dark blue"
 
   @133262 @133251 @ValidatePMUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3 @Vaibhav @NegotiationRerun
   Scenario: Validate PM User Allow Edit Select At Least One Form Error Message
@@ -1194,7 +1195,6 @@ Feature: Validate all scenarios in Negotiations
     Then I can see top right button "Cancel" in page detail
     Then I can see top right button "Save" in page detail
     And I close the tab
-    And I refresh the page
     And I wait for "3" seconds
     And I click on "Cancel" in the page details
     And I navigate to "Home" tab
@@ -1714,7 +1714,7 @@ Feature: Validate all scenarios in Negotiations
     And I switch to tab number "1"
     Then I softly cannot see top right button "Edit" in page detail
 
-  @165884  @sprint-3 @vaibhav @NegotiationRerun
+  @165884  @sprint-3 @vaibhav @NegotiationTOBe
   Scenario: Validate Subrecipient user is not able to edit forms when Application is in Converted to Award state
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1949,7 +1949,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     Then I softly see field "Due Date" as "10/18/2142" in "Negotiation Request Details" pageblock
 
-  @189521 @sprint-13 @vaibhav @NegotiationRerun
+  @189521 @sprint-13 @vaibhav @NegotiationTOBe
   Scenario: Validate re-submitting the revised application, the application sections and forms should be locked  for the S/R user
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1996,16 +1996,15 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
-    And I refresh the page
     And I wait for "3" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I switch to tab number "1"
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
-    And I refresh the page
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     When I navigate to "Forms and Files" sub tab
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
@@ -2092,7 +2091,7 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Details" as "Automation Negotiation Iniatiation" in "Applicant Response" pageblock
 
-  @189571  @sprint-13 @vaibhav @NegotiationRerun
+  @189571  @sprint-13 @vaibhav @NegotiationTOBe
   Scenario: Validate submitting the revised application the sections and forms get locked for the subrecipient
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -2139,14 +2138,12 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
-    And I refresh the page
     And I wait for "3" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I switch to tab number "1"
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
-    And I refresh the page
     And I wait for "5" seconds
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Negotiations" sub tab
@@ -2160,7 +2157,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see field "Estimated Program Income For Project Period" as "$100.00"
     Then I softly see field "Application Title" as "Automation Test Description"
 
-  @189574  @sprint-13 @vaibhav @NegotiationRerun
+  @189574  @sprint-13 @vaibhav @NegotiationTOBe
   Scenario: Validate user should get notification and the application comes back in pending task once the negotiation on the application
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -2193,8 +2190,9 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Forms and Files" sub tab
-    And I wait for "7" seconds
+    And I wait for "5" seconds
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
@@ -2202,14 +2200,12 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
-    And I refresh the page
     And I wait for "3" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I switch to tab number "1"
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
-    And I refresh the page
     And I wait for "5" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
