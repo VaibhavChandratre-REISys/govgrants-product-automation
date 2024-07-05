@@ -118,6 +118,7 @@ public final class PhasePanel {
 
     public void clickDoubleArrowtoggleForLWC(String anyItemContainedInDropDown) {
         By doubleArrow = getDoubleArrowLocatorForLWC(anyItemContainedInDropDown);
+        I.amPerforming().waitFor().makeThreadSleep(2000);
         I.amPerforming().click().withJavaScript(doubleArrow);
     }
 

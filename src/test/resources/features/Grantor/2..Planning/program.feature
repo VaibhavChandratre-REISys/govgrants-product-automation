@@ -909,7 +909,6 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:reviewFormPanelId---" by clicking "New" :
       | Form Name         | Required? | Minimum Number of Reviews per Application |
       | Automation Review | Checked   | 1                                         |
-    #Bug445183
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     When I collapse nested table containing column value "Management Review"
@@ -2109,7 +2108,6 @@ Feature: Validate all scenarios for program
     And I pause execution for "5" seconds
     And I navigate to "Setup" sub tab
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
-    #Bug444555
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
     And I collapse nested table containing column value "Pre-Screen Review"
@@ -2769,7 +2767,6 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
       | Management Review | 100             | Unchecked | 0                                         |
-    #Bug444611 - attach new screenshot
     Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
     When I collapse nested table containing column value "Management Review"
@@ -4138,7 +4135,6 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I pause execution for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
-    #Bug445204
     Then I softly see the following messages in the page details contains:
       | Setup Tab - SME Review - Fiscal Review: A score must be associated to at least one question in the Match section because it is weighted. |
       | Setup Tab - SME Review - Fiscal Review: The total section weight must equal 100% or 0%. It is currently 115%.                            |
@@ -4710,7 +4706,6 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Program Review | Unchecked | 40              | 0                                         |
-    #Bug444611
     Then I softly see the following messages in the page details :
       | You cannot associate a weight to an optional panel |
     And I refresh the page

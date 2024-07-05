@@ -433,7 +433,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record8" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record8" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @t2 @219742 @ValidatePMEXEPOusercanAddeditdeletehisnotesonaformulaannouncementwhichisApproved @sprint-9-US-201923 @hitesh @Notes
+  @219742 @ValidatePMEXEPOusercanAddeditdeletehisnotesonaformulaannouncementwhichisApproved @sprint-9-US-201923 @hitesh @Notes
   Scenario: Validate PM/EXE/PO user can Add/edit/delete his notes on a formula announcement which  is Approved
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -675,7 +675,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @t2 @220094 @ValidatePMEXEFOADMINusercanAddeditdeletehisnotesonaformulaannouncementwhichisPublished @sprint-9-US-201923 @hitesh @Notes
+  @220094 @ValidatePMEXEFOADMINusercanAddeditdeletehisnotesonaformulaannouncementwhichisPublished @sprint-9-US-201923 @hitesh @Notes
   Scenario: Validate PM/EXE/FO/ADMIN user can Add/edit/delete his notes on a formula announcement which is Published
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -865,7 +865,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record11" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record11" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @t2 @220096 @ValidatePMEXEFOusercanAddeditdeletehisnotesonacompetitiveannouncementwhichisPublished @sprint-9-US-201923 @hitesh @Notes
+  @220096 @ValidatePMEXEFOusercanAddeditdeletehisnotesonacompetitiveannouncementwhichisPublished @sprint-9-US-201923 @hitesh @Notes
   Scenario:Validate PM/EXE/FO user can Add/edit/delete his notes on a competitive announcement which is Published
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1007,7 +1007,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record8" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record8" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @t2 @220104 @220163 @ValidatePMEXEFOusercanAddeditdeletehisnotesonadirectedannouncementwhichisPublished @sprint-9-US-201923 @hitesh @Notes
+  @220104 @220163 @ValidatePMEXEFOusercanAddeditdeletehisnotesonadirectedannouncementwhichisPublished @sprint-9-US-201923 @hitesh @Notes
   Scenario: Validate PM/EXE/FO user can Add/edit/delete his notes on a directed announcement which  is Published
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1161,7 +1161,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly cannot see row level action button "Edit" against "Notes Record4" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record4" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @t2 @220110 @ValidatePMEXEFOusercanAddeditdeletehisnotesonaformulaannouncementwhichisRevised @sprint-9-US-201923 @hitesh @Notes
+  @220110 @ValidatePMEXEFOusercanAddeditdeletehisnotesonaformulaannouncementwhichisRevised @sprint-9-US-201923 @hitesh @Notes
   Scenario: Validate PM/EXE/FO user can Add/edit/delete his notes on a formula announcement which  is Revised
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1411,7 +1411,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @t2 @220164 @ValidatePMPOusercantaddnotesbuteditdeletehisnotesoncompetitiveannouncementwhichisRejected @sprint-9-US-201923 @hitesh @Notes
+  @220164 @ValidatePMPOusercantaddnotesbuteditdeletehisnotesoncompetitiveannouncementwhichisRejected @sprint-9-US-201923 @hitesh @Notes
   Scenario:Validate PM/PO user cant add notes but edit/delete his notes on competitive announcement which is Rejected
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1531,7 +1531,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record4" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record4" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @t2 @220165 @ValidateEXEFDusercantaddnotesbuteditdeletehisnotesondirectedannouncementcreatedbyPMwhichisRejected  @sprint-9-US-201923 @hitesh @Notes
+  @220165 @ValidateEXEFDusercantaddnotesbuteditdeletehisnotesondirectedannouncementcreatedbyPMwhichisRejected  @sprint-9-US-201923 @hitesh @Notes
   Scenario: Validate EXE/FD user cant add notes but edit/delete his notes on directed announcement created by PM which is Rejected
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1667,7 +1667,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record4" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record4" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @t2 @@220169 @ValidateEXEFOusercantaddnotesoncompetitiveannouncementwhichisClosed @sprint-9-US-201923 @hitesh @Notes
+  @220169 @ValidateEXEFOusercantaddnotesoncompetitiveannouncementwhichisClosed @sprint-9-US-201923 @hitesh @Notes
   Scenario:Validate EXE/FO user cant add notes on competitive announcement which is Closed
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1686,7 +1686,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @t2 @220170 @ValidatePMADMINusercantaddnotesondirectedannouncementwhichisClosed @sprint-9-US-201923 @hitesh @Notes
+  @220170 @ValidatePMADMINusercantaddnotesondirectedannouncementwhichisClosed @sprint-9-US-201923 @hitesh @Notes
   Scenario:Validate PM/ADMIN user cant add notes on directed announcement which is Closed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1705,7 +1705,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @t2 @220171 @ValidateFDPOusercantaddnotesonformulaannouncementwhichisClosed @sprint-9-US-201923 @hitesh @Notes
+  @220171 @ValidateFDPOusercantaddnotesonformulaannouncementwhichisClosed @sprint-9-US-201923 @hitesh @Notes
   Scenario:Validate FD/PO user cant add notes on formula announcement which is Closed
     When I login to "As a Grantor" app as "FD" user
     And I navigate to "Announcements" tab
@@ -1805,7 +1805,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @t2 @220179 @ValidateAuditorusercantaddnotesoncompetitiveannouncementwhichisPublished @sprint-9-US-201923 @hitesh @Notes
+  @220179 @ValidateAuditorusercantaddnotesoncompetitiveannouncementwhichisPublished @sprint-9-US-201923 @hitesh @Notes
   Scenario:Validate Auditor user cant add notes on competitive announcement which is Published
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1890,7 +1890,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @t2 @220180 @ValidateuserwithAuditorprofilecantaddnotesondirectedannouncementwhichisapproved  @sprint-9-US-201923 @hitesh @Notes
+  @220180 @ValidateuserwithAuditorprofilecantaddnotesondirectedannouncementwhichisapproved  @sprint-9-US-201923 @hitesh @Notes
   Scenario: Validate user with Auditor profile cant add notes on directed announcement which is approved
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1994,7 +1994,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @t2 @220182 @ValidateuserwithAuditorprofilecantaddnotesonformulaannouncementwhichissubmittedforapproval @sprint-9-US-201923 @hitesh @Notes
+  @220182 @ValidateuserwithAuditorprofilecantaddnotesonformulaannouncementwhichissubmittedforapproval @sprint-9-US-201923 @hitesh @Notes
   Scenario: Validate user with Auditor  profile cant add notes on formula announcement which is submitted for approval
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2104,7 +2104,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @t2 @220166 @ValidateFOADMINPOusercantaddnotesonformulaannouncementwhichcreatedbyPO&isRejected @sprint-9-US-201923 @hitesh @Notes
+  @220166 @ValidateFOADMINPOusercantaddnotesonformulaannouncementwhichcreatedbyPO&isRejected @sprint-9-US-201923 @hitesh @Notes
   Scenario: Validate FO/ADMIN/PO user cant add notes on formula announcement which created by PO & is Rejected
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
