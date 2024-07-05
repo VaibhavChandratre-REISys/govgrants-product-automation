@@ -1,7 +1,7 @@
 @grantor-regression @grantor-parallel-regression @progressReport @progressReportForms @regression @progressReportNotes
 Feature: Validate scenarios in Progress Report Notes
 
-  @236019 @VerifythatPMsercanaddnotesinProgressreportrecordinsubmittograntorstatesandeditdeleteonlyhisownnotes @sprint-12-US-234322 @hitesh @Notes @wip
+  @236019 @VerifythatPMsercanaddnotesinProgressreportrecordinsubmittograntorstatesandeditdeleteonlyhisownnotes @sprint-12-US-234322 @hitesh @Notes 
   Scenario: Verify that <PM> User can add notes in Progress report record in submit to grantor states and edit /delete only his own notes
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -59,7 +59,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
 
-  @236023 @VerifythatPMUsercanaddnotesinProgressreportrecordinsubmittograntorstatesandeditdeleteonlyhisownnotes @sprint-12-US-234322 @hitesh @Notes @wip
+  @236023 @VerifythatPMUsercanaddnotesinProgressreportrecordinsubmittograntorstatesandeditdeleteonlyhisownnotes @sprint-12-US-234322 @hitesh @Notes 
   Scenario: Verify that <PM> User can add notes in Progress report record in submit to grantor states and edit /delete only his own notes
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -242,7 +242,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
 
-  @236032  @sprint-12-US-234322 @hitesh @Notes @wip
+  @236032  @sprint-12-US-234322 @hitesh @Notes 
   Scenario: Verify that  Peer Reviewer<FD> User can add notes in Progress report record in Sent for review states and edit /delete only his own notes.
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation ADMIN user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -348,12 +348,9 @@ Feature: Validate scenarios in Progress Report Notes
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I wait for "3" seconds
-#    And I select "Progress Reports" from dropdown for Global search
-    And I navigate to "Monitoring" tab
-    And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
-    When I click toggle button to select "Progress Reports - All"
-    And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
-    And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
+    And I select "Progress Report" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:progID}"
+    And I click on hyperlink containing value "{SavedValue:progID}"
     When I navigate to "Forms and Files" sub tab
     Then I cannot see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
 
@@ -650,13 +647,13 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
-#    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
@@ -666,8 +663,8 @@ Feature: Validate scenarios in Progress Report Notes
     And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I close the tab
-    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -721,7 +718,6 @@ Feature: Validate scenarios in Progress Report Notes
     And I refresh the page
     When I click on "Override" in the page details
     When I click on "Submit for Approval" in the page details
-    And I refresh the page
     And I wait for "3" seconds
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Completed"
@@ -731,6 +727,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---progressReport:-:internalProgressReportFlexTableId---"
     And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Force Closed"
     Then I softly see status in Progress-bar is "Force Closed" and is "red"
     When I navigate to "Forms and Files" sub tab
@@ -817,7 +814,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I cannot see row level action button "Edit" against "Notes Record1" in flex table with id "---progressreport:-:progressNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record1" in flex table with id "---progressreport:-:progressNotesTableId---"
 
-  @236045  @sprint-12-US-234322 @hitesh @Notes @wip
+  @236045  @sprint-12-US-234322 @hitesh @Notes 
   Scenario:Verify that <IND> User Cant Add notes In Progress Report If the record status is in the Submitted to Grantor  And Can Only Edit /Delete Notes Added by him
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -878,7 +875,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
 
-  @236171 @236176  @sprint-12-US-234322 @hitesh @Notes @wip
+  @236171 @236176  @sprint-12-US-234322 @hitesh @Notes 
   Scenario: Verify that <SPI> User cannot add notes in Progress report record in  submit for review states and edit /delete only his own notes
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1159,8 +1156,8 @@ Feature: Validate scenarios in Progress Report Notes
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I refresh the page
     When I click on "Override" in the page details
+    And I wait for "2" seconds
     When I click on "Submit for Approval" in the page details
-    And I refresh the page
     And I wait for "3" seconds
     When I "Approve" in the approval decision
     And I wait for "3" seconds
@@ -1343,7 +1340,6 @@ Feature: Validate scenarios in Progress Report Notes
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I click on "Save" in the page details
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I save the field labeled "Subaward ID" as "SubAwardID"
@@ -1360,7 +1356,6 @@ Feature: Validate scenarios in Progress Report Notes
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
-    And I refresh the page
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab

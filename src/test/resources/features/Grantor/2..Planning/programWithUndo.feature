@@ -470,7 +470,10 @@ Feature: Validate all scenarios for program
     When I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Strategic Objectives Admin" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     When I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI For Admin" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    When I perform quick search for "Automation Permanent KPI For Admin" in "---program:-:associateKPITableId---" panel
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "Automation Permanent KPI For Admin" in the table "---program:-:associateKPITableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI For Admin" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                        | Program |
@@ -1177,7 +1180,7 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-   @279457 @VerifyPOapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-295138 @hitesh @Temphitesh @FieldHistoryExclude
+  @279457 @VerifyPOapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-295138 @hitesh @Temphitesh @FieldHistoryExclude @TBExecution
   Scenario:Verify PO approver should see Undo button after approval task ownership reassign to him
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1204,9 +1207,6 @@ Feature: Validate all scenarios for program
     When I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -1238,10 +1238,12 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "{SavedValue:PO1 Username}" for title "Name" inside table "---program:-:approverTableId---"
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Approved" for title "New Value" inside table "---program:-:historyTableId---"
-#    Then I softly see value "Submitted for Approval" for title "Old Value" inside table "---program:-:historyTableId---"
-#    Then I softly see value "Automation PO1" for title "Changed By" inside table "---program:-:historyTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Approved" for title "New Value" inside field history table
+    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
+    Then I softly see value "Automation PO1" for title "Changed By" inside field history table
 
   @PoojaUndo @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138 @hitesh @buglogged-356843
   Scenario: Verify notification email should generate to new owner of program after click on Undo button
@@ -1353,8 +1355,7 @@ Feature: Validate all scenarios for program
      The EGMS Team
       """
 
-
-  @ProgramExcludeScenarios @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138 @hitesh @Undo
+   @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138 @hitesh @Undo
   Scenario:Verify reassign approver should see Undo button after forwarded approver change approval task ownership
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2079,7 +2080,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
-  @ProgramExcludeScenarios @279528 @VerifyIfFDasstep4approverclickonUndobuttonthenemailshouldbegeneratedforallpreviousassignapproverandprogramowner @sprint-25-US-291914 @hitesh @Undo
+   @279528 @VerifyIfFDasstep4approverclickonUndobuttonthenemailshouldbegeneratedforallpreviousassignapproverandprogramowner @sprint-25-US-291914 @hitesh @Undo
   Scenario:Verify If FD as step 4 approver click on Undo button then email should be generated for all previous assign approver and program owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2265,7 +2266,8 @@ Feature: Validate all scenarios for program
      The EGMS Team
      """
 
-  @ProgramExcludeScenarios @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914 @hitesh @Undo
+
+   @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914 @hitesh @Undo
   Scenario: Verify step 2 approver can Reject the program after click on Undo button and active program task should cancel and display under completed task table
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2685,7 +2687,7 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @ProgramExcludeScenarios @279567 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-291914 @hitesh
+   @279567 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-291914 @hitesh
   Scenario: Verify notification email should generate to new owner of program after click on Undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3285,6 +3287,7 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
+    And I navigate to "Planning" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "Cancelled" for title "Status" against the value "{SavedValue:ProgramEGMSID}" inside table "---program:-:completedTaskTableId---"

@@ -72,12 +72,17 @@ public final class PageDetails {
             I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -800);
             I.amPerforming().waitFor().makeThreadSleep(2000);
             try {
-                I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
-                I.amPerforming().click().withJavaScript(topRightButton);
-                govgrants.perform().modal().acceptPopUp();
+                I.amPerforming().waitFor().ElementToBeVisible(topRightButton);
+              try {
+                  I.amPerforming().click().on(topRightButton);
+              }catch (Exception e) {
+                  I.amPerforming().click().withJavaScript(topRightButton);
+              }
+                  govgrants.perform().modal().acceptPopUp();
             } catch (Exception ex) {
+                I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//gnt-header-overview//lightning-button-menu//button"));
                 I.amPerforming().click().withJavaScript(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
-                I.amPerforming().click().withJavaScript(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
                 govgrants.perform().modal().acceptPopUp();
             }
 
@@ -265,15 +270,15 @@ public final class PageDetails {
 
     public void clickSubTabsInsideTableViewForSplitScreen(String tabName) {
         By desiredTab = By.xpath("//div[@class='uiTabBar']//ul//li//a[@title='" + tabName + "'] | //div[@class='slds-tabs_card']//ul//li//a[text()='" + tabName + "'] | //div[contains(@class,'forceCommunityTabLayout')]//ul//li//a[text()='" + tabName + "']");
-        try {
-            if (I.amPerforming().checkToSee().isDisplayed(desiredTab)){
-                I.amPerforming().click().withJavaScript(desiredTab);
-            }
-        }catch (Exception e){
-            I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//div[contains(@class,'slds-tabs_card')]//ul//li//button[text()='More']"));
-            I.amPerforming().click().withJavaScript(By.xpath("//div[contains(@class,'slds-tabs_card')]//ul//li//button[text()='More']"));
-            I.amPerforming().click().withJavaScript(By.xpath("//a//span[text()='" + tabName + "']"));
-        }
+       try {
+           if (I.amPerforming().checkToSee().isDisplayed(desiredTab)){
+               I.amPerforming().click().withJavaScript(desiredTab);
+           }
+       }catch (Exception e){
+           I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//div[contains(@class,'slds-tabs_card')]//ul//li//button[text()='More']"));
+           I.amPerforming().click().withJavaScript(By.xpath("//div[contains(@class,'slds-tabs_card')]//ul//li//button[text()='More']"));
+           I.amPerforming().click().withJavaScript(By.xpath("//a//span[text()='" + tabName + "']"));
+       }
     }
 
     /**
@@ -571,7 +576,7 @@ public final class PageDetails {
         }
         String fieldValue;
         WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
-                .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd | ./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')]"));
+                .findElement(By.xpath("./ancestor::dl[1]/dd | ./ancestor::dl[1]/following-sibling::dd | ./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')] | ./parent::div//div//lightning-formatted-text[not(@part='help-text')]"));
         if (fieldData.findElements(By.xpath(".//input[@type='checkbox']")).size() != 0) {
             fieldValue = I.amPerforming().checkToSee().isSelected(I.amPerforming().getElementReference().ofNested(fieldData, By.xpath(".//input[@type='checkbox']")))
                     ? "Checked" : "Unchecked";

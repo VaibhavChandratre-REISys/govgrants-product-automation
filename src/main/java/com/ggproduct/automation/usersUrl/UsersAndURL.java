@@ -63,9 +63,9 @@ public class UsersAndURL implements UsersController {
             userName = getQAEnvironmentUser(setUpUserLevel(userLevel));
         } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("TEST8"))) {
             userName = getTest8EnvironmentUser(setUpUserLevel(userLevel));
-        } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("PROLWC"))) {
+        }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("PROLWC"))) {
             userName = getProLwcEnvironmentUser(setUpUserLevel(userLevel));
-        } else {
+        }else {
             userName = getAUTOEnvironmentUser(setUpUserLevel(userLevel));
         }
         return userName;
@@ -94,36 +94,37 @@ public class UsersAndURL implements UsersController {
             case "ADMIN":
                 password = "Salesforce2036";
                 break;
-            case "SA":
-                password = "Salesforce2039";
-                break;
             case "IND":
                 password = "Salesforce2035";
                 break;
             case "SPA":
                 password = "Salesforce2033";
                 break;
+            case "SA":
+                password = "Salesforce2039";
+                break;
             case "PM":
                 password = "Salesforce2035";
                 break;
             default:
                 password = "Salesforce2034";
-         }
-        return
-                password;
         }
-
+        return password;
+    }
 
     private String getQAEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
+            case "SARAH PM":
+                password = "Salesforce@2034";
+                break;
             case "SPA":
                 password = "Salesforce2034";
                 break;
-            case "EXE1":
+            case "SA":
                 password = "Salesforce2035";
                 break;
-            case "SA":
+            case "EXE1":
                 password = "Salesforce2035";
                 break;
             default:
@@ -212,7 +213,6 @@ public class UsersAndURL implements UsersController {
             return username.get("ADMIN");
         }
     }
-
     private String getQAEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
         username.put("ADMIN", "govgrantsautomation@yopmail.com.qaorg");

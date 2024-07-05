@@ -552,7 +552,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | FO    |
       | FD    |
 
-  @73630 @73626 @SystemsErrorAfterApplyingWrongFilter @jitendra @FieldHistoryExclude
+  @73630 @73626 @SystemsErrorAfterApplyingWrongFilter @jitendra
   Scenario: To validate system is getting displayed error message while adding invalid values into the filter for Approves section on responsibility tab of announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -580,7 +580,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I click on advance filter "#advfAnnoucementPackagesGrantor" of table id "---announcement:-:businessFormlistTableId---"
 #    And I enter advance filter values inside id "advfAnnoucementPackagesGrantor"
 #      | Name | Contains | Anything |
-    And I pause execution for "50" seconds
+    And I pause execution for "10" seconds
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:businessFormlistTableId---"
 
   @73854 @73855 @73852 @73853 @jitendra @filterNotYetQualifiedSPAUser @wip
@@ -740,7 +740,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I expand nested table containing column value "Management Review"
     Then I softly see value "Automation EXE" for title "Reviewer" inside table "---announcement:-:AnnouncementReviewPanel---"
 
-  @139787 @VerifyInheritatedApproverAtAnnouncementFromProgram_CompetitiveAnnouncement-RnRFunctionality @monu @OnHoldDueToApproverNotAdded
+  @139787 @VerifyInheritatedApproverAtAnnouncementFromProgram_CompetitiveAnnouncement-RnRFunctionality @monu
   Scenario Outline:  verify  approver get inherited from program level to announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1294,7 +1294,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    Given I click on "Back" in the page details
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -1412,7 +1412,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    Given I click on "Back" in the page details
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -1544,7 +1544,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1586,7 +1586,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    Given I click on "Back" in the page details
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -1626,7 +1626,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly can see row level action button "Initiate Review Process" against "{SavedValue:AnnEGMSID}" in flex table with id "---applicationReview:-:announcementListTableId---"
 
-  @194763 @Validateownershipreassignmentofannouncementfieldhistoryshouldgetupdated @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
+  @194763 @Validateownershipreassignmentofannouncementfieldhistoryshouldgetupdated @sprint-4 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
   Scenario: Validate ownership reassignment of announcement field history should get updated
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1663,8 +1663,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation EXE1" for title "New Value" inside table "---announcement:-:annFieldHistory---"
-    Then I softly see value "Automation EXE" for title "Old Value" inside table "---announcement:-:annFieldHistory---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation EXE1" for title "New Value" inside field history table
+    Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
   @PoojaAnnouncmentRun @196847 @Validateuserapprovedtheannouncement&reassignownershiptonewuserthenpublishoptionshoulddisplaytonewowner @sprint-4 @vaibhav @reassignment @ownershipcheck
   Scenario: Validate user approved the announcement & reassign ownership to  new user then publish option should display to new owner
@@ -2916,7 +2918,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3031,7 +3033,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
 #    And I click on "Save" in the page details
 #    Given I click on "Back" in the page details
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -3149,7 +3151,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
     Then I see value "Publish Announcement" for title "Task Type" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @198424 @ValidatefieldhistoryshouldbeupdateafterAnnownershiptaskreassigntootheruser @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
+  @198424 @ValidatefieldhistoryshouldbeupdateafterAnnownershiptaskreassigntootheruser @sprint-4 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
   Scenario: Validate field history should be update after Ann ownership task reassign to other user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3222,9 +3224,11 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly can see top right button "Publish" in page detail
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
-#    And I navigate to "History" sub tab
-#    Then I softly see value "Automation PM1" for title "New Value" against the value "Owner" inside table "---announcement:-:annFieldHistory---"
-#    Then I softly see value "Automation PM" for title "Old Value" inside table "---announcement:-:annFieldHistory---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @195677 @Validatethatnewapproversnameshouldbeupdatentheresponsibilitytabwhenapprovaltaskisreassigned @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate that new approver's name should be update in the responsibility tab when approval task is reassigned
@@ -3294,7 +3298,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Step 1" for title "Announcement" against the value "Automation PO" inside table "---announcement:-:approversTableId---"
     Then I softly see value "NA" for title "Announcement" against the value "Automation PO1" inside table "---announcement:-:approversTableId---"
 
-  @217675 @ValidateAnnValidateapprovercanreassignthetaskifhe/shewasdefinedonthecurrentmodule @sprint-12-US-226646 @vaibhav @reassignment @OnHoldDueToApproverNotAdded
+  @217675 @ValidateAnnValidateapprovercanreassignthetaskifhe/shewasdefinedonthecurrentmodule @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Ann Validate approver can reassign the task if he/she was defined on the current module
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -3423,7 +3427,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see value "Automation FO1" for title "Name" inside table "---program:-:approverTableId---"
 
-  @221968 @Validatestep2approverisinsertedforAnncolumnwhenapprovaltaskisreassigned @sprint-12-US-226646 @vaibhav @reassignment @OnHoldDueToApproverNotAdded
+  @221968 @Validatestep2approverisinsertedforAnncolumnwhenapprovaltaskisreassigned @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate step2 approver is inserted for Ann column when approval task is reassigned
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3899,7 +3903,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       The EGMS Team.
       """
 
-  @221975 @ValidateAnnIfapproverandownerofaAnnaresamevalidateafterreassigningtheapprovaltaskownershipofrecordisnotchanged @sprint-11-US-218319 @vaibhav @reassignment @OnHoldDueToApproverNotAdded
+  @221975 @ValidateAnnIfapproverandownerofaAnnaresamevalidateafterreassigningtheapprovaltaskownershipofrecordisnotchanged @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Ann If approver and owner of a Ann are same validate after reassigning the approval task ownership of record is not changed
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -4001,7 +4005,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Step 2" for title "Payment Request" against the value "Automation EXE" inside table "---announcement:-:approversTableId---"
     Then I softly see value "Step 2" for title "Monitoring" against the value "Automation EXE" inside table "---announcement:-:approversTableId---"
 
-  @221979 @ValidateAnnIfapprandownerofAnnaresameafterreassigningtheownershipofAnnrecordapprovernameshouldnotchanged @sprint-11-US-218319 @vaibhav @reassignment @OnHoldDueToApproverNotAdded
+  @221979 @ValidateAnnIfapprandownerofAnnaresameafterreassigningtheownershipofAnnrecordapprovernameshouldnotchanged @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Ann If approver and owner of a Ann are same validate after reassigning the ownership of Ann record approver name should not changed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -4241,7 +4245,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on submit review
     Then I softly see that "Submitted" has been added in flextable with Id "---announcement:-:reviewersTableId---"
 
-  @221992 @ValidateAnnstepshouldgetupdatedifDavidFOstep1approverreassignapprovertaskofsamerecordtoDanisFOwhosestepisNAforAnn @sprint-11-US-218319 @vaibhav @reassignment @OnHoldDueToApproverNotAdded
+  @221992 @ValidateAnnstepshouldgetupdatedifDavidFOstep1approverreassignapprovertaskofsamerecordtoDanisFOwhosestepisNAforAnn @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Ann step should get updated if David FO step 1 approver reassign approver task of same record to Danis FO whose step is NA for Ann
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -5085,7 +5089,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
 #     And I click on "Save" in the page details
 #     When I click on "Back" in the page details
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "General Review Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -5356,7 +5360,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
 #    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
 #    When I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -6108,7 +6112,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @223509 @ValidateAnnthecorrectstep&reviewermappingisdoneonindividualrecordforrespectiveassignmentwhenrecordswithsimilartasktypefordifferentstepandresponsibilitiesareselectedandprocessedreassignedsimultaneously @sprint-11-US-218319 @vaibhav @reassignment @OnHoldDueToApproverNotAdded
+  @223509 @ValidateAnnthecorrectstep&reviewermappingisdoneonindividualrecordforrespectiveassignmentwhenrecordswithsimilartasktypefordifferentstepandresponsibilitiesareselectedandprocessedreassignedsimultaneously @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Ann the correct step & reviewer mapping is done on individual record for respective assignment when records with similar task type for different step and responsibilities are selected and processed/ reassigned simultaneously
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab

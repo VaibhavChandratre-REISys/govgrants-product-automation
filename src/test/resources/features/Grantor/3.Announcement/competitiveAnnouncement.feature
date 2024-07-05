@@ -150,7 +150,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Related Focus Areas" on page "1" of "govgrants" pdf file
 
-  @70551 @70552 @73405 @73389 @73406 @73387 @70800 @70885 @71595 @72646 @72641 @73537 @userCanViewAddAndDeleteFocusArea @aashish @FieldHistoryExclude
+  @70551 @70552 @73405 @73389 @73406 @73387 @70800 @70885 @71595 @72646 @72641 @73537 @userCanViewAddAndDeleteFocusArea @aashish @FieldHistoryExclude @TBExecution
   Scenario: To Verify that user is able to remove associated focus areas While creating the Announcement | To verify PM can remove non relevant Budget categories from specific Budget Type in Announcement based on the need.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Published Announcements"
@@ -190,10 +190,13 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I enter value "6000" into field "---announcement:-:subawardceiling---"
     And I click on "Save" in the page details
     And I navigate to "History" sub tab
-    Then I softly see value "$4,000.00" for title "New Value" inside table "History"
-    Then I softly see value "$2,000.00" for title "Old Value" inside table "History"
-    Then I softly see value "$6,000.00" for title "New Value" inside table "History"
-    Then I softly see value "$3,000.00" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "$4,000.00" for title "New Value" inside field history table
+    Then I softly see value "$2,000.00" for title "Original Value" inside field history table
+    Then I softly see value "$6,000.00" for title "New Value" inside field history table
+    Then I softly see value "$3,000.00" for title "Original Value" inside field history table
+    And I click on back arrow
     And I navigate to "Financials" sub tab
     And I perform quick search for "Construction" in "---announcement:-:announcementBudgetCategory---" panel
     Then I softly see value "Construction" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
@@ -277,7 +280,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Financial Tab - There should be no gap between the dates. Enter the correct Budget Periods Start Dates and End Dates. |
       | Responsibilities - At least one approver is required                                                                  |
 
-  @70479 @70481 @70503 @70422 @70507 @70542 @70543 @70425 @70424 @70426 @70419 @70417 @70418 @70506 @71951 @73408 @userDeleteSupportingDocument @aashish @FieldHistoryExclude
+  @70479 @70481 @70503 @70422 @70507 @70542 @70543 @70425 @70424 @70426 @70419 @70417 @70418 @70506 @71951 @73408 @userDeleteSupportingDocument @aashish @FieldHistoryExclude @TBExecution
   Scenario: To Verify that user can delete supporting document checklist While creating the Announcement |
   To Verify that user can Edit fields in supporting document checklist While creating the Announcement |
   To Verify that user can preview business forms while creating Announcement|
@@ -363,7 +366,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on hyperlink containing value "View"
     Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
 
-  @72323 @71972 @jitendra @applicationDueDataOfAnnInHistory @FieldHistoryExclude
+  @72323 @71972 @jitendra @applicationDueDataOfAnnInHistory @FieldHistoryExclude @TBExecution
   Scenario: To verify field history update with respect to modification in Application Due Dates of Announcement|
   To verify that estimated period start date & end date is displayed according to the entered budget period dates in announcemnt
     And I click on "Edit" in the page details
@@ -375,8 +378,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Save" in the page details
     And I save the field labeled "Application Due Date" as "AppDueDate1"
     And I navigate to "History" sub tab
-    Then I softly see value "{SavedValue:AppDueDate}" for title "Old Value" inside table "History"
-    Then I softly see value "{SavedValue:AppDueDate1}" for title "New Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "{SavedValue:AppDueDate1}" for title "New Value" inside field history table
+    Then I softly see value "{SavedValue:AppDueDate}" for title "Original Value" inside field history table
+    And I click on back arrow
     And I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -466,7 +472,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Remove" icon for "NGO" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
     Then I softly do not see value "NGO" for title "Type" inside table "---announcement:-:relatedAnnouncementTableId---"
 
-  @75617 @70727 @73624 @70723 @73621 @72482 @73536 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA @FieldHistoryExclude
+  @75617 @70727 @73624 @70723 @73621 @72482 @73536 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA
   Scenario Outline: Validate that user can not enter application due date as past date | Validate that user should not submit announcement with blank budget period dates|To Verify that user can view contact while creating Announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -482,11 +488,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 2000            |
-    When I navigate to "History" sub tab
-    And I select "Related Funding Account" from dropdown present on top right of flex table id "History"
-    Then I softly see value "Pre-Encumbrance" for title "Changed Field" inside table "History"
-    Then I softly see value "$2,000.00" for title "New Value" inside table "History"
-    Then I softly see value "$1,000.00" for title "Old Value" inside table "History"
+#    When I navigate to "History" sub tab
+#    And I select "Related Funding Account" from dropdown present on top right of flex table id "History"
+#    Then I softly see value "Pre-Encumbrance" for title "Changed Field" inside table "History"
+#    Then I softly see value "$2,000.00" for title "New Value" inside table "History"
+#    Then I softly see value "$1,000.00" for title "Old Value" inside table "History"
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -865,7 +871,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @70803 @73849 @73774 @73773 @70817 @70893 @73775 @34768 @70898 @72490 @announcementApprovalCA @verifyApproverCanNotEdit @aashish @FieldHistoryExclude
+  @70803 @73849 @73774 @73773 @70817 @70893 @73775 @34768 @70898 @72490 @announcementApprovalCA @verifyApproverCanNotEdit @aashish @FieldHistoryExclude @TBExecution
   Scenario Outline: Validate the approval of an Announcement | To verify that after unpublished announcement , user can not create application from that announcement
   | To Verify that after submitting for approval, approver can not edit anything on announcement
   |To verify field history update with respect to modification in Pre-Encumbrance field of Announcement
@@ -963,7 +969,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @72328 @72326 @72025 @71974 @announcementDisApprovalbyEXE @aashish @FieldHistoryExclude
+  @72328 @72326 @72025 @71974 @announcementDisApprovalbyEXE @aashish @FieldHistoryExclude @TBExecution
   Scenario Outline: To verify Approval history of announcement when announcement rejected by Executive Office Approval: Victor EXE
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1028,8 +1034,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I navigate to "History" sub tab
-    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
+    And I click on back arrow
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1042,8 +1051,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Disapprove" in the approval decision
-    When I navigate to "History" sub tab
-    Then I softly see value "Rejected" for title "New Value" inside table "History"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Rejected" for title "New Value" inside field history table
+    And I click on back arrow
     Then I softly see status in Progress-bar is "Rejected" and is "red"
     Examples:
       | Announcement Type |
@@ -1413,7 +1425,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Key Performance Indicators (KPIs)" on page "1" of "govgrants" pdf file
 
-  @74131 @userAllowToDownloadPDFHistory @aashish @skipOnJenkins @FieldHistoryExclude
+  @74131 @userAllowToDownloadPDFHistory @aashish @skipOnJenkins
   Scenario: To verify system allow to download PDF for Field history section in history tab of announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel

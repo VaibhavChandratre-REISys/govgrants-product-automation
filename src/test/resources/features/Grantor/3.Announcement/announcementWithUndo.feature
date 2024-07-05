@@ -1394,7 +1394,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
-  @302609 @CompetitiveAnnVerifythatApprovalHistoryandsnapshothistoryupdatedafterclickonUNDObutton @sprint-26-US-299251 @hitesh @Undo @FieldHistoryExclude
+  @302609 @CompetitiveAnnVerifythatApprovalHistoryandsnapshothistoryupdatedafterclickonUNDObutton @sprint-26-US-299251 @hitesh @Undo @FieldHistoryExclude @TBExecution
   Scenario: Competitive Ann Verify that Approval History and snapshot history updated after click on UNDO button.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1486,10 +1486,13 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I navigate to "History" sub tab
     And I see "{SavedValue:PM Username}" against "Re-approval (Pending for first approval)" in approval history
     Then I softly see column "Overall Status" inside row "1" at position "1" contains text "Pending"
-    Then I softly see value "Submitted for Approval" for title "New Value" inside table "---announcement:-:annFieldHistory---"
-    Then I softly see value "Approved" for title "Old Value" inside table "---announcement:-:annFieldHistory---"
-    Then I softly see value "Automation PM" for title "Changed By" inside table "---announcement:-:annFieldHistory---"
     Then I softly see snapshot with name containing "Snapshot_Announcement_Submission.pdf" as name
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
+    Then I softly see value "Approved" for title "Original Value" inside field history table
+    Then I softly see value "Automation PM" for title "Changed By" inside field history table
+
 
   @302658 @VerifythatUserWillNotSeeUndowhenAnnouncementisinClosed @sprint-26-US-299251 @hitesh @Undo
   Scenario: Verify that User Will Not See Undo when Announcement is in Closed state

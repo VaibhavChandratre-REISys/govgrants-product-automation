@@ -1,4 +1,4 @@
-@closeoutVaibhavExecution @closeout @grantor-regression @grantor-parallel-regression @regression
+@closeoutExecution @closeout @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in Closeout
 
   Background: Navigate to award
@@ -326,7 +326,7 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "---closeout:-:pendingTaskTableId---"
 
-  @86708 @VerifyStatusOfCloseoutRequestInApprovalHistoryPageBlock  @monu
+  @86708 @VerifyStatusOfCloseoutRequestInApprovalHistoryPageBlock @monu
   Scenario: Validate user is able to see status of closeout request in chevron diagram and inside Approval history table after first approval only
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -337,6 +337,7 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutID"
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -444,9 +445,10 @@ Feature: Validate all scenarios in Closeout
     When I click on "Override" in the page details
     And I wait for "4" seconds
     And I navigate to "History" sub tab
-    And I perform quick search for "{SavedValue:CloseoutEGMSID}" in "History" panel
-    Then I softly see value "Acknowledged by Subrecipient" for title "New Value" inside table "History"
-    Then I softly see value "Sent to Subrecipient" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Acknowledged by Subrecipient" for title "New Value" inside field history table
+    Then I softly see value "Sent to Subrecipient" for title "Original Value" inside field history table
 
   @87355 @VerifyCloseoutRequestWithMultipleStatusInListVIew @monu
   Scenario: Validate user should be able to see Created, Send to sub-recipient, Overridden, Submitted to grantor status of closeout request inside closeout request list view

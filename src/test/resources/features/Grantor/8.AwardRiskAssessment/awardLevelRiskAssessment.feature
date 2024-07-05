@@ -46,7 +46,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly cannot see top right button "New" in flex table with id "---riskassessment:-:raPeerReviewFlexTableId---"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @77659 @58167 @59625 @66378 @PendingTaskCreationAndapprovalProcessofRiskAssessment @deepika @skipOnJenkins @FieldHistoryExclude
+  @77659 @58167 @59625 @66378 @PendingTaskCreationAndapprovalProcessofRiskAssessment @deepika @skipOnJenkins @FieldHistoryExclude @TBExecution
   Scenario: Validate the Approval process of Risk Assessment and whether the pending task is created for Program approver under Home Tab when the award owner submits the Risk Assessment for approval |Validate the System should capture field history post activation.
   Validate whether record onwer is able to take snapshot when the risk assessment is in created status
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -99,12 +99,13 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    And I wait for "2" seconds
-    Then I softly see field "Status" as "Active"
+    Then I softly see that "EGMS ID" is in "Active" status
     When I navigate to "History" sub tab
-    Then I softly see value "Active" for title "New Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Active" for title "New Value" inside field history table
 
-  @58168 @58169 @59875 @pendingTaskCreationforRiskAssesmentostRejectCheckFieldHistory @deepika @FieldHistoryExclude
+  @58168 @58169 @59875 @pendingTaskCreationforRiskAssesmentostRejectCheckFieldHistory @deepika @FieldHistoryExclude @TBExecution
   Scenario: Validate the field history after rejection of Risk Assessment and whether user is able to view the pending task once submitted for approval under Monitoring Tab and First Approver is able to reject the Risk Assessment then status in Progress bar is Rejected.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -146,7 +147,9 @@ Feature: Validate all scenarios in the Risk Assessment
     And I refresh the page
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     When I navigate to "History" sub tab
-    Then I softly see value "Rejected" for title "New Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Rejected" for title "New Value" inside field history table
 
   @58170 @58171 @forwardToOtherUsersendtoOwnerRiskAssesment @deepika
   Scenario: Validate whether user is to able to forward Risk Assessment for Approval and Send to Owner
@@ -1359,7 +1362,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Overview" sub tab
     Then I see "Risk Level" image as "b-red.png"
 
-  @59808 @historyOfRiskAssessmentWhenSendBacktoOwnerbyPM @deepika @FieldHistoryExclude
+  @59808 @historyOfRiskAssessmentWhenSendBacktoOwnerbyPM @deepika @FieldHistoryExclude @TBExecution
   Scenario: To Validate field history update post Risk Assessment is send back to owner by program approver.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1396,9 +1399,11 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
     When I navigate to "History" sub tab
-    Then I see value "Submitted for Approval" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I see value "Submitted for Approval" for title "Old Value" inside field history table
 
-  @59809 @historyOfRiskAssessmentWhenSendBacktoOwnerbyFO @deepika @buglogged101142 @FieldHistoryExclude
+  @59809 @historyOfRiskAssessmentWhenSendBacktoOwnerbyFO @deepika @buglogged101142 @FieldHistoryExclude @TBExecution
   Scenario: To Validate field history update post Risk Assessment is send back to owner by Fiscal Approver.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1444,7 +1449,9 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
     When I navigate to "History" sub tab
-    Then I see value "Created" for title "New Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I see value "Created" for title "New Value" inside field history table
 
   @59810 @newbuttonHiddenWhenSubmittedforApproval @deepika @smoke
   Scenario: Validate whether the record owner is not allowed to creating new risk assessment when only the Program approval is complete and risk assessment is in submit for approval status
@@ -5749,7 +5756,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation EXE" for title "Name" inside table "---riskassessment:-:riskAssOwnerTableId---"
 
-  @200365 @ValidateFieldHistorywithRespecttoRiskAssessmentisupdatedforcorrespondingawardwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @200365 @ValidateFieldHistorywithRespecttoRiskAssessmentisupdatedforcorrespondingawardwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646 @vaibhav @reassignment @wip
   Scenario: Validate Field History with Respect to Risk Assessment is updated for corresponding award with respect to owner ship transfer of a Active Risk Assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5808,6 +5815,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
@@ -5820,7 +5828,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Automation PM1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
 
-  @198628 @ValidatePMprofileusercansendbacktheawardriskassessmentforstep2approvalswhenownershipistransferredforaRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @198628 @ValidatePMprofileusercansendbacktheawardriskassessmentforstep2approvalswhenownershipistransferredforaRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
   Scenario: Validate PM profile user can send back the award risk assessment for step 2 approvals when ownership is transferred for a RA which is in Submitted for approval status
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5880,6 +5888,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
@@ -5887,8 +5896,11 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
+    And I click on back arrow
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Name" inside table "---riskassessment:-:riskAssOwnerTableId---"
     And I navigate to "Monitoring" tab
@@ -5921,7 +5933,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
 
-  @hitRun @198631 @ValidatePOprofileusercanactivatethawardriskassessmentafteritsapprovedtheRAwhenownershipistransferreforRAwhichisinSubmitforApprovalstatus
+  @198631 @ValidatePOprofileusercanactivatethawardriskassessmentafteritsapprovedtheRAwhenownershipistransferreforRAwhichisinSubmitforApprovalstatus
   Scenario: Validate PO profile user can activate the award risk assessment after its approved the RA when ownership is transferred for a RA which is in 'Submit for Approval' status
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -6085,7 +6097,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Management" sub tab
     Then  I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-  @198712 @ValidatePMprofileusercantransferownershipoftheexpiredawardriskassessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @198712 @ValidatePMprofileusercantransferownershipoftheexpiredawardriskassessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
   Scenario: Validate PM profile user can transfer ownership  of the expired award risk assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6173,6 +6185,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
@@ -6180,11 +6193,11 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     Then I see status in Progress-bar is "Expired" and is "dark blue"
-    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     When I navigate to "History" sub tab
-    And I select "Risk Assessment" from dropdown present on top right of flex table id "---subAwardStandAlone:-:historyTableId---"
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @223678 @ValidateRiskAssessmentIfapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityFiscalreviewervalidatereassignmentfails @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Risk Assessment If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (Fiscal reviewer)validate reassignment fails
@@ -6307,7 +6320,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
 
-  @201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
   Scenario: Validate Email Notification is sent to ADMIN old owner & new owner with respect to ownership transfer of a Active Risk Assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6364,6 +6377,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
@@ -6371,8 +6385,10 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
@@ -6449,7 +6465,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
 
-  @hitRun @201287 @ValidatepermissionsonFilesofAwardRiskAssessmentwhenithasstatusascreated&transferofownershipisperformed @sprint-11-US-224734 @vaibhav @reassignment
+  @201287 @ValidatepermissionsonFilesofAwardRiskAssessmentwhenithasstatusascreated&transferofownershipisperformed @sprint-11-US-224734 @vaibhav @reassignment
   Scenario: Validate permissions on Files of Award Risk Assessment, when it has status as created & transfer of ownership is performed
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6538,7 +6554,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly cannot see row level action button "Edit" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
     Then I softly cannot see row level action button "Delete" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
 
-  @201675 @ValidatePMprofileusercantransferownershipoftherejectedawardriskassessment @sprint-4-US-197126 @vaibhav @reassignment @FieldHistoryExclude
+  @201675 @ValidatePMprofileusercantransferownershipoftherejectedawardriskassessment @sprint-4-US-197126 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
   Scenario: Validate PM profile user can transfer ownership of the rejected award risk assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6594,6 +6610,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssTargetTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
@@ -6601,8 +6618,10 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     And I navigate to "History" sub tab
-    Then I softly see value "Automation PM1" for title "New Value" inside table "---amendment:-:historyTableId---"
-    Then I softly see value "Automation PM" for title "Old Value" inside table "---amendment:-:historyTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Automation PM1" for title "New Value" inside field history table
+    Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
   @223701 @ValidateRiskAssessmentapprovertableshoulnotgetupdateonawardafterapproverreassignmentgetdoneonit'srelatedRiskassessment @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Risk Assessment approver table should not get update on award after approver reassignment get done on it's related Risk assessment
@@ -6785,7 +6804,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team.
       """
 
-  @hitRun @223375 @ValidateRiskAssessmentModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-10-US-205576 @vaibhav @reassignment
+  @223375 @ValidateRiskAssessmentModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-10-US-205576 @vaibhav @reassignment
   Scenario: Validate Risk Assessment Module user should able to reassign the task to new user of more than 10 records & 1 email should be triggered for all records
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -7855,7 +7874,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @116321 @ValidateFieldhistorySnapshotupdatepostApprovalofRiskAssessment @Sprint-23-US-273843 @vaibhav @Allocation @FieldHistoryExclude
+  @116321 @ValidateFieldhistorySnapshotupdatepostApprovalofRiskAssessment @Sprint-23-US-273843 @vaibhav @Allocation @FieldHistoryExclude @TBExecution
   Scenario: Validate Field history Snapshot update post Approval of Risk Assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -7903,10 +7922,12 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
     And I navigate to "History" sub tab
-    Then I softly see value "Submitted for Approval" for title "New Value" inside table "---riskassessment:-:riskAssessmentHistoryTableId---"
-    Then I softly see value "Created" for title "Old Value" inside table "---riskassessment:-:riskAssessmentHistoryTableId---"
-    Then I softly see value "Active" for title "New Value" inside table "---riskassessment:-:riskAssessmentHistoryTableId---"
-    Then I softly see value "Submitted for Approval" for title "Old Value" inside table "---riskassessment:-:riskAssessmentHistoryTableId---"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
+    Then I softly see value "Created" for title "Original Value" inside field history table
+    Then I softly see value "Active" for title "New Value" inside field history table
+    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     Then I softly see value "Subaward Risk Assessment.pdf" for title "File Name" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
     Then I softly see value "{SavedValue:PM Username}" for title "Taken By" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
     Then I softly see value "Risk Assessment Activation/Rejection.pdf" for title "File Name" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"

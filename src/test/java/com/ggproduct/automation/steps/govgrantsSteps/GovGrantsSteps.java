@@ -1031,13 +1031,15 @@ public final class GovGrantsSteps {
             govgrants.perform().inputForms().inputFormDataByFieldApiName(fieldApiName, fieldValue, usage.contains("modal"));
             I.amPerforming().click().on(By.xpath("//div[@id='select2-drop']//ul[contains(@class, 'select2-results')]//div"));
         } else {
-            By inputBox1 = By.xpath("//lightning-input[contains(@id,'" + fieldApiName + "')]//input[@type='search' or @placeholder='Search User...'] | //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//input[@type='search' or @placeholder='Search User...'] ");
+            By inputBox1 = By.xpath("//lightning-input[contains(@id,'" + fieldApiName + "')]//input[@type='search' or @placeholder='Search User...'] | //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//input[@type='search' or @placeholder='Search User...'] |//c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//input[@type='search'] ");
             I.amPerforming().click().withJavaScript(inputBox1);
             I.amPerforming().textInput().toClear(inputBox1);
             I.amPerforming().textInput().in(inputBox1, fieldValue);
             I.amPerforming().click().withJavaScript(By.xpath("//div//ul//span[contains(@class,'lookup__item-action')]//span[text()='" + fieldValue + "'] | //div[@title='" + fieldValue + "']"));
         }
     }
+
+
 
     @Description("Edit Notes inside notes page block")
     @And("^I edit the notes$")
@@ -1160,5 +1162,11 @@ public final class GovGrantsSteps {
     @Then("I (softly see|see) value \"([^\"]*)\" for title \"([^\"]*)\" inside field history table$")
     public void iSoftlySeeValueForTitleInsideFieldHistoryTable(String usage, String rowValue, String headerName) {
         ggObjects.toCheckValueForTitleInsideFieldHistoryTable(usage.contains("softly"),rowValue,headerName);
+    }
+
+
+    @Then("I (softly see|see) value \"([^\"]*)\" for title \"([^\"]*)\" against the value \"([^\"]*)\" inside field history table$")
+    public void iSoftlySeeValueForTitleAgainstTheValueInsideFieldHistoryTable(String usage,String rowValue, String headerName, String uniqueValue) {
+        ggObjects.toCheckValueForTitleInsideFieldHistoryTableAgainstValue(usage.contains("softly"),rowValue,headerName,uniqueValue);
     }
 }
