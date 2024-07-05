@@ -1758,7 +1758,6 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     And I wait for "3" seconds
     And I close the tab
-    And I refresh the page
     And I wait for "3" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I switch to tab number "1"
@@ -1766,8 +1765,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     And I wait for "3" seconds
     And I close the tab
-    And I refresh the page
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
