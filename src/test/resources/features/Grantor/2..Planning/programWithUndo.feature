@@ -1240,7 +1240,7 @@ Feature: Validate all scenarios for program
     And I click on hyperlink containing value "View All"
     Then I softly see value "Approved" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
-    Then I softly see value "Automation PO1" for title "Changed By" inside field history table
+    Then I softly see value "Automation PO1" for title "User" inside field history table
 
   @PoojaUndo @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138 @hitesh @buglogged-356843
   Scenario: Verify notification email should generate to new owner of program after click on Undo button

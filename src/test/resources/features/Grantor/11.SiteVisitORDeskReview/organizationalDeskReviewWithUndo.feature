@@ -380,10 +380,12 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Changed By" inside field history table
+    Then I softly see value "{SavedValue:EXE Username}" for title "User" inside field history table
     Then I softly see value "Approved" for title "Original Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
+    And I click on back arrow
     #296073
+    And I navigate to "Home" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:homeCompletedTaskTableId---" panel
     Then I softly see value "Cancelled" for title "Status" against the value "{SavedValue:DeskReviewID}" inside table "---deskreview:-:homeCompletedTaskTableId---"
@@ -1563,7 +1565,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "{SavedValue:PM Username}" for title "Changed By" inside field history table
+    Then I softly see value "{SavedValue:PM Username}" for title "User" inside field history table
     Then I softly see value "Approved" for title "Original Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
     And I click on back arrow
@@ -1573,7 +1575,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I softly see column "Overall Status" at position "1" contains text "Approved"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "{SavedValue:PM Username}" for title "Changed By" inside field history table
+    Then I softly see value "{SavedValue:PM Username}" for title "User" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     Then I softly see value "Approved" for title "New Value" inside field history table
 

@@ -1090,7 +1090,7 @@ Feature: Validate all scenarios for program
     Then  I can see top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     Then  I can see top right button "New" in flex table with id "---program:-:contactsTableId---"
     When I navigate to "Setup" sub tab
-    Then  I can see top right button "New" in flex table with id "---program:-:checklistTableId---"
+    Then  I can see top right button "Add" in flex table with id "---program:-:checklistTableId---"
     Then  I can see top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     Then  I can see top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     Then  I can see top right button "Associate" in flex table with id "---program:-:kpiTableId---"
@@ -1099,7 +1099,7 @@ Feature: Validate all scenarios for program
     Then  I can see top right button "New" in flex table with id "---program:-:approverTableId---"
     When I navigate to "Files" sub tab
     Then  I can see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    Then  I can see top right button "Add" in flex table with id "---program:-:internalProgramNotesTableId---"
+    Then  I can see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
     #195347
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
@@ -1862,7 +1862,7 @@ Feature: Validate all scenarios for program
     Then I see value "{SavedValue:ProgramEGMSID1}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     Then I softly see value "Review Program {SavedValue:ProgramEGMSID1}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
 
-  @197246 @Validateuserselectprogramthenreassignmenthistoryshouldtrackedinthefieldhistorytableinhistorytabforexternalprogram @sprint-4 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @197246 @Validateuserselectprogramthenreassignmenthistoryshouldtrackedinthefieldhistorytableinhistorytabforexternalprogram @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user select program then reassignment history should tracked in the field history table in history tab for external program
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -3503,7 +3503,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Step 1" for title "Post Award / Monitoring" against the value "Automation EXE1" inside table "---program:-:approverTableId---"
     Then I softly see value "Step 1" for title "Closeout" against the value "Automation EXE1" inside table "---program:-:approverTableId---"
 
-  @223421 @ValidatetransferofpeerreviewtasksisfailedincaseofanyreasonthenR&RonInternalprogramshouldnotgetupdated @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @223421 @ValidatetransferofpeerreviewtasksisfailedincaseofanyreasonthenR&RonInternalprogramshouldnotgetupdated @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate transfer of peer review tasks is failed in case of any reason then R&R on Internal program should not get updated
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab

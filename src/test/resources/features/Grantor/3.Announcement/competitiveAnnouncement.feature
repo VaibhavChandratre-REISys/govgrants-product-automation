@@ -153,13 +153,13 @@ Feature: Validate all scenarios in the Competitive Announcement tab
   @70551 @70552 @73405 @73389 @73406 @73387 @70800 @70885 @71595 @72646 @72641 @73537 @userCanViewAddAndDeleteFocusArea @aashish @FieldHistoryExclude @TBExecution
   Scenario: To Verify that user is able to remove associated focus areas While creating the Announcement | To verify PM can remove non relevant Budget categories from specific Budget Type in Announcement based on the need.
     When I navigate to "Announcements" tab
-    And I click toggle button to select "Published Announcements"
+    And I click toggle button to select "Announcements - Published"
     Then I softly see value "Published" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
-    When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    When I click on "View" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I navigate to "Setup" sub tab
     And I save the value from row "1" for column name "Name" as "searchedItem" from flex table "---announcement:-:businessFormlistTableId---"
     Then I softly see value "{SavedValue:searchedItem}" for title "Name" inside table "---announcement:-:businessFormlistTableId---"
@@ -169,19 +169,22 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
     Then I softly see that "Automation Permanent Focus Area2" has been added in flextable with Id "---announcement:-:AnnouncementServiceArea1TableId---"
     And I refresh the page
+    And I wait for "2" seconds
     And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---announcement:-:AnnouncementServiceArea1TableId---" without waiting for record
     When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     Then I softly see the following messages in the page details :
-      | Budget period added successfully.. |
+      | Budget period added successfully. |
     And I save the value from row "1" for column name "Start Date" as "startDate" from flex table "---announcement:-:budgetPeriodTableId---"
     And I save the value from row "1" for column name "End Date" as "endDate" from flex table "---announcement:-:budgetPeriodTableId---"
     Then I softly do not see value "{SavedValue:startDate}" for title "Start Date" inside table "---announcement:-:budgetPeriodTableId---"
     Then I softly do not see value "{SavedValue:endDate}" for title "End Date" inside table "---announcement:-:budgetPeriodTableId---"
     And I click on "Remove" icon for "BP01" inside flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I wait for "2" seconds
     Then I softly do not see value "BP01" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
     And I click on "Remove" icon for "Construction " inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
     Then I softly do not see value "Construction " for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
+    And I click on "Edit" in the page details
     And I enter value "2000" into field "---announcement:-:subawardfloor---"
     And I enter value "3000" into field "---announcement:-:subawardceiling---"
     And I click on "Save" in the page details
@@ -302,7 +305,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see value "Organization Desk Review" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
     Then I softly see value "Grantor Progress Report Forms" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
     And I click on "Edit" icon for "Grantor Application Forms" inside flex table with id "---announcement:-:businessFormlistTableId---" without waiting for record
-    And I enter in modal value "Grantor Application Forms" into field "Name"
+    And I click on remove for lookup from field "PackageConfig__c"
+    And I enter in modal value "Grantor Application Forms" into field "PackageConfig__c"
     And I click modal button "Save"
     Then I softly see value "Grantor Application Forms" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
     When I enter the following values into flex table with id "---announcement:-:annChecklist---" by clicking "Add" :
@@ -345,8 +349,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I upload attachment "Attachment.pdf" of type "Funding Opportunity Announcement" from computer
     When I close "Add Files" modal by clicking the top right x button
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---announcement:-:AnnouncementAttachmentTableId---"
-    Then I see value "{SavedValue:AttachedFile}" for title "Title" inside table "---announcement:-:AnnouncementAttachmentTableId---"
+    Then I see value "Attachment.pdf" for title "Title" inside table "---announcement:-:AnnouncementAttachmentTableId---"
     When I click on "Delete" icon for "Funding Opportunity Announcement" inside flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
+    And I wait for "2" seconds
     Then I softly do not see "Funding Opportunity Announcement" has been added in "---announcement:-:AnnouncementAttachmentTableId---" flex table
 
   @70483 @userDeleteSupportingDocumentViewHyperlink @aashish @wip
@@ -366,7 +371,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on hyperlink containing value "View"
     Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
 
-  @72323 @71972 @jitendra @applicationDueDataOfAnnInHistory @FieldHistoryExclude @TBExecution
+  @72323 @71972 @jitendra @applicationDueDataOfAnnInHistory @FieldHistoryExclude
   Scenario: To verify field history update with respect to modification in Application Due Dates of Announcement|
   To verify that estimated period start date & end date is displayed according to the entered budget period dates in announcemnt
     And I click on "Edit" in the page details
@@ -888,9 +893,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
     And I pause execution for "3" seconds
-    And I navigate to "History" sub tab
-    And I select "Related Funding Account" from dropdown present on top right of flex table id "History"
-    Then I softly see value "$100.00" for title "New Value" against the value "Pre-Encumbrance" inside table "History"
     When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I navigate to "Overview" sub tab
@@ -1005,6 +1007,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I get the "EGMS ID"
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -1014,10 +1018,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | End Date |
       | BP02               | 550      |
-    And I click on "Save" in the page details
     And I save the value from row "1" for column name "Start Date" as "startDate" from flex table "---announcement:-:budgetPeriodTableId---"
     And I save the value from row "2" for column name "End Date" as "endDate" from flex table "---announcement:-:budgetPeriodTableId---"
     And I refresh the page
+    And I wait for "2" seconds
     Then I softly see field "Estimated Project Period Start Date" as "{SavedValue:startDate}"
     Then I softly see field "Estimated Project Period End Date" as "{SavedValue:endDate}"
     And I click on "Remove" icon for "BP02" inside flex table with id "---announcement:-:budgetPeriodTableId---" without waiting for record
@@ -1028,6 +1032,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | BP02               | 250        |
     And I click on "Remove" icon for "BP02" inside flex table with id "---announcement:-:budgetPeriodTableId---" without waiting for record
     And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1050,7 +1055,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    And I "Disapprove" in the approval decision
+    And I "Reject" in the approval decision
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"

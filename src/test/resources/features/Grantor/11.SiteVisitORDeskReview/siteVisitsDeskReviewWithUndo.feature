@@ -281,7 +281,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "History" sub tab
     #284428
-    Then I softly see value "{SavedValue:EXE Username}" for title "Changed By" inside field history table
+    Then I softly see value "{SavedValue:EXE Username}" for title "User" inside field history table
     Then I softly see value "Approved" for title "Original Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -1101,7 +1101,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @280996 @VerifyPOuserasLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoForwardapprovaldecisionwhenapprovaldecisionisforwardedfromPOusertoEXEuserinstep2approval @sprint-5-US-295139 @hitesh @Undo @sitevisitTemp @FieldHistoryExclude @TBExecution
+  @280996 @VerifyPOuserasLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoForwardapprovaldecisionwhenapprovaldecisionisforwardedfromPOusertoEXEuserinstep2approval @sprint-5-US-295139 @hitesh @Undo @sitevisitTemp @FieldHistoryExclude
   Scenario: Verify PO user as Last step approver can see UNDO button when Approved the Site Visit & able to Forward approval decision when approval decision is forwarded from PO user to EXE user in step 2 approval
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -1257,6 +1257,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation EXE" for title "New Value" inside field history table
     Then I softly see value "Automation PO" for title "Original Value" inside field history table
+    And I click on back arrow
     Then I softly see column "Overall Status" at position "1" contains text "Approved"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab

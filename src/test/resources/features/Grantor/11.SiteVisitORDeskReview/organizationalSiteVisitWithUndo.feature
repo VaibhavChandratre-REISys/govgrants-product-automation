@@ -7,8 +7,6 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
     And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -101,12 +99,12 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "{SavedValue:PM Username}" for title "Changed By" inside field history table
+    Then I softly see value "{SavedValue:PM Username}" for title "User" inside field history table
     Then I softly see value "Approved" for title "Original Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
-    Then I refresh the page
+    And I click on back arrow
     Then I softly see snapshot with name containing "Organizational Site Visit - Undo Approval.pdf" as name
-    When I click on "Menu" in the page details
+    And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
     When I navigate to "History" sub tab
     And I refresh the page

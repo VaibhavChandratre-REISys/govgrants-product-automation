@@ -1098,6 +1098,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on hyperlink containing value "View All"
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
     Then I softly see value "Approved" for title "Original Value" inside field history table
+    Then I softly see value "{SavedValue:EXE Username}" for title "User" inside field history table
     And I click on back arrow
     And I navigate to "Monitoring" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
