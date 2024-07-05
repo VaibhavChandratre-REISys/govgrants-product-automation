@@ -134,6 +134,8 @@ Feature: Validate all scenarios in Closeout
     And I enter value "Yes" into field "ChecklistQuestionPick22__c"
     And I enter value "Yes" into field "ChecklistQuestionPick23__c"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
