@@ -2346,6 +2346,7 @@ Feature: Validate all scenarios in Closeout
       | 5000  | ProposedBudgetEndDate__c   |
     And I wait for "3" seconds
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
