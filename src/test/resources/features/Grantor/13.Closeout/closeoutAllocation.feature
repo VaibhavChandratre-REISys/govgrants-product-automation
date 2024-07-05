@@ -2738,7 +2738,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Amend Subaward" in the page details
     And I wait for "4" seconds
     When I click on "Activate" in the page details
-    And I wait for "4" seconds
+    And I wait for "10" seconds
     And I navigate to "Closeout" tab
     And I click toggle button to select "Closeouts - All"
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
