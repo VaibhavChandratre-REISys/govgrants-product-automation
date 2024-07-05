@@ -102,7 +102,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Acknowledge" in the page details
     Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
 
-  @95688 @VerifyChecklistFieldsInReadModeOnly @monu
+  @hitclose @95688 @VerifyChecklistFieldsInReadModeOnly @monu
   Scenario: Verify user can is not able to edit the checklist details filled by grantor
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
@@ -134,7 +134,7 @@ Feature: Validate all scenarios in Closeout
     And I enter value "Yes" into field "ChecklistQuestionPick22__c"
     And I enter value "Yes" into field "ChecklistQuestionPick23__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
