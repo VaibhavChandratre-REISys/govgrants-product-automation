@@ -339,7 +339,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see "check" symbol against the value "Standard Assurances Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
     Then I softly see "check" symbol against the value "Program Application Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
 
-  @165879 @ValidateEXEUserIsShowAllowEditButton @sprint-3 @vaibhav @NegoRerun
+  @165879 @ValidateEXEUserIsShowAllowEditButton @sprint-3 @vaibhav
   Scenario: Validate EXE User Is Show Allow Edit Button
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
@@ -366,6 +366,7 @@ Feature: Validate all scenarios in Negotiations
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
+    When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
 
