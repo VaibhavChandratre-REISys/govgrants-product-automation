@@ -92,7 +92,7 @@ Feature: Validate all scenarios in Negotiations
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     Then I softly see that "Negotiation Request" has been added in flextable with Id "---negotiation:-:homePendingTasks---"
 
-  @skiponjenkins @57037 @57038 @sendBackToSubrecipientForFurtherChanges @deepika @NegotiationPooja
+   @57037 @57038 @sendBackToSubrecipientForFurtherChanges @deepika @skiponjenkins
   Scenario: Validate whether the users receive the pending Task when  Submit to Grantor and able to select Send Back to Subrecipient for further changes
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1756,6 +1756,7 @@ Feature: Validate all scenarios in Negotiations
     And I switch to tab number "1"
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I close the tab
     And I refresh the page
     And I wait for "3" seconds
@@ -1763,6 +1764,7 @@ Feature: Validate all scenarios in Negotiations
     And I switch to tab number "1"
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I close the tab
     And I refresh the page
     And I wait for "5" seconds
