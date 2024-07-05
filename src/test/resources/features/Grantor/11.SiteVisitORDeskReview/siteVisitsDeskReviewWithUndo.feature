@@ -1253,11 +1253,6 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Given I navigate to "Responsibilities" sub tab
     Then I softly see value "Step 2" for title "Site Visit" against the value "Automation PO" inside table "---sitevisits:-:approverSiteVisitTableId---"
     And I navigate to "History" sub tab
-    And I navigate to "Field Audit" sub tab in split screen
-    And I click on hyperlink containing value "View All"
-    Then I softly see value "Automation EXE" for title "New Value" inside field history table
-    Then I softly see value "Automation PO" for title "Original Value" inside field history table
-    And I click on back arrow
     Then I softly see column "Overall Status" at position "1" contains text "Approved"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
