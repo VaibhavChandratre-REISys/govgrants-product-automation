@@ -2733,6 +2733,7 @@ Feature: Validate all scenarios in Closeout
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     And I click on "Submit for Approval" in the page details
+    And I wait for "4" seconds
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     And I click on "Amend Subaward" in the page details
