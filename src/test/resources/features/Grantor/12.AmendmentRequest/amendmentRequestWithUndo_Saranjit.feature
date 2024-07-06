@@ -1,4 +1,4 @@
-@amendmentRequestsWB @amendmentRequestsundoSaranjit @grantor-regression @grantor-parallel-regression @regression @amendmentRequestUndo
+@amendmentRequestsWB @t2 @amendmentRequestsundoSaranjit @grantor-regression @grantor-parallel-regression @regression @amendmentRequestUndo
 Feature: Amendment Request scenarios with Undo
 
   @292388 @292389 @342738 @342740 @342744 @342792 @VerifywhenPmapproverclickonundobuttoninBudredAmmendrequestrecordSystemwillshowconfirmationboxwithaquestionandoptionsforselection @sprint-3-US-288689 @hitesh @Undo
