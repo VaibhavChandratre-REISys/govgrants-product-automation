@@ -1,4 +1,4 @@
-@programExecution @grantor-regression @grantor-parallel-regression @planning @regression @checksr
+@programExecution @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
   Background: Create Program
@@ -2781,9 +2781,8 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
       | Fiscal Review | 40              | Unchecked | 0                                         |
-   #Uncomment Later
-#    Then I softly see the following messages in the page details contains:
-#      | You cannot associate a weight to an optional panel |
+    Then I softly see the following messages in the page details contains:
+      | You cannot associate a weight to an optional panel |
     Examples:
       | Objective                      |
       | Automation Permanent Objective |
@@ -4893,10 +4892,9 @@ Feature: Validate all scenarios for program
       | 1              | 100       |
     And I close "Review Form" modal by clicking the top right x button
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
-    #Uncomment Later
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
-#      | There are no errors with the review step templates. |
+      | There are no errors with the review step templates. |
     Examples:
       | Objective                      |
       | Automation Permanent Objective |
