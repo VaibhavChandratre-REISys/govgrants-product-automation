@@ -167,8 +167,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see that "Automation Permanent Focus Area2" has been added in flextable with Id "---announcement:-:AnnouncementServiceArea1TableId---"
-    And I refresh the page
     And I wait for "2" seconds
     And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---announcement:-:AnnouncementServiceArea1TableId---" without waiting for record
     When I navigate to "Financials" sub tab
@@ -192,6 +193,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I enter value "4000" into field "---announcement:-:subawardfloor---"
     And I enter value "6000" into field "---announcement:-:subawardceiling---"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
@@ -330,7 +332,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see field "Package Name" as "Organization Desk Review"
     And I close "Preview Package" modal by clicking the top right x button
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
@@ -348,7 +350,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on top right button "Add Files" in flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
     And I upload attachment "Attachment.pdf" of type "Funding Opportunity Announcement" from computer
     When I close "Add Files" modal by clicking the top right x button
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---announcement:-:AnnouncementAttachmentTableId---"
     Then I see value "Attachment.pdf" for title "Title" inside table "---announcement:-:AnnouncementAttachmentTableId---"
     When I click on "Delete" icon for "Funding Opportunity Announcement" inside flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
     And I wait for "2" seconds
@@ -922,8 +923,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
     When I navigate to "History" sub tab
-    Then I softly see value "Submitted for Approval" for title "New Value" inside table "History"
-    Then I softly see value "Created" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
+    Then I softly see value "Created" for title "Original Value" inside field history table
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -945,8 +948,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I navigate to "History" sub tab
-    Then I softly see value "Approved" for title "New Value" inside table "History"
-    Then I softly see value "Submitted for Approval" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Approved" for title "New Value" inside field history table
+    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "<Announcement Type>" content inside "Announcements" subheader on left panel
@@ -957,16 +962,18 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Publish" in the page details
     Then I softly can see top right button "Extend Dates" in page detail
     When I navigate to "History" sub tab
-    Then I softly see value "Published" for title "New Value" inside table "History"
-    Then I softly see value "Approved" for title "Old Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Published" for title "New Value" inside field history table
+    Then I softly see value "Approved" for title "Original Value" inside field history table
     And I click on "Unpublish" in the page details
     Then I softly see field "Status" as "Under Revision"
     And I pause execution for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "Record Id" in "---announcement:-:opportunityNotQtableId---" panel
-    Then I softly do not see value "Record Id" for title "Announcement ID" inside table "---announcement:-:opportunityNotQtableId---"
+    And I perform quick search for "Record Id" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    Then I softly do not see value "Record Id" for title "Announcement ID" inside table "---applicationIntake:-:activeOpportunitiesTableId---"
     Examples:
       | Announcement Type |
       | Competitive       |

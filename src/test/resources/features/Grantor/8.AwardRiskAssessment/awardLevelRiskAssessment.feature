@@ -145,6 +145,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
     And I refresh the page
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     When I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
@@ -1362,7 +1363,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Overview" sub tab
     Then I see "Risk Level" image as "b-red.png"
 
-  @59808 @historyOfRiskAssessmentWhenSendBacktoOwnerbyPM @deepika @FieldHistoryExclude @TBExecution
+  @59808 @historyOfRiskAssessmentWhenSendBacktoOwnerbyPM @deepika @FieldHistoryExclude
   Scenario: To Validate field history update post Risk Assessment is send back to owner by program approver.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -6096,7 +6097,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Management" sub tab
     Then  I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-  @198712 @ValidatePMprofileusercantransferownershipoftheexpiredawardriskassessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @198712 @ValidatePMprofileusercantransferownershipoftheexpiredawardriskassessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PM profile user can transfer ownership  of the expired award risk assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6556,7 +6557,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly cannot see row level action button "Edit" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
     Then I softly cannot see row level action button "Delete" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
 
-  @201675 @ValidatePMprofileusercantransferownershipoftherejectedawardriskassessment @sprint-4-US-197126 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @201675 @ValidatePMprofileusercantransferownershipoftherejectedawardriskassessment @sprint-4-US-197126 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PM profile user can transfer ownership of the rejected award risk assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -7932,10 +7933,11 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Created" for title "Original Value" inside field history table
     Then I softly see value "Active" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
+    And I click on back arrow
     Then I softly see value "Subaward Risk Assessment.pdf" for title "File Name" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
-    Then I softly see value "{SavedValue:PM Username}" for title "Taken By" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Created By" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
     Then I softly see value "Risk Assessment Activation/Rejection.pdf" for title "File Name" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
-    Then I softly see value "{SavedValue:FD Username}" for title "Taken By" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
+    Then I softly see value "{SavedValue:FD Username}" for title "Created By" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
 
   @119401 @Validatetheriskassessmentisapprovedstep4setupactivatedpostalltheapprovalarecompletewhenpeerreviewwasperformedonit @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate the risk assessment is approved step4 set up activated post all the approval are complete when peer review was performed on it

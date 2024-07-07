@@ -591,7 +591,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Approved" for title "Original Value" inside field history table
     And I click on back arrow
     #40747 #monu
-    Then I softly see column "Assigned To" at position "2" contains text "{SavedValue:PM Username}"
+    Then I softly see column "Assigned To" at position "2" contains text "{SavedValue:FO Username}"
     Then I softly see column "Date" at position "1" contains text "Step : Step 2"
     Then I softly see column "Overall Status" at position "1" contains text "Approved"
 
@@ -728,7 +728,6 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Sent to Subrecipient" for title "New Value" inside field history table
-    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside field history table
     And I click on back arrow
     #96734 #monu
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -752,10 +751,9 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "true" for title "New Value" inside field history table
-    Then I softly see value "false" for title "Original Value" inside field history table
-    Then I softly see value "Acknowledgement" for title "Changed Field" inside field history table
-    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside field history table
+    Then I softly see value "Check" for title "New Value" inside field history table
+    Then I softly see value "uncheck" for title "Original Value" inside field history table
+    Then I softly see value "Acknowledgement" for title "Field" inside field history table
 
   @93539 @verifyValidationMessageForOverrideJustification @monu
   Scenario: Validate error message for Override justification

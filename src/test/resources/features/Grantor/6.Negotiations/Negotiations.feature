@@ -746,7 +746,7 @@ Feature: Validate all scenarios in Negotiations
     When I download the file
     Then I see "Negotiation Initiated" on page "1" of "govgrants" pdf file
 
-  @64851 @historyBeforeAndAfterNegotitionComplete @deepika @FieldHistoryExclude @TBExecution
+  @64851 @historyBeforeAndAfterNegotitionComplete @deepika @FieldHistoryExclude
   Scenario: Validate whether user is able to Create Subaward from the Applications Tab Once Negitiation is completed and user is able to view the completed Negotiation from it
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
