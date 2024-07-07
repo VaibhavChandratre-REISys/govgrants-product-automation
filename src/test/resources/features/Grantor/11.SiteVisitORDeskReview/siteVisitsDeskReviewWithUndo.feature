@@ -297,7 +297,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Site Visit - Undo Approval.pdf" as name
 
-  @279083 @VerifynewFDuserLaststepapprovercanseeUNDObuttononApprovedstateofSiteVisitwhenapprovaltaskistransferfromoneFDstep1usertootherFDuserstep1 @sprint-2-US-289061 @hitesh @Undo @FieldHistoryExclude
+  @279083 @VerifynewFDuserLaststepapprovercanseeUNDObuttononApprovedstateofSiteVisitwhenapprovaltaskistransferfromoneFDstep1usertootherFDuserstep1 @sprint-2-US-289061 @hitesh @Undo @FieldHistoryExclude @TBExecution
   Scenario:Verify new FD user (Last step approver)can see UNDO button on Approved state of Site Visit when approval task is transfer from one FD (step1)user to other FD user(step 1)
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -355,6 +355,9 @@ Feature: Validate all scenarios in the Site Visit with Undo
     When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I reset the table
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---program:-:grantorTaskReassignTableId---" panel
+    Then I softly do not see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -395,6 +398,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I logout
+    And I wait for "2" seconds
 #    And I checkout to yopmail with mailid "automationfd1@yopmail.com"
 #    And I pause execution for "10" seconds
 #    Then I refresh the page
