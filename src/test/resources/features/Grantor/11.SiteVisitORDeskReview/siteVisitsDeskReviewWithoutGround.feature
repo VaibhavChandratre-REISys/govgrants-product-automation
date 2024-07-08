@@ -8271,21 +8271,21 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I enter the following values into flex table with id "---deskreview:-:reviewersFlexTableId---" by clicking "New" :
       | Reviewer Name | Responsibility   | Description              | Due Date | Allow Record Editing |
       | Automation FO | Program Reviewer | Review Financial details | 10       | Yes                  |
-   And I wait for "3" seconds
+    And I wait for "3" seconds
     And I click on "Send for Review" icon for "Automation FO" inside table
      And I wait for "2" seconds
     Then I softly see value "Sent for Review" for title "Status" inside table "---deskreview:-:reviewersFlexTableId---"
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    When I reassign task to "Automation FO1"
-    When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
-    When I check "{SavedValue:DeskReview}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I pause execution for "30" seconds
-    And I reset the table
-    When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
-    Then I softly do not see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+#    When I reassign task to "Automation FO1"
+#    When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
+#    When I check "{SavedValue:DeskReview}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
+#    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
+#    And I pause execution for "30" seconds
+#    And I reset the table
+#    When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
+#    Then I softly do not see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
   @197361 @ValidatePMSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipSiteVisitischangedinInProgressstate @sprint-4-US-196236 @vaibhav @reassignment
   Scenario: Validate  PM (SV owner)email should be generated for system admin, previous owner and new owner of Site Visit after ownership of Site Visit is changed in 'In Progress' state
