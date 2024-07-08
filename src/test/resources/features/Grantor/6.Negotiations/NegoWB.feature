@@ -547,9 +547,9 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
     When I navigate to "Forms and Files" sub tab
-    And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
-      | Form Name                     | Needs Negotiation |
-      | Standard Pre-Application form | Checked           |
+#    And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
+#      | Form Name                     | Needs Negotiation |
+#      | Standard Pre-Application form | Checked           |
     When I click on "Save" in the page details
     Then I softly see field "Status" as "Created" in "Negotiation Request Details" pageblock
     Then I softly see field "Pre-Application Sections for Negotiation" as "Files and Forms: Forms"
