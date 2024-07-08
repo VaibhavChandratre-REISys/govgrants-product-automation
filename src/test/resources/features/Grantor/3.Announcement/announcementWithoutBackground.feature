@@ -193,6 +193,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Management Review | 75              |
     And I click on "Submit For Approval" in the page details
     And I pause execution for "5" seconds
+    #Bug446485
     Then I softly see the following messages in the page details :
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 150.00%. |
     And I navigate to "Setup" sub tab
@@ -203,6 +204,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I wait for "3" seconds
     And I click on "Submit For Approval" in the page details
     And I pause execution for "5" seconds
+    #Bug446485
     Then I softly see the following messages in the page details :
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 50.00%. |
     And I wait for "3" seconds
@@ -215,6 +217,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I wait for "3" seconds
     And I click on "Submit For Approval" in the page details
     And I pause execution for "5" seconds
+    #Bug446485
     Then I softly see the following messages in the page details :
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 0.00%. |
     And I wait for "3" seconds
@@ -374,7 +377,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I pause execution for "3" seconds
-    And I close modal by clicking the top right x button
+    And I click modal button "Close"
     And I click on top right button "Validate" in flex table with id "---announcement:-:AnnouncementReviewPanel---"
     Then I softly see the following messages in the page details :
       | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 60.00%. |
@@ -388,7 +391,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Match          | 0                  |
       | Program Income | 0                  |
     And I pause execution for "2" seconds
-    And I close modal by clicking the top right x button
+    And I click modal button "Close"
     And I pause execution for "3" seconds
     And I click on top right button "Validate" in flex table with id "---announcement:-:AnnouncementReviewPanel---"
     Then I softly see the following messages in the page details :
@@ -633,8 +636,11 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Application Intake}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---" without waiting for record
     When I click on "Qualify" in the page details
     And I navigate to "Opportunities" tab
+    And I pause execution for "3" seconds
     When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
+    And I pause execution for "3" seconds
     And I click toggle button to select "Qualified Opportunities - All"
+    And I pause execution for "3" seconds
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Application Intake}" in "---preApplication:-:qualifiedOpprtunitesTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime Announcement for Application Intake}" for title "Opportunity Name" inside table "---preApplication:-:qualifiedOpprtunitesTableId---"
     And I save the value from row "1" for column name "EGMS ID" as "egms id" from flex table "---preApplication:-:qualifiedOpprtunitesTableId---"
@@ -778,7 +784,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I wait for "4" seconds
     And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I wait for "4" seconds
     And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
@@ -857,7 +863,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I wait for "3" seconds
     When I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I wait for "3" seconds
     When I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
@@ -3380,7 +3386,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I wait for "3" seconds
     When I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I wait for "3" seconds
     When I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
@@ -5006,7 +5012,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I wait for "3" seconds
     When I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I wait for "3" seconds
     When I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
@@ -5426,7 +5432,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
-    Then I softly see field "Other Leverage" inside page block
+    Then I softly see "Other Leverage" in flex table header "---preApplication:-:preApplicationAttachmentId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 500        | 50             | 100            |
@@ -5438,6 +5444,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
+    #Bug446616
     And I click on "Edit" in the split screen page details
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
@@ -7494,7 +7501,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     And I wait for "3" seconds
-    Then I softly see field "Status" as "Draft"
+    Then I softly see field "Status" as "Created"
     And I wait for "150" seconds
     And I refresh the page
     And I navigate to "Messages" sub tab
