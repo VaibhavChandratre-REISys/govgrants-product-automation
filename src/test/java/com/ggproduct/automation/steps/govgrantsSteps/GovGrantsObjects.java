@@ -631,7 +631,7 @@ public final class GovGrantsObjects {
     public boolean isFileHistoryDisplayedInsidetable(String rowValue, String headerName) {
         Boolean flag = false;
         try {
-            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//table//tr//th[@data-label='" + headerName + "']//span[@title='" + rowValue + "' or text()='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//*[text()='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//a[@title='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//lightning-input[@'" + rowValue + "']"));
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//table//tr//th[@data-label='" + headerName + "']//span[@title='" + rowValue + "' or text()='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//*[text()='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//a[@title='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//lightning-input[@Checked]"));
         } catch (Exception e) {
         }
         return false;

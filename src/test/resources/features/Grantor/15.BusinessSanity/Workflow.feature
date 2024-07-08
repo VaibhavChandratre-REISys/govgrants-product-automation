@@ -1534,8 +1534,14 @@ Feature: Validate all scenarios of every modules flow
 
  @debug @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-   Given I am on "INTERNAL" portal
-#   And I generate the random EmailID and save as "uniqueEmailID" for maildrop
-#   And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
-   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
+#   Given I am on "INTERNAL" portal
+##   And I generate the random EmailID and save as "uniqueEmailID" for maildrop
+##   And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+#   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
+   Given I login to "As a Grantor" app as "ADMIN" user
+   And I halt execution
+   Then I softly see value "checked" for title "New Value" inside field history table
+   Then I softly do not see value "checked" for title "Original Value" inside field history table
+   Then I softly see value "Acknowledgement" for title "Field" inside field history table
+
 
