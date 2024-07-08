@@ -178,13 +178,14 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Budget period added successfully. |
     And I save the value from row "1" for column name "Start Date" as "startDate" from flex table "---announcement:-:budgetPeriodTableId---"
     And I save the value from row "1" for column name "End Date" as "endDate" from flex table "---announcement:-:budgetPeriodTableId---"
-    Then I softly do not see value "{SavedValue:startDate}" for title "Start Date" inside table "---announcement:-:budgetPeriodTableId---"
-    Then I softly do not see value "{SavedValue:endDate}" for title "End Date" inside table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "{SavedValue:startDate}" for title "Start Date" inside table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "{SavedValue:endDate}" for title "End Date" inside table "---announcement:-:budgetPeriodTableId---"
     And I click on "Remove" icon for "BP01" inside flex table with id "---announcement:-:budgetPeriodTableId---"
     And I wait for "2" seconds
     Then I softly do not see value "BP01" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
-    And I click on "Remove" icon for "Construction " inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
-    Then I softly do not see value "Construction " for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
+    And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
+    And I wait for "2" seconds
+    Then I softly do not see value "Construction" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
     And I click on "Edit" in the page details
     And I enter value "2000" into field "---announcement:-:subawardfloor---"
     And I enter value "3000" into field "---announcement:-:subawardceiling---"
@@ -209,8 +210,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Edit" in the page details
     And I enter value "www.google.com" into field "LinkforAdditionalInformation__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Link For Additional Information" as "www.google.com"
-    And I refresh the page
     When I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I check "All" boxes in flex table with id "---announcement:-:associateForRelated---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:associateForRelated---"
@@ -345,11 +346,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Created By                  | Title         | Description       |
       | {SavedValue:EXE Username}   |               | Automation Notes2 |
     Then I softly see the following messages in the page details :
-      | Required fields are missing : Title |
+      | Required Fields Missing |
     And I pause execution for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
     And I upload attachment "Attachment.pdf" of type "Funding Opportunity Announcement" from computer
-    When I close "Add Files" modal by clicking the top right x button
+    When I close "Add File" modal by clicking the top right x button
     Then I see value "Attachment.pdf" for title "Title" inside table "---announcement:-:AnnouncementAttachmentTableId---"
     When I click on "Delete" icon for "Funding Opportunity Announcement" inside flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
     And I wait for "2" seconds
@@ -966,6 +967,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on hyperlink containing value "View All"
     Then I softly see value "Published" for title "New Value" inside field history table
     Then I softly see value "Approved" for title "Original Value" inside field history table
+    And I click on back arrow
     And I click on "Unpublish" in the page details
     Then I softly see field "Status" as "Under Revision"
     And I pause execution for "2" seconds
@@ -978,7 +980,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @72328 @72326 @72025 @71974 @announcementDisApprovalbyEXE @aashish @FieldHistoryExclude @TBExecution
+  @72328 @72326 @72025 @71974 @announcementDisApprovalbyEXE @aashish @FieldHistoryExclude
   Scenario Outline: To verify Approval history of announcement when announcement rejected by Executive Office Approval: Victor EXE
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"

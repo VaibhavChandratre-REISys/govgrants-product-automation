@@ -1484,7 +1484,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Undo" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "History" sub tab
-    Then I softly see column "Date" at position "1" contains text "Step : Re-approval (Pending for approval)"
+    Then I softly see column "Date" at position "1" contains text "Step : Re - approval (Pending for approval) "
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     Then I softly see snapshot with name containing "Snapshot_Announcement_Submission.pdf" as name
     And I navigate to "Field Audit" sub tab in split screen

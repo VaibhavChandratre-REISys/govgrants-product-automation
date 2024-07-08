@@ -608,11 +608,15 @@ public final class GovGrantsObjects {
         I.amPerforming().browserOperationsTo().navigateBack();
     }
 
-    public void toCheckValueForTitleInsideFieldHistoryTable(boolean isSoftly,String rowValue, String headerName) {
-        if (isSoftly) {
+    public void toCheckValueForTitleInsideFieldHistoryTable(String usage,String rowValue, String headerName) {
+        if (usage.equals("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isFileHistoryDisplayedInsidetable(rowValue,headerName)).isTrue();
-        } else {
+        } else if (usage.equals("see")) {
             Assert.assertTrue(isFileHistoryDisplayedInsidetable(rowValue,headerName));
+        } else if (usage.equals("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isFileHistoryDisplayedInsidetable(rowValue,headerName)).isFalse();
+        } else if (usage.equals("do not see")) {
+            Assert.assertFalse(isFileHistoryDisplayedInsidetable(rowValue,headerName));
         }
     }
 
@@ -627,7 +631,7 @@ public final class GovGrantsObjects {
     public boolean isFileHistoryDisplayedInsidetable(String rowValue, String headerName) {
         Boolean flag = false;
         try {
-            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//table//tr//th[@data-label='" + headerName + "']//span[@title='" + rowValue + "' or text()='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//*[text()='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//a[@title='" + rowValue + "']"));
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//table//tr//th[@data-label='" + headerName + "']//span[@title='" + rowValue + "' or text()='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//*[text()='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//a[@title='" + rowValue + "'] | //table//tr//td[@data-label='" + headerName + "']//lightning-input[@'" + rowValue + "']"));
         } catch (Exception e) {
         }
         return false;

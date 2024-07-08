@@ -518,7 +518,7 @@ Feature: Validate all scenarios in Closeout
     When I click modal button "Cancel"
     Then I softly see field "Status" as "Sent to Subrecipient"
 
-  @76489 @ValidateApprovedCloseoutInsideApprovalHistory-TerminationCloseoutRequest-EXEUser @monu @buglogged140761 @FieldHistoryExclude @TBExecution
+  @76489 @ValidateApprovedCloseoutInsideApprovalHistory-TerminationCloseoutRequest-EXEUser @monu @buglogged140761 @FieldHistoryExclude
   Scenario: Validate user is able to see Approved status of closeout request in chevron diagram and inside Approval history table with EXE user
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -751,8 +751,8 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "Check" for title "New Value" inside field history table
-    Then I softly see value "uncheck" for title "Original Value" inside field history table
+    Then I softly see value "checked" for title "New Value" inside field history table
+    Then I softly do not see value "checked" for title "Original Value" inside field history table
     Then I softly see value "Acknowledgement" for title "Field" inside field history table
 
   @93539 @verifyValidationMessageForOverrideJustification @monu

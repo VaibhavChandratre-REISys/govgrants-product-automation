@@ -8137,7 +8137,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Reviewer Name" against the value "Fiscal Reviewer" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
 
-  @204896  @sprint-11-US-224734 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @204896  @sprint-11-US-224734 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Award new award owner will receive email for submitted review by reviewer after change the award ownership
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab

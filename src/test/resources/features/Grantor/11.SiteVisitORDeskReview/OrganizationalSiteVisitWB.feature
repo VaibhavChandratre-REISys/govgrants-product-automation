@@ -367,7 +367,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @235414 @ValidateSiteVisitPMusercanabletoreassignsitevisitownershipfromPMtootherPMuserinCreatedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @235414 @ValidateSiteVisitPMusercanabletoreassignsitevisitownershipfromPMtootherPMuserinCreatedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit PM user can able to reassign site visit ownership from PM to other PM user in 'Created' state of site visit
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1201,7 +1201,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
       | Automation EXE1 | Step 1     |
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
-    And I switch to tab number "2"
+    And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
@@ -1638,7 +1638,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation FD1" for title "Name" inside table "---sitevisits:-:siteVisitOwnerTableId---"
 
-  @235370 @ValidateSiteVisitPOusercanabletoreassignsitevisitownershipfromPOtootherPOinCreatedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @235370 @ValidateSiteVisitPOusercanabletoreassignsitevisitownershipfromPOtootherPOinCreatedstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit PO user can able to reassign site visit ownership from PO to other PO in 'Created' state of site visit
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Home" tab

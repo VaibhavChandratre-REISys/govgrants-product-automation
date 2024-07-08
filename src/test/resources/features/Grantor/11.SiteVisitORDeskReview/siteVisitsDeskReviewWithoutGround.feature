@@ -5907,7 +5907,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @198061 @199428 @198064 @ValidatePOuserOwnershipbasedtasklikeDeskReviewFindingsshouldbegeneratedfornewDRownerotherPOuseronlyonceownershipofDRischangedevenifGrantownerischangedinbetweenlifecycleofDR @sprint-4-US-192997 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @198061 @199428 @198064 @ValidatePOuserOwnershipbasedtasklikeDeskReviewFindingsshouldbegeneratedfornewDRownerotherPOuseronlyonceownershipofDRischangedevenifGrantownerischangedinbetweenlifecycleofDR @sprint-4-US-192997 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PO user Ownership based task like 'Desk Review Findings' should be generated for new DR owner(other PO user) only once ownership of DR is changed even if Grant owner is changed in between life cycle of DR
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"

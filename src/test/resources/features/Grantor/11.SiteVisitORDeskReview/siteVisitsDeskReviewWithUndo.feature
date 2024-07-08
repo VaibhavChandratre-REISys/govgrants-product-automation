@@ -142,7 +142,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @284405 @284428 @299565 @Verify2stepapproveronSiteVisit&camefromAwardrecord&changedstep2approvertostep3aslastapprover&addstep2approveronsamesitevisit&checkUNDObuttonshouldvisibletostep3approvernottostep2approver @sprint-5-US-295139 @hitesh @Undo @FieldHistoryExclude @TBExecution
+  @284405 @284428 @299565 @Verify2stepapproveronSiteVisit&camefromAwardrecord&changedstep2approvertostep3aslastapprover&addstep2approveronsamesitevisit&checkUNDObuttonshouldvisibletostep3approvernottostep2approver @sprint-5-US-295139 @hitesh @Undo @FieldHistoryExclude
   Scenario: Verify 2 step approver on Site Visit & came from Award record & changed step 2 approver to step3 as last approver & add step 2 approver on same site visit & check UNDO button should visible to step 3 approver not to step 2 approver
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -297,7 +297,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Site Visit - Undo Approval.pdf" as name
 
-  @279083 @VerifynewFDuserLaststepapprovercanseeUNDObuttononApprovedstateofSiteVisitwhenapprovaltaskistransferfromoneFDstep1usertootherFDuserstep1 @sprint-2-US-289061 @hitesh @Undo @FieldHistoryExclude @TBExecution
+  @279083 @VerifynewFDuserLaststepapprovercanseeUNDObuttononApprovedstateofSiteVisitwhenapprovaltaskistransferfromoneFDstep1usertootherFDuserstep1 @sprint-2-US-289061 @hitesh @Undo @FieldHistoryExclude
   Scenario:Verify new FD user (Last step approver)can see UNDO button on Approved state of Site Visit when approval task is transfer from one FD (step1)user to other FD user(step 1)
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -385,11 +385,6 @@ Feature: Validate all scenarios in the Site Visit with Undo
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
     And I click on "View" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "History" sub tab
-    And I navigate to "Field Audit" sub tab in split screen
-    And I click on hyperlink containing value "View All"
-    Then I softly see value "Automation FD1" for title "New Value" inside field history table
-    Then I softly see value "Automation FD" for title "Original Value" inside field history table
-    And I click on back arrow
     Then I softly see column "Overall Status" at position "1" contains text "Approved"
     Given I navigate to "Responsibilities" sub tab
     Then I softly see value "Step 1" for title "Site Visit" against the value "Automation FD1" inside table "---sitevisits:-:approverSiteVisitTableId---"

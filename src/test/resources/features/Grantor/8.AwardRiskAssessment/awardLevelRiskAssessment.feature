@@ -121,6 +121,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -5829,7 +5830,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Automation PM1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
 
-  @198628 @ValidatePMprofileusercansendbacktheawardriskassessmentforstep2approvalswhenownershipistransferredforaRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @198628 @ValidatePMprofileusercansendbacktheawardriskassessmentforstep2approvalswhenownershipistransferredforaRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PM profile user can send back the award risk assessment for step 2 approvals when ownership is transferred for a RA which is in Submitted for approval status
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6322,7 +6323,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
 
-  @201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Email Notification is sent to ADMIN old owner & new owner with respect to ownership transfer of a Active Risk Assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -7878,7 +7879,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @116321 @ValidateFieldhistorySnapshotupdatepostApprovalofRiskAssessment @Sprint-23-US-273843 @vaibhav @Allocation @FieldHistoryExclude @TBExecution
+  @116321 @ValidateFieldhistorySnapshotupdatepostApprovalofRiskAssessment @Sprint-23-US-273843 @vaibhav @Allocation @FieldHistoryExclude
   Scenario: Validate Field history Snapshot update post Approval of Risk Assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -7934,10 +7935,10 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Active" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
-    Then I softly see value "Subaward Risk Assessment.pdf" for title "File Name" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
-    Then I softly see value "{SavedValue:PM Username}" for title "Created By" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
-    Then I softly see value "Risk Assessment Activation/Rejection.pdf" for title "File Name" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
-    Then I softly see value "{SavedValue:FD Username}" for title "Created By" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
+    Then I softly see snapshot with name containing "Subaward Risk Assessment.pdf" as name
+    Then I softly see snapshot with user containing "{SavedValue:PM Username}" against the value "Subaward Risk Assessment.pdf"
+    Then I softly see snapshot with name containing "Risk Assessment Activation/Rejection.pdf" as name
+    Then I softly see snapshot with user containing "{SavedValue:FD Username}" against the value "Risk Assessment Activation/Rejection.pdf"
 
   @119401 @Validatetheriskassessmentisapprovedstep4setupactivatedpostalltheapprovalarecompletewhenpeerreviewwasperformedonit @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate the risk assessment is approved step4 set up activated post all the approval are complete when peer review was performed on it
