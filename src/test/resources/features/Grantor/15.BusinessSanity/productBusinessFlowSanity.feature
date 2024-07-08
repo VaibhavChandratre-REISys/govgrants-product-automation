@@ -19,7 +19,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72340 @activateKPI @ProdSan2 
+  @72340 @activateKPI @ProdSan2
   Scenario: Validate the activation of KPI and the status changes to Active
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -52,7 +52,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @StrategicPlanCreation @ProdSan2 
+  @StrategicPlanCreation @ProdSan2
   Scenario: Creation of Strategic plan
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -83,7 +83,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Back To Strategic Plan" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
- @SubrecipientContactCreation @ProdSan2
+  @SubrecipientContactCreation @ProdSan2
   Scenario: Subrecipient Contact Creation
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -182,7 +182,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @ExternalProgramActivation @ProdSan2 
+  @ExternalProgramActivation @ProdSan2
   Scenario: Validate External Program Activation
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -218,7 +218,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
 
-  @65077 @publishingCompetitiveAnnouncementCA @ProdSan2 
+  @65077 @publishingCompetitiveAnnouncementCA @ProdSan2
   Scenario: Validate the activation of Competitive Announcement
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -239,8 +239,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 2000            |
+      | Funding Account             | Commitment |
+      | {SavedValue:fundingAccount} | 2000       |
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
@@ -484,7 +484,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @72342 @publishingDirectedAnnouncement @ProdSan2 
+  @72342 @publishingDirectedAnnouncement @ProdSan2
   Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -506,8 +506,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 100             |
+      | Funding Account             | Commitment |
+      | {SavedValue:fundingAccount} | 100        |
     When I navigate to "Financials" sub tab
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
@@ -748,7 +748,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
 
-  @72343_1 @publishingFormulaAnnouncementByApplicantFocusArea @ProdSan2 
+  @72343_1 @publishingFormulaAnnouncementByApplicantFocusArea @ProdSan2
   Scenario: Validate the activation of Formula By Applicant Focus Area Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -773,8 +773,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 100             |
+      | Funding Account             | Commitment |
+      | {SavedValue:fundingAccount} | 100        |
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
@@ -1054,8 +1054,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 100             |
+      | Funding Account             | Commitment |
+      | {SavedValue:fundingAccount} | 100        |
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
@@ -1151,7 +1151,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Accept" in the page details
     Then I see status in Progress-bar is "Accepted" and is "dark blue"
 
-  @72345 @submitApplication @ProdSan1 
+  @72345 @submitApplication @ProdSan1
   Scenario: Validate once the application is submitted to Grantor and then status changes to Submitted
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1442,7 +1442,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Save" in the page details
     And I wait for "4" seconds
-    When I click on "Send to Subrecipient" in the page details
+    When I click on "Send to Grantee" in the page details
     And I wait for "4" seconds
     Then I see field "Status" as "Negotiation Initiated"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1488,8 +1488,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
-      | Funding Account             | Encumbrance |
-      | {SavedValue:fundingAccount} | 1000        |
+      | Funding Account             | Obligation |
+      | {SavedValue:fundingAccount} | 1000       |
     And I navigate to "Terms" sub tab
     When I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
     And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
@@ -1511,7 +1511,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---subAwardFromFDM:-:GrantsRolesAndResponsibilitiesTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:FO Username} | Step 3 |
-    And I click on "Send to Subrecipient" in the page details
+    And I click on "Send to Grantee" in the page details
     And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1590,7 +1590,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardFromFDM:-:grantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
-    When I click on "Send to Subrecipient" in the page details
+    When I click on "Send to Grantee" in the page details
     And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1613,7 +1613,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @72348 @awardHappyPathStandAlone @ProdSan1 
+  @72348 @awardHappyPathStandAlone @ProdSan1
   Scenario: Validate the activation of subaward Happy path stand alone and status changes to Activated | Validate subaward Happy path stand alone
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1644,8 +1644,8 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Encumbrance |
-      | {SavedValue:fundingAccount} | 1000        |
+      | Funding Account             | Obligation |
+      | {SavedValue:fundingAccount} | 1000       |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Award Amount | Cash Match | Non-Cash Match |
       | Construction    | 1000         | 100        | 100            |
@@ -1673,7 +1673,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
     And I wait for "3" seconds
-    And I click on "Send to Subrecipient" in the page details
+    And I click on "Send to Grantee" in the page details
     And I wait for "3" seconds
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
@@ -1710,7 +1710,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    And I click on "Send to Subrecipient" in the page details
+    And I click on "Send to Grantee" in the page details
     And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1731,7 +1731,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
-  @72360 @activeRiskAssessment @ProdSan2 
+  @72360 @activeRiskAssessment @ProdSan2
   Scenario: Validate the Activation of Risk Assessment and the status changes to Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1918,8 +1918,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
-      | Funding Account             | Net Spent This Action |
-      | {SavedValue:fundingAccount} | 30                    |
+      | Funding Account             | Net Disbursed This Action |
+      | {SavedValue:fundingAccount} | 30                        |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
       | Name                      | Reimbursement |
@@ -1947,7 +1947,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
-  @72350 @adhocAdvanceHappyPath @ProdSan1 
+  @72350 @adhocAdvanceHappyPath @ProdSan1
   Scenario: Validate the Advance Payment Request happy path and the status changes to 'Paid'
     Given I activated standalone subaward "Automation Runtime award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1994,9 +1994,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---paymentRequest:-:approversTableId---" by clicking "New" :
       | Name                     | Advance |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---paymentRequest:-:approversTableId---" by clicking "New" :
-      | Name                     | Advance |
       | {SavedValue:FO Username} | Step 1  |
     When I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -2015,8 +2012,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I wait for "2" seconds
     When I click modal button "Close"
-#   To Do:- Remove the refresh step once bug resolve for refresh behavior
-    And I refresh the page
     Then I softly see field "Status" as "Paid"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2049,12 +2044,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "{SavedValue:PayreqId1}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
-      | Funding Account             | Net Spent This Action | Advance Applied This Action |
-      | {SavedValue:fundingAccount} | 30                    | 10                          |
+      | Funding Account             | Net Disbursed This Action | Advance Applied This Action |
+      | {SavedValue:fundingAccount} | 30                        | 10                          |
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
-      | Name                     | Reimbursement |
-      | {SavedValue:PM Username} | NA            |
     When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
       | Name                      | Reimbursement |
       | {SavedValue:EXE Username} | Step 1        |
@@ -2077,7 +2069,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
-#   To Do:- Remove the refresh step once bug resolve for refresh behavior
     Then I softly see field "Status" as "Paid"
 
   @72351 @scheduledReimbursementPaymentRequestHappyPath @ProdSan1
@@ -2111,12 +2102,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
-      | Funding Account             | Net Spent This Action |
-      | {SavedValue:fundingAccount} | 30                    |
+      | Funding Account             | Net Disbursed This Action |
+      | {SavedValue:fundingAccount} | 30                        |
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
-      | Name                      | Reimbursement |
-      | {SavedValue:EXE Username} | NA            |
     When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
       | Name                      | Reimbursement |
       | {SavedValue:EXE Username} | Step 1        |
@@ -2138,12 +2126,12 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
-   Then I see status in Progress-bar is "Paid" and is "dark blue"
+    Then I see status in Progress-bar is "Paid" and is "dark blue"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime award} | {SavedValue:Automation Runtime award} |
 
-  @72352 @progressReportHappyPath @ProdSan1 
+  @72352 @progressReportHappyPath @ProdSan1
   Scenario: Validate once the Progress Report approval process is completed then the status changes to approved
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -2277,7 +2265,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-    Given I click on "Send to Subrecipient" in the page details
+    Given I click on "Send to Grantee" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2369,8 +2357,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---deskreview:-:homePendingTasksTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:homePendingTasksTableId---"
     And I "Approve" in the approval decision
-    When I click on "Send to Subrecipient" in the page details
-    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+    When I click on "Send to Grantee" in the page details
+    Then I softly see status in Progress-bar is "Sent to Grantee" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2444,8 +2432,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "2" seconds
     And I "Approve" in the approval decision
     And I pause execution for "2" seconds
-    And I click on "Send to Subrecipient" in the page details
-    Then I softly see field "Status" as "Sent to Subrecipient"
+    And I click on "Send to Grantee" in the page details
+    Then I softly see field "Status" as "Sent to Grantee"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2520,7 +2508,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "5" seconds
     And I "Approve" in the approval decision
     And I pause execution for "5" seconds
-    When I click on "Send to Subrecipient" in the page details
+    When I click on "Send to Grantee" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2554,7 +2542,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72358 @activationOfBudgetPeriodAmendmentRequest @ProdSan2 
+  @72358 @activationOfBudgetPeriodAmendmentRequest @ProdSan2
   Scenario: Validate the Budget period amendment activation
     And I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -2590,7 +2578,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 2            |
     When I get the "EGMS ID"
-    And I click on "Send to Subrecipient" in the page details
+    And I click on "Send to Grantee" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2629,7 +2617,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:GrantsSubAwardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---amendment:-:amendmentRequestTableId---" without waiting for record
-    When I click on "Amend Subaward" in the page details
+    When I click on "Amend Award" in the page details
     When I click on "Activate" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
@@ -2668,7 +2656,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                      | Closeout |
       | {SavedValue:EXE Username} | Step 1   |
-    And I click on "Send To Subrecipient" in the page details
+    And I click on "Send to Grantee" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2724,7 +2712,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "closeoutID"
-    And I click on "Send To Subrecipient" in the page details
+    And I click on "Send to Grantee" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2756,7 +2744,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     Then I softly see field "Status" as "Completed"
 
-  @FundingChangeAmendmentRequest @ProdSan1 
+  @FundingChangeAmendmentRequest @ProdSan1
   Scenario Outline: validate the end to end flow for Funding change amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "<Properties>-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE" user
@@ -2784,8 +2772,8 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     When I get the "EGMS ID"
-    And I click on "Send to Subrecipient" in the page details
-    Then I see field "Status" as "Sent to Subrecipient"
+    And I click on "Send to Grantee" in the page details
+    Then I see field "Status" as "Sent to Grantee"
     When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2810,8 +2798,8 @@ Feature: Validate sanity testing of Complete Business Flow
       | 3000  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Revised Encumbrance |
-      | {SavedValue:fundingAccount} | 3000                |
+      | Funding Account             | Revised Obligation |
+      | {SavedValue:fundingAccount} | 3000               |
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -2829,7 +2817,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I pause execution for "10" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
@@ -2866,15 +2854,15 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title                           | Start Date         | End Date           |
       | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
-      | Title                       | Revised Encumbrance |
-      | {SavedValue:fundingAccount} | 1000                |
+      | Title                       | Revised Obligation |
+      | {SavedValue:fundingAccount} | 1000               |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name          | Amendment Request |
       | Automation PM | Step 1            |
-    And I click on "Send to Subrecipient" in the page details
+    And I click on "Send to Grantee" in the page details
     And I wait for "3" seconds
-    Then I see field "Status" as "Sent to Subrecipient"
+    Then I see field "Status" as "Sent to Grantee"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2890,7 +2878,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "3" seconds
     And I "Approve" in the approval decision
     And I pause execution for "3" seconds
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I pause execution for "10" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
@@ -2898,7 +2886,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
 
-  @ScopeOfWorkChangeAmendmentRequest @ProdSan2 
+  @ScopeOfWorkChangeAmendmentRequest @ProdSan2
   Scenario Outline: Validate end to end flow for scope of work change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     And I login to "As a Grantor" app as "PM" user
@@ -2922,8 +2910,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
-    And I click on "Send to Subrecipient" in the page details
-    Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+    And I click on "Send to Grantee" in the page details
+    Then I see status in Progress-bar is "Sent to Grantee" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2941,7 +2929,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     And I pause execution for "3" seconds
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I pause execution for "10" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
@@ -2996,7 +2984,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I "Approve" in the approval decision
     And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I pause execution for "3" seconds
@@ -3064,7 +3052,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Amendment Requests - Approved"
     And I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I wait for "4" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
@@ -3153,7 +3141,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---progressreport:-:AmendmentAttachmentTableId---"
-    And I click on "Send to Subrecipient" in the page details
+    And I click on "Send to Grantee" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3180,7 +3168,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Amendment Requests - Approved"
     And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
@@ -3235,7 +3223,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
@@ -3271,8 +3259,8 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     When I get the "EGMS ID"
-    And I click on "Send to Subrecipient" in the page details
-    Then I softly see field "Status" as "Sent to Subrecipient"
+    And I click on "Send to Grantee" in the page details
+    Then I softly see field "Status" as "Sent to Grantee"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3308,8 +3296,8 @@ Feature: Validate sanity testing of Complete Business Flow
       | 4000  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Revised Encumbrance |
-      | {SavedValue:fundingAccount} | 3000                |
+      | Funding Account             | Revised Obligation |
+      | {SavedValue:fundingAccount} | 3000               |
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -3325,13 +3313,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:FundTermsID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:FundTermsID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @CombinationOfSubrecipientBRandKPCandSOW @ProdSan2 
+  @CombinationOfSubrecipientBRandKPCandSOW @ProdSan2
   Scenario: Validate Combinations of Subrecipient BR and KPC and SOW
     Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation PO user" of type "Formula_By_Applicant"
     When I am on "SUBPORTAL" portal
@@ -3412,7 +3400,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:budRedKPCSOWId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:budRedKPCSOWId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
@@ -3453,14 +3441,14 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title                            | Start Date         | End Date           |
       | Automation Permanent Focus Area2 | {SavedValue:PBPSD} | {SavedValue:PBPED} |
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
-      | Title                       | Revised Encumbrance |
-      | {SavedValue:fundingAccount} | 2000                |
+      | Title                       | Revised Obligation |
+      | {SavedValue:fundingAccount} | 2000               |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name          | Amendment Request |
       | Automation PM | Step 1            |
-    And I click on "Send to Subrecipient" in the page details
-    Then I softly see field "Status" as "Sent to Subrecipient"
+    And I click on "Send to Grantee" in the page details
+    Then I softly see field "Status" as "Sent to Grantee"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3485,7 +3473,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "3" seconds
     And I "Approve" in the approval decision
     And I pause execution for "3" seconds
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I pause execution for "5" seconds
     When I click on "Activate" in the page details
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
@@ -3534,8 +3522,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
-      | Title                       | Revised Encumbrance |
-      | {SavedValue:fundingAccount} | 2700                |
+      | Title                       | Revised Obligation |
+      | {SavedValue:fundingAccount} | 2700               |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -3555,7 +3543,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
