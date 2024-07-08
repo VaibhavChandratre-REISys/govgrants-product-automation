@@ -186,13 +186,13 @@ public class UsersAndURL implements UsersController {
 
     private String getProLwcEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsautomation@yopmail.com.prolwcut");
-        username.put("ADMIN1", "manu.admin@ggp.test8.prolwcut");
-        username.put("EXE", "test@gmaildemo.com.prolwcut");
-        username.put("PM", "donald_pm@ggp.test7.atm.prolwcut");
-        username.put("FO", "auto.fm@auto.com.prolwcut");
-        username.put("PO", "automationpo@yopmail.com.prolwcut");
-        username.put("FD", "automationfd@yopmail.com.prolwcut");
+        username.put("ADMIN", "govgrantsautomation@yopmail.com.va");
+        username.put("ADMIN1", "govgrantsadmin@yopmail.com.va");
+        username.put("EXE", "test@gmaildemo.com.va");
+        username.put("PM", "donald_pm@ggp.test7.atm.va");
+        username.put("FO", "auto.fm@auto.com.va");
+        username.put("PO", "automationpo@yopmail.com.va");
+        username.put("FD", "automationfd@yopmail.com.va");
         username.put("PM1", "pm1.automation@yopmail.com.prolwcut");
         username.put("EXE1", "exe1.automation@yopmail.com.prolwcut");
         username.put("PO1", "automationpo1@yopmail.com.prolwcut");
