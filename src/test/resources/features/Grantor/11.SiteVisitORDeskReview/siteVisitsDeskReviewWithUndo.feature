@@ -71,7 +71,8 @@ Feature: Validate all scenarios in the Site Visit with Undo
     And I click on "View" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     #279065
-    Then I cannot see top right button "Undo" in page detail@197367
+    Then I cannot see top right button "Undo" in page detail
+
   @279085 @VerifyAuditorusercannotseeUNDObuttoneveninApprovedstateofSiteVisit @sprint-5-US-295139 @hitesh @Undo
   Scenario: Verify Auditor user cannot see UNDO button even in Approved state of Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
