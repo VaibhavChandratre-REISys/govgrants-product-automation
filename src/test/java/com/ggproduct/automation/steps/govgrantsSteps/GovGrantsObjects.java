@@ -114,7 +114,7 @@ public final class GovGrantsObjects {
             try {
                 I.amPerforming().waitFor().makeThreadSleep(1000);
                 govgrants.perform().mainPage().clickLoginDropDown();
-                govgrants.perform().mainPage().clickLoginDropDownItems("Logout");
+                govgrants.perform().mainPage().clickLoginDropDownItems("Log Out");
             } catch (Exception ex) {
                 I.amPerforming().waitFor().makeThreadSleep(1000);
                 I.amPerforming().click().withJavaScript(govgrants.perform().mainPage().getLoginDropDownItems("Logout"));
