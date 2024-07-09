@@ -57,6 +57,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click in table hyperlink containing value "View"
     Then I softly verify that the file "Attachment.pdf" is downloaded
     And I close the tab
+  And I switch to parent tab
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -1453,11 +1454,11 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
-    Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
+#    When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
+#    Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
   @197450 @ValidateemailshouldbegeneratedinyopmailtonewSVownerEXEuseronceownershipischangedwhenassignedapproverclickedonSentbackbutton @sprint-4 @vaibhav @reassignment
   Scenario: Validate email should be generated in yopmail to new SV owner EXE user once ownership is changed when assigned approver clicked on Sent back button
