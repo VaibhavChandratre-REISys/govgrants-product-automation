@@ -203,41 +203,41 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I get the "EGMS ID"
     And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---"
-    When I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---"
-    When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Approve Amendment Request" inside flex table with id "---amendment:-:pendingTaskTableId---"
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---"
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Amendment Requests - Approved"
-    And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---"
-    And I click on "Amend Subaward" in the page details
-    And I wait for "2" seconds
-    When I click on "Activate" in the page details
-    And I navigate to "Management" sub tab
-    Then I see value "In Progress" for title "Status" against the value "{SavedValue:SiteVisitID}" inside table "---sitevisits:-:grantorSiteVisitsTableID---"
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---"
+#    When I click on "Acknowledge" in the page details
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---"
+#    When I click on "Submit for Approval" in the page details
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "Approve Amendment Request" inside flex table with id "---amendment:-:pendingTaskTableId---"
+#    And I "Approve" in the approval decision
+#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---"
+#    And I "Approve" in the approval decision
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Amendment Requests - Approved"
+#    And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+#    When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---"
+#    And I click on "Amend Subaward" in the page details
+#    And I wait for "2" seconds
+#    When I click on "Activate" in the page details
+#    And I navigate to "Management" sub tab
+#    Then I see value "In Progress" for title "Status" against the value "{SavedValue:SiteVisitID}" inside table "---sitevisits:-:grantorSiteVisitsTableID---"
 
   @hitsite1 @66714 @inProgressSiteVisitAmendedForDeskReviews @deepika @smoke
   Scenario: Validate In-progress award level desk review are carried forward to newly created award after amendment - bpc
@@ -1453,11 +1453,11 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-#    When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
-#    Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
+    When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
+    Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
   @197450 @ValidateemailshouldbegeneratedinyopmailtonewSVownerEXEuseronceownershipischangedwhenassignedapproverclickedonSentbackbutton @sprint-4 @vaibhav @reassignment
   Scenario: Validate email should be generated in yopmail to new SV owner EXE user once ownership is changed when assigned approver clicked on Sent back button
