@@ -27,7 +27,7 @@ public class UsersAndURL implements UsersController {
         I.amPerforming().propertiesFileOperationsTo().saveValue("FD1 Username", "Automation FD1");
         I.amPerforming().propertiesFileOperationsTo().saveValue("AUDITOR Username", "Automation AUDITOR");
         I.amPerforming().propertiesFileOperationsTo().saveValue("SPI Username", "Automation SPI");
-        I.amPerforming().propertiesFileOperationsTo().saveValue("SPI3 Username", "Automation SPI3");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("SPI3 Username", "Deshka Kostova");
         I.amPerforming().propertiesFileOperationsTo().saveValue("SPA Username", "Automation SPA");
         I.amPerforming().propertiesFileOperationsTo().saveValue("SPI4 Username", "Automation SPI4");
         I.amPerforming().propertiesFileOperationsTo().saveValue("IND Username", "Automation IND");
@@ -198,7 +198,7 @@ public class UsersAndURL implements UsersController {
         username.put("PO1", "automationpo1@yopmail.com.prolwcut");
         username.put("FO1", "fo1.automation@yopmail.com.prolwcut");
         username.put("FD1", "automationfd1@yopmail.com.prolwcut");
-        username.put("SPI3", "aspi3@grants.gov");
+        username.put("SPI3", "dkostovallc123@yopmail.com.vagapanav1");
         username.put("SPA", "spaautomation12@yopmail.com");
         username.put("SA", "asa@grants.gov");
         username.put("IND", "ind12.automation@yopmail.com");

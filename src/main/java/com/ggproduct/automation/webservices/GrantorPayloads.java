@@ -209,8 +209,8 @@ public class GrantorPayloads {
 
     public JsonObject defaultPayloadApplicationReview(String applicationName, String announcementName) {
 
-        String ownerName = "Automation SPI3";
-        String contactName = "Automation SPI3";
+        String ownerName = "Deshka Kostova";
+        String contactName = "Deshka Kostova";
         String kpiName = "Automation Permanent KPI";
 
         JsonObject parent = new JsonObject();
@@ -1446,7 +1446,7 @@ public class GrantorPayloads {
 
         JsonObject invApp = new JsonObject();
         JsonArray invAppA = new JsonArray();
-        invApp.addProperty("Organization", ProjectWebServices.getIdOf("Account", "SAN DIEGO ELECTRICAL TRAINING TRUST"));
+        invApp.addProperty("Organization", ProjectWebServices.getIdOf("Account", "205 Legal Services"));
         invApp.addProperty("AllocatedAmount", 1000);
         invAppA.add(invApp);
         parent.add("InvitedApplicant", invAppA);
@@ -2714,7 +2714,7 @@ public class GrantorPayloads {
         grant.addProperty("BudgetCategoryPackage", "Construction");
         grant.addProperty("GrantDescription", "API Testing For Award Activation From Direct Grant");
         grant.addProperty("ExternalOrganization", ProjectWebServices.getIdOf("Account", "Test Automation Organization"));
-        grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "SAN DIEGO ELECTRICAL TRAINING TRUST"));
+        grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "205 Legal Services"));
         grant.addProperty("Program", ProjectWebServices.getIdOf("Program__c", "Automation Permanent Internal Program"));
         grant.addProperty("DoesGrantAllowIndirect", "Yes");
         grant.addProperty("IsMatchRequired", "Yes");
@@ -2853,7 +2853,7 @@ public class GrantorPayloads {
         JsonObject keyContacts = new JsonObject();
         JsonArray keyContactsArray = new JsonArray();
         keyContacts.addProperty("ProjectRole", "Project Director/Manager");
-        keyContacts.addProperty("Contact", ProjectWebServices.getIdOf("Contact", "Automation SPI3")); // Automation SPI id
+        keyContacts.addProperty("Contact", ProjectWebServices.getIdOf("Contact", "Deshka Kostova")); // Automation SPI id
         keyContacts.addProperty("IsKeyContact", true);
         keyContactsArray.add(keyContacts);
         parent.add("KeyContacts", keyContactsArray);

@@ -99,7 +99,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:subrecipientContactTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:subrecipientContactTableId---" without waiting for record
-    Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
+    Then I softly see field "Organization" as "205 Legal Services"
     And I click on "Edit" in the page details
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
@@ -252,9 +252,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     And I wait for "5" seconds
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name                     | Announcement |
-      | {SavedValue:PM Username} | NA           |
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
@@ -515,7 +512,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
-    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
+    When I click "Add" after selection of "205 Legal Services" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
@@ -983,13 +980,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "4" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
-    And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
-    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
+    And I perform quick search for "205 Legal Services" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
+    When I click "Add" after selection of "205 Legal Services" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Overview" sub tab
-    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
+    And I expand nested table containing column value "205 Legal Services"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
@@ -1072,14 +1069,14 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "2" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
-    And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
-    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
+    And I perform quick search for "205 Legal Services" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
+    When I click "Add" after selection of "205 Legal Services" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     And I pause execution for "4" seconds
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
-      | Applicants                          | Allocated Amount |
-      | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
+      | Applicants         | Allocated Amount |
+      | 205 Legal Services | 1000             |
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
@@ -1244,6 +1241,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1316,6 +1314,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "5" seconds
     When I click on "Submit" in the page details without processing
@@ -1329,6 +1328,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1370,6 +1370,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1763,9 +1764,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | NA              |
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
       | {SavedValue:PM Username} | Step 1          |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
@@ -1921,9 +1919,6 @@ Feature: Validate sanity testing of Complete Business Flow
       | Funding Account             | Net Disbursed This Action |
       | {SavedValue:fundingAccount} | 30                        |
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
-      | Name                      | Reimbursement |
-      | {SavedValue:EXE Username} | NA            |
     When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
       | Name                      | Reimbursement |
       | {SavedValue:EXE Username} | Step 1        |
@@ -2172,9 +2167,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                      | Progress Report |
-      | {SavedValue:EXE Username} | NA              |
-    When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
-      | Name                      | Progress Report |
       | {SavedValue:EXE Username} | Step 1          |
     When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -2215,14 +2207,11 @@ Feature: Validate sanity testing of Complete Business Flow
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                     | Site Visit |
-      | {SavedValue:PM Username} | NA         |
-    When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                     | Site Visit |
       | {SavedValue:PM Username} | Step 1     |
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
     And I pause execution for "5" seconds
-    When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
+    When I click "Associate" after selection of "Deshka Kostova" in the table "---sitevisits:-:siteVisitContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
     And I pause execution for "5" seconds
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
@@ -2324,9 +2313,6 @@ Feature: Validate sanity testing of Complete Business Flow
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                     | Desk Review |
-      | {SavedValue:PM Username} | NA          |
-    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                     | Desk Review |
       | {SavedValue:PM Username} | Step 1      |
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
@@ -2394,9 +2380,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    When I perform quick search for "205 Legal Services" in "ActiveAccount" panel
+    And I click on "View" icon for "205 Legal Services" inside table
     And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
@@ -2471,9 +2456,8 @@ Feature: Validate sanity testing of Complete Business Flow
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
-    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    When I perform quick search for "205 Legal Services" in "ActiveAccount" panel
+    And I click on "View" icon for "205 Legal Services" inside table
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     And I enter "Creation" values from "Organizational_DeskReview_Field_Values.xlsx"
@@ -2568,9 +2552,6 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title                           | End Date                             |
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
-      | Name                     | Amendment Request |
-      | {SavedValue:PM Username} | NA                |
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
@@ -2963,7 +2944,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I save the field labeled "EGMS ID" as "AmendmentId"
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
-    When I click "Associate" after selection of "{SavedValue:SPA Username}" in the table "---amendment:-:RecipientKeyPersonalAssociateTableId---"
+    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---amendment:-:RecipientKeyPersonalAssociateTableId---"
     When I close "Associate Contacts" modal by clicking the top right x button
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
