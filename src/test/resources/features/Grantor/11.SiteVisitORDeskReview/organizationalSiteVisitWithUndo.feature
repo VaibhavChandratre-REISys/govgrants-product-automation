@@ -106,6 +106,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see snapshot with name containing "Organizational Site Visit - Undo Approval.pdf" as name
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I refresh the page
     And I wait for "5" seconds
     Then I see snapshot with name containing "SnapShot" as name
     #289808

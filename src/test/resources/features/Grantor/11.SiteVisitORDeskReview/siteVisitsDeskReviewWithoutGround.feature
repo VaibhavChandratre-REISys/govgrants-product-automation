@@ -731,6 +731,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "Grant ID" as "GrantId"
+    And I navigate to "Budget" sub tab
     And I save the field labeled "Project Period End Date" as "EndDate"
     Then I softly see field "Project Period End Date" as "{SavedValue:EndDate}"
     And I click "{SavedValue:GrantId}" lookup link

@@ -1394,7 +1394,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
-  @302609 @CompetitiveAnnVerifythatApprovalHistoryandsnapshothistoryupdatedafterclickonUNDObutton @sprint-26-US-299251 @hitesh @Undo @FieldHistoryExclude @TBExecution
+  @302609 @CompetitiveAnnVerifythatApprovalHistoryandsnapshothistoryupdatedafterclickonUNDObutton @sprint-26-US-299251 @hitesh @Undo @FieldHistoryExclude
   Scenario: Competitive Ann Verify that Approval History and snapshot history updated after click on UNDO button.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
