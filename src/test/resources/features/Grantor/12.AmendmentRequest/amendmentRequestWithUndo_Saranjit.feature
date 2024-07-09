@@ -3717,8 +3717,8 @@ Feature: Amendment Request scenarios with Undo
     And I edit the following rows inline in flex table with id "---amendment:-:carryForwardFocusAreaTableId---" by clicking "Edit" :
       | Title                            | Carry Forward Amount |
       | Automation Permanent Focus Area2 | 500                  |
-    And I expand nested table containing column value "BP01"
     When I click on button "resetIcon" in flex table with id "RecAmendmentRequestCarryForwardBudget"
+    And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "RecAmendmentRequestCarryForwardBudget" by clicking "Edit" :
       | Budget Category | Carry Forward |
       | Construction    | 200           |
