@@ -1161,7 +1161,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "10" seconds
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -1435,7 +1435,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I save the field labeled "EGMS ID" as "EGMSID"
     And I pause execution for "10" seconds
     And I navigate to "Negotiations" sub tab
-    And I wait for "2" seconds
+    And I wait for "10" seconds
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     And I wait for "3" seconds
@@ -2220,7 +2220,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
-    And I pause execution for "4" seconds
+    And I pause execution for "" seconds
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
