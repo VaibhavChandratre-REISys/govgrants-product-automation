@@ -56,7 +56,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Files" sub tab
     And I click in table hyperlink containing value "View"
     Then I softly verify that the file "Attachment.pdf" is downloaded
-    And I close the tab
   And I switch to parent tab
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
