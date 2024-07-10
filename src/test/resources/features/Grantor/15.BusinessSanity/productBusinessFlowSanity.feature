@@ -2214,11 +2214,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Progress Reports - Approved"
     Then I see value "Approved" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressReport:-:internalProgressReportFlexTableId---"
 
-<<<<<<< HEAD
-  @72353 @siteVisitAcceptAndClose @ProdSan1 
-=======
   @72353 @siteVisitAcceptAndClose @ProdSan2
->>>>>>> 46be1db3e84cdb4f64fb8807ee57df1158798ee9
   Scenario: Validate once the Award level Site Visit is clicked on Accept and Close butted then sttaus changes to closed
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
