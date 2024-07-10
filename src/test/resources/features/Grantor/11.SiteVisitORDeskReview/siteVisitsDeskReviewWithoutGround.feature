@@ -290,6 +290,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
     And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
@@ -432,7 +433,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "3800" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
-    And I wait for "4" seconds
+    And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -445,7 +446,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 2            |
     When I get the "EGMS ID"
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -587,6 +588,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
     And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
@@ -3480,17 +3482,17 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                               | Description            | Status      | Due Date | Assigned To                |
       | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I collapse nested table containing column value "Automation Observation"
+#    When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I collapse nested table containing column value "Automation Concern"
+#    When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    And I collapse nested table containing column value "Automation Finding"
+#    And I collapse nested table containing column value "Automation Finding"
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
@@ -4980,17 +4982,17 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                               | Description            | Status      | Due Date | Assigned To                |
       | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I collapse nested table containing column value "Automation Observation"
+#    When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I collapse nested table containing column value "Automation Concern"
+#    When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    And I collapse nested table containing column value "Automation Finding"
+#    And I collapse nested table containing column value "Automation Finding"
     Then I softly can see top right button "Submit to Grantor" in page detail
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -7920,17 +7922,17 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                               | Description            | Status      | Due Date | Assigned To                |
       | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I collapse nested table containing column value "Automation Observation"
+#    When I collapse nested table containing column value "Automation Observation"
     And I expand nested table containing column value "Automation Concern"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    When I collapse nested table containing column value "Automation Concern"
+#    When I collapse nested table containing column value "Automation Concern"
     And I expand nested table containing column value "Automation Finding"
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    And I collapse nested table containing column value "Automation Finding"
+#    And I collapse nested table containing column value "Automation Finding"
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
