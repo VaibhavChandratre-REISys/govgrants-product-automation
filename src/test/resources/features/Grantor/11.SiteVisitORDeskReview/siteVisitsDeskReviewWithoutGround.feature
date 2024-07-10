@@ -40,7 +40,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click in table hyperlink containing value "View"
     Then I softly verify that the file "Attachment.pdf" is downloaded
     And I wait for "5" seconds
-  And I switch to parent tab
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
     When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
@@ -56,7 +55,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Files" sub tab
     And I click in table hyperlink containing value "View"
     Then I softly verify that the file "Attachment.pdf" is downloaded
-  And I switch to parent tab
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -134,7 +132,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click in table hyperlink containing value "View"
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
- @hitsite @66713 @inProgressSiteVisitAmendedForSiteVisits @deepika @smoke
+ @66713 @inProgressSiteVisitAmendedForSiteVisits @deepika @smoke
   Scenario: Validate In-progress award level site visit are carried forward to newly created award after amendment - Budget Period Change type
     Given I activated standalone subaward "Automation Runtime Award for Amendment Request" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award for Associate Amendment Request" with properties "default" of type "Competitive"
@@ -1708,7 +1706,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
 
- @hitsite @197493 @ValidateSVownerasEXEuserisinSubmittedtoReviewstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinSubmittedtoReviewstate @sprint-4 @vaibhav @reassignment
+ @197493 @ValidateSVownerasEXEuserisinSubmittedtoReviewstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinSubmittedtoReviewstate @sprint-4 @vaibhav @reassignment
   Scenario: Validate SV owner as EXE user is in Submitted to Review state after that ownership will get changed then new owner will have the same access page layout & sectional level buttons as old owner had in Submitted to Review state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -4007,7 +4005,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Notify" in page detail
 
- @hitsite @197984 @198006 @ValidateAsadminusershouldabletoreassignthetaskofSiteVisitwithsameprofile&sameOrganization @sprint-4-US-192978 @vaibhav @reassignment
+ @197984 @198006 @ValidateAsadminusershouldabletoreassignthetaskofSiteVisitwithsameprofile&sameOrganization @sprint-4-US-192978 @vaibhav @reassignment
   Scenario: Validate As a admin user should able to reassign the task of Site Visit with same profile & same Organization
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -4116,7 +4114,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
- @hitsite @197985 @ValidatePMusershouldabletoreassignthetaskofSiteVisitfromMyTasksunderReassignsectiononleft-handnavigationbar  @sprint-4-US-192978 @vaibhav @reassignment @taskreassign
+ @197985 @ValidatePMusershouldabletoreassignthetaskofSiteVisitfromMyTasksunderReassignsectiononleft-handnavigationbar  @sprint-4-US-192978 @vaibhav @reassignment @taskreassign
   Scenario: Validate PM user should able to reassign the task of Site Visit from My Tasks under Reassign section on left-hand navigation bar
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -6111,7 +6109,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
- @hitsite @198065 @ValidateoldDRownerasEXEusershouldnotabletoseebuttonswhenownershiprelatedtaskisreassigntonewEXEuser @sprint-4-US-192997 @vaibhav @reassignment
+ @198065 @ValidateoldDRownerasEXEusershouldnotabletoseebuttonswhenownershiprelatedtaskisreassigntonewEXEuser @sprint-4-US-192997 @vaibhav @reassignment
   Scenario: Validate old DR owner as EXE user should not able to see buttons when ownership related task is reassign to new EXE user
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -7544,7 +7542,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
     """
 
- @hitsite @197376 @ValidateFOSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinForceClosestate @sprint-12-US-226646 @vaibhav @reassignment
+ @197376 @ValidateFOSVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinForceClosestate @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate FO(SV owner)email should be generated for system admin, previous owner and new owner of Site Visit after ownership of Site Visit is changed in 'Force Close' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -8429,7 +8427,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
- @hitsite @197367 @ValidateFO(SVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinReviewstate @sprint-4-US-196236 @vaibhav @reassignment @TBE
+ @197367 @ValidateFO(SVowneremailshouldbegeneratedforsystemadminpreviousownerandnewownerofSiteVisitafterownershipofSiteVisitischangedinReviewstate @sprint-4-US-196236 @vaibhav @reassignment @TBE
   Scenario: Validate FO(SV owner)email should be generated for system admin, previous owner and new owner of Site Visit after ownership of Site Visit is changed in 'Review' state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
