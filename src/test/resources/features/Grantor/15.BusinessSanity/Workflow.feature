@@ -1540,8 +1540,8 @@ Feature: Validate all scenarios of every modules flow
 #   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
    Given I login to "As a Grantor" app as "EXE" user
    And I halt execution
-   And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
+   And I click on "Remove" icon for "Indirect costs" inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
    And I refresh the page
    And I wait for "2" seconds
-   Then I softly do not see value "Construction" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
+   Then I softly do not see value "Indirect costs" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
 

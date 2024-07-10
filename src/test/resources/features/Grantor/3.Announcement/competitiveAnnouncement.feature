@@ -186,6 +186,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     Then I softly do not see value "BP01" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
     And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
+    And I wait for "4" seconds
     And I refresh the page
     And I wait for "2" seconds
     Then I softly do not see value "Construction" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
@@ -207,8 +208,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see value "$3,000.00" for title "Original Value" inside field history table
     And I click on back arrow
     And I navigate to "Financials" sub tab
-    And I perform quick search for "Construction" in "---announcement:-:announcementBudgetCategory---" panel
-    Then I softly see value "Construction" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
+    Then I softly see value "Contingencies" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     And I enter value "www.google.com" into field "LinkforAdditionalInformation__c"
@@ -216,8 +216,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     Then I softly see field "Link For Additional Information" as "www.google.com"
     When I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
+    And I perform quick search for "Wildlife Services" in "---announcement:-:associateForRelated---" panel
     And I check "All" boxes in flex table with id "---announcement:-:associateForRelated---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:associateForRelated---"
+    And I wait for "2" seconds
     And I save the value from row "1" for column name "Program Number" as "prNum" from flex table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly see value "{SavedValue:prNum}" for title "Program Number" inside table "---announcement:-:relatedAnnouncementTableId---"
 
