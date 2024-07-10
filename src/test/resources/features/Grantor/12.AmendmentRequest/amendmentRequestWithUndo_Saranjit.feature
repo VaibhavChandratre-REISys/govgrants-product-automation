@@ -1771,7 +1771,7 @@ Feature: Amendment Request scenarios with Undo
 #    And I click toggle button to select "Subawards  - Active"
 #    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 #    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
-
+    And I navigate to url "https://test8-internal--qaorg.sandbox.lightning.force.com/lightning/r/Award__c/a1o750000028Y9RAAU/view"
     And I save the field labeled "Subaward Title" as "Automation Runtime Award"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1796,6 +1796,7 @@ Feature: Amendment Request scenarios with Undo
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 2000                |
     And I click on "Send to Subrecipient" in the page details
+    Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1810,6 +1811,7 @@ Feature: Amendment Request scenarios with Undo
       | Construction  | 1000                 | 100        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
