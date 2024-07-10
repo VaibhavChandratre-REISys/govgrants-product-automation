@@ -1534,8 +1534,14 @@ Feature: Validate all scenarios of every modules flow
 
  @debug @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-   Given I am on "INTERNAL" portal
-#   And I generate the random EmailID and save as "uniqueEmailID" for maildrop
-#   And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
-   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
-
+   Given I login to "As a Grantor" app as "PM" user
+##   And I generate the random EmailID and save as "uniqueEmailID" for maildrop
+##   And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+#   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
+   And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/AmendmentRequest__c/a1YDV000002yiU62AI/view"
+   And I click on top right button "New" in flex table with id "---amendment:-:approversTableId---"
+   And I select value "{SavedValue:PM Username}" into field "name__r.name"
+#    And I select value "Step 1" into field "AmendmentRequestRole__c"
+#    And I enter value "Step 1" into field "AmendmentRequestRole__c"
+   And I click on "Remove record" icon for "NA" inside table
+   Then I softly see "No Records Found" inside flex table with id "---amendment:-:approversTableId---"

@@ -5587,7 +5587,7 @@ Feature: Amendment Request scenarios without background
       | {SavedValue:PM Username} | Step 2            |
     Then I softly see "You cannot specify the same user for multiple steps for Amendment Request" inside flex table with id "---amendment:-:approversTableId---"
 
-  @151896 @verifyRemovalOfAddedApprover-BudgetRedirection-RnRFunctionality @monu @AmendmentWBPoojaFourth
+  @151896 @verifyRemovalOfAddedApprover-BudgetRedirection-RnRFunctionality @monu
   Scenario: To verify user can  remove the added approver on Budget Redirection amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -5614,12 +5614,13 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I navigate to "Responsibilities" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:approversTableId---"
-    And I select value "{SavedValue:PM Username}" into field "name__r.name"
-#    And I enter value "Step 1" into field "AmendmentRequestRole__c"
-    And I click on "Remove record" icon for "NA" inside table
+    And I pause execution for "3" seconds
+    And I select user value "Automation PM" in field "name__r.name"
+    And I select dropdown value "Step 1" in field "AmendmentRequestRole__c"
+    And I click on nested button "Remove record" in flex table with id "---amendment:-:approversTableId---"
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:approversTableId---"
 
-  @151664 @VerifyErrorMessageAtApproverSectionWhileSkippingAt-BudgetRedirection-RnRFunctionality @monu @AmendmentWBPoojaFourth
+  @151664 @VerifyErrorMessageAtApproverSectionWhileSkippingAt-BudgetRedirection-RnRFunctionality @monu 
   Scenario: To validate message ,when user give NA  on approval step on Budget Redirection amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I am on "SUBPORTAL" portal
