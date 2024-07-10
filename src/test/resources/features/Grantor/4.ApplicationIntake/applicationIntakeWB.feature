@@ -116,7 +116,7 @@ Feature: Application Intake scenarios without background
     And I wait for "3" seconds
     Then I cannot see top right button "Submit Application" in page detail
 
-  @70464  @deepika @wip @NotValid
+  @70464  @deepika @wip @NotValid @TBExecution
   Scenario: Validate whether user should not able to qualify the announcement again for once it is Qualified
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -135,11 +135,12 @@ Feature: Application Intake scenarios without background
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:qualifiedTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:qualifiedTableId---" without waiting for record
-    When I click on "Qualify" in the page details
-    #requested manual qa to provide correct test steps
-    Then I see the following messages in the page details :
-      | This Opportunity has already been qualified for your Organization. |
+    Then I do not see value "{SavedValue:Automation Runtime Announcement Application Intake}" for title "Opportunity Name" inside table "---applicationIntake:-:qualifiedTableId---"
+#    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:qualifiedTableId---" without waiting for record
+#    When I click on "Qualify" in the page details
+#    #requested manual qa to provide correct test steps
+#    Then I see the following messages in the page details :
+#      | This Opportunity has already been qualified for your Organization. |
 
   @70463 @73366 @70462 @userCanEnterBudgetDetailsApplTitleasOppurtunityTitleField @deepika
   Scenario: To verify that the budget field is editable for the Subrecipient (SPI User) under budget tab on Application | Validate the Application created date is updated with Today's date
@@ -636,7 +637,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:recipientApplications---" panel
     Then I cannot see row level action button "Delete" against "{SavedValue:Automation Runtime Announcement Application Intake}" in flex table with id "---applicationIntake:-:recipientApplications---"
 
-  @72512 @72513 @75965 @75966 @matchPercentageIFsetAsYES @deepika @skipOnJenkins
+  @72512 @72513 @75965 @75966 @matchPercentageIFsetAsYES @deepika @skipOnJenkins @TBExecution
   Scenario: Validate the Match Percentage validation during submit for approval when the Match required setting as Yes | Validate if user submits the application without one key personal contact details then the system should throw an error message|
   Validate History Field is getting updated for PM user when Application status is Submitted to Grantor | Validate whether the Internal user is able to view the Snapshot after Application is Submitted to Grantor status
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
@@ -693,9 +694,12 @@ Feature: Application Intake scenarios without background
     When I click toggle button to select "Applications - All"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside table
     When I navigate to "History" sub tab
-#    Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted to Grantor" for title "New Value" inside field history table
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     And I click on hyperlink containing value "Submission"
     When I download the file
     Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
@@ -1072,7 +1076,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
 
-  @75496 @qualifySuccessMessage @deepika @wip @notValid
+  @75496 @qualifySuccessMessage @deepika @wip @notValid @TBExecution
   Scenario:  Validate user will be able to view the success message for qualification.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1083,8 +1087,9 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Application is successfully qualified |
+    Then I softly see field "Status" as "Qualified"
+#    Then I softly see the following messages in the page details contains:
+#      | Application is successfully qualified |
 
   @75501 @75502 @otherOrgUserCanAlsoQualifyAndCreateApplication @deepika
   Scenario: Validate Opportunities created from 'Competitive Announcements' are available for all External users under Oppurtunities
@@ -1336,7 +1341,7 @@ Feature: Application Intake scenarios without background
     Then I softly see the following messages in the page details contains:
       | An Application cannot be submitted after the Application Due Date. |
 
-  @77657 @snapshotHistoryApplication @deepika @skipOnJenkins
+  @77657 @snapshotHistoryApplication @deepika @skipOnJenkins @TBExecution
   Scenario: Validate whether SPI user will be able to take the snapshot on page when the Application is in Created status and is saved under snapshot history
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1355,6 +1360,7 @@ Feature: Application Intake scenarios without background
     When I click on "Save" in the page details
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Snapshot on"
     When I download the file

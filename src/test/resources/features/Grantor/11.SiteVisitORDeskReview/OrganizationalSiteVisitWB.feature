@@ -1067,7 +1067,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation FO1" for title "New Value" inside field history table
     Then I softly see value "Automation FO" for title "Original Value" inside field history table
 
-  @236111 @ValidateSiteVisitEXEusercanabletodobusinessflowafterreassignownershiofsitevisitfromEXEtootherEXEuserinINprogressstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @236111 @ValidateSiteVisitEXEusercanabletodobusinessflowafterreassignownershiofsitevisitfromEXEtootherEXEuserinINprogressstateofsitevisit @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Site Visit EXE user can able to do business flow after reassign ownership of site visit from EXE to other EXE user in 'IN progress' state of site visit
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab

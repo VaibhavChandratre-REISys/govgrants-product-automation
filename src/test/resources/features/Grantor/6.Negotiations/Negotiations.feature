@@ -92,7 +92,7 @@ Feature: Validate all scenarios in Negotiations
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     Then I softly see that "Negotiation Request" has been added in flextable with Id "---negotiation:-:homePendingTasks---"
 
-  @skiponjenkins @57037 @57038 @sendBackToSubrecipientForFurtherChanges @deepika @NegotiationPooja
+  @57037 @57038 @sendBackToSubrecipientForFurtherChanges @deepika@TBExecution
   Scenario: Validate whether the users receive the pending Task when  Submit to Grantor and able to select Send Back to Subrecipient for further changes
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -127,7 +127,6 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see that "Review Negotiation" has been added in flextable with Id "---negotiation:-:phasePendingTasksTableId---"
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
     And I wait for "5" seconds
-    #RaisedBugforbelow"Submitted"statusneedtocheck
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
 
   @57211 @awardIconAfterNotAvilablOncenegotiationInitiated @deepika @NegotiationRuNByPooja
@@ -717,7 +716,7 @@ Feature: Validate all scenarios in Negotiations
 #    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "GrantorApplicationFiles"
     Then I see value "General Assurances" for title "Classification" inside table "GrantorApplicationFiles"
 
-  @62667 @RecordOwnerCanViewSnapshotAfterNegotiationIsInSubmittedToGrantor @keerti @skipOnJenkins
+  @62667 @RecordOwnerCanViewSnapshotAfterNegotiationIsInSubmittedToGrantor @keerti @skipOnJenkins @TBExecution
   Scenario: Validate Record Owner user is able to view the Snapshot after Negotiation  is in "Submitted to Grantor" status
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -739,12 +738,14 @@ Feature: Validate all scenarios in Negotiations
     When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Negotiation Submitted"
     And I click on "Menu" in the page details
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Submit_Negotiation.pdf"
     When I download the file
-    Then I see "Negotiation Initiated" on page "1" of "govgrants" pdf file
+    Then I see "Negotiation Submitted" on page "1" of "govgrants" pdf file
 
   @64851 @historyBeforeAndAfterNegotitionComplete @deepika @FieldHistoryExclude
   Scenario: Validate whether user is able to Create Subaward from the Applications Tab Once Negitiation is completed and user is able to view the completed Negotiation from it

@@ -664,7 +664,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---preApplication:-:recipientPreApplicationsTableId---" panel
     Then I softly see value "Submitted to Grantor" for title "Status" inside table "---preApplication:-:recipientPreApplicationsTableId---"
 
-  @34156 @75962 @75963 @75964 @preAppHistoryFieldGetUdated @deepika @skipOnJenkins
+  @34156 @75962 @75963 @75964 @preAppHistoryFieldGetUdated @deepika @skipOnJenkins @TBExecution
   Scenario: Validate History Field is getting updated for PM user when Pre Application status is Submitted to Grantor.| Validate the History field is getting updated when internal user accepts the pre-application
   Validate whether the Internal user is able to view the Snapshot after Pre-Application is Submitted to Grantor status | Validate whether spi user can view the snapshot once the pre-application is submitted to grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
@@ -676,6 +676,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---preApplication:-:notYetQualifiedTable---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-Application}" inside table
     When I click on "Qualify" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Pre-Application Due Date" is not editable
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
@@ -701,8 +702,7 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
-    And I switch to parent tab
+    And I close the tab
     When I click on "Submit to Grantor" in the page details
     When I navigate to "History" sub tab
     And I click on Menu icon present on top right corner of the page
@@ -715,12 +715,19 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside table
     When I navigate to "History" sub tab
-    Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted to Grantor" for title "New Value" inside field history table
     When I click on "Accept" in the page details
-    Then I softly see value "Accepted" for title "New Value" inside table "History"
-    And I softly see value "Submitted to Grantor" for title "Old Value" inside table "History"
+    And I wait for "2" seconds
+    When I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Accepted" for title "New Value" inside field history table
+    And I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     And I click on hyperlink containing value "Submission"
     When I download the file
     Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
@@ -801,6 +808,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I get the "EGMS ID"
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
@@ -917,7 +925,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see all values "$0.00" under column "Total Match" inside flextable with id "---preApplication:-:preApplicationAttachmentId---"
     Then I softly see all values "$0.00" under column "Other Leverage" inside flextable with id "---preApplication:-:preApplicationAttachmentId---"
 
-  @77656 @snapshotHistoryPreApplication @deepika @skipOnJenkins
+  @77656 @snapshotHistoryPreApplication @deepika @skipOnJenkins @TBExecution
   Scenario: Validate whether SPI user will be able to take the snapshot on page when the pre-application is in draft status and is saved under snapshot history
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -932,12 +940,14 @@ Feature: Pre-Application scenarios without background
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Snapshot on"
     When I download the file
-    Then I see "Draft" on page "1" of "govgrants" pdf file
+    Then I see "Created" on page "1" of "govgrants" pdf file
 
   @53151 @75961 @72622 @preApplicationCreationProgramIncomeValidation @smoke
   Scenario: Validate the Creation of Pre Application | Validate the user  will be able to view the the Program Income field on the overview tab when the value set as No.
@@ -4214,7 +4224,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Extend Dates" in page detail
     Then I softly can see top right button "Unpublish" in page detail
 
-  @202457 @ValidatetasktypeshouldberenamedforEXErevieweruserasPeerReviewPre-Applicationafterpre-appsubmittedforpeerreview @sprint-12-US-226646 @vaibhav @reassignment @skippedInExecutionBug
+  @202457 @ValidatetasktypeshouldberenamedforEXErevieweruserasPeerReviewPre-Applicationafterpre-appsubmittedforpeerreview @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate task type should be renamed for EXE reviewer user as "Peer Review Pre-Application" after pre-app submitted for peer review
     And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -4524,7 +4534,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     Then I softly see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @202446 @ValidatePre-apptasktypeshouldberenamedforFDrevieweruserasPeerReviewPre-Applicationafterpre-appsubmittedforpeerreview @sprint-11-US-224734 @vaibhav @reassignment @skippedInExecutionBug
+  @202446 @ValidatePre-apptasktypeshouldberenamedforFDrevieweruserasPeerReviewPre-Applicationafterpre-appsubmittedforpeerreview @sprint-11-US-224734 @vaibhav @reassignment
   Scenario: Validate Pre-app task type should be renamed for FD reviewer user as "Peer Review Pre-Application" after pre-app submitted for peer review
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -4598,7 +4608,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     Then I softly see field "Status" as "Submitted for Review"
 
-  @202460 @ValidatePreapptasktypeshouldberenamedforAdminuserasReviePre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734 @vaibhav @reassignment @skippedInExecutionBug
+  @202460 @ValidatePreapptasktypeshouldberenamedforAdminuserasReviePre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734 @vaibhav @reassignment
   Scenario: Validate Pre app_ Verify task type should be renamed for Admin user as "Review Pre-Application" after pre-app submitted to grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation ADMIN user"
     When I am on "SUBPORTAL" portal
@@ -5354,7 +5364,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---home:-:completedAssignedToMe---" panel
     Then I softly see value "Review Pre-Application" for title "Task Type" inside table "---home:-:completedAssignedToMe---"
 
-  @ValidatePre-appnewownerpeerreviewershouldabletosubmitthereviewcommentsforpre-app @sprint-11-US-218319 @vaibhav @reassignment @skippedInExecutionBug
+  @ValidatePre-appnewownerpeerreviewershouldabletosubmitthereviewcommentsforpre-app @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Pre-app new owner of peer reviewer should able to submit the review comments for pre-app
     And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal

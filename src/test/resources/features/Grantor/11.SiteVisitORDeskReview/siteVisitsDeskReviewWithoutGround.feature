@@ -666,7 +666,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Given I navigate to "Management" sub tab
     Then I can see top right button "Initiate Site Visit" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
 
-  @69443 @ValidateGrantFieldhistoryUpdated @aashish @buglogged150041 @FieldHistoryExclude @TBExecution
+  @69443 @ValidateGrantFieldhistoryUpdated @aashish @buglogged150041 @FieldHistoryExclude
   Scenario: Validate that Grant field history gets updated after Budget period amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user

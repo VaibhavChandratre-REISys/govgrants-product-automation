@@ -150,7 +150,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Related Focus Areas" on page "1" of "govgrants" pdf file
 
-  @70551 @70552 @73405 @73389 @73406 @73387 @70800 @70885 @71595 @72646 @72641 @73537 @userCanViewAddAndDeleteFocusArea @aashish @FieldHistoryExclude @TBExecution
+  @70551 @70552 @73405 @73389 @73406 @73387 @70800 @70885 @71595 @72646 @72641 @73537 @userCanViewAddAndDeleteFocusArea @aashish @FieldHistoryExclude
   Scenario: To Verify that user is able to remove associated focus areas While creating the Announcement | To verify PM can remove non relevant Budget categories from specific Budget Type in Announcement based on the need.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - Published"
