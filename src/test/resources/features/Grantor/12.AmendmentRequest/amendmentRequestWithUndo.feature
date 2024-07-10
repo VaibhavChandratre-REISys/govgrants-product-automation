@@ -1402,8 +1402,8 @@ Feature: Amendment Request scenarios with Undo
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
       | Construction    | 500           |
-#    When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
-    And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Previous"
+    When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
+#    And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Previous"
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1200                 | 120        | 0              |
@@ -3001,7 +3001,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @ch2 @286646 @286717 @GrantorInitiatedSOWVerifyLastapprovercanseeUndobuttonontheSOWamendmentwhenAmendmentisinapprovedstate @Sprint-1-US-285146 @hitesh @Undo
+  @ch2 @ch14 @286646 @286717 @GrantorInitiatedSOWVerifyLastapprovercanseeUndobuttonontheSOWamendmentwhenAmendmentisinapprovedstate @Sprint-1-US-285146 @hitesh @Undo
   Scenario: Grantor Initiated SOW: Verify Last approver can see Undo button on the SOW amendment when Amendment is in approved state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_SUB_ORG_IND-Automation PM user" of type "Directed"
     When I login to "As a Grantor" app as "PM" user
@@ -4823,7 +4823,7 @@ Feature: Amendment Request scenarios with Undo
     The EGMS Team
     """
 
-  @ch21 @289046 @290069 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-289825 @hitesh @Undo
+  @ch2 @289046 @290069 @VerifylastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-289825 @hitesh @Undo
   Scenario: Verify last approver cannot see undo button on approved amendment when award is created on the amendment and is in Pending Activation state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_BUILDUP_YES-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -7190,11 +7190,10 @@ Feature: Amendment Request scenarios with Undo
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
-    When I click on "Edit" in the page details
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I pause execution for "3" seconds
     When I click on "Save" in the page details
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
@@ -7258,11 +7257,10 @@ Feature: Amendment Request scenarios with Undo
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
-    When I click on "Edit" in the page details
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I pause execution for "3" seconds
     When I click on "Save" in the page details
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
@@ -7607,7 +7605,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see value "Step 1" for title "Award" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
     Then I softly see value "Step 2" for title "Award" against the value "Automation PO" inside table "---subAwardStandAlone:-:awardApproversTableId---"
 
-  @ch21 @329498 @BudgetperiodchangeVerifyRNRshouldnotupdateonawardevenifuserupdateRNRonamendment @Sprint-11-US-328884 @hitesh @Undo
+  @ch2 @329498 @BudgetperiodchangeVerifyRNRshouldnotupdateonawardevenifuserupdateRNRonamendment @Sprint-11-US-328884 @hitesh @Undo
   Scenario:Budget period change_ Verify RNR should not update on award even if user update RNR on amendment
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -7908,6 +7906,7 @@ Feature: Amendment Request scenarios with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Previous"
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 1000                 | 100        | 100            |
@@ -7986,7 +7985,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Force Closed"
     Then I cannot see top right button "Undo" in page detail
 
-  @ch2 @310023 @ValidateCFARthatLastApproverusercannotseeundobuttononCFARinForceClosedstate @Undo
+  @ch2 @ch14 @310023 @ValidateCFARthatLastApproverusercannotseeundobuttononCFARinForceClosedstate @Undo
   Scenario: Validate CF AR that Last Approver user cannot see undo button on CF AR in Force Closed state
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -8027,6 +8026,8 @@ Feature: Amendment Request scenarios with Undo
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     And I click on "Send to Subrecipient" in the page details
+    And I pause execution for "5" seconds
+    Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -8265,7 +8266,6 @@ Feature: Amendment Request scenarios with Undo
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
       | Construction    | 200           |
-    And I expand nested table containing column value "BP01"
     And I click on page navigation arrow "---amendment:-:RecipientCarryForwardBudgetTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -8323,7 +8323,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
-  @ch2 @292610 @ValidateBPchangeamendmentusercannotseeundobuttononamendmentwhenBPchangeamendmentisinForcedclosedstate @Undo
+  @ch2 @ch14 @292610 @ValidateBPchangeamendmentusercannotseeundobuttononamendmentwhenBPchangeamendmentisinForcedclosedstate @Undo
   Scenario: Validate BP change amendment user cannot see undo button on amendment when BP change amendment is in Forced closed state
     And I activated standalone subaward "Automation Runtime award" with properties "AMENDMENT_REQUEST" of type "Directed"
     When I login to "As a Grantor" app as "PM" user
@@ -8339,11 +8339,12 @@ Feature: Amendment Request scenarios with Undo
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "3800" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
-    And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate1"
+#    And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate1"
+    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
     And I save the field labeled "EGMS ID" as "budgetPChangeId"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title                           | End Date                              |
-      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate1} |
+      | Title                           | End Date           |
+      | Automation Permanent Focus Area | {SavedValue:PBPED} |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -8573,7 +8574,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Force Closed"
     Then I cannot see top right button "Undo" in page detail
 
-  @ch2 @329402 @ValidateSOWuserseeapprovalhistoryandfiledhistorygetupdatedafterlaststepapproverclickonundobutton @Undo
+  @ch2 @ch14 @329402 @ValidateSOWuserseeapprovalhistoryandfiledhistorygetupdatedafterlaststepapproverclickonundobutton @Undo
   Scenario: Validate SOW user see approval history and filed history get updated after last step approver click on undo button
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I login to "As a Grantor" app as "PM" user
@@ -8790,8 +8791,8 @@ Feature: Amendment Request scenarios with Undo
       | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
-    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
-    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
+    And I save the field containing "Proposed Budget Period Start Date" as "PBPSD"
+    And I save the field containing "Proposed Budget Period End Date" as "PBPED"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | Start Date         | End Date           | New Obligation |
       | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} | 1000           |
@@ -8909,7 +8910,7 @@ Feature: Amendment Request scenarios with Undo
     And I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @ch2 @299481 @VerifythatUserWillSeeSnapshotInSnapshotHistoryTable @Sprint-5-US-297246 @hitesh @Undo
+  @299481 @VerifythatUserWillSeeSnapshotInSnapshotHistoryTable @Sprint-5-US-297246 @hitesh @Undo
   Scenario: Verify that User Will See Snapshot In Snapshot History Table
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user

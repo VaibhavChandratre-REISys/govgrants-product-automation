@@ -1477,7 +1477,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
-  @ch2 @291188 @291189 @291192 @291194 @291195 @291196 @287056 @ValidatethatUsercanForwardARafterclickonUndoButtonAndafterthathewillnotseeUndoButtonAndForwardedApproverWillSeeUndobutton @Sprint-2-US-289814 @vaibhav @Undo
+  @ch2 @ch14 @291188 @291189 @291192 @291194 @291195 @291196 @287056 @ValidatethatUsercanForwardARafterclickonUndoButtonAndafterthathewillnotseeUndoButtonAndForwardedApproverWillSeeUndobutton @Sprint-2-US-289814 @vaibhav @Undo
   Scenario: Validate that User can Forward AR after click on Undo Button And after that he will not see Undo Button And Forwarded Approver Will See Undo button
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -1542,6 +1542,7 @@ Feature: Amendment Request scenarios with Undo
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 4            |
     And I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1753,7 +1754,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
 
-  @ch2 @291760 @291761 @291762 @ValidatelastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-289823 @vaibhav @Undo
+  @ch2 @ch14 @291760 @291761 @291762 @ValidatelastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-2-US-289823 @vaibhav @Undo
   Scenario: Validate last approver cannot see undo button on approved amendment when award is created on the amendment and is in Pending Activation state
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "As a Grantor" app as "PM" user
@@ -4335,7 +4336,9 @@ Feature: Amendment Request scenarios with Undo
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I pause execution for "5" seconds
     And I click modal button "Close"
+    And I refresh the page
     And I click on "Acknowledge" in the page details
+    And I pause execution for "4" seconds
     Then I softly see field "Status" as "Acknowledged"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
@@ -4938,7 +4941,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
-  @ch2 @292582 @292587 @292594 @292591 @292588 @ValidatePOuserasLaststepapprovercanseeUNDOAmendsubawardbuttonsonApprovedstateofARwhenAmendmentownerissameaslaststepapprove2stepapproverabletoForwardapprovaldecisiontasktoEXEuser @Sprint-3-US-286469 @vaibhav @Undo
+  @ch2 @ch14 @292582 @292587 @292594 @292591 @292588 @ValidatePOuserasLaststepapprovercanseeUNDOAmendsubawardbuttonsonApprovedstateofARwhenAmendmentownerissameaslaststepapprove2stepapproverabletoForwardapprovaldecisiontasktoEXEuser @Sprint-3-US-286469 @vaibhav @Undo
   Scenario: Validate PO user as Last step approver can see UNDO & Amend subaward buttons on Approved state of AR when Amendment owner is same as last step approver(2 step approver) able to Forward approval decision task to EXE user
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
