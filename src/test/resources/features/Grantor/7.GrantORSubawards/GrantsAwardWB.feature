@@ -131,7 +131,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime Direct Award}" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     Then I softly see value "{SavedValue:Automation Runtime Direct Award}" for title "Grant Title" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @68138 @takeSnapShotHistory @jitendra @skipOnJenkins
+  @68138 @takeSnapShotHistory @jitendra
   Scenario: Validate that Snapshot of Grant page taken is saved in the History tab of the same
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -143,8 +143,12 @@ Feature: Validate all scenarios of grants and award without background
     When I click modal button "Save and Continue"
     And I enter value "abc" into field "GrantDescription__c"
     And I click on "Save" in the page details
-    And I click on "Menu" in the page details
+    And I wait for "2" seconds
+    And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    When I click alert button "OK"
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot"
     When I download the file
@@ -724,6 +728,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click toggle button to select "Grants - Active"
     When I perform quick search for "<Grant Name>" in "---progressReport:-:activeGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
+    And I click on Menu icon present on top right corner of the page
     And I select "Download As PDF" from dropdown
     And I download the file
     Then I softly verify that "pdf" file is downloaded
@@ -8673,7 +8678,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @235147 @ValidateownershiptransferofaGrantthathas5000termsandconditionsassociatedtoitandthenRecordTransfertoOtheruserforthisgrant @vaibhav @reassignment @skipOnJenkins
+  @235147 @ValidateownershiptransferofaGrantthathas5000termsandconditionsassociatedtoitandthenRecordTransfertoOtheruserforthisgrant @vaibhav @reassignment
   Scenario: Validate ownership transfer of a Grant that has 5000 terms and conditions associated to it and then Record Transfer to Other user for this grant
     And I activated standalone subaward "Automation Runtime Direct Award" with properties "default"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
