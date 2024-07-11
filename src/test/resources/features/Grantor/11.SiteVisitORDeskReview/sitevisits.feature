@@ -21,7 +21,7 @@ Feature: Validate all scenarios in the Site Visit
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SiteVisitID"
 
-  @ch1 @51081 @51082 @51083 @61201 @siteVisitCreationEditionParticipantAssociationCreatedDate
+  @51081 @51082 @51083 @61201 @siteVisitCreationEditionParticipantAssociationCreatedDate
   Scenario: Validate the creation, edition, created date and ParticipantAssociation
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -187,7 +187,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "Send to Subrecipient" in the page details
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
-  @ch1 @51093 @51094 @siteVisitCorrectiveActionsBySubrecipientAndSubmitToGrantor @smoke
+  @51093 @51094 @siteVisitCorrectiveActionsBySubrecipientAndSubmitToGrantor @smoke
   Scenario: Site Visit Corrective Actions By Subrecipient and Submit to Grantor by Subrecipient
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -412,7 +412,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly cannot see top right button "Conduct" in page detail
 
-  @ch1 @54221 @siteVisitNotifiedByFOuser @deepika
+  @54221 @siteVisitNotifiedByFOuser @deepika
   Scenario: Verify user (record owner only) is able to plan and notify created site visit to subrecipient and other user cannot notify  - Award Level
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -878,7 +878,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see that "{SavedValue:svID}" has been added in flextable with Id "---sitevisits:-:manageSiteVisitTableId---"
 
 
-  @60830 @56038 @FieldHistoryUpdatedSendBackToOwnerByPM @keerti @FieldHistoryExclude @TBExecution
+  @ch1 @60830 @56038 @FieldHistoryUpdatedSendBackToOwnerByPM @keerti @FieldHistoryExclude @TBExecution
   Scenario:  To Validate field history update post Award level Site Visit is send back to owner by program approver and Submit for Approval button
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1514,7 +1514,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I softly do not see value "Record Id" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @ch1 @61869 @creationofSecondSiteVisitswhenFirstIsCreated @deepika
+  @61869 @creationofSecondSiteVisitswhenFirstIsCreated @deepika
   Scenario: Validate whether Pm user can create second Site Visits when first is created status
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1618,7 +1618,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on hyperlink containing value "View All"
     Then I see value "In Progress" for title "Original Value" inside field history table
 
-  @ch1 @65241 @69410 @corerctiveActionsDueDateSiteVisit @deepika
+  @65241 @69410 @corerctiveActionsDueDateSiteVisit @deepika
   Scenario: Validate Site Visit Submit to Grantor and Corrective Actions By Subrecipient
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1708,7 +1708,6 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
-    When I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "---sitevisits:-:InitiateSiteVisitTableId---" panel
     Then I see that "{SavedValue:Automation Runtime Award Site Visit}" has been added in flextable with Id "---sitevisits:-:InitiateSiteVisitTableId---"
 
   @66392 @66384 @66561 @validateSendBackToSubRecipientButton @mahadev

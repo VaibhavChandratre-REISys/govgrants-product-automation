@@ -86,7 +86,7 @@ Feature: Validate all scenarios in Organizational Site Visit
       | Subrecipient               |
       | {SavedValue:SPI3 Username} |
 
-  @54210 @monitoringTypeSiteVisitFiscal @deepika
+  @ch1 @54210 @monitoringTypeSiteVisitFiscal @deepika
   Scenario: Validate the Monitoring type 'Fiscal' for Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -130,7 +130,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     Then I see that "{SavedValue:EXE Username}" has been added in flextable with Id "---orgLevelSiteVisits:-:associateContactsId---"
 
-  @54452 @approverSelectionSiteVisitOrglevel @deepika
+  @ch1 @54452 @approverSelectionSiteVisitOrglevel @deepika
   Scenario Outline: Approver selection of Site Visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -239,9 +239,12 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     And I perform quick search for "{SavedValue:SPI3 Username}" in "---orgLevelSiteVisits:-:siteVisitContactsTableId---" panel
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
+    And I pause execution for "4" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -286,6 +289,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -427,6 +432,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -513,7 +520,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 #    And I collapse nested table containing column value "Automation Finding"
     Then I softly see that "{SavedValue:Automation Runtime Site Visit Org level}" is in "Sent to Subrecipient" status
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly see field "Status" as "Submitted to Grantor"
 
   @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission @deepika @skipOnJenkins
   Scenario: Validate User will be able to view the SnapshotSite Visit Accept button after review the submission by Recipients
@@ -533,6 +540,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
     When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
@@ -647,6 +656,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     And I perform quick search for "{SavedValue:SPI3 Username}" in "---orgLevelSiteVisits:-:siteVisitContactsTableId---" panel
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -1222,7 +1233,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 #    When I close "Site Visit Reviewers" modal by clicking the top right x button
     Then I cannot see top right button "Edit" in page detail
 
-  @56007 @PeerReviewAfterSVIsAcceptedAndClosed @keerti
+  @ch1 @56007 @PeerReviewAfterSVIsAcceptedAndClosed @keerti
   Scenario: Validate peer review  process and also system does not allow the peer reviewer to edit/Enter review comments if the Org Level Site Visits marked as complete review by the Record owner
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1264,17 +1275,23 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "Submit Review" in the page details
 #    When I close "Site Visit Reviewers" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     When I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:PO Username}" in flex table with id "SiteVisitReviewerRoles"
 
@@ -1441,7 +1458,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I perform quick search for "Record Id" in "---riskassessment:-:completedTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---riskassessment:-:completedTaskTableId---"
 
-  @65151 @deleteCreatedOrgSiteVisit @deepika
+  @ch1 @65151 @deleteCreatedOrgSiteVisit @deepika
   Scenario: Validate whether user will be able to delete the created Org Site Visits
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1463,7 +1480,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I perform quick search for "Record Id" in "SiteVisit" panel
     Then I softly see "No Records Found" inside flex table with id "SiteVisit"
 
-  @65152 @historyOfOrgSiteVisitsendbacktoOwner @deepika @smoke @FieldHistoryExclude @TBExecution
+  @ch1 @65152 @historyOfOrgSiteVisitsendbacktoOwner @deepika @smoke @FieldHistoryExclude @TBExecution
   Scenario: Validate History Field is getting Updated at Award owner End when Org Site Visit status is Submitted to Grantor.
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1534,7 +1551,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on hyperlink containing value "View All"
     Then I see value "In Progress" for title "New Value" inside field history table
 
-  @65153 @corerctiveActionsDueDateSV @deepika
+  @ch1 @65153 @corerctiveActionsDueDateSV @deepika
   Scenario: Validate Org Level Site Visit Submit to Grantor and Corrective Actions By Subrecipient
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1626,7 +1643,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I softly see the following messages in the page details contains:
       | Due date must be future date |
 
-  @65154 @foUserCannotDeleteCreatedOrgSiteVisit @deepika
+  @ch1 @65154 @foUserCannotDeleteCreatedOrgSiteVisit @deepika
   Scenario: Validate whether other than record owner Fo user can delete the created Org Level Site Visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1855,7 +1872,7 @@ Feature: Validate all scenarios in Organizational Site Visit
       | {SavedValue:FO Username} | Step 1     |
     Then I softly see "You cannot specify the same step for multiple users for Site Visit." inside flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---"
 
-  @148045 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtSiteVisitOrgLevel-RnRFunctionality @monu
+  @ch1 @148045 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtSiteVisitOrgLevel-RnRFunctionality @monu
   Scenario: Verify validation user cannot add the same approver for different step on Organization site visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"

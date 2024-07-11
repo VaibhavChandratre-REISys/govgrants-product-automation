@@ -1,7 +1,7 @@
 @organizationalSiteVisitUndo @t1 @grantor-regression @grantor-parallel-regression @siteVisit @regression @organizationalSiteVisitUndo @siteVisit_Lwc_Run
 Feature: Validate all scenarios in Organizational Site Visit With Undo
 
-  @289790 @289791 @289792 @289793 @289797 @289798 @289808 @289809 @291842 @VerifywhenPmapprovercanclickonundobuttoninOrganizationalSiteVisitrecordwhenrecordisinApprovedstate @sprint-2-US-288691 @hitesh @Undo @FieldHistoryExclude @TBExecution
+  @ch1 @289790 @289791 @289792 @289793 @289797 @289798 @289808 @289809 @291842 @VerifywhenPmapprovercanclickonundobuttoninOrganizationalSiteVisitrecordwhenrecordisinApprovedstate @sprint-2-US-288691 @hitesh @Undo @FieldHistoryExclude @TBExecution
   Scenario: Verify when Pm approver can click on undo button in Organizational Site Visit record when record is in Approved state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -19,6 +19,8 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
@@ -26,17 +28,17 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
-      | {SavedValue:PO Username}  | Step 1     |
+      | Name                     | Site Visit |
+      | {SavedValue:PO Username} | Step 1     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
+      | Name                     | Site Visit |
       | {SavedValue:FD Username} | Step 2     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                      | Site Visit |
       | {SavedValue:EXE Username} | Step 3     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
-      | {SavedValue:PM Username}  | Step 4     |
+      | Name                     | Site Visit |
+      | {SavedValue:PM Username} | Step 4     |
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
     And I switch to tab number "1"
@@ -101,10 +103,10 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "{SavedValue:PM Username}" for title "Changed By" inside field history table
+    Then I softly see value "{SavedValue:PM Username}" for title "User" inside field history table
     Then I softly see value "Approved" for title "Original Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
-    Then I refresh the page
+    And I click on back arrow
     Then I softly see snapshot with name containing "Organizational Site Visit - Undo Approval.pdf" as name
     When I click on "Menu" in the page details
     And I select "Take Snapshot" from dropdown
@@ -138,10 +140,9 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #289792
     Then I can see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     #289793
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
@@ -164,6 +165,8 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
@@ -171,8 +174,8 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
-      | {SavedValue:PO Username}  | Step 1     |
+      | Name                     | Site Visit |
+      | {SavedValue:PO Username} | Step 1     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                      | Site Visit |
       | {SavedValue:EXE Username} | Step 2     |
@@ -232,7 +235,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Send Back | Forward |
 
-  @289800 @289801 @VerifythatPMapproveruserwillnotseeUNDObuttoninSendtoSrstateofOrganizationalSiteVisitrecord @sprint-2-US-288691 @hitesh @Undo
+  @ch1 @289800 @289801 @VerifythatPMapproveruserwillnotseeUNDObuttoninSendtoSrstateofOrganizationalSiteVisitrecord @sprint-2-US-288691 @hitesh @Undo
   Scenario: Verify that PM approver user will not see UNDO button in Send to S/r state of Organizational Site Visit record.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -250,24 +253,17 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
-      | {SavedValue:PO Username}  | Step 1     |
+      | Name                     | Site Visit |
+      | {SavedValue:PO Username} | Step 1     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                      | Site Visit |
       | {SavedValue:PM1 Username} | Step 2     |
@@ -275,8 +271,8 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Name                      | Site Visit |
       | {SavedValue:EXE Username} | Step 3     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
-      | {SavedValue:PM Username}  | Step 4     |
+      | Name                     | Site Visit |
+      | {SavedValue:PM Username} | Step 4     |
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
     And I switch to tab number "1"
@@ -359,7 +355,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #289801
     Then I cannot see top right button "Undo" in page detail
 
-  @289802 @VerifythatAdminapproveruserwillnotseeUNDObuttoninClosedstateofOrganizationalSiteVisit @sprint-2-US-288691 @hitesh @Undo
+  @ch1 @289802 @VerifythatAdminapproveruserwillnotseeUNDObuttoninClosedstateofOrganizationalSiteVisit @sprint-2-US-288691 @hitesh @Undo
   Scenario: Verify that Admin approver user will not see UNDO button in Closed state of Organizational Site Visit
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -377,27 +373,20 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
-      | {SavedValue:PO Username}  | Step 1     |
+      | Name                     | Site Visit |
+      | {SavedValue:PO Username} | Step 1     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                        | Site Visit|
-      | {SavedValue:PM Username}     | Step 2   |
+      | Name                     | Site Visit |
+      | {SavedValue:PM Username} | Step 2     |
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
     And I switch to tab number "1"
@@ -464,7 +453,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I see status in Progress-bar is "Closed" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @289804 @VerifythatafterPOuserclickonUndobuttonEmailwillbesenttoPreviousApproverandOwnerofOrganizationalSiteVisitrecord @sprint-2-US-288691 @hitesh @Undo
+  @ch1 @289804 @VerifythatafterPOuserclickonUndobuttonEmailwillbesenttoPreviousApproverandOwnerofOrganizationalSiteVisitrecord @sprint-2-US-288691 @hitesh @Undo
   Scenario:Verify that after POuser click on Undo button Email will be sent to Previous Approver and Owner of Organizational Site Visit record
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -482,29 +471,22 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                      | Site Visit |
-      | {SavedValue:EXE Username}  | Step 1     |
+      | {SavedValue:EXE Username} | Step 1     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                      | Site Visit |
       | {SavedValue:PM1 Username} | Step 2     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
+      | Name                     | Site Visit |
       | {SavedValue:PO Username} | Step 3     |
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
@@ -635,7 +617,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     The EGMS Team
     """
 
-  @289805 @VerifythatafterEXEuserclickonUndobuttonAllthetablesofOrganizationalSiteVisitwillnotgetaffected @sprint-2-US-288691 @hitesh @Undo
+  @ch1 @289805 @VerifythatafterEXEuserclickonUndobuttonAllthetablesofOrganizationalSiteVisitwillnotgetaffected @sprint-2-US-288691 @hitesh @Undo
   Scenario:Verify that after EXE user click on Undo button All the tables of Organizational Site Visit will not get affected
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -653,24 +635,16 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
-      | {SavedValue:PO Username}  | Step 1     |
+      | Name                     | Site Visit |
+      | {SavedValue:PO Username} | Step 1     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                      | Site Visit |
       | {SavedValue:PM1 Username} | Step 2     |
@@ -734,7 +708,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly cannot see top right button "Add Files" in flex table with id "---orgLevelSiteVisits:-:siteVisitAddFilesTableId---"
     Then I softly cannot see top right button "Add" in flex table with id "---orgLevelSiteVisits:-:siteVisitNotesTableId---"
 
-  @290426 @304192 @290427 @VerifyPOusercannotseeundobuttoninnotifiedstateofOrganizationalSiteVisit @sprint-2-US-288691 @hitesh @Undo
+  @ch1 @290426 @304192 @290427 @VerifyPOusercannotseeundobuttoninnotifiedstateofOrganizationalSiteVisit @sprint-2-US-288691 @hitesh @Undo
   Scenario:Verify PO user can not see undo button in notified state of Organizational Site Visit
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Home" tab
@@ -752,26 +726,18 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
     Then I softly see status in Progress-bar is "Notified" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     And I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-    When I navigate to "Responsibilities" sub tab
+     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
-      | {SavedValue:PM Username}  | Step 1     |
+      | Name                     | Site Visit |
+      | {SavedValue:PM Username} | Step 1     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                      | Site Visit |
       | {SavedValue:PM1 Username} | Step 2     |
@@ -779,8 +745,8 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Name                      | Site Visit |
       | {SavedValue:EXE Username} | Step 3     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
-      | {SavedValue:PO Username}  | Step 4     |
+      | Name                     | Site Visit |
+      | {SavedValue:PO Username} | Step 4     |
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
     And I switch to tab number "1"
@@ -860,14 +826,16 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
-      | {SavedValue:PO Username}  | Step 1     |
+      | Name                     | Site Visit |
+      | {SavedValue:PO Username} | Step 1     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                      | Site Visit |
       | {SavedValue:PM1 Username} | Step 2     |
@@ -922,7 +890,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 #    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 #    Then I cannot see top right button "Undo" in page detail
 
-  @342521 @342527 @342529 @342544 @VerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinCreatedState @sprint-2-US-288691 @hitesh @Undo @366345
+  @ch1 @342521 @342527 @342529 @342544 @VerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinCreatedState @sprint-2-US-288691 @hitesh @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Created State
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -940,6 +908,8 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     Then I softly see field "Status" as "Created"
@@ -966,10 +936,9 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342527
 #    Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     And I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     #342529
@@ -992,14 +961,13 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 #    #342529
 #    Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
-      | {SavedValue:PO Username}  | Step 1     |
+      | Name                     | Site Visit |
+      | {SavedValue:PO Username} | Step 1     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                      | Site Visit |
       | {SavedValue:EXE Username} | Step 2     |
@@ -1036,18 +1004,16 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 #    #342544
 #    Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #342544
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #342544
     Then I cannot see top right button "Undo" in page detail
@@ -1071,10 +1037,9 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342548
     Then I can see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     Then I softly see field "Status" as "Approved"
     #342548
     Then I cannot see top right button "Undo" in page detail
@@ -1096,7 +1061,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 #    #342548
 #    Then I cannot see top right button "Undo" in page detail
 
-  @342554 @342559 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinSubmitforReviewState @sprint-13-US-331643 @hitesh @Undo @366345
+  @ch1 @342554 @342559 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinSubmitforReviewState @sprint-13-US-331643 @hitesh @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Submit for ReviewState.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1114,6 +1079,8 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
@@ -1127,10 +1094,9 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see field "Status" as "Submitted for Review"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     Then I softly see field "Status" as "Submitted for Review"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1159,18 +1125,17 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I click modal button "Save"
     And I click on submit review
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     When I click on "Complete Review" in the page details
     #342559
     Then I softly see field "Status" as "Reviewed"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     #342559
     Then I softly see field "Status" as "Reviewed"
@@ -1192,7 +1157,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
 #     Then I softly see field "Status" as " Submitted for Review"
 #    Then I cannot see top right button "Undo" in page detail
 
-  @342571 @342575 @342584 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisininSendtoSrState @sprint-13-US-331643 @hitesh @Undo @366345
+  @ch1 @342571 @342575 @342584 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisininSendtoSrState @sprint-13-US-331643 @hitesh @Undo @366345
   Scenario:OSV->Verify that Undo Button will not visible to any user when Organization Site visit is in in Send to S/r State
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1210,14 +1175,16 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
-      | Name                      | Site Visit |
-      | {SavedValue:PO Username}  | Step 1     |
+      | Name                     | Site Visit |
+      | {SavedValue:PO Username} | Step 1     |
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                      | Site Visit |
       | {SavedValue:EXE Username} | Step 2     |
@@ -1251,25 +1218,22 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I wait for "3" seconds
     Then I can see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     And I click on "Send to Subrecipient" in the page details
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 #    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
@@ -1304,18 +1268,16 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342575
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     #342575
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     #342575
     Then I cannot see top right button "Undo" in page detail
@@ -1337,20 +1299,16 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342584
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    And I click toggle button to select "Site Visit Reports - All"
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     #342584
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    And I click toggle button to select "Site Visit Reports - All"
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     #342584
     Then I cannot see top right button "Undo" in page detail
@@ -1381,6 +1339,8 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
@@ -1410,12 +1370,12 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+#    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
+#    Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in flex table with id "---sitevisits:-:manageSiteVisitTableId---"
 
-  @308900 @310751 @OSVVerifythatapproverundobuttonvisibilitywillchangeasperpositionofapproverofOrgSiteVisitlastormiddle @sprint-7-US-306815 @hitesh @Undo
+  @ch1 @308900 @310751 @OSVVerifythatapproverundobuttonvisibilitywillchangeasperpositionofapproverofOrgSiteVisitlastormiddle @sprint-7-US-306815 @hitesh @Undo
   Scenario:OSV-Verify that approver undo button visibility will change as per position of approver of Org Site Visit last or middle
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1433,6 +1393,8 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
@@ -1462,7 +1424,8 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
-    And I pause execution for "5" seconds
+    And I pause execution for "3" seconds
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1540,7 +1503,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I wait for "3" seconds
     Then I can see top right button "Undo" in page detail
 
-  @310537 @ValidateOrgSVthatUNDOiconorbuttonisnotavailableontheactionbuttonsofOrgSVRecordrecorontablethatispresentonsidebarorphaselevelorthatongrantAward @Undo
+  @ch1 @310537 @ValidateOrgSVthatUNDOiconorbuttonisnotavailableontheactionbuttonsofOrgSVRecordrecorontablethatispresentonsidebarorphaselevelorthatongrantAward @Undo
   Scenario: Validate Org SV that UNDO icon or button is not available on the action buttons of Org SV Record record on table that is present on side bar or phase level or that on grant Award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1558,6 +1521,8 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
@@ -1629,10 +1594,10 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+#    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
+#    Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
@@ -1643,7 +1608,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I wait for "2" seconds
     Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in flex table with id "SiteVisit"
 
-  @310669 @ValidateOrgSVthatUndoButtonnotvisibleinForceClosedstate @Undo
+  @ch1 @310669 @ValidateOrgSVthatUndoButtonnotvisibleinForceClosedstate @Undo
   Scenario: Validate Org SV that Undo Button not visible in Force Closed state
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1661,20 +1626,12 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                     | Site Visit |
@@ -1765,6 +1722,8 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
@@ -1877,6 +1836,8 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
