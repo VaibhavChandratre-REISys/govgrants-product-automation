@@ -2203,7 +2203,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I download the file
     Then I see "Submitted for Approval" on page "1" of "govgrants" pdf file
 
-  @60209 @validateRecordOwnerISAbleToViewActiveRASnapshot @deepika @skipOnJenkins @TBExecution
+  @60209 @validateRecordOwnerISAbleToViewActiveRASnapshot @deepika @skipOnJenkins
   Scenario: Validate whether Snapshot is captured/(taken) automatically  by the system in the table Snapshot History when Risk Assessment is Activated
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab

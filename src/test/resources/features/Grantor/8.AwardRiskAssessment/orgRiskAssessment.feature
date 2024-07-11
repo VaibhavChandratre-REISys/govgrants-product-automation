@@ -77,7 +77,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
-    Then I see "Risk Level" image as "yellow.png"
+    Then I see "Risk Level" image as "ylw.png"
 
   @61982 @61978 @additonOfAttachmentWhenRAISActive @deepika @OrgRiskAssesmetFirst2
   Scenario: Validate one the Org RA is Active then there will be no add or Edit button on attachments flextable
@@ -1224,7 +1224,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
-  @62952 @orRiskAssessmentIsNotDisplayedForINDUser @deepika @issuewithINDUser @wip
+  @62952 @orRiskAssessmentIsNotDisplayedForINDUser @deepika @issuewithINDUser
   Scenario:  Validate Data related to organization risk assessment should not be displayed on the Individual Profile view .
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
