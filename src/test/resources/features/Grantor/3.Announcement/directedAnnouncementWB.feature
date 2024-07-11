@@ -184,7 +184,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I wait for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @hitTest1 @219102 @219104 @sprint-9-US-208408 @komal @Allocation @Re-RunPlanningAndAnnouncement
+  @hitTest2 @219102 @219104 @sprint-9-US-208408 @komal @Allocation @Re-RunPlanningAndAnnouncement
   Scenario: Verify when EXE user click on the "Add Organization" button then user see modal with all the active SR names for Directed Announcement.
   | Verify EXE user see the Success message after adding Organization & when Applicants are updated and this modal will stay open to associate more applicants: |
     When I login to "As a Grantor" app as "EXE" user
