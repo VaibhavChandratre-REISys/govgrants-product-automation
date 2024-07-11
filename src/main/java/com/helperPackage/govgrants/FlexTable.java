@@ -434,6 +434,7 @@ public final class FlexTable implements FlexTableComponent {
             desiredAction = "//td//*["
                     + I.amPerforming().sanityOfXpathTo().equals("text()", uniqueColumnValue) + "]"
                     + "/ancestor::tr[1]//button";
+
         }
         //I.amPerforming().scroll().onPageToSpecificElement(desiredAction);
         return By.xpath(desiredAction);

@@ -230,7 +230,7 @@ Feature: Validate all scenarios in Focus Area
       | Reviewer                 |
       | {SavedValue:PM Username} |
     Then I see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     When I collapse nested table containing column value "Pre-Screen Review"
     And I expand nested table containing column value "Pre-Screen Review"
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:addReviewersTableId---"
