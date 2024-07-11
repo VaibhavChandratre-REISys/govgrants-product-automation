@@ -845,7 +845,7 @@ Feature: Validate all scenarios of grants and award without background
       | User |
       | PM   |
 
-  @64415 @64416 @64417 @64418 @64420 @64421 @64422 @64419  @keerti @AwardValidationHold @wip
+  @64415 @64416 @64417 @64418 @64420 @64421 @64422 @64419  @keerti @AwardValidationHold
   Scenario: Verify validation message is displayed when award owner did not enter Grant Title field while creating direct grant.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab

@@ -1533,7 +1533,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Approved"
 
   @840
-  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
+  Scenario: end-to-end
 #    And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA"
 #    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Runtime Announcement Application Review}"
@@ -1560,15 +1560,26 @@ Feature: Validate all scenarios of every modules flow
 #    And I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
 #    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Formula_By_Applicant_Focus_Area"
 #    And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation PM user"
-    When I login to "As a Grantor" app as "EXE" user
-    And I wait for "10" seconds
-    When I navigate to "Overview" sub tab
-    #219102
-    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
-    Then I softly see "Add Organizations" opens in overLay window
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:directedAddInviteApplicantTableId---" panel
-    And I wait for "2" seconds
-    Then I see the following rows under the following headers in table with id "---announcement:-:directedAddInviteApplicantTableId---" :
-      | EGMS ID                | * Organization                       | Organization Type        |
-      | RG-001298              | SAN DIEGO ELECTRICAL TRAINING TRUST  | For-profit organizations |
-    And I wait for "3" seconds
+    When I login to "As a Grantor" app as "FO" user
+    And I wait for "7" seconds
+    Then I see status in Progress-bar is "Rejected" and is "Red"
+    Then I cannot see top right button "Undo" in page detail
+    And I click on Menu icon present on top right corner of the page
+    And I pause execution for "4" seconds
+    And I select "Download as PDF" from dropdown
+    And I pause execution for "3" seconds
+    And I download the file
+    Then I softly see "{SavedValue:AwardEGMSID}" on page "1" of "govgrants" pdf file
+    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+    Then I softly see following details in "govgrants" pdf file:
+      | Detail                    | Page Number |
+      | {SavedValue:AwardEGMSID}  | 1           |
+      | {SavedValue:GrantEGMSID}  | 1           |
+      | Rejected                  | 1           |
+      | Created by                | 2           |
+      | {SavedValue:PM Username}  | 2           |
+      | Last Modified by          | 2           |
+      | {SavedValue:FO Username}  | 2           |
+    And I switch to parent tab
+    And I navigate to "History" sub tab
+    Then I softly see snapshot with name containing "Subaward_Submit_for_Approval.pdf" as name
