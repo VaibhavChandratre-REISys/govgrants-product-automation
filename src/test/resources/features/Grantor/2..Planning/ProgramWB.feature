@@ -7199,7 +7199,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
 
-  @204588 @ValidatePMEXEADMINusercanaddeditdeletenotesonExternalPrograminApprovedstatus @sprint-7-US-201927 @hitesh @Notes
+  @204588 @ValidatePMEXEADMINusercanaddeditdeletenotesonExternalPrograminApprovedstatus @sprint-7-US-201927 @hitesh @Notes @invalid @bug444531
   Scenario: Validate PM,EXE, ADMIN user can add/edit/delete notes on  External Program in Approved status
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
