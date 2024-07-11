@@ -10759,6 +10759,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Funding Account             | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 600                 |
     And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     And I pause execution for "3" seconds
     And I "Approve" in the approval decision
@@ -16112,6 +16113,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
     When I click on "Save" in the page details
+   And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "bpcFcScopeId"
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -17094,6 +17096,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Value                    | Field          |
       | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "FundTermsID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
@@ -17136,6 +17139,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Close"
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -18477,6 +18481,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "bpcFcScopeId"
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
@@ -19627,8 +19632,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Title        | Award Amount |
       | Construction | 1500         |
     And I click modal button "Close"
-    And I refresh the page
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -19645,6 +19650,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Funding Account             | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 3000                |
     And I click on "Submit for Approval" in the page details
+    And I pause execution for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I pause execution for "3" seconds
     And I "Approve" in the approval decision
@@ -19838,6 +19844,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Close"
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab

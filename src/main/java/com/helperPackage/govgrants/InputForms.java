@@ -1088,6 +1088,8 @@ public final class InputForms {
                 I.amPerforming().textInput().toClear(lookupInputBoxSelector);
                 I.amPerforming().textInput().in(lookupInputBoxSelector, searchTerm);
                 By selectButtonLocator = By.xpath("//div[@title='" + searchTerm + "']");
+                I.amPerforming().scroll().toMoveToElement(selectButtonLocator);
+//                I.amPerforming().scroll().withMouseToElement(selectButtonLocator);
                 I.amPerforming().click().on(selectButtonLocator);
             } else {
                 I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='" + Search + "']//input[@type='search']"));
@@ -1095,6 +1097,8 @@ public final class InputForms {
                 I.amPerforming().textInput().toClear(lookupInputBoxSelector, false);
                 I.amPerforming().textInput().in(lookupInputBoxSelector, searchTerm, false);
                 By selectButtonLocator = By.xpath("//div[@title='" + searchTerm + "']");
+                I.amPerforming().scroll().toMoveToElement(selectButtonLocator);
+//                I.amPerforming().scroll().withMouseToElement(selectButtonLocator);
                 I.amPerforming().click().on(selectButtonLocator);
             }
         }

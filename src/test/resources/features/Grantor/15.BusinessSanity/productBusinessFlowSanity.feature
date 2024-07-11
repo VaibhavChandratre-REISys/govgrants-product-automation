@@ -1,7 +1,7 @@
 @productBusinessFlowSanity @product @grantor-regression @regression
 Feature: Validate sanity testing of Complete Business Flow
 
-  @72335 @activationOfFocusArea @ProdSan1
+  @72335 @activationOfFocusArea
   Scenario: Validate the activation of Focus Area by User - Admin/EXE/PM and the status is Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
@@ -17,7 +17,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click modal button "Close"
     When I click on "Activate" in the page details
-#    Then I see status in Progress-bar is "Active" and is "dark blue"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
 
   @72340 @activateKPI @ProdSan2 
   Scenario: Validate the activation of KPI and the status changes to Active
@@ -31,9 +31,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     And I click on "Save" in the page details
     When I click on "Activate" in the page details
-#    Then I see status in Progress-bar is "Active" and is "dark blue"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72337 @activationOFFundingSource @ProdSan1
+  @72337 @activationOFFundingSource
   Scenario: Validate the activation of Funding Source HappyPath and the status is Active
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -50,7 +50,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Activate" in the page details
-#    Then I see status in Progress-bar is "Active" and is "dark blue"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
 
   @StrategicPlanCreation @ProdSan2 
   Scenario: Creation of Strategic plan
@@ -81,7 +81,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Back To Strategic Goal" in the page details
     Then I softly see field "Status" as "Draft"
     When I click on "Back To Strategic Plan" in the page details
-#    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
  @SubrecipientContactCreation @ProdSan2
   Scenario: Subrecipient Contact Creation
@@ -107,7 +107,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I softly see value "New" for title "Status" inside table "---home:-:subrecipientContactTableId---"
 
-  @72341 @programActivation @ProdSan1
+  @72341 @programActivation
   Scenario: Validate the activation of Internal Program and the status changes to Active
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -159,7 +159,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     And I click on "Submit For Approval" in the page details
     And I wait for "3" seconds
-#    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -180,7 +180,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I click on "Activate" in the page details
     And I wait for "2" seconds
-#    Then I see status in Progress-bar is "Active" and is "dark blue"
+    Then I see status in Progress-bar is "Active" and is "dark blue"
 
   @ExternalProgramActivation @ProdSan2 
   Scenario: Validate External Program Activation
@@ -202,7 +202,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     And I click on "Submit For Approval" in the page details
-#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -216,7 +216,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I click on "Activate" in the page details
-#    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
 
   @65077 @publishingCompetitiveAnnouncementCA @ProdSan2 
   Scenario: Validate the activation of Competitive Announcement
@@ -1151,7 +1151,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Accept" in the page details
     Then I see status in Progress-bar is "Accepted" and is "dark blue"
 
-  @72345 @submitApplication @ProdSan1 
+  @72345 @submitApplication
   Scenario: Validate once the application is submitted to Grantor and then status changes to Submitted
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1420,7 +1420,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @72347 @negotiationComplete @ProdSan1
+  @72347 @negotiationComplete
   Scenario: Validate once the Negotiation Request is completed then the record owner can view the record under Completed Negotiations
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1613,7 +1613,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @72348 @awardHappyPathStandAlone @ProdSan1 
+  @72348 @awardHappyPathStandAlone
   Scenario: Validate the activation of subaward Happy path stand alone and status changes to Activated | Validate subaward Happy path stand alone
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
