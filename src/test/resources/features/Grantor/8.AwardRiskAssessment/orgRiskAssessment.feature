@@ -62,7 +62,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Record Id" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I softly see that "Active" has been added in flextable with Id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @61977 @moderateRiskLevelColorChangesToYellow @deepika @TBExecution
+  @61977 @moderateRiskLevelColorChangesToYellow @deepika
   Scenario: Validate the moderate level of Risk Assessment, that changes to Yellow color as per the provided Assessment.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Risk Assessment" sub tab
@@ -266,7 +266,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Created" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I can see row level action button "Edit" against "Created" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @62315 @snapHistoryOfOrgRA @deepika @skipOnJenkins @TBExecution
+  @62315 @snapHistoryOfOrgRA @deepika @skipOnJenkins
   Scenario: Validate whether Snapshot is captured/(taken) automatically  by the system in the table Snapshot History when Risk Assessment is Activated
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -1426,7 +1426,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---riskassessment:-:homePendingTaskTableId---" panel
     Then I do not see values "Automation Permanent Organization for Risk Assessment" and "Provide or Decline Risk Assessment Access" inside table
 
-  @63232 @VerifyDraftRAIsActivated @keerti @TBExecution
+  @63232 @VerifyDraftRAIsActivated @keerti
   Scenario: Verify task is marked completfed if the user chooses to activate the risk assesment using the draft risk assessment instead of using the task
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -1595,7 +1595,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     Then I see field "Overall Risk" as "27.00%"
 
-  @63980 @validateRiskAssesmentActiveInPDF @deepika @skipOnJenkins @TBExecution
+  @63980 @validateRiskAssesmentActiveInPDF @deepika @skipOnJenkins
   Scenario: Verify that user can check PDF files with validation for Org Risk Assessment
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -1942,7 +1942,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Overview" sub tab
     Then I softly see field "Overall Score" as "27.0%"
 
-  @64516 @overallRiSKScoreWhenAssessmentSelectedDiffSetQuestions @deepika @TBExecution
+  @64516 @overallRiSKScoreWhenAssessmentSelectedDiffSetQuestions @deepika
   Scenario: Validate the Risk level of Risk Assessment, that shows the Overall Score as per the provided Assessment once Risk Assessment is Active
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds

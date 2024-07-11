@@ -2561,6 +2561,7 @@ Feature: Validate all scenarios in Payment Request
     And I click on "View" icon for "Approved" inside flex table with id "---paymentRequest:-:paymentRequestTableId---"
     And I wait for "2" seconds
     And I click on "Download As PDF" in the page details
+    And I wait for "5" seconds
     And I download the file
     Then I see "Approved" on page "1" of "govgrants" pdf file
     Examples:

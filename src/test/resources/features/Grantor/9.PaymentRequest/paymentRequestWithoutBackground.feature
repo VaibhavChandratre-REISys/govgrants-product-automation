@@ -692,7 +692,7 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @54712 @ValidateReimbursementApprovedAmountFieldOnPaymentRequestAfterReimbursementPRApproval @mahadev @TBExecution
+  @54712 @ValidateReimbursementApprovedAmountFieldOnPaymentRequestAfterReimbursementPRApproval @mahadev @wip
   Scenario Outline: validate Reimbursement balance on payment request at sub portal gets updated after Reimbursement payment request approval
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal

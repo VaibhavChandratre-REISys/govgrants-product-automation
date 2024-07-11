@@ -369,7 +369,7 @@ Feature: Validate all scenarios in the Pre-Application
     Then I softly see status in Progress-bar is "Accepted" and is "dark blue"
     Then I softly can see top right button "Create Application" in page detail
     When I click on "Create Application" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details

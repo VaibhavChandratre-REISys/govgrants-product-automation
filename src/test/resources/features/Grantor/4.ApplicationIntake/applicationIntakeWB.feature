@@ -703,7 +703,7 @@ Feature: Application Intake scenarios without background
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
-    And I click on hyperlink containing value "SnapShot on"
+    And I click on hyperlink containing value "Snapshot"
     When I download the file
     Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 

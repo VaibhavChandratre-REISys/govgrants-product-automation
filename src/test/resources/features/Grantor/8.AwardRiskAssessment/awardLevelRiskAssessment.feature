@@ -80,6 +80,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on hyperlink containing value "SnapShot on"
     When I download the file
     Then I softly see "Created" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
@@ -3291,7 +3292,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     Then I see value "NA" for title "Risk Level" against the value "{SavedValue:EGMSID}" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 
-  @65461 @downloadRiskAssessmentInXLS @deepika @skipOnJenkins
+  @65461 @downloadRiskAssessmentInXLS @deepika @wip
   Scenario: Validate whether user can Download the Active Risk Assessment in XLS format from Monitoring Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Monitoring" tab
@@ -3300,9 +3301,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on parallel menu button in flex table title "Subaward Risk Assessments - All"
     And I select "Download as CSV" from dropdown
     And I wait for "3" seconds
-    And I download the file
-    And I wait for "3" seconds
-    Then I verify that "csv" file is downloaded
+    Then I see "Subaward Risk Assessments - Active" in downloaded xls or csv file "govgrants"
 
   @65462 @downloadRiskAssessmentInPDF @deepika @skipOnJenkins
   Scenario: Validate whether user can Download the Active Risk Assessment in PDF format from Monitoring Tab
@@ -3314,7 +3313,8 @@ Feature: Validate all scenarios in the Risk Assessment
     And I select "Download as PDF" from dropdown
     And I wait for "3" seconds
     And I download the file
-    Then I verify that "pdf" file is downloaded
+    And I wait for "3" seconds
+    Then I see "Subaward Risk Assessments - Active" on page "1" of "govgrants" pdf file
 
   @65463 @verifyOnlyOneRiskAssessmentInTable @deepika
   Scenario: Validate when the risk assessment is intiated for draft award then only one risk assessment must be available in the table

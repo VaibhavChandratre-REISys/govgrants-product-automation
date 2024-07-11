@@ -708,7 +708,7 @@ Feature: Pre-Application scenarios without background
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
     And I wait for "7" seconds
-    Then I softly see snapshot with name containing "SnapShot on" as name
+    Then I softly see snapshot with name containing "Submission" as name
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -730,7 +730,7 @@ Feature: Pre-Application scenarios without background
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
-    And I click on hyperlink containing value "SnapShot on"
+    And I click on hyperlink containing value "Snapshot"
     When I download the file
     Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 

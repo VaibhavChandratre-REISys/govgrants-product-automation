@@ -742,8 +742,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Negotiation Submitted"
-    And I click on "Menu" in the page details
-    And I select "Take Snapshot" from dropdown
+    And I click on "Take Snapshot" in the page details
     And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot on"
