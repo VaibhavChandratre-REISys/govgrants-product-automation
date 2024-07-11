@@ -238,6 +238,7 @@ Feature: Validate all scenarios in the Pre-Application
     And I wait for "5" seconds
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
@@ -261,7 +262,7 @@ Feature: Validate all scenarios in the Pre-Application
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Snapshot_Pre-Application_Submission.pdf"
+    And I click on hyperlink containing value "SnapShot on"
     When I download the file
     Then I see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
@@ -337,7 +338,6 @@ Feature: Validate all scenarios in the Pre-Application
     And I upload attachment "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"

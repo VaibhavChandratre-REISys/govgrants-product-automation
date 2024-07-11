@@ -697,7 +697,6 @@ Feature: Pre-Application scenarios without background
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -945,7 +944,7 @@ Feature: Pre-Application scenarios without background
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Snapshot on"
+    And I click on hyperlink containing value "SnapShot on"
     When I download the file
     Then I see "Created" on page "1" of "govgrants" pdf file
 

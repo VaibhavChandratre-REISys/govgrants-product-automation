@@ -116,7 +116,7 @@ Feature: Application Intake scenarios without background
     And I wait for "3" seconds
     Then I cannot see top right button "Submit Application" in page detail
 
-  @70464  @deepika @wip @NotValid @TBExecution
+  @70464  @deepika @NotValid @TBExecution
   Scenario: Validate whether user should not able to qualify the announcement again for once it is Qualified
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -650,6 +650,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     And I wait for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -1076,7 +1077,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
 
-  @75496 @qualifySuccessMessage @deepika @wip @notValid @TBExecution
+  @75496 @qualifySuccessMessage @deepika @notValid @TBExecution
   Scenario:  Validate user will be able to view the success message for qualification.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1362,7 +1363,7 @@ Feature: Application Intake scenarios without background
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Snapshot on"
+    And I click on hyperlink containing value "SnapShot on"
     When I download the file
     Then I see "Created" on page "1" of "govgrants" pdf file
 

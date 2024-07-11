@@ -92,7 +92,7 @@ Feature: Validate all scenarios in Negotiations
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     Then I softly see that "Negotiation Request" has been added in flextable with Id "---negotiation:-:homePendingTasks---"
 
-  @57037 @57038 @sendBackToSubrecipientForFurtherChanges @deepika @TBExecution
+  @57037 @57038 @sendBackToSubrecipientForFurtherChanges @deepika
   Scenario: Validate whether the users receive the pending Task when  Submit to Grantor and able to select Send Back to Subrecipient for further changes
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -726,6 +726,9 @@ Feature: Validate all scenarios in Negotiations
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     When I click on "Initiate Negotiation" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
+    And I navigate to "Negotiations" sub tab
+    When I clear the value from field "ApplicationSectionsForRevision__c"
+    When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -743,7 +746,7 @@ Feature: Validate all scenarios in Negotiations
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Submit_Negotiation.pdf"
+    And I click on hyperlink containing value "SnapShot on"
     When I download the file
     Then I see "Negotiation Submitted" on page "1" of "govgrants" pdf file
 

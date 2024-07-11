@@ -76,7 +76,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Snapshot on"
+    And I click on hyperlink containing value "SnapShot on"
     When I download the file
     Then I softly see "Created" on page "1" of "govgrants" pdf file
     When I navigate to "Responsibilities" sub tab
@@ -2264,6 +2264,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Risk Assessment Activation/Rejection.pdf"
+    And I wait for "3" seconds
     When I download the file
     Then I see "Active" on page "1" of "govgrants" pdf file
 
@@ -3065,7 +3066,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
     When I navigate to "History" sub tab
-    Then I see snapshot with name containing "Subaward Risk Assessment" as name
+    Then I see snapshot with name containing "SnapShot on" as name
 
   @61384 @addButtonAvailabilityafterSubmitforApproval @deepika
   Scenario: Validate the add button on attachments flextable is not available for Risk Assessment Owner once submitted for Approval

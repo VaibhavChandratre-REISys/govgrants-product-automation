@@ -259,7 +259,7 @@ Feature: Validate all scenarios in the Application Intake
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---applicationIntake:-:ApplicationNotesTableId---"
 
-  @73521 @70526 @snapshotAfterApplicationIsSubmitted @deepika @skipOnJenkins @TBExecution
+  @73521 @70526 @snapshotAfterApplicationIsSubmitted @deepika
   Scenario Outline: Validate SR user is able to view the Snapshot after Application is Submitted to Grantor status| Validate once the Application is submitted to Grantor then the field Submitted by on Overview Tab will get updated by the User Name.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"

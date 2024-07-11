@@ -1538,10 +1538,9 @@ Feature: Validate all scenarios of every modules flow
 ##   And I generate the random EmailID and save as "uniqueEmailID" for maildrop
 ##   And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
 #   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
-   Given I login to "As a Grantor" app as "EXE" user
+   Given I login to "As a Grantor" app as "PM" user
    And I halt execution
-   And I click on "Remove" icon for "Indirect costs" inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
-   And I refresh the page
-   And I wait for "2" seconds
-   Then I softly do not see value "Indirect costs" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
-
+   And I click on hyperlink containing value "Risk Assessment Activation/Rejection.pdf"
+   When I download the file
+   Then I see "Active" on page "1" of "govgrants" pdf file
+   And I halt execution
