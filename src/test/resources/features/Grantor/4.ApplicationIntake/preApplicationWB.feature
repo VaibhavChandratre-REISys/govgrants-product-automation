@@ -679,6 +679,7 @@ Feature: Pre-Application scenarios without background
     And I wait for "2" seconds
     Then I softly see field "Pre-Application Due Date" is not editable
     And I click on "Create Pre-Application" in the page details
+    And I wait for "3" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -717,6 +718,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Submitted to Grantor" for title "New Value" inside field history table
+    And I click on back arrow
     When I click on "Accept" in the page details
     And I wait for "2" seconds
     When I navigate to "History" sub tab
@@ -724,10 +726,11 @@ Feature: Pre-Application scenarios without background
     And I click on hyperlink containing value "View All"
     Then I softly see value "Accepted" for title "New Value" inside field history table
     And I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
+    And I click on back arrow
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
-    And I click on hyperlink containing value "Submission"
+    And I click on hyperlink containing value "SnapShot on"
     When I download the file
     Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
@@ -924,7 +927,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see all values "$0.00" under column "Total Match" inside flextable with id "---preApplication:-:preApplicationAttachmentId---"
     Then I softly see all values "$0.00" under column "Other Leverage" inside flextable with id "---preApplication:-:preApplicationAttachmentId---"
 
-  @77656 @snapshotHistoryPreApplication @deepika @skipOnJenkins @TBExecution
+  @77656 @snapshotHistoryPreApplication @deepika
   Scenario: Validate whether SPI user will be able to take the snapshot on page when the pre-application is in draft status and is saved under snapshot history
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal

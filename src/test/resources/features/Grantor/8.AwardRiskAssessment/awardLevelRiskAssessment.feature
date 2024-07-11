@@ -71,6 +71,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I get the "EGMS ID"
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
@@ -3030,7 +3031,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "{SavedValue:EGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" against the value "Expired" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
-  @60965 @fieldCompares @deepika @skipOnJenkins @TBExecution
+  @60965 @fieldCompares @deepika
   Scenario: Validate whether Record Owner user is able to view and Compare field values on UI and PDF match
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3290,7 +3291,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     Then I see value "NA" for title "Risk Level" against the value "{SavedValue:EGMSID}" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 
-  @65461 @downloadRiskAssessmentInXLS @deepika @skipOnJenkins @TBExecution
+  @65461 @downloadRiskAssessmentInXLS @deepika @skipOnJenkins
   Scenario: Validate whether user can Download the Active Risk Assessment in XLS format from Monitoring Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Monitoring" tab
@@ -3298,10 +3299,12 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click toggle button to select "Subaward Risk Assessments - All"
     And I click on parallel menu button in flex table title "Subaward Risk Assessments - All"
     And I select "Download as CSV" from dropdown
+    And I wait for "3" seconds
     And I download the file
+    And I wait for "3" seconds
     Then I verify that "csv" file is downloaded
 
-  @65462 @downloadRiskAssessmentInPDF @deepika @skipOnJenkins @TBExecution
+  @65462 @downloadRiskAssessmentInPDF @deepika @skipOnJenkins
   Scenario: Validate whether user can Download the Active Risk Assessment in PDF format from Monitoring Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Monitoring" tab
@@ -3309,6 +3312,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click toggle button to select "Subaward Risk Assessments - All"
     And I click on parallel menu button in flex table title "Subaward Risk Assessments - All"
     And I select "Download as PDF" from dropdown
+    And I wait for "3" seconds
     And I download the file
     Then I verify that "pdf" file is downloaded
 

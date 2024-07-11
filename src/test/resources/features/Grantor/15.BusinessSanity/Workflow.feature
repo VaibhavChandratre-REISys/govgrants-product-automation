@@ -1532,7 +1532,7 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
- @debug @test
+  @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #   Given I am on "INTERNAL" portal
 ##   And I generate the random EmailID and save as "uniqueEmailID" for maildrop

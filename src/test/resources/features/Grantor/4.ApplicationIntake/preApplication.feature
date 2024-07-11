@@ -263,6 +263,7 @@ Feature: Validate all scenarios in the Pre-Application
     And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot on"
+    And I wait for "3" seconds
     When I download the file
     Then I see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 

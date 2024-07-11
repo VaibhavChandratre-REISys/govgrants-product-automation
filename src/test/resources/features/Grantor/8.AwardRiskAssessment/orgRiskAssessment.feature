@@ -62,7 +62,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Record Id" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I softly see that "Active" has been added in flextable with Id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @61977 @moderateRiskLevelColorChangesToYellow @deepika @wip
+  @61977 @moderateRiskLevelColorChangesToYellow @deepika @TBExecution
   Scenario: Validate the moderate level of Risk Assessment, that changes to Yellow color as per the provided Assessment.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Risk Assessment" sub tab
@@ -266,7 +266,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Created" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I can see row level action button "Edit" against "Created" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @62315 @snapHistoryOfOrgRA @deepika @skipOnJenkins
+  @62315 @snapHistoryOfOrgRA @deepika @skipOnJenkins @TBExecution
   Scenario: Validate whether Snapshot is captured/(taken) automatically  by the system in the table Snapshot History when Risk Assessment is Activated
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -282,8 +282,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I wait for "3" seconds
     And I click on "Menu" in the page details
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Risk Assessment Snapshot"
+    And I click on hyperlink containing value "SnapShot on"
     When I download the file
     Then I see "{SavedValue:EGMSID}" on page "1" of "govgrants" pdf file
 
@@ -1425,7 +1426,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---riskassessment:-:homePendingTaskTableId---" panel
     Then I do not see values "Automation Permanent Organization for Risk Assessment" and "Provide or Decline Risk Assessment Access" inside table
 
-  @63232 @VerifyDraftRAIsActivated @keerti @wip @cannotbeAutomated
+  @63232 @VerifyDraftRAIsActivated @keerti @TBExecution
   Scenario: Verify task is marked completfed if the user chooses to activate the risk assesment using the draft risk assessment instead of using the task
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -1433,13 +1434,12 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
-#    And I navigate to "Assessment" sub tab
-#    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-#    And I click on "Save" in the page details
+    And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "EGMSID"
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
+    And I click toggle button to select "Organization Risk Assessments-All"
     When I perform quick search for "{SavedValue:EGMSID}" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     And I click on "Edit" icon for "{SavedValue:EGMSID}" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I navigate to "Assessment" sub tab
@@ -1595,7 +1595,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     Then I see field "Overall Risk" as "27.00%"
 
-  @63980 @validateRiskAssesmentActiveInPDF @deepika @skipOnJenkins
+  @63980 @validateRiskAssesmentActiveInPDF @deepika @skipOnJenkins @TBExecution
   Scenario: Verify that user can check PDF files with validation for Org Risk Assessment
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -1613,14 +1613,14 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
     When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
     When I click on "View" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:activeOrgTableID---" without waiting for record
     And I navigate to "Risk Assessment" sub tab
-    And I click on "Menu" in the page details
-    And I select "Download As PDF" from dropdown
+    And I click on "Download As PDF" in the page details
     And I download the file
     Then I see "Active" on page "1" of "govgrants" pdf file
 
@@ -1847,7 +1847,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:completedTaskTableId---" panel
     Then I see that "Automation Permanent Organization for Risk Assessment" has been added in flextable with Id "---orgRiskAssessment:-:completedTaskTableId---"
 
-  @64124 @orRiskAssessmentTaskNotDisplayedForINDUser @deepika @issuewithINDUser @wip
+  @64124 @orRiskAssessmentTaskNotDisplayedForINDUser @deepika @issuewithINDUser
   Scenario:  Validate Task for submitting organizational Risk Assessment should not be generated for IND profile User .
     When I re-login as "IND" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -1942,7 +1942,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Overview" sub tab
     Then I softly see field "Overall Score" as "27.0%"
 
-  @64516 @overallRiSKScoreWhenAssessmentSelectedDiffSetQuestions @deepika @wip
+  @64516 @overallRiSKScoreWhenAssessmentSelectedDiffSetQuestions @deepika @TBExecution
   Scenario: Validate the Risk level of Risk Assessment, that shows the Overall Score as per the provided Assessment once Risk Assessment is Active
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -1962,7 +1962,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I perform quick search for "Record Id" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
     When I navigate to "Overview" sub tab
-    Then I see "Risk Level" image as "yellow.png"
+    Then I see "Risk Level" image as "ylw.png"
 
   @64602 @taskIScreatedforSAOnceInternalUserProvideAccess @deepika
   Scenario: Validate the Revise Risk Assessment Button should not be present for SPI users that are not the SA.
@@ -2226,7 +2226,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     Then I cannot see top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @64733 @downloadOrgRaInPDF @skipOnJenkins
+  @64733 @downloadOrgRaInPDF @skipOnJenkins @TBExecution
   Scenario: Validate whether user can Download the Active Org Risk assessment in PDF format.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -2243,11 +2243,11 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
-    When I click on top right parallel lines bar for "Organization Risk Assessments"
-    And I select "Download as PDF" from parallel lines dropdown of "Organization Risk Assessments"
+    And I click on parallel menu button in flex table title "Organization Risk Assessments-Active"
+    And I select "Download as PDF" from dropdown
     Then I verify that "pdf" file is downloaded
 
-  @64734 @downloadOrgRAInXLS @deepika @skipOnJenkins
+  @64734 @downloadOrgRAInXLS @deepika @wip @LWCRemoved
   Scenario: Validate whether user can Download the Active Org Risk Assessment in XLS format
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
