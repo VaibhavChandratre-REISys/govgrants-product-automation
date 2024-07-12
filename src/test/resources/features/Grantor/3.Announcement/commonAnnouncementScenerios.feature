@@ -192,7 +192,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I get the "EGMS ID"
     Then I see that "Sent for Review" has been added in flextable with Id "---announcement:-:reviewersTableId---"
 
-  @52413 @announcementReviewCompleteFA @wip
+  @52413 @announcementReviewCompleteFA
   Scenario: Validate the review for the Announcement
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
@@ -213,15 +213,15 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I click modal button "Save"
     And I click on submit review
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Formula Announcements"
     When I perform quick search for "Record id" in "---announcement:-:formulaAnnouncementTableId---" panel
     And I click on "View" icon for "Record id" inside table
+    And I wait for "5" seconds
     When I click on "Complete Review" in the page details
     Then I see status in Progress-bar is "Reviewed" and is "dark blue"
-
 
   @35003 @announcementAddAttachmentFA 
   Scenario: Validate the attachment for an Announcement

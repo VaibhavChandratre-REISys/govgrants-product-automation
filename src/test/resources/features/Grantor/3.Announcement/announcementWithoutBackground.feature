@@ -583,7 +583,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "10" seconds
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:businessFormlistTableId---"
 
-  @73854 @73855 @73852 @73853 @jitendra @filterNotYetQualifiedSPAUser @Debug
+  @73854 @73855 @73852 @73853 @jitendra @filterNotYetQualifiedSPAUser
   Scenario:  To verify, filter functionality for Not Yet Qualified:All section for announcement by external user
   | To verify, all closed opportunity which has Not Qualified should reflect under Not Yet Qualified: Closed list view
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default"
@@ -669,7 +669,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #  | Subject | Contains | jitu |
     Then I softly see "jitu" inside flex table with id "---announcement:-:collabMessages---"
 
-  @75524 @publishedAllowToDownloadPDF @skipOnJenkins
+  @75524 @publishedAllowToDownloadPDF
   Scenario: To verify system allow to download PDF for Announcement after publishing it
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for pdf Tests" and properties "default"
     And I login to "As a Grantor" app as "PM" user
@@ -682,9 +682,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on Menu icon present on top right corner of the page
     And I wait for "3" seconds
     And I select "Download As PDF" from dropdown
-    And I wait for "3" seconds
+    And I wait for "10" seconds
     And I download the file
-    And I see "{SavedValue:Automation Announcement for pdf Tests}" on page "1" of "govgrants" pdf file
+    And I wait for "3" seconds
+    Then I see "{SavedValue:Automation Announcement for pdf Tests}" on page "1" of "govgrants" pdf file
 
   @75632 @75621 @searchFunctionalityForMessagesMyFeedInCollab @keerti @buglogged95462 @wip @ExcludeSendEmail
   Scenario: To verify search functionality for messages section in collab tab for announcement

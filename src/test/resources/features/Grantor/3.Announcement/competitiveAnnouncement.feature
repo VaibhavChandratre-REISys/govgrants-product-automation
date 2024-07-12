@@ -32,7 +32,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Contacts" on page "1" of "govgrants" pdf file
 
-  @73958 @pdfDownloadRelatedFederal @jitendra @skipOnJenkins
+  @73958 @pdfDownloadRelatedFederal @jitendra
   Scenario: To verify system allow to download PDF for Related Federal/NGO program in overview tab of announcement
     And I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
@@ -47,6 +47,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Related Federal/NGO Program"
     And I select "Download as PDF" from parallel lines dropdown of "Related Federal/NGO Program"
     And I download the file
+    And I wait for "10" seconds
     Then I see "Related Federal/NGO Program" on page "1" of "govgrants" pdf file
 
   @74105 @pdfDownloadBudgetCategory @jitendra @skipOnJenkins
