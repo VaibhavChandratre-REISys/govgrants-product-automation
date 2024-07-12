@@ -716,7 +716,7 @@ Feature: Validate all scenarios in Negotiations
 #    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "GrantorApplicationFiles"
     Then I see value "General Assurances" for title "Classification" inside table "GrantorApplicationFiles"
 
-  @62667 @RecordOwnerCanViewSnapshotAfterNegotiationIsInSubmittedToGrantor @keerti @skipOnJenkins @TBExecution
+  @62667 @RecordOwnerCanViewSnapshotAfterNegotiationIsInSubmittedToGrantor @keerti @skipOnJenkins
   Scenario: Validate Record Owner user is able to view the Snapshot after Negotiation  is in "Submitted to Grantor" status
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab

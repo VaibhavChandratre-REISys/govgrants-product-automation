@@ -404,8 +404,9 @@ Feature: Validate all scenarios in the Pre-Application
     When I navigate to "Related Log" sub tab
     And I click on parallel menu button in flex table title "Submitted Pre-Applications"
     And I select "Download as PDF" from dropdown
+    And I wait for "5" seconds
     And I download the file
-    Then I softly see "Pre-Applications" on page "1" of "govgrants" pdf file
+    Then I softly see "Submitted Pre-Applications" on page "1" of "govgrants" pdf file
     Examples:
       | Announcement Name                                        |
       | {SavedValue:Automation Runtime Announcement Application} |

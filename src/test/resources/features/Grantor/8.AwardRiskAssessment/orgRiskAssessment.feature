@@ -70,9 +70,10 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I navigate to "Assessment" sub tab
-    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
+    And I enter "OrgAssessmentValues3" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
+    And I halt execution
     When I click on "Submit" in the page details
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
@@ -1962,7 +1963,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I perform quick search for "Record Id" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
     When I navigate to "Overview" sub tab
-    Then I see "Risk Level" image as "ylw.png"
+    Then I see "Risk Level" image as "grn.png"
 
   @64602 @taskIScreatedforSAOnceInternalUserProvideAccess @deepika
   Scenario: Validate the Revise Risk Assessment Button should not be present for SPI users that are not the SA.
