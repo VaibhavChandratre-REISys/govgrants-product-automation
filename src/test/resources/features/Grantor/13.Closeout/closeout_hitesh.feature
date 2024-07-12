@@ -177,7 +177,7 @@ Feature: Validate all scenarios in Closeout
       | Award Name                                         |
       | {SavedValue:Automation Runtime Award for closeout} |
 
-  @50980 @adhocCloseoutHappyPath @smoke
+  @50980 @adhocCloseoutHappyPath @smoke @TBExecution
   Scenario: Approval of Closeout
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
