@@ -98,6 +98,16 @@ public class GenericSteps {
         grantorProjectManager.assertThatFileIsDownloaded(fileType, usage.contains("softly"));
     }
 
+    @Then("^I (see|softly see) that (file|file name contains) \"([^\"]*)\" is downloaded$")
+    public void iVerifyThatPdfFileIsDownloaded(String usage, String fileNamePartialMatch, String fileName) {
+        grantorProjectManager.assertThatTheFileIsDownloaded(usage.contains("softly"), fileNamePartialMatch.contains("contains"), fileName);
+    }
+
+    @Then("^I delete file (name|contains name) \"([^\"]*)\"$")
+    public void deleteGivenFile(String usage, String fileName) {
+        grantorProjectManager.deleteGivenFile(usage.contains("contains"), fileName);
+    }
+
     @Description("To verify no of rows checked for field name")
     @Then("^I can (softly see|see) \"([^\"]*)\" record value is checked for field name \"([^\"]*)\"$")
     public void iCanSeeRecordValueIsCheckedForFieldName(String usage, String count, String fieldName) {

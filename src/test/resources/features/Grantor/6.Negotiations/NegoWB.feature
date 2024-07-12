@@ -1,7 +1,7 @@
 @negotiations @negotiationWB @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in Negotiations
 
-  @164572  @ValidateEXEUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3 @Vaibhav @Debug
+  @164572  @ValidateEXEUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3 @Vaibhav
   Scenario: Validate EXE User Allow Edit Select At Least One Form Error Message
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation EXE user"
     When I login to "As a Grantor" app as "EXE" user

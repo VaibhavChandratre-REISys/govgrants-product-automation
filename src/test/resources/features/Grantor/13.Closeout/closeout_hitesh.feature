@@ -177,7 +177,7 @@ Feature: Validate all scenarios in Closeout
       | Award Name                                         |
       | {SavedValue:Automation Runtime Award for closeout} |
 
-  @50980 @adhocCloseoutHappyPath @smoke @TBExecution
+  @50980 @adhocCloseoutHappyPath @smoke
   Scenario: Approval of Closeout
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -196,7 +196,7 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:PM Username} | Step 1   |
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
-      | {SavedValue:PM Username} | Step 2   |
+      | {SavedValue:EXE Username} | Step 2   |
     And I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab

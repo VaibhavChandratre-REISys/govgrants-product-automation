@@ -320,7 +320,7 @@ Feature: Validate all scenarios in the Pre-Application
       | Announcement Name                                        |
       | {SavedValue:Automation Runtime Announcement Application} |
 
-  @75523 @77655 @75522 @preApplicationPDFRelatedLog @aashish @skipOnJenkins @TBExecution
+  @75523 @77655 @75522 @preApplicationPDFRelatedLog @aashish
   Scenario Outline: To verify system allow to download PDF for Pre-application section in Related log tab of announcement | To verify user able to view Pre-Applications in Pre-Applications section in Related log tab of announcement
   Validate whether user can view the Accepted Status on progress bar once the pre-application is accepted by Grantor
     Given I click on "Edit" in the page details
