@@ -1,4 +1,4 @@
-@amendmentRequestsWB @amendmentRequests @check11 @grantor-regression @grantor-parallel-regression @regression @amendmentRequestUndo
+@amendmentRequests @check11 @grantor-regression @grantor-parallel-regression @regression @amendmentRequestUndo
 Feature: Amendment Request scenarios with Undo
 
   @292867 @292869 @292871 @ValidatePmapprovercanclickonundobuttoninCarryFwdAmmendrequestAmmendrequestrecordwhenrecordisinApprovedstate @Sprint-3-US-288693 @vaibhav @Undo
