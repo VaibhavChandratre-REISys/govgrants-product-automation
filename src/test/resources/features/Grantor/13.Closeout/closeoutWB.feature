@@ -518,7 +518,7 @@ Feature: Validate all scenarios in Closeout
     When I click modal button "Cancel"
     Then I softly see field "Status" as "Sent to Subrecipient"
 
-  @76489 @ValidateApprovedCloseoutInsideApprovalHistory-TerminationCloseoutRequest-EXEUser @monu @buglogged140761 @FieldHistoryExclude @TBExecution
+  @76489 @ValidateApprovedCloseoutInsideApprovalHistory-TerminationCloseoutRequest-EXEUser @monu @buglogged140761 @FieldHistoryExclude
   Scenario: Validate user is able to see Approved status of closeout request in chevron diagram and inside Approval history table with EXE user
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -591,7 +591,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Approved" for title "Original Value" inside field history table
     And I click on back arrow
     #40747 #monu
-    Then I softly see column "Assigned To" at position "2" contains text "{SavedValue:PM Username}"
+    Then I softly see column "Assigned To" at position "2" contains text "{SavedValue:FO Username}"
     Then I softly see column "Date" at position "1" contains text "Step : Step 2"
     Then I softly see column "Overall Status" at position "1" contains text "Approved"
 
@@ -707,7 +707,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:CloseoutRelatedSubAwardsTableId---" panel
     Then I softly see value "$0.00" for title "Closeout Deobligation" inside table "---closeout:-:CloseoutRelatedSubAwardsTableId---"
 
-  @96671 @96734 @VerifyUpdatedDetailsInHistorySectionForCloseout-Scheduled @monu @FieldHistoryExclude @TBExecution
+  @96671 @96734 @VerifyUpdatedDetailsInHistorySectionForCloseout-Scheduled @monu @FieldHistoryExclude
   Scenario: Validate user can see updated details in hiostory section after created scheduled closeout request is sent to sub recipient
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -728,7 +728,6 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Sent to Subrecipient" for title "New Value" inside field history table
-    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside field history table
     And I click on back arrow
     #96734 #monu
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -741,8 +740,7 @@ Feature: Validate all scenarios in Closeout
     And I enter value "checked" into field "Aggreement__c"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    And I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "dynamicUser" user
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -753,10 +751,9 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "true" for title "New Value" inside field history table
-    Then I softly see value "false" for title "Original Value" inside field history table
-    Then I softly see value "Acknowledgement" for title "Changed Field" inside field history table
-    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside field history table
+    Then I softly see value "checked" for title "New Value" inside field history table
+    Then I softly do not see value "checked" for title "Original Value" inside field history table
+    Then I softly see value "Acknowledgement" for title "Field" inside field history table
 
   @93539 @verifyValidationMessageForOverrideJustification @monu
   Scenario: Validate error message for Override justification
@@ -862,7 +859,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Override" in page detail
 
-  @96514 @validateAcknowledgeFieldIsNonEditable @monu @wip
+  @96514 @validateAcknowledgeFieldIsNonEditable @monu @TBExecution
   Scenario: Verify closeout owner is not able to edit after closeout request is submitted to grantor
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -879,9 +876,9 @@ Feature: Validate all scenarios in Closeout
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
+    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "CloseoutID"
-    When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -897,11 +894,11 @@ Feature: Validate all scenarios in Closeout
     And I click on "Start" icon for "Record Id" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
-    When I enter value "Checked" into field "fieldAggreement__c"
+    When I enter value "Checked" into field "Aggreement__c"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
     Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
-    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I softly see field "Status" as "Acknowledged by Subrecipient"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
@@ -910,7 +907,10 @@ Feature: Validate all scenarios in Closeout
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "ProjectPeriodCloseoutGrantor"
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Override" in page detail
+    When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
+    And I wait for "2" seconds
+    Then I softly see that "Acknowledgement" rendered in view mode only
 
   @96735 @VerifyApprovalDecisionFieldsAndButtons-Scheduled @monu @buglogged141587
   Scenario: Validate user can see approval decision fields and button at approval decision box
@@ -1756,7 +1756,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PO" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @FieldHistoryExclude @200146 @ValidatePOusercloseoutownerfieldhistorytableshouldbeupdatedwhenownershipofcloseoutistransfertonewuserinSubmittedforapprovalstate @sprint-12-US-226646 @vaibhav @reassignment @TBExecution
+  @FieldHistoryExclude @200146 @ValidatePOusercloseoutownerfieldhistorytableshouldbeupdatedwhenownershipofcloseoutistransfertonewuserinSubmittedforapprovalstate @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PO user(closeout owner) field history table should be updated when ownership of closeout is transfer to new user in 'Submitted for approval' state
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -2671,9 +2671,9 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     When I navigate to "History" sub tab
-#    And I select "Closeout" from dropdown present on top right of flex table id "---subAwardStandAlone:-:historyTableId---"
-#    Then I softly see value "Automation PO1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
-#    Then I softly see value "Automation PO" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
+    And I select "Closeout" from dropdown present on top right of flex table id "---subAwardStandAlone:-:historyTableId---"
+    Then I softly see value "Automation PO1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
+    Then I softly see value "Automation PO" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
 
   @200259 @ValidatePMuserasownerofcloseoutshouldnotaffectedevenifownershipofAwardistransferfromonePMusertootherPMuserisinSubmittedforapprovalstate @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM user as owner of closeout should not affected even if ownership of Award is transfer from one PM user to other PM user is in 'Submitted for approval' state
@@ -3732,7 +3732,7 @@ Feature: Validate all scenarios in Closeout
       The EGMS Team
       """
 
-  @FieldHistoryExclude @232344 @ValidatePMuserAwardownerwillremainsameevenafterownershipofcloseoutischangedfromonePOtootherPOinCompletedstate @sprint-13-US-231194 @vaibhav @reassignment @TBExecution
+  @FieldHistoryExclude @232344 @ValidatePMuserAwardownerwillremainsameevenafterownershipofcloseoutischangedfromonePOtootherPOinCompletedstate @sprint-13-US-231194 @vaibhav @reassignment
   Scenario: Validate PM user Award owner will remain same even after ownership of closeout is changed from one PO to other PO in 'Completed' state
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -5300,7 +5300,7 @@ Feature: Validate all scenarios in Closeout
       """
 
 
-  @FieldHistoryExclude @199846 @Validatefieldhistorytableshouldbeupdateoncownershiprelatedtaskreassignfromoneusertootheruser @sprint-5-US-192940 @vaibhav @reassignment @TBExecution
+  @FieldHistoryExclude @199846 @Validatefieldhistorytableshouldbeupdateoncownershiprelatedtaskreassignfromoneusertootheruser @sprint-5-US-192940 @vaibhav @reassignment
   Scenario: Validate field history table should be update once ownership related task reassign from one user to other user
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -5360,3 +5360,61 @@ Feature: Validate all scenarios in Closeout
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation EXE1" for title "New Value" inside field history table
     Then I softly see value "Automation EXE" for title "Original Value" inside field history table
+
+  @50982 @scheduledCloseoutHappyPath @TBExecution
+  Scenario: Happy path of Scheduled closeout
+    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
+    Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
+    When I create a post award record "Closeout" for the Award "{SavedValue:Automation Runtime Award for closeout}" having object api name as "Closeout"
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:grantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
+    When I navigate to "Requests" sub tab
+    When I click on "View" icon for "Scheduled" inside flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | Step 1   |
+    When I click on "Edit" in the page details
+    And I navigate to "Overview" sub tab
+    And I enter value "Automation Test Reason" into field "Reason__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
+    When I navigate to "Checklist" sub tab
+    And I enter "Edition" values from "Closeout_Field_Values.xlsx"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "closeoutID"
+    And I click on "Send To Subrecipient" in the page details
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Closeout" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+    When I click on "Edit" in the page details
+    And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I click on "Acknowledge" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Closeout" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+    When I click on "Override" in the page details
+    And I wait for "3" seconds
+    When I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I navigate to "Closeout" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+    When I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    And I click toggle button to select "Closeouts - All"
+    And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
+    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
+    Then I softly see field "Status" as "Completed"

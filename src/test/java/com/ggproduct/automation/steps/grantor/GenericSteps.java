@@ -204,9 +204,18 @@ public class GenericSteps {
     @Then("^I (softly see|see) snapshot with name containing \"([^\"]*)\" as name$")
     public void iSeeSnapshotWithNameContainingAsName(String usage, String snapshotName) {
         if (usage.contains("softly")) {
-            I.amPerforming().assertionsTo().assertThat(I.amPerforming().getElementReference().of(By.xpath("//tbody//tr//*[contains(text(),'" + snapshotName + "')]")).isDisplayed()).isTrue();
+            I.amPerforming().assertionsTo().assertThat(I.amPerforming().getElementReference().of(By.xpath("//c-snapshot-history//tbody//tr//*[contains(text(),'" + snapshotName + "')]")).isDisplayed()).isTrue();
         } else {
-            Assert.assertTrue(I.amPerforming().getElementReference().of(By.xpath("//tbody//tr//*[contains(text(),'" + snapshotName + "')]")).isDisplayed());
+            Assert.assertTrue(I.amPerforming().getElementReference().of(By.xpath("//c-snapshot-history//tbody//tr//*[contains(text(),'" + snapshotName + "')]")).isDisplayed());
+        }
+    }
+
+    @Then("^I (softly see|see) snapshot with user containing \"([^\"]*)\" against the value \"([^\"]*)\"$")
+    public void iSoftlySeeSnapshotWithUserContainingAgainstTheValue(String usage, String userName, String snapshotName) {
+        if (usage.contains("softly")) {
+            I.amPerforming().assertionsTo().assertThat(I.amPerforming().getElementReference().of(By.xpath("//c-snapshot-history//tbody//tr//*[contains(text(),'" + snapshotName + "')]/ancestor::tr//*[contains(text(),'" + userName + "')]")).isDisplayed()).isTrue();
+        } else {
+            Assert.assertTrue(I.amPerforming().getElementReference().of(By.xpath("//c-snapshot-history//tbody//tr//*[contains(text(),'" + snapshotName + "')]/ancestor::tr//*[contains(text(),'" + userName + "')]")).isDisplayed());
         }
     }
 

@@ -3783,7 +3783,7 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "3" seconds
     Then I softly do not see "No matches found" inside auto search result
 
-  @196618  @sprint-4 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @196618  @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the updated history after reassignment ownership for Grant module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4775,7 +4775,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Overview" sub tab
     Then I softly see field "Created by" as "{SavedValue:PM Username}"
 
-  @198226  @sprint-4 @vaibhav  @reassignment @FieldHistoryExclude @TBExecution
+  @198226  @sprint-4 @vaibhav  @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the updated history after reassignment of task ownership for Award module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6003,7 +6003,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "Initial Acceptance of Subaward by Subrecipient" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @196617  @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @196617  @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Intercept should fetched from the application
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -6024,7 +6024,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "Automation PM" for title "Changed By" inside field history table
+    Then I softly see value "Automation PM" for title "User" inside field history table
 
   @196982  @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate new owner PM can create sub-award after FDM is approves from app after it's related Ann ownership will assign to other PM user
@@ -8156,7 +8156,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Reviewer Name" against the value "Fiscal Reviewer" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
 
-  @204896  @sprint-11-US-224734 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @204896  @sprint-11-US-224734 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Award new award owner will receive email for submitted review by reviewer after change the award ownership
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8181,6 +8181,7 @@ Feature: Validate all scenarios of grants and award without background
       | Reviewer Name  | Role            | Description            | Due Date | Allow Record Editing |
       | Automation EXE | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -8194,6 +8195,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
@@ -8211,6 +8213,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on submit review
     Then I softly see value "Submitted" for title "Status" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
     And I logout
+    And I wait for "2" seconds
 #    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
 #    And I pause execution for "10" seconds
 #    Then I refresh the page
@@ -8382,7 +8385,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
     Then I softly see value "Initial Acceptance of Subaward by Subrecipient" for title "Task Type" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @196662 @196620  @sprint-4-US-192896 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @196662 @196620  @sprint-4-US-192896 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the award record in Target user after check the checkbox from source user & click on transfer ownership button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8410,6 +8413,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     #196620
