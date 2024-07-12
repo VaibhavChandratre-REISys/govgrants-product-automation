@@ -637,7 +637,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:recipientApplications---" panel
     Then I cannot see row level action button "Delete" against "{SavedValue:Automation Runtime Announcement Application Intake}" in flex table with id "---applicationIntake:-:recipientApplications---"
 
-  @72512 @72513 @75965 @75966 @matchPercentageIFsetAsYES @deepika @skipOnJenkins @TBExecution
+  @72512 @72513 @75965 @75966 @matchPercentageIFsetAsYES @deepika @skipOnJenkins
   Scenario: Validate the Match Percentage validation during submit for approval when the Match required setting as Yes | Validate if user submits the application without one key personal contact details then the system should throw an error message|
   Validate History Field is getting updated for PM user when Application status is Submitted to Grantor | Validate whether the Internal user is able to view the Snapshot after Application is Submitted to Grantor status
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"

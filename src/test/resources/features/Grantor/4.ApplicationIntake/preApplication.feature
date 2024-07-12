@@ -232,7 +232,7 @@ Feature: Validate all scenarios in the Pre-Application
     Then I softly see the following messages in the page details :
       | Overview Tab - Enter an Acknowledgement before submitting this Pre-Application. |
 
-  @70523 @snapshotAfterPreApplicationIsSubmitted @deepika @skipOnJenkins @TBExecution
+  @70523 @snapshotAfterPreApplicationIsSubmitted @deepika @skipOnJenkins
   Scenario:  Validate SR user is able to view the Snapshot after Pre- Application is Submitted to Grantor status
     Given I click on "Edit" in the page details
     And I wait for "5" seconds
@@ -262,8 +262,8 @@ Feature: Validate all scenarios in the Pre-Application
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "SnapShot on"
-    And I wait for "3" seconds
+    And I click on hyperlink containing value "Submission"
+    And I wait for "5" seconds
     When I download the file
     Then I see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
@@ -340,6 +340,7 @@ Feature: Validate all scenarios in the Pre-Application
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I wait for "2" seconds
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
