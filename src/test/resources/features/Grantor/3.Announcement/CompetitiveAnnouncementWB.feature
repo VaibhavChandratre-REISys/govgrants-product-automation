@@ -1,7 +1,7 @@
 @competitiveAnnouncementsWB @grantor-regression @grantor-parallel-regression @announcement @regression
 Feature: Validate all scenarios in the Competitive Announcement tab
 
-  @hitTest1 @237875 @238363 @VerifyvalidationmessageisnotdisplayedtoexeuserwhenenteredrecommendedbudgetisequaltotheBudgetedAmountonFDMrecordwhichiscreatedfromCompetitiveannouncement @sprint-14-US-224179 @komal @Allocation
+   @237875 @238363 @VerifyvalidationmessageisnotdisplayedtoexeuserwhenenteredrecommendedbudgetisequaltotheBudgetedAmountonFDMrecordwhichiscreatedfromCompetitiveannouncement @sprint-14-US-224179 @komal @Allocation
   Scenario Outline: Verify validation message is not displayed to exe user when entered recommended budget is equal to the Budgeted Amount on FDM record which is created from Competitive announcement
   | Verify validation message is not displayed to PM user when entered recommended budget is equal the Budgeted Amount on FDM record which is created from Competitive announcement with Negotiation as Yes |
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "<Filter>"
@@ -728,7 +728,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I see the sub-header is "SME Review" in the page details
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    And I wait for "3" seconds
+    And I wait for "4" seconds
     And I enter value "7" into field "NagotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
