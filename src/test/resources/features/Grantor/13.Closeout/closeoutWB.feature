@@ -859,7 +859,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Override" in page detail
 
-  @96514 @validateAcknowledgeFieldIsNonEditable @monu @wip
+  @96514 @validateAcknowledgeFieldIsNonEditable @monu
   Scenario: Verify closeout owner is not able to edit after closeout request is submitted to grantor
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -876,9 +876,9 @@ Feature: Validate all scenarios in Closeout
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
+    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "CloseoutID"
-    When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -894,11 +894,11 @@ Feature: Validate all scenarios in Closeout
     And I click on "Start" icon for "Record Id" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
-    When I enter value "Checked" into field "fieldAggreement__c"
+    When I enter value "Checked" into field "Aggreement__c"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
     Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
-    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I softly see field "Status" as "Acknowledged by Subrecipient"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
@@ -907,7 +907,10 @@ Feature: Validate all scenarios in Closeout
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "ProjectPeriodCloseoutGrantor"
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Override" in page detail
+    When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
+    And I wait for "2" seconds
+    Then I softly see that "Acknowledgement" rendered in view mode only
 
   @96735 @VerifyApprovalDecisionFieldsAndButtons-Scheduled @monu @buglogged141587
   Scenario: Validate user can see approval decision fields and button at approval decision box
@@ -2668,9 +2671,9 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     When I navigate to "History" sub tab
-#    And I select "Closeout" from dropdown present on top right of flex table id "---subAwardStandAlone:-:historyTableId---"
-#    Then I softly see value "Automation PO1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
-#    Then I softly see value "Automation PO" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
+    And I select "Closeout" from dropdown present on top right of flex table id "---subAwardStandAlone:-:historyTableId---"
+    Then I softly see value "Automation PO1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
+    Then I softly see value "Automation PO" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
 
   @200259 @ValidatePMuserasownerofcloseoutshouldnotaffectedevenifownershipofAwardistransferfromonePMusertootherPMuserisinSubmittedforapprovalstate @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM user as owner of closeout should not affected even if ownership of Award is transfer from one PM user to other PM user is in 'Submitted for approval' state

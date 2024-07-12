@@ -344,7 +344,7 @@ Feature: Validate all scenarios in the Pre-Application
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I switch to parent tab
+    And I close the tab
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I navigate to "Applications" tab
@@ -392,8 +392,9 @@ Feature: Validate all scenarios in the Pre-Application
     And I switch to tab number "1"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I switch to parent tab
+    And I close the tab
     When I click on "Submit Application" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     Given I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
