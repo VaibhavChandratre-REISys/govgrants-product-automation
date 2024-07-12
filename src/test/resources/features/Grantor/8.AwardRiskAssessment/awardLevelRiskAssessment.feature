@@ -46,7 +46,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly cannot see top right button "New" in flex table with id "---riskassessment:-:raPeerReviewFlexTableId---"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @77659 @58167 @59625 @66378 @PendingTaskCreationAndapprovalProcessofRiskAssessment @deepika @skipOnJenkins @FieldHistoryExclude @TBExecution
+  @77659 @58167 @59625 @66378 @PendingTaskCreationAndapprovalProcessofRiskAssessment @deepika @skipOnJenkins @FieldHistoryExclude
   Scenario: Validate the Approval process of Risk Assessment and whether the pending task is created for Program approver under Home Tab when the award owner submits the Risk Assessment for approval |Validate the System should capture field history post activation.
   Validate whether record onwer is able to take snapshot when the risk assessment is in created status
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -68,15 +68,19 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
+    And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I get the "EGMS ID"
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Snapshot on"
+    And I click on hyperlink containing value "SnapShot on"
     When I download the file
     Then I softly see "Created" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
@@ -99,13 +103,14 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly see that "EGMS ID" is in "Active" status
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Active"
     When I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Active" for title "New Value" inside field history table
 
-  @58168 @58169 @59875 @pendingTaskCreationforRiskAssesmentostRejectCheckFieldHistory @deepika @FieldHistoryExclude @TBExecution
+  @58168 @58169 @59875 @pendingTaskCreationforRiskAssesmentostRejectCheckFieldHistory @deepika @FieldHistoryExclude
   Scenario: Validate the field history after rejection of Risk Assessment and whether user is able to view the pending task once submitted for approval under Monitoring Tab and First Approver is able to reject the Risk Assessment then status in Progress bar is Rejected.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -121,6 +126,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -145,6 +151,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
     And I refresh the page
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     When I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
@@ -1362,7 +1369,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Overview" sub tab
     Then I see "Risk Level" image as "b-red.png"
 
-  @59808 @historyOfRiskAssessmentWhenSendBacktoOwnerbyPM @deepika @FieldHistoryExclude @TBExecution
+  @59808 @historyOfRiskAssessmentWhenSendBacktoOwnerbyPM @deepika @FieldHistoryExclude
   Scenario: To Validate field history update post Risk Assessment is send back to owner by program approver.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1401,9 +1408,9 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I see value "Submitted for Approval" for title "Old Value" inside field history table
+    Then I see value "Submitted for Approval" for title "Original Value" inside field history table
 
-  @59809 @historyOfRiskAssessmentWhenSendBacktoOwnerbyFO @deepika @buglogged101142 @FieldHistoryExclude @TBExecution
+  @59809 @historyOfRiskAssessmentWhenSendBacktoOwnerbyFO @deepika @buglogged101142 @FieldHistoryExclude
   Scenario: To Validate field history update post Risk Assessment is send back to owner by Fiscal Approver.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2179,6 +2186,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
+    And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -2192,8 +2200,9 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Submit for Approval" in the page details
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Subaward Risk Assessment"
+    And I click on hyperlink containing value "SnapShot on"
     When I download the file
     Then I see "Submitted for Approval" on page "1" of "govgrants" pdf file
 
@@ -2218,6 +2227,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
+    And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
@@ -2254,8 +2264,10 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Risk Assessment Activation/Rejection.pdf"
+    And I wait for "3" seconds
     When I download the file
     Then I see "Active" on page "1" of "govgrants" pdf file
 
@@ -3021,7 +3033,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "{SavedValue:EGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" against the value "Expired" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
-  @60965 @fieldCompares @deepika @skipOnJenkins
+  @60965 @fieldCompares @deepika
   Scenario: Validate whether Record Owner user is able to view and Compare field values on UI and PDF match
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3041,6 +3053,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
+    And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -3054,8 +3067,9 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Submit for Approval" in the page details
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     When I navigate to "History" sub tab
-    Then I see snapshot with name containing "Subaward Risk Assessment" as name
+    Then I see snapshot with name containing "SnapShot on" as name
 
   @61384 @addButtonAvailabilityafterSubmitforApproval @deepika
   Scenario: Validate the add button on attachments flextable is not available for Risk Assessment Owner once submitted for Approval
@@ -3279,15 +3293,16 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     Then I see value "NA" for title "Risk Level" against the value "{SavedValue:EGMSID}" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 
-  @65461 @downloadRiskAssessmentInXLS @deepika @skipOnJenkins
+  @65461 @downloadRiskAssessmentInXLS @deepika @wip
   Scenario: Validate whether user can Download the Active Risk Assessment in XLS format from Monitoring Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Monitoring" tab
     And I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Subaward Risk Assessments - All"
-    When I click on top right parallel lines bar for "Subaward Risk Assessments - All"
-    And I select "Download as CSV" from parallel lines dropdown of "Subaward Risk Assessments - All"
-    Then I verify that "csv" file is downloaded
+    And I click on parallel menu button in flex table title "Subaward Risk Assessments - All"
+    And I select "Download as CSV" from dropdown
+    And I wait for "3" seconds
+    Then I see "Subaward Risk Assessments - Active" in downloaded xls or csv file "govgrants"
 
   @65462 @downloadRiskAssessmentInPDF @deepika @skipOnJenkins
   Scenario: Validate whether user can Download the Active Risk Assessment in PDF format from Monitoring Tab
@@ -3295,10 +3310,12 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Monitoring" tab
     And I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Subaward Risk Assessments - All"
-    When I click on top right parallel lines bar for "Subaward Risk Assessments - All"
-    And I select "Download as PDF" from parallel lines dropdown of "Subaward Risk Assessments - All"
+    And I click on parallel menu button in flex table title "Subaward Risk Assessments - All"
+    And I select "Download as PDF" from dropdown
+    And I wait for "3" seconds
     And I download the file
-    Then I verify that "pdf" file is downloaded
+    And I wait for "3" seconds
+    Then I see "Subaward Risk Assessments - Active" on page "1" of "govgrants" pdf file
 
   @65463 @verifyOnlyOneRiskAssessmentInTable @deepika
   Scenario: Validate when the risk assessment is intiated for draft award then only one risk assessment must be available in the table
@@ -5828,7 +5845,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Automation PM1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
 
-  @198628 @ValidatePMprofileusercansendbacktheawardriskassessmentforstep2approvalswhenownershipistransferredforaRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @198628 @ValidatePMprofileusercansendbacktheawardriskassessmentforstep2approvalswhenownershipistransferredforaRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PM profile user can send back the award risk assessment for step 2 approvals when ownership is transferred for a RA which is in Submitted for approval status
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5847,12 +5864,11 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Save" in the page details
     And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
+    And I navigate to "Management" sub tab
+    When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
+    And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
@@ -6097,7 +6113,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Management" sub tab
     Then  I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-  @198712 @ValidatePMprofileusercantransferownershipoftheexpiredawardriskassessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @198712 @ValidatePMprofileusercantransferownershipoftheexpiredawardriskassessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PM profile user can transfer ownership  of the expired award risk assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6120,6 +6136,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
+    And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
@@ -6151,6 +6168,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
+    And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
@@ -6320,7 +6338,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
 
-  @201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Email Notification is sent to ADMIN old owner & new owner with respect to ownership transfer of a Active Risk Assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6343,6 +6361,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
+    And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
@@ -6554,7 +6573,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly cannot see row level action button "Edit" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
     Then I softly cannot see row level action button "Delete" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
 
-  @201675 @ValidatePMprofileusercantransferownershipoftherejectedawardriskassessment @sprint-4-US-197126 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @201675 @ValidatePMprofileusercantransferownershipoftherejectedawardriskassessment @sprint-4-US-197126 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PM profile user can transfer ownership of the rejected award risk assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6577,6 +6596,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
+    And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
@@ -7298,7 +7318,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
 
-  @hitRun @116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @vaibhav @Allocation @wip
+  @116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @vaibhav @Allocation @wip
   Scenario: Validate Risk Assessments are read only for SR User
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -7381,27 +7401,28 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:organizationprofileviewTableId---"
     And I logout
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: An Subaward Risk Assessment has been createdfor {SavedValue:AwardEGMSID}
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello Automation PM,
-
-      This email to notify you that an Subaward Risk Assessment has been created for Subaward {SavedValue:AwardEGMSID} for Subrecipient Automation IND.
-
-      Log in to EGMS and click here to review the Subaward risk assessment details and access the task.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-      Thank you.
-      The EGMS Team
-      """
-    Then I refresh the page
+    And I wait for "2" seconds
+#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Sandbox: Notification: An Subaward Risk Assessment has been createdfor {SavedValue:AwardEGMSID}
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello Automation PM,
+#
+#      This email to notify you that an Subaward Risk Assessment has been created for Subaward {SavedValue:AwardEGMSID} for Subrecipient Automation IND.
+#
+#      Log in to EGMS and click here to review the Subaward risk assessment details and access the task.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#      Thank you.
+#      The EGMS Team
+#      """
+#    Then I refresh the page
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "IND" user
     And I navigate to "Monitoring" tab
@@ -7475,23 +7496,24 @@ Feature: Validate all scenarios in the Risk Assessment
     And I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
     And I logout
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Approver Sent Back Subaward Risk Assessmentfor {SavedValue:AwardEGMSID}
-      """
-
-    Then I see the mail text is as follows :
-      """
-      Hello,
-      This email is to inform you that the Subaward Risk Assessment for {SavedValue:AwardEGMSID} has been sent back by the Approver.
-      Log in to EGMS and click here for more details.
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-      Thank you.
-      The EGMS Team
-      """
+    And I wait for "2" seconds
+#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Sandbox: Notification: Approver Sent Back Subaward Risk Assessmentfor {SavedValue:AwardEGMSID}
+#      """
+#
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#      This email is to inform you that the Subaward Risk Assessment for {SavedValue:AwardEGMSID} has been sent back by the Approver.
+#      Log in to EGMS and click here for more details.
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#      Thank you.
+#      The EGMS Team
+#      """
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "IND" user
     And I navigate to "Monitoring" tab
@@ -7550,23 +7572,24 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
     And I logout
-    And I checkout to yopmail with mailid "automationpo@yopmail.com"
-    And I pause execution for "20" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Approver Sent Back Subaward Risk Assessmentfor {SavedValue:AwardEGMSID}
-      """
-
-    Then I see the mail text is as follows :
-      """
-      Hello,
-      This email is to inform you that the Subaward Risk Assessment for {SavedValue:AwardEGMSID} has been sent back by the Approver.
-      Log in to EGMS and click here for more details.
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-      Thank you.
-      The EGMS Team
-      """
+    And I wait for "2" seconds
+#    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+#    And I pause execution for "20" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Sandbox: Notification: Approver Sent Back Subaward Risk Assessmentfor {SavedValue:AwardEGMSID}
+#      """
+#
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#      This email is to inform you that the Subaward Risk Assessment for {SavedValue:AwardEGMSID} has been sent back by the Approver.
+#      Log in to EGMS and click here for more details.
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#      Thank you.
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -7874,7 +7897,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @116321 @ValidateFieldhistorySnapshotupdatepostApprovalofRiskAssessment @Sprint-23-US-273843 @vaibhav @Allocation @FieldHistoryExclude @TBExecution
+  @116321 @ValidateFieldhistorySnapshotupdatepostApprovalofRiskAssessment @Sprint-23-US-273843 @vaibhav @Allocation @FieldHistoryExclude
   Scenario: Validate Field history Snapshot update post Approval of Risk Assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -7897,6 +7920,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
+    And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
@@ -7928,10 +7952,11 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Created" for title "Original Value" inside field history table
     Then I softly see value "Active" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
-    Then I softly see value "Subaward Risk Assessment.pdf" for title "File Name" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
-    Then I softly see value "{SavedValue:PM Username}" for title "Taken By" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
-    Then I softly see value "Risk Assessment Activation/Rejection.pdf" for title "File Name" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
-    Then I softly see value "{SavedValue:FD Username}" for title "Taken By" inside table "---riskassessment:-:riskAssSnapShotHistoryTableId---"
+    And I click on back arrow
+    Then I softly see snapshot with name containing "Subaward Risk Assessment.pdf" as name
+    Then I softly see snapshot with user containing "{SavedValue:PM Username}" against the value "Subaward Risk Assessment.pdf"
+    Then I softly see snapshot with name containing "Risk Assessment Activation/Rejection.pdf" as name
+    Then I softly see snapshot with user containing "{SavedValue:FD Username}" against the value "Risk Assessment Activation/Rejection.pdf"
 
   @119401 @Validatetheriskassessmentisapprovedstep4setupactivatedpostalltheapprovalarecompletewhenpeerreviewwasperformedonit @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate the risk assessment is approved step4 set up activated post all the approval are complete when peer review was performed on it

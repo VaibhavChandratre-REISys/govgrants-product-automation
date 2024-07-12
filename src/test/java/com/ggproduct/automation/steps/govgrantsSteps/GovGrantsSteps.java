@@ -784,6 +784,7 @@ public final class GovGrantsSteps {
             I.amPerforming().waitFor().makeThreadSleep(2000);
         } else {
             I.amPerforming().click().on(element);
+            govgrants.perform().modal().acceptPopUp();
         }
     }
 
@@ -1159,9 +1160,9 @@ public final class GovGrantsSteps {
         ggObjects.performClickOnAdvanceFilterWithTableIdForLWC(tableId);
     }
 
-    @Then("I (softly see|see) value \"([^\"]*)\" for title \"([^\"]*)\" inside field history table$")
+    @Then("I (softly see|see|do not see|softly do not see) value \"([^\"]*)\" for title \"([^\"]*)\" inside field history table$")
     public void iSoftlySeeValueForTitleInsideFieldHistoryTable(String usage, String rowValue, String headerName) {
-        ggObjects.toCheckValueForTitleInsideFieldHistoryTable(usage.contains("softly"),rowValue,headerName);
+        ggObjects.toCheckValueForTitleInsideFieldHistoryTable(usage,rowValue,headerName);
     }
 
 

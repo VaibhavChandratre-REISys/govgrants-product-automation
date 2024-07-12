@@ -1016,7 +1016,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I perform quick search for "{SavedValue:Automation Runtime Desk Review Org level}" in "DeskReview" panel
     Then I softly see "No Records Found" inside flex table with id "DeskReview"
 
-  @65070 @historyOfOrgDeskReviewsendbacktoOwner @deepika @FieldHistoryExclude @TBExecution
+  @65070 @historyOfOrgDeskReviewsendbacktoOwner @deepika @FieldHistoryExclude
   Scenario: Validate History Field is getting Updated at Award owner End when Org Desk Review status is Submitted to Grantor.
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"

@@ -432,7 +432,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Spent" as "$500.00"
     Then I softly see value "$500.00" for title "Spent" against the value "Total" inside table "---closeout:-:subrecipientBudgetSummaryFocusAreaTableId---"
 
-  @265593 @265639 @ValidateSPIuserseespentvalueshouldbeupdatedoncloseoutinSubmitforapprovalstateofcloseout @sprint-20-US-263394 @vaibhav @Allocation @wip
+  @265593 @265639 @ValidateSPIuserseespentvalueshouldbeupdatedoncloseoutinSubmitforapprovalstateofcloseout @sprint-20-US-263394 @vaibhav @Allocation @TBExecution
   Scenario: Validate SPI user see 'spent' value should be updated on closeout in Submit for approval state of closeout
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user

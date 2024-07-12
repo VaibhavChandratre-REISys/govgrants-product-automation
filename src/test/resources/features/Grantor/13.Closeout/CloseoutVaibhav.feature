@@ -157,10 +157,11 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID1}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID1}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     Then I softly see field "Override Justification" as "Automation Test justification"
     When I click on "Override" in the page details
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -178,13 +179,13 @@ Feature: Validate all scenarios in Closeout
     When I click "{SavedValue:GrantID}" lookup link
     When I navigate to "Requests" sub tab
     Then I softly see value "{SavedValue:closeoutID1}" for title "EGMS ID" inside table "---closeout:-:closeoutTableId---"
-    And I softly see value "Termination" for title "Type" inside table "---closeout:-:closeoutTableId---"
-    And I softly see value "Overridden" for title "Status" inside table "---closeout:-:closeoutTableId---"
+    Then I softly see value "Termination" for title "Type" inside table "---closeout:-:closeoutTableId---"
+    Then I softly see value "Overridden" for title "Status" inside table "---closeout:-:closeoutTableId---"
     Then I softly can see row level action button "View" against "{SavedValue:closeoutID1}" in flex table with id "---closeout:-:closeoutTableId---"
     Then I softly see value "{SavedValue:closeoutID2}" for title "EGMS ID" inside table "---closeout:-:closeoutTableId---"
-    And I softly see value "Early Completion" for title "Type" inside table "---closeout:-:closeoutTableId---"
-    And I softly see value "Automation Test Description" for title "Reason" inside table "---closeout:-:closeoutTableId---"
-    And I softly see value "Created" for title "Status" inside table "---closeout:-:closeoutTableId---"
+    Then I softly see value "Early Completion" for title "Type" inside table "---closeout:-:closeoutTableId---"
+    Then I softly see value "Automation Test Description" for title "Reason" inside table "---closeout:-:closeoutTableId---"
+    Then I softly see value "Created" for title "Status" inside table "---closeout:-:closeoutTableId---"
     Then I softly can see row level action button "View" against "{SavedValue:closeoutID2}" in flex table with id "---closeout:-:closeoutTableId---"
     Then I softly can see row level action button "Edit" against "{SavedValue:closeoutID2}" in flex table with id "---closeout:-:closeoutTableId---"
     Then I softly can see row level action button "Delete" against "{SavedValue:closeoutID2}" in flex table with id "---closeout:-:closeoutTableId---"

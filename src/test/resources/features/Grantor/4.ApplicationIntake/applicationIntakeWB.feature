@@ -116,7 +116,7 @@ Feature: Application Intake scenarios without background
     And I wait for "3" seconds
     Then I cannot see top right button "Submit Application" in page detail
 
-  @70464  @deepika @wip @NotValid
+  @70464  @deepika
   Scenario: Validate whether user should not able to qualify the announcement again for once it is Qualified
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -135,11 +135,12 @@ Feature: Application Intake scenarios without background
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:qualifiedTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:qualifiedTableId---" without waiting for record
-    When I click on "Qualify" in the page details
-    #requested manual qa to provide correct test steps
-    Then I see the following messages in the page details :
-      | This Opportunity has already been qualified for your Organization. |
+    Then I do not see value "{SavedValue:Automation Runtime Announcement Application Intake}" for title "Opportunity Name" inside table "---applicationIntake:-:qualifiedTableId---"
+#    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:qualifiedTableId---" without waiting for record
+#    When I click on "Qualify" in the page details
+#    #requested manual qa to provide correct test steps
+#    Then I see the following messages in the page details :
+#      | This Opportunity has already been qualified for your Organization. |
 
   @70463 @73366 @70462 @userCanEnterBudgetDetailsApplTitleasOppurtunityTitleField @deepika
   Scenario: To verify that the budget field is editable for the Subrecipient (SPI User) under budget tab on Application | Validate the Application created date is updated with Today's date
@@ -649,10 +650,12 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "6" seconds
     And I click modal button "Save and Continue"
     And I wait for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Overview" sub tab
     And I save the field containing "Match Required?" as "Yes"
     When I navigate to "Proposal" sub tab
@@ -672,10 +675,11 @@ Feature: Application Intake scenarios without background
     And I close the tab
     When I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
-      | Budget Tab - To submit this application, provide the match details (Cash Match/Non-Cash Match).    |
-      | Budget Tab - The Subrecipient Match should not be less than the given value.                       |
-      | Budget Tab - Enter budget details before submitting an Application to the Grantor.                 |
-      | Overview Tab - Specify at least one key Personnel for Application in contacts/key personnel table. |
+      | Budget Tab - Enter budget details before submitting an Application to the Grantor.                                                                  |
+      | Budget Tab - Provide the match (Cash Match/Non-Cash Match) details to submit this application.                                                      |
+      | Overview Tab - Specify at least one contact as Key Personnel for Application.                                                                       |
+      | Budget Tab - Budgeted Amount should be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section. |
+      | Budget Tab - The Subrecipient Match should not be less than the given value.                                                                        |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
@@ -693,9 +697,13 @@ Feature: Application Intake scenarios without background
     When I click toggle button to select "Applications - All"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside table
     When I navigate to "History" sub tab
-#    Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted to Grantor" for title "New Value" inside field history table
+    And I click on back arrow
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     And I click on hyperlink containing value "Submission"
     When I download the file
     Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
@@ -833,7 +841,7 @@ Feature: Application Intake scenarios without background
       | User | userType        |
       | SPI3 | Automation SPI3 |
 
-  @73516 @73517 @supportingDocValidationOnApplication @deepika  
+  @73516 @73517 @supportingDocValidationOnApplication @deepika
   Scenario: Validate whether User will be able to attach any document if the supporting document details mentioned in the Announcement
   Validate if suppoting document is not uploaded by user while submitting the application then the system should throw an error message on screen
   Validate user will be able to view and add additional focus areas while creating an application only when the published announcemnt has additional focus areas
@@ -1072,7 +1080,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
 
-  @75496 @qualifySuccessMessage @deepika @wip @notValid
+  @75496 @qualifySuccessMessage @deepika
   Scenario:  Validate user will be able to view the success message for qualification.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1083,8 +1091,9 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Application is successfully qualified |
+    Then I softly see field "Status" as "Qualified"
+#    Then I softly see the following messages in the page details contains:
+#      | Application is successfully qualified |
 
   @75501 @75502 @otherOrgUserCanAlsoQualifyAndCreateApplication @deepika
   Scenario: Validate Opportunities created from 'Competitive Announcements' are available for all External users under Oppurtunities
@@ -1336,7 +1345,7 @@ Feature: Application Intake scenarios without background
     Then I softly see the following messages in the page details contains:
       | An Application cannot be submitted after the Application Due Date. |
 
-  @77657 @snapshotHistoryApplication @deepika @skipOnJenkins
+  @77657 @snapshotHistoryApplication @deepika
   Scenario: Validate whether SPI user will be able to take the snapshot on page when the Application is in Created status and is saved under snapshot history
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1355,8 +1364,9 @@ Feature: Application Intake scenarios without background
     When I click on "Save" in the page details
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Snapshot on"
+    And I click on hyperlink containing value "SnapShot on"
     When I download the file
     Then I see "Created" on page "1" of "govgrants" pdf file
 
@@ -2106,7 +2116,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Related Log" sub tab
     Then I softly can see top right button "Validate" in flex table with id "---applicationReview:-:reviewStepsTableId---"
 
-   @196855  @sprint-4-US-197579 @vaibhav @reassignment
+  @196855  @sprint-4-US-197579 @vaibhav @reassignment
   Scenario: Validate App-Rev new App owner can see 'related log' tab after Ann ownership will get change
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Announcements" tab
@@ -2198,13 +2208,13 @@ Feature: Application Intake scenarios without background
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
-     And I click on "Edit" in the split screen page details
+    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-     And I click on "Edit" in the split screen page details
-     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I click on "Edit" in the split screen page details
+    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I get the "EGMS ID"

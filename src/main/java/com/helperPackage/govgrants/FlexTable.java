@@ -155,6 +155,7 @@ public final class FlexTable implements FlexTableComponent {
             I.amPerforming().waitFor().makeThreadSleep(2000);
             getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
             try {
+                I.amPerforming().scroll().withMouseToElement(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
                 I.amPerforming().click().on(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
             } catch (Exception e) {
                 I.amPerforming().click().withJavaScript(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
