@@ -2226,7 +2226,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     Then I cannot see top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @64733 @downloadOrgRaInPDF @skipOnJenkins @TBExecution
+  @64733 @downloadOrgRaInPDF @skipOnJenkins
   Scenario: Validate whether user can Download the Active Org Risk assessment in PDF format.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds

@@ -650,11 +650,12 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "6" seconds
     And I click modal button "Save and Continue"
     And I wait for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Overview" sub tab
     And I save the field containing "Match Required?" as "Yes"
     When I navigate to "Proposal" sub tab
@@ -703,7 +704,7 @@ Feature: Application Intake scenarios without background
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
-    And I click on hyperlink containing value "Snapshot"
+    And I click on hyperlink containing value "Submission"
     When I download the file
     Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 

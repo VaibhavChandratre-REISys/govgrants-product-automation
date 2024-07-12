@@ -664,7 +664,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---preApplication:-:recipientPreApplicationsTableId---" panel
     Then I softly see value "Submitted to Grantor" for title "Status" inside table "---preApplication:-:recipientPreApplicationsTableId---"
 
-  @34156 @75962 @75963 @75964 @preAppHistoryFieldGetUdated @deepika @skipOnJenkins @TBExecution
+  @34156 @75962 @75963 @75964 @preAppHistoryFieldGetUdated @deepika @skipOnJenkins
   Scenario: Validate History Field is getting updated for PM user when Pre Application status is Submitted to Grantor.| Validate the History field is getting updated when internal user accepts the pre-application
   Validate whether the Internal user is able to view the Snapshot after Pre-Application is Submitted to Grantor status | Validate whether spi user can view the snapshot once the pre-application is submitted to grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
@@ -679,7 +679,7 @@ Feature: Pre-Application scenarios without background
     And I wait for "2" seconds
     Then I softly see field "Pre-Application Due Date" is not editable
     And I click on "Create Pre-Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -730,7 +730,8 @@ Feature: Pre-Application scenarios without background
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
-    And I click on hyperlink containing value "Snapshot"
+    And I click on hyperlink containing value "Submission"
+    And I wait for "3" seconds
     When I download the file
     Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 

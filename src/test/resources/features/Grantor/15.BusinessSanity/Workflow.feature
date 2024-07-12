@@ -1540,7 +1540,8 @@ Feature: Validate all scenarios of every modules flow
 #   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
    Given I login to "As a Grantor" app as "PM" user
    And I halt execution
-   And I click on hyperlink containing value "Risk Assessment Activation/Rejection.pdf"
-   When I download the file
-   Then I see "Active" on page "1" of "govgrants" pdf file
+    And I click on hyperlink containing value "Submission"
+    And I wait for "3" seconds
+    When I download the file
+    Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
    And I halt execution
