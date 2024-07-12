@@ -212,6 +212,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -220,6 +221,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I click on "View" icon for "Record id" inside table
     When I click on "Complete Review" in the page details
     Then I see status in Progress-bar is "Reviewed" and is "dark blue"
+
 
   @35003 @announcementAddAttachmentFA 
   Scenario: Validate the attachment for an Announcement
