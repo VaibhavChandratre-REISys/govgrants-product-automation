@@ -1,14 +1,12 @@
 @organizationalSiteVisitUndo @t1 @grantor-regression @grantor-parallel-regression @siteVisit @regression @organizationalSiteVisitUndo @siteVisit_Lwc_Run
 Feature: Validate all scenarios in Organizational Site Visit With Undo
 
-  @ch1 @289790 @289791 @289792 @289793 @289797 @289798 @289808 @289809 @291842 @VerifywhenPmapprovercanclickonundobuttoninOrganizationalSiteVisitrecordwhenrecordisinApprovedstate @sprint-2-US-288691 @hitesh @Undo @FieldHistoryExclude @TBExecution
+  @289790 @289791 @289792 @289793 @289797 @289798 @289808 @289809 @291842 @VerifywhenPmapprovercanclickonundobuttoninOrganizationalSiteVisitrecordwhenrecordisinApprovedstate @sprint-2-US-288691 @hitesh @Undo @FieldHistoryExclude
   Scenario: Verify when Pm approver can click on undo button in Organizational Site Visit record when record is in Approved state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
     And I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -108,9 +106,9 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
     And I click on back arrow
     Then I softly see snapshot with name containing "Organizational Site Visit - Undo Approval.pdf" as name
-    When I click on "Menu" in the page details
+    And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
-    When I navigate to "History" sub tab
+    And I wait for "5" seconds
     And I refresh the page
     And I wait for "5" seconds
     Then I see snapshot with name containing "SnapShot" as name
@@ -143,6 +141,13 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "Record Id"
     And I click on hyperlink containing value "Record Id"
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
+    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    Given I navigate to "Related Log" sub tab
+    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
     #289793
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail

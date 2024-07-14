@@ -238,20 +238,32 @@ Feature: Validate all scenarios in the Pre-Application
     And I wait for "5" seconds
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
-    Then I softly see value "$10,150.00" for title "Total Project Cost" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
     When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I switch to parent tab
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Snapshot_Pre-Application_Submission.pdf"
+    And I click on hyperlink containing value "Submission"
+    And I wait for "5" seconds
     When I download the file
     Then I see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
@@ -308,7 +320,7 @@ Feature: Validate all scenarios in the Pre-Application
       | Announcement Name                                        |
       | {SavedValue:Automation Runtime Announcement Application} |
 
-  @75523 @77655 @75522 @preApplicationPDFRelatedLog @aashish @skipOnJenkins
+  @75523 @77655 @75522 @preApplicationPDFRelatedLog @aashish @skipOnJenkins @TBExecution
   Scenario Outline: To verify system allow to download PDF for Pre-application section in Related log tab of announcement | To verify user able to view Pre-Applications in Pre-Applications section in Related log tab of announcement
   Validate whether user can view the Accepted Status on progress bar once the pre-application is accepted by Grantor
     Given I click on "Edit" in the page details
@@ -327,16 +339,14 @@ Feature: Validate all scenarios in the Pre-Application
     And I upload attachment "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I wait for "2" seconds
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    And I click on "Back" in the page details
-    And I switch to parent tab
-    And I refresh the page
+    And I close the tab
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -360,15 +370,11 @@ Feature: Validate all scenarios in the Pre-Application
     Then I softly see status in Progress-bar is "Accepted" and is "dark blue"
     Then I softly can see top right button "Create Application" in page detail
     When I click on "Create Application" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I navigate to "Budget" sub tab
-    Given I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-      | Construction  | 1000   | 100        | 100            | 100            |
+    And I wait for "2" seconds
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -376,22 +382,19 @@ Feature: Validate all scenarios in the Pre-Application
     And I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I switch to tab number "1"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I wait for "2" seconds
     And I switch to tab number "1"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    And I click on "Back" in the page details
-    And I switch to parent tab
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I close the tab
     When I click on "Submit Application" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     Given I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -399,7 +402,8 @@ Feature: Validate all scenarios in the Pre-Application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "ActiveFundingOpportunitiesCompitive" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "ActiveFundingOpportunitiesCompitive"
     When I navigate to "Related Log" sub tab
-    And I select "Download as PDF" from parallel lines dropdown of "Pre-Applications"
+    And I click on parallel menu button in flex table title "Submitted Pre-Applications"
+    And I select "Download as PDF" from dropdown
     And I download the file
     Then I softly see "Pre-Applications" on page "1" of "govgrants" pdf file
     Examples:

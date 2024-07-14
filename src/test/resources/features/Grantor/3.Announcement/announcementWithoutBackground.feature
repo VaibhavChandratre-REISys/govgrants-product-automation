@@ -3216,7 +3216,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
     Then I see value "Publish Announcement" for title "Task Type" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @198424 @ValidatefieldhistoryshouldbeupdateafterAnnownershiptaskreassigntootheruser @sprint-4 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @198424 @ValidatefieldhistoryshouldbeupdateafterAnnownershiptaskreassigntootheruser @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate field history should be update after Ann ownership task reassign to other user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

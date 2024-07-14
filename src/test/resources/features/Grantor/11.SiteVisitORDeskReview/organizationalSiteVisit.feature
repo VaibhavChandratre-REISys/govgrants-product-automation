@@ -18,6 +18,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I pause execution for "3" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I pause execution for "2" seconds
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -35,7 +36,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "Save" in the page details
     And I pause execution for "3" seconds
     And I close the tab
-    And I refresh the page
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     And I switch to tab number "1"
     And I pause execution for "3" seconds
@@ -43,7 +43,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "Save" in the page details
     And I pause execution for "3" seconds
     And I close the tab
-    And I refresh the page
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
@@ -54,8 +53,6 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
 
   @59010 @51079 @orgSiteVisitCreationEdition
@@ -991,7 +988,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I download the file
     Then I softly see "A Simple PDF File " on page "1" of "govgrants" pdf file
 
-  @61398 @56044 @submittingForApprovalFieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByProgramApprover @keerti @FieldHistoryExclude @TBExecution
+  @61398 @56044 @submittingForApprovalFieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByProgramApprover @keerti @FieldHistoryExclude
   Scenario: To Validate User will be able to view the Submit for Approval button  and field history update post Org level Site Visit is send back to owner by program approver
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1059,7 +1056,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on hyperlink containing value "View All"
     Then I softly see value "Created" for title "Original Value" inside field history table
 
-  @61399 @FieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByFiscalApprover @keerti @FieldHistoryExclude @TBExecution
+  @61399 @FieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByFiscalApprover @keerti @FieldHistoryExclude
   Scenario: To Validate field history update for Org Level Site Visits  is send back to owner by Fiscal Approver
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1480,7 +1477,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I perform quick search for "Record Id" in "SiteVisit" panel
     Then I softly see "No Records Found" inside flex table with id "SiteVisit"
 
-  @ch1 @65152 @historyOfOrgSiteVisitsendbacktoOwner @deepika @smoke @FieldHistoryExclude @TBExecution
+  @65152 @historyOfOrgSiteVisitsendbacktoOwner @deepika @smoke @FieldHistoryExclude
   Scenario: Validate History Field is getting Updated at Award owner End when Org Site Visit status is Submitted to Grantor.
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"

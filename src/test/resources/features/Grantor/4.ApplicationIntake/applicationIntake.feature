@@ -259,7 +259,7 @@ Feature: Validate all scenarios in the Application Intake
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---applicationIntake:-:ApplicationNotesTableId---"
 
-  @73521 @70526 @snapshotAfterApplicationIsSubmitted @deepika @skipOnJenkins
+  @73521 @70526 @snapshotAfterApplicationIsSubmitted @deepika
   Scenario Outline: Validate SR user is able to view the Snapshot after Application is Submitted to Grantor status| Validate once the Application is submitted to Grantor then the field Submitted by on Overview Tab will get updated by the User Name.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -271,29 +271,23 @@ Feature: Validate all scenarios in the Application Intake
       | Construction  | 1000   | 100        | 100            | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Project Role             | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
-    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I wait for "3" seconds
-    And I click on "Edit" in the split screen page details
+    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I switch to tab number "1"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I wait for "2" seconds
-    And I click on "Save" in the split screen page details
-    And I wait for "2" seconds
-    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I click on "Edit" in the split screen page details
+    And I click on "Save" in the page details
+    And I close the tab
+    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
-    And I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "flexGridAppContact" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I click on "Save" in the page details
+    And I close the tab
     When I click on "Submit Application" in the page details
     And I navigate to "Overview" sub tab
     Then I softly see field "Submitted By" as "{SavedValue:SPI3 Username}"
@@ -301,7 +295,7 @@ Feature: Validate all scenarios in the Application Intake
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Application Name>"
+    And I perform quick search for "<Application Name>" in "---applicationIntake:-:appAllTableId---" panel
     When I click on "View" icon for "<Application Name>" inside table
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown

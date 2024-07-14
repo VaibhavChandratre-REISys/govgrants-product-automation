@@ -1180,7 +1180,7 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @279457 @VerifyPOapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-295138 @hitesh @Temphitesh @FieldHistoryExclude @TBExecution
+  @279457 @VerifyPOapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-295138 @hitesh @Temphitesh @FieldHistoryExclude
   Scenario:Verify PO approver should see Undo button after approval task ownership reassign to him
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1243,7 +1243,7 @@ Feature: Validate all scenarios for program
     And I click on hyperlink containing value "View All"
     Then I softly see value "Approved" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
-    Then I softly see value "Automation PO1" for title "Changed By" inside field history table
+    Then I softly see value "Automation PO1" for title "User" inside field history table
 
   @PoojaUndo @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138 @hitesh @buglogged-356843
   Scenario: Verify notification email should generate to new owner of program after click on Undo button

@@ -1531,3 +1531,18 @@ Feature: Validate all scenarios of every modules flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
+
+
+  @test
+  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
+#   Given I am on "INTERNAL" portal
+##   And I generate the random EmailID and save as "uniqueEmailID" for maildrop
+##   And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+#   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
+   Given I login to "As a Grantor" app as "PM" user
+   And I halt execution
+    And I click on "Download As PDF" in the page details
+    And I wait for "5" seconds
+    And I download the file
+    Then I see "Approved" on page "1" of "govgrants" pdf file
+   And I halt execution

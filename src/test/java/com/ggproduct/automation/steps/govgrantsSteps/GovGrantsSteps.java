@@ -784,6 +784,7 @@ public final class GovGrantsSteps {
             I.amPerforming().waitFor().makeThreadSleep(2000);
         } else {
             I.amPerforming().click().on(element);
+            govgrants.perform().modal().acceptPopUp();
         }
     }
 
@@ -801,7 +802,7 @@ public final class GovGrantsSteps {
     @And("I click on (enhanced view|parallel menu) button in flex table title \"([^\"]*)\"$")
     public void iClickOnParallelMenuButtonInFlexTableTitled(String usage, String flexTableTitle) {
         if (usage.equalsIgnoreCase("parallel menu")) {
-            By menuButton = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa-bars')] | //*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]/preceding-sibling::span//*[@title='Menu' or contains(@class,'fa-bars')] | //*[text()='" + flexTableTitle + "']//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//*[@title='Menu' or contains(@class,'fa fa-bars')] | //c-flex-gridlwc//*[text()='" + flexTableTitle + "']/../parent::div//div[@class='dropdowntogglemenu']//button[@title='Menu']");
+            By menuButton = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa-bars')] | //*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]/preceding-sibling::span//*[@title='Menu' or contains(@class,'fa-bars')] | //*[text()='" + flexTableTitle + "']//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//*[@title='Menu' or contains(@class,'fa fa-bars')] | //c-lwc-flex-table//*[text()='" + flexTableTitle + "']/../parent::div//div[@class='dropdowntogglemenu']//button[@title='Menu']");
             if (I.amPerforming().getElementReference().forListOfElements().of(menuButton).size() > 2) {
                 menuButton = By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa-bars') | //*[" + I.amPerforming().sanityOfXpathTo().equals("text()", flexTableTitle) + "]//ancestor::div[contains(@class,'panel-heading')]//*[@title='Menu' or contains(@class,'fa fa-bars')]");
             }
@@ -1159,9 +1160,9 @@ public final class GovGrantsSteps {
         ggObjects.performClickOnAdvanceFilterWithTableIdForLWC(tableId);
     }
 
-    @Then("I (softly see|see) value \"([^\"]*)\" for title \"([^\"]*)\" inside field history table$")
+    @Then("I (softly see|see|do not see|softly do not see) value \"([^\"]*)\" for title \"([^\"]*)\" inside field history table$")
     public void iSoftlySeeValueForTitleInsideFieldHistoryTable(String usage, String rowValue, String headerName) {
-        ggObjects.toCheckValueForTitleInsideFieldHistoryTable(usage.contains("softly"),rowValue,headerName);
+        ggObjects.toCheckValueForTitleInsideFieldHistoryTable(usage,rowValue,headerName);
     }
 
 

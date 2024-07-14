@@ -1081,7 +1081,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details :
       | Setup Tab - Management Review - Management Review: At least one section must be added to this form. |
 
-  @34750 @106291 @110156 @110141 @submittingProgramForApproval @monu @FieldHistoryExclude @TBExecution
+  @34750 @106291 @110156 @110141 @submittingProgramForApproval @monu @FieldHistoryExclude
   Scenario: Validate the submission of Program for Approval
     And I wait for "5" seconds
     And I click on "Edit" in the page details
@@ -1090,6 +1090,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
@@ -1103,6 +1105,14 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I wait for "3" seconds
     When I click modal button "Close"
+    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
@@ -1121,7 +1131,7 @@ Feature: Validate all scenarios for program
     #110141 #monu
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
     And I click modal button "Close"
     Then I softly see "Program Artifacts" has been added in "Program Files" flex table
     And I click on "Submit For Approval" in the page details

@@ -284,7 +284,7 @@ public final class FileHandler {
         try {
             String downloadScript = "var link = document.createElement('a'); " +
                     "link.href = document.URL; " +
-                    "link.download = 'filename.pdf'; " +
+                    "link.download = 'govgrants.pdf'; " +
                     "document.body.appendChild(link); " +
                     "link.click(); " +
                     "document.body.removeChild(link);";

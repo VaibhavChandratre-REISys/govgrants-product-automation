@@ -287,14 +287,12 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     #296049
     Then I cannot see top right button "Undo" in page detail
 
-  @296041 @296073 @296074 @VerifythatwhenlastApproverandOwnerofOrganizationalSiteVisitarenotsameLastApproverwillSeeonlyUNDObutton @sprint-4-US-288692 @hitesh @Undo @FieldHistoryExclude @TBExecution
+  @296041 @296073 @296074 @VerifythatwhenlastApproverandOwnerofOrganizationalSiteVisitarenotsameLastApproverwillSeeonlyUNDObutton @sprint-4-US-288692 @hitesh @Undo @FieldHistoryExclude
   Scenario:Verify that when last Approver and Owner of Organizational Site Visit are not same , Last Approver will See only UNDO button
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
-    When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
@@ -380,16 +378,21 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Changed By" inside field history table
+    Then I softly see value "{SavedValue:EXE Username}" for title "User" inside field history table
     Then I softly see value "Approved" for title "Original Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
+    And I click on back arrow
     #296073
+    And I navigate to "Home" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:homeCompletedTaskTableId---" panel
-    Then I softly see value "Cancelled" for title "Status" against the value "{SavedValue:DeskReviewID}" inside table "---deskreview:-:homeCompletedTaskTableId---"
+    And I wait for "3" seconds
+    When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:homeCompletedTaskTableId---" panel
+    Then I softly see value "Cancelled" for title "Status" against the value "{SavedValue:DeskReviewID}" inside table "---orgLevelDeskReview:-:homeCompletedTaskTableId---"
+    And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
-    Then I softly see value "{SavedValue:DeskReviewID}" for title "EGMS ID" inside table "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I wait for "3" seconds
+    When I perform quick search for "Record Id" in "HomePendingTasks" panel
+    Then I softly see value "{SavedValue:DeskReviewID}" for title "EGMS ID" inside table "HomePendingTasks"
 
   @296067 @VerifythatafterPOuserclickonUndobuttonEmailwillbesenttoPreviousApproverandOwnerofOrganizationalDeskReviewrecord @sprint-4-US-288692 @hitesh @Undo
   Scenario:Verify that after PO user click on Undo button Email will be sent to Previous Approver and Owner of Organizational Desk Review record
@@ -1495,7 +1498,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @329508 @ValidateOrgDRFieldhistoryshouldgetupdatedafterclickonundobuttoaftertakingapprovaldecisionApproved @Undo @FieldHistoryExclude @TBExecution
+  @329508 @ValidateOrgDRFieldhistoryshouldgetupdatedafterclickonundobuttoaftertakingapprovaldecisionApproved @Undo @FieldHistoryExclude
   Scenario: Validate Org DR Field history should get updated after click on undo button & after taking approval decision Approved
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1563,7 +1566,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "{SavedValue:PM Username}" for title "Changed By" inside field history table
+    Then I softly see value "{SavedValue:PM Username}" for title "User" inside field history table
     Then I softly see value "Approved" for title "Original Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
     And I click on back arrow
@@ -1573,7 +1576,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I softly see column "Overall Status" at position "1" contains text "Approved"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "{SavedValue:PM Username}" for title "Changed By" inside field history table
+    Then I softly see value "{SavedValue:PM Username}" for title "User" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     Then I softly see value "Approved" for title "New Value" inside field history table
 

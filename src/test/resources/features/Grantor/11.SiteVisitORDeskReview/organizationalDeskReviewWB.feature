@@ -1,7 +1,7 @@
 @organizationalDeskReviewWB @t1 @grantor-regression @grantor-parallel-regression @siteVisit @regression
 Feature: Validate all scenarios in Organizational Desk Review Without Background
 
-  @ch1 @235434 @ValidateDeskReviewPOusercanbletoreassigndeskreviewownershipfromPOtootherPOuserCreatedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @235434 @ValidateDeskReviewPOusercanbletoreassigndeskreviewownershipfromPOtootherPOuserCreatedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PO user can able to reassign desk review ownership from PO to other PO user in 'Created' state of desk review
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Home" tab
@@ -39,6 +39,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "{SavedValue:DeskReviewID}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
+    And I pause execution for "2" seconds
 #    And I checkout to yopmail with mailid "automationpo@yopmail.com"
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -114,7 +115,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation PO1" for title "New Value" inside field history table
     Then I softly see value "Automation PO" for title "Original Value" inside field history table
 
-  @235438 @235438 @ValidateDeskReviewEXEusercanabletoreassigndeskreviewownershipfromEXEtootherEXEuserinNotifiedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @235438 @235438 @ValidateDeskReviewEXEusercanabletoreassigndeskreviewownershipfromEXEtootherEXEuserinNotifiedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review EXE user can able to reassign desk review ownership from EXE to other EXE user in 'Notified' state of desk review
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab
@@ -231,7 +232,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation EXE1" for title "New Value" inside field history table
     Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
-  @235444 @ValidateDeskReviewFOusercanabletoreassigndeskreviewownershipfromFOtootherFOuserInProgressstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @235444 @ValidateDeskReviewFOusercanabletoreassigndeskreviewownershipfromFOtootherFOuserInProgressstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FO user can able to reassign desk review ownership from FO to other FO user 'In Progress' state of desk review
     Given I login to "As a Grantor" app as "FO" user
     And I navigate to "Home" tab
@@ -300,7 +301,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation FO1" for title "New Value" inside field history table
     Then I softly see value "Automation FO" for title "Original Value" inside field history table
 
-  @236022 @ValidateDeskReviewPMusercanabletoreassigndeskreviewownershipfromPMtootherPMuserInProgressstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @236022 @ValidateDeskReviewPMusercanabletoreassigndeskreviewownershipfromPMtootherPMuserInProgressstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PM user can able to reassign desk review ownership from PM to other PM user 'In Progress' state of desk review
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -420,7 +421,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @236039 @ValidateDeskreviewEXEusercanabletochangeownershipinApprovedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @236039 @ValidateDeskreviewEXEusercanabletochangeownershipinApprovedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk review EXE user can able to change ownership in 'Approved' state of desk review
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab
@@ -554,7 +555,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation EXE1" for title "New Value" inside field history table
     Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
-  @236049 @ValidateDeskReviewPOusercanabletochangeownershipinsenttosubrecipientstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @236049 @ValidateDeskReviewPOusercanabletochangeownershipinsenttosubrecipientstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PO user can able to change ownership in 'sent to subrecipient' state of desk review
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Home" tab
@@ -638,7 +639,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation PO1" for title "New Value" inside field history table
     Then I softly see value "Automation PO" for title "Original Value" inside field history table
 
-  @236065 @ValidateDeskReviewFOusercanabletochangetheownershipSubmittoGrantorstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @236065 @ValidateDeskReviewFOusercanabletochangetheownershipSubmittoGrantorstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FO user can able to change the ownership in 'Submit to Grantor'state of desk review
     Given I login to "As a Grantor" app as "FO" user
     And I navigate to "Home" tab
@@ -751,7 +752,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation FO1" for title "New Value" inside field history table
     Then I softly see value "Automation FO" for title "Original Value" inside field history table
 
-  @236076 @ValidateDeskReviewPMusercanabletoseetochangeownershipinClosedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @236076 @ValidateDeskReviewPMusercanabletoseetochangeownershipinClosedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PM user can able to see to change ownership in 'Closed' state of desk review
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -916,7 +917,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @236172 @236184 @ValidateDeskReviewPOusecanabletoreassignownershipofdeskreviewfromPOtootherPOuserinSentforreviewstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @236172 @236184 @ValidateDeskReviewPOusecanabletoreassignownershipofdeskreviewfromPOtootherPOuserinSentforreviewstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review PO user can able to reassign ownership of desk review from PO to other PO user in 'Sent for review' state of desk review
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Home" tab
@@ -1031,7 +1032,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
 
-  @236174 @ValidateDeskReviewFOusercanabletoreassignownershipofdeskreviewfromFOtootheFOuserinReviewedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @236174 @ValidateDeskReviewFOusercanabletoreassignownershipofdeskreviewfromFOtootheFOuserinReviewedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FO user can able to reassign ownership of desk review from FO to other FO user in 'Reviewed' state of desk review
     Given I login to "As a Grantor" app as "FO" user
     And I navigate to "Home" tab
@@ -1184,7 +1185,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation FO1" for title "New Value" inside field history table
     Then I softly see value "Automation FO" for title "Original Value" inside field history table
 
-  @236178 @ValidateDeskReviewEXEusercanabletodobusinessflowafterreassignownershipofdeskreviewfromEXEtootherEXEuserinINprogressstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @236178 @ValidateDeskReviewEXEusercanabletodobusinessflowafterreassignownershipofdeskreviewfromEXEtootherEXEuserinINprogressstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review EXE user can able to do business flow after reassign ownership of desk review from EXE to other EXE user in 'IN progress' state of desk review
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Home" tab
@@ -1630,7 +1631,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
 
-  @ch1 @235442 @VallidateDeskReviewFDusercanabletoreassignownershipfromFDtootherFDuserinNotifiedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @235442 @VallidateDeskReviewFDusercanabletoreassignownershipfromFDtootherFDuserinNotifiedstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FD user can able to reassign ownership from FD to other FD user in 'Notified' state of desk review
     Given I login to "As a Grantor" app as "FD" user
     And I navigate to "Home" tab
@@ -1748,7 +1749,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation FD1" for title "New Value" inside field history table
     Then I softly see value "Automation FD" for title "Original Value" inside field history table
 
-  @236027 @ValidateDeskReviewFDusercanabletochangeownershipinSubmittedforApprovalstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @236027 @ValidateDeskReviewFDusercanabletochangeownershipinSubmittedforApprovalstateofdeskreview @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review FD user can able to change ownership in 'Submitted for Approval' state of desk review
     Given I login to "As a Grantor" app as "FD" user
     And I navigate to "Home" tab
@@ -1828,7 +1829,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "Automation FD1" for title "New Value" inside field history table
     Then I softly see value "Automation FD" for title "Original Value" inside field history table
 
-  @236192 @ValidateDeskReviewifDR1ownerFD1changehisownershiptoFD2thenFD1againcreateDR2thentheownerofSV2isFD1onlynotnewownerincreatedstateofDR @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @236192 @ValidateDeskReviewifDR1ownerFD1changehisownershiptoFD2thenFD1againcreateDR2thentheownerofSV2isFD1onlynotnewownerincreatedstateofDR @sprint-14-US-234219 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Desk Review if DR1 owner FD1 change his ownership to FD2 and then FD1 again create DR2 then then owner of SV2 is FD1 only not new owner in created state of DR
     Given I login to "As a Grantor" app as "FD" user
     And I navigate to "Home" tab
