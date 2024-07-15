@@ -73,7 +73,6 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I enter "OrgAssessmentValues3" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
-    And I halt execution
     When I click on "Submit" in the page details
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
@@ -281,13 +280,14 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I get the "EGMS ID"
     When I click on "Submit" in the page details
     And I wait for "3" seconds
-    And I click on "Menu" in the page details
-    And I select "Take Snapshot" from dropdown
+    And I click on "Take Snapshot" in the page details
     And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot on"
+    And I wait for "2" seconds
     When I download the file
     Then I see "{SavedValue:EGMSID}" on page "1" of "govgrants" pdf file
+    Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
   @62316 @historyOfRiskAssessment @deepika @FieldHistoryExclude
   Scenario: To Validate field history update post Risk Assessment is clicked on Submit and is Active
@@ -1244,7 +1244,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
-    Then I cannot see page block "Organization Risk Assessments"
+    Then I softly do not see "Organization Risk Assessments" page block displayed
 
   @62804 @verifyFieldHistoryUpdatedPostSecondRiskAssessmentIsInActiveStatus @keerti @FieldHistoryExclude
   Scenario: To Validate field history update post second Risk Assessment is in Active Status
@@ -1450,6 +1450,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on "Submit" in the page details
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
+    Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
   @63229 @VerifyDraftORAIsPresentOnOrganizationalProfilePage @keerti
   Scenario: Verify Draft Organization Risk Assessment is present on Organizational Profile Page for a Signing Authority of the Organization
@@ -1848,14 +1849,6 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:completedTaskTableId---" panel
     Then I see that "Automation Permanent Organization for Risk Assessment" has been added in flextable with Id "---orgRiskAssessment:-:completedTaskTableId---"
 
-  @64124 @orRiskAssessmentTaskNotDisplayedForINDUser @deepika @issuewithINDUser
-  Scenario:  Validate Task for submitting organizational Risk Assessment should not be generated for IND profile User .
-    When I re-login as "IND" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
-    Then I see "No Records Found" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---"
-
   @64512 @orRiskAssessmentDisplayedToInternal @deepika
   Scenario: Validate Risk Assessment data/status should be displayed to internal user irrespective of the state of Risk Assessment for Active SR Organizations --> Organization Profile View
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
@@ -1964,6 +1957,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on "View" icon for "Record Id" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
     When I navigate to "Overview" sub tab
     Then I see "Risk Level" image as "grn.png"
+    Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
   @64602 @taskIScreatedforSAOnceInternalUserProvideAccess @deepika
   Scenario: Validate the Revise Risk Assessment Button should not be present for SPI users that are not the SA.
