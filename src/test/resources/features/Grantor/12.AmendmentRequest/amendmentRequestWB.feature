@@ -3296,7 +3296,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
-  @99609 @verifySubmissionOfAmendmentRequest-CFAmendmentRequest @monu @TaskCreated142379 nd
+  @99609 @verifySubmissionOfAmendmentRequest-CFAmendmentRequest @monu @TaskCreated142379
   Scenario: Validate user is able to submit carry forward amendment request to grantor
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -5654,7 +5654,7 @@ Feature: Amendment Request scenarios without background
     Then I see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @138356 @VerifyIsnotallowingusertosubmitAmendmentrequestkeypersonnelchangeforapprovalwithoutaddingapprovers h
+  @138356 @VerifyIsnotallowingusertosubmitAmendmentrequestkeypersonnelchangeforapprovalwithoutaddingapprovers
   Scenario: Verify Is not allowing user to submit Amendment request key personnel change for approval without adding approvers
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
