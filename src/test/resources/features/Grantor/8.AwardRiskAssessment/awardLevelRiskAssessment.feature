@@ -3302,7 +3302,6 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on parallel menu button in flex table title "Subaward Risk Assessments - All"
     And I select "Download as CSV" from dropdown
     And I wait for "3" seconds
-    Then I verify that "pdf" file is downloaded
     Then I softly see that file name contains ".xls" is downloaded
     Then I delete file contains name ".xls"
 

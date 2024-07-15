@@ -278,12 +278,13 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Submit" in the page details
     And I wait for "3" seconds
     And I click on "Take Snapshot" in the page details
     And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "SnapShot on"
+    And I click on hyperlink containing value "Risk Assessment"
     And I wait for "2" seconds
     When I download the file
     Then I see "{SavedValue:EGMSID}" on page "1" of "govgrants" pdf file
@@ -2238,9 +2239,11 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
-    And I click on parallel menu button in flex table title "Organization Risk Assessments-Active"
+    And I click on parallel menu button in flex table title "Organization Risk Assessments-All"
     And I select "Download as PDF" from dropdown
-    Then I verify that "pdf" file is downloaded
+    And I wait for "3" seconds
+    Then I softly see that file name contains ".pdf" is downloaded
+    Then I delete file contains name ".pdf"
 
   @64734 @downloadOrgRAInXLS @deepika @wip @LWCRemoved
   Scenario: Validate whether user can Download the Active Org Risk Assessment in XLS format
