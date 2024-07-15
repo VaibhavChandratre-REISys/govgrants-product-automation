@@ -2386,7 +2386,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "New Obligation" as "$5,000.00"
     Then I softly see field "Revised Commitment" as "$8,000.00"
 
-  @257098 @257231 @257232 @257233 @257243 @ValidateallthefieldswithOldvaluesshouldremainthesameonoldawardandshouldnotgetupdatedforPMuser
+  @257098 @257231 @257232 @257233 @257243 @ValidateallthefieldswithOldvaluesshouldremainthesameonoldawardandshouldnotgetupdatedforPMuser @TBExecution
   Scenario: Validate all the fields with Old values should remain the same on old award and should not get updated for PM user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2806,7 +2806,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$2,000.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$2,000.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
-  @257257 @ValidatePMuserseeupdatedspendamountontneactiveawardafterperiodicamendment @sprint-19-US-249880 @vaibhav @Allocation
+  @257257 @ValidatePMuserseeupdatedspendamountontneactiveawardafterperiodicamendment @sprint-19-US-249880 @vaibhav @Allocation @TBExecution
   Scenario: Validate PM user see updated spend amount on tne active award after periodic amendment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     And I am on "SUBPORTAL" portal
@@ -3608,7 +3608,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     Then I softly see addition of two fields "{SavedValue:CumulativeObligation1}" and "{SavedValue:CumulativeObligation2}" is equal to "{SavedValue:CumulativeObligation4}"
 
-  @257491 @257674 @257803 @257868 @257908 @257732 @257798 @257801 @257662 @ValidateusershouldnoteditnewobligationfiledinRejectedstateFANo @sprint-19-US-242374 @vaibhav @Allocation
+  @257491 @257674 @257803 @257868 @257908 @257732 @257798 @257801 @257662 @ValidateusershouldnoteditnewobligationfiledinRejectedstateFANo @sprint-19-US-242374 @vaibhav @Allocation @TBExecution
   Scenario: Validate user should not edit new obligation filed in Rejected state(FA No)
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "EXE1" user
@@ -3634,7 +3634,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
-    And I refresh the page
+    And I wait for "2" seconds
     #257674
     Then I softly see field "Budget Redirection Threshold" as "10.00%"
     Then I softly see field "Subrecipient Match (%)" as "10.00%"
@@ -3987,7 +3987,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Cumulative Obligation" as "$2,000.00"
     Then I softly see value "{SavedValue:RevisedEncumbrance}" is "Equals to" the value "{SavedValue:CumulativeObligation3}"
 
-  @258309 @258318 @258392 @258396 @ValidateTotalCommitmentfieldshouldcopiedfromtheRevisedCommitmentfieldfromthebudgetsummarysectionfromapprovedamendmentFANo @sprint-19-US-250549 @vaibhav @Allocation
+  @258309 @258318 @258392 @258396 @ValidateTotalCommitmentfieldshouldcopiedfromtheRevisedCommitmentfieldfromthebudgetsummarysectionfromapprovedamendmentFANo @sprint-19-US-250549 @vaibhav @Allocation @TBExecution
   Scenario: Validate Total Commitment field should copied from the Revised Commitment field from the budget summary section from approved amendment (FA No)
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "EXE1" user
@@ -4009,7 +4009,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PeriodicID"
-    And I refresh the page
     And I wait for "2" seconds
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
@@ -4022,7 +4021,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Name                       | Amendment Request |
       | {SavedValue:EXE1 Username} | Step 1            |
     And I click on "Send to Subrecipient" in the page details
-    Then I softly see field "Status" as "Sent to Subrecipient"
+    Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4032,6 +4031,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 2000                 | 200        | 0              |
     And I refresh the page
+    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -4114,7 +4114,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Cumulative Obligation" as "$2,000.00"
     Then I softly see value "{SavedValue:RevisedEncumbrance}" is "Equals to" the value "{SavedValue:CumulativeObligation3}"
 
-  @257448 @257461 @257667 @257691 @257797 @257800 @257479 @ValidateusershouldabletoseeNewObligationissimilarasAwardBudgetthisPeriodincreatedstateofPeriodicRenewalrequestFAYes @sprint-19-US-242374 @vaibhav @Allocation
+  @257448 @257461 @257667 @257691 @257797 @257800 @257479 @ValidateusershouldabletoseeNewObligationissimilarasAwardBudgetthisPeriodincreatedstateofPeriodicRenewalrequestFAYes @sprint-19-US-242374 @vaibhav @Allocation @TBExecution
   Scenario: Validate user should able to see New Obligation is similar as Award Budget this Period in created state of Periodic Renewal request (FA Yes)
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -5408,7 +5408,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
 
-  @257069 @VerifyValuesonFundingaccountarecorrectlyupdatedafterAmendmentrequestisapproved @sprint-19-US-229281 @hitesh @Allocation
+  @257069 @VerifyValuesonFundingaccountarecorrectlyupdatedafterAmendmentrequestisapproved @sprint-19-US-229281 @hitesh @Allocation @TBExecution
   Scenario: Validate Values on Funding account are correctly updated after Amendment request is approved
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -5486,6 +5486,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
+    Then I see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -7367,7 +7369,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount must be equal to the New Obligation in the Budget Summary section |
 
-  @257163 @257164 @VerifyvalidationisnotdisplayedtoSPIuseronclickofSubmittograntorbuttonwhenthetotalbudgetequaltotheNewObligationAmountwhenFANo @sprint-19-US-247799 @hitesh @Allocation
+  @257163 @257164 @VerifyvalidationisnotdisplayedtoSPIuseronclickofSubmittograntorbuttonwhenthetotalbudgetequaltotheNewObligationAmountwhenFANo @sprint-19-US-247799 @hitesh @Allocation @TBExecution
   Scenario: Verify validation is not displayed to SPI user on click of Submit to grantor button when the total budget equal to the New Obligation Amount when FA No
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -7403,6 +7405,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:EXE Username} | Step 1            |
     And I save the field labeled "EGMS ID" as "Record Id"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Sent To Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -7421,7 +7425,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #257164
     Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---amendment:-:budgetChangeTableId---"
 
-  @257143 @257144 @257148 @257149 @257145 @257146 @257141 @ValidateSPIusercanseeBudgetedAmountasTotalofAwardamountRolledupfromthebudgetchangesectionsRevisedAwardAmountcolumn @sprint-19-US-247799 @hitesh @Allocation
+  @257143 @257144 @257148 @257149 @257145 @257146 @257141 @ValidateSPIusercanseeBudgetedAmountasTotalofAwardamountRolledupfromthebudgetchangesectionsRevisedAwardAmountcolumn @sprint-19-US-247799 @hitesh @Allocation @TBExecution
   Scenario: Validate SPI user can see Budgeted Amount as Total of Award amount Rolled up from the budget change section's Revised Award Amount column
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA" of type "Directed"
     When I login to "As a Grantor" app as "FO" user
@@ -7795,7 +7799,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Budget" sub tab
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @257493 @257579 @VerifyFOusercanseeCumulativeObligationcolumninBudgetsummarybyfocusareasectiononsubawardwhichisinactivatedstateFAYes @sprint-19-US-250550 @hitesh @Allocation
+  @257493 @257579 @VerifyFOusercanseeCumulativeObligationcolumninBudgetsummarybyfocusareasectiononsubawardwhichisinactivatedstateFAYes @sprint-19-US-250550 @hitesh @Allocation @TBExecution
   Scenario: Verify FO user can see Cumulative Obligation column in Budget summary by focus area section on subaward which is in activated state FA Yes
     Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_NEW_OBLI_TWO_THOUSAND" of type "Directed"
     When I login to "As a Grantor" app as "PM" user
@@ -7911,6 +7915,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Name          | Closeout |
       | Automation PM | Step 1   |
     And I click on "Send To Subrecipient" in the page details
+    Then I see field "Status" as "Sent To Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -7954,7 +7959,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation1"
     Then I softly see addition of two fields "{SavedValue:CumulativeObligationAwd1}" and "{SavedValue:CumulativeObligation}" is equal to "{SavedValue:CumulativeObligation1}"
 
-  @257471 @257476 @257488 @257510 @VerifyFDusercannotseeBudgetsummarybyfocusareasectiononawardwhichisinactivatedstatewhenFocusareaisNo @sprint-19-US-250550 @hitesh @Allocation
+  @257471 @257476 @257488 @257510 @VerifyFDusercannotseeBudgetsummarybyfocusareasectiononawardwhichisinactivatedstatewhenFocusareaisNo @sprint-19-US-250550 @hitesh @Allocation @TBExecution
   Scenario: Verify FD user cannot see Budget summary by focus area section on award which is in activated state when Focus area is No
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT_FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -7989,6 +7994,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | {SavedValue:EXE Username} | Step 1            |
     And I save the field labeled "EGMS ID" as "Record Id"
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
+    Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -8041,6 +8048,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I click on "Activate" in the page details
+    And I wait for "4" seconds
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -8159,7 +8167,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$0.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$0.00" for title "New Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @257580 @VerifyFOusercanseeTotalCommitmentamountiscomingfromTotalcommitmentfieldfromthelatestClosedawardandforLatestBP @sprint-19-US-250550 @hitesh @Allocation
+  @257580 @VerifyFOusercanseeTotalCommitmentamountiscomingfromTotalcommitmentfieldfromthelatestClosedawardandforLatestBP @sprint-19-US-250550 @hitesh @Allocation @TBExecution
   Scenario: Verify FO user can see Total Commitment amount is coming from Total commitment field from the latest Closed  award  and for Latest BP is  from FDM
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -8291,6 +8299,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Override" in the page details
+    And I wait for "2" seconds
     When I click on "Submit for Approval" in the page details
     And I refresh the page
     And I wait for "2" seconds
@@ -8749,7 +8758,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see "Cumulative Obligation" inside page block detail
     Then I softly do not see "Awarded Amount" inside page block detail
 
-  @248798 @ValidateDirectedSPIusershouldseeupdatevaluesinCumulativeObligationTotalCommitmentfieldsunderBudgetSummarysectionofBudgettabisinClosestateonGrantlayout @sprint-21-US-263183 @vaibhav @Allocation
+  @248798 @ValidateDirectedSPIusershouldseeupdatevaluesinCumulativeObligationTotalCommitmentfieldsunderBudgetSummarysectionofBudgettabisinClosestateonGrantlayout @sprint-21-US-263183 @vaibhav @Allocation @TBExecution
   Scenario: Validate Directed SPI user should see update values in Cumulative Obligation & Total Commitment fields under Budget Summary section of Budget tab is in Close state on Grant layout
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -8822,7 +8831,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I "Approve" in the approval decision
     And I pause execution for "3" seconds
     And I click on "Amend Subaward" in the page details
-    And I wait for "7" seconds
+    And I wait for "10" seconds
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -11912,7 +11921,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the value from row "1" for column name "Prior Award Amount" as "PriorAwardAmount4" from flex table "---amendment:-:amendmentLineItemsTableId---"
     Then I softly see value "{SavedValue:AwardAmount2}" is "Equals to" the value "{SavedValue:PriorAwardAmount4}"
 
-  @257864 @257706 @VerifySPIusercanseeCurrentCommitmentasReadonlyfieldwhichisCopyoftotalcommitmentfromthepreviousawardFAisNo @sprint-19-US-249863 @hitesh @Allocation
+  @257864 @257706 @VerifySPIusercanseeCurrentCommitmentasReadonlyfieldwhichisCopyoftotalcommitmentfromthepreviousawardFAisNo @sprint-19-US-249863 @hitesh @Allocation @TBExecution
   Scenario: Budget redirection SPI user can see Current Commitment as Read-only field which is Copy of total commitment from the previous award (FA is No)
     And I activated standalone subaward "Automation Runtime award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "PO" user
