@@ -498,6 +498,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
       | Name                         | Reimbursement |
+      | {SavedValue:ADMIN1 Username} | NA            |
+    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
+      | Name                         | Reimbursement |
       | {SavedValue:ADMIN1 Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
@@ -780,7 +783,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Current Obligation" as "$1,000.00"
     Then I softly see field "Revised Obligation" as "($1,000.00)"
 
-  @hitApi @249115 @ValidatevalidationisnotdisplayedtoAdminuserwhenuserenterRevisedCommitmentequalstoNewobligationincurrentARcumulativeobligationinGrant @sprint-18-US-225787 @vaibhav @Allocation
+  @249115 @ValidatevalidationisnotdisplayedtoAdminuserwhenuserenterRevisedCommitmentequalstoNewobligationincurrentARcumulativeobligationinGrant @sprint-18-US-225787 @vaibhav @Allocation
   Scenario: Validate validation is not displayed to Admin user when user enter Revised Commitment equals to (New obligation in current AR + cumulative obligation in Grant)
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO-Automation ADMIN user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -891,6 +894,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Funding Account             | Net Spent This Action |
       | {SavedValue:fundingAccount} | 1000                  |
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
+      | Name                         | Reimbursement |
+      | {SavedValue:ADMIN1 Username} | NA            |
     When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
       | Name                         | Reimbursement |
       | {SavedValue:ADMIN1 Username} | Step 1        |
@@ -1333,7 +1339,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | Overview Tab - The Revised Obligation must be equal to the Budgeted Amount for the following Focus Areas - (Automation Permanent Focus Area) |
 
-  @hitApi @249193 @ValidatevalidationisdisplayedtoFOuseronSenttosubrecipientwhenuserhasnotenteredanyvalueinNewObligationcolumnofBudgetSummarybyFocusAreasection @sprint-18-US-225787 @vaibhav @Allocation
+  @249193 @ValidatevalidationisdisplayedtoFOuseronSenttosubrecipientwhenuserhasnotenteredanyvalueinNewObligationcolumnofBudgetSummarybyFocusAreasection @sprint-18-US-225787 @vaibhav @Allocation
   Scenario: Validate validation is displayed to FO user on Sent to subrecipient when user has not entered any value in New Obligation column of Budget Summary by Focus Area section
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation PO user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "FO" user
@@ -4405,7 +4411,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | IND  | SUBRECIPIENT_ORG_IND_USER |
       | SPI3 | default                   |
 
-  @hitApi @253369 @253374 @253386 @253397 @253389 @253457 @253458 @253405 @ValidateNewObligationfieldshouldgetcopiedfromthedifferencecolumninthefundingAccountsectionfromtheAmendmentrequestFAYes @sprint-18-US-250639 @vaibhav @Allocation
+   @253369 @253374 @253386 @253397 @253389 @253457 @253458 @253405 @ValidateNewObligationfieldshouldgetcopiedfromthedifferencecolumninthefundingAccountsectionfromtheAmendmentrequestFAYes @sprint-18-US-250639 @vaibhav @Allocation
   Scenario Outline: Validate New Obligation field should get copied from the difference column in the funding Account section from the Amendment request. (FA Yes)
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "<Properties>-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE" user
