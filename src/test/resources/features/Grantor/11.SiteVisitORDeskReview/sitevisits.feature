@@ -1693,7 +1693,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I see the following messages in the page details contains:
       | Due date must be future date |
 
-  @ch1 @65242 @foUserCannotDeleteCreatedSiteVisit @deepika
+  @65242 @foUserCannotDeleteCreatedSiteVisit @deepika
   Scenario: Validate whether other than record owner can Fo user view the created Site Visit by Pm
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
