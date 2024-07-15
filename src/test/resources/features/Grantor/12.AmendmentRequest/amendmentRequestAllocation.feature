@@ -77,7 +77,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @57364 @verifyAdvancePRCreatedAtRevisedAmendmentSubaward @jitendra
+  @hitApi @57364 @verifyAdvancePRCreatedAtRevisedAmendmentSubaward @jitendra
   Scenario: Verify user can submit Advance Payment request to grantor after Budget Period Change Amendment is done on Subaward.
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST_ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -248,7 +248,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @57377 @68075 @verifyAmendedBudgetPeriodAtAdvancePRPage @jitendra @buglogged142465
+  @hitApi @57377 @68075 @verifyAmendedBudgetPeriodAtAdvancePRPage @jitendra @buglogged142465
   Scenario: Verify user can submit Advance Payment request to grantor after Budget Period Change Amendment is done on Subaward.
   |Validate that the Version number and Subaward type in Subaward Information table gets updated after amendment( Budget period)|
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST_ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
@@ -894,7 +894,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Send Back to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
 
-  @258487 @258508 @258515 @258516 @258539 @ValidateINDusercanseeNewObligationfieldasreadyonlyfieldwhenPeriodicRenewalamendmentrequestinSendtoSubrecipientstateFAYES @sprint-19-US-250556 @vaibhav @Allocation
+  @hitApi @258487 @258508 @258515 @258516 @258539 @ValidateINDusercanseeNewObligationfieldasreadyonlyfieldwhenPeriodicRenewalamendmentrequestinSendtoSubrecipientstateFAYES @sprint-19-US-250556 @vaibhav @Allocation
   Scenario: Validate IND user can see New Obligation field as ready only field when Periodic Renewal amendment request in Send to Subrecipient state(FA=YES)
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-Automation IND user"
@@ -1398,7 +1398,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Spent" against the value "Total" inside table "---subAwardStandAlone:-:awardPaymentSummaryFocusAreaTableId---"
     Then I softly see value "$500.00" for title "Balance" against the value "Total" inside table "---subAwardStandAlone:-:awardPaymentSummaryFocusAreaTableId---"
 
-  @268294 @ValidatespentvalueiscopiedtothePaymentsummarybythefocusareasectionofActivatedAwardfromPeriodicrenewalamendmentafterPaymentrequestisapprovedFAYes @sprint-21-US-265880 @vaibhav @Allocation
+  @hitApi @268294 @ValidatespentvalueiscopiedtothePaymentsummarybythefocusareasectionofActivatedAwardfromPeriodicrenewalamendmentafterPaymentrequestisapprovedFAYes @sprint-21-US-265880 @vaibhav @Allocation
   Scenario: Validate spent value is copied to the  Payment summary by the focus area section of Activated Award from Periodic renewal amendment after Payment request is approved FA Yes
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -4472,7 +4472,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$0.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see value "$0.00" for title "New Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @258410 @258414 @258422 @258423 @ValidateCumulativeObligationvalueshouldbereadonlycolumnandRolluptheAwardAmountforeachfocusareafromtheawardbudgetgrid @sprint-19-US-250549 @vaibhav @Allocation
+ @hitApi @258410 @258414 @258422 @258423 @ValidateCumulativeObligationvalueshouldbereadonlycolumnandRolluptheAwardAmountforeachfocusareafromtheawardbudgetgrid @sprint-19-US-250549 @vaibhav @Allocation
   Scenario: Validate Cumulative Obligation value should be read-only column and Roll up the Award Amount for each focus area from the award budget grid.
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -9192,7 +9192,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:CumulativeObligation2}" is "Equals to" the value "{SavedValue:CumulativeObligationGrantcsr2}"
     Then I softly see value "{SavedValue:CumulativeObligation3}" is "Equals to" the value "{SavedValue:CumulativeObligationGrantcsr3}"
 
-  @268477 @268495 @ValidatePMuserseevalueofanydollarfieldmustnotchangeandshouldremainthesameafterandbeforecloseoutiscompletedonnewversion2award @sprint-21-US-263183 @vaibhav @Allocation
+  @hitApi @268477 @268495 @ValidatePMuserseevalueofanydollarfieldmustnotchangeandshouldremainthesameafterandbeforecloseoutiscompletedonnewversion2award @sprint-21-US-263183 @vaibhav @Allocation
   Scenario: Validate PM user see value of any dollar field must not change and should remain the same after and before closeout is completed on new version 2 award
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -10273,7 +10273,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #264316
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @264409 @264565 @264570 @264582 @264414 @264441 @264459 @264519 @264501 @264587 @264617 @264627 @264628 @264636 @264643 @264648 @264652 @264661 @264665 @264667 @264805 @264816 @264896 @266219 @ValidateSPIusercanseenewsectionofBudgetSummaryafteroverviewsectiononthecarryforwardamendmentrequestwhichisincreatedstateFAisYes @sprint-20-US-248356 @vaibhav @Allocation
+  @hitApi @264409 @264565 @264570 @264582 @264414 @264441 @264459 @264519 @264501 @264587 @264617 @264627 @264628 @264636 @264643 @264648 @264652 @264661 @264665 @264667 @264805 @264816 @264896 @266219 @ValidateSPIusercanseenewsectionofBudgetSummaryafteroverviewsectiononthecarryforwardamendmentrequestwhichisincreatedstateFAisYes @sprint-20-US-248356 @vaibhav @Allocation
   Scenario: Validate SPI user can see a new section of "Budget Summary" after overview section on the carry forward amendment request which is in created state FA is Yes
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "THREE_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -11191,7 +11191,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see value "$2,000.00" for title "New Obligation" against the value "Grand Total" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @264949 @265108 @ValidateEXEusercannotseeBudgetedAmountFieldwhenawardisinpendingactivationstatestateFAisNo @sprint-20-US-263390 @vaibhav @Allocation
+  @hitApi @264949 @265108 @ValidateEXEusercannotseeBudgetedAmountFieldwhenawardisinpendingactivationstatestateFAisNo @sprint-20-US-263390 @vaibhav @Allocation
   Scenario: Validate EXE user cannot see Budgeted Amount Field when award is in pending activation state state FA is No
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Formula_By_Applicant_Focus_Area_No"
     When I login to "As a Grantor" app as "EXE" user
