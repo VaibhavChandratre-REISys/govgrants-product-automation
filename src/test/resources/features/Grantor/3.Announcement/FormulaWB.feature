@@ -709,7 +709,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Qualify" in the page details
     And I navigate to "Financials" sub tab
     Then I softly see "Budget Summary" page block displayed
-#    Then I softly can see page block "Budget Summary"
 
   @219625 @ValidateSPIUserforformulaannouncementswithallocationlevelByApplicantandFocusAreabudgetsummarysectiondisplayincludingfocusare&AllocationamountfieldQualified&NotyetQualifiedpage @sprint-9-US-204998 @vaibhav @Allocation @Pre-ScreenOnHoldSPI
   Scenario: Validate SPI User for formula announcements with allocation-level = By Applicant and Focus Area budget summary section display including focus area & Allocation amount field (Qualified & Not yet Qualified  page )
@@ -753,7 +752,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Financials" sub tab
     Then I softly can see page block "Budget Summary"
     Then I softly do not see "Allocation Amount" page block displayed
-#    Then I softly cannot see page block "Allocation Amount"
     When I click on "Qualify" in the page details
     And I navigate to "Financials" sub tab
     Then I softly can see page block "Budget Summary"
@@ -765,7 +763,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I pause execution for "3" seconds
     And I navigate to "Financials" sub tab
     Then I softly see "Budget Summary" page block displayed
-#    Then I softly can see page block "Budget Summary"
     Then I softly do not see "Allocation Amount" page block displayed
     Examples:
       | userType |
