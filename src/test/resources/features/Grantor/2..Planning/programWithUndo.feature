@@ -439,8 +439,7 @@ Feature: Validate all scenarios for program
      Thank you.
      The EGMS Team
      """
-
-  @Debug @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo
+   @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo
   Scenario: Verify Admin user can see Undo and Activate button after approved the program if program owner and approver is same
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Planning" tab
@@ -2960,6 +2959,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
+
   @279387 @332438 @ExternalProgVerifyEXEasstep3approverseewarningmessageafterclickonUndobuttononprogram @sprint-7-US-304339 @hitesh @Undo
   Scenario: External Prog_ Verify EXE as step 3 approver see warning message after click on Undo button on program
     When I login to "As a Grantor" app as "PM" user
@@ -3068,9 +3068,6 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I click modal button "Close"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:FD Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:FD Username} | Step 1  |
