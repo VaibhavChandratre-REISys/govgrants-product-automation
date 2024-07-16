@@ -456,7 +456,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | Overview Tab - The Revised Obligation ($2000.00) must be equal to the total of Revised Encumbrance in the Funding Account ($1000.00) |
 
-  @hitApi @248791 @248858 @248861 @248979 @ValidateRevisedobligationcannotbelessthanspent @sprint-18-US-225787 @vaibhav @Allocation
+   @248791 @248858 @248861 @248979 @ValidateRevisedobligationcannotbelessthanspent @sprint-18-US-225787 @vaibhav @Allocation
   Scenario: Validate Revised obligation cannot be less than spent
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO-Automation ADMIN user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -854,7 +854,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @hitApi @249140 @ValidatevalidationisdisplayedtoAdminuseronclickofsendtosubrecipientwhentherevisedObligationamountislessthanthespentamountfthatparticularfocusarea @sprint-18-US-225787 @vaibhav @Allocation
+  @249140 @ValidatevalidationisdisplayedtoAdminuseronclickofsendtosubrecipientwhentherevisedObligationamountislessthanthespentamountfthatparticularfocusarea @sprint-18-US-225787 @vaibhav @Allocation
   Scenario: Validate validation is displayed to Admin user on click of send to subrecipient when the revised Obligation amount is less than the spent amount of that particular focus area
     And I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation ADMIN user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
