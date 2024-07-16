@@ -1560,26 +1560,16 @@ Feature: Validate all scenarios of every modules flow
 #    And I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
 #    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Formula_By_Applicant_Focus_Area"
 #    And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation PM user"
-    When I login to "As a Grantor" app as "FO" user
-    And I wait for "7" seconds
-    Then I see status in Progress-bar is "Rejected" and is "Red"
-    Then I cannot see top right button "Undo" in page detail
-    And I click on Menu icon present on top right corner of the page
-    And I pause execution for "4" seconds
-    And I select "Download as PDF" from dropdown
-    And I pause execution for "3" seconds
-    And I download the file
-    Then I softly see "{SavedValue:AwardEGMSID}" on page "1" of "govgrants" pdf file
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
-    Then I softly see following details in "govgrants" pdf file:
-      | Detail                    | Page Number |
-      | {SavedValue:AwardEGMSID}  | 1           |
-      | {SavedValue:GrantEGMSID}  | 1           |
-      | Rejected                  | 1           |
-      | Created by                | 2           |
-      | {SavedValue:PM Username}  | 2           |
-      | Last Modified by          | 2           |
-      | {SavedValue:FO Username}  | 2           |
-    And I switch to parent tab
-    And I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "Subaward_Submit_for_Approval.pdf" as name
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    Then I navigate to "Forms and Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
+    And I wait for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "3" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    And I click on "Submit to Grantor" in the page details
+    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"

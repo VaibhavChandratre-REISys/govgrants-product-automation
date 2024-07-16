@@ -77,7 +77,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @hitApi @57364 @verifyAdvancePRCreatedAtRevisedAmendmentSubaward @jitendra
+  @hitApi2 @57364 @verifyAdvancePRCreatedAtRevisedAmendmentSubaward @jitendra
   Scenario: Verify user can submit Advance Payment request to grantor after Budget Period Change Amendment is done on Subaward.
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST_ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -249,7 +249,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @hitApi @57377 @68075 @verifyAmendedBudgetPeriodAtAdvancePRPage @jitendra @buglogged142465
+  @hitApi2 @57377 @68075 @verifyAmendedBudgetPeriodAtAdvancePRPage @jitendra @buglogged142465
   Scenario: Verify user can submit Advance Payment request to grantor after Budget Period Change Amendment is done on Subaward.
   |Validate that the Version number and Subaward type in Subaward Information table gets updated after amendment( Budget period)|
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST_ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
@@ -4565,7 +4565,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+    And I click on "View" icon for "Amended" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     Then I softly see that "Subaward" is in "Pending Activation" status
     When I navigate to "Budget" sub tab
     #258414
@@ -11217,9 +11217,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 2000  | RequestedChangeInBudget__c |
       | 4000  | RevisedCommitment__c       |
     And I click on "Save" in the page details
+    And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "PeriodicID"
     And I refresh the page
-    And I wait for "2" seconds
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
     And I get the "EGMS ID"
