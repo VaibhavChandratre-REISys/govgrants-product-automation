@@ -101,7 +101,7 @@ Feature: Validate all registration related scenarios
 
   @82797 @verifyVisibilityOfFieldsAtPaymentAddressSection-Individual @monu
   Scenario:Verify user is not able to see any fields after selection of Same as organization fields to yes inside payment details page block
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Social Security Number (SSN)" on old form
@@ -179,7 +179,7 @@ Feature: Validate all registration related scenarios
 
   @82784 @VerifyRegistrationPages2of2-Individual @monu
   Scenario:Verify user should be navigated to Registration step 2 of 2 after clicking on save button on registration step 1 of 2 page
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Social Security Number (SSN)" on old form
@@ -191,7 +191,7 @@ Feature: Validate all registration related scenarios
 
   @82780 @VerifyRegistrationStep1of2-Individual @monu
   Scenario:Verify user should be navigated to Registration step 1 of 2 after clicking on Agree button on registration
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Organization"
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
     When I click on "Agree" in the page details
@@ -255,7 +255,7 @@ Feature: Validate all registration related scenarios
 
   @82027 @verifyRegisteredDetailsInsidePendingTask-Organization @monu @wip
   Scenario:Verify if user clicks on download option inside Attachment section new tab getting opened
-    Given I begin "Organization" registration
+    Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
@@ -299,7 +299,7 @@ Feature: Validate all registration related scenarios
 
   @82796 @83035 @verifyConfirmationMessage-Individual @meenakshi
   Scenario:To validate Confirmation Message, after clicking Submit button on Catcha page of Individual registration process
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Social Security Number (SSN)" on old form
@@ -427,7 +427,7 @@ Feature: Validate all registration related scenarios
 
   @83038 @85790 @validatingApprovedStatusForIndividualRegistration @meenakshi
   Scenario:To verify after Approved record status changes as : Approved for Individual registration process
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Social Security Number (SSN)" on old form
@@ -710,7 +710,7 @@ Feature: Validate all registration related scenarios
 
   @223512 @ValidatePMuserfromuserregistrationapprovalqueueshouldnotabletoseethereassigntaskofIndividualRegistrationApprovalinReassignTask @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM user from user registration approval queue should not able to see the reassign task of Individual Registration Approval in Reassign Task
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
@@ -739,7 +739,7 @@ Feature: Validate all registration related scenarios
 
   @223616 @ValidateAdminusershouldnotabletoseethereassigntaskofIndividualRegistrationApprovalfromAllTasksAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Admin user should not able to see the reassign task of Individual Registration Approval from All Tasks As a Admin
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
@@ -768,7 +768,7 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:UserFullName}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "Review Individual User Registration" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"
 
-  @cap @debug @222975 @223047 @ValidateAdminusershouldnotabletoseethereassigntaskofParent/ChildrelationshipApprovalfromAlltasksAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment
+  @222975 @223047 @ValidateAdminusershouldnotabletoseethereassigntaskofParent/ChildrelationshipApprovalfromAlltasksAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Admin user should not able to see the reassign task of Parent/Child relationship Approval from All tasks As a Admin
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details

@@ -1174,7 +1174,7 @@ Feature: Validate all scenarios of every modules flow
 
   @SubrecipientOrganizationRegistrationFlow
   Scenario: Verify Subrecipient Organization Registration Process
-    Given I begin "Organization" registration
+    Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456780" into "Employer Identification Number (EIN)" on old form
@@ -1246,7 +1246,7 @@ Feature: Validate all scenarios of every modules flow
 
   @IndividualUserRegistrationFlow
   Scenario:Verify Individual User Registration Process
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
