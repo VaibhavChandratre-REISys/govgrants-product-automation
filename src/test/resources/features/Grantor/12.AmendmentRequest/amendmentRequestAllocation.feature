@@ -157,7 +157,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I wait for "2" seconds
     And I upload attachment "Attachment.pdf" of type "Invoice" from computer
@@ -338,6 +339,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
+    And I refresh the page
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I wait for "2" seconds
