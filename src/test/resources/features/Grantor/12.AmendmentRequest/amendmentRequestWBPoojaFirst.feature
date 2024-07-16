@@ -21,6 +21,7 @@ Feature: Amendment Request scenarios without background
       | Automation Test Description | FundingChangeJustification__c |
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -125,6 +126,7 @@ Feature: Amendment Request scenarios without background
       | Automation Test Description | FundingChangeJustification__c |
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+   And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -1189,6 +1191,7 @@ Feature: Amendment Request scenarios without background
       | Automation Test Description | FundingChangeJustification__c |
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -8697,7 +8700,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation EXE1" for title "New Value" inside field history table
     Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
-  @200313 @ValidateBudgetredirectionthatchangeinawardownershouldnotaffectamendmentrequestowner @sprint-5-US-198235 @vaibhav @reassignment @AmendmentWBPoojaSixth
+  @hit @200313 @ValidateBudgetredirectionthatchangeinawardownershouldnotaffectamendmentrequestowner @sprint-5-US-198235 @vaibhav @reassignment @AmendmentWBPoojaSixth
   Scenario: Validate Budget redirection that change in award owner should not affect amendment request owner
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -8720,6 +8723,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "BudgetRedirectId"
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -10305,6 +10309,7 @@ Feature: Amendment Request scenarios without background
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "budgetPChangeId"
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     When I click on "Edit" in the page details

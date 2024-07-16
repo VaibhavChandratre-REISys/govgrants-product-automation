@@ -5519,7 +5519,7 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-   @200413 @ValidateBudgetRedirectionifS\RusercreateamendmentandsubmittograntorthenARinternalownershouldbeawardownerevenifpreviousamendmentownershiptaskreassigntootheruserotheruser @sprint-5-US-197424 @vaibhav @reassignment
+   @hit @200413 @ValidateBudgetRedirectionifS\RusercreateamendmentandsubmittograntorthenARinternalownershouldbeawardownerevenifpreviousamendmentownershiptaskreassigntootheruserotheruser @sprint-5-US-197424 @vaibhav @reassignment
   Scenario: Validate Budget Redirection if S\R user create amendment and submit to grantor then AR internal owner should be award owner even if previous amendment ownership task reassign to other user other user
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -5536,6 +5536,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
+     And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "BudgetRedirectId"
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
