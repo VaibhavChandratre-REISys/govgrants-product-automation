@@ -2544,7 +2544,7 @@ Feature: Validate all scenarios in the Amendment Request
       | {SavedValue:FD Username} | Step 4            |
     Then I softly see "Saved successfully!" inside flex table with id "---amendment:-:approversTableId---"
 
-  @148948 @verifyRemovalOfAddedApprover-TCAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird  @holdForNewStep
+  @148948 @verifyRemovalOfAddedApprover-TCAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird
   Scenario: To verify user can remove the added approver on terms and condition amendment
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2558,10 +2558,10 @@ Feature: Validate all scenarios in the Amendment Request
     When I navigate to "Responsibilities" sub tab
     And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---amendment:-:approversTableId---"
-    And I select value "{SavedValue:PM Username}" into field "name__r.name"
-#    And I select value "Step 1" into field "AmendmentRequestRole__c"
-#    And I enter value "Step 1" into field "AmendmentRequestRole__c"
-    And I click on "Remove record" icon for "NA" inside table
+    And I pause execution for "3" seconds
+    And I select user value "Automation PM" in field "name__r.name"
+    And I select dropdown value "Step 1" in field "AmendmentRequestRole__c"
+    And I click on nested button "Remove record" in flex table with id "---amendment:-:approversTableId---"
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:approversTableId---"
 
   @148947 @verifyUserNotAbleToSkipApprover-TCAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird
@@ -2635,7 +2635,7 @@ Feature: Validate all scenarios in the Amendment Request
       | {SavedValue:FD Username} | Step 4            |
     Then I softly see "Saved Successfully!" inside flex table with id "---amendment:-:fundingChangeApproversTableId---"
 
-  @149402 @verifyRemovalOfAddedApprover-BPCAmendmentRequest-RnRFuntionality @monu @poojaAmendmnetThird  @holdForNewStep
+  @149402 @verifyRemovalOfAddedApprover-BPCAmendmentRequest-RnRFuntionality @monu @poojaAmendmnetThird
   Scenario: Verify user can remove the added approver on Budget Period Change amendment
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2657,9 +2657,10 @@ Feature: Validate all scenarios in the Amendment Request
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
     And I navigate to "Responsibilities" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
-    And I select value "{SavedValue:PM Username}" into field "name__r.name"
-#    And I enter value "Step 4" into field "AmendmentRequestRole__c"
-    And I click on "Remove record" icon for "{SavedValue:PM Username}" inside table
+    And I pause execution for "3" seconds
+    And I select user value "Automation FO" in field "name__r.name"
+    And I select dropdown value "Step 1" in field "AmendmentRequestRole__c"
+    And I click on nested button "Remove record" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:fundingChangeApproversTableId---"
 
   @149403 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUser-BPCAmendmentRequest-RnRFuntionality @monu @poojaAmendmnetThird
@@ -2788,7 +2789,7 @@ Feature: Validate all scenarios in the Amendment Request
       | {SavedValue:FD Username} | Step 4            |
     Then I softly see "Saved Successfully!" inside flex table with id "---amendment:-:approversTableId---"
 
-  @151385 @verifyRemovalOfAddedApprover-FundingChangeAmendmentRequest-RnRFunctionality @monu @poojaAmendmnetThird  @holdForNewStep
+  @151385 @verifyRemovalOfAddedApprover-FundingChangeAmendmentRequest-RnRFunctionality @monu
   Scenario: To verify user can  remove the new added approver on funding change amendment
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2835,10 +2836,12 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     And I navigate to "Responsibilities" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
-    And I select value "{SavedValue:PM Username}" into field "name__r.name"
-    And I enter value "Step 1" into field "AmendmentRequestRole__c"
-    And I click on "Remove record" icon for "Step 1" inside table
+    And I pause execution for "3" seconds
+    And I select user value "Automation PM" in field "name__r.name"
+    And I select dropdown value "Step 1" in field "AmendmentRequestRole__c"
+    And I click on nested button "Remove record" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:fundingChangeApproversTableId---"
+
 
   @148945 @149237 @ValidateUserCanAddOneStepApproverForTermsAndConditionAmendmentAndApproveIt @vaibhav @poojaAmendmnetThird
   Scenario: Validate User Can Add One Step Approver For Terms And Condition Amendment And Approve It

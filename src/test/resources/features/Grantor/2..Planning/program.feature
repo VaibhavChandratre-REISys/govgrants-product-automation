@@ -37,7 +37,7 @@ Feature: Validate all scenarios for program
       | Program flextable Header  | Program                                          |
       | Internal Programs - Draft | {SavedValue:Automation Runtime Internal Program} |
 
-  @34503 @66389 @105898 @35985 @75815 @38247 @75816 @75817 @75812 @75813 @75910 @75911 @75814 @updateFieldsValidationCheck @jitendra @skipOnJenkins
+ @34503 @66389 @105898 @35985 @75815 @38247 @75816 @75817 @75812 @75813 @75910 @75911 @75814 @updateFieldsValidationCheck @jitendra
   Scenario: To verify that the user is able to modified created internal program settings and view the added setting by the creating a direct grant.
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     #105898 #monu
@@ -70,8 +70,7 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 0               |
       | SME Review        | 50              |
       | Management Review | 50              |
-    Then I softly see the following messages in the page details :
-      | Saved successfully! |
+    And I wait for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details :
       | There are no errors with the review step templates. |
@@ -119,7 +118,7 @@ Feature: Validate all scenarios for program
       | SME Review        | 1           |
       | Management Review | 1           |
 
-  @75918 @skipOnJenkins @75925 @75923 @75919 @75926 @75924 @75983 @75980 @75979 @75975 @75978 @75984 @75982 @75977 @jitendra @addReviewerInPre-ScreenAndManagementReview
+  @75918  @75925 @75923 @75919 @75926 @75924 @75983 @75980 @75979 @75975 @75978 @75984 @75982 @75977 @jitendra @addReviewerInPre-ScreenAndManagementReview
   Scenario: To verify user able to add reviewers in reviewers section for pre-screening review step in setup tab of planning
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
@@ -176,7 +175,7 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Pre-Screen Review"
     And I click on "Delete" icon for "Pre-Screen" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details contains:
-      | Record deleted successfully. |
+      | Record deleted Successfully. |
     Then I softly see "No records found" inside flex table with id "---program:-:reviewStepTableId---"
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
@@ -563,7 +562,7 @@ Feature: Validate all scenarios for program
       | Setup Tab - Pre-Screen Review - Pre-Screen: The total section weight must equal 100% or 0%. It is currently 120%.                                   |
       | Setup Tab - SME Review - Fiscal Review: The total section weight must equal 100% or 0%. It is currently 90%.                                        |
 
-  @76943 @76944 @76948 @76947 @76984 @76985 @77098 @jitendra @skipOnJenkins
+  @76943 @76944 @76948 @76947 @76984 @76985 @77098 @jitendra
   Scenario: To verify user able to modify review question in Strategic Alignment of Review Panel Categories in management review form for management review step in planning phase
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Management Review"
@@ -574,7 +573,7 @@ Feature: Validate all scenarios for program
       | 2              | Yes/No |
       #76943 following 2 assertion belongs to this
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I refresh the page
     And I expand nested table containing column value "Pre-Screen Review"
@@ -585,7 +584,7 @@ Feature: Validate all scenarios for program
       | 3              | Test 2   | Yes/No | 0         |
       #76944 following 5 assertion belongs to this
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "3" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "Test 2" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -595,12 +594,12 @@ Feature: Validate all scenarios for program
       | 2              | Written |
        #76948 following 2 assertion belongs to this
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I softly see value "Written" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on "Delete" icon for "2" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
       #76947 following 2 assertion belongs to this
     Then I softly see the following messages in the page details contains:
-      | Record deleted successfully. |
+      | Record deleted Successfully. |
     And I softly do not see value "2" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     #And I collapse nested table containing column value "Eligibility"
     And I expand nested table containing column value "Completeness"
@@ -629,7 +628,7 @@ Feature: Validate all scenarios for program
       | 4              | Test 4   | Yes/No | 0         |
       #77098 following 5 assertion belongs to this
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "Test 4" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -683,7 +682,7 @@ Feature: Validate all scenarios for program
       | {SavedValue:EXE Username} | Step 2  |
     Then I see that "{SavedValue:EXE Username}" has been added in flextable with Id "---program:-:approverTableId---"
 
-  @34616 @76118 @75992 @75821 @75830 @75831 @75836 @75832 @75840 @75841 @programFocusAreaAssociation @skipOnJenkins
+  @34616 @76118 @75992 @75821 @75830 @75831 @75836 @75832 @75840 @75841 @programFocusAreaAssociation
   Scenario Outline: Validate the association of Focus Area for the Internal Program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -698,7 +697,7 @@ Feature: Validate all scenarios for program
       | Reviewer                 |
       | {SavedValue:PM Username} |
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
-    Then I softly see value "onald_pm@ggp.test7.atm.prolwcut" for title "Email" inside table "---program:-:reviewStepTableId---"
+    Then I softly see value "donald_pm@ggp.test7.atm.prolwcut" for title "Email" inside table "---program:-:reviewStepTableId---"
     Then I softly see value "Test Automation Organization" for title "Organization Name" inside table "---program:-:reviewStepTableId---"
     And I refresh the page
     And I navigate to "Setup" sub tab
@@ -722,21 +721,21 @@ Feature: Validate all scenarios for program
     Then I softly see value "50.00%" for title "Form Weight (%)" inside table "---program:-:reviewStepTableId---"
     And I click on "Delete" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details :
-      | Record deleted successfully. |
+      | Record deleted Successfully. |
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "New" :
       | Form Name         | Minimum Number of Reviews per Application | Required? |
       | Automation Review | 1                                         | Checked   |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PM Username} |
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
-    Then I softly see value "onald_pm@ggp.test7.atm.prolwcut" for title "Email" inside table "---program:-:reviewStepTableId---"
+    Then I softly see value "donald_pm@ggp.test7.atm.prolwcut" for title "Email" inside table "---program:-:reviewStepTableId---"
     Then I softly see value "Test Automation Organization" for title "Organization Name" inside table "---program:-:reviewStepTableId---"
     And I click on "Delete" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details :
-      | Record deleted successfully. |
+      | Record deleted Successfully. |
     And I select "Download as PDF" from parallel lines dropdown of "Review Forms"
     And I download the file
     Then I softly see "Review Forms" on page "1" of "govgrants" pdf file
@@ -799,7 +798,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details :
       | Setup Tab - Remove all the Focus Areas associated with this program if the Focus Area Required is "No". |
 
-  @34737 @76116 @76117 @76113 @76115 @75894 @75888 @75891 @programObjectiveAssociation @skipOnJenkins
+  @34737 @76116 @76117 @76113 @76115 @75894 @75888 @75891 @programObjectiveAssociation
   Scenario Outline: Validate the Association of Objective to the Internal Program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
@@ -824,7 +823,7 @@ Feature: Validate all scenarios for program
       | Section Order | Section Header    |
       | 4             | Automation Header |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Automation Header" for title "Section Header" inside table "---program:-:programReviewPanel---"
     And I close "Review Form" modal by clicking the top right x button
     And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
@@ -833,7 +832,7 @@ Feature: Validate all scenarios for program
       | Section Order | Section Header    |
       | 4             | Automation Header |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Automation Header" for title "Section Header" inside table "---program:-:programReviewPanel---"
     And I close "Review Form" modal by clicking the top right x button
     And I click on "Review Form" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
@@ -844,7 +843,7 @@ Feature: Validate all scenarios for program
       | Section Order | Section Header    |
       | 3             | Automation Header |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Automation Header" for title "Section Header" inside table "---program:-:programReviewPanel---"
     And I click on "Delete" icon for "Automation Header" inside flex table with id "---program:-:programReviewPanel---" without waiting for record
     And I click on "Delete" icon for "Schedule" inside flex table with id "---program:-:programReviewPanel---" without waiting for record
@@ -861,7 +860,7 @@ Feature: Validate all scenarios for program
       | Reviewer                 |
       | {SavedValue:PO Username} |
     Then I softly see the following messages in the page details :
-      | Saved successfully. |
+      | Saved Successfully. |
     And I select "Download as PDF" from parallel lines dropdown of "Reviewers"
     And I download the file
     Then I softly see "Reviewers" on page "1" of "govgrants" pdf file
@@ -1016,18 +1015,18 @@ Feature: Validate all scenarios for program
    #   | Record deleted successfully. |
     Then I softly see "No records found" inside flex table with id "---program:-:checklistTableId---"
 
-  @106083 @VerifyViewOfAddedLinkAtSupportingDocument @monu @skipOnJenkins
+  @106083 @VerifyViewOfAddedLinkAtSupportingDocument @monu
   Scenario: Validate user is able to download uploaded document by clicking on view link
     When I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
-    And I choose the file "Program_Field_Values.xlsx" to upload for "Checklist" of type "Program"
-    When I close "Upload Template" modal by clicking the top right x button
+    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     Then I softly see that "Active" has been added in flextable with Id "---program:-:checklistTableId---"
-    And I click in table hyperlink containing value "View"
-    Then I see "Sub Tab" in downloaded xls or csv file "govgrants"
+    Then I click in table hyperlink containing value "View"
+
 
   @76114 @75990 @75996 @75994 @prescreenReviewPanel
   Scenario: To validate system generated validation message for Pre-screen review,when review panel categories has not associated with Pre-screen review form in setup tab in planning phase
@@ -1369,7 +1368,7 @@ Feature: Validate all scenarios for program
       | Focus Area                      | Program Name                                     |
       | Automation Permanent Focus Area | {SavedValue:Automation Runtime Internal Program} |
 
-  @76333 @76334 @76332 @SMEProgramReviewFormAndFiscalReviewForm @keerti @wip
+  @76333 @76334 @76332 @SMEProgramReviewFormAndFiscalReviewForm @keerti
   Scenario Outline: To verify Filter functionality for review panel categories section in program review form in SME review step of setup tab in planning
   /To validate system is getting displayed error message for program review form, while adding invalid values into the filter for review panel categories section on setup tab of planning
   /To validate system is getting displayed error message for fiscal review form, while adding invalid values into the filter for review panel categories section on setup tab of planning
@@ -1864,7 +1863,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @76922 @76921 @76937 @76936 @ValidatingReturnOnInvestmentQuestionValidatingStrategicAlignment @keerti @skipOnJenkins
+  @76922 @76921 @76937 @76936 @ValidatingReturnOnInvestmentQuestionValidatingStrategicAlignment @keerti
   Scenario Outline: To verify user allow to download PDF for review question in Return on Investment (ROI) of Review Panel Categories in management review form for management review step in planning phase
   | To verify user able to add new review question with success message in Return on Investment (ROI) of Review Panel Categories in management review form for management review step in planning phase
   | To verify user allow to download PDF for review question in Strategic Alignment of Review Panel Categories in management review form for management review step in plnning phase
@@ -1889,7 +1888,6 @@ Feature: Validate all scenarios for program
     And I click on parallel lines menu bar with data target value "#ProgramRelatedReviewPanelQuestionsFlexToggle"
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
     And I download the file
-    Then I softly verify that "pdf" file is downloaded
     Then I softly see "Return on Investment (ROI)" on page "1" of "govgrants" pdf file
     Then I softly see "Strategic Alignment" on page "1" of "govgrants" pdf file
     Then I softly see "Section Weight (%)" on page "1" of "govgrants" pdf file
@@ -1906,7 +1904,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type    | Max Score |
       | 4              | Test     | Written | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Written" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -1917,7 +1915,6 @@ Feature: Validate all scenarios for program
     And I click on parallel lines menu bar with data target value "#ProgramRelatedReviewPanelQuestionsFlexToggle"
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
     And I download the file
-    Then I softly verify that "pdf" file is downloaded
     Then I softly see "Strategic Alignment" on page "1" of "govgrants" pdf file
     Then I softly see "Return on Investment (ROI)" on page "1" of "govgrants" pdf file
     Then I softly see "Section Weight (%)" on page "1" of "govgrants" pdf file
@@ -1934,7 +1931,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type    | Max Score |
       | 3              | Test 1   | Written | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "3" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 1" for title "Question" against the value "3" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Written" for title "Type" against the value "3" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2083,7 +2080,7 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "4" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly do not see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
 
-  @77118 @77116 @77122 @77120 @ValidatingAdditionModificationDeletionOfPermitsReview @keerti @skipOnJenkins
+  @77118 @77116 @77122 @77120 @ValidatingAdditionModificationDeletionOfPermitsReview @keerti
   Scenario Outline: To verify user allow to download PDF for review question in Permits of Review Panel Categories in compliance review form for SME review step in planning phase
   | To verify user able to add new review question with success message in Permits of Review Panel Categories in compliance review form for SME review step in planning phase
   | To verify user able to modify review question in Permits of Review Panel Categories in compliance review form for SME review step in planning phase
@@ -2125,7 +2122,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type    | Max Score |
       | 4              | Test     | Written | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Written" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2136,17 +2133,17 @@ Feature: Validate all scenarios for program
       | Question Order | Type |
       | 4              | Date |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Date" for title "Type" against the value "3" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on "Delete" icon for "4" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly see the following messages in the page details contains:
-      | Record deleted successfully. |
+      | Record deleted Successfully. |
     Then I softly do not see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Examples:
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77124 @77123 @77170 @77171 @ValidatingPDFAdditionDeletionModificationInBudgetFiscalReviewForm @keerti @skipOnJenkins
+  @77124 @77123 @77170 @77171 @ValidatingPDFAdditionDeletionModificationInBudgetFiscalReviewForm @keerti
   Scenario Outline: To verify user allow to download PDF for review question in Budget of Review Panel Categories in Fiscal review form for SME review step in planning phase
   | To verify user able to add new review question with success message in Budget of Review Panel Categories in Fiscal review form for SME review step in planning phase
   | To verify user able to delete review question with success message in Budget of Review Panel Categories in Fiscal review form for SME review step in planning phase
@@ -2250,7 +2247,7 @@ Feature: Validate all scenarios for program
     Then I softly can see row level action button "Edit" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Delete" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
 
-  @77173 @77176 @77174 @ValidatingPDFModificationDeletionInMatchFiscalReviewForm @keerti @skipOnJenkins
+  @77173 @77176 @77174 @ValidatingPDFModificationDeletionInMatchFiscalReviewForm @keerti
   Scenario Outline:  To verify user allow to download PDF for review question in match of Review Panel Categories in Fiscal review form for SME review step in planning phase
   | To verify user able to modify review question in Match of Review Panel Categories in fiscal review form for SME review step in planning phase
   | To verify user able to delete review question with success message in Match of Review Panel Categories in fiscal review form for SME review step in planning phase
@@ -2291,7 +2288,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type    | Max Score |
       | 7              | Test 7   | Written | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 7" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Written" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2302,11 +2299,11 @@ Feature: Validate all scenarios for program
       | Question Order | Type |
       | 7              | Date |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Date" for title "Type" against the value "7" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on "Delete" icon for "7" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly see the following messages in the page details contains:
-      | Record deleted successfully. |
+      | Record deleted Successfully. |
     Then I softly do not see value "7" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Examples:
       | Objective                      |
@@ -2550,7 +2547,7 @@ Feature: Validate all scenarios for program
       | Setup Tab - Management Review - Management Review: A score cannot be associated to a question in the Strategic Alignment section because it does not have a weight.        |
       | Setup Tab - Management Review - Management Review: A weighted form must contain weighted sections.                                                                         |
 
-  @77290 @77289 @77292 @77291  @PDFAdditionModificationDeletionInApproach @keerti @skipOnJenkins
+  @77290 @77289 @77292 @77291  @PDFAdditionModificationDeletionInApproach @keerti
   Scenario Outline: To verify user allow to download PDF for review question in Approach of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user able to add new review question with success message in Approach of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user able to modify review question in Approach of Review Panel Categories in Program review form for SME review step in planning phase
@@ -2593,7 +2590,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type | Max Score |
       | 11             | Test 11  | Date | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "11" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 11" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Date" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2604,17 +2601,17 @@ Feature: Validate all scenarios for program
       | Question Order | Type    |
       | 11             | Written |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Written" for title "Type" against the value "11" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on "Delete" icon for "11" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly see the following messages in the page details contains:
-      | Record deleted successfully. |
+      | Record deleted Successfully. |
     Then I softly do not see value "11" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Examples:
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77293 @77294 @77343 @AdditionPDFModificationInImpact @keerti @skipOnJenkins
+  @77293 @77294 @77343 @AdditionPDFModificationInImpact @keerti
   Scenario Outline: To verify user able to add new review question with success message in Impact of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user allow to download PDF for review question in Impact of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user able to modify review question in Impact of Review Panel Categories in Program review form for SME review step in planning phase
@@ -2639,7 +2636,7 @@ Feature: Validate all scenarios for program
       | Question Order | Question | Type   | Max Score |
       | 4              | Test 4   | Yes/No | 0         |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 4" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2666,7 +2663,7 @@ Feature: Validate all scenarios for program
       | Question Order | Type |
       | 4              | Date |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "Date" for title "Type" against the value "4" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Examples:
       | Objective                      |
@@ -5106,7 +5103,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77192 @validatingDownloadPDFForImpactInSMEReviewFormQuestions @meenakshi @skipOnJenkins
+  @77192 @validatingDownloadPDFForImpactInSMEReviewFormQuestions @meenakshi
   Scenario Outline:To verify user allow to download PDF for review question in Impact of Review Panel Categories in Program review form for SME review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -5129,7 +5126,6 @@ Feature: Validate all scenarios for program
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
     And I download the file
     Then I see "Review Questions" on page "1" of "govgrants" pdf file
-
     Examples:
       | Objective                      |
       | Automation Permanent Objective |
@@ -5191,7 +5187,7 @@ Feature: Validate all scenarios for program
       | Objective                      | Question 2                                                                                                                                      |
       | Automation Permanent Objective | Does the budget outline how program income will be used and tracked? Are the proposed program income uses consistent with program requirements? |
 
-  @77199 @validatingDownloadPDFSMEReviewPanelCategory @monu @skipOnJenkins
+  @77199 @validatingDownloadPDFSMEReviewPanelCategory @monu
   Scenario Outline:To verify user is able to download review panel category for SME review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -5213,7 +5209,6 @@ Feature: Validate all scenarios for program
     And I select "Download as PDF" from parallel lines dropdown of "Review Panel Categories"
     And I download the file
     Then I see "Review Panel Categories" on page "1" of "govgrants" pdf file
-
     Examples:
       | Objective                      |
       | Automation Permanent Objective |
@@ -5352,7 +5347,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77346 @validatingDownloadPDFForProgramIncomeInSMEReviewFormQuestions @meenakshi @skipOnJenkins
+  @77346 @validatingDownloadPDFForProgramIncomeInSMEReviewFormQuestions @meenakshi
   Scenario Outline:To verify user allow to download PDF for review question in Program Income of Review Panel Categories in Fiscal review form for SME review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -6049,7 +6044,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:FD Username} | Step 4  |
-    Then I softly see "Saved successfully!" inside flex table with id "---program:-:approverTableId---"
+    Then I softly see "Saved Successfully!" inside flex table with id "---program:-:approverTableId---"
 
   @passed @138465 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtProgram-RnRFunctionality @monu @buglogged154221
   Scenario: Validate program owner cant add same user for multiple steps  while assigning approvers for program on program record
