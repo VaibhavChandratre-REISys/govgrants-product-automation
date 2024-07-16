@@ -879,7 +879,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
     Then I softly see value "Attachment.pdf" for title "Title" against the value "Supporting Documents" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
 
-  @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval @skipOnJenkins @organizationalDeskReviewSecond
+  @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval @organizationalDeskReviewSecond
   Scenario: Validate Record Owner user is able to take Snapshot after Org Desk Review is Submitted for Approval status - Org Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
