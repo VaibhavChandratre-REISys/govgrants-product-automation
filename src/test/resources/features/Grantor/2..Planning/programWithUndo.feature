@@ -1,7 +1,7 @@
 @programWithUndo @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
-  @PoojaUndo @279282 @Verifyusershouldnotseeundobuttonincreatedsentforreviewreviewedstateofprogram @sprint-25-US-295138 @hitesh @Undo
+   @279282 @Verifyusershouldnotseeundobuttonincreatedsentforreviewreviewedstateofprogram @sprint-25-US-295138 @hitesh @Undo
   Scenario: Verify user should not see undo button in created, sent for review, reviewed state of program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1180,7 +1180,7 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @279457 @VerifyPOapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-295138 @hitesh @Temphitesh @FieldHistoryExclude @TBExecution
+  @279457 @VerifyPOapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-295138 @hitesh @Temphitesh @FieldHistoryExclude
   Scenario:Verify PO approver should see Undo button after approval task ownership reassign to him
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1243,9 +1243,9 @@ Feature: Validate all scenarios for program
     And I click on hyperlink containing value "View All"
     Then I softly see value "Approved" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
-    Then I softly see value "Automation PO1" for title "Changed By" inside field history table
+    Then I softly see value "Automation PO1" for title "User" inside field history table
 
-  @PoojaUndo @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138 @hitesh @buglogged-356843
+  @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138 @hitesh @buglogged-356843
   Scenario: Verify notification email should generate to new owner of program after click on Undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1575,7 +1575,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
 
-  @PoojaUndo @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138 @hitesh @Undo @skipOnJenkins
+   @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138 @hitesh @Undo @skipOnJenkins
   Scenario: Verify the snapshot is generated in snapshot history section when last approver click undo action
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2360,7 +2360,9 @@ Feature: Validate all scenarios for program
     And I pause execution for "3" seconds
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
-    Then I can see the message "Comments are Required." in the approval decision
+    #Bug431809
+    Then I softly see the following messages in the page details contains:
+      | Comments are Required. |
 
   @279561 @VerifyusershouldnotseeactiveprogramtaskinpendingtaskafterapproveclickonUndobutton @sprint-3-US-291914 @hitesh @Undo
   Scenario: Verify user should not see active program task in pending task after approver click on Undo button
@@ -2454,7 +2456,7 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @PoojaUndo @290228 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-291914 @hitesh @Undo
+  @290228 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-291914 @hitesh @Undo
   Scenario:Verify reassign approver should see Undo button after forwarded approver change approval task ownership
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab

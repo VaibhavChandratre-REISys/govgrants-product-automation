@@ -46,11 +46,12 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     Then I do not see value "Record id" for title "Announcement Name" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
 
-  @34222 @52400 @70342 @70343 @37029 @52401 @73393 @52402 @52403 @52404 @createdAnnouncementEditionOnlyOwnerFA @annn
+  @AnnouncmentRerun @34222 @52400 @70342 @70343 @37029 @52401 @73393 @52402 @52403 @52404 @createdAnnouncementEditionOnlyOwnerFA @annn
   Scenario: Validate that only owner can able to edit created status announcement | To verify user able to enter the description in the details field of overview tab while creating the Announcemennt
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    And I wait for "5" seconds
     When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
     Then I softly can see top right button "Save" in page detail
     And I click on "Save" in the page details
@@ -127,6 +128,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
+    And I click modal button "Close"
     Then I see that "Automation Permanent Focus Area2" has been added in flextable with Id "---announcement:-:AnnouncementServiceArea1TableId---"
 
   @34775 @announcementObjectiveAssociationFA
@@ -190,7 +192,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I get the "EGMS ID"
     Then I see that "Sent for Review" has been added in flextable with Id "---announcement:-:reviewersTableId---"
 
-  @52413 @announcementReviewCompleteFA @wip
+  @52413 @announcementReviewCompleteFA
   Scenario: Validate the review for the Announcement
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
@@ -210,12 +212,14 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I pause execution for "2" seconds
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Formula Announcements"
     When I perform quick search for "Record id" in "---announcement:-:formulaAnnouncementTableId---" panel
     And I click on "View" icon for "Record id" inside table
+    And I wait for "5" seconds
     When I click on "Complete Review" in the page details
     Then I see status in Progress-bar is "Reviewed" and is "dark blue"
 

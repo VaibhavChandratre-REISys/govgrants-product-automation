@@ -560,10 +560,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     #234672
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I navigate to "Negotiations" sub tab
+    And I wait for "5" seconds
     And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
+    And I wait for "5" seconds
     When I click on "Send to Subrecipient" in the page details
     And I softly see the following messages in the page details contains:
       | Negotiation Tab: Please select "Budget Tab: Budget Details" with "Budget Tab: Budget Summary by Focus Area" in the Application Sections for the Negotiation field. |
@@ -790,6 +792,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I refresh the page
     When I navigate to "Budget" sub tab
     Then I softly cannot see field "Recommended Budget" inside page block
+
     Examples:
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | EXE  |
@@ -1632,7 +1635,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | Application2                     | User |
       | {SavedValue:Automation Runtime Announcement} | Automation Runtime Application_2 | PO   |
 
-  @113322 @ValidateApplicantscanfillinthedetailedbudgetonapplicationwhenfundingopportunityisextended @Sprint-23-US-273843 @vaibhav @Allocation @wip
+  @113322 @ValidateApplicantscanfillinthedetailedbudgetonapplicationwhenfundingopportunityisextended @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Applicants can fill in the detailed budget on application when funding opportunity is extended
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

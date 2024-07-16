@@ -583,30 +583,38 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "10" seconds
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:businessFormlistTableId---"
 
-  @73854 @73855 @73852 @73853 @jitendra @filterNotYetQualifiedSPAUser @wip
+  @73854 @73855 @73852 @73853 @jitendra @filterNotYetQualifiedSPAUser
   Scenario:  To verify, filter functionality for Not Yet Qualified:All section for announcement by external user
   | To verify, all closed opportunity which has Not Qualified should reflect under Not Yet Qualified: Closed list view
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPA" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I save the value from row "1" for column name "EGMS ID" as "annId" from flex table "---announcement:-:opportunityNotQtableId---"
-    And I click on advance filter "#advfnyqae" of table id "---announcement:-:opportunityNotQtableId---"
-    #And I enter advance filter values inside id "advfnyqae"
-    #  | EGMS ID | Contains | {SavedValue:annId} |
-    Then I softly see value "{SavedValue:annId}" for title "EGMS ID" inside table "---announcement:-:opportunityNotQtableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    And I wait for "3" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "annId" from flex table "---applicationIntake:-:activeOpportunitiesTableId---"
+    And I click on advance filter of table id "---applicationIntake:-:activeOpportunitiesTableId---" for LWC
+    And I enter advance filter values inside id "---applicationIntake:-:activeOpportunitiesTableId---" for LWC
+      | EGMS ID | contains | {SavedValue:annId} |
+    And I pause execution for "5" seconds
+    Then I softly see value "{SavedValue:annId}" for title "EGMS ID" inside table "---applicationIntake:-:activeOpportunitiesTableId---"
     And I refresh the page
-    #And I click on advance filter "#advfnyqae" of table id "---announcement:-:opportunityNotQtableId---"
-    #And I enter advance filter values inside id "advfnyqae"
-    #  | EGMS ID | Contains | I am laughing |
-    Then I softly see "No records found" inside flex table with id "---announcement:-:opportunityNotQtableId---"
-    And I refresh the page
-    And I click toggle button to select "Not Yet Qualified Opportunities - Closed"
-    #Then I softly see "No records found" inside flex table with id "---announcement:-:opportunityNotQtableId---"
+    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I perform quick search for "{SavedValue:annId}" in "---announcement:-:opportunityNotQtableId---" panel
-    Then I softly see value "{SavedValue:annId}" for title "EGMS ID" inside table "---announcement:-:opportunityNotQtableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    And I wait for "3" seconds
+    And I click on advance filter of table id "---applicationIntake:-:activeOpportunitiesTableId---" for LWC
+    And I enter advance filter values inside id "---applicationIntake:-:activeOpportunitiesTableId---" for LWC
+      | EGMS ID | contains | I am laughing |
+    And I pause execution for "5" seconds
+    Then I softly see "No records found" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
+    And I refresh the page
+    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "{SavedValue:annId}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    Then I softly see value "{SavedValue:annId}" for title "EGMS ID" inside table "---applicationIntake:-:activeOpportunitiesTableId---"
 
   @73866 @73870 @jitendra @viewQualifiedOpportunitySPA
   Scenario: To verify user allow to view Qualified opportunity  in opportunity tab
@@ -661,7 +669,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #  | Subject | Contains | jitu |
     Then I softly see "jitu" inside flex table with id "---announcement:-:collabMessages---"
 
-  @75524 @publishedAllowToDownloadPDF @skipOnJenkins
+  @75524 @publishedAllowToDownloadPDF
   Scenario: To verify system allow to download PDF for Announcement after publishing it
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for pdf Tests" and properties "default"
     And I login to "As a Grantor" app as "PM" user
@@ -674,9 +682,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on Menu icon present on top right corner of the page
     And I wait for "3" seconds
     And I select "Download As PDF" from dropdown
-    And I wait for "3" seconds
+    And I wait for "10" seconds
     And I download the file
-    And I see "{SavedValue:Automation Announcement for pdf Tests}" on page "1" of "govgrants" pdf file
+    And I wait for "3" seconds
+    Then I see "{SavedValue:Automation Announcement for pdf Tests}" on page "1" of "govgrants" pdf file
 
   @75632 @75621 @searchFunctionalityForMessagesMyFeedInCollab @keerti @buglogged95462 @wip @ExcludeSendEmail
   Scenario: To verify search functionality for messages section in collab tab for announcement
@@ -1626,7 +1635,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly can see row level action button "Initiate Review Process" against "{SavedValue:AnnEGMSID}" in flex table with id "---applicationReview:-:announcementListTableId---"
 
-  @194763 @Validateownershipreassignmentofannouncementfieldhistoryshouldgetupdated @sprint-4 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @194763 @Validateownershipreassignmentofannouncementfieldhistoryshouldgetupdated @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate ownership reassignment of announcement field history should get updated
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -3151,7 +3160,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
     Then I see value "Publish Announcement" for title "Task Type" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @198424 @ValidatefieldhistoryshouldbeupdateafterAnnownershiptaskreassigntootheruser @sprint-4 @vaibhav @reassignment @FieldHistoryExclude @TBExecution
+  @198424 @ValidatefieldhistoryshouldbeupdateafterAnnownershiptaskreassigntootheruser @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate field history should be update after Ann ownership task reassign to other user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

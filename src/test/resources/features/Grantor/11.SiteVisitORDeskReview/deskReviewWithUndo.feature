@@ -1006,7 +1006,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @284438 @284439 @Verifywhen3ApproversapprovetheDeskreviewandlastapproverclickonundobuttononlylastapproverstaskshouldgetremovedfromcompletedtask @sprint-25-US-297269 @hitesh @Undo @FieldHistoryExclude @TBExecution
+  @284438 @284439 @Verifywhen3ApproversapprovetheDeskreviewandlastapproverclickonundobuttononlylastapproverstaskshouldgetremovedfromcompletedtask @sprint-25-US-297269 @hitesh @Undo @FieldHistoryExclude
   Scenario: Verify when 3 Approvers approve the Desk review and last approver click on undo button, only last approver's task should get removed from completed task
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"
@@ -1098,6 +1098,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I click on hyperlink containing value "View All"
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
     Then I softly see value "Approved" for title "Original Value" inside field history table
+    Then I softly see value "{SavedValue:EXE Username}" for title "User" inside field history table
     And I click on back arrow
     And I navigate to "Monitoring" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel

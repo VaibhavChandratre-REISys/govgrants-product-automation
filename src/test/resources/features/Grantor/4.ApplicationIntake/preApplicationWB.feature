@@ -126,7 +126,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -236,7 +236,7 @@ Feature: Pre-Application scenarios without background
     #And I save the field labeled "Match Required?" as "matchrequired"
     When I navigate to "Forms and Files" sub tab
 #    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -368,7 +368,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -641,7 +641,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -676,8 +676,10 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---preApplication:-:notYetQualifiedTable---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-Application}" inside table
     When I click on "Qualify" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Pre-Application Due Date" is not editable
     And I click on "Create Pre-Application" in the page details
+    And I wait for "5" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -696,32 +698,41 @@ Feature: Pre-Application scenarios without background
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
-    And I switch to parent tab
+    And I close the tab
     When I click on "Submit to Grantor" in the page details
     When I navigate to "History" sub tab
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
     And I wait for "7" seconds
-    Then I softly see snapshot with name containing "SnapShot on" as name
+    Then I softly see snapshot with name containing "Submission" as name
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside table
     When I navigate to "History" sub tab
-    Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted to Grantor" for title "New Value" inside field history table
+    And I click on back arrow
     When I click on "Accept" in the page details
-    Then I softly see value "Accepted" for title "New Value" inside table "History"
-    And I softly see value "Submitted to Grantor" for title "Old Value" inside table "History"
+    And I wait for "2" seconds
+    When I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Accepted" for title "New Value" inside field history table
+    And I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
+    And I click on back arrow
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     And I click on hyperlink containing value "Submission"
+    And I wait for "3" seconds
     When I download the file
     Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
@@ -801,6 +812,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I get the "EGMS ID"
+    And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
@@ -881,7 +893,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -917,7 +929,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see all values "$0.00" under column "Total Match" inside flextable with id "---preApplication:-:preApplicationAttachmentId---"
     Then I softly see all values "$0.00" under column "Other Leverage" inside flextable with id "---preApplication:-:preApplicationAttachmentId---"
 
-  @77656 @snapshotHistoryPreApplication @deepika @skipOnJenkins
+  @77656 @snapshotHistoryPreApplication @deepika
   Scenario: Validate whether SPI user will be able to take the snapshot on page when the pre-application is in draft status and is saved under snapshot history
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -932,12 +944,14 @@ Feature: Pre-Application scenarios without background
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Snapshot on"
+    And I click on hyperlink containing value "SnapShot on"
     When I download the file
-    Then I see "Draft" on page "1" of "govgrants" pdf file
+    Then I see "Created" on page "1" of "govgrants" pdf file
 
   @53151 @75961 @72622 @preApplicationCreationProgramIncomeValidation @smoke
   Scenario: Validate the Creation of Pre Application | Validate the user  will be able to view the the Program Income field on the overview tab when the value set as No.
@@ -991,7 +1005,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1071,7 +1085,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1119,7 +1133,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1169,7 +1183,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1228,7 +1242,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1293,7 +1307,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1362,7 +1376,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1407,7 +1421,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1473,7 +1487,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1527,7 +1541,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1584,7 +1598,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1641,7 +1655,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1690,7 +1704,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1762,7 +1776,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1810,7 +1824,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1872,7 +1886,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1931,7 +1945,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -1995,7 +2009,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2047,7 +2061,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2114,7 +2128,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2183,7 +2197,7 @@ Feature: Pre-Application scenarios without background
     Then I can see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
      #169923
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     Then I softly see fields "Question1__c" is in edit mode
@@ -2238,7 +2252,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter value "Automation Test" into field "Question1__c"
@@ -2281,7 +2295,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2333,7 +2347,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2376,7 +2390,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2415,7 +2429,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2468,7 +2482,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2528,7 +2542,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2592,7 +2606,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2668,7 +2682,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_v" values from "PreApplication_Field_Values.xlsx"
@@ -2710,7 +2724,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2758,7 +2772,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2826,7 +2840,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2880,7 +2894,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2914,7 +2928,7 @@ Feature: Pre-Application scenarios without background
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit1" values from "PreApplication_Field_Values.xlsx"
@@ -2972,7 +2986,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3058,7 +3072,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3118,7 +3132,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3183,7 +3197,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3256,7 +3270,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3299,7 +3313,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3342,7 +3356,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3385,7 +3399,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3454,7 +3468,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3524,7 +3538,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3594,7 +3608,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3663,7 +3677,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3736,7 +3750,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3811,7 +3825,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -3888,7 +3902,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -4005,7 +4019,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -4122,7 +4136,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -4191,7 +4205,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -4214,7 +4228,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Extend Dates" in page detail
     Then I softly can see top right button "Unpublish" in page detail
 
-  @202457 @ValidatetasktypeshouldberenamedforEXErevieweruserasPeerReviewPre-Applicationafterpre-appsubmittedforpeerreview @sprint-12-US-226646 @vaibhav @reassignment @skippedInExecutionBug
+  @202457 @ValidatetasktypeshouldberenamedforEXErevieweruserasPeerReviewPre-Applicationafterpre-appsubmittedforpeerreview @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate task type should be renamed for EXE reviewer user as "Peer Review Pre-Application" after pre-app submitted for peer review
     And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -4243,7 +4257,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -4374,7 +4388,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -4446,7 +4460,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -4488,7 +4502,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -4524,7 +4538,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     Then I softly see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @202446 @ValidatePre-apptasktypeshouldberenamedforFDrevieweruserasPeerReviewPre-Applicationafterpre-appsubmittedforpeerreview @sprint-11-US-224734 @vaibhav @reassignment @skippedInExecutionBug
+  @202446 @ValidatePre-apptasktypeshouldberenamedforFDrevieweruserasPeerReviewPre-Applicationafterpre-appsubmittedforpeerreview @sprint-11-US-224734 @vaibhav @reassignment
   Scenario: Validate Pre-app task type should be renamed for FD reviewer user as "Peer Review Pre-Application" after pre-app submitted for peer review
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -4553,7 +4567,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -4598,7 +4612,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     Then I softly see field "Status" as "Submitted for Review"
 
-  @202460 @ValidatePreapptasktypeshouldberenamedforAdminuserasReviePre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734 @vaibhav @reassignment @skippedInExecutionBug
+  @202460 @ValidatePreapptasktypeshouldberenamedforAdminuserasReviePre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734 @vaibhav @reassignment
   Scenario: Validate Pre app_ Verify task type should be renamed for Admin user as "Review Pre-Application" after pre-app submitted to grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation ADMIN user"
     When I am on "SUBPORTAL" portal
@@ -4627,7 +4641,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -4756,7 +4770,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -4830,7 +4844,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -4906,7 +4920,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -4985,7 +4999,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -5100,7 +5114,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -5190,7 +5204,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -5301,7 +5315,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -5354,7 +5368,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---home:-:completedAssignedToMe---" panel
     Then I softly see value "Review Pre-Application" for title "Task Type" inside table "---home:-:completedAssignedToMe---"
 
-  @ValidatePre-appnewownerpeerreviewershouldabletosubmitthereviewcommentsforpre-app @sprint-11-US-218319 @vaibhav @reassignment @skippedInExecutionBug
+  @ValidatePre-appnewownerpeerreviewershouldabletosubmitthereviewcommentsforpre-app @sprint-11-US-218319 @vaibhav @reassignment
   Scenario: Validate Pre-app new owner of peer reviewer should able to submit the review comments for pre-app
     And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -5383,7 +5397,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -5496,7 +5510,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -5578,7 +5592,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -5646,7 +5660,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -5708,7 +5722,7 @@ Feature: Pre-Application scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"

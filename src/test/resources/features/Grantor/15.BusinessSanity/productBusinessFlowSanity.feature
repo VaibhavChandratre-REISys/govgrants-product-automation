@@ -1947,8 +1947,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
-#   To Do:- Remove the refresh step once bug resolve for refresh behavior
-#    And I refresh the page
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
   @72350 @adhocAdvanceHappyPath @ProdSan1
@@ -2142,8 +2140,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
-#   To Do:- Remove the refresh step once bug resolve for refresh behavior
-    Then I see status in Progress-bar is "Paid" and is "dark blue"
+   Then I see status in Progress-bar is "Paid" and is "dark blue"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime award} | {SavedValue:Automation Runtime award} |

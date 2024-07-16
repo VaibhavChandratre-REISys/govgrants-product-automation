@@ -81,7 +81,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -575,7 +575,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -625,7 +625,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -759,7 +759,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -1235,7 +1235,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -1293,14 +1293,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -1859,7 +1859,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -1911,7 +1911,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Name                       |  Is Key Contact |
       | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -1960,7 +1960,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Name                       |  Is Key Contact |
       | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -2014,7 +2014,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Name                       |  Is Key Contact |
       | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -2075,7 +2075,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Name                       |  Is Key Contact |
       | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -2162,7 +2162,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Name                       |  Is Key Contact |
       | {SavedValue:SPI3 Username} |  Checked        |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -2249,7 +2249,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -2316,7 +2316,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -2407,7 +2407,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -2508,7 +2508,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "3" seconds
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
@@ -2589,7 +2589,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -2643,7 +2643,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -2722,7 +2722,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -2829,7 +2829,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -2917,7 +2917,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -2990,7 +2990,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
@@ -3097,7 +3097,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "3" seconds
