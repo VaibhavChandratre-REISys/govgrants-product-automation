@@ -160,7 +160,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I wait for "2" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+#    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "3" seconds
