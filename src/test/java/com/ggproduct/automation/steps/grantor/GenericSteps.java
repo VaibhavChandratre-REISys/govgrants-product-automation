@@ -6,6 +6,7 @@ import com.ggproduct.automation.projectmanager.GrantorProjectManager;
 import com.ggproduct.automation.webservices.GrantorWebServices;
 import com.helperPackage.objects.Elements;
 import com.helperPackage.register.I;
+import com.helperPackage.report.LogLevel;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -314,12 +315,11 @@ public class GenericSteps {
 
     @And("I click {string} button in modal")
     public void iClickButtonInModal(String buttonName) {
-        By Button =ByUsing.xpath("//div[@id='ModalDivID']//button[contains(text(),'" + buttonName + "')] |  //button[normalize-space()='" + buttonName + "']");
-        try{
+        By Button = ByUsing.xpath("//div[@id='ModalDivID']//button[contains(text(),'" + buttonName + "')] |  //button[normalize-space()='" + buttonName + "']");
+        try {
             I.amPerforming().waitFor().ElementToBeClickable(Button);
             I.amPerforming().click().withJavaScript(Button);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -643,8 +643,22 @@ public class GenericSteps {
         }
         return flag;
     }
-        @And("I click on hyperlink against {string} in table {string}")
+
+    @And("I click on hyperlink against {string} in table {string}")
     public void iClickOnHyperlinkAgainstInTable(String value, String id) {
-        grantorProjectManager.clickHyperLinkAgainstValueinTable(value,id);
+        grantorProjectManager.clickHyperLinkAgainstValueinTable(value, id);
+    }
+
+    @And("I scroll down to table with id {string} if visible")
+    public void iScrollDownToTableWithIdIfVisible(String tableid) {
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(tableid)) {
+                I.amPerforming().scroll().onPageToSpecificElement(tableid);
+            }
+        } catch (Exception e) {
+            System.out.println("Element is not located in page");
+            I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_CRITICAL, "Element is not located in page");
+            e.printStackTrace();
+        }
     }
 }
