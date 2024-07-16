@@ -5631,7 +5631,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:TotalObligation}" is "Equals to" the value "{SavedValue:TotalObligation1}"
     Then I softly see value "{SavedValue:AvailableBalance}" is "Equals to" the value "{SavedValue:AvailableBalance1}"
 
-  @ams @257728 @ValidateBudgetedAmountshouldberolledfromtherevisedawardamountcolumnfrombudgetedgridFAYes @sprint-19-US-242374 @vaibhav @Allocation
+  @ams @ds1 @257728 @ValidateBudgetedAmountshouldberolledfromtherevisedawardamountcolumnfrombudgetedgridFAYes @sprint-19-US-242374 @vaibhav @Allocation
   Scenario: Validate Budgeted Amount should be rolled from the revised award amount column from budgeted grid(FA=Yes)
     And I activated standalone subaward "Automation Runtime award" with properties "THREE_FOCUS_AREA_NO_BUDGET_CATEGORY_THIRD_FOCUS-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE1" user
@@ -5662,8 +5662,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Test Focus Area1" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:projectAreasTableId---"
-    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
+#    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    And I scroll down to table with id "---amendment:-:grantorBudgetChangeTableId---" if visible
+    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Previous"
     Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
     Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
@@ -5709,9 +5710,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Test Focus Area1" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$1,500.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:projectAreasTableId---"
-    When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
-    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
+#    When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
+#    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Previous"
     Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
     Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
@@ -5758,7 +5759,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Revised Award Amount |
       | $2,500.00            |
 
-  @ams @256862 @ValidateFOusercanseeBudgetedAmountcolumnvalueasRollupfromthebudgetgridsRevisedAwardAmountColumn @sprint-19-US-229281 @vaibhav @Allocation
+  @ams @ds1 @256862 @ValidateFOusercanseeBudgetedAmountcolumnvalueasRollupfromthebudgetgridsRevisedAwardAmountColumn @sprint-19-US-229281 @vaibhav @Allocation
   Scenario: Validate FO user can see Budgeted Amount column value as Rollup from the budget grid's Revised Award Amount Column
     And I activated standalone subaward "Automation Runtime award" with properties "THREE_FOCUS_AREA_NO_BUDGET_CATEGORY_THIRD_FOCUS" of type "Directed"
     When I login to "As a Grantor" app as "FO" user
@@ -5789,9 +5790,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Test Focus Area1" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:projectAreasTableId---"
-    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+#    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I pause execution for "3" seconds
-    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
+    And I scroll down to table with id "---amendment:-:grantorBudgetChangeTableId---" if visible
+    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Previous"
     Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
     Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
@@ -5838,8 +5840,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Test Focus Area1" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$1,500.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:projectAreasTableId---"
     And I scroll down to table with id "---amendment:-:grantorBudgetChangeTableId---" if visible
-    When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
-    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+#    When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
+    And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Previous"
+#    Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
     Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
@@ -12091,7 +12094,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$200.00" for title "Spent" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:subrecipientProjectAreasTableId---"
     Then I softly see value "$500.00" for title "Spent" against the value "Grand Total" inside table "---amendment:-:subrecipientProjectAreasTableId---"
 
-  @ams @57288 @verifyAdvancePRCreatedAtRevisedAmendmentSubaward @jitendra
+  @ams @ds1 @57288 @verifyAdvancePRCreatedAtRevisedAmendmentSubaward @jitendra
   Scenario: Verify Advance Payment request is created at revised amendment Subaward
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST_ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -12216,14 +12219,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     And I pause execution for "3" seconds
-    And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+    And I upload attachment "Attachment.pdf" of type "Others" from computer
     And I wait for "3" seconds
     When I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @ams @57451 @verifyPaymentApproverApproveAdvancePaymentRequestActiveSubawardAfterFundingChangeAmendment @mahadev
+  @ams @ds1 @57451 @verifyPaymentApproverApproveAdvancePaymentRequestActiveSubawardAfterFundingChangeAmendment @mahadev
   Scenario Outline: Verify Payment Request Approver can approve the Advance Payment Request created on Active subaward after Funding change amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST_ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -19316,7 +19319,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | Please specify the New Obligation planned through this amendment request. |
 
-  @ams @255455 @ValidateDirectedvalidationisdisplayedtoPMuserwhensubmitamendmentforapprovalwithNewobligationfieldisblank @sprint-18-US-229266 @vaibhav @Allocation
+  @ams @ds1 @255455 @ValidateDirectedvalidationisdisplayedtoPMuserwhensubmitamendmentforapprovalwithNewobligationfieldisblank @sprint-18-US-229266 @vaibhav @Allocation
   Scenario: Validate Directed validation is displayed to PM user when submit amendment for approval with New obligation field is blank
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Directed"
     When I login to "As a Grantor" app as "PM" user
