@@ -1638,6 +1638,7 @@ Feature: Amendment Request scenarios with Undo
     And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Send to Subrecipient" in the page details
+    #Bug431809
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4342,7 +4343,7 @@ Feature: Amendment Request scenarios with Undo
     And I refresh the page
     And I click on "Acknowledge" in the page details
     And I pause execution for "4" seconds
-    Then I softly see field "Status" as "Acknowledged"
+    Then I softly see field "Status" as "Acknowledged by Subrecipient"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
