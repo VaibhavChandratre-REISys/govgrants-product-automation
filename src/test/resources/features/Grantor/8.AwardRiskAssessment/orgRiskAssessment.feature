@@ -1623,9 +1623,14 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
     When I click on "View" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:activeOrgTableID---" without waiting for record
     And I navigate to "Risk Assessment" sub tab
-    And I click on "Download As PDF" in the page details
+    And I click on parallel menu button in flex table title "Organization Risk Assessments-All"
+    And I select "Download as PDF" from dropdown
+    And I wait for "3" seconds
     And I download the file
-    Then I see "Active" on page "1" of "govgrants" pdf file
+    And I wait for "5" seconds
+    Then I softly see following details in "govgrants" pdf file:
+      | Detail | Page Number |
+      | Active | 1           |
 
   @63981 @totalRecordsofOrgRiskAssesment @deepika  @runOrgRisk
   Scenario: Validate whether user is able is see total record when first risk assessment is expired and second is active
@@ -2241,6 +2246,8 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     And I click on parallel menu button in flex table title "Organization Risk Assessments-All"
     And I select "Download as PDF" from dropdown
+    And I wait for "3" seconds
+    And I download the file
     And I wait for "3" seconds
     Then I softly see that file name contains ".pdf" is downloaded
     Then I delete file contains name ".pdf"

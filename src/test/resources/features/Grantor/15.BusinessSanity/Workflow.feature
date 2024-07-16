@@ -1538,12 +1538,25 @@ Feature: Validate all scenarios of every modules flow
 ##   And I generate the random EmailID and save as "uniqueEmailID" for maildrop
 ##   And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
 #   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
-#   Given I login to "As a Grantor" app as "PM" user
+    Given I login to "As a Grantor" app as "PM" user
 #   And I halt execution
 #    And I click on "Download As PDF" in the page details
 #    And I wait for "5" seconds
 #    And I download the file
 #    Then I see "Approved" on page "1" of "govgrants" pdf file
 #   And I halt execution
-    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
+    And I navigate to "Home" tab
+    And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
+    When I click on "View" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:activeOrgTableID---" without waiting for record
+    And I navigate to "Risk Assessment" sub tab
+    And I click on parallel menu button in flex table title "Organization Risk Assessments-All"
+    And I select "Download as PDF" from dropdown
+    And I wait for "3" seconds
+    And I download the file
+    And I wait for "5" seconds
+    Then I softly see following details in "govgrants" pdf file:
+      | Detail | Page Number |
+      | Active | 1           |
+#    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
