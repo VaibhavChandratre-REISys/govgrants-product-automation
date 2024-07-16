@@ -1532,7 +1532,7 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @840
+  @258410
   Scenario: end-to-end
 #    And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA"
 #    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -1560,16 +1560,28 @@ Feature: Validate all scenarios of every modules flow
 #    And I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation ADMIN user" of type "Formula_By_Applicant_Focus_Area"
 #    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Formula_By_Applicant_Focus_Area"
 #    And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation PM user"
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
-    Then I navigate to "Forms and Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I wait for "2" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
-    And I wait for "2" seconds
-    When I click modal button "Close"
-    And I wait for "3" seconds
-    And I refresh the page
-    And I wait for "3" seconds
-    And I click on "Submit to Grantor" in the page details
-    Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "Automation Runtime FDM Announcement115577" in "---closeout:-:grantsTableId---" panel
+    And I click on "View" icon for "Automation Runtime FDM Announcement115577" inside flex table with id "---closeout:-:grantsTableId---"
+    Then I softly see field "Status" as "Closed/Completed"
+    When I navigate to "Budget" sub tab
+    And I save the field labeled "Cumulative Obligation" as "CumulativeObligation5"
+    #258422
+    And I save the value from row "3" for column name "Cumulative Obligation" as "CumulativeObligation5" from flex table "---subAwardStandAlone:-:grantsBudgetSummaryFocusAreaTableId---"
+    Then I softly see value "$3,000.00" for title "Cumulative Obligation" against the value "Grand Total" inside table "---subAwardStandAlone:-:grantsBudgetSummaryFocusAreaTableId---"
+    Then I softly see addition of two fields "$1,000.00" and "$2,000.00" is equal to "{SavedValue:CumulativeObligation5}"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "Automation Runtime FDM Announcement115577" in "---paymentRequest:-:recipientGrantTableId---" panel
+    And I click on "View" icon for "Automation Runtime FDM Announcement115577" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    Then I softly see field "Status" as "Closed/Completed"
+    And I navigate to "Budget" sub tab
+    #258422,258423
+    And I save the value from row "3" for column name "Cumulative Obligation" as "CumulativeObligation6" from flex table "---subAwardStandAlone:-:grantSubrecipientFocusAreaTableId---"
+    Then I softly see value "$3,000.00" for title "Cumulative Obligation" against the value "Grand Total" inside table "---subAwardStandAlone:-:grantSubrecipientFocusAreaTableId---"
+    Then I softly see addition of two fields "$1,000.00" and "$2,000.00" is equal to "{SavedValue:CumulativeObligation6}"
