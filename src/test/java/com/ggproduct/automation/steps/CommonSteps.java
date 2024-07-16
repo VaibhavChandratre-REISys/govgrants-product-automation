@@ -108,10 +108,6 @@ public class CommonSteps {
     public void iClickOnIconForInsideFlexTableWithIdWithQuotes(String actionIcon, String anyUniqueColumnValues, String flexTableId) {
             govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues);
     }
-    @Then("^I (see|softly see) that (file|file name contains) \"([^\"]*)\" is downloaded$")
-    public void iVerifyThatPdfFileIsDownloaded(String usage, String fileNamePartialMatch, String fileName) {
-        projectManager.assertThatFileIsDownloaded(usage.contains("softly"), fileNamePartialMatch.contains("contains"), fileName);
-    }
 }
 
 
