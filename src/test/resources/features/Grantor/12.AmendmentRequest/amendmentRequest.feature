@@ -2372,7 +2372,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
 
-  @100693 @ValidateEditOfDateOfFocusAreaAtAmendmentRequest-FundingChangeAmendmentRequest @monu @poojaAmendmnetThird
+  @100693 @ValidateEditOfDateOfFocusAreaAtAmendmentRequest-FundingChangeAmendmentRequest @monu
   Scenario: Verify Internal user can edit or change focus area dates
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2391,7 +2391,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Title                           | End Date |
       | Automation Permanent Focus Area | 3500     |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I save the value from row "1" for column name "End Date" as "endDate" from flex table "---amendment:-:projectAreasTableId---"
     Then I softly see value "{SavedValue:endDate}" for title "End Date" inside table "---amendment:-:projectAreasTableId---"
 
