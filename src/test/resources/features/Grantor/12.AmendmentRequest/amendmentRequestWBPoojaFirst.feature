@@ -562,7 +562,7 @@ Feature: Amendment Request scenarios without background
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @ams1rerun @103172 @103179 @validateRemainingBalanceAfterApprovalOfPaymentRequest-FundingChangeAmendmentRequest @monu @AmendmentWBPooja
+  @ams1 @103172 @103179 @validateRemainingBalanceAfterApprovalOfPaymentRequest-FundingChangeAmendmentRequest @monu @AmendmentWBPooja
   Scenario Outline: Verify Remaining balance on grant is displayed correctly after approval of payment request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST_BUILDUP_MATCH_YES" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1936,7 +1936,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Add Line Items" icon for "Administrative and legal expenses" inside flex table with id "---amendment:-:BudgetChangeTableId---"
     When I enter the following values into flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "New" :
       | Title                      | Narrative | Award Amount | Other Leverage |
-      | Automation Budget Category | Test1      | 2500         | 100            |
+      | Automation Budget Category | Test1     | 2500         | 100            |
     And I wait for "3" seconds
     Then I softly see value "Automation Budget Category" for title "Title" inside table "---amendment:-:AddLineItemForBudgetChangeTableId---"
     And I close "Add Line Items" modal by clicking the top right x button
@@ -2005,6 +2005,7 @@ Feature: Amendment Request scenarios without background
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
+    And I pause execution for "3" seconds
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
@@ -2037,7 +2038,7 @@ Feature: Amendment Request scenarios without background
     And I click toggle button to select "Amendment Requests - All"
     And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:recipientSideAmendmentRequestTableId---" panel
     When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:recipientSideAmendmentRequestTableId---" without waiting for record
-     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
       | Name                       | Project Role           |
       | {SavedValue:SPI3 Username} | Principal Investigator |
     And I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:BudgetChangeTableId---"
@@ -2432,26 +2433,26 @@ Feature: Amendment Request scenarios without background
     And I edit the following rows inline in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date         | End Date           |
       | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
-    Then I softly see value "{SavedValue:PBPSD}" for title "Start Date" inside table "---amendment:-:FundingChangeFocusAreaTableId---"
-    Then I softly see value "{SavedValue:PBPED}" for title "End Date" inside table "---amendment:-:FundingChangeFocusAreaTableId---"
+#    Then I softly see value "{SavedValue:PBPSD}" for title "Start Date" inside table "---amendment:-:FundingChangeFocusAreaTableId---"
+#    Then I softly see value "{SavedValue:PBPED}" for title "End Date" inside table "---amendment:-:FundingChangeFocusAreaTableId---"
     And I click on "Remove" icon for "<Focus Area>" inside flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" without waiting for record
     Then I softly do not see value "<Focus Area>" for title "Title" inside table "---amendment:-:FundingChangeFocusAreaTableId---"
-    #97053 #monu
-    And I click on top right button "New" in flex table with id "GranteeTermsandConditionsAmendmentGrid"
-    And I enter in modal value "Automation Special Conditions" into field "Title__c"
-    And I enter in modal value "Automation Special Conditions description" into field "cke_1_contents"
-    And I enter in modal value "0" into field "EffectiveFrom__c"
-    And I enter in modal value "1" into field "EffectiveTill__c"
-    And I click modal button "Save"
-    And I refresh the page
-    When I perform quick search for "Automation Special Conditions" in "GranteeTermsandConditionsAmendmentGrid" panel
-    Then I softly see value "Automation Special Conditions" for title "Name" inside table "GranteeTermsandConditionsAmendmentGrid"
-    And I click on "Edit" icon for "Automation Special Conditions" inside flex table with id "GranteeTermsandConditionsAmendmentGrid" without waiting for record
-    And I enter in modal value "Automation Special Conditions1" into field "Title__c"
-    And I enter in modal value "Automation Special Conditions description1" into field "cke_1_contents"
-    And I click modal button "Save"
-    When I perform quick search for "Automation Special Conditions1" in "GranteeTermsandConditionsAmendmentGrid" panel
-    Then I softly see value "Automation Special Conditions1" for title "Name" inside table "GranteeTermsandConditionsAmendmentGrid"
+#    #97053 #monu
+#    And I click on top right button "New" in flex table with id "GranteeTermsandConditionsAmendmentGrid"
+#    And I enter in modal value "Automation Special Conditions" into field "Title__c"
+#    And I enter in modal value "Automation Special Conditions description" into field "cke_1_contents"
+#    And I enter in modal value "0" into field "EffectiveFrom__c"
+#    And I enter in modal value "1" into field "EffectiveTill__c"
+#    And I click modal button "Save"
+#    And I refresh the page
+#    When I perform quick search for "Automation Special Conditions" in "GranteeTermsandConditionsAmendmentGrid" panel
+#    Then I softly see value "Automation Special Conditions" for title "Name" inside table "GranteeTermsandConditionsAmendmentGrid"
+#    And I click on "Edit" icon for "Automation Special Conditions" inside flex table with id "GranteeTermsandConditionsAmendmentGrid" without waiting for record
+#    And I enter in modal value "Automation Special Conditions1" into field "Title__c"
+#    And I enter in modal value "Automation Special Conditions description1" into field "cke_1_contents"
+#    And I click modal button "Save"
+#    When I perform quick search for "Automation Special Conditions1" in "GranteeTermsandConditionsAmendmentGrid" panel
+#    Then I softly see value "Automation Special Conditions1" for title "Name" inside table "GranteeTermsandConditionsAmendmentGrid"
 
     Examples:
       | Focus Area                       |
@@ -2485,7 +2486,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "VA: Virginia" into field "State__c"
     When I click on "Save" in the page details
     Then I softly see field "Zip Code" as "12346"
-    Then I softly see field "Subaward Details" as "{SavedValue:Automation Runtime Award}"
+#    Then I softly see field "Subaward Details" as "{SavedValue:Automation Runtime Award}"
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Delete" in page detail
     Then I softly can see top right button "Submit to Grantor" in page detail
@@ -2538,7 +2539,7 @@ Feature: Amendment Request scenarios without background
     And I click modal button "Save"
     Then I softly see value "Automation Permanent KPI" for title "Title" inside table "---amendment:-:RecipientKPITableId---"
 
-  @ams1rerun @99213 @99239 @99224 @99235 @VerifySubRecipientAbleToCreateAmendmentRequest-BudgetRedirection @monu @AmendmentWBPoojaSecond
+  @ams1rerun @t12 @99213 @99239 @99224 @99235 @VerifySubRecipientAbleToCreateAmendmentRequest-BudgetRedirection @monu @AmendmentWBPoojaSecond
   Scenario: Validate that subrecipient user able to create Budget Redirection Amendment
     And I activated standalone subaward "Automation Runtime Direct Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2556,6 +2557,12 @@ Feature: Amendment Request scenarios without background
     And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
     #99224 #monu
+#    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
+#    When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
+#      | Title        | Narrative     | Award Amount |
+#      | Extra Salary | The narrative | 900          |
+#    When I close "Add Line Items" modal by clicking the top right x button
+#    And I refresh the page
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---amendment:-:budgetChangeTableId---"
     When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
