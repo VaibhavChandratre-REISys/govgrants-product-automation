@@ -2553,7 +2553,7 @@ Feature: Amendment Request scenarios without background
 
   @99213 @99239 @99224 @99235 @VerifySubRecipientAbleToCreateAmendmentRequest-BudgetRedirection @monu
   Scenario: Validate that subrecipient user able to create Budget Redirection Amendment
-    And I activated standalone subaward "Automation Runtime Award" with properties "IS_BUILDUP_FUNCTIONALITY_YES" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -2571,16 +2571,14 @@ Feature: Amendment Request scenarios without background
     And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "budgetRedirectId"
     #99224 #monu
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
-    When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Amount |
-      | Extra Salary | The narrative | 900          |
+    And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
+      | Budget Category | Revised Award Amount |
+      | Construction    | 900                  |
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
-    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---amendment:-:budgetChangeTableId---"
-    When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Amount |
-      | Extra Salary | The narrative | 100          |
-    When I close "Add Line Items" modal by clicking the top right x button
+    And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
+      | Budget Category | Revised Award Amount |
+      | Site work       | 100                  |
+    And I wait for "2" seconds
     Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Site work" inside table "---amendment:-:budgetChangeTableId---"
     And I click on "Submit to Grantor" in the page details
     #99235 #monu
