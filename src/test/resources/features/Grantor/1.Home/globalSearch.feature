@@ -527,3 +527,20 @@ Feature: Validate all scenarios for the global search
     Then I softly see dropdown option "Strategic Plans" under the "Suggested For You" section
     Then I softly see dropdown option "Subawards" under the "Suggested For You" section
     Then I softly see dropdown option "Tasks" under the "Suggested For You" section
+
+  @388883 @388920 @ValidatethatEXEuserisabletoseetheglobalsearchbarforanInternalProgram @sprint-2-US-386939 @vaibhav @GlobalSearch
+    Scenario: Validate that EXE user is able to see the global search bar for an Internal Program
+    Given I login to "As a Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    Then I softly see global search display at top of the page
+    #388920
+    Then I softly see "Suggested For You" section inside global search dropdown
+    Then I softly see "All Searchable Items" section inside global search dropdown
+
+  @388932 @Validatethatuserisabletoseethe5mostrecentlyusedrecordsinthedropdownlistwhenuserclicksonsearchinputboxforInternalProgram @sprint-2-US-386939 @vaibhav @GlobalSearch
+    Scenario: Validate that user is able to see the 5 most recently used records in the dropdown list when user clicks on search input box for Internal Program
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I click on global search box
+    Then I softly see recent "5" records in global search box

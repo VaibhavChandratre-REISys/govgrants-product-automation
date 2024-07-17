@@ -3706,7 +3706,7 @@ public final class GovGrantsAssertionObjects {
 
     }
 
-    public void assertSectionsofGlobalSearchDisplayOrNot(String usage, String sectionName) {
+    public void assertSectionsofGlobalSearchDisplayOrNot( String sectionName, String usage) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isSectionsInGlobalSearchDisplay(sectionName)).isTrue();
         } else if (usage.equalsIgnoreCase("do not see")) {
