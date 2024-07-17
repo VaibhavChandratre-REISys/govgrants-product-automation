@@ -10280,7 +10280,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @hit @199868  @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaSevenRE-Run
+  @199868  @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude @AmendmentWBPoojaSevenRE-Run
   Scenario: Validate PO user should able to see the AR is updated after change the ownership by Grantor Side at approved state for budget period change
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
