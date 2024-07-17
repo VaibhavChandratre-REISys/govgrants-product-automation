@@ -8698,7 +8698,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation EXE1" for title "New Value" inside field history table
     Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
-  @200313 @ValidateBudgetredirectionthatchangeinawardownershouldnotaffectamendmentrequestowner @sprint-5-US-198235 @vaibhav @reassignment
+  @200313 @done @ValidateBudgetredirectionthatchangeinawardownershouldnotaffectamendmentrequestowner @sprint-5-US-198235 @vaibhav @reassignment
   Scenario: Validate Budget redirection that change in award owner should not affect amendment request owner
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
