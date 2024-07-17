@@ -1691,6 +1691,7 @@ Feature: Amendment Request scenarios without background
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    And I pause execution for "3" seconds
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
@@ -2750,7 +2751,7 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
     And I upload attachment "Attachment.pdf" of type "Other" from computer
     And I pause execution for "5" seconds
-    And I refresh the page
+    When I click modal button "Close"
     Then I softly see "Other" has been added in "Amendment Files" flex table
     #99261 #monu
     Then I softly can see top right button "Edit" in page detail
