@@ -3,12 +3,14 @@ package com.ggproduct.automation.steps.govgrantsSteps;
 
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.exception.TestingBlazeCustomException;
+import com.helperPackage.objects.Elements;
 import com.helperPackage.register.I;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.io.File;
+import java.util.List;
 import java.util.Map;
 
 public final class GovGrantsObjects {
@@ -645,4 +647,16 @@ public final class GovGrantsObjects {
         }
         return false;
     }
+
+    public void toClickOnRowLevelActionButtonforGloabalSearchTable(String tableId, String uniqueColumnValue, String buttonName) {
+        String columnValueUpdated = uniqueColumnValue;
+        if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {
+            columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
+        }
+        WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@aria-label,'" + tableId + "')]//table//th//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button']"));
+        I.amPerforming().click().withJavaScript(ClickSelector);
+        WebElement element = I.amPerforming().getElementReference().of(By.xpath("//div[@role='menu']//ul//li//*[text()='" + buttonName + "']"));
+        I.amPerforming().click().withJavaScript(element);
+        govgrants.perform().modal().acceptPopUp();
+        }
 }

@@ -9,6 +9,7 @@ import com.helperPackage.objects.Elements;
 import com.helperPackage.register.EnvironmentFactory;
 import com.helperPackage.register.I;
 import com.helperPackage.report.LogLevel;
+import io.restassured.internal.common.assertion.Assertion;
 import org.apache.commons.lang3.StringUtils;
 import org.assertj.core.api.ProxyableListAssert;
 import org.junit.Assert;
@@ -2248,7 +2249,7 @@ public final class GovGrantsAssertionObjects {
 
     private WebElement getOverLayTitle(String titleName) {
         return I.amPerforming().getElementReference().of(ByUsing.xpath(
-                "//header[contains(@class,'modal-header')]//h2[text()='" + titleName + "']"));
+                "//header[contains(@class,'modal-header')]//h2[text()='" + titleName + "'] | //div[contains(@class,'modal-header')]//h1[text()='" + titleName + "']"));
     }
 
     /**
@@ -3682,4 +3683,53 @@ public final class GovGrantsAssertionObjects {
         }
     }
 
+    public void assertGlobalSearchDisplayOrNot(String usage) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isGlobalSearchDisplay()).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isGlobalSearchDisplay()).isFalse();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isGlobalSearchDisplay());
+        } else {
+            Assert.assertFalse(isGlobalSearchDisplay());
+        }
+    }
+
+    private boolean isGlobalSearchDisplay() {
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'global-header__item_search')]")))) {
+                return true;
+            }
+        } catch (Exception e) {
+            //Handle exception to continue execution
+        }
+        return false;
+
+    }
+
+    public void assertSectionsofGlobalSearchDisplayOrNot(String usage, String sectionName) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isSectionsInGlobalSearchDisplay(sectionName)).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isSectionsInGlobalSearchDisplay(sectionName)).isFalse();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isSectionsInGlobalSearchDisplay(sectionName));
+        } else {
+            Assert.assertFalse(isSectionsInGlobalSearchDisplay(sectionName));
+        }
+
+    }
+
+    private boolean isSectionsInGlobalSearchDisplay(String sectionName) {
+        try {
+            WebElement globalSearchDropdown = I.amPerforming().getElementReference().of(By.xpath("//*[@data-value='Search: All']"));
+            I.amPerforming().click().on(globalSearchDropdown);
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'global-header__item_search')]//ul//h3[@title='" + sectionName + "']")))) {
+                return true;
+            }
+        } catch (Exception e) {
+            //Handle exception to continue execution
+        }
+        return false;
+    }
 }

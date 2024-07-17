@@ -2386,7 +2386,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "New Obligation" as "$5,000.00"
     Then I softly see field "Revised Commitment" as "$8,000.00"
 
-  @257098 @257231 @257232 @257233 @257243 @ValidateallthefieldswithOldvaluesshouldremainthesameonoldawardandshouldnotgetupdatedforPMuser @TBExecution
+  @257098 @257231 @257232 @257233 @257243 @ValidateallthefieldswithOldvaluesshouldremainthesameonoldawardandshouldnotgetupdatedforPMuser
   Scenario: Validate all the fields with Old values should remain the same on old award and should not get updated for PM user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -7800,7 +7800,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Budget" sub tab
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @257493 @257579 @VerifyFOusercanseeCumulativeObligationcolumninBudgetsummarybyfocusareasectiononsubawardwhichisinactivatedstateFAYes @sprint-19-US-250550 @hitesh @Allocation @TBExecution
+  @257493 @257579 @VerifyFOusercanseeCumulativeObligationcolumninBudgetsummarybyfocusareasectiononsubawardwhichisinactivatedstateFAYes @sprint-19-US-250550 @hitesh @Allocation
   Scenario: Verify FO user can see Cumulative Obligation column in Budget summary by focus area section on subaward which is in activated state FA Yes
     Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_NEW_OBLI_TWO_THOUSAND" of type "Directed"
     When I login to "As a Grantor" app as "PM" user
@@ -7961,7 +7961,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation1"
     Then I softly see addition of two fields "{SavedValue:CumulativeObligationAwd1}" and "{SavedValue:CumulativeObligation}" is equal to "{SavedValue:CumulativeObligation1}"
 
-  @257471 @257476 @257488 @257510 @VerifyFDusercannotseeBudgetsummarybyfocusareasectiononawardwhichisinactivatedstatewhenFocusareaisNo @sprint-19-US-250550 @hitesh @Allocation @TBExecution
+  @257471 @257476 @257488 @257510 @VerifyFDusercannotseeBudgetsummarybyfocusareasectiononawardwhichisinactivatedstatewhenFocusareaisNo @sprint-19-US-250550 @hitesh @Allocation
   Scenario: Verify FD user cannot see Budget summary by focus area section on award which is in activated state when Focus area is No
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT_FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -8170,7 +8170,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$0.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$0.00" for title "New Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @257580 @VerifyFOusercanseeTotalCommitmentamountiscomingfromTotalcommitmentfieldfromthelatestClosedawardandforLatestBP @sprint-19-US-250550 @hitesh @Allocation @TBExecution
+  @257580 @VerifyFOusercanseeTotalCommitmentamountiscomingfromTotalcommitmentfieldfromthelatestClosedawardandforLatestBP @sprint-19-US-250550 @hitesh @Allocation
   Scenario: Verify FO user can see Total Commitment amount is coming from Total commitment field from the latest Closed  award  and for Latest BP is  from FDM
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY"

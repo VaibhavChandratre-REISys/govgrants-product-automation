@@ -1545,18 +1545,10 @@ Feature: Validate all scenarios of every modules flow
 #    And I download the file
 #    Then I see "Approved" on page "1" of "govgrants" pdf file
 #   And I halt execution
-    And I navigate to "Home" tab
-    And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
-    When I click on "View" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:activeOrgTableID---" without waiting for record
-    And I navigate to "Risk Assessment" sub tab
-    And I click on parallel menu button in flex table title "Organization Risk Assessments-All"
-    And I select "Download as PDF" from dropdown
-    And I wait for "3" seconds
-    And I download the file
-    And I wait for "5" seconds
-    Then I softly see following details in "govgrants" pdf file:
-      | Detail | Page Number |
-      | Active | 1           |
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "AN-TAO modified-9202"
+    And I click on row level action button "Edit" against "AN-TAO modified-9202" in global search with id "Announcements"
+    And I halt execution
 #    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 

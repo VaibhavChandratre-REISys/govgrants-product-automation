@@ -783,4 +783,14 @@ public final class GovGrantsAssertionSteps {
                 usage.contains("softly")
         );
     }
+
+    @Then("^I (softly see|see|do not see|softly do not see) global search display at top of the page$")
+    public void iSofltlySeeGlobalSearchDisplayAtTopOfThePage(String usage) {
+        ggAssertionObjects.assertGlobalSearchDisplayOrNot(usage);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" section inside global search dropdown$")
+    public void iSoftlySeeSectionsInsideGlobalSearchDropdown(String sectionName, String usage) {
+        ggAssertionObjects.assertSectionsofGlobalSearchDisplayOrNot(usage, sectionName);
+    }
 }

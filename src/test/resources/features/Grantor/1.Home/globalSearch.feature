@@ -1,6 +1,418 @@
 @globalSearch @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios for the global search
 
-  @387431 @ValidateEXEuserisabletoseetheglobalsearchbarforanannouncement @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @387431 @387434 @ValidateEXEuserisabletoseetheglobalsearchbarforanannouncement @sprint-2-US-386939 @vaibhav @GlobalSearch
   Scenario: Validate EXE user is able to see the global search bar for an announcement
-    
+    Given I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Announcements" tab
+    Then I softly see global search display at top of the page
+    #387434
+    Then I softly see "Suggested For You" section inside global search dropdown
+    Then I softly see "All Searchable Items" section inside global search dropdown
+
+  @387457 @ValidatetherecordownerisabletoedittheaccessforrecordwhenannouncementisintheCreatedsubmitforrevieworinUnpublishedstate @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate the record owner is able to edit the access for record when announcement is in the Created, submit for review or in Unpublished state
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I wait for "2" seconds
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Created"
+    And I wait for "3" seconds
+    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Announcement Name" as "Automation Runtime Competitive Announcement"
+    When I navigate to "Financials" sub tab
+    When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    When I navigate to "Financials" sub tab
+    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Pre-Encumbrance |
+      | {SavedValue:fundingAccount} | 100             |
+    When I navigate to "Financials" sub tab
+    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    When I refresh the page
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I navigate to "Setup" sub tab
+    When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name          | Announcement |
+      | Automation PM | Step 1       |
+    When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
+      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    When I navigate to "Responsibilities" sub tab
+    And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    And I wait for "2" seconds
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Submitted for Review"
+    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I navigate to "Announcements" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside table
+    When I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
+    And I pause execution for "7" seconds
+    When I enter in modal value "Passed" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
+    When I click modal button "Save"
+    And I click on submit review
+    And I pause execution for "2" seconds
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    When I click toggle button to select "Draft Competitive Announcements"
+    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    Given I click on "Complete Review" in the page details
+    And I click on "Edit" in the page details
+    And I wait for "2" seconds
+    When I navigate to "Financials" sub tab
+    And I enter value "Justified" into field "Justification__c"
+    When I get the "EGMS ID"
+    When I navigate to "Financials" sub tab
+    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 50         | 150      |
+    And I click on "Save" in the page details
+    And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
+    And I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    And I click on "Publish" in the page details
+    Then I see status in Progress-bar is "Published" and is "dark blue"
+    And I click on "Unpublish" in the page details
+    Then I softly see field "Status" as "Under Revision"
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Under Revision"
+
+  @387461 @ValidatethatNonOwneruserdoesnthaveaneditoptioninanystageofannouncementandwillgeterrormessageonpage @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate that Non-Owner user doesn't have an edit option in any stage of announcement and will get error message on page
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Created"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    When I click toggle button to select "Draft Competitive Announcements"
+    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    And I click on "Edit" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    And I wait for "3" seconds
+    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Announcement Name" as "Automation Runtime Competitive Announcement"
+    When I navigate to "Financials" sub tab
+    When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    When I navigate to "Financials" sub tab
+    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Pre-Encumbrance |
+      | {SavedValue:fundingAccount} | 100             |
+    When I navigate to "Financials" sub tab
+    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    When I refresh the page
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I navigate to "Setup" sub tab
+    When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name           | Announcement |
+      | Automation EXE | Step 1       |
+    When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
+      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    When I navigate to "Responsibilities" sub tab
+    And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Submitted for Review"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I navigate to "Announcements" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside table
+    When I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
+    And I pause execution for "7" seconds
+    When I enter in modal value "Passed" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
+    When I click modal button "Save"
+    And I click on submit review
+    And I pause execution for "2" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    When I click toggle button to select "Draft Competitive Announcements"
+    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    Given I click on "Complete Review" in the page details
+    Then I softly see field "Status" as "Reviewed"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Reviewed"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    When I click toggle button to select "Draft Competitive Announcements"
+    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    And I click on "Edit" in the page details
+    And I wait for "2" seconds
+    When I navigate to "Financials" sub tab
+    And I enter value "Justified" into field "Justification__c"
+    When I get the "EGMS ID"
+    When I navigate to "Financials" sub tab
+    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 50         | 150      |
+    And I click on "Save" in the page details
+    And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Submitted for Approval"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I navigate to "Announcements" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
+    And I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    And I click on "Publish" in the page details
+    Then I see status in Progress-bar is "Published" and is "dark blue"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
+    And I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    And I click on "Unpublish" in the page details
+    Then I softly see field "Status" as "Under Revision"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
+    And I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    And I "Reject" in the approval decision
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Rejected"
+#   Rejected State
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Rejected"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+#   Closed State
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{AUTOEnvData:ClosedStateAnnouncement}"
+    And I click on row level action button "Edit" against "{AUTOEnvData:ClosedStateAnnouncement}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Closed"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+#    Archived State
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{AUTOEnvData:ArchivedStateFormulaAnn_ByApplicantAndFocusArea}"
+    And I click on row level action button "Edit" against "{AUTOEnvData:ArchivedStateFormulaAnn_ByApplicantAndFocusArea}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Archived"
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+
+  @387477 @Validateuserisnotabletochangetheownerinanystateofannouncementandwillgettheerrormessageandnonowneruserisnotabletoseethechangeowneroption  @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate user is not able to change the owner in any state of announcement and will get the error message and non-owner user is not able to see the change owner option
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I wait for "2" seconds
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    Then I softly can see row level action button "Change Owner" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    And I click on row level action button "Change Owner" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    Then I softly see "Change Owner" opens in overLay window
+    When I click modal button "Cancel"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+
+  @387731 @ValidatePMuserhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenannouncementisasubmitforreviewstate @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate PM user have edit access for record only when edit access setting is yes for peer reviewer when announcement is a submit for review state
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I wait for "2" seconds
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Created"
+    And I click on "Edit" in the page details
+    And I wait for "3" seconds
+    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Announcement Name" as "Automation Runtime Competitive Announcement"
+    When I navigate to "Financials" sub tab
+    When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    When I navigate to "Financials" sub tab
+    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Pre-Encumbrance |
+      | {SavedValue:fundingAccount} | 100             |
+    When I navigate to "Financials" sub tab
+    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    When I refresh the page
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I navigate to "Setup" sub tab
+    When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name          | Announcement |
+      | Automation FO | Step 1       |
+    When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
+      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | {SavedValue:PM Username} | Fiscal Reviewer | Review Financial details | 10       | Edit                   |
+    When I navigate to "Responsibilities" sub tab
+    And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    And I wait for "2" seconds
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Submitted for Review"
+    Then I softly can see top right button "Save" in page detail
+    Then I softly can see top right button "Cancel" in page detail

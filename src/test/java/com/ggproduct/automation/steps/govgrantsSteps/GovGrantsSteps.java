@@ -1170,4 +1170,11 @@ public final class GovGrantsSteps {
     public void iSoftlySeeValueForTitleAgainstTheValueInsideFieldHistoryTable(String usage,String rowValue, String headerName, String uniqueValue) {
         ggObjects.toCheckValueForTitleInsideFieldHistoryTableAgainstValue(usage.contains("softly"),rowValue,headerName,uniqueValue);
     }
+
+    @And("I click on row level action button {string} against {string} in global search with id {string}")
+    public void iClickOnRowLevelActionButtonAgainstInGlobalSearchWithId(String buttonName, String uniqueColumnValue, String tableId) {
+        ggObjects.toClickOnRowLevelActionButtonforGloabalSearchTable(tableId,
+                uniqueColumnValue,
+                buttonName);
+    }
 }
