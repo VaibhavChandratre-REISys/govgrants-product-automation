@@ -9,7 +9,6 @@ import com.helperPackage.objects.Elements;
 import com.helperPackage.register.EnvironmentFactory;
 import com.helperPackage.register.I;
 import com.helperPackage.report.LogLevel;
-import io.restassured.internal.common.assertion.Assertion;
 import org.apache.commons.lang3.StringUtils;
 import org.assertj.core.api.ProxyableListAssert;
 import org.junit.Assert;
@@ -3731,5 +3730,22 @@ public final class GovGrantsAssertionObjects {
             //Handle exception to continue execution
         }
         return false;
+    }
+
+    public void assertTopRecentRecordsDisplayInsideGlobalSearchBox(String number, String usage) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(Integer.parseInt(number)).isEqualTo(isTopRecentRecordsInGlobalSearchDisplay(number));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(Integer.parseInt(number)).isNotEqualTo(isTopRecentRecordsInGlobalSearchDisplay(number));
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertEquals(Integer.parseInt(number), isTopRecentRecordsInGlobalSearchDisplay(number));
+        } else {
+            Assert.assertNotEquals(Integer.parseInt(number), isTopRecentRecordsInGlobalSearchDisplay(number));
+        }
+    }
+
+    private int isTopRecentRecordsInGlobalSearchDisplay(String number) {
+        List<Elements> recentRecords = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@data-aura-class='forceSearchInputDesktop']//div[@role='listbox']//ul//li")).subList(0,5);
+        return recentRecords.size();
     }
 }
