@@ -5106,7 +5106,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     Then I softly see field "Total Commitment" as "$4,000.00"
 
-  @amsrerun @256668 @256677 @256710 @256715 @256717 @256718 @256721 @256803 @256808 @256838 @256841 @256842 @256843 @256844 @256850 @256861 @256864 @256919 @256924 @256925 @256930 @256934 @256940 @256944 @256951 @256956 @256972 @308952 @VerifyFieldsdisplayedtoFOuseroninthebudgetsummarySection @sprint-19-US-229281 @hitesh @Allocation
+  @ams @256668 @256677 @256710 @256715 @256717 @256718 @256721 @256803 @256808 @256838 @256841 @256842 @256843 @256844 @256850 @256861 @256864 @256919 @256924 @256925 @256930 @256934 @256940 @256944 @256951 @256956 @256972 @308952 @VerifyFieldsdisplayedtoFOuseroninthebudgetsummarySection @sprint-19-US-229281 @hitesh @Allocation
   Scenario:Verify Fields displayed to FO user on in the budget summary Section
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Directed"
     When I login to "As a Grantor" app as "FO" user
@@ -5631,7 +5631,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:TotalObligation}" is "Equals to" the value "{SavedValue:TotalObligation1}"
     Then I softly see value "{SavedValue:AvailableBalance}" is "Equals to" the value "{SavedValue:AvailableBalance1}"
 
-  @amsrerun @257728 @ValidateBudgetedAmountshouldberolledfromtherevisedawardamountcolumnfrombudgetedgridFAYes @sprint-19-US-242374 @vaibhav @Allocation
+  @ams @257728 @ValidateBudgetedAmountshouldberolledfromtherevisedawardamountcolumnfrombudgetedgridFAYes @sprint-19-US-242374 @vaibhav @Allocation
   Scenario: Validate Budgeted Amount should be rolled from the revised award amount column from budgeted grid(FA=Yes)
     And I activated standalone subaward "Automation Runtime award" with properties "THREE_FOCUS_AREA_NO_BUDGET_CATEGORY_THIRD_FOCUS-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE1" user
@@ -5770,6 +5770,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     When I navigate to "Subawards" sub tab
+    And I pause execution for "3" seconds
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Management" sub tab
@@ -12217,17 +12218,19 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I pause execution for "3" seconds
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I wait for "3" seconds
     When I click modal button "Close"
+    And I refresh the page
+    And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
+    And I pause execution for "3" seconds
+    And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+    And I wait for "3" seconds
+    When I click modal button "Close"
+    And I refresh the page
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly see field "Status" as "Submitted to Grantor"
 
   @amsrerun @57451 @verifyPaymentApproverApproveAdvancePaymentRequestActiveSubawardAfterFundingChangeAmendment @mahadev
   Scenario Outline: Verify Payment Request Approver can approve the Advance Payment Request created on Active subaward after Funding change amendment
@@ -12332,11 +12335,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
+    And I pause execution for "3" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    And I wait for "4" seconds
     When I click modal button "Close"
-    And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -19323,7 +19328,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | Please specify the New Obligation planned through this amendment request. |
 
-  @amsrerun @255455 @ValidateDirectedvalidationisdisplayedtoPMuserwhensubmitamendmentforapprovalwithNewobligationfieldisblank @sprint-18-US-229266 @vaibhav @Allocation
+  @ams @255455 @ValidateDirectedvalidationisdisplayedtoPMuserwhensubmitamendmentforapprovalwithNewobligationfieldisblank @sprint-18-US-229266 @vaibhav @Allocation
   Scenario: Validate Directed validation is displayed to PM user when submit amendment for approval with New obligation field is blank
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Directed"
     When I login to "As a Grantor" app as "PM" user
