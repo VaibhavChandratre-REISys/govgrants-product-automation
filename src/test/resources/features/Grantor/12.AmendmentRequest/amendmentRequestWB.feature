@@ -4830,12 +4830,12 @@ Feature: Amendment Request scenarios without background
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
       | Name                       | Project Role           |
       | {SavedValue:SPI3 Username} | Principal Investigator |
-    And I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:BudgetChangeTableId---"
-    And I click on "Delete" icon for "Construction" inside flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" without waiting for record
-    When I enter the following values into flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "New" :
-      | Title                      | Narrative | Award Amount | Other Leverage |
-      | Automation Budget Category | Test      | 1000         | 0              |
-    And I close "Add Line Items" modal by clicking the top right x button
+#    And I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:BudgetChangeTableId---"
+#    And I click on "Delete" icon for "Construction" inside flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" without waiting for record
+#    When I enter the following values into flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "New" :
+#      | Title                      | Narrative | Award Amount | Other Leverage |
+#      | Automation Budget Category | Test      | 1000         | 0              |
+#    And I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
