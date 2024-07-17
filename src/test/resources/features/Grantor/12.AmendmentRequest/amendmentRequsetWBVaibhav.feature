@@ -1288,7 +1288,6 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Scope&BudgetPeriod_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
@@ -1355,7 +1354,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
- @hit @200511 @ValidateusershouldabletoseethefieldhistoryisupdatedafterchangingthetaskownershipfromS/RsideofBPC/SOWAR @sprint-7-US-198153 @vaibhav @reassignment @FieldHistoryExclude
+ @200511 @ValidateusershouldabletoseethefieldhistoryisupdatedafterchangingthetaskownershipfromS/RsideofBPC/SOWAR @sprint-7-US-198153 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the field history is updated after changing the task ownership from S/R side of BPC/SOW AR
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
