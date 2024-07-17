@@ -91,7 +91,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Send to Subrecipient" in the page details
     Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
-  @53202 @subrecipientAcknowledgesSOWAmendmentRequest @smoke @wip @poojaAmendmnet
+  @53202 @subrecipientAcknowledgesSOWAmendmentRequest @smoke
   Scenario: Subrecipient acknowledges Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
