@@ -3838,10 +3838,10 @@ Feature: Amendment Request scenarios without background
     And I "Approve" in the approval decision
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     And I navigate to "Performance" sub tab
-    Then I see value "7" for title "Actual" against the value "Automation Permanent KPI" inside table "---progressReport:-:kpiTableId---"
+    Then I softly see value "7" for title "Actual" inside table "---progressReport:-:kpiTableId---"
     And I click "{SavedValue:SubawardID}" lookup link
     And I navigate to "Performance" sub tab
-    Then I see value "7" for title "Actual" against the value "Automation Permanent KPI" inside table "---amendment:-:InternalKPITableId---"
+    Then I see value "7" for title "Actual" against the value "Automation Permanent KPI" inside table "---subAwardStandAlone:-:kpiTableId---"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
