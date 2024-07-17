@@ -798,4 +798,9 @@ public final class GovGrantsAssertionSteps {
     public void iSoftlySeeRecentRecordsInGlobalSearchBox(String number, String usage) {
         ggAssertionObjects.assertTopRecentRecordsDisplayInsideGlobalSearchBox(usage, number);
     }
+
+    @Then("^I (softly see|see|do not see|softly do not see) dropdown option \"([^\"]*)\" under the \"([^\"]*)\" section$")
+    public void iSoftlySeeDropdownOptionUnderTheSection(String usage, String options, String sectionName) {
+        ggAssertionObjects.assertdropdownOptionsInsideQuickSearchSection(usage, options, sectionName);
+    }
 }

@@ -3748,4 +3748,32 @@ public final class GovGrantsAssertionObjects {
         List<Elements> recentRecords = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@data-aura-class='forceSearchInputDesktop']//div[@role='listbox']//ul//li")).subList(0,5);
         return recentRecords.size();
     }
+
+    public void assertdropdownOptionsInsideQuickSearchSection(String usage, String options, String sectionName) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isDropDownOptionsInsideSectionofGlobalSearch(options, sectionName)).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isDropDownOptionsInsideSectionofGlobalSearch(options, sectionName)).isFalse();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isDropDownOptionsInsideSectionofGlobalSearch(options, sectionName));
+        } else {
+            Assert.assertFalse(isDropDownOptionsInsideSectionofGlobalSearch(options, sectionName));
+        }
+    }
+
+    private boolean isDropDownOptionsInsideSectionofGlobalSearch(String options, String sectionName) {
+        boolean flag = false;
+        By globalDropdownSelector = By.xpath("//*[@data-value='Search: All']");
+        if(I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)){
+            I.amPerforming().click().on(globalDropdownSelector);
+            List<Elements> elements= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='" + sectionName + "']//li"));
+            for (Elements element : elements) {
+                if (element.getText().equals(options)) {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        return flag;
+    }
 }
