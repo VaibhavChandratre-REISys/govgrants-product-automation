@@ -2315,7 +2315,7 @@ public final class GovGrantsAssertionObjects {
                 "| //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//input[not(@disabled)]" +
                 "|//input[@name='" + fieldApiName + "' and @part='input']" +
                 "|//div[@data-field_api_name='" + fieldApiName + "']//textarea" +
-                "|//div[@data-field_api_name='" + fieldApiName + "']//button[contains(@aria-controls,'dropdown-element')] | //div[@data-field_api_name='" + fieldApiName + "']");
+                "|//div[@data-field_api_name='" + fieldApiName + "']//button[contains(@aria-controls,'dropdown-element')] | //div[@data-field_api_name='" + fieldApiName + "'] | //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']");
         boolean flag = false;
         try {
             if (I.amPerforming().actionToGet().attribute(fieldsAtPageDetails, "id").toLowerCase().contains("j_id0") || I.amPerforming().checkToSee().isDisplayed(fieldsAtPageDetails)) {

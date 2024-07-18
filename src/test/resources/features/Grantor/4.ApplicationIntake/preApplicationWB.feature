@@ -194,8 +194,9 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for PreApp and App}" in "---preApplication:-:recipientPreApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for PreApp and App}" inside table
-    Then I softly can see top right button "Submit to Grantor" in page detail
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for PreApp and App}}" inside flex table with id "---preApplication:-:recipientPreApplicationsTableId---"
+    And I wait for "2" seconds
+   Then I softly can see top right button "Submit to Grantor" in page detail
 
   @71413 @userCannotCreatePreAppWhenSettingIsNo @deepika
   Scenario: Validate whether User is able to create Pre Application only when the Opportunity setting for Pre Application (No)
@@ -286,6 +287,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside table
     When I click on "Accept" in the page details
+   And I wait for "5" seconds
     When I navigate to "Applications" tab
     And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---preApplication:-:preappCompletedTasksTableId---" panel
@@ -329,7 +331,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---preApplication:-:notYetQualifiedTable---" panel
     Then I softly do not see "{SavedValue:Automation Runtime Announcement for Pre-Application}" has been added in "---preApplication:-:notYetQualifiedTable---" flex table
 
- @hitpre @72576 @75866 @75865 @preApplicationSubmittedToGrantorPendingTask @buglogged125701  @buglogged169487
+ @72576 @75866 @75865 @preApplicationSubmittedToGrantorPendingTask @buglogged125701  @buglogged169487
   Scenario: Validate whether user can change the pre-application due date while creating the pre-application
   Validate whether pre-application title field is editable while creating the pre-application | Validate whether the Announcement owner receives an email notification when the pre-application is submitted to grantor |
   Validate whether the external user recieves an email notification when the pre-application is accepted by the grantor
@@ -504,7 +506,7 @@ Feature: Pre-Application scenarios without background
       | SPI3 |
       | SPA  |
 
- @hitpre @34147 @validateRequestedAmountIsGreateThanSubawardFloorAmount @deepika  @buglogged169487
+ @34147 @validateRequestedAmountIsGreateThanSubawardFloorAmount @deepika  @buglogged169487
   Scenario: Verify SPI & SPA user is not able to Submit Pre-Application to Grantor with Requested Amount greater than Subaward Floor Amount
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     Given I am on "SUBPORTAL" portal
@@ -588,7 +590,7 @@ Feature: Pre-Application scenarios without background
       | SPI3 |
       | SPA  |
 
- @hitpre @73518 @focusAreaSettingAsNoWhileAnnouncementCreation @deepika
+  @73518 @focusAreaSettingAsNoWhileAnnouncementCreation @deepika
   Scenario: Validate when the focus area setting from the funding opportunity is No, then SPI User should be able to view the focus area settings as No and cannot see the page block
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APP_YES_FOCUS_AREA_NO"
     When I am on "SUBPORTAL" portal
@@ -609,7 +611,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Budget" sub tab
    Then I softly do not see "Focus Area" page block displayed
 
- @hitpre @35054 @34353 @33998 @validateListOfSubmittedApplication @deepika  @buglogged169487
+  @35054 @34353 @33998 @validateListOfSubmittedApplication @deepika  @buglogged169487
   Scenario: Verify when SPI (Record owner of Pre-Application) submit the Pre-Application to Grantor then it is displayed in the list of Submitted Pre-Applications and disappeared from the list of Not yet qualified Opputunities
   Verify if the opportunity has only one focus area, then the application budget periods are automatically associated to that focus area |
   Validate whether SPI user can edit the pre-application once it is submitted to grantor.
@@ -932,7 +934,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see all values "$0.00" under column "Total Match" inside flextable with id "---preApplication:-:preApplicationAttachmentId---"
     Then I softly see all values "$0.00" under column "Other Leverage" inside flextable with id "---preApplication:-:preApplicationAttachmentId---"
 
- @hitpre @77656 @snapshotHistoryPreApplication @deepika
+  @77656 @snapshotHistoryPreApplication @deepika
   Scenario: Validate whether SPI user will be able to take the snapshot on page when the pre-application is in draft status and is saved under snapshot history
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1106,6 +1108,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Accept" in page detail
     Then I softly can see top right button "Reject" in page detail
     When I click on "Accept" in the page details
+   And I wait for "3" seconds
     Then I softly cannot see top right button "Request Negotiation" in page detail
 
  @178505 @ValidateonRejectedpreapplicationnegotiationtabshouldbehiddenifthenegotiationisnotinitiated @sprint-8 @vaibhav
@@ -2303,7 +2306,7 @@ Feature: Pre-Application scenarios without background
     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
 
- @hitpre @170102 @ValidateSPI&SPAbothusercanedittheformmanytimesbeforesubmittingthepreapplication @sprint-7 @vaibhav
+ @170102 @ValidateSPI&SPAbothusercanedittheformmanytimesbeforesubmittingthepreapplication @sprint-7 @vaibhav
   Scenario Outline: Validate SPI & SPA both user can edit the form many times before submitting the pre-application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2345,7 +2348,7 @@ Feature: Pre-Application scenarios without background
       | SPI3 | {SavedValue:SPI3 Username} |
       | SPA  | {SavedValue:SPA Username}  |
 
- @hitpre @170105 @ValidateusershouldabletoseetheEditValidateBackbuttonaftersavingthepreapplicationform @sprint-7 @vaibhav
+ @170105 @ValidateusershouldabletoseetheEditValidateBackbuttonaftersavingthepreapplicationform @sprint-7 @vaibhav
   Scenario: Validate user should able to see the Edit Validate Back button after saving the preapplication form
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2383,7 +2386,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Validate" in page detail
 #    Then I softly can see top right button "Back" in page detail
 
- @hitpre @174520 @Validatepreapplicationisaccepted/rejectedthenusershouldonlyviewpreviewtheforminformtable @sprint-7 @vaibhav
+ @174520 @Validatepreapplicationisaccepted/rejectedthenusershouldonlyviewpreviewtheforminformtable @sprint-7 @vaibhav
   Scenario Outline: Validate preapplication is accepted/rejected then user should only view preview the form in form table
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2436,7 +2439,7 @@ Feature: Pre-Application scenarios without background
       | Accept |
       | Reject |
 
- @hitpre @174728 @TheExplanationofRevisionsneededsectiondisplayedonnegotiationsectionisreadonlyonsubrecipientside @Sprint-7 @Vrishali
+ @174728 @TheExplanationofRevisionsneededsectiondisplayedonnegotiationsectionisreadonlyonsubrecipientside @Sprint-7 @Vrishali
   Scenario: Verify the Explanation of Revisions needed section  displayed on negotiation section is read only on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2556,7 +2559,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Forms and Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
 
- @hitpre @174727 @Thesubrecipientuserisabletosavedetails @Sprint-7 @Vrishali
+ @174727 @Thesubrecipientuserisabletosavedetails @Sprint-7 @Vrishali
   Scenario: Verify the subrecipient user is able to save details
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2630,7 +2633,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Forms and Files" sub tab
     Then I softly see value "Other" for title "Classification" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
 
- @hitpre @174537 @ValidateUsershouldnotsubmitthepre-applicationifpre-applicationformisnotfillthe100%&asperfillingfield%shouldbedisplayontheform @Sprint-7 @Vrishali
+ @174537 @ValidateUsershouldnotsubmitthepre-applicationifpre-applicationformisnotfillthe100%&asperfillingfield%shouldbedisplayontheform @Sprint-7 @Vrishali
   Scenario: Verify user should not submit the pre-application if pre-application form is not fill the 100% & as per filling field % should be display on the form
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2670,7 +2673,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see the following messages in the page details contains:
       | Files Tab - All mandatory forms must be 100% completed. |
 
- @hitpre @174523 @InternalUsercanview&previewthepre-applicationform&internalusershouldnotedittheform. @Sprint-7 @Vrishali
+  @174523 @InternalUsercanview&previewthepre-applicationform&internalusershouldnotedittheform. @Sprint-7 @Vrishali
   Scenario: Verify Internal User can view & preview the pre-application form & internal user should not edit the form .
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
