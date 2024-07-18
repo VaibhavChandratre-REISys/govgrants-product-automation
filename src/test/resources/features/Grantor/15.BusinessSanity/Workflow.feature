@@ -1539,16 +1539,17 @@ Feature: Validate all scenarios of every modules flow
 ##   And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
 #   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
     Given I login to "As a Grantor" app as "PM" user
-#   And I halt execution
+   And I halt execution
 #    And I click on "Download As PDF" in the page details
 #    And I wait for "5" seconds
 #    And I download the file
 #    Then I see "Approved" on page "1" of "govgrants" pdf file
 #   And I halt execution
-    And I navigate to "Announcements" tab
-    And I select "Announcements" from dropdown for Global search
-    And I perform quick search inside global search "AN-TAO modified-9202"
-    And I click on row level action button "Edit" against "AN-TAO modified-9202" in global search with id "Announcements"
+    When I navigate to "Responsibilities" sub tab
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
+    And I wait for "1" seconds
+    Then I softly see row level action button "Remove record" inside "---subAwardStandAlone:-:riskAssessmentApproverTableId---" flex table
+
     And I halt execution
 #    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 

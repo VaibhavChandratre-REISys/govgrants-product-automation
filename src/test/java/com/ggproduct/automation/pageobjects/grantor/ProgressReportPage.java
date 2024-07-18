@@ -158,7 +158,9 @@ public class ProgressReportPage extends GrantorProjectManager {
     }
 
     public Boolean isRowLevelActionButtonDisplayedWithoutUniqueValue(String buttonName, String tableId) {
-        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@id='" + tableId + "']//td//a[contains(@title,'" + buttonName + "')]")))
+        WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//td//button"));
+        I.amPerforming().click().withJavaScript(ClickSelector);
+        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'dropdown__list')]//lightning-menu-item[@title='" + buttonName + "']")))
             return true;
         else
             return false;
