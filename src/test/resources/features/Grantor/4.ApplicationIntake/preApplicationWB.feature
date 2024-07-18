@@ -180,6 +180,7 @@ Feature: Pre-Application scenarios without background
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I get the "EGMS ID"
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
@@ -194,7 +195,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for PreApp and App}" in "---preApplication:-:recipientPreApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for PreApp and App}}" inside flex table with id "---preApplication:-:recipientPreApplicationsTableId---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for PreApp and App}" inside flex table with id "---preApplication:-:recipientPreApplicationsTableId---"
     And I wait for "2" seconds
    Then I softly can see top right button "Submit to Grantor" in page detail
 
@@ -245,8 +246,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
     And I switch to parent tab
-    And I pause execution for "2" seconds
-    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "2" seconds
     Then I softly see the following messages in the page details contains:
@@ -1063,9 +1062,10 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I navigate to "Negotiations" sub tab
     Then I softly can see "Negotiations" sub tab at view detail page
 
- @hitpre @174849 @ValidatewhenpreapplicationisAcceptthenRequestNegotiationbuttonishidefromGrantor @sprint-8 @vaibhav
+ @174849 @ValidatewhenpreapplicationisAcceptthenRequestNegotiationbuttonishidefromGrantor @sprint-8 @vaibhav
   Scenario: when pre-application is Accept then "Request Negotiation" button is hide  from Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2258,7 +2258,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see the following messages in the page details :
       | Form cannot be validated because data is missing in one or more fields that are required to submit. To view the fields that are required to submit, click the Edit button. |
 
-  @hitpre @170096 @170097 @170100 @170101 @ValidateusershouldabletoseetheSuccessMessageonvalidatebutton @sprint-7 @vaibhav
+  @170096 @170097 @170100 @170101 @ValidateusershouldabletoseetheSuccessMessageonvalidatebutton @sprint-7 @vaibhav
   Scenario: Validate user should able to see the Success Message on validate button
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2502,7 +2502,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the page details
     Then I softly see field "Explanation of Negotiations Needed" is not editable
 
- @hitpre @174697 @Theusercaneditonlythosesectionwhichareselectedbygrantorwhileinitiatingthenegotiationrequestonpre-applicationonSubrecipientside @Sprint-8 @Vrishali
+ @174697 @Theusercaneditonlythosesectionwhichareselectedbygrantorwhileinitiatingthenegotiationrequestonpre-applicationonSubrecipientside @Sprint-8 @Vrishali
   Scenario: the user can edit only those section which are selected by grantor while initiating the negotiation request on pre-application on Subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2558,10 +2558,10 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
     When I click on "Edit" in the page details
-#    Then I softly see fields "Title__c" is in edit mode
-#    Then I softly see fields "ProjectAbstract__c" is in edit mode
-#    Then I softly see fields "ProjectGoal__c" is in edit mode
-#    Then I softly see fields "ProjectBeneficiaries__c" is in edit mode
+    Then I softly see fields "Title__c" is in edit mode
+    Then I softly see fields "ProjectAbstract__c" is in edit mode
+    Then I softly see fields "ProjectGoal__c" is in edit mode
+    Then I softly see fields "ProjectBeneficiaries__c" is in edit mode
     And I navigate to "Forms and Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
 
@@ -2727,7 +2727,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Then I softly cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
 
- @hitpre @180660 @180661 @180662 @180665 @ValidateannouncementownershouldabletoseetheFilesandForms:FormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10 @vaibhav
+ @180660 @180661 @180662 @180665 @ValidateannouncementownershouldabletoseetheFilesandForms:FormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10 @vaibhav
   Scenario: Validate announcement owner should able to see the Forms and Files:Forms option in the pre application section for Negotiation tab at grantor side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
