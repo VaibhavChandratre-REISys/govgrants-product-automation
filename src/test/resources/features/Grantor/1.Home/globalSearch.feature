@@ -286,7 +286,7 @@ Feature: Validate all scenarios for the global search
     And I select "Announcements" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
     And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
-    Then I see status in Progress-bar is "Published" and is "dark blue"
+    Then I softly see field "Status" as "Under Revision"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
