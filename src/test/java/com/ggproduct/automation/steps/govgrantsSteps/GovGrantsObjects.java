@@ -653,7 +653,7 @@ public final class GovGrantsObjects {
         if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {
             columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
         }
-        WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@aria-label,'" + tableId + "')]//table//th//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button']"));
+        WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@aria-label,'" + tableId + "')]//table//th//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button'] | //div[contains(@aria-label,'" + tableId + "')]//table//td//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button']"));
         I.amPerforming().click().withJavaScript(ClickSelector);
         WebElement element = I.amPerforming().getElementReference().of(By.xpath("//div[@role='menu']//ul//li//*[text()='" + buttonName + "']"));
         I.amPerforming().click().withJavaScript(element);
