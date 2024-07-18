@@ -1108,7 +1108,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Accept" in the page details
     Then I softly cannot see top right button "Request Negotiation" in page detail
 
- @hitpre @178505 @ValidateonRejectedpreapplicationnegotiationtabshouldbehiddenifthenegotiationisnotinitiated @sprint-8 @vaibhav
+ @hitpre1 @178505 @ValidateonRejectedpreapplicationnegotiationtabshouldbehiddenifthenegotiationisnotinitiated @sprint-8 @vaibhav
   Scenario: on Rejected preapplication negotiation tab should be hidden if the negotiation is not initiated
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1158,7 +1158,7 @@ Feature: Pre-Application scenarios without background
     Then I softly cannot see "Negotiations" sub tab at view detail page
     Then I softly see field "Status" as "Rejected"
 
- @hitpre @178468 @Validatetaskcreatedwhennegotiationrequestpreapplicationissendtosubrecipient @sprint-8 @vaibhav
+ @hitpre1 @178468 @Validatetaskcreatedwhennegotiationrequestpreapplicationissendtosubrecipient @sprint-8 @vaibhav
   Scenario: task is created when negotiation request preapplication  is send to subrecipient
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1216,7 +1216,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Record Id" in "---home:-:externalPendingTasktableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---home:-:externalPendingTasktableId---"
 
- @hitpre @176549 @Validatesaveandcancelbuttonisdisplayedonsubrecipientside @sprint-8 @vaibhav
+ @hitpre1 @176549 @Validatesaveandcancelbuttonisdisplayedonsubrecipientside @sprint-8 @vaibhav
   Scenario: Validate save and cancel button is displayed on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1277,7 +1277,7 @@ Feature: Pre-Application scenarios without background
     Then I can see top right button "Cancel" in page detail
     Then I can see top right button "Save" in page detail
 
- @hitpre @176528 @176525 @176521 @ValidateDuedatefieldisdisplayedonsubrecipientside @sprint-8 @vaibhav
+ @hitpre1 @176528 @176525 @176521 @ValidateDuedatefieldisdisplayedonsubrecipientside @sprint-8 @vaibhav
   Scenario: Validate Due date field is displayed on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1391,7 +1391,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     Then I softly can see top right button "Request Negotiation" in page detail
 
- @hitpre @176508  @ValidateSubrecipientuserisabletosubmittograntorthenegotiationrequestpreapplication @sprint-8 @vaibhav
+ @hitpre1 @176508  @ValidateSubrecipientuserisabletosubmittograntorthenegotiationrequestpreapplication @sprint-8 @vaibhav
   Scenario: Subrecipient  user is able to  submit to grantor the negotiation request  preapplication
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1459,7 +1459,7 @@ Feature: Pre-Application scenarios without background
    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
 
- @hitpre @174890 @ValidateDueDatefieldshouldbeRequiredtosubmitunderNegotiationRequestdetailssectiononGrantorSide @sprint-8 @vaibhav
+ @hitpre1 @174890 @ValidateDueDatefieldshouldbeRequiredtosubmitunderNegotiationRequestdetailssectiononGrantorSide @sprint-8 @vaibhav
   Scenario: Due Date field should be Required to submit under Negotiation Request details section on Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1512,7 +1512,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see the following messages in the page details contains:
       | Due Date is required to save under Negotiations. |
 
- @hitpre @174900 @174903 @ValidateExplanationofnegotiationneededfieldshouldbeRequairedtosubmitunderNegotiationRequestdetailssectiononGrantorSide @sprint-8 @vaibhav
+ @hitpre1 @174900 @174903 @ValidateExplanationofnegotiationneededfieldshouldbeRequairedtosubmitunderNegotiationRequestdetailssectiononGrantorSide @sprint-8 @vaibhav
   Scenario: Explanation of negotiation needed field should be Required to submit under Negotiation Request details section on Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1568,7 +1568,7 @@ Feature: Pre-Application scenarios without background
      #174903
     Then I softly see fields "ExplanationOfRevisionsNeeded__c" is in edit mode
 
- @hitpre @175041 @ValidateusershouldabletoclickonSendtoSubrecipientbuttononGrantorSide @sprint-8 @vaibhav
+ @hitpre1 @175041 @ValidateusershouldabletoclickonSendtoSubrecipientbuttononGrantorSide @sprint-8 @vaibhav
   Scenario: Validate user should able to click on Send to Subrecipient button  on Grantor Side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1625,7 +1625,7 @@ Feature: Pre-Application scenarios without background
    And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
 
- @hitpre @175042 @ValidateInternalUsershouldabletoeditthefieldafterinclickonRequestnegotiation @sprint-8 @vaibhav
+ @hitpre1 @175042 @ValidateInternalUsershouldabletoeditthefieldafterinclickonRequestnegotiation @sprint-8 @vaibhav
   Scenario: Validate Internal User should able to edit the field after in click on Request negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1671,11 +1671,10 @@ Feature: Pre-Application scenarios without background
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
     Then I softly see fields "RevisionDueDate__c" is in edit mode
-    And I halt execution
     Then I softly see fields "PreApplicationSectionsforRevision__c" is in edit mode
     Then I softly see fields "ExplanationOfRevisionsNeeded__c" is in edit mode
 
- @hitpre @175045 @175053 @Validatesubrecipientshouldabletotoseethestatusofpre-applicationisNegotiationInitiated @sprint-8 @vaibhav
+ @hitpre1 @175045 @175053 @Validatesubrecipientshouldabletotoseethestatusofpre-applicationisNegotiationInitiated @sprint-8 @vaibhav
   Scenario: Validate subrecipient should able to to see the status of pre-application is Negotiation Initiated
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1747,7 +1746,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     Then I softly can see top right button "Request Negotiation" in page detail
 
- @hitpre @175055 @usershouldabletoselectthepicklistvalueat"NegotiationsRequestDetails"sectionin"Pre-ApplicationSectionforNegotiation"multi-picklist. @Sprint-8 @Vrishali
+ @hitpre1 @175055 @usershouldabletoselectthepicklistvalueat"NegotiationsRequestDetails"sectionin"Pre-ApplicationSectionforNegotiation"multi-picklist. @Sprint-8 @Vrishali
   Scenario: Verify user should able to select the picklist value at "Negotiations Request Details" section in "Pre-Application Section for Negotiation" multi-pick list.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1794,7 +1793,7 @@ Feature: Pre-Application scenarios without background
 #   Added below extra steps due to bug once resolved remove the step
     Then I softly see fields "PreApplicationSectionsforRevision__c" is in edit mode
 
- @hitpre @174695 @Thestatusonpre-applicationwhennegotiationisinitiatedonsubrecipientside @Sprint-8 @Vrishali
+ @hitpre1 @174695 @Thestatusonpre-applicationwhennegotiationisinitiatedonsubrecipientside @Sprint-8 @Vrishali
   Scenario:The status on pre-application when negotiation is initiated on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1852,7 +1851,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see "Negotiations" sub tab at view detail page
     Then I softly see field "Status" as "Negotiation Initiated"
 
- @hitpre @174725 @TheApplicantResponsesectionisdisplayedfortheNegotiationtab @Sprint-7 @Vrishali
+ @hitpre1 @174725 @TheApplicantResponsesectionisdisplayedfortheNegotiationtab @Sprint-7 @Vrishali
   Scenario: Verify the Applicant Response section is displayed for the Negotiation tab
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1910,7 +1909,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Negotiations" sub tab
     Then I softly see "Applicant Response" page block displayed
 
- @hitpre @174700 @Theeditbuttonisdisplayedonpre-applicationsonsubrecipientside @Sprint-8 @Vrishali
+ @hitpre1 @174700 @Theeditbuttonisdisplayedonpre-applicationsonsubrecipientside @Sprint-8 @Vrishali
   Scenario: Verify the edit button is displayed on pre-applications on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2023,7 +2022,7 @@ Feature: Pre-Application scenarios without background
       | new_helpText                                                                                                               |
       | This section contains negotiation details for the applicant to view, enter all details before sending to the Subreceipent  |
 
- @hitpre @176545 @ValidatehelptextdisplayedfortheNegotiationrequestdetailssectiononsubrecipientside @sprint-8 @vaibhav
+ @hitpre1 @176545 @ValidatehelptextdisplayedfortheNegotiationrequestdetailssectiononsubrecipientside @sprint-8 @vaibhav
   Scenario Outline: Validate help text displayed for the Negotiation request details section on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2087,7 +2086,7 @@ Feature: Pre-Application scenarios without background
       | new_helpText                                                |
       | This section contains negotiation details from the Grantor. |
 
- @hitpre @176517 @Validatehelptextisdisplayedonsubrecipientsideforpreapplicationforapplicantresponsesection @sprint-8 @vaibhav
+ @hitpre1 @176517 @Validatehelptextisdisplayedonsubrecipientsideforpreapplicationforapplicantresponsesection @sprint-8 @vaibhav
   Scenario Outline: help text is displayed on subrecipient side for pre-application for applicant  response section
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2152,7 +2151,7 @@ Feature: Pre-Application scenarios without background
       | new_helpText                                                             |
       | Provide a brief explanation of the negotiations made to the application. |
 
- @hitpre @169921 @169923 @169926 @169928 @169932 @170092 @ValidateUserShouldAbleToSeeEDitViewPreviewButtonInFilesForm @sprint-7 @vaibhav
+ @hitpre1 @169921 @169923 @169926 @169928 @169932 @170092 @ValidateUserShouldAbleToSeeEDitViewPreviewButtonInFilesForm @sprint-7 @vaibhav
   Scenario: Validate User Should Able To See EDit View Preview Button In Files Form
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2211,7 +2210,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "100.00%" for title "Percentage" against the value "Standard Pre-Application form" inside table "---preApplication:-:preAppFormTableId---"
 
-@hitpre @170093 @ValidateusershouldabletoseeErrorMessageonvalidatebutton @sprint-7 @vaibhav
+@hitpre1 @170093 @ValidateusershouldabletoseeErrorMessageonvalidatebutton @sprint-7 @vaibhav
   Scenario: Validate user should able to see Error Message on validate button
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2253,7 +2252,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see the following messages in the page details :
       | Form cannot be validated because data is missing in one or more fields that are required to submit. To view the fields that are required to submit, click the Edit button. |
 
- @hitpre @170096 @170097 @170100 @170101 @ValidateusershouldabletoseetheSuccessMessageonvalidatebutton @sprint-7 @vaibhav
+ @hitpre1 @170096 @170097 @170100 @170101 @ValidateusershouldabletoseetheSuccessMessageonvalidatebutton @sprint-7 @vaibhav
   Scenario: Validate user should able to see the Success Message on validate button
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
