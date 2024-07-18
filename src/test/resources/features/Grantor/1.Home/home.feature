@@ -41,7 +41,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @56712 @56713 @activeINDandsubrecipientOrganizationView
+  @ch1 @56712 @56713 @activeINDandsubrecipientOrganizationView
   Scenario Outline: Validate whether all users have view access to Subrecipient Organization and Active Individual Subrecipients
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -51,29 +51,29 @@ Feature: Validate all scenarios in the home tab
     Then I softly see that "Subrecipient Organization" is in "Active" status
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
-    And I click on "View" icon for "{user:fullName}" inside flex table with id "---home:-:indActiveAccountId---" without waiting for record
-    Then I softly see that "{user:fullName}" is in "Active" status
+    When I perform quick search for "{user:OldfullName}" in "---home:-:indActiveAccountId---" panel
+    And I click on "View" icon for "{user:OldfullName}" inside flex table with id "---home:-:indActiveAccountId---" without waiting for record
+    Then I softly see that "{user:OldfullName}" is in "Active" status
     Examples:
       | User  |
       | ADMIN |
       | EXE   |
       | PM    |
 
-  @56715 @56714 @activeIndividualSubrecipientsEdit
+  @ch1 @56715 @56714 @activeIndividualSubrecipientsEdit
   Scenario Outline: Validate whether ADMIN/DA have Edit access to Active Individual Subrecipients and Subrecipient Organizations
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---home:-:subrecipientActiveAccountId---" panel
     Then I softly can see row level action button "Edit" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---home:-:subrecipientActiveAccountId---"
-    When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
-    Then I softly can see row level action button "Edit" against "{user:fullName}" in flex table with id "---home:-:indActiveAccountId---"
+    When I perform quick search for "{user:OldfullName}" in "---home:-:indActiveAccountId---" panel
+    Then I softly can see row level action button "Edit" against "{user:OldfullName}" in flex table with id "---home:-:indActiveAccountId---"
     Examples:
       | User  |
       | ADMIN |
 
-  @56717 @56716 @56718 @internalContactsViewCreateEdit @smoke
+  @ch1 @56717 @56716 @56718 @internalContactsViewCreateEdit @smoke
   Scenario Outline: Validate that Internal contacts are accessible across agencies and can be create, Edit and view access to Contacts by any Internal users
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -245,7 +245,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @56732 @subrecipientOrganizationEdition @smoke
+  @ch1 @56732 @subrecipientOrganizationEdition @smoke
   Scenario Outline: Validate whether ADMIN and DA users can Edit the Subrecipient Organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -332,7 +332,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @56736 @56737 @additionalAddressesCreationEdition
+  @ch1 @56736 @56737 @additionalAddressesCreationEdition
   Scenario: Validate whether ADMIN can Create and Edition of Additional Addresses
     Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
@@ -499,13 +499,13 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @57343 @individualSubrecipientContactCreation @buglogged138607
+  @ch1 @57343 @individualSubrecipientContactCreation @buglogged138607
   Scenario Outline: Validate whether ADMIN/DA have can new address details to Ind Subrecipient org
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
-    When I click on "View" icon for "{user:fullName}" inside table without waiting for record
+    When I perform quick search for "{user:OldfullName}" in "---home:-:indActiveAccountId---" panel
+    When I click on "View" icon for "{user:OldfullName}" inside table without waiting for record
     And I click on top right button "New" in flex table with id "AdditionalAddress"
     And I enter in modal "AdditioanlAddressesCreation" values from "InternalOrganization_Field_Values.xlsx"
     And I click modal button "Save"
@@ -636,13 +636,13 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @57349 @viewActiveIndividualOrganizations
+  @ch1 @57349 @viewActiveIndividualOrganizations
   Scenario Outline: The Internal Users should be able to view all the Active Individual Subrecipients that are registered in the system and may be recipients of grants
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
-    Then I can see row level action button "View" against "{user:fullName}" in flex table with id "---home:-:indActiveAccountId---"
+    When I perform quick search for "{user:OldfullName}" in "---home:-:indActiveAccountId---" panel
+    Then I can see row level action button "View" against "{user:OldfullName}" in flex table with id "---home:-:indActiveAccountId---"
     Examples:
       | User  |
       | ADMIN |
@@ -746,13 +746,13 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @62104 @indProfileEditAccess @deepika
+  @ch1 @62104 @indProfileEditAccess @deepika
   Scenario: Verify other than Admin and Ind Profile Users, other users cannot edit the Ind subrecipient profile Information
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
-    Then I cannot see row level action button "Edit" against "{user:fullName}" in flex table with id "---home:-:indActiveAccountId---"
+    When I perform quick search for "{user:OldfullName}" in "---home:-:indActiveAccountId---" panel
+    Then I cannot see row level action button "Edit" against "{user:OldfullName}" in flex table with id "---home:-:indActiveAccountId---"
 
   @62105 @externalUserhomePendingTask @deepika
   Scenario: The Pending Task on the left Navigation shows Pending Tasks that are created for Subrecipient Users
@@ -801,7 +801,7 @@ Feature: Validate all scenarios in the home tab
     And I navigate to "Home" tab
     When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
     When I navigate to "Overview" sub tab
-    Then I see that "{user:fullName}" has been added in flextable with Id "---home:-:indContactTableId---"
+    Then I see that "{user:OldfullName}" has been added in flextable with Id "---home:-:indContactTableId---"
 
   @62255 @CreatedNotes @keerti @onhold @wip
   Scenario: Verify created notes on Home Tab
@@ -946,26 +946,28 @@ Feature: Validate all scenarios in the home tab
       | SPI3     |
 #      | SPA      |
 
-  @201757  @ValidateSPI\SPAIseeMovedAddressLine2fieldbeforetheCityfieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @ch1 @201757  @ValidateSPI\SPAIseeMovedAddressLine2fieldbeforetheCityfieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI\SPA I see Moved 'Address Line 2' field before the 'City' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
     And I select "Profile" from user dropdown
     And I click on "Edit" in the page details
-    Then I softly see "Address" inside page block detail
+    Then I softly see "Address Line 1" inside page block detail
+    Then I softly see "Address Line 2" inside page block detail
     Then I softly see "City" inside page block detail
     Examples:
       | userType |
       | SPI3     |
 #      | SPA      |
 
-  @201758 @ValidateSPI\SPA\INDuserseeMovedCountryfieldaftertheZipCodefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @ch1 @201758 @ValidateSPI\SPA\INDuserseeMovedCountryfieldaftertheZipCodefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI\SPA\IND user see Moved 'Country' field after the 'Zip Code' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
     And I select "Profile" from user dropdown
     And I click on "Edit" in the page details
-    Then I softly see "Zip/Postal Code" inside page block detail
+    Then I softly see "Zip Code" inside page block detail
+    Then I softly see "4-Digit Zip Code Extension" inside page block detail
     Then I softly see "Country" inside page block detail
     Examples:
       | userType |
