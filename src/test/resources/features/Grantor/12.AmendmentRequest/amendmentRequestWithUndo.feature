@@ -351,7 +351,7 @@ Feature: Amendment Request scenarios with Undo
     The EGMS Team
     """
 
-  @292872 @ValidatethatwhenPMuserReasignTaskofsubmitforapprovalischangedtonewusethennewownerwillseeundobuttonafterapprovingtheCarryFwdAmmendrequestAmmendrequest @Sprint-3-US-288693 @vaibhav @Undo
+  @fieldHistoryCheck @292872 @ValidatethatwhenPMuserReasignTaskofsubmitforapprovalischangedtonewusethennewownerwillseeundobuttonafterapprovingtheCarryFwdAmmendrequestAmmendrequest @Sprint-3-US-288693 @vaibhav @Undo
   Scenario: Validate that when PM user Reasign Task of submit for approval is changed to new user,then new owner will see undo button after approving the Carry Fwd Ammend request Ammend request
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -1499,7 +1499,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
 
-  @292873 @292874 @ValidatethatwhenPMUserReasignTasksubmitforapprovaltonewusethenoldownerwillnotseeundobuttonafterapprovaloftheCarryFwdAmmendrequestAmmendrequest @Sprint-3-US-288693 @vaibhav @Undo
+  @fieldHistoryCheck @292873 @292874 @ValidatethatwhenPMUserReasignTasksubmitforapprovaltonewusethenoldownerwillnotseeundobuttonafterapprovaloftheCarryFwdAmmendrequestAmmendrequest @Sprint-3-US-288693 @vaibhav @Undo
   Scenario: Validate that when PM User Reasign Task submit for approval  to new user,then old owner will not see undo button after approval of  the Carry Fwd Ammend request Ammend request
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -5156,7 +5156,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     Then I cannot see top right button "Undo" in page detail
 
-  @291094 @291095 @296832 @VerifythatUsercanReassignARafterclickonUNDObuttonAfterthathewillseeUndoButton @Sprint-2-US-289813 @hitesh @Undo
+  @fieldHistoryCheck @291094 @291095 @296832 @VerifythatUsercanReassignARafterclickonUNDObuttonAfterthathewillseeUndoButton @Sprint-2-US-289813 @hitesh @Undo
   Scenario:Verify that User can Reassign AR  after click on UNDO button After that he will see Undo Button
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -5648,7 +5648,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
-  @292647 @292648 @292650 @292651 @292652 @292653 @292657 @292661 @292667 @VerifywhenPmapprovercanclickonundobuttoninKPCAmmendrequestrecordwhenrecordisinApprovedstate @sprint-3-US-288690 @hitesh @Undo
+  @fieldHistoryCheck @292647 @292648 @292650 @292651 @292652 @292653 @292657 @292661 @292667 @VerifywhenPmapprovercanclickonundobuttoninKPCAmmendrequestrecordwhenrecordisinApprovedstate @sprint-3-US-288690 @hitesh @Undo
   Scenario: Verify when Pm approver can click on undo button in  KPC Ammend request  record when record is in Approved state
     And I activated standalone subaward "Automation Runtime award" with properties "Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -9280,7 +9280,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
-  @329500 @ValidateBudgetPeriodChangeuserseeapprovalhistoryandfiledhistorygetupdatedafterlaststepapproverclickonundobutton @Undo @FieldHistoryExclude
+  @fieldHistoryCheck @329500 @ValidateBudgetPeriodChangeuserseeapprovalhistoryandfiledhistorygetupdatedafterlaststepapproverclickonundobutton @Undo @FieldHistoryExclude
   Scenario: Validate Budget Period Change user see approval history and filed history get updated after last step approver click on undo button
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal

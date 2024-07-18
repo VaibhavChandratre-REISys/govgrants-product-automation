@@ -1969,7 +1969,7 @@ Feature: Payment Request scenarios without background
     Then I cannot see row level action button "Edit" against "{SavedValue:PayreqId}" in flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:PayreqId}" in flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---"
 
-  @197759 @Validatefieldhistorytableshouldbeupdateoncead-hocreimbursementpaymentrequestreassignafterownershiptonewuser @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
+  @fieldHistoryCheck @197759 @Validatefieldhistorytableshouldbeupdateoncead-hocreimbursementpaymentrequestreassignafterownershiptonewuser @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate field history table should be update once ad-hoc reimbursement payment request reassign after ownership to new user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -3575,7 +3575,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId2}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:PayreqId2}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @197582 @Validatenewownershouldbedisplayinfiledhistorytableafterownershiptaskreassignmenttonewuser @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
+  @fieldHistoryCheck @197582 @Validatenewownershouldbedisplayinfiledhistorytableafterownershiptaskreassignmenttonewuser @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate new owner should be display in filed history table after ownership task reassignment to new user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -4232,7 +4232,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team
       """
 
-  @198602 @ValidatenewPRownershouldbedisplayforhistorytabafterownershiptaskreassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @fieldHistoryCheck @198602 @ValidatenewPRownershouldbedisplayforhistorytabafterownershiptaskreassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate new PR owner should be display for history  tab after ownership task reassign to new user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -4752,7 +4752,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team
       """
 
-  @229591 @Validatead-hocpaymentrequestownershouldgetchangeinapprovedstateafterownershipreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @fieldHistoryCheck @229591 @Validatead-hocpaymentrequestownershouldgetchangeinapprovedstateafterownershipreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate ad-hoc payment request owner should get change in approved state after ownership reassign to other user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -4837,7 +4837,7 @@ Feature: Payment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @229592 @ValidateAdvancepaymentrequestownershouldgetchangeinRejectedstateafterownershipreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @fieldHistoryCheck @229592 @ValidateAdvancepaymentrequestownershouldgetchangeinRejectedstateafterownershipreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Advance payment request owner should get change in Rejected state after ownership reassign to other user
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -4920,7 +4920,7 @@ Feature: Payment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @229595 @Validatead-hocpaymentrequestownershouldgetchangeinpaidstateafterownershipreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @fieldHistoryCheck @229595 @Validatead-hocpaymentrequestownershouldgetchangeinpaidstateafterownershipreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate ad-hoc payment request owner should get change in paid state after ownership reassign to other user
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
