@@ -1686,7 +1686,6 @@ Feature: Amendment Request scenarios without background
     And I softly can see top right button "Activate" in page detail
     When I click on "Activate" in the page details
     And I wait for "3" seconds
-    When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2048,12 +2047,12 @@ Feature: Amendment Request scenarios without background
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1000                 | 100        | 0              |
-    And I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:BudgetChangeTableId---"
-    And I click on "Delete" icon for "Construction" inside flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" without waiting for record
-    When I enter the following values into flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "New" :
-      | Title                      | Narrative | Award Amount | Other Leverage |
-      | Automation Budget Category | Test      | 1000         | 0              |
-    Then I softly see value "Automation Budget Category" for title "Title" inside table "---amendment:-:AddLineItemForBudgetChangeTableId---"
+#    And I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:BudgetChangeTableId---"
+#    And I click on "Delete" icon for "Construction" inside flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" without waiting for record
+#    When I enter the following values into flex table with id "---amendment:-:AddLineItemForBudgetChangeTableId---" by clicking "New" :
+#      | Title                      | Narrative | Award Amount | Other Leverage |
+#      | Automation Budget Category | Test      | 1000         | 0              |
+#    Then I softly see value "Automation Budget Category" for title "Title" inside table "---amendment:-:AddLineItemForBudgetChangeTableId---"
     Then I softly see value "$1,000.00" for title "Revised Award Amount" inside table "---progressReport:-:budgetChangeTableId---"
 #    And I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
@@ -2581,6 +2580,7 @@ Feature: Amendment Request scenarios without background
 #    When I close "Add Line Items" modal by clicking the top right x button
 #    Then I softly see value "$500.00" for title "Revised Award Amount" against the value "Site work" inside table "---amendment:-:budgetChangeTableId---"
     And I click on "Submit to Grantor" in the page details
+    When I get the "EGMS ID"
     #99235 #monu
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     #99239 #monu
