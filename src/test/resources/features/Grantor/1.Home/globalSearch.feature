@@ -10,7 +10,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Suggested For You" section inside global search dropdown
     Then I softly see "All Searchable Items" section inside global search dropdown
 
-  @387457 @ValidatetherecordownerisabletoedittheaccessforrecordwhenannouncementisintheCreatedsubmitforrevieworinUnpublishedstate @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @387457 @ValidatetherecordownerisabletoedittheaccessforrecordwhenannouncementisintheCreatedsubmitforrevieworinUnpublishedstate @sprint-2-US-386939 @vaibhav @GlobalSearch @TBExecution1
   Scenario: Validate the record owner is able to edit the access for record when announcement is in the Created, submit for review or in Unpublished state
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -123,7 +123,7 @@ Feature: Validate all scenarios for the global search
     And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
     Then I softly see field "Status" as "Under Revision"
 
-  @387461 @ValidatethatNonOwneruserdoesnthaveaneditoptioninanystageofannouncementandwillgeterrormessageonpage @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @387461 @ValidatethatNonOwneruserdoesnthaveaneditoptioninanystageofannouncementandwillgeterrormessageonpage @sprint-2-US-386939 @vaibhav @GlobalSearch @TBExecution1
   Scenario: Validate that Non-Owner user doesn't have an edit option in any stage of announcement and will get error message on page
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -529,7 +529,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see dropdown option "Tasks" under the "Suggested For You" section
 
   @388883 @388920 @ValidatethatEXEuserisabletoseetheglobalsearchbarforanInternalProgram @sprint-2-US-386939 @vaibhav @GlobalSearch
-    Scenario: Validate that EXE user is able to see the global search bar for an Internal Program
+  Scenario: Validate that EXE user is able to see the global search bar for an Internal Program
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
     Then I softly see global search display at top of the page
@@ -538,9 +538,439 @@ Feature: Validate all scenarios for the global search
     Then I softly see "All Searchable Items" section inside global search dropdown
 
   @388932 @Validatethatuserisabletoseethe5mostrecentlyusedrecordsinthedropdownlistwhenuserclicksonsearchinputboxforInternalProgram @sprint-2-US-386939 @vaibhav @GlobalSearch
-    Scenario: Validate that user is able to see the 5 most recently used records in the dropdown list when user clicks on search input box for Internal Program
+  Scenario: Validate that user is able to see the 5 most recently used records in the dropdown list when user clicks on search input box for Internal Program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
     And I select "Programs" from dropdown for Global search
     And I click on global search box
     Then I softly see recent "5" records in global search box
+
+  @388921 @ValidatethattherecordownerisabletoedittheaccessforrecordwhenInternalProgramisintheCreatedsubmitforreviewandBeingAmendedstate @sprint-2-US-386939 @vaibhav @GlobalSearch @TBExecution1
+  Scenario: Validate that the record owner is able to edit the access for record when Internal Program is in the Created, submit for review and Being Amended state
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter "Creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I wait for "2" seconds
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    Then I softly see field "Status" as "Created"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---program:-:associateContactsTableId---"
+    When I click modal button "Close"
+    When I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---program:-:associateFocusAreaTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---program:-:associateObjectivesTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+    When I click "Associate" after selection of "Automation Permanent KPI" in the table "---program:-:associateKPITableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:EXE Username} | Step 1  |
+    When I get the "EGMS ID"
+    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
+      | Reviewer Name | Responsibility  | Description                 | Due Date |
+      | Automation FO | Fiscal Reviewer | Automation Test Description | 10       |
+    And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    Then I softly see field "Status" as "Submitted for Review"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
+    And I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
+    And I wait for "2" seconds
+    When I enter in modal value "Passed" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
+    When I click modal button "Save"
+    And I click on submit review
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    And I click on "Complete Review" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    Then I softly see field "Status" as "Reviewed"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    When I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    And I wait for "2" seconds
+    And I click on "Amend Program" in the page details
+    Then I softly see field "Status" as "Being Amended"
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    Then I softly see field "Status" as "Being Amended"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+
+  @388924 @ValidatethatNonOwneruserdoesnthaveaneditoptioninanystateofInternalProgramandwillgeterrormessageonpage @sprint-2-US-386939 @vaibhav @GlobalSearch @TBExecution1
+  Scenario: Validate that Non-Owner user doesn't have an edit option in any state of Internal Program and will get error message on page
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter "Creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    Then I softly see field "Status" as "Created"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---program:-:associateContactsTableId---"
+    When I click modal button "Close"
+    When I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---program:-:associateFocusAreaTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---program:-:associateObjectivesTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+    When I click "Associate" after selection of "Automation Permanent KPI" in the table "---program:-:associateKPITableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:EXE Username} | Step 1  |
+    When I get the "EGMS ID"
+    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
+      | Reviewer Name | Responsibility  | Description                 | Due Date |
+      | Automation FO | Fiscal Reviewer | Automation Test Description | 10       |
+    And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    Then I softly see field "Status" as "Submitted for Review"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
+    And I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
+    And I wait for "2" seconds
+    When I enter in modal value "Passed" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
+    When I click modal button "Save"
+    And I click on submit review
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    And I click on "Complete Review" in the page details
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    Then I softly see field "Status" as "Reviewed"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    Then I softly see field "Status" as "Submitted for Approval"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I navigate to "Planning" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    When I "Approve" in the approval decision
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    Then I softly see field "Status" as "Approved"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    Then I softly see field "Status" as "Active"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    Then I softly see field "Status" as "Active"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+
+  @388926 @ValidatethatuserisnotabletochangetheownerinanystateofInternalProgramandwillgettheerrormessageandnonowneruseisnotabletoseethechangeowneroption @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate that user is not able to change the owner in any state of Internal Program and will get the error message and non-owner user is not able to see the change owner option
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter "Creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I wait for "2" seconds
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    Then I softly can see row level action button "Change Owner" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    And I click on row level action button "Change Owner" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    And I wait for "2" seconds
+    And I select users value "Automation PM1" in field "forceSearchInputLookup"
+    When I click modal button "Submit"
+    Then I softly see the following messages in the page details contains:
+      | You cannot change the owner from this screen. Click Cancel, and navigate to Home. Then select Ownership Reassignment. |
+    When I click modal button "Cancel"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+
+  @388928 @ValidateEXEhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenInternalProgramisasubmitforreviewstate @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validte EXE have edit access for record only when edit access setting is yes for peer reviewer when Internal Program is a submit for review state
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter "Creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---program:-:associateContactsTableId---"
+    When I click modal button "Close"
+    When I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---program:-:associateFocusAreaTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---program:-:associateObjectivesTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+    When I click "Associate" after selection of "Automation Permanent KPI" in the table "---program:-:associateKPITableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:EXE Username} | Step 1  |
+    When I get the "EGMS ID"
+    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
+      | Reviewer Name  | Responsibility  | Description                 | Due Date | Allow Record Editing |
+      | Automation EXE | Fiscal Reviewer | Automation Test Description | 10       | Yes                  |
+    And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    Then I softly see field "Status" as "Submitted for Review"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+
+  @388930 @ValidateEXEuserdoesnothaveeditaccessforpeerreviewthenEXEuserwillgeterrormessageforInternalProgramwhenInternalProgramisinthesubmitforreviewstateorinReviewedstates @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate EXE user does not have edit access for peer review then EXE user will get error message for Internal Program when Internal Program is in the submit for review state or in Reviewed states
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter "Creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---program:-:associateContactsTableId---"
+    When I click modal button "Close"
+    When I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---program:-:associateFocusAreaTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---program:-:associateObjectivesTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+    When I click "Associate" after selection of "Automation Permanent KPI" in the table "---program:-:associateKPITableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:EXE Username} | Step 1  |
+    When I get the "EGMS ID"
+    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
+      | Reviewer Name  | Responsibility  | Description                 | Due Date | Allow Record Editing |
+      | Automation EXE | Fiscal Reviewer | Automation Test Description | 10       | No                   |
+    And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
+    Then I softly see field "Status" as "Submitted for Review"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+
+  @388935 @ValidatethatuserisabletoseetheallthelistofmodulesafterclickingonsuggestedforyousectionforInternalProgram @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate that user is able to see the all the list of modules after clicking on 'suggested for you section' for Internal Program
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    Then I softly see dropdown option "All" under the "Suggested For You" section
+    Then I softly see dropdown option "Amendment Requests" under the "Suggested For You" section
+    Then I softly see dropdown option "Announcements" under the "Suggested For You" section
+    Then I softly see dropdown option "Applications" under the "Suggested For You" section
+    Then I softly see dropdown option "Chatter" under the "Suggested For You" section
+    Then I softly see dropdown option "Closeouts" under the "Suggested For You" section
+    Then I softly see dropdown option "Contacts" under the "Suggested For You" section
+    Then I softly see dropdown option "Events" under the "Suggested For You" section
+    Then I softly see dropdown option "Focus Areas" under the "Suggested For You" section
+    Then I softly see dropdown option "Funding Decision Memos (FDM)s" under the "Suggested For You" section
+    Then I softly see dropdown option "Grants" under the "Suggested For You" section
+    Then I softly see dropdown option "Key Performance Indicators (KPI)s" under the "Suggested For You" section
+    Then I softly see dropdown option "Organizations" under the "Suggested For You" section
+    Then I softly see dropdown option "Payment Requests" under the "Suggested For You" section
+    Then I softly see dropdown option "Programs" under the "Suggested For You" section
+    Then I softly see dropdown option "Progress Report" under the "Suggested For You" section
+    Then I softly see dropdown option "Reports" under the "Suggested For You" section
+    Then I softly see dropdown option "Reviews" under the "Suggested For You" section
+    Then I softly see dropdown option "Risk Assessment" under the "Suggested For You" section
+    Then I softly see dropdown option "Site Visits" under the "Suggested For You" section
+    Then I softly see dropdown option "Strategic Plans" under the "Suggested For You" section
+    Then I softly see dropdown option "Subawards" under the "Suggested For You" section
+    Then I softly see dropdown option "Tasks" under the "Suggested For You" section
+
+  @388990 @388995 @ValidatehatEXEuserisabletoseetheglobalsearchbarforanAward @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate that EXE user is able to see the global search bar for an Award
+    Given I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Grants" tab
+    Then I softly see global search display at top of the page
+    #388995
+    Then I softly see "Suggested For You" section inside global search dropdown
+    Then I softly see "All Searchable Items" section inside global search dropdown

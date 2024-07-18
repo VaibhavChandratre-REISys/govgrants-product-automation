@@ -1532,7 +1532,7 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @test
+ @debug @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
 #   Given I am on "INTERNAL" portal
 ##   And I generate the random EmailID and save as "uniqueEmailID" for maildrop
@@ -1545,10 +1545,12 @@ Feature: Validate all scenarios of every modules flow
 #    And I download the file
 #    Then I see "Approved" on page "1" of "govgrants" pdf file
 #   And I halt execution
-    When I navigate to "Responsibilities" sub tab
-    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
-    And I wait for "1" seconds
-    Then I softly see row level action button "Remove record" inside "---subAwardStandAlone:-:riskAssessmentApproverTableId---" flex table
+    And I click on row level action button "Change Owner" against "PG-TAO modified-1064" in global search with id "Programs"
+    And I wait for "2" seconds
+    And I select users value "Automation PM1" in field "forceSearchInputLookup"
+    When I click modal button "Submit"
+    Then I softly see the following messages in the page details contains:
+      | You cannot change the owner from this screen. Click Cancel, and navigate to Home. Then select Ownership Reassignment. |
 
     And I halt execution
 #    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
