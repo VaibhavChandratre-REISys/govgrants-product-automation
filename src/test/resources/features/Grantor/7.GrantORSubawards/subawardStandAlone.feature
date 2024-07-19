@@ -713,7 +713,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @51140 @51141 @66897 @66006 @65983 @66005 @66003  @66904 @66299 @66404 @66582 @66483 @allSendToRecipientAndAcceptanceAfterApproval @skipOnJenkins
+  @ch2 @51140 @51141 @66897 @66006 @65983 @66005 @66003  @66904 @66299 @66404 @66582 @66483 @allSendToRecipientAndAcceptanceAfterApproval
   Scenario Outline: Acceptance of award by receipient after approval| Validate view Noga button on SPI side |To verify after Send to Subrecipient button the status should change to Sent to Subrecipient after Approval and the progress bar approved
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1118,7 +1118,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the total records from the flex table id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" as "totalRecords"
     Then I see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
 
-  @wip @NeedtoCheckraisedwithBug @53911 @66200 @67817 @66318 @68036 @69318 @ValidateAdvancePaymentRequestcreation @mahadev @buglogged102071
+  @ch3 @NeedtoCheckraisedwithBug @53911 @66200 @67817 @66318 @68036 @69318 @ValidateAdvancePaymentRequestcreation @mahadev @buglogged102071
   Scenario Outline: Advance Payment Request creation when Advance Payment Allowed selected as Yes
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2182,7 +2182,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Terms" sub tab
     Then I see value "Not Applicable" for title "Frequency" inside table "---subAwardStandAlone:-:progressReportScheduleTableId---"
 
-  @55298 @DownloadProgressReportInPDF @jitendra @skipOnJenkins
+  @ch2 @55298 @DownloadProgressReportInPDF @jitendra
   Scenario: Validate user can Download the progress created Report in PDF format.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2194,7 +2194,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I download the file
     Then I verify that "pdf" file is downloaded
 
-  @55306 @DownloadProgressReportInXLS @jitendra @skipOnJenkins
+  @ch2 @55306 @DownloadProgressReportInXLS @jitendra
   Scenario: Validate user can Download the progress created Report in XLS format
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -5996,7 +5996,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66008 @66019 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnTheSubrecipientProfile(SPIuser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePage @wip
+  @ch3 @66008 @66019 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnTheSubrecipientProfile(SPIuser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePage
   Scenario Outline: Validate After “Accept After Approval” Button Is Clicked On The Subrecipient Profile (SPIuser) View Noga Button Appears On The Top Right Corner Of The Page
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -6168,7 +6168,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66016 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnThe(PMUser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePageandcompareamountonpdf @vaibhav @skipOnJenkins
+  @ch2 @66016 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnThe(PMUser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePageandcompareamountonpdf @vaibhav
   Scenario Outline: Validate After “Accept After Approval ” Button Is Clicked On The (PMUser) View Noga Button Appears On The Top Right Corner Of The Page and compare amount on pdf
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"

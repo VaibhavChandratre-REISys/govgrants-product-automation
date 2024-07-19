@@ -1132,7 +1132,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Annoucement Name                                 | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64943 @verifyApproversCarryForwardedFromAnnoucementToAward @mahadev @wip
+  @ch3 @64943 @verifyApproversCarryForwardedFromAnnoucementToAward @mahadev
   Scenario: Verify Approvers added at announcement is same on subaward when grant which is created with application
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---subAwardStandAlone:-:awardApproversTableId---"

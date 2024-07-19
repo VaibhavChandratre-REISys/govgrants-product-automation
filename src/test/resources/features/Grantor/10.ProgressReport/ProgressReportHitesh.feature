@@ -263,7 +263,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @59898 @validateSRUserIsAbleToViewSnapshotHistory @mahadev @skipOnJenkins
+  @ch2 @59898 @validateSRUserIsAbleToViewSnapshotHistory @mahadev
   Scenario: Validate SR user is able to view the Snapshot after Progress report is Submitted to Grantor status
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1025,7 +1025,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
-  @61088 @61091 @validateObjectivesCarriedFromAwardToPR @mahadev @wip
+  @ch3 @61088 @61091 @validateObjectivesCarriedFromAwardToPR @mahadev
   Scenario: Validate if Objectives Required? field is yes at Grant, Objectives are associated at award then it is carried at Progress report at SR End
   Validate Objectives table at Performance Tab on Progress report should not be editable at SR user end
     And I click on "Edit" in the page details
@@ -1035,7 +1035,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Performance" sub tab
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---progressReport:-:objectivesTableId---"
 
-  @61095 @61094 @validateDownloadOfObjectivesInCSV @mahadev @skipOnJenkins
+  @ch2 @61095 @61094 @validateDownloadOfObjectivesInCSV @mahadev
   Scenario: Validate SR User can Download the Objectives associated at award on progress report in CSV format | Validate SR User can Download the Objectives associated at award on progress report in PDF format
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"

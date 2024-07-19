@@ -2484,7 +2484,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
-  @286507  @sprint-1-US-295145 @hitesh @Undo @skipOnJenkins @bug-414554
+  @ch2 @286507  @sprint-1-US-295145 @hitesh @Undo @bug-414554
   Scenario: Verify user see all tables display correctly in downloaded PDF for award in rejected state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab

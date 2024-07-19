@@ -931,7 +931,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:grantorGrantProgressReportTableId---"
 
-  @59568 @59280 @validateSRUserIsAbleToViewSnapshot @mahadev @skipOnJenkins
+  @ch2 @59568 @59280 @validateSRUserIsAbleToViewSnapshot @mahadev
   Scenario: Validate SR user is able to view the Snapshot after Progress report is Submitted to Grantor status | Validate Submitted On field at Certification table should get updated on Progress report at SR user end when Progress report status is Submitted to Grantor
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"

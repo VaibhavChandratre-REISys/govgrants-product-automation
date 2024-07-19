@@ -131,7 +131,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime Direct Award}" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     Then I softly see value "{SavedValue:Automation Runtime Direct Award}" for title "Grant Title" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @68138 @takeSnapShotHistory @jitendra @skipOnJenkins
+  @ch2 @68138 @takeSnapShotHistory @jitendra
   Scenario: Validate that Snapshot of Grant page taken is saved in the History tab of the same
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -150,7 +150,7 @@ Feature: Validate all scenarios of grants and award without background
     When I download the file
     Then I see "$0.00" on page "3" of "govgrants" pdf file
 
-  @67891 @68036 @68025 @68019 @68021 @calculateAwardTotal @jitendra @smoke @wip
+  @ch3 @67891 @68036 @68025 @68019 @68021 @calculateAwardTotal @jitendra @smoke
   Scenario: Validate that subaward amount in Grant Draft table is the Sum of all Subaward
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -226,7 +226,7 @@ Feature: Validate all scenarios of grants and award without background
     And I refresh the page
     Then I softly see field "Sequence" as "2"
 
-  @66654 @66655 @65897 @activateAwardEXEUser @jitendra @PoojaAward @LWCRemoved @wip
+  @ch3 @66654 @66655 @65897 @activateAwardEXEUser @jitendra @PoojaAward @LWCRemoved
   Scenario Outline: To verify that user(exe) is able to activate award by clicking on active button using Grant type =" Formula Grant" | To verify that user(exe) is able to activate award by clicking on active button using Grant type = "Block Grant"
     When I login to "As a Grantor" app as "<user>" user
     And I navigate to "Grants" tab
@@ -703,7 +703,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Budget" sub tab
     Then I softly see value "{SavedValue:fundingAccount}" for title "Funding Account" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
 
-  @38215 @68038 @67913 @71429 @VerifyActiveGrantsAccessToAllUsers @mahadev @skipOnJenkins
+  @ch2 @38215 @68038 @67913 @71429 @VerifyActiveGrantsAccessToAllUsers @mahadev
   Scenario Outline: Verify all internal users can view active grants
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -840,7 +840,7 @@ Feature: Validate all scenarios of grants and award without background
       | User |
       | PM   |
 
-  @64415 @64416 @64417 @64418 @64420 @64421 @64422 @64419  @keerti @AwardValidationHold @wip
+  @ch3  @64415 @64416 @64417 @64418 @64420 @64421 @64422 @64419  @keerti @AwardValidationHold
   Scenario: Verify validation message is displayed when award owner did not enter Grant Title field while creating direct grant.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1243,7 +1243,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see the following messages in the page details :
       | Purpose is required to save under Overview. |
 
-  @53967 @NoIfAreExpenseDetailRequiredonReimbursements @jitendra @smoke @wip
+  @ch3 @53967 @NoIfAreExpenseDetailRequiredonReimbursements @jitendra @smoke
   Scenario Outline: Verify that If Are Expense Details Required on Reimbursements? field is No then user should see only edit action at Reimbursement Payment request Budget category table.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1595,7 +1595,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see the following messages in the page details :
       | Budget Tab - Provide the Budget Period End Date for the subaward. |
 
-  @65592 @validateGrantTypeAndGrantDescriptionFields @mahadev @PoojaAward @LWCRemoved @wip
+  @ch3 @65592 @validateGrantTypeAndGrantDescriptionFields @mahadev @PoojaAward @LWCRemoved
   Scenario: To verify that after the new value is entered and clicked on the save button through the award owner profile as a PM profile the value must be retained
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2477,7 +2477,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @69085 @matchTermsAndCondition @jitendra @wip
+  @ch3 @69085 @matchTermsAndCondition @jitendra
   Scenario:Validate that Total mandatory terms and condition in master table of planning and that associated in the Subaward Terms and condition table is same
     When I login to "As a Grantor" app as "PM" user
     When I navigate to "Planning" tab
@@ -2497,7 +2497,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
 
-  @67532 @jitendra @checkAttachemet @wip
+  @ch3 @67532 @jitendra @checkAttachemet
   Scenario Outline: To verify that validation message appear on Subrecipient profile if supporting document checklist set as yes while creating  grant on 'Supporting Documents Checklist' section
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2997,7 +2997,7 @@ Feature: Validate all scenarios of grants and award without background
       | Announcement Name                                               | Application Name                                     |
       | {SavedValue:Automation Runtime Announcement Application Review} | {Automation Runtime Announcement Application Review} |
 
-  @64787 @validateUploadedDocumentAtTemplateLink @skipOnJenkins
+  @ch2 @64787 @validateUploadedDocumentAtTemplateLink
   Scenario Outline: Verify that uploaded document at supporting document checklist getting displayed on template link
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -8677,7 +8677,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @235147 @ValidateownershiptransferofaGrantthathas5000termsandconditionsassociatedtoitandthenRecordTransfertoOtheruserforthisgrant @vaibhav @reassignment @skipOnJenkins
+  @ch2 @235147 @ValidateownershiptransferofaGrantthathas5000termsandconditionsassociatedtoitandthenRecordTransfertoOtheruserforthisgrant @vaibhav @reassignment
   Scenario: Validate ownership transfer of a Grant that has 5000 terms and conditions associated to it and then Record Transfer to Other user for this grant
     And I activated standalone subaward "Automation Runtime Direct Award" with properties "default"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
