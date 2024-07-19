@@ -781,7 +781,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79206 @pdfForReviewSteps @keerti @skipOnJenkins
+  @79206 @pdfForReviewSteps @keerti
   Scenario Outline: To verify user able to download pdf for Review Steps section in related log tab of Apllication phase.
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -3433,7 +3433,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80050 @verifyDownloadAsPDFOptionAtFundingAccount @skipOnJenkins @monu
+  @80050 @verifyDownloadAsPDFOptionAtFundingAccount @monu
   Scenario Outline: validate user is able to see expected contents inside downloaded file at Funding account section
     And I reviewed the application "<Application Name>"
     And I login to "As a Grantor" app as "dynamicUser" user
