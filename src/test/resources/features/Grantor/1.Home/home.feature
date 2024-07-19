@@ -41,7 +41,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @ch1 @56712 @56713 @activeINDandsubrecipientOrganizationView
+  @56712 @56713 @activeINDandsubrecipientOrganizationView
   Scenario Outline: Validate whether all users have view access to Subrecipient Organization and Active Individual Subrecipients
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -60,7 +60,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @ch1 @56715 @56714 @activeIndividualSubrecipientsEdit
+  @56715 @56714 @activeIndividualSubrecipientsEdit
   Scenario Outline: Validate whether ADMIN/DA have Edit access to Active Individual Subrecipients and Subrecipient Organizations
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -73,7 +73,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @ch1 @56717 @56716 @56718 @internalContactsViewCreateEdit @smoke
+  @56717 @56716 @56718 @internalContactsViewCreateEdit @smoke
   Scenario Outline: Validate that Internal contacts are accessible across agencies and can be create, Edit and view access to Contacts by any Internal users
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -245,7 +245,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @ch1 @56732 @subrecipientOrganizationEdition @smoke
+  @56732 @subrecipientOrganizationEdition @smoke
   Scenario Outline: Validate whether ADMIN and DA users can Edit the Subrecipient Organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -332,7 +332,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @ch1 @56736 @56737 @additionalAddressesCreationEdition
+  @56736 @56737 @additionalAddressesCreationEdition
   Scenario: Validate whether ADMIN can Create and Edition of Additional Addresses
     Given I login to "As a Grantor" app as "ADMIN" user
     When I navigate to "Home" tab
@@ -499,7 +499,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @ch1 @57343 @individualSubrecipientContactCreation @buglogged138607
+  @57343 @individualSubrecipientContactCreation @buglogged138607
   Scenario Outline: Validate whether ADMIN/DA have can new address details to Ind Subrecipient org
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -636,7 +636,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @ch1 @57349 @viewActiveIndividualOrganizations
+  @57349 @viewActiveIndividualOrganizations
   Scenario Outline: The Internal Users should be able to view all the Active Individual Subrecipients that are registered in the system and may be recipients of grants
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -746,7 +746,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @ch1 @62104 @indProfileEditAccess @deepika
+  @62104 @indProfileEditAccess @deepika
   Scenario: Verify other than Admin and Ind Profile Users, other users cannot edit the Ind subrecipient profile Information
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -946,7 +946,7 @@ Feature: Validate all scenarios in the home tab
       | SPI3     |
 #      | SPA      |
 
-  @ch1 @201757  @ValidateSPI\SPAIseeMovedAddressLine2fieldbeforetheCityfieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201757  @ValidateSPI\SPAIseeMovedAddressLine2fieldbeforetheCityfieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI\SPA I see Moved 'Address Line 2' field before the 'City' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -960,7 +960,7 @@ Feature: Validate all scenarios in the home tab
       | SPI3     |
 #      | SPA      |
 
-  @ch1 @201758 @ValidateSPI\SPA\INDuserseeMovedCountryfieldaftertheZipCodefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201758 @ValidateSPI\SPA\INDuserseeMovedCountryfieldaftertheZipCodefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
   Scenario Outline: Validate SPI\SPA\IND user see Moved 'Country' field after the 'Zip Code' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user

@@ -133,6 +133,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
+    And I pause execution for "3" seconds
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
@@ -215,6 +216,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
+    And I pause execution for "3" seconds
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
@@ -2096,7 +2098,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount must be less than or equal to the Subaward Ceiling Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
 
-  @219112 @PreapplicationVerifyasSPAusershouldseeBudgetSummarybyFocusAreasectionbelowBudgetSummarysectionunderbudgettabofpreapplicationiffocusareaisYESforCompetitiveAnnouncement @sprint-09-US-208978 @komal @Allocation
+  @done @219112 @PreapplicationVerifyasSPAusershouldseeBudgetSummarybyFocusAreasectionbelowBudgetSummarysectionunderbudgettabofpreapplicationiffocusareaisYESforCompetitiveAnnouncement @sprint-09-US-208978 @komal @Allocation
   Scenario: Pre-application>>Verify as SPA user should see Budget Summary by Focus Area section below Budget Summary section under budget tab of pre-application if focus area is 'YES' for Competitive Announcement
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2200,7 +2202,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #221170
     Then I softly cannot see page block "Budget Summary by Focus Area"
 
-  @221113 @PreapplicationVerifyasSPAusershouldseeBudgetedAmountfieldunderPreapplicationOverviewsectionunderOverviewsubtabofpreapplicationforDirectedAnnouncement @sprint-09-US-208978 @komal @Allocation
+  @done @221113 @PreapplicationVerifyasSPAusershouldseeBudgetedAmountfieldunderPreapplicationOverviewsectionunderOverviewsubtabofpreapplicationforDirectedAnnouncement @sprint-09-US-208978 @komal @Allocation
   Scenario: Pre-application>>Verify as SPA user should see 'Budgeted Amount' field under 'Pre-application Overview' section under Overview subtab of pre-application for Directed Announcement
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2467,6 +2469,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Save" in the page details
     And I pause execution for "2" seconds
     And I refresh the page
+    When I navigate to "Setup" sub tab
+    When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                      | Announcement |
@@ -2787,6 +2792,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Save" in the page details
     And I pause execution for "2" seconds
     And I refresh the page
+    When I navigate to "Setup" sub tab
+    When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -3346,6 +3354,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
+    And I pause execution for "3" seconds
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
