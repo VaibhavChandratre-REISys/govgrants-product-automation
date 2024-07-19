@@ -10,7 +10,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I enter in modal "Grant_Creation" values from "Award_Field_Values.xlsx"
-    And I enter value "---AUTOEnvData:-:SubrecipientOrgWithoutActiveRiskAssessment---" into field "fieldInternalOrganization__c"
+    And I enter value "---AUTOEnvData:-:SubrecipientOrgWithoutActiveRiskAssessment---" into field "InternalOrganization__c"
     And I click modal button "Continue"
     And I enter in modal "Grant_Edition1" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -44,7 +44,6 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I click modal button "Save"
     ##When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    And I switch to iframe with id "---progressreport:-:ProgressReportModalIframeId---"
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
@@ -148,8 +147,8 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I enter value "asf" into field "Addressline1__c"
     And I enter value "asf" into field "City__c"
     And I enter value "20171" into field "Zip4__c"
-    And I enter value "LA" into field "fieldState__c"
-    And I enter value "GA" into field "fieldCounty__c"
+    And I enter value "LA" into field "State__c"
+    And I enter value "GA" into field "County__c"
     And I enter value "Test" into field "ScopeofWorkChangeDescription__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
@@ -245,9 +244,9 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I enter value "asf" into field "City__c"
     And I enter value "20171" into field "Zip4__c"
     When I enter values into fields
-      | Value | Field                           |
-      | 4000  | fieldRevisedCommitment__c       |
-      | 2000  | fieldRequestedChangeInBudget__c |
+      | Value | Field                      |
+      | 4000  | RevisedCommitment__c       |
+      | 2000  | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
@@ -346,9 +345,9 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I enter values into fields
-      | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 100                         | fieldRequestedChangeInBudget__c    |
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 100                         | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
@@ -373,13 +372,13 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Submit For Approval" in the page details
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in approval decision
+    And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -429,7 +428,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -501,10 +500,9 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
-    And I Click on "Start" icon for "Automation PM" without tableid
-    And I pause execution for "3" seconds
-    And I Click on "Reassign Records" icon for "Risk Assessment" without tableid
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Risk Assessment" from reassign ownership dropdown
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:OrgRiskId}" in "---riskassessment:-:riskAssSourceTableId---" panel
     Then I do not see value "{SavedValue:OrgRiskId}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"

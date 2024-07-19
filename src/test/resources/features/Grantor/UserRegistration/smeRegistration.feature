@@ -191,5 +191,7 @@ Feature: Validate all scenarios for SME Registration
     And I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
     And I refresh the page
+    And I navigate to "Home" tab
+    When I navigate to "{grantor_sidebar:smeReviewer}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---grantor_tableId:-:PotentialReviewerContactTableId---" panel
     When I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact}" inside flex table with id "---grantor_tableId:-:PotentialReviewerContactTableId---"

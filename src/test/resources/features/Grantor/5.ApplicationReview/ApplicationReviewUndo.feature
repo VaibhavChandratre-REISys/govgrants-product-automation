@@ -981,10 +981,10 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @284757 @284775 @ValidatePre-ScreenReviewStepCompetitiveAnnFAYesINDusecanseetheUndobuttonontheReviewslistpagewhenthereviewwhenassignedreviewiscompleted @Sprint-26-US-282727 @vaibhav @Undo @wip
+  @284757 @284775 @ValidatePre-ScreenReviewStepCompetitiveAnnFAYesINDusecanseetheUndobuttonontheReviewslistpagewhenthereviewwhenassignedreviewiscompleted @Sprint-26-US-282727 @vaibhav @Undo
   Scenario Outline: Validate Pre-Screen Review Step Competitive Ann FA Yes IND user can see the "Undo" button on the Reviews list page when the review when assigned review is completed
-    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
-    And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "INVITED_APPLICANT_IND_ORG"
+    And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default-Automation IND user"
     And I login to "As a Grantor" app as "PM" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -1010,7 +1010,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    And I click modal button "Close"
     And I refresh the page
     And I pause execution for "5" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -1038,6 +1038,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly see that "Reviewer" is in "Automation IND" status
     Then I cannot see top right button "Undo" in page detail
     #284775
+    And I wait for "5" seconds
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel

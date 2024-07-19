@@ -1534,12 +1534,4 @@ Feature: Validate all scenarios of every modules flow
 
   @840
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
-    When I navigate to "Applications" tab
-    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Pre-Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement for PreApp and App}" in "---preApplication:-:recipientPreApplicationsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for PreApp and App}}" inside flex table with id "---preApplication:-:recipientPreApplicationsTableId---"
-    And I wait for "2" seconds
-    Then I softly can see top right button "Submit to Grantor" in page detail
+    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
