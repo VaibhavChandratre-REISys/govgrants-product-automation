@@ -10,7 +10,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I enter in modal "Grant_Creation" values from "Award_Field_Values.xlsx"
-    And I enter value "---AUTOEnvData:-:SubrecipientOrgWithoutActiveRiskAssessment---" into field "fieldInternalOrganization__c"
+    And I enter value "---AUTOEnvData:-:SubrecipientOrgWithoutActiveRiskAssessment---" into field "InternalOrganization__c"
     And I click modal button "Continue"
     And I enter in modal "Grant_Edition1" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -246,8 +246,8 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I enter value "20171" into field "Zip4__c"
     When I enter values into fields
       | Value | Field                           |
-      | 4000  | fieldRevisedCommitment__c       |
-      | 2000  | fieldRequestedChangeInBudget__c |
+      | 4000  | RevisedCommitment__c       |
+      | 2000  | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
@@ -347,8 +347,8 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                       | Field                              |
-      | Automation Test Description | fieldFundingChangeJustification__c |
-      | 100                         | fieldRequestedChangeInBudget__c    |
+      | Automation Test Description |  FundingChangeJustification__c |
+      | 100                         |  RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
@@ -429,7 +429,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     When I click on "Edit" in the page details
-    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "fieldNewBudgetPeriodEndDate__c"
+    And I enter value "{SavedValue:updatedBudgetPeriodDate}" into field "NewBudgetPeriodEndDate__c"
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
