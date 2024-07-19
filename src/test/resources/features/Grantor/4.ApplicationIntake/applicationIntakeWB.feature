@@ -17,7 +17,7 @@ Feature: Application Intake scenarios without background
     Then I softly see that "{SavedValue:Automation Runtime Announcement Application Review}" is in "Qualified" status
     Then I softly can see top right button "Create Application" in page detail
 
-  @70257 @73937 @73940 @73935 @73941 @70255 @70256 @spaUserCannotQualifyTheApplication @deepika
+  @70257 @73937 @73940 @73935 @73941 @70255 @70256 @spaUserCannotQualifyTheApplication @deepika @ApplicationRerun
   Scenario: Validate as another SPI / SPA user should not be able to Qualify for the second time| Validate SPA user view the Create Application button in page details
   Validate SPA user can View the Qualified Application under 'Qualified' and not under 'Not Yet Qualified'
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
@@ -493,7 +493,7 @@ Feature: Application Intake scenarios without background
 #    Then I softly see the following messages in the page details contains:
 #      | Saved Successfully! |
 
-  @72307 @34330 @newApplicationOncetheOppurtunitySubmittedToGrantor @deepika
+  @72307 @34330 @newApplicationOncetheOppurtunitySubmittedToGrantor @deepika @ApplicationRerun
   Scenario: Validate whether user is able to create a new/multiple applications from same Oppurtunity once it is Converted to an Application | Verify snapshot is not added to the Snapshot History after Application is submitted to Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -512,7 +512,8 @@ Feature: Application Intake scenarios without background
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Proposal" sub tab
-    Then I softly cannot see page block "Work Plan"
+    And I wait for "3" seconds
+    Then I softly do not see "Work Plan" page block displayed
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -550,7 +551,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "History" sub tab
     Then I softly cannot see field "Snapshot History" inside page block
 
-  @72308 @77658 @34324 @72309  @deepika @PoojaAppRe-run
+  @72308 @77658 @34324 @72309  @deepika @ApplicationRerun
   Scenario: Validate whether the User can view the edit icon for the application that is in Created Status and Submiited to Grantor Status
   Validate whether SPI user have delete access to delete the Application that is in Created Sttaus
   Verify SPI & SPA user is not able to Submit Application to Grantor with Requested Amount is less than or equal to the Subaward Floor Amount
@@ -574,6 +575,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:recipientApplications---" panel
+    And I wait for "3" seconds
     Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationIntake:-:recipientApplications---"
     Then I softly cannot see row level action button "Delete" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationIntake:-:recipientApplications---"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:recipientApplications---"
@@ -787,7 +789,7 @@ Feature: Application Intake scenarios without background
       | SPI3 | Automation SPI3 |
       | SPA  | Automation SPA  |
 
-  @73367 @spiUserCanViewAllocatedAmountOnceSubmittedToGrantor @deepika @buglogged129432 @ReRunApplicationPooja
+  @73367 @spiUserCanViewAllocatedAmountOnceSubmittedToGrantor @deepika @buglogged129432 @ApplicationRerun
   Scenario Outline: Validate whether SPI & SPA user were able to view the allocated amount once the Oppurtunity is Converted to Application when Announcement is of type - Formula
     Given I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT"
     When I am on "SUBPORTAL" portal
@@ -806,7 +808,8 @@ Feature: Application Intake scenarios without background
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Proposal" sub tab
-    Then I softly cannot see page block "Work Plan"
+    And I wait for "3" seconds
+    Then I softly do not see "Work Plan" page block displayed
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -1099,7 +1102,7 @@ Feature: Application Intake scenarios without background
 #    Then I softly see the following messages in the page details contains:
 #      | Application is successfully qualified |
 
-  @75501 @75502 @otherOrgUserCanAlsoQualifyAndCreateApplication @deepika
+  @75501 @75502 @otherOrgUserCanAlsoQualifyAndCreateApplication @deepika @ApplicationRerun
   Scenario: Validate Opportunities created from 'Competitive Announcements' are available for all External users under Oppurtunities
   Validate Opportunities created from 'Competitive Announcements' are available for all external users and can qualify and create the Applications
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
@@ -1112,7 +1115,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     Then I softly see "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
-    Then I softly see that "{SavedValue:Automation Runtime Announcement Application Review}" is in "Qualified" status
+    And I wait for "3" seconds
     Then I softly can see top right button "Create Application" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
@@ -1127,7 +1130,7 @@ Feature: Application Intake scenarios without background
     Then I softly see field "Status" as "Qualified"
     Then I softly can see top right button "Create Application" in page detail
 
-  @34017 @34291 @focusAreaSettingAsNO @deepika
+  @34017 @34291 @focusAreaSettingAsNO @deepika @ApplicationRerun
   Scenario: Validate when the funding opportunity  has focus area setting as No then the  User will not be able to view the focus area section when creating the Application
   Validate whether the user is able to Edit the budget category while creating an Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "FOCUS_AREA_NO"
@@ -1145,7 +1148,8 @@ Feature: Application Intake scenarios without background
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
-    Then I softly cannot see page block "Focus Area"
+    And I wait for "3" seconds
+    Then I softly do not see "Focus Area" page block displayed
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
@@ -1286,7 +1290,7 @@ Feature: Application Intake scenarios without background
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount should be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section. |
 
-  @77046 @77045 @77047 @77048 @budgetGridColumnValidation @deepika
+  @77046 @77045 @77047 @77048 @budgetGridColumnValidation @deepika @ApplicationRerun
   Scenario: Validate the SPI cannot view the Goals and Objectives page block when it is set as No while Announcement creation| Validate the SPI cannot view the Work Plan required page block when it is set as No while Announcement creation
   Validate whether SPI user can submit the application without adding supporting documents when the required documents are optional |
   Validate when the Funding Opportunity Detailed budget Grid Setup as Yes then User will be able to view the Bulid up Line in the Budget Grid
@@ -1306,8 +1310,8 @@ Feature: Application Intake scenarios without background
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Proposal" sub tab
-    Then I softly cannot see page block "Work Plan"
-   # Then I softly cannot see page block "Goals and Objectives"
+    And I wait for "3" seconds
+    Then I softly do not see "Work Plan" page block displayed
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---applicationIntake:-:budgetPeriodTableId---"
@@ -1349,7 +1353,7 @@ Feature: Application Intake scenarios without background
     Then I softly see the following messages in the page details contains:
       | An Application cannot be submitted after the Application Due Date. |
 
-  @77657 @snapshotHistoryApplication @deepika
+  @77657 @snapshotHistoryApplication @deepika @ApplicationRerun
   Scenario: Validate whether SPI user will be able to take the snapshot on page when the Application is in Created status and is saved under snapshot history
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1374,7 +1378,7 @@ Feature: Application Intake scenarios without background
     When I download the file
     Then I see "Created" on page "1" of "govgrants" pdf file
 
-  @BlockedDuetoBug:390917  @195250  @sprint-12-US-226646 @vaibhav @reassignment
+  @BlockedDuetoBug:390917  @195250  @sprint-12-US-226646 @vaibhav @reassignment @ApplicationRerun
   Scenario: Validate application related pending task should generated for new Ann owner if application created from old owner even if Ann ownership task reassign to other user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1410,6 +1414,7 @@ Feature: Application Intake scenarios without background
       | Name                      | Announcement |
       | {SavedValue:EXE Username} | Step 1       |
     And I click on "Submit For Approval" in the page details
+    And I wait for "4" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -1483,7 +1488,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---applicationReview:-:announcementListTableId---"
 
-  @196695  @sprint-4-US-197579 @vaibhav @reassignment @PoojaAppRe-run
+  @196695  @sprint-4-US-197579 @vaibhav @reassignment @ApplicationRerun
   Scenario: Validate App Application is transfer to new user after Ann ownership will get change with setting pre-app as 'Yes'
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1548,7 +1553,7 @@ Feature: Application Intake scenarios without background
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
     When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel

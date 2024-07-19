@@ -638,7 +638,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I click on "Remove" icon for "{SavedValue:fundingAccount}" inside flex table with id "---announcement:-:fundingAccountsTableId---" with wait for record
     Then I softly see the following messages in the page details :
-      | Record removed successfully. |
+      | Record removed Successfully. |
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
@@ -879,7 +879,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly see field "Status" as "Under Revision"
     Then I softly cannot see top right button "Extend Dates" in page detail
-
     Examples:
       | Announcement Type |
       | Competitive       |

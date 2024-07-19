@@ -3115,7 +3115,7 @@ Feature: Validate all scenarios for program
       | Status                 | Page Number |
       | Submitted for Approval | 1           |
     And I switch to parent tab
-    And I "Send Back" in the approval decision
+    And I "Send back" in the approval decision
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
