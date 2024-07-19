@@ -117,7 +117,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @64385 @scopeofWorkAmendmentWhenORAIsExpired
+  @64385 @scopeofWorkAmendmentWhenORAIsExpired @ReRunRisKAssesPooja
   Scenario: Validate when Org Risk Assessment is expired and user is able to activate newly created award post performing amendment of type - Scope Of Work
     Given I delete the record "Automation Award for Organizational Risk Assessment" from the object "Amendment Request"
     And I delete the record "Automation Award for Organizational Risk Assessment" from the object "Payment Request"
@@ -148,8 +148,8 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I enter value "asf" into field "Addressline1__c"
     And I enter value "asf" into field "City__c"
     And I enter value "20171" into field "Zip4__c"
-    And I enter value "LA" into field "fieldState__c"
-    And I enter value "GA" into field "fieldCounty__c"
+    And I enter value "LA" into field "State__c"
+    And I enter value "GA" into field "County__c"
     And I enter value "Test" into field "ScopeofWorkChangeDescription__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
