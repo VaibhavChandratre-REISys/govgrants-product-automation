@@ -1534,24 +1534,7 @@ Feature: Validate all scenarios of every modules flow
 
  @debug @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-#   Given I am on "INTERNAL" portal
-##   And I generate the random EmailID and save as "uniqueEmailID" for maildrop
-##   And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
-#   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
-    Given I login to "As a Grantor" app as "PM" user
-   And I halt execution
-#    And I click on "Download As PDF" in the page details
-#    And I wait for "5" seconds
-#    And I download the file
-#    Then I see "Approved" on page "1" of "govgrants" pdf file
-#   And I halt execution
-    And I click on row level action button "Change Owner" against "PG-TAO modified-1064" in global search with id "Programs"
-    And I wait for "2" seconds
-    And I select users value "Automation PM1" in field "forceSearchInputLookup"
-    When I click modal button "Submit"
-    Then I softly see the following messages in the page details contains:
-      | You cannot change the owner from this screen. Click Cancel, and navigate to Home. Then select Ownership Reassignment. |
-
-    And I halt execution
-#    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
-
+   Given I am on "INTERNAL" portal
+   Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
+   Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
+   When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime award}" having object api name as "ProgressReports__c"

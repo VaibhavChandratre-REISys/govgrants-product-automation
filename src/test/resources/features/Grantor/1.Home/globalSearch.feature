@@ -10,7 +10,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Suggested For You" section inside global search dropdown
     Then I softly see "All Searchable Items" section inside global search dropdown
 
-  @387457 @ValidatetherecordownerisabletoedittheaccessforrecordwhenannouncementisintheCreatedsubmitforrevieworinUnpublishedstate @sprint-2-US-386939 @vaibhav @GlobalSearch @TBExecution1
+  @387457 @ValidatetherecordownerisabletoedittheaccessforrecordwhenannouncementisintheCreatedsubmitforrevieworinUnpublishedstate @sprint-2-US-386939 @vaibhav @GlobalSearch 
   Scenario: Validate the record owner is able to edit the access for record when announcement is in the Created, submit for review or in Unpublished state
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -123,7 +123,7 @@ Feature: Validate all scenarios for the global search
     And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
     Then I softly see field "Status" as "Under Revision"
 
-  @387461 @ValidatethatNonOwneruserdoesnthaveaneditoptioninanystageofannouncementandwillgeterrormessageonpage @sprint-2-US-386939 @vaibhav @GlobalSearch @TBExecution1
+  @387461 @ValidatethatNonOwneruserdoesnthaveaneditoptioninanystageofannouncementandwillgeterrormessageonpage @sprint-2-US-386939 @vaibhav @GlobalSearch
   Scenario: Validate that Non-Owner user doesn't have an edit option in any stage of announcement and will get error message on page
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -304,7 +304,6 @@ Feature: Validate all scenarios for the global search
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
 #   Rejected State
@@ -545,7 +544,7 @@ Feature: Validate all scenarios for the global search
     And I click on global search box
     Then I softly see recent "5" records in global search box
 
-  @388921 @ValidatethattherecordownerisabletoedittheaccessforrecordwhenInternalProgramisintheCreatedsubmitforreviewandBeingAmendedstate @sprint-2-US-386939 @vaibhav @GlobalSearch @TBExecution1
+  @388921 @ValidatethattherecordownerisabletoedittheaccessforrecordwhenInternalProgramisintheCreatedsubmitforreviewandBeingAmendedstate @sprint-2-US-386939 @vaibhav @GlobalSearch
   Scenario: Validate that the record owner is able to edit the access for record when Internal Program is in the Created, submit for review and Being Amended state
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -660,7 +659,7 @@ Feature: Validate all scenarios for the global search
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
 
-  @388924 @ValidatethatNonOwneruserdoesnthaveaneditoptioninanystateofInternalProgramandwillgeterrormessageonpage @sprint-2-US-386939 @vaibhav @GlobalSearch @TBExecution1
+  @388924 @ValidatethatNonOwneruserdoesnthaveaneditoptioninanystateofInternalProgramandwillgeterrormessageonpage @sprint-2-US-386939 @vaibhav @GlobalSearch
   Scenario: Validate that Non-Owner user doesn't have an edit option in any state of Internal Program and will get error message on page
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
