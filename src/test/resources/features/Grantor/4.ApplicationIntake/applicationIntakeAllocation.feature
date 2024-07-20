@@ -284,6 +284,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I refresh the page
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
@@ -2502,6 +2503,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
+    And I pause execution for "3" seconds
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"

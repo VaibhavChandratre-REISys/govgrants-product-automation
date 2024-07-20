@@ -120,6 +120,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "ActiveAccountReviewer"
     When I perform quick search for "Automation SME" in "ActiveAccountReviewer" panel
+    And I pause execution for "2" seconds
     Then I softly can see row level action button "View" against "Automation SME" in flex table with id "ActiveAccountReviewer"
     Then I softly cannot see row level action button "Send Invitation" against "Automation SME" in flex table with id "ActiveAccountReviewer"
     Examples:
