@@ -555,7 +555,6 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
     And I check "<Focus Area>" boxes in flex table with id "---amendment:-:focusAreaTableId---"
     When I click on top right button "Associate" in flex table with id "---amendment:-:focusAreaTableId---"
-    And I halt execution
     Then I see that "<Focus Area>" has been added in flextable with Id "---amendment:-:projectAreasTableId---"
     Examples:
       | Focus Area                       |
