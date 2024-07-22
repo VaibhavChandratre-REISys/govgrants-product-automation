@@ -48,9 +48,11 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    When I choose the file "sample.pdf" to upload for "Checklist" of type "---progressReport:-:progressReportChecklistsTableId---"
+    And I upload attachment "sample.pdf" of type "Checklist" from computer
     And I click modal button "Close"
+    And I wait for "2" seconds
     And I click on hyperlink containing value "View"
+    And I wait for "2" seconds
     When I download the file
     Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
     #Then I see "Program_Field_Values.xlsx" has been added in "Attachments" flex table
