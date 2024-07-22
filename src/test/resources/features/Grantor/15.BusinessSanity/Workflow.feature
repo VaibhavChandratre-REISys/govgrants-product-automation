@@ -1534,17 +1534,41 @@ Feature: Validate all scenarios of every modules flow
 
   @840
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    And I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
-    And I wait for "2" seconds
-    When I navigate to "Forms and Files" sub tab
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "Automation Runtime Site Visit324287959" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I click on "View" icon for "Automation Runtime Site Visit324287959" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I wait for "3" seconds
-    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---progressReport:-:RecipientProgressReportFilesTableId---"
-    And I wait for "2" seconds
-    When I click on "Download" icon for "{SavedValue:AttachedFile}" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---" without waiting for record
-    And I wait for "2" seconds
-    And I download the file
-    Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
-    When I click on "Delete" icon for "{SavedValue:AttachedFile}" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---" without waiting for record
-    Then I softly do not see "{SavedValue:AttachedFile}" has been added in "Progress Report Files" flex table
+    And I click on "Accept and Close" in the page details
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
+    Then I pause execution for "120" seconds
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Amendment Request #{SavedValue:kpcId} hasbeen Rejected
+      """
+    Then I refresh the page
+    And I am on "INTERNAL" portal
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I click on Menu icon present on top right corner of the page
+    And I wait for "3" seconds
+    And I select "Take Snapshot" from dropdown
+    And I refresh the page
+    When I navigate to "History" sub tab
+    And I click on hyperlink containing value "Site Visit - Accept And Close"
+    When I download the file
+    Then I softly see "Closed" on page "1" of "govgrants" pdf file
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    And I perform quick search for "Automation Runtime Site Visit324287959" in "ApplicantSiteVisitReports" panel
+    When I click on "View" icon for "Automation Runtime Site Visit324287959" inside flex table with id "ApplicantSiteVisitReports"
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
+
+

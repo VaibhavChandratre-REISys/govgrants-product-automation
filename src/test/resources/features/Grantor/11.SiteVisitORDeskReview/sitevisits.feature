@@ -1085,13 +1085,24 @@ Feature: Validate all scenarios in the Site Visit
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-    And I click on "Accept And Close" in the page details
-    Then I softly see status in Progress-bar is "Closed" and is "Green"
+    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I click on "Accept and Close" in the page details
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     When I pause execution for "120" seconds
-    Then I softly can see mail notification for "EXTERNAL" user with following subject:
-      | Site Visit Closed |
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Site Visit Closed
+      """
+    Then I refresh the page
+    And I am on "INTERNAL" portal
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I click on Menu icon present on top right corner of the page
     And I wait for "3" seconds
     And I select "Take Snapshot" from dropdown
