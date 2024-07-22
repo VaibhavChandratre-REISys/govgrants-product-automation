@@ -18,6 +18,7 @@ Feature: Validate all scenarios in Desk Review
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReview"
 
@@ -1037,8 +1038,10 @@ Feature: Validate all scenarios in Desk Review
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Submit for Approval" in the page details
-    And I click on "Menu" in the page details
+    And I click on Menu icon present on top right corner of the page
+    And I wait for "5" seconds
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink which contains todays date with text "SnapShot on"
     When I download the file
@@ -1101,7 +1104,8 @@ Feature: Validate all scenarios in Desk Review
     And I save the field labeled "EGMS ID" as "DeskReviewId"
     Then I softly can see top right button "Accept and Close" in page detail
     And I click on "Accept And Close" in the page details
-    And I click on "Menu" in the page details
+    And I click on Menu icon present on top right corner of the page
+    And I wait for "3" seconds
     And I select "Take Snapshot" from dropdown
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Desk Review - Accept And Close"
@@ -1117,11 +1121,12 @@ Feature: Validate all scenarios in Desk Review
     Then I softly can see mail notification for "EXTERNAL" user with following subject:
       | Desk Review Closed |
 
-  @67834 @validateDownloadDeskReviewInCSV @deepika @skipOnJenkins
+  @67834 @validateDownloadDeskReviewInCSV @deepika @wip
   Scenario: Validate Internal User can Download the Desk Review associated in CSV format
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
+    And I halt execution
     And I select "Download as CSV" from parallel lines dropdown of "Participants"
     And I download the file
     Then I verify that "xls" file is downloaded
