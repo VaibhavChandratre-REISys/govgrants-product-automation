@@ -22,7 +22,7 @@ public final class PhasePanel {
      */
     public WebElement getAdvanceFilterItem(String tableId, String dataTargetValue) {
         By advanceFilter = By
-                .xpath("//div[@id='" + tableId + "']//button[@data-target='" + dataTargetValue + "'] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//lightning-button-icon[contains(@class,'togglebtn')]//button");
+                .xpath("//div[@id='" + tableId + "']//button[@data-target='" + dataTargetValue + "'] | //c-lwc-flex-table[@data-flextablename='" + tableId + "']//lightning-button-icon[contains(@class,'togglebtn')]//button | //c-lwc-flex-table[@data-flextablename='"+tableId+"']//div[contains(@class,'reseticon')]//button[@type='button']");
         return I.amPerforming().getElementReference().of(advanceFilter);
     }
 

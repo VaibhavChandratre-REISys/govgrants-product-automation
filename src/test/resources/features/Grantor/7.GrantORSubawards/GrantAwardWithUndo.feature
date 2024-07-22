@@ -2580,11 +2580,12 @@ Feature: Validate all scenarios of grants and award with undo
     Then I cannot see top right button "Undo" in page detail
 #    And I click on "Menu" in the page details
     And I click on Menu icon present on top right corner of the page
+    And I pause execution for "3" seconds
     And I select "Download As PDF" from dropdown
     And I download the file
-    Then I softly see "{SavedValue:AwardEGMSID}" on page "1" of "govgrants" pdf file
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
-    Then I softly see following details in "govgrants" pdf file:
+    Then I softly see "{SavedValue:AwardEGMSID}" on page "1" of "govgrant" pdf file
+    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrant" pdf file
+    Then I softly see following details in "govgrant" pdf file:
       | Detail                    | Page Number |
       | {SavedValue:AwardEGMSID}  | 1           |
       | {SavedValue:GrantEGMSID}  | 1           |

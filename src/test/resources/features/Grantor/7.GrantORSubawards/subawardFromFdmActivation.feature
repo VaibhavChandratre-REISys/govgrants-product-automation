@@ -219,6 +219,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     And I click on advance filter "#advfGranteeGrantsByAccount" of table id "---announcement:-:activeFederalTableId---"
     And I enter advance filter values inside id "advfGranteeGrantsByAccount"
       | EGMS ID | contains | Record Id |
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---announcement:-:activeFederalTableId---"
     Examples:
       | Grant Name                                       |

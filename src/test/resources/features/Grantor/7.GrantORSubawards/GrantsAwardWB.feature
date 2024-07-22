@@ -143,19 +143,22 @@ Feature: Validate all scenarios of grants and award without background
     When I click modal button "Save and Continue"
     And I enter value "abc" into field "GrantDescription__c"
     And I click on "Save" in the page details
+    And I pause execution for "3" seconds
     And I click on "Menu" in the page details
     And I select "Take Snapshot" from dropdown
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot"
     When I download the file
-    Then I see "$0.00" on page "3" of "govgrants" pdf file
+    Then I see "$0.00" on page "3" of "govgrant" pdf file
 
   @ch3 @67891 @68036 @68025 @68019 @68021 @calculateAwardTotal @jitendra @smoke
   Scenario: Validate that subaward amount in Grant Draft table is the Sum of all Subaward
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I pause execution for "7" seconds
     And I click toggle button to select "Grants - All"
+    And I pause execution for "7" seconds
     And I calculate the total from the column header "Subaward Amount" and saved it as "total" from the flex table "---subAwardStandAlone:-:activeGrantsTableId---"
     Then I softly see total as "{SavedValue:total}" against column name "Subaward Amount" from flex table "---subAwardStandAlone:-:activeGrantsTableId---"
     And I click toggle button to select "Grants - All"
@@ -236,8 +239,10 @@ Feature: Validate all scenarios of grants and award without background
     And I click modal button "Continue"
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
-    When I enter value "<grantType>" into field "GrantType__c"
+#    When I enter value "<grantType>" into field "GrantType__c"
     When I enter value "edewd" into field "GrantDescription__c"
+    And I pause execution for "3" seconds
+    And I click on "Save" in the page details
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I get the "EGMS ID"
@@ -708,9 +713,19 @@ Feature: Validate all scenarios of grants and award without background
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I enter value "abc" into field "GrantDescription__c"
+    And I pause execution for "3" seconds
+    And I click on "Save" in the page details
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     When I click toggle button to select "Grants - Active"
-    Then I softly see value "{SavedValue:Automation Runtime Award}" for title "Grant Title" inside table "---progressReport:-:activeGrantsTableId---"
     When I perform quick search for "<Grant Name>" in "---progressReport:-:activeGrantsTableId---" panel
+    Then I softly see value "<Grant Name>" for title "Grant Title" inside table "---progressReport:-:activeGrantsTableId---"
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     Then I softly see field "Status" as "Active"
     And I navigate to "Budget" sub tab
@@ -728,8 +743,8 @@ Feature: Validate all scenarios of grants and award without background
     And I download the file
     Then I softly verify that "pdf" file is downloaded
     Examples:
-      | Grant Name                            |
-      | {SavedValue:Automation Runtime Award} |
+      | Grant Name                                   |
+      | {SavedValue:Automation Runtime Direct Award} |
 
   @64423  @VerifyDirectGrantCreation @mahadev @PoojaAwardExclude
   Scenario: Verify award owner is able to create direct grant with Budget Category Type as construction
@@ -866,7 +881,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click modal button "Continue"
     Then I softly see the following messages in the page details :
       | Project Period Start Date is Required to save. |
-    And I clear the value from field "ExternalOrganization__c"
+#    And I clear the value from field "ExternalOrganization__c"
     When I enter value "3650" into field "ProjectPeriodEndDate__c"
     When I enter value "0" into field "ProjectPeriodStartDate__c"
     And I click modal button "Continue"
@@ -1445,6 +1460,13 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientsSubawardTableId---" panel
     When I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
     And I navigate to "Actuals" sub tab
+    And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+    When I enter value "Automation Payment Request" into field "Title__c"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I click on hyperlink containing value "AD--"
+    And I navigate to "Actuals" sub tab
     Then I softly can see row level action button "Edit" against "Reimbursement" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
     Examples:
       | Award Name                                      | Grant Name                                      |
@@ -1607,7 +1629,8 @@ Feature: Validate all scenarios of grants and award without background
     When I click modal button "Save and Continue"
     And I navigate to "Overview" sub tab
     And I enter value "Test Automation" into field "GrantDescription__c"
-    And I enter value "Project Grant" into field "GrantType__c"
+#    And I enter value "Project Grant" into field "GrantType__c"
+    And I pause execution for "3" seconds
     And I click on "Save" in the page details
     Then I softly see field "Grant Type" as "Project Grant"
     Then I softly see field "Brief information about the grant." as "Test Automation"
@@ -2482,7 +2505,7 @@ Feature: Validate all scenarios of grants and award without background
     When I login to "As a Grantor" app as "PM" user
     When I navigate to "Planning" tab
     When I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
-    And I save the total records from the flex table id "---home:-:termsandconditionstableID---" as "totalRecords"
+    And I save the total records from the flex table id "---home:-:termsAndConditionsTableId---" as "totalRecords"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -2506,9 +2529,9 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
-    When I perform quick search for "{SavedValue:Automation Runtime Announcement for FDM}" in "---subAwardFromFDM:-:fdmTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement for FDM}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
-    And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime Announcement for FDM}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
+    And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I wait for "3" seconds
     And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     When I click on "Save" in the page details
@@ -2676,8 +2699,8 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see the following messages in the page details :
       | Attachments Tab - Each mandatory item listed in the checklist must be completed before submitting this Subaward. |
     Examples:
-      | Award Name                                           | Grant Name                                           |
-      | {SavedValue:Automation Runtime Announcement for FDM} | {SavedValue:Automation Runtime Announcement for FDM} |
+      | Award Name                                       | Grant Name                                       |
+      | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
   @40066 @meenakshi @closeOutGrantOverview @PoojaAwardExclude
   Scenario: verify PM user able to Navigating to the Closeout Request section.
@@ -3016,7 +3039,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Save" in the page details
     When I navigate to "Budget" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "Automation Permanent Funding Account1" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |

@@ -276,6 +276,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
 #    And I click on "Back" in the page details
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I pause execution for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"

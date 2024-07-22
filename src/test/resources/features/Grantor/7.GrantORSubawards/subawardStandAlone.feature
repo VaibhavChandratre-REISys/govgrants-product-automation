@@ -720,7 +720,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "Automation Permanent Funding Account1" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
@@ -2192,7 +2192,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on top right parallel lines bar for "Progress Reports Schedule"
     And I select "Download as PDF" from parallel lines dropdown of "Progress Reports Schedule"
     And I download the file
-    Then I verify that "pdf" file is downloaded
+    Then I verify that "govgrant.pdf" file is downloaded
 
   @ch2 @55306 @DownloadProgressReportInXLS @jitendra
   Scenario: Validate user can Download the progress created Report in XLS format
@@ -5996,7 +5996,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @ch3 @66008 @66019 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnTheSubrecipientProfile(SPIuser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePage
+  @66008 @66019 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnTheSubrecipientProfile(SPIuser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePage @viewNOGAfunctionalityisunderdevelopementforLWC @wip
   Scenario Outline: Validate After “Accept After Approval” Button Is Clicked On The Subrecipient Profile (SPIuser) View Noga Button Appears On The Top Right Corner Of The Page
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"

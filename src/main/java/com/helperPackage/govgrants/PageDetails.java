@@ -73,12 +73,12 @@ public final class PageDetails {
             I.amPerforming().waitFor().makeThreadSleep(2000);
             try {
                 I.amPerforming().waitFor().ElementToBeVisible(topRightButton);
-              try {
-                  I.amPerforming().click().on(topRightButton);
-              }catch (Exception e) {
-                  I.amPerforming().click().withJavaScript(topRightButton);
-              }
-                  govgrants.perform().modal().acceptPopUp();
+                try {
+                    I.amPerforming().click().on(topRightButton);
+                } catch (Exception e) {
+                    I.amPerforming().click().withJavaScript(topRightButton);
+                }
+                govgrants.perform().modal().acceptPopUp();
             } catch (Exception ex) {
                 I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//gnt-header-overview//lightning-button-menu//button"));
                 I.amPerforming().click().withJavaScript(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
@@ -104,7 +104,7 @@ public final class PageDetails {
      * modifier saranjit.modak - 09.09.2022 added explicit wait used try catch to handle ElementClickInterceptedException exception
      */
     public void clickAnyTopRightButtonInsideSplitScreen(String buttonName) {
-        By topRightButton = By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "']");
+        By topRightButton = By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "'] | //lightning-button-menu[contains(@class,'" + buttonName + "')]");
         I.amPerforming().waitFor().makeThreadSleep(2000);
         try {
             I.amPerforming().checkToSee().isElementDisplayed(topRightButton);
@@ -270,15 +270,15 @@ public final class PageDetails {
 
     public void clickSubTabsInsideTableViewForSplitScreen(String tabName) {
         By desiredTab = By.xpath("//div[@class='uiTabBar']//ul//li//a[@title='" + tabName + "'] | //div[@class='slds-tabs_card']//ul//li//a[text()='" + tabName + "'] | //div[contains(@class,'forceCommunityTabLayout')]//ul//li//a[text()='" + tabName + "']");
-       try {
-           if (I.amPerforming().checkToSee().isDisplayed(desiredTab)){
-               I.amPerforming().click().withJavaScript(desiredTab);
-           }
-       }catch (Exception e){
-           I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//div[contains(@class,'slds-tabs_card')]//ul//li//button[text()='More']"));
-           I.amPerforming().click().withJavaScript(By.xpath("//div[contains(@class,'slds-tabs_card')]//ul//li//button[text()='More']"));
-           I.amPerforming().click().withJavaScript(By.xpath("//a//span[text()='" + tabName + "']"));
-       }
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
+                I.amPerforming().click().withJavaScript(desiredTab);
+            }
+        } catch (Exception e) {
+            I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//div[contains(@class,'slds-tabs_card')]//ul//li//button[text()='More']"));
+            I.amPerforming().click().withJavaScript(By.xpath("//div[contains(@class,'slds-tabs_card')]//ul//li//button[text()='More']"));
+            I.amPerforming().click().withJavaScript(By.xpath("//a//span[text()='" + tabName + "']"));
+        }
     }
 
     /**

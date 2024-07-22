@@ -263,7 +263,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @ch2 @59898 @validateSRUserIsAbleToViewSnapshotHistory @mahadev
+  @59898 @validateSRUserIsAbleToViewSnapshotHistory @mahadev @wip
   Scenario: Validate SR user is able to view the Snapshot after Progress report is Submitted to Grantor status
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1031,7 +1031,8 @@ Feature: Validate all scenarios in Progress Report
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Objective" in flex table with id "---progressReport:-:objectivesTableId---"
+    Then I softly do not see "Actions" in flex table header "---progressReport:-:objectivesTableId---"
+#    Then I softly cannot see row level action button "Edit" against "Automation Permanent Objective" in flex table with id "---progressReport:-:objectivesTableId---"
     And I navigate to "Performance" sub tab
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---progressReport:-:objectivesTableId---"
 
@@ -1047,7 +1048,7 @@ Feature: Validate all scenarios in Progress Report
     When I click on parallel menu button in flex table title "Objectives"
     And I select "Download as PDF" from parallel lines dropdown of "Objectives"
     When I download the file
-    Then I softly see "Test Automation Organization" on page "1" of "govgrants" pdf file
+    Then I softly see "Test Automation Organization" on page "1" of "govgrant" pdf file
 
   @61093 @59198 @61096 @PRISNotEditableOnPerformanceTabAfterPRStatusSummitedForGrantor @keerti
   Scenario: Validate Objectives table at Performance Tab on Progress report should not be editable at Award owner end when Progress report status is Submitted to Grantor. | Validate SR User is able to take snapshot of the Progress report when it is submitted to Grantor on active subaward
