@@ -659,4 +659,9 @@ public final class GovGrantsObjects {
         I.amPerforming().click().withJavaScript(element);
         govgrants.perform().modal().acceptPopUp();
         }
+
+    public void toClickOnRecordIdForGlobalSearch(String recordName) {
+      WebElement dropdownRecord = I.amPerforming().getElementReference().of(By.xpath("//div[@class='listContent']//ul//li//a//span[@title='" + recordName + "']"));
+      I.amPerforming().click().on(dropdownRecord);
+    }
 }

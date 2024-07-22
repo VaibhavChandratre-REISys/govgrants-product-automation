@@ -10,7 +10,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Suggested For You" section inside global search dropdown
     Then I softly see "All Searchable Items" section inside global search dropdown
 
-  @387457 @ValidatetherecordownerisabletoedittheaccessforrecordwhenannouncementisintheCreatedsubmitforrevieworinUnpublishedstate @sprint-2-US-386939 @vaibhav @GlobalSearch 
+  @387457 @ValidatetherecordownerisabletoedittheaccessforrecordwhenannouncementisintheCreatedsubmitforrevieworinUnpublishedstate @sprint-2-US-386939 @vaibhav @GlobalSearch
   Scenario: Validate the record owner is able to edit the access for record when announcement is in the Created, submit for review or in Unpublished state
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -973,3 +973,101 @@ Feature: Validate all scenarios for the global search
     #388995
     Then I softly see "Suggested For You" section inside global search dropdown
     Then I softly see "All Searchable Items" section inside global search dropdown
+
+  @388859 @ValidatewhenanyuserglobalsearchanyrecordbyusingEGMSIDoranykeyword&clickonrecordandfindingtheresultthenthatrecordshouldopeninconsoletab @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate when any user global search any record by using EGMS ID or any keywords & click on record and finding the result then that record should open in console tab
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I wait for "2" seconds
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}" without processing
+    And I click on record "{SavedValue:AnnEGMSID}" from global search
+    Then I softly see field "Status" as "Created"
+
+  @388949 @ValidatethatwhenanyuserglobalsearchanyrecordbyusingEGMSIDoranykeyword&clickonrecordandfindingtheresultthenthatrecordshouldopeninconsoletab @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate that when any user global search any record by using EGMS ID or any keywords & click on record and finding the result then that record should open in console tab
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter "Creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}" without processing
+    And I click on record "{SavedValue:ProgramEGMSID}" from global search
+    Then I softly see field "Status" as "Created"
+
+  @388862 @ValidateuserredirecttothatrecordwhenusercliconanyhyperlinkprovidedEGMSIDInternalOrganizationCreatedbyonobjectsafterglobalsearchtheanyrecordforannouncement @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate user redirect to that record when user click on any hyperlink provided EGMS ID Internal Organization Created by on objects after global search the any record for announcement
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I wait for "2" seconds
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I wait for "2" seconds
+    And I click on hyperlink for global search containing value "{SavedValue:AnnEGMSID}"
+    Then I softly see field "Status" as "Created"
+    And I wait for "2" seconds
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I wait for "2" seconds
+    And I click on hyperlink for global search containing value "{SavedValue:EXE Username}"
+    Then I softly see the text containing "{SavedValue:EXE Username}"
+
+  @388952 @ValidateuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedEGMSIDInternalOrganizationCreatedbyonobjectsafterglobalsearchtheanyrecordforinternalProgram @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate user redirect to that record when user click on any hyperlink provided EGMS ID Internal Organization Created by on objects after global search the any record for internal Program
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter "Creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I wait for "2" seconds
+    And I click on hyperlink for global search containing value "{SavedValue:ProgramEGMSID}"
+    Then I softly see field "Status" as "Created"
+    And I wait for "2" seconds
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I wait for "2" seconds
+    And I click on hyperlink for global search containing value "{SavedValue:PM Username}"
+    Then I softly see the text containing "{SavedValue:PM Username}"
