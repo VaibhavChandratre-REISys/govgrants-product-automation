@@ -258,4 +258,9 @@ public final class GovGrantsProductSteps {
         ggProductObjects.iSavedSpecificLinkValueFromFlexTableInsideGivenKey(columnValueFromRow, columnName, key, flexTableId);
 
     }
+
+    @And("I click on global search box")
+    public void iClickOnGlobalSearchBox() {
+        ggProductObjects.iClickOnGlobalSearchBox();
+    }
 }

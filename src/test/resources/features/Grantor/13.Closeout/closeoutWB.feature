@@ -859,7 +859,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Override" in page detail
 
-  @96514 @validateAcknowledgeFieldIsNonEditable @monu @TBExecution
+  @96514 @validateAcknowledgeFieldIsNonEditable @monu
   Scenario: Verify closeout owner is not able to edit after closeout request is submitted to grantor
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -5361,7 +5361,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Automation EXE1" for title "New Value" inside field history table
     Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
-  @50982 @scheduledCloseoutHappyPath @TBExecution
+  @50982 @scheduledCloseoutHappyPath
   Scenario: Happy path of Scheduled closeout
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"

@@ -320,7 +320,7 @@ Feature: Validate all scenarios in the Pre-Application
       | Announcement Name                                        |
       | {SavedValue:Automation Runtime Announcement Application} |
 
-  @75523 @77655 @75522 @preApplicationPDFRelatedLog @aashish @skipOnJenkins @TBExecution
+  @75523 @77655 @75522 @preApplicationPDFRelatedLog @aashish
   Scenario Outline: To verify system allow to download PDF for Pre-application section in Related log tab of announcement | To verify user able to view Pre-Applications in Pre-Applications section in Related log tab of announcement
   Validate whether user can view the Accepted Status on progress bar once the pre-application is accepted by Grantor
     Given I click on "Edit" in the page details
@@ -404,8 +404,9 @@ Feature: Validate all scenarios in the Pre-Application
     When I navigate to "Related Log" sub tab
     And I click on parallel menu button in flex table title "Submitted Pre-Applications"
     And I select "Download as PDF" from dropdown
+    And I wait for "5" seconds
     And I download the file
-    Then I softly see "Pre-Applications" on page "1" of "govgrants" pdf file
+    Then I softly see "Submitted Pre-Applications" on page "1" of "govgrants" pdf file
     Examples:
       | Announcement Name                                        |
       | {SavedValue:Automation Runtime Announcement Application} |
