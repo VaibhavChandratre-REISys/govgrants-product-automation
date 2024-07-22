@@ -50,6 +50,7 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
+    And I refresh the page
     And I wait for "2" seconds
     And I click on hyperlink containing value "View"
     And I wait for "2" seconds
