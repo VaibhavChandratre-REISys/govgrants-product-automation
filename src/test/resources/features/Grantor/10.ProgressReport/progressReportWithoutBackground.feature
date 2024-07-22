@@ -21,10 +21,9 @@ Feature: Validate scenarios in Progress Report without background
       | Grant Name                            | Award Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @59565 @validateSupportingDocumentUploadedIsReflectingUnderAttachmentsTable @mahadev @skipOnJenkins
+  @59565 @validateSupportingDocumentUploadedIsReflectingUnderAttachmentsTable @mahadev
   Scenario Outline: Validate document uploaded at supporting  document checklist table is getting reflected at Attachments table also in progress report
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
-    When I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -44,15 +43,15 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Save" in the page details
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     When I choose the file "sample.pdf" to upload for "Checklist" of type "---progressReport:-:progressReportChecklistsTableId---"
-    When I close "Upload Document" modal by clicking the top right x button
+    And I click modal button "Close"
     And I click on hyperlink containing value "View"
+    When I download the file
     Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
     #Then I see "Program_Field_Values.xlsx" has been added in "Attachments" flex table
     Examples:
@@ -263,7 +262,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @59573 @59572 @59188 @59574 @59288 @dowloadAttachment @jitendra @skipOnJenkins
+  @59573 @59572 @59188_1 @59574 @59288 @dowloadAttachment @jitendra
   Scenario Outline: : Validate SR User is able to download the uploaded document from attachment table on Progress report | Validate SR user is able to download the document from Subrecipient Document Link field when document is uploaded.
   Validate SR user is able to Delete the documents uploaded at supporting document checklist table at progress report | Validate SR User can View the template document at Progress report if template is uploaded by award owner at Grant level.
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
@@ -298,23 +297,25 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    #Then I softly see "Program_Field_Values.xlsx" has been added in "Attachments" flex table
-    And I wait for "2" seconds
-    And I refresh the page
+    And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
     And I upload attachment "sample.pdf" of type "SF-PPR" from computer
     And I click modal button "Close"
     When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---progressReport:-:RecipientProgressReportFilesTableId---"
+    And I wait for "2" seconds
     When I click on "Download" icon for "{SavedValue:AttachedFile}" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I download the file
     Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
     When I click on "Delete" icon for "{SavedValue:AttachedFile}" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---" without waiting for record
     Then I softly do not see "{SavedValue:AttachedFile}" has been added in "Progress Report Files" flex table
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @59188 @dowloadSupportingDocumentChecklistBehaviour @jitendra @skipOnJenkins
+  @59188_2 @dowloadSupportingDocumentChecklistBehaviour @jitendra
   Scenario Outline: : Validate SR User is able to download the uploaded document from attachment table on Progress report | Validate SR user is able to download the document from Subrecipient Document Link field when document is uploaded.
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -350,6 +351,8 @@ Feature: Validate scenarios in Progress Report without background
     And I choose the file "sample.pdf" to upload for "Checklist" of type "Program"
     And I refresh the page
     And I click on hyperlink containing value "View"
+    When I download the file
+    And I wait for "3" seconds
     Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
     Examples:
       | Award Name                            | Grant Name                            |
@@ -377,11 +380,10 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I wait for "2" seconds
-    And I refresh the page
-    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I click on parallel menu button in flex table title "Supporting Documents Checklist"
     And I select "Download as PDF" from parallel lines dropdown of "Supporting Documents Checklist"
-    And I download the file
+    When I download the file
     Then I softly verify that "pdf" file is downloaded
     And I see "Active" on page "1" of "govgrants" pdf file
     And I select "Download as XLS" from parallel lines dropdown of "Supporting Documents Checklist"

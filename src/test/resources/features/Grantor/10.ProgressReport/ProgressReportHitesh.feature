@@ -263,7 +263,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @59898 @validateSRUserIsAbleToViewSnapshotHistory @mahadev @skipOnJenkins
+  @59898 @validateSRUserIsAbleToViewSnapshotHistory @mahadev 
   Scenario: Validate SR user is able to view the Snapshot after Progress report is Submitted to Grantor status
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -282,6 +282,7 @@ Feature: Validate all scenarios in Progress Report
     When I click on "Submit to Grantor" in the page details
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Progress Report Snapshot"
+    And I wait for "2" seconds
     When I download the file
     Then I see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
@@ -1025,14 +1026,15 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
-  @61088 @61091 @validateObjectivesCarriedFromAwardToPR @mahadev @wip
+  @61088 @61091 @validateObjectivesCarriedFromAwardToPR @mahadev
   Scenario: Validate if Objectives Required? field is yes at Grant, Objectives are associated at award then it is carried at Progress report at SR End
   Validate Objectives table at Performance Tab on Progress report should not be editable at SR user end
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Objective" in flex table with id "---progressReport:-:objectivesTableId---"
+    And I wait for "2" seconds
     And I navigate to "Performance" sub tab
+    Then I softly do not see "Actions" in flex table header "---progressReport:-:objectivesTableId---"
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---progressReport:-:objectivesTableId---"
 
   @61095 @61094 @validateDownloadOfObjectivesInCSV @mahadev @skipOnJenkins

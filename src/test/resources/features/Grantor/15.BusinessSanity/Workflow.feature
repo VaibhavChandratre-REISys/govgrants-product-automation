@@ -1534,4 +1534,17 @@ Feature: Validate all scenarios of every modules flow
 
   @840
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
+    And I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I wait for "2" seconds
+    When I navigate to "Forms and Files" sub tab
+    And I wait for "3" seconds
+    When I save the value from row "1" for column name "Title" as "AttachedFile" from flex table "---progressReport:-:RecipientProgressReportFilesTableId---"
+    And I wait for "2" seconds
+    When I click on "Download" icon for "{SavedValue:AttachedFile}" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I download the file
+    Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
+    When I click on "Delete" icon for "{SavedValue:AttachedFile}" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---" without waiting for record
+    Then I softly do not see "{SavedValue:AttachedFile}" has been added in "Progress Report Files" flex table
