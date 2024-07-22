@@ -1133,7 +1133,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Annoucement Name                                 | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @ch3 @64943 @verifyApproversCarryForwardedFromAnnoucementToAward @mahadev
+  @done @64943 @verifyApproversCarryForwardedFromAnnoucementToAward @mahadev
   Scenario: Verify Approvers added at announcement is same on subaward when grant which is created with application
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :

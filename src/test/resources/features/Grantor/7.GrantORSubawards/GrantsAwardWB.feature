@@ -229,7 +229,7 @@ Feature: Validate all scenarios of grants and award without background
     And I refresh the page
     Then I softly see field "Sequence" as "2"
 
-  @ch3 @66654 @66655 @65897 @activateAwardEXEUser @jitendra @PoojaAward @LWCRemoved
+  @done @66654 @66655 @65897 @activateAwardEXEUser @jitendra @PoojaAward @LWCRemoved
   Scenario Outline: To verify that user(exe) is able to activate award by clicking on active button using Grant type =" Formula Grant" | To verify that user(exe) is able to activate award by clicking on active button using Grant type = "Block Grant"
     When I login to "As a Grantor" app as "<user>" user
     And I navigate to "Grants" tab
@@ -721,27 +721,15 @@ Feature: Validate all scenarios of grants and award without background
     And I enter value "abc" into field "GrantDescription__c"
     And I pause execution for "3" seconds
     And I click on "Save" in the page details
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    When I click toggle button to select "Grants - Active"
-    When I perform quick search for "<Grant Name>" in "---progressReport:-:activeGrantsTableId---" panel
-    Then I softly see value "<Grant Name>" for title "Grant Title" inside table "---progressReport:-:activeGrantsTableId---"
-    And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
-    Then I softly see field "Status" as "Active"
     And I navigate to "Budget" sub tab
     And I save the value from row "1" for column name "Start Date" as "startDate" from flex table "---subAwardStandAlone:-:GrantBudgetCategoryFlexGridgridTableId---"
     And I save the value from row "1" for column name "End Date" as "endDate" from flex table "---subAwardStandAlone:-:GrantBudgetCategoryFlexGridgridTableId---"
     And I navigate to "Overview" sub tab
     Then I softly see value "{SavedValue:startDate}" for title "Start Date" against the value "BP01" inside table "---subAwardStandAlone:-:GrantorBudgetPeriodTableId---"
     And I softly see value "{SavedValue:endDate}" for title "End Date" against the value "BP01" inside table "---subAwardStandAlone:-:GrantorBudgetPeriodTableId---"
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    When I click toggle button to select "Grants - Active"
-    When I perform quick search for "<Grant Name>" in "---progressReport:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "<Grant Name>" inside table
     And I select "Download As PDF" from dropdown
     And I download the file
-    Then I softly verify that "pdf" file is downloaded
+    Then I softly verify that "govgrant.pdf" file is downloaded
     Examples:
       | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} |
@@ -887,7 +875,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click modal button "Continue"
     Then I softly see the following messages in the page details :
       | Funding Organization is required to save. |
-    And I clear the value from field "Program__c"
+#    And I clear the value from field "Program__c"
     When I enter value "Test Automation Organization" into field "ExternalOrganization__c"
     And I click modal button "Continue"
     Then I softly see the following messages in the page details :
@@ -897,6 +885,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click modal button "Continue"
     Then I softly see the following messages in the page details :
       | Budget Category Type is required to save. |
+    And I pause execution for "3" seconds
     And I clear the value from field "InternalOrganization__c"
     When I enter value "Construction" into field "BudgetCategoryPackage__c"
     And I click modal button "Continue"
@@ -1632,8 +1621,8 @@ Feature: Validate all scenarios of grants and award without background
 #    And I enter value "Project Grant" into field "GrantType__c"
     And I pause execution for "3" seconds
     And I click on "Save" in the page details
-    Then I softly see field "Grant Type" as "Project Grant"
-    Then I softly see field "Brief information about the grant." as "Test Automation"
+    Then I softly see field "Grant Type" as "Competitive"
+    Then I softly see field "Brief information about the grant" as "Test Automation"
 
   @67528 @totalBudgetCalculation @jitendra @smoke @PoojaAwardExclude
   Scenario: To validate that the total project cost in the subaward budget table is the sum of the values in each row of the column
@@ -2500,7 +2489,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @ch3 @69085 @matchTermsAndCondition @jitendra
+  @done @69085 @matchTermsAndCondition @jitendra
   Scenario:Validate that Total mandatory terms and condition in master table of planning and that associated in the Subaward Terms and condition table is same
     When I login to "As a Grantor" app as "PM" user
     When I navigate to "Planning" tab

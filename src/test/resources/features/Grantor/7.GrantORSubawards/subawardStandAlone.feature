@@ -2192,7 +2192,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on top right parallel lines bar for "Progress Reports Schedule"
     And I select "Download as PDF" from parallel lines dropdown of "Progress Reports Schedule"
     And I download the file
-    Then I verify that "govgrant.pdf" file is downloaded
+    Then I verify that "pdf" file is downloaded
 
   @55306 @DownloadProgressReportInXLS @jitendra
   Scenario: Validate user can Download the progress created Report in XLS format

@@ -1025,7 +1025,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
-  @ch3 @61088 @61091 @validateObjectivesCarriedFromAwardToPR @mahadev
+  @done @61088 @61091 @validateObjectivesCarriedFromAwardToPR @mahadev
   Scenario: Validate if Objectives Required? field is yes at Grant, Objectives are associated at award then it is carried at Progress report at SR End
   Validate Objectives table at Performance Tab on Progress report should not be editable at SR user end
     And I click on "Edit" in the page details
