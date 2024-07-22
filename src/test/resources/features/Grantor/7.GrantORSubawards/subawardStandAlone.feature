@@ -2194,7 +2194,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I download the file
     Then I verify that "govgrant.pdf" file is downloaded
 
-  @ch2 @55306 @DownloadProgressReportInXLS @jitendra
+  @55306 @DownloadProgressReportInXLS @jitendra
   Scenario: Validate user can Download the progress created Report in XLS format
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
