@@ -728,4 +728,8 @@ public final class GovGrantsProductObjects {
                 : Integer.parseInt(rowNumber);
         return listOfDataInColumn.get(columnValueFromRowInInt - 1).getText();
     }
+
+    public void iClickOnGlobalSearchBox() {
+        I.amPerforming().click().on(By.xpath("//div[contains(@class,'global-header__item_search')]//input[@placeholder='Search...']"));
+    }
 }
