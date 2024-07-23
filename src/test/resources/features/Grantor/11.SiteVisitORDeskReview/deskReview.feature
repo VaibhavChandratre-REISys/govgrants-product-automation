@@ -1139,7 +1139,6 @@ Feature: Validate all scenarios in Desk Review
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
-    And I halt execution
     And I select "Download as CSV" from parallel lines dropdown of "Participants"
     And I download the file
     Then I verify that "xls" file is downloaded

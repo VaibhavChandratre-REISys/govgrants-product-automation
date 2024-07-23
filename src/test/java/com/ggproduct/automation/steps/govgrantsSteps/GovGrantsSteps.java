@@ -491,13 +491,13 @@ public final class GovGrantsSteps {
     @When("^I upload attachment (without random number )?\"([^\"]*)\" of type \"([^\"]*)\" from computer$")
     public void uplaodAttachFromComputer(String withoutRandomNumber, String fileName, String fileType) {
         try {
-            ggObjects.uploadAttachmentInFlexTableFromComputerForLWC(
+            ggObjects.uploadAttachmentInFlexTableFromComputer(
                     withoutRandomNumber != null,
                     fileName,
                     fileType
             );
         } catch (Exception e) {
-            ggObjects.uploadAttachmentInFlexTableFromComputer(
+            ggObjects.uploadAttachmentInFlexTableFromComputerForLWC(
                     withoutRandomNumber != null,
                     fileName,
                     fileType

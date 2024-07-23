@@ -1075,7 +1075,6 @@ public final class InputForms {
      */
     private void handleLookUpInput(WebElement fieldWrapper, String searchTerm) {
         if (!I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") && !I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-
             openLookupModal(fieldWrapper);
             performLookupQuickSearch(searchTerm);
             selectLookupValue(searchTerm);
@@ -1179,7 +1178,7 @@ public final class InputForms {
     private void handleClearingMultiSelectInputForLWC(WebElement fieldWrapper) {
         String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
         List<Elements> selectLists = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@data-field_api_name='" + field + "']//ul[contains(@id,'selected-list')]//li[contains(@class,'listbox__item')]"));
-        By addButtonSelector = By.xpath("//div[@data-field_api_name='" + field + "']//button[@title='Move selection to Available']");
+        By addButtonSelector = By.xpath("//div[@data-field_api_name='" + field + "']//button[@title='Move selection to Available'] |  //div[@data-field_api_name='" + field + "']//button[@title='Move to Available']");
         String Value = "";
 
         for (Elements elements : selectLists) {
