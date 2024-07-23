@@ -887,13 +887,12 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I can see top right button "Undo" in page detail
-#    When I re-login to "As a Grantor" app as "Auditor" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
-#    And I click on "View" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-#    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-#    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "Auditor" user on "INTERNAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    Then I cannot see top right button "Undo" in page detail
 
   @342521 @342527 @342529 @342544 @VerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinCreatedState @sprint-2-US-288691 @hitesh @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Created State
@@ -924,22 +923,20 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see field "Status" as "Notified"
     #342527
     Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-#    Then I softly see field "Status" as "Notified"
-#    #342527
-#    Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
-#    When I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
-#    Then I softly see field "Status" as "Notified"
+    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
+    Then I softly see field "Status" as "Notified"
     #342527
-#    Then I cannot see top right button "Undo" in page detail
+    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
+    Then I softly see field "Status" as "Notified"
+    #342527
+    Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "Record Id"
@@ -948,23 +945,20 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     #342529
     Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-#    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
-#    #342529
-#    Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    And I click toggle button to select "Site Visits - All"
-#    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:receipientSiteVisitSubTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:receipientSiteVisitSubTableId---"
-#    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
-#    #342529
-#    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
+    #342529
+    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
+    #342529
+    Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "Record Id"
@@ -991,23 +985,20 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #342544
     Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    And I click toggle button to select "Site Visits - All"
-#    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:receipientSiteVisitSubTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:receipientSiteVisitSubTableId---"
-#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #342544
     Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-#    #342544
-#    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    #342544
+    Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "Record Id"
@@ -1048,23 +1039,20 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see field "Status" as "Approved"
     #342548
     Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    And I click toggle button to select "Site Visits - All"
-#    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:receipientSiteVisitSubTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:receipientSiteVisitSubTableId---"
-#    Then I softly see field "Status" as "Approved"
-#    #342548
-#    Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-#    Then I softly see field "Status" as "Approved"
-#    #342548
-#    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
+    Then I softly see field "Status" as "Approved"
+    #342548
+    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
+    Then I softly see field "Status" as "Approved"
+    #342548
+    Then I cannot see top right button "Undo" in page detail
 
   @342554 @342559 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinSubmitforReviewState @sprint-13-US-331643 @hitesh @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Submit for ReviewState.
@@ -1111,13 +1099,12 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
     Then I softly see field "Status" as "Submitted for Review"
     Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-#    Then I softly see field "Status" as " Submitted for Review"
-#    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
+    Then I softly see field "Status" as " Submitted for Review"
+    Then I cannot see top right button "Undo" in page detail
     And I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1153,14 +1140,13 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342559
     Then I softly see field "Status" as "Reviewed"
     Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-#     #342559
-#     Then I softly see field "Status" as " Submitted for Review"
-#    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
+     #342559
+     Then I softly see field "Status" as " Submitted for Review"
+    Then I cannot see top right button "Undo" in page detail
 
   @342571 @342575 @342584 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisininSendtoSrState @sprint-13-US-331643 @hitesh @Undo @366345
   Scenario:OSV->Verify that Undo Button will not visible to any user when Organization Site visit is in in Send to S/r State
@@ -1241,13 +1227,12 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I click on hyperlink containing value "Record Id"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-#    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
-#    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+    Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1286,13 +1271,12 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     #342575
     Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-#    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-#    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1317,14 +1301,13 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     #342584
     Then I cannot see top right button "Undo" in page detail
-#    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
-#    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
-#     #342584
-#    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
+     #342584
+    Then I cannot see top right button "Undo" in page detail
 
   @308890 @OSVVerifythatUNDOiconorbuttonisnotavailableontheactionbuttonsofOrganizationSiteVisitrecordontablethatispresentonsidebarorphaselevelorthatonOrganization @sprint-7-US-306815 @hitesh @Undo
   Scenario:OSV-Verify that UNDO icon or button is not available on the action buttons of Organization Site Visit record on table that is present on side bar or phase level or that on Organization

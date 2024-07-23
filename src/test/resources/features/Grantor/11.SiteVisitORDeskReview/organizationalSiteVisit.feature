@@ -1270,22 +1270,13 @@ Feature: Validate all scenarios in Organizational Site Visit
       | Passed | ReviewComments__c |
     When I click modal button "Save"
     And I click on "Submit Review" in the page details
-#    When I close "Site Visit Reviewers" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "Record Id"
     And I click on hyperlink containing value "Record Id"
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     When I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "Record Id"
     And I click on hyperlink containing value "Record Id"
