@@ -1375,10 +1375,6 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
-#    Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in flex table with id "---sitevisits:-:manageSiteVisitTableId---"
 
   @308900 @310751 @OSVVerifythatapproverundobuttonvisibilitywillchangeasperpositionofapproverofOrgSiteVisitlastormiddle @sprint-7-US-306815 @hitesh @Undo
   Scenario:OSV-Verify that approver undo button visibility will change as per position of approver of Org Site Visit last or middle
@@ -1599,10 +1595,6 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-#    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
-#    Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
