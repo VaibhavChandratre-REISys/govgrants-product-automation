@@ -155,7 +155,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     Then I softly cannot see top right button "Create Pre-Application" in page detail
 
- @hitpre @71115 @71114 @preappDueDateValidation @deepika
+  @71115 @71114 @preappDueDateValidation @deepika
   Scenario: Validate whether User will be able to submit the pre- application on the last date for submission.
   Validate once the Announcement is published and Pre-Application is in created status, later the announcement is unpublished then the User will not be able to see the Submit to Grantor on pre-application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for PreApp and App" and properties "TODAY_PREAPP_DUE_DATE"
@@ -214,7 +214,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     Then I softly cannot see top right button "Create Pre-Application" in page detail
 
- @hitpre @72516 @72518 @34154 @72519 @72520 @72515 @preapplicationInformationCopiedToApplication @deepika @buglogged100926 @buglogged109204 @buglogged169487
+ @72516 @72518 @34154 @72519 @72520 @72515 @preapplicationInformationCopiedToApplication @deepika @buglogged100926 @buglogged109204 @buglogged169487
   Scenario: Validate the Pre Application information is copied to Application | Validate whether user is able to acknowledge the application submission by entering the mandatory details.
   Validate the Match Percentage validation during submit for approval when the Match required setting as Yes | Validate when the pre-application is submitted to grantor then the pending task is created for PM user
   Validate the once the PM user accepts the pre-application when is submitted to grantor using the pending task, then the task moved from pending to Completed task table
@@ -984,7 +984,7 @@ Feature: Pre-Application scenarios without background
     When I save the field containing "Program Income Allowed?" as "No"
     Then I softly cannot see field "Estimated Program Income For Project Period" inside page block
 
- @hitpre @174845 @174846 @174858 @174860 @174876 @174879 @174883 @174885 @ValidatesubmittedpreapplicationsendbacktonegotiationfromgrantorsideafterselectingtheRequesNegotiation @sprint-8 @vaibhav
+ @174845 @174846 @174858 @174860 @174876 @174879 @174883 @174885 @ValidatesubmittedpreapplicationsendbacktonegotiationfromgrantorsideafterselectingtheRequesNegotiation @sprint-8 @vaibhav
   Scenario: Validate submitted pre application send back to negotiation from grantor side after selecting the Request Negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal

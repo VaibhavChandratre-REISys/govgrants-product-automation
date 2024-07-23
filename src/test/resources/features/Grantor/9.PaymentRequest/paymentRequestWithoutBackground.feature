@@ -1024,7 +1024,7 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
- @55308 @validateProgressReportSchedulesAtGranteePortalOnActiveAwardAfterEditingSchedules @mahadev
+  @55308 @validateProgressReportSchedulesAtGranteePortalOnActiveAwardAfterEditingSchedules @mahadev
   Scenario Outline: Validate progress report schedules getting updated on active award after editing schedule
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "INTERNAL" portal
@@ -1969,7 +1969,7 @@ Feature: Payment Request scenarios without background
     Then I cannot see row level action button "Edit" against "{SavedValue:PayreqId}" in flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:PayreqId}" in flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---"
 
-  @fieldHistoryCheck @197759 @Validatefieldhistorytableshouldbeupdateoncead-hocreimbursementpaymentrequestreassignafterownershiptonewuser @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
+  @197759 @Validatefieldhistorytableshouldbeupdateoncead-hocreimbursementpaymentrequestreassignafterownershiptonewuser @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate field history table should be update once ad-hoc reimbursement payment request reassign after ownership to new user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -3094,7 +3094,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
- @197395 @ValidatependingtaskshouldbegeneratedforEXEasnewownerad-hocreimbursementpaymentrequestownershiptaskreassigntootherEXE @sprint-4 @vaibhav @reassignment
+  @197395 @ValidatependingtaskshouldbegeneratedforEXEasnewownerad-hocreimbursementpaymentrequestownershiptaskreassigntootherEXE @sprint-4 @vaibhav @reassignment
   Scenario: Validate pending task should be generated for EXE as new owner if ad-hoc reimbursement payment request ownership task reassign to other EXE
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -3575,7 +3575,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId2}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:PayreqId2}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @fieldHistoryCheck @197582 @Validatenewownershouldbedisplayinfiledhistorytableafterownershiptaskreassignmenttonewuser @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
+  @197582 @Validatenewownershouldbedisplayinfiledhistorytableafterownershiptaskreassignmenttonewuser @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate new owner should be display in filed history table after ownership task reassignment to new user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -4232,7 +4232,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team
       """
 
-  @fieldHistoryCheck @198602 @ValidatenewPRownershouldbedisplayforhistorytabafterownershiptaskreassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @198602 @ValidatenewPRownershouldbedisplayforhistorytabafterownershiptaskreassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate new PR owner should be display for history  tab after ownership task reassign to new user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -4752,7 +4752,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team
       """
 
-  @fieldHistoryCheck @229591 @Validatead-hocpaymentrequestownershouldgetchangeinapprovedstateafterownershipreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @229591 @Validatead-hocpaymentrequestownershouldgetchangeinapprovedstateafterownershipreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate ad-hoc payment request owner should get change in approved state after ownership reassign to other user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -4837,7 +4837,7 @@ Feature: Payment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @229592 @ValidateAdvancepaymentrequestownershouldgetchangeinRejectedstateafterownershipreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @229592 @ValidateAdvancepaymentrequestownershouldgetchangeinRejectedstateafterownershipreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Advance payment request owner should get change in Rejected state after ownership reassign to other user
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -4920,7 +4920,7 @@ Feature: Payment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @229595 @Validatead-hocpaymentrequestownershouldgetchangeinpaidstateafterownershipreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @229595 @Validatead-hocpaymentrequestownershouldgetchangeinpaidstateafterownershipreassigntootheruser @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate ad-hoc payment request owner should get change in paid state after ownership reassign to other user
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -5331,7 +5331,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team.
       """
 
- @223289 @ValidatePaymentRequestModuleeusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-12-US-226646 @vaibhav @reassignment
+  @223289 @ValidatePaymentRequestModuleeusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Payment Request Module user should able to reassign the task to new user of more than 10 records & 1 email should be triggered for all records
     And I activated standalone subaward "Automation Runtime Bulk award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -5369,7 +5369,7 @@ Feature: Payment Request scenarios without background
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PayreqId1"
-   And I wait for "5" seconds
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -5386,7 +5386,7 @@ Feature: Payment Request scenarios without background
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PayreqId2"
-   And I wait for "5" seconds
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -5426,7 +5426,7 @@ Feature: Payment Request scenarios without background
       | Extra Salary | The narrative | 30         | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-   And I wait for "5" seconds
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -5449,7 +5449,7 @@ Feature: Payment Request scenarios without background
       | Extra Salary | The narrative | 30         | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-   And I wait for "5" seconds
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -5472,7 +5472,7 @@ Feature: Payment Request scenarios without background
       | Extra Salary | The narrative | 30         | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
-   And I wait for "5" seconds
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"

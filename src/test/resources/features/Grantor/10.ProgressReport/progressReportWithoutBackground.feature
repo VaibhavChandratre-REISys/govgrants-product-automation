@@ -5219,7 +5219,7 @@ Feature: Validate scenarios in Progress Report without background
     And I wait for "2" seconds
     Then I see value "{SavedValue:FO Username}" for title "Name" inside table "---progressreport:-:approversTableId---"
 
-  @fieldHistoryCheck @197390 @197398 @197401 @ValidatechangingtheownershipofPRthennewownershouldhaveallsameaccesslikeoldrecordhadinthatspecificstateofrecord @springt-4 @vaibhav @reassignment @FieldHistoryExclude
+  @197390 @197398 @197401 @ValidatechangingtheownershipofPRthennewownershouldhaveallsameaccesslikeoldrecordhadinthatspecificstateofrecord @springt-4 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate changing the ownership of PR then new owner should have all same access like old record had in that specific state of record
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"

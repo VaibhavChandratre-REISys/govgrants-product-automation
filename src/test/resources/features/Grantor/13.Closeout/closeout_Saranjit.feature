@@ -102,7 +102,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Acknowledge" in the page details
     Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
 
-  @hitclose @95688 @VerifyChecklistFieldsInReadModeOnly @monu
+  @95688 @VerifyChecklistFieldsInReadModeOnly @monu
   Scenario: Verify user can is not able to edit the checklist details filled by grantor
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"

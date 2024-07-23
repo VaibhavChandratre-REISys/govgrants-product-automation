@@ -2741,7 +2741,7 @@ Feature: Amendment Request scenarios without background
     And I wait for "3" seconds
     Then I see field "{SavedValue:PBPED}" contains date greater than "{SavedValue:PBPSD}" date
 
-  @fieldHistoryCheck @99269 @100037 @100459 @99261 @VerifyStatusInFieldHistoryTable-KPCAmendmentRequest @monu @FieldHistoryExclude
+  @99269 @100037 @100459 @99261 @VerifyStatusInFieldHistoryTable-KPCAmendmentRequest @monu @FieldHistoryExclude
   Scenario: Validate status of key personal change Amendment request in field history table after submit to grantor
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -2942,7 +2942,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see field "Status" as "Approved"
     Then I softly cannot see top right button "Amend Subaward" in page detail
 
-  @fieldHistoryCheck @100130 @100134 @VerifyHistoryOfAmendmentRequestAfterReject-KPCAmendmentRequest @monu @FieldHistoryExclude
+  @100130 @100134 @VerifyHistoryOfAmendmentRequestAfterReject-KPCAmendmentRequest @monu @FieldHistoryExclude
   Scenario: Validate Rejected status in Approval history once Internal user rejects the Amendment Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -6269,7 +6269,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---amendment:-:approversTableId---"
     Then I softly see value "Step 1" for title "Amendment Request" inside table "---amendment:-:approversTableId---"
 
-  @fieldHistoryCheck @200481  @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200481  @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Funding change Verify PM user can reassign ownership to other user in created state of FC amendment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -6322,7 +6322,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @200483 @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200483 @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Funding change Verify EXE user can reassign ownership to other user in created state of FC amendment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -6449,7 +6449,7 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @fieldHistoryCheck @200504 @ValidateFOusercanreassignownershiptootheruserinsubmittoapprovalstateofFCamendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200504 @ValidateFOusercanreassignownershiptootheruserinsubmittoapprovalstateofFCamendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate FO user can reassign ownership to other user in submit to approval state of FC amendment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "FO" user
@@ -6623,7 +6623,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     Then I softly see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
 
-  @fieldHistoryCheck @200520 @ValidateEXEusercanreassignownershiptootheruserinRejectedstateofFCamendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200520 @ValidateEXEusercanreassignownershiptootheruserinRejectedstateofFCamendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate EXE user can reassign ownership to other user in Rejected state of FC amendment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -6713,7 +6713,7 @@ Feature: Amendment Request scenarios without background
     And I click on back arrow
     Then I softly see field "Status" as "Rejected"
 
-  @fieldHistoryCheck @200524 @Validatefieldhistoryshouldbeupdatedfornewownerofamendmentrequest @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200524 @Validatefieldhistoryshouldbeupdatedfornewownerofamendmentrequest @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate field history should be updated for new owner of amendment request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -6964,7 +6964,7 @@ Feature: Amendment Request scenarios without background
      The EGMS Team
       """
 
-  @fieldHistoryCheck @200543 @Validateamendmentrequestownershouldnotchangeevenifitsrelatedawardownershipchangetootherowner @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200543 @Validateamendmentrequestownershouldnotchangeevenifitsrelatedawardownershipchangetootherowner @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate amendment request owner should not change even if it's related award ownership change to other owner
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -7073,7 +7073,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see fields "RequestedChangeInBudget__c" is in edit mode
     Then I softly see fields "BudgetRedirectionThreshhold__c" is in edit mode
 
-  @fieldHistoryCheck @200641 @ValidatePOusercanreassignownershiptootheruserincreatedstateofperiodicrenewalamendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200641 @ValidatePOusercanreassignownershiptootheruserincreatedstateofperiodicrenewalamendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PO user can reassign ownership to other user in created state of periodic renewal amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -7301,7 +7301,7 @@ Feature: Amendment Request scenarios without background
     #US-291590
     Then I softly cannot see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-  @fieldHistoryCheck @200652 @ValidatePOusercanreassignownershiptootheruserinapprovedstateofPeriodicrenewalamendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200652 @ValidatePOusercanreassignownershiptootheruserinapprovedstateofPeriodicrenewalamendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PO user can reassign ownership to other user in approved state of Periodic renewal amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -7390,7 +7390,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PO1" for title "New Value" inside field history table
     Then I softly see value "Automation PO" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @200655 @ValidatePMusercanreassignownershiptootheruserinRejectedstateofPeriodicrenewalamendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200655 @ValidatePMusercanreassignownershiptootheruserinRejectedstateofPeriodicrenewalamendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PM user can reassign ownership to other user in Rejected  state of Periodic renewal amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -7482,7 +7482,7 @@ Feature: Amendment Request scenarios without background
     And I click on back arrow
     Then I softly see field "Status" as "Rejected"
 
-  @fieldHistoryCheck @200657 @Validatefieldhistoryshouldbeupdatedfornewownerofamendmentrequest @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200657 @Validatefieldhistoryshouldbeupdatedfornewownerofamendmentrequest @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate field history should be updated for new owner of amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -7777,7 +7777,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @fieldHistoryCheck @200771 @200790 @ValidatePMusercanreassignownershiptootheruserincreatedstateofT&Camendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200771 @200790 @ValidatePMusercanreassignownershiptootheruserincreatedstateofT&Camendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PM user can reassign ownership to other user in created state of T & C amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -7830,7 +7830,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @200772 @ValidateFOusercanreassignownershiptootheruserincreatedstateofT&Camendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200772 @ValidateFOusercanreassignownershiptootheruserincreatedstateofT&Camendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate FO user can reassign ownership to other user in created state of T & C amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation FO user" of type "Competitive"
     When I login to "As a Grantor" app as "FO" user
@@ -7882,7 +7882,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation FO1" for title "New Value" inside field history table
     Then I softly see value "Automation FO" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @200786 @ValidateFOusercanreassignownershiptootheruserinsubmittoapprovalstateofT&Camendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200786 @ValidateFOusercanreassignownershiptootheruserinsubmittoapprovalstateofT&Camendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate FO user can reassign ownership to other user in submit to approval state of T & C amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "FO" user
@@ -7955,7 +7955,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-  @fieldHistoryCheck @200787 @ValidatePOusercanreassignownershiptootheruserinapprovedstateofT&Camendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200787 @ValidatePOusercanreassignownershiptootheruserinapprovedstateofT&Camendment @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PO user can reassign ownership to other user in approved state of T & C amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -8303,7 +8303,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @fieldHistoryCheck @200829 @ValidateawardhistorytableshouldbeupdateT&CARownershipreassigntonewowner @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
+  @200829 @ValidateawardhistorytableshouldbeupdateT&CARownershipreassigntonewowner @sprint-5-US-196841 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: ValidateawardhistorytableshouldbeupdateT&CARownershipreassigntonewowner
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -8682,7 +8682,7 @@ Feature: Amendment Request scenarios without background
     When I clear the value from field "InternalAmendmentType__c"
     Then I do not see multipicklist field "InternalAmendmentType__c" contains value "Budget Redirection" under list "Amendment Types - Available"
 
-  @fieldHistoryCheck @200312 @ValidateBudgetredirectionthatFieldhistoryunderthehistorytabwillgetupdated @sprint-5-US-198235 @vaibhav @reassignment @FieldHistoryExclude
+  @200312 @ValidateBudgetredirectionthatFieldhistoryunderthehistorytabwillgetupdated @sprint-5-US-198235 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Budget redirection that Field history under the history tab will get updated
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -8990,7 +8990,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:kpcId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:kpcId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
 
-  @fieldHistoryCheck @200501 @ValidateKeyPersonalChangethatFieldhistoryunderthehistorytabwillgetupdated @sprint-5-US-198235 @vaibhav @reassignment @FieldHistoryExclude
+  @200501 @ValidateKeyPersonalChangethatFieldhistoryunderthehistorytabwillgetupdated @sprint-5-US-198235 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Key Personal Change that Field history under the history tab will get updated
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -9213,7 +9213,7 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:kpcId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     Then I see value "Review Amendment Request" for title "Task Type" inside table "---amendment:-:pendingTaskTableId---"
 
-  @fieldHistoryCheck @201064 @201067 @ValidateCarryforwardPMusercanreassignownershiptootheruserinSenttoS/rstateofcarryforwardamendment @sprint-5-US-198235 @vaibhav @reassignment @FieldHistoryExclude
+  @201064 @201067 @ValidateCarryforwardPMusercanreassignownershiptootheruserinSenttoS/rstateofcarryforwardamendment @sprint-5-US-198235 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Carry forward PM user can reassign ownership to other user in Sent to S/r state of carry forward amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -9332,7 +9332,7 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @fieldHistoryCheck @201079 @ValidateCarryforwardPMusercanreassignownershiptootheruserinsubmitforapprovalstateofcarryforwardamendment @sprint-5-US-198235 @vaibhav @reassignment @FieldHistoryExclude
+  @201079 @ValidateCarryforwardPMusercanreassignownershiptootheruserinsubmitforapprovalstateofcarryforwardamendment @sprint-5-US-198235 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Carry forward PM user can reassign ownership to other user in submit for approval state of carry forward amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PM1 user" of type "Competitive"
     When I login to "As a Grantor" app as "PM1" user
@@ -9455,7 +9455,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-  @fieldHistoryCheck @201081 @ValidateCarryforwardPOusercanreassignownershiptootheruserinapprovedstateofcarryforwardamendment @sprint-5-US-198235 @vaibhav @reassignment @FieldHistoryExclude
+  @201081 @ValidateCarryforwardPOusercanreassignownershiptootheruserinapprovedstateofcarryforwardamendment @sprint-5-US-198235 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Carry forward PO user can reassign ownership to other user in approved state of carry forward amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -9585,7 +9585,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-  @fieldHistoryCheck @201084 @ValidateCarryforwardPOusercanreassignownershiptootheruserinapprovedstateofcarryforwardamendment @sprint-5-US-198235 @vaibhav @reassignment @FieldHistoryExclude
+  @201084 @ValidateCarryforwardPOusercanreassignownershiptootheruserinapprovedstateofcarryforwardamendment @sprint-5-US-198235 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Carry forward PO user can reassign ownership to other user in approved state of carry forward amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -9852,7 +9852,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Activate" in the page details
     Then I see that "Subaward" is in "Activated" status
 
-  @fieldHistoryCheck @201089 @ValidateCarryForwardfiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-198235 @vaibhav @reassignment @FieldHistoryExclude
+  @201089 @ValidateCarryForwardfiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-198235 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Carry Forward filed history should be updated for new owner of AR
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -9959,7 +9959,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @199845 @ValidatePMusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatcreatedstateforBudgetPeriodChangeARtype @sprint-5-US-198419  @vaibhav @reassignment @FieldHistoryExclude
+  @199845 @ValidatePMusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatcreatedstateforBudgetPeriodChangeARtype @sprint-5-US-198419  @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PM user should able to see the AR is updated after change the ownership by Grantor Side at created state for Budget Period Change AR type
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -10029,7 +10029,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @199849 @ValidateEXEusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedtoGrantorstateforBudgetPeriodChangeARtype @sprint-5-US-198419  @vaibhav @reassignment
+  @199849 @ValidateEXEusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedtoGrantorstateforBudgetPeriodChangeARtype @sprint-5-US-198419  @vaibhav @reassignment
   Scenario: Validate EXE user should able to see the AR is updated after change the ownership by Grantor Side at Submitted to Grantor state for Budget Period Change AR type
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -10121,7 +10121,7 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Submit for Approval" in page detail
 
-  @fieldHistoryCheck @199851 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedforapprovalstateforCombinationOfBPC&SOWARtype @sprint-5-US-198419  @vaibhav @reassignment
+  @199851 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedforapprovalstateforCombinationOfBPC&SOWARtype @sprint-5-US-198419  @vaibhav @reassignment
   Scenario: Validate user should able to see the AR is updated after change the ownership by Grantor Side at Submitted for approval state for Combination Of BPC & SOW AR type
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -10228,7 +10228,7 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly can see top right button "Amend Subaward" in page detail
 
-  @fieldHistoryCheck @199867  @sprint-5-US-198419  @vaibhav @reassignment @FieldHistoryExclude
+  @199867  @sprint-5-US-198419  @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PM user should able to see the AR is updated after change the ownership by Grantor Side at rejected state for budget period change
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -10324,7 +10324,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @199868  @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @199868  @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PO user should able to see the AR is updated after change the ownership by Grantor Side at approved state for budget period change
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -10443,7 +10443,7 @@ Feature: Amendment Request scenarios without background
     And I click on back arrow
     Then I softly cannot see top right button "Amend Subaward" in page detail
 
-  @fieldHistoryCheck @200052 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatSubmittedtoGrantorStateforBudgetPeriodChangeARtype @sprint-5-US-198419  @vaibhav @reassignment @FieldHistoryExclude
+  @200052 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatSubmittedtoGrantorStateforBudgetPeriodChangeARtype @sprint-5-US-198419  @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R Side at Submitted to Grantor State for Budget Period Change AR type
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -10525,7 +10525,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @200053 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatcreatedstateforBudgetPeriodChangeARtype @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @200053 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatcreatedstateforBudgetPeriodChangeARtype @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R  Side at created state for Budget Period Change AR type
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -10597,7 +10597,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @200054 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatrejectedstateforbudgetperiodchange @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @200054 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatrejectedstateforbudgetperiodchange @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R Side at rejected state for budget period change
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -10689,7 +10689,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @200057  @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @200057  @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R at Submitted for approval state for Budget Period Change AR type
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -10776,7 +10776,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation EXE1" for title "New Value" inside field history table
     Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @200058 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatapprovedstateforbudgetperiodchange @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @200058 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatapprovedstateforbudgetperiodchange @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R Side at approved state for budget period change
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -10929,7 +10929,7 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see top right button "Send to Subrecipient" in page detail
     Then I softly cannot see top right button "Delete" in page detail
 
-  @fieldHistoryCheck @200067 @ValidateEXEusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedtoGrantorstateforcombinationofSOW/BPCARtype @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @200067 @ValidateEXEusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedtoGrantorstateforcombinationofSOW/BPCARtype @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate EXE user should able to see the AR is updated after change the ownership by Grantor Side at Submitted to Grantor state for combination of SOW/BPC AR type
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -11025,7 +11025,7 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly cannot see top right button "Submit for Approval" in page detail
 
-  @fieldHistoryCheck @200068 @ValidateFOusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedforapprovalstateforSOWARtype @sprint-5-US-198419 @vaibhav @reassignment
+  @200068 @ValidateFOusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedforapprovalstateforSOWARtype @sprint-5-US-198419 @vaibhav @reassignment
   Scenario: Validate FO user should able to see the AR is updated after change the ownership by Grantor Side at Submitted for  approval state for SOW AR type
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "FO" user
@@ -11129,7 +11129,7 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     Then I softly can see top right button "Amend Subaward" in page detail
 
-  @fieldHistoryCheck @200069 @ValidatePMusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatrejectedstateforSOWAR @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @200069 @ValidatePMusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatrejectedstateforSOWAR @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PM user should able to see the AR is updated after change the ownership by Grantor Side at rejected state for SOW AR
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -11276,7 +11276,7 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @fieldHistoryCheck @200070 @ValidatePOusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatapprovedstateforSOWAR @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @200070 @ValidatePOusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatapprovedstateforSOWAR @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate PO user should able to see the AR is updated after change the ownership by Grantor Side at approved state for SOW AR
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -11359,7 +11359,7 @@ Feature: Amendment Request scenarios without background
     And I click on back arrow
     Then I softly cannot see top right button "Amend Subaward" in page detail
 
-  @fieldHistoryCheck @200071 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatcreatedstateforcombinationofBPC&SOWARtype @sprint-5-US-198419 @vaibhav @reassignment
+  @200071 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatcreatedstateforcombinationofBPC&SOWARtype @sprint-5-US-198419 @vaibhav @reassignment
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R Side at created state for combination of BPC&SOW AR type
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -11437,7 +11437,7 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Submit for Approval" in page detail
 
-  @fieldHistoryCheck @200072 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatSubmittedtoGrantorstateforSOWARtype@sprint-5-US-198419 @vaibhav @reassignment
+  @200072 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatSubmittedtoGrantorstateforSOWARtype@sprint-5-US-198419 @vaibhav @reassignment
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R Side at Submitted to Grantor state for SOW AR type
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -11509,7 +11509,7 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Submit for Approval" in page detail
 
-  @fieldHistoryCheck @200073 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatrejectedstateforSOWAR @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @200073 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RSideatrejectedstateforSOWAR @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R Side at rejected state for SOW AR
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -11591,7 +11591,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @200074 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RatSubmittedforapprovalstateforSOWARtype @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @200074 @ValidateusershouldabletoseetheARisupdatedafterchangetheownershipbyS/RatSubmittedforapprovalstateforSOWARtype @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the AR is updated after change the ownership by S/R at Submitted for approval state for SOW AR type
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -11670,7 +11670,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @200079 @ValidateusershouldabletoseetheaccesstonewownerafterchangingtheownershipBudgetperiodchangefromgrantorside @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @200079 @ValidateusershouldabletoseetheaccesstonewownerafterchangingtheownershipBudgetperiodchangefromgrantorside @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the access to new owner after changing the ownership Budget period change from grantor side
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -11816,7 +11816,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @fieldHistoryCheck @200081 @ValidateusershouldabletoseetheaccesstonewownerafterchangingtheownershipBudgetperiodchangefromS/Rside @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @200081 @ValidateusershouldabletoseetheaccesstonewownerafterchangingtheownershipBudgetperiodchangefromS/Rside @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the access to new owner after changing the ownership Budget period change from S/R side
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -11894,7 +11894,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation EXE1" for title "New Value" inside field history table
     Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @200082 @ValidateusershouldabletoseetheaccesstonewownerafterchangingtheownershipscopeofworkchangefromS/Rside @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @200082 @ValidateusershouldabletoseetheaccesstonewownerafterchangingtheownershipscopeofworkchangefromS/Rside @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the access to new owner after changing the ownership scope of work change from S/R side
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -11977,7 +11977,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation EXE1" for title "New Value" inside field history table
     Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @200090 @ValidateHistoryshouldbeupdatedafterchangingtheownershipofAmendment @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+  @200090 @ValidateHistoryshouldbeupdatedafterchangingtheownershipofAmendment @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate History should be updated after changing the ownership of Amendment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -12368,7 +12368,7 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @fieldHistoryCheck @200854 @ValidateFundingchangefieldhistoryshouldbeupdatedfornewownerofamendmentrequest @sprint-5-US-194231 @vaibhav @reassignment @FieldHistoryExclude
+  @200854 @ValidateFundingchangefieldhistoryshouldbeupdatedfornewownerofamendmentrequest @sprint-5-US-194231 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Funding change field history should be updated for new owner of amendment request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM1" user
@@ -13331,7 +13331,7 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @fieldHistoryCheck @200892 @ValidatePeriodicrenewalfiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-194231 @vaibhav @reassignment @FieldHistoryExclude
+  @200892 @ValidatePeriodicrenewalfiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-194231 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Periodic renewal filed history should be updated for new owner of AR
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -13593,7 +13593,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @fieldHistoryCheck @200899 @ValidatePeriodicrenewalawardhistorytableshouldbeupdateperiodicrenewalARownershipreassigntonewowner @sprint-5-US-194231 @vaibhav @reassignment @FieldHistoryExclude
+  @200899 @ValidatePeriodicrenewalawardhistorytableshouldbeupdateperiodicrenewalARownershipreassigntonewowner @sprint-5-US-194231 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Periodic renewal award history table should be update periodic renewal  AR ownership reassign to new owner
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PM1 user" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -14014,7 +14014,7 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:TermsCondId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     Then I see value "Acknowledged Amendment Request" for title "Task Type" inside table "---amendment:-:pendingTaskTableId---"
 
-  @fieldHistoryCheck @200968 @200972 @ValidateT&CAcknowledgementAmendmentRequestpendingtaskshouldbegenerateforPOinmytask @sprint-5-US-194231 @vaibhav @reassignment @FieldHistoryExclude
+  @200968 @200972 @ValidateT&CAcknowledgementAmendmentRequestpendingtaskshouldbegenerateforPOinmytask @sprint-5-US-194231 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate T & C 'Acknowledgement Amendment Request' pending task should be generate for PO in my task
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -15864,7 +15864,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @fieldHistoryCheck @200261 @ValidateCarryForwardfiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-197424 @vaibhav @reassignment @FieldHistoryExclude
+  @200261 @ValidateCarryForwardfiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-197424 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Carry Forward filed history should be updated for new owner of AR
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -16508,7 +16508,7 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-  @fieldHistoryCheck @200414 @ValidateBudgetRedirectionfiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-197424 @vaibhav @reassignment @FieldHistoryExclude
+  @200414 @ValidateBudgetRedirectionfiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-197424 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Budget Redirection filed history should be updated for new owner of AR
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -17007,7 +17007,7 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-  @fieldHistoryCheck @200455 @ValidateKeypersonalchangefiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-197424 @vaibhav @reassignment @FieldHistoryExclude
+  @200455 @ValidateKeypersonalchangefiledhistoryshouldbeupdatedfornewownerofAR @sprint-5-US-197424 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate Key personal change filed history should be updated for new owner of AR
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation PM1 user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -18331,7 +18331,7 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-  @fieldHistoryCheck @200510 @ValidateusershouldabletoseethefieldhistoryisupdatedafterchangingthetaskownershipfromgrantorsideofBPC/SOWAR @sprint-7-US-198153 @vaibhav @reassignment @FieldHistoryExclude
+  @200510 @ValidateusershouldabletoseethefieldhistoryisupdatedafterchangingthetaskownershipfromgrantorsideofBPC/SOWAR @sprint-7-US-198153 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the field history is updated after changing the task ownership from grantor side of BPC/SOW AR
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -18413,7 +18413,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @fieldHistoryCheck @200511 @ValidateusershouldabletoseethefieldhistoryisupdatedafterchangingthetaskownershipfromS/RsideofBPC/SOWAR @sprint-7-US-198153 @vaibhav @reassignment @FieldHistoryExclude
+  @200511 @ValidateusershouldabletoseethefieldhistoryisupdatedafterchangingthetaskownershipfromS/RsideofBPC/SOWAR @sprint-7-US-198153 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the field history is updated after changing the task ownership from S/R side of BPC/SOW AR
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -21904,7 +21904,7 @@ Feature: Amendment Request scenarios without background
     Then I see value "{SavedValue:CFAmendmentId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     Then I see value "Review Amendment Request" for title "Task Type" inside table "---amendment:-:pendingTaskTableId---"
 
-  @fieldHistoryCheck @224654 @ValidateAmendmenttheeffectsontheR&Ronamendmen&award @sprint-12-US-226646 @vaibhav @reassignment
+  @224654 @ValidateAmendmenttheeffectsontheR&Ronamendmen&award @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Amendment the effects on the R&R on amendment & award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab

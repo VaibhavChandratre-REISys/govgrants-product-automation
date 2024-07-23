@@ -263,11 +263,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-<<<<<<< HEAD
-  @59898 @validateSRUserIsAbleToViewSnapshotHistory @mahadev @wip
-=======
   @59898 @validateSRUserIsAbleToViewSnapshotHistory @mahadev 
->>>>>>> f81e73c502295c127112f7223ce5bf3f3c5c5ce5
   Scenario: Validate SR user is able to view the Snapshot after Progress report is Submitted to Grantor status
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
