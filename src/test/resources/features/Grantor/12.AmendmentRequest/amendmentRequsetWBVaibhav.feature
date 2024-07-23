@@ -517,6 +517,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Amend Subaward" in the page details
     And I pause execution for "7" seconds
     When I click on "Activate" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1270,7 +1271,7 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-  @200510 @ValidateusershouldabletoseethefieldhistoryisupdatedafterchangingthetaskownershipfromgrantorsideofBPC/SOWAR @sprint-7-US-198153 @vaibhav @reassignment @FieldHistoryExclude
+ @200510 @ValidateusershouldabletoseethefieldhistoryisupdatedafterchangingthetaskownershipfromgrantorsideofBPC/SOWAR @sprint-7-US-198153 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the field history is updated after changing the task ownership from grantor side of BPC/SOW AR
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -1292,7 +1293,8 @@ Feature: Amendment Request scenarios without background
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "budgetPC&ScopeId"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
+    And I save the field labeled "EGMS ID" as "budgetPC&ScopeId"
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -1353,7 +1355,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @200511 @ValidateusershouldabletoseethefieldhistoryisupdatedafterchangingthetaskownershipfromS/RsideofBPC/SOWAR @sprint-7-US-198153 @vaibhav @reassignment @FieldHistoryExclude
+ @200511 @ValidateusershouldabletoseethefieldhistoryisupdatedafterchangingthetaskownershipfromS/RsideofBPC/SOWAR @sprint-7-US-198153 @vaibhav @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the field history is updated after changing the task ownership from S/R side of BPC/SOW AR
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -1375,6 +1377,8 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "budgetPC&ScopeId"
     And I wait for "2" seconds
+   And I wait for "3" seconds
+    And I save the field labeled "EGMS ID" as "budgetPC&ScopeId"
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
@@ -1394,8 +1398,8 @@ Feature: Amendment Request scenarios without background
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
+    And I select value "Automation PM" into field "input-source"
+    And I select value "Automation PM1" into field "input-target"
     When I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---program:-:adminTaskReassignmentTableId---" panel
     When I check "{SavedValue:budgetPC&ScopeId}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
@@ -3374,7 +3378,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     Then I see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
 
-  @200523 @ValidateFundingchangefollowingbuttonsshouldbedisplayfornewPMowner @sprint-5-US-196841 @vaibhav @reassignment
+ @200523 @ValidateFundingchangefollowingbuttonsshouldbedisplayfornewPMowner @sprint-5-US-196841 @vaibhav @reassignment
   Scenario: Validate Funding change following buttons should be display for new PM owner
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -3396,6 +3400,7 @@ Feature: Amendment Request scenarios without background
       | Automation Test Description | FundingChangeJustification__c |
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+   And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
@@ -3449,7 +3454,7 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
 
-  @200535 @ValidateFundingchangeAmendmentRequestRejectedemailshouldbegenerateforEXEnewownerofamendmentrequest @sprint-5-US-196841 @vaibhav @reassignment
+ @200535 @ValidateFundingchangeAmendmentRequestRejectedemailshouldbegenerateforEXEnewownerofamendmentrequest @sprint-5-US-196841 @vaibhav @reassignment
   Scenario: Validate Funding change 'Amendment Request Rejected' email should be generate for EXE new owner of amendment request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -3471,6 +3476,7 @@ Feature: Amendment Request scenarios without background
       | Automation Test Description | FundingChangeJustification__c |
       | 2000                        | RequestedChangeInBudget__c    |
     And I click on "Save" in the page details
+   And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
@@ -4413,7 +4419,7 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
-  @ams1 @196615 @Validateusershouldnotabletoreassignownershiptothenewuserforamendedaward @sprint-12-US-226646 @vaibhav @reassignment @buglogged-240523
+  @196615 @Validateusershouldnotabletoreassignownershiptothenewuserforamendedaward @sprint-12-US-226646 @vaibhav @reassignment @buglogged-240523
   Scenario: Validate user should not able to reassign ownership to the new user for amended award
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user

@@ -178,6 +178,53 @@ public class GrantorProjectManager extends ProjectManager {
         }
     }
 
+    /**
+     * Method to check if file is downloaded or not
+     *
+     * @param fileName
+     * @author- komal.mukhekar
+     */
+    public void assertThatTheFileIsDownloaded(boolean isSoftly, boolean fileNamePartialMatching, String fileName) {
+        boolean flag = false;
+        File file = new File(System.getProperty("user.dir") + File.separatorChar + "target");
+        File[] directory = I.amPerforming().fileHandling().toGetCompleteFilesListOnLocalDirectory(file.getAbsolutePath());
+        for (File files : directory) {
+            if (fileNamePartialMatching && files.getName().contains(fileName)) {
+                flag = true;
+//                files.delete();
+                break;
+            } else if (files.getName().equalsIgnoreCase(fileName)) {
+                flag = true;
+//                files.delete();
+                break;
+            }
+        }
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(flag).isTrue();
+        } else
+            Assert.assertTrue(flag);
+    }
+
+
+    /**
+     * Method to delete the give file
+     *
+     * @param partialFileName
+     * @param fileName
+     * @author komal.mukhekar
+     */
+    public void deleteGivenFile(boolean partialFileName, String fileName) {
+        File file = new File(System.getProperty("user.dir") + File.separatorChar + "target");
+        File[] directory = I.amPerforming().fileHandling().toGetCompleteFilesListOnLocalDirectory(file.getAbsolutePath());
+        for (File files : directory) {
+            if (partialFileName && files.getName().contains(fileName)) {
+                files.delete();
+            } else if (files.getName().equalsIgnoreCase(fileName)) {
+                files.delete();
+            }
+        }
+    }
+
     public void AssertFieldValueIsChecked(String fieldName, String count, boolean isSoftly) {
         if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(Integer.parseInt(count)).isEqualTo(getCheckedFieldValueCount(fieldName));

@@ -1,7 +1,7 @@
 @grantor-regression @grantor-parallel-regression @announcement @regression @announcement-undo
 Feature: Validate all scenarios in the Announcement with Undo
 
-  @283963 @283966 @283973 @283965 @VerifywhenPmapprovercanclickonundobuttoninAnnouncementrecordwhenrecordisinApprovedstate @sprint-4-US-295141 @hitesh @Undo
+  @hitTest @283963 @283966 @283973 @283965 @VerifywhenPmapprovercanclickonundobuttoninAnnouncementrecordwhenrecordisinApprovedstate @sprint-4-US-295141 @hitesh @Undo
   Scenario: Verify when Pm approver can click on undo button in Announcement  record when record is in Approved state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -683,7 +683,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Competitive Announcements"
+    And I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab

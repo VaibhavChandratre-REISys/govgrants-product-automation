@@ -177,7 +177,7 @@ Feature: Validate all scenarios in Closeout
       | Award Name                                         |
       | {SavedValue:Automation Runtime Award for closeout} |
 
-  @50980 @adhocCloseoutHappyPath @smoke @TBExecution
+  @50980 @adhocCloseoutHappyPath @smoke
   Scenario: Approval of Closeout
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -192,8 +192,11 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
-      | Name                      | Closeout |
-      | {SavedValue:EXE Username} | Step 1   |
+      | Name                     | Closeout |
+      | {SavedValue:PM Username} | Step 1   |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:EXE Username} | Step 2   |
     And I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -296,7 +299,7 @@ Feature: Validate all scenarios in Closeout
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---closeout:-:closeoutNotesTableId---"
 
-  @40729 @87356 @VerifyErrorMessageForCloseoutRequest @monu
+  @hitclose @40729 @87356 @VerifyErrorMessageForCloseoutRequest @monu
   Scenario: Validate user should get error message on closeout request for Type and Reason fields
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"

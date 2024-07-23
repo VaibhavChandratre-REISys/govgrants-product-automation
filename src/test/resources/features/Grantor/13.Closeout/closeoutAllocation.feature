@@ -432,7 +432,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Spent" as "$500.00"
     Then I softly see value "$500.00" for title "Spent" against the value "Total" inside table "---closeout:-:subrecipientBudgetSummaryFocusAreaTableId---"
 
-  @265593 @265639 @ValidateSPIuserseespentvalueshouldbeupdatedoncloseoutinSubmitforapprovalstateofcloseout @sprint-20-US-263394 @vaibhav @Allocation @TBExecution
+  @265593 @265639 @ValidateSPIuserseespentvalueshouldbeupdatedoncloseoutinSubmitforapprovalstateofcloseout @sprint-20-US-263394 @vaibhav @Allocation
   Scenario: Validate SPI user see 'spent' value should be updated on closeout in Submit for approval state of closeout
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -1117,7 +1117,7 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Overview" sub tab
     Then I softly see field "Spent" as "$500.00"
 
-  @266774 @ValidatetheBehaviorofSpentvalueoncloseout2afterrejectingcloseout1 @sprint-20-US-246948 @vaibhav @Allocation
+  @hitclose @266774 @ValidatetheBehaviorofSpentvalueoncloseout2afterrejectingcloseout1 @sprint-20-US-246948 @vaibhav @Allocation
   Scenario: Validate the Behavior of Spent value on closeout2 after rejecting closeout1
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1256,7 +1256,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Actuals" sub tab
     Then I softly cannot see top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
 
-  @266847 @ValidatethatFocusAreaaddedandupdatedSpentvalueinnewBPaftercreatingcloseoutshouldreflectsonCloseout @sprint-20-US-246948 @vaibhav @Allocation
+  @hitclose @266847 @ValidatethatFocusAreaaddedandupdatedSpentvalueinnewBPaftercreatingcloseoutshouldreflectsonCloseout @sprint-20-US-246948 @vaibhav @Allocation
   Scenario: Validate that Focus Area added and updated Spent value in new BP after creating closeout should reflects on Closeout
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -1287,6 +1287,7 @@ Feature: Validate all scenarios in Closeout
       | Name           | Amendment Request |
       | Automation EXE | Step 1            |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1588,7 +1589,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Spent" as "$500.00"
     Then I softly see value "$500.00" for title "Spent" against the value "Automation Permanent Focus Area" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
 
-  @267259 @ValidateTheBehaviourOFSpentValueonCloseoutFor2awards @sprint-20-US-246948 @vaibhav @Allocation
+  @hitclose @267259 @ValidateTheBehaviourOFSpentValueonCloseoutFor2awards @sprint-20-US-246948 @vaibhav @Allocation
   Scenario: Validate The Behaviour OF Spent Value on Closeout For 2 awards
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PM user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2030,7 +2031,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "$500.00" for title "Balance" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$500.00" for title "Spent" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
 
-  @267755 @ValidatevalueinSpentandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestisincreatedstateandFundingChangeandpaymentrequestisapproved @sprint-21-US-265880 @vaibhav @Allocation
+  @hitclose @267755 @ValidatevalueinSpentandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestisincreatedstateandFundingChangeandpaymentrequestisapproved @sprint-21-US-265880 @vaibhav @Allocation
   Scenario: Validate value in Spent and Cumulative obligation column on closeout request when closeout request is in created state and Funding Change, and payment request is approved
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Directed"
     And I am on "SUBPORTAL" portal
@@ -2195,7 +2196,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "$500.00" for title "Balance" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$500.00" for title "Spent" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
 
-  @267758 @ValidateFormulaGrantvalueinCumulativeobligationfieldandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestisincreatedandsecondperiodicrenewalamendmentandpaymentrequestisapprovedFANO @sprint-21-US-265880 @vaibhav @Allocation
+  @hitclose @267758 @ValidateFormulaGrantvalueinCumulativeobligationfieldandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestisincreatedandsecondperiodicrenewalamendmentandpaymentrequestisapprovedFANO @sprint-21-US-265880 @vaibhav @Allocation
   Scenario: Validate Formula Grant value in Cumulative obligation field and Cumulative obligation column on closeout request when closeout request is in created and second periodic renewal amendment and payment request is approved(FA=NO)
     And I activated standalone subaward "Automation Runtime FDM Announcement" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Formula_By_Applicant_Focus_Area_No"
     And I am on "SUBPORTAL" portal
@@ -2221,6 +2222,7 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2344,6 +2346,7 @@ Feature: Validate all scenarios in Closeout
       | 5000  | ProposedBudgetEndDate__c   |
     And I wait for "3" seconds
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -2494,7 +2497,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "$500.00" for title "Balance" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$500.00" for title "Spent" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
 
-  @267761 @ValidateAuditorvalueinSpentandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestisincreatedstateandpaymentrequestisapprovedandnewawardisactivatedfromcarryforwardamendment @sprint-21-US-265880 @vaibhav @Allocation
+  @hitclose @267761 @ValidateAuditorvalueinSpentandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestisincreatedstateandpaymentrequestisapprovedandnewawardisactivatedfromcarryforwardamendment @sprint-21-US-265880 @vaibhav @Allocation
   Scenario: Validate Auditor value in Spent and Cumulative obligation column on closeout request when closeout request is in created state and payment request is approved and new award is activated from carry forward amendment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY-Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     When I am on "SUBPORTAL" portal
@@ -2730,12 +2733,13 @@ Feature: Validate all scenarios in Closeout
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     And I click on "Submit for Approval" in the page details
+    And I wait for "4" seconds
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     And I click on "Amend Subaward" in the page details
     And I wait for "4" seconds
     When I click on "Activate" in the page details
-    And I wait for "4" seconds
+    And I wait for "10" seconds
     And I navigate to "Closeout" tab
     And I click toggle button to select "Closeouts - All"
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
@@ -2843,7 +2847,7 @@ Feature: Validate all scenarios in Closeout
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
     And I get the "EGMS ID"

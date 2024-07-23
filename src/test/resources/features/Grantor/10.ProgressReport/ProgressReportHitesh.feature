@@ -263,7 +263,11 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
+<<<<<<< HEAD
   @59898 @validateSRUserIsAbleToViewSnapshotHistory @mahadev @wip
+=======
+  @59898 @validateSRUserIsAbleToViewSnapshotHistory @mahadev 
+>>>>>>> f81e73c502295c127112f7223ce5bf3f3c5c5ce5
   Scenario: Validate SR user is able to view the Snapshot after Progress report is Submitted to Grantor status
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -282,6 +286,7 @@ Feature: Validate all scenarios in Progress Report
     When I click on "Submit to Grantor" in the page details
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Progress Report Snapshot"
+    And I wait for "2" seconds
     When I download the file
     Then I see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
@@ -1033,7 +1038,9 @@ Feature: Validate all scenarios in Progress Report
     And I click on "Save" in the page details
     Then I softly do not see "Actions" in flex table header "---progressReport:-:objectivesTableId---"
 #    Then I softly cannot see row level action button "Edit" against "Automation Permanent Objective" in flex table with id "---progressReport:-:objectivesTableId---"
+    And I wait for "2" seconds
     And I navigate to "Performance" sub tab
+    Then I softly do not see "Actions" in flex table header "---progressReport:-:objectivesTableId---"
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---progressReport:-:objectivesTableId---"
 
   @61095 @61094 @validateDownloadOfObjectivesInCSV @mahadev

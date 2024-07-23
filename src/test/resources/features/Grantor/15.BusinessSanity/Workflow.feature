@@ -1532,17 +1532,41 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-
-  @test
+  @840
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-#   Given I am on "INTERNAL" portal
-##   And I generate the random EmailID and save as "uniqueEmailID" for maildrop
-##   And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
-#   And I navigate to maildrop portal for "automationruntime68052@maildrop.cc" with subject "Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)"
-   Given I login to "As a Grantor" app as "PM" user
-   And I halt execution
-    And I click on "Download As PDF" in the page details
-    And I wait for "5" seconds
-    And I download the file
-    Then I see "Approved" on page "1" of "govgrants" pdf file
-   And I halt execution
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "Automation Runtime Site Visit324287959" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I click on "View" icon for "Automation Runtime Site Visit324287959" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I wait for "3" seconds
+    And I click on "Accept and Close" in the page details
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
+    Then I pause execution for "120" seconds
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Amendment Request #{SavedValue:kpcId} hasbeen Rejected
+      """
+    Then I refresh the page
+    And I am on "INTERNAL" portal
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I click on Menu icon present on top right corner of the page
+    And I wait for "3" seconds
+    And I select "Take Snapshot" from dropdown
+    And I refresh the page
+    When I navigate to "History" sub tab
+    And I click on hyperlink containing value "Site Visit - Accept And Close"
+    When I download the file
+    Then I softly see "Closed" on page "1" of "govgrants" pdf file
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    And I perform quick search for "Automation Runtime Site Visit324287959" in "ApplicantSiteVisitReports" panel
+    When I click on "View" icon for "Automation Runtime Site Visit324287959" inside flex table with id "ApplicantSiteVisitReports"
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"

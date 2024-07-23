@@ -836,6 +836,8 @@ public final class PageDetails {
             }
         } else if (usage.equalsIgnoreCase("subaward dashboard")) {
             I.amPerforming().click().on(ByUsing.xpath("//div[@id='" + linkName + "']//a//img[@src='/resource/GovGrantsImages/PieChartIcon.jpg']"));
+        } else if (usage.equalsIgnoreCase("hyperlink for global search")) {
+            I.amPerforming().click().on(ByUsing.xpath("//div[@data-aura-class='forceInlineEditGrid']//table//a[contains(text(),'" + linkName + "')]"));
         }
 
     }

@@ -60,7 +60,11 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see top right button "Send to Subrecipient" in page detail
     Then I softly cannot see top right button "Delete" in page detail
 
+<<<<<<< HEAD
   @ams1 @200067 @ValidateEXEusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedtoGrantorstateforcombinationofSOW/BPCARtype @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+=======
+  @200067 @ValidateEXEusershouldabletoseetheARisupdatedafterchangetheownershipbyGrantorSideatSubmittedtoGrantorstateforcombinationofSOW/BPCARtype @sprint-5-US-198419 @vaibhav @reassignment @FieldHistoryExclude
+>>>>>>> f81e73c502295c127112f7223ce5bf3f3c5c5ce5
   Scenario: Validate EXE user should able to see the AR is updated after change the ownership by Grantor Side at Submitted to Grantor state for combination of SOW/BPC AR type
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -5536,6 +5540,10 @@ Feature: Amendment Request scenarios without background
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
+<<<<<<< HEAD
+=======
+     And I wait for "3" seconds
+>>>>>>> f81e73c502295c127112f7223ce5bf3f3c5c5ce5
     And I save the field labeled "EGMS ID" as "BudgetRedirectId"
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"

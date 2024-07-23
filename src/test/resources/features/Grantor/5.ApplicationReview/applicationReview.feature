@@ -359,16 +359,18 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @65079 @73778 @73791 @75228 @VerifyAwardOwnerCanInitiateReviewProcess @keerti @skipOnJenkins
+  @65079 @73778 @73791 @75228 @VerifyAwardOwnerCanInitiateReviewProcess @keerti
   Scenario Outline: Verify Award owner can Initiate the Review Process.
   | To Verify that under related log tab , corresponding data is display about related submitted applications for announcement
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Announcement Name>"
+    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
     And I get the "EGMS ID"
+    And I wait for "3" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
@@ -427,23 +429,28 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @75230 @VerifyDownloadPDFforApplicaiton @aashish @skipOnJenkins
+  @75230 @VerifyDownloadPDFforApplicaiton @aashish
   Scenario Outline: To verify system allow to download PDF for Application section in Related log tab of announcement.
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Announcement Name>"
+    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
     And I get the "EGMS ID"
+    And I wait for "3" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    And I wait for "3" seconds
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "<Announcement Name>" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" with wait for record
     And I navigate to "Related Log" sub tab
+    And I click on parallel menu button in flex table title "Applications"
     And I select "Download as PDF" from parallel lines dropdown of "Applications"
     When I download the file
     Then I see "Applications" on page "1" of "govgrants" pdf file
@@ -451,20 +458,23 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @75449 @75451 @75450 @75448 @75454 @VerifyAbleToViewApplication @aashish @skipOnJenkins
+  @75449 @75451 @75450 @75448 @75454 @VerifyAbleToViewApplication @aashish
   Scenario Outline: To verify user is able to view Applications in Applications section in Related log tab of announcement
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Announcement Name>"
+    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
     And I get the "EGMS ID"
+    And I wait for "3" seconds
+    When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "<Announcement Name>" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" with wait for record
     And I navigate to "Related Log" sub tab
@@ -472,7 +482,7 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Project Title" inside table "---applicationReview:-:relatedFOApplicationsTableId---"
     When I click on advance filter "#advfRelatedFOApplications" of table id "---applicationReview:-:relatedFOApplicationsTableId---"
     When I enter advance filter values inside id "advfRelatedFOApplications"
-      | Project Title | Contains | InvalidValue |
+      | EGMS ID | contains | InvalidValue |
     Then I softly see "No Records Found" inside flex table with id "---applicationReview:-:relatedFOApplicationsTableId---"
     And I refresh the page
     When I click on advance filter "#advfRelatedFOApplications" of table id "---applicationReview:-:relatedFOApplicationsTableId---"
@@ -484,11 +494,14 @@ Feature: Validate all scenarios in the Application Review
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Budget" sub tab at view detail page
     Then I softly can see "Monitoring" sub tab at view detail page
+    And I wait for "3" seconds
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "<Announcement Name>" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" with wait for record
     And I navigate to "Related Log" sub tab
+    And I click on parallel menu button in flex table title "Funding Decision Memo (FDM)"
     And I select "Download as PDF" from parallel lines dropdown of "Funding Decision Memo (FDM)"
     When I download the file
     Then I see "Funding Decision Memo (FDM)" on page "1" of "govgrants" pdf file
@@ -781,13 +794,13 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79206 @pdfForReviewSteps @keerti @skipOnJenkins
+  @79206 @pdfForReviewSteps @keerti
   Scenario Outline: To verify user able to download pdf for Review Steps section in related log tab of Apllication phase.
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Announcement Name>"
+    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside table
     And I get the "EGMS ID"
     And I wait for "2" seconds
@@ -3433,7 +3446,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80050 @verifyDownloadAsPDFOptionAtFundingAccount @skipOnJenkins @monu
+  @80050 @verifyDownloadAsPDFOptionAtFundingAccount @monu
   Scenario Outline: validate user is able to see expected contents inside downloaded file at Funding account section
     And I reviewed the application "<Application Name>"
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -3456,7 +3469,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80057 @verifyDownloadAsPDFOptionAtRecommendedApplicationSection @skipOnJenkins @monu
+  @80057 @verifyDownloadAsPDFOptionAtRecommendedApplicationSection @monu
   Scenario Outline: validate user is able to see expected contents inside downloaded file at recommended application page block
     And I reviewed the application "<Application Name>"
     And I login to "As a Grantor" app as "dynamicUser" user

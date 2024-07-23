@@ -99,6 +99,16 @@ public class GenericSteps {
         grantorProjectManager.assertThatFileIsDownloaded(fileType, usage.contains("softly"));
     }
 
+    @Then("^I (see|softly see) that (file|file name contains) \"([^\"]*)\" is downloaded$")
+    public void iVerifyThatPdfFileIsDownloaded(String usage, String fileNamePartialMatch, String fileName) {
+        grantorProjectManager.assertThatTheFileIsDownloaded(usage.contains("softly"), fileNamePartialMatch.contains("contains"), fileName);
+    }
+
+    @Then("^I delete file (name|contains name) \"([^\"]*)\"$")
+    public void deleteGivenFile(String usage, String fileName) {
+        grantorProjectManager.deleteGivenFile(usage.contains("contains"), fileName);
+    }
+
     @Description("To verify no of rows checked for field name")
     @Then("^I can (softly see|see) \"([^\"]*)\" record value is checked for field name \"([^\"]*)\"$")
     public void iCanSeeRecordValueIsCheckedForFieldName(String usage, String count, String fieldName) {
@@ -570,13 +580,25 @@ public class GenericSteps {
         grantorProjectManager.assertValueAgainstTheValueForTitleInApprovalHistory(usage, expectedValue, againstValue, columnname);
     }
 
-    @And("^I select (user|dropdown) value \"([^\"]*)\" in field \"([^\"]*)\"$")
+    @And("^I select (user|dropdown|users) value \"([^\"]*)\" in field \"([^\"]*)\"$")
     public void iSelectValueInField(String usage, String arg0, String arg1) {
         if (usage.equalsIgnoreCase("user")) {
             By textbox = ByUsing.xpath("//c-fieldlwc[@data-fieldapiname='" + arg1 + "']//input[@type='search' or @placeholder='Search User...']");
             By SearchValue = ByUsing.xpath("//td[@data-label='" + arg0 + "']");
             I.amPerforming().click().on(textbox);
             I.amPerforming().checkToSee().isElementDisplayed(textbox);
+            I.amPerforming().textInput().in(textbox, arg0);
+            I.amPerforming().click().withJavaScript(textbox);
+            if (I.amPerforming().checkToSee().isElementDisplayed(SearchValue)) {
+                I.amPerforming().scroll().toMoveToElement(SearchValue);
+                I.amPerforming().click().withJavaScript(SearchValue);
+            }
+        } else if (usage.equalsIgnoreCase("users")) {
+            By textbox = ByUsing.xpath("//div[contains(@class,'" + arg1 + "')]//input[@placeholder='Search Users...']");
+            By SearchValue = ByUsing.xpath("//div[@title='" + arg0 + "']");
+            I.amPerforming().click().on(textbox);
+            I.amPerforming().checkToSee().isElementDisplayed(textbox);
+            I.amPerforming().textInput().toClear(textbox);
             I.amPerforming().textInput().in(textbox, arg0);
             I.amPerforming().click().withJavaScript(textbox);
             if (I.amPerforming().checkToSee().isElementDisplayed(SearchValue)) {

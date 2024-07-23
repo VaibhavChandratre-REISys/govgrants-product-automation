@@ -143,9 +143,12 @@ Feature: Validate all scenarios of grants and award without background
     When I click modal button "Save and Continue"
     And I enter value "abc" into field "GrantDescription__c"
     And I click on "Save" in the page details
-    And I pause execution for "3" seconds
-    And I click on "Menu" in the page details
+    And I wait for "2" seconds
+    And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    When I click alert button "OK"
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot"
     When I download the file
@@ -727,8 +730,12 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Overview" sub tab
     Then I softly see value "{SavedValue:startDate}" for title "Start Date" against the value "BP01" inside table "---subAwardStandAlone:-:GrantorBudgetPeriodTableId---"
     And I softly see value "{SavedValue:endDate}" for title "End Date" against the value "BP01" inside table "---subAwardStandAlone:-:GrantorBudgetPeriodTableId---"
-    When I click on top right parallel lines bar for "Grant Budget"
-    And I select "Download as PDF" from parallel lines dropdown of "Grant Budget"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I click toggle button to select "Grants - Active"
+    When I perform quick search for "<Grant Name>" in "---progressReport:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    And I click on Menu icon present on top right corner of the page
     And I select "Download As PDF" from dropdown
     And I download the file
     And I pause execution for "10" seconds
@@ -2482,7 +2489,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
 
- @67532 @jitendra @checkAttachemet @skipOnJenkins
+  @67532 @jitendra @checkAttachemet
   Scenario Outline: To verify that validation message appear on Subrecipient profile if supporting document checklist set as yes while creating  grant on 'Supporting Documents Checklist' section
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
