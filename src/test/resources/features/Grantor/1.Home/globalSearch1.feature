@@ -118,8 +118,8 @@ Feature: Validate all scenarios for the global search
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
-    Then I softly can see row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in flex table with id "Closeout"
+    And I perform quick search inside global search "{SavedValue:CloseoutID}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:CloseoutID}" in flex table with id "Closeout"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutPeerReviewTableId---" by clicking "New" :
       | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
@@ -129,9 +129,9 @@ Feature: Validate all scenarios for the global search
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
-    Then I softly can see row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in flex table with id "Closeout"
-    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeout"
+    And I perform quick search inside global search "{SavedValue:CloseoutID}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:CloseoutID}" in flex table with id "Closeout"
+    And I click on row level action button "Edit" against "{SavedValue:CloseoutID}" in global search with id "Closeout"
     Then I softly see field "Status" as "Submitted for Review"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
@@ -143,15 +143,15 @@ Feature: Validate all scenarios for the global search
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
-    Then I softly can see row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in flex table with id "Closeout"
+    And I perform quick search inside global search "{SavedValue:CloseoutID}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:CloseoutID}" in flex table with id "Closeout"
     And I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
-    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeout"
+    And I perform quick search inside global search "{SavedValue:CloseoutID}"
+    And I click on row level action button "Edit" against "{SavedValue:CloseoutID}" in global search with id "Closeout"
     Then I softly see field "Status" as "Reviewed"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
