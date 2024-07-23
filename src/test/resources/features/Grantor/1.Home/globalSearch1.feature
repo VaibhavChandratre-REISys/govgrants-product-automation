@@ -4,7 +4,7 @@ Feature: Validate all scenarios for the global search
   @389538 @ValidateEXEuserisabletoseetheglobalsearchbarforanannouncement @sprint-2-US-386939 @hitesh @GlobalSearch
   Scenario: VerifythattherecordownerisabletoedittheaccessforrecordwhenCloseoutRequestisintheCreatedAcknowledgedbySRSenttoreviewReviewedOverriddenorinUnpublishedstate
   Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
-    When I login to "As a Grantor" app as "Automation EXE" user
+    When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -145,6 +145,7 @@ Feature: Validate all scenarios for the global search
     When I click on "Enter Review" icon for "Automation PM" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---"
     And I enter a review as "Passed"
     When I click modal button "Save"
+    And I wait for "2" seconds
     And I click on submit review
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
@@ -213,3 +214,92 @@ Feature: Validate all scenarios for the global search
     And I wait for "2" seconds
     And I click on hyperlink for global search containing value "{SavedValue:EXE Username}"
     Then I softly see the text containing "{SavedValue:EXE Username}"
+
+  @390081 @VerifythattherecordownerisabletoedittheaccessforrecordwhenFundingSourceisintheCreatedstate @sprint-2-US-386939 @hitesh @GlobalSearch
+  Scenario: Verify that the record owner is able to edit the access for record when Funding Source is in the Created state
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Planning" tab
+    When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
+    When I enter in modal "Creation" values from "FundingSource_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "3" seconds
+    When I enter "Edition" values from "FundingSource_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "FundingSourcesID"
+    And I wait for "3" seconds
+    When I navigate to "Planning" tab
+    And I select "Funding Sources" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:FundingSourcesID}"
+    And I wait for "2" seconds
+    Then I softly can see row level action button "Change Owner" against "{SavedValue:FundingSourcesID}" in global search with id "Funding Sources"
+    And I click on row level action button "Edit" against "{SavedValue:FundingSourcesID}" in global search with id "Funding Sources"
+    And I wait for "2" seconds
+    Then I softly can see top right button "Save" in page detail
+    Then I softly can see top right button "Cancel" in page detail
+
+  @390082 @VerifythatNonOwneruserdoesnthaveaneditoptioninanystageofFundingsourcesandwillgeterrormessageonpage
+  Scenario: Verify that Non-Owner user doesn't have an edit option in any stage of Funding sources and will get error message on page.
+    Given I login to "As a Grantor" app as "EXE" user
+    When I navigate to "Planning" tab
+    And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Internal Funding Sources - Draft"
+    When I click on top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
+    When I enter in modal "Creation" values from "FundingSource_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "FundingSource_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "FundingSourcesID"
+    Then I softly see field "Status" as "Created"
+    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    And I select "Funding Sources" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:FundingSourcesID}"
+    And I wait for "2" seconds
+    And I click on row level action button "Edit" against "{SavedValue:FundingSourcesID}" in global search with id "Funding Sources"
+    Then I softly see field "Status" as "Created"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Internal Funding Sources - All"
+    When I perform quick search for "{SavedValue:FundingSourcesID}" in "---fundingsource:-:fundingSourceTableId---" panel
+    And I click on "View" icon for "{SavedValue:FundingSourcesID}" inside table
+    And I navigate to "Overview" sub tab
+    When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
+    And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I click on "Activate" in the page details
+    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    And I select "Funding Sources" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:FundingSourcesID}"
+    And I wait for "2" seconds
+    And I click on row level action button "Edit" against "{SavedValue:FundingSourcesID}" in global search with id "Funding Sources"
+    Then I softly see field "Status" as "Activated"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Internal Funding Sources - All"
+    When I perform quick search for "{SavedValue:FundingSourcesID}" in "---fundingsource:-:fundingSourceTableId---" panel
+    And I click on "View" icon for "{SavedValue:FundingSourcesID}" inside table
+    When I click on "Deactivate" in the page details
+    Then I softly see field "State" as "Closed"
+    When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    And I select "Funding Sources" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:FundingSourcesID}"
+    And I wait for "2" seconds
+    And I click on row level action button "Edit" against "{SavedValue:FundingSourcesID}" in global search with id "Funding Sources"
+    Then I softly see field "State" as "Closed"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
