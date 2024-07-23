@@ -1,7 +1,7 @@
 @applicationIntakeAllocation @grantor-regression @grantor-parallel-regression @app @ApplicationAndPre-App
 Feature: Validate all scenarios in the Formula Announcement tab
 
-  @done @219696 @sprint-11-US-203038 @vaibhav @Allocation
+  @219696 @sprint-11-US-203038 @vaibhav @Allocation
   Scenario: Validate SPI User user able to see the Budget summary section it should be visible at the top of Budget Tab(not including noncash match/cash match, other leverage)
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -19,7 +19,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary"
 
-  @done @219700 @sprint-11-US-203038 @vaibhav @Allocation
+  @219700 @sprint-11-US-203038 @vaibhav @Allocation
   Scenario: Validate SPI User in budget summary tab Budgeted Amount should be equal to Allocation Amount
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -96,7 +96,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | Budget Tab: The Budgeted Amount must be equal to the Allocation Amount. |
 
-  @ch4 @219714 @sprint-11-US-203038 @vaibhav @Allocation
+  @219714 @sprint-11-US-203038 @vaibhav @Allocation
   Scenario: Validate SPI User if focus area is No for formula announcement then "Budget Summary by Focus Area" section should not display at S/R side
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -180,7 +180,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see page block "Budget Summary"
     Then I softly cannot see page block "Budget Summary by Focus Area"
 
-  @ch4 @219716 @sprint-11-US-203038 @vaibhav @Allocation
+  @219716 @sprint-11-US-203038 @vaibhav @Allocation
   Scenario: Validate SPA User if focus area is Yes for formula announcement then "Budget Summary by Focus Area" section should display in budget tab at S/R side
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -263,7 +263,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see page block "Budget Summary"
     Then I softly can see page block "Budget Summary by Focus Area"
 
-  @ch4 @219842 @sprint-11-US-203038 @vaibhav @Allocation
+  @219842 @sprint-11-US-203038 @vaibhav @Allocation
   Scenario: Validate SPA User When focus area is Yes for formula announcement then in Budget Summary by focus area section below columns & Action should be display at S/R side
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -354,7 +354,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---" :
       | Focus Area | Allocation Amount | Budgeted Amount |
 
-  @done @219852 @sprint-11-US-203038 @vaibhav @Allocation
+  @219852 @sprint-11-US-203038 @vaibhav @Allocation
   Scenario: Validate SPA User user should able to add & remove focus area from budget summary by focus area section at S/R side
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -375,7 +375,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly cannot see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Then I softly cannot see row level action button "Remove Focus Area" against "Automation Permanent Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
 
-  @done @219884 @sprint-11-US-203038 @vaibhav @Allocation
+  @219884 @sprint-11-US-203038 @vaibhav @Allocation
   Scenario: Validate SPA User user should able to add & remove the focus area from Budget Summary by Focus Area section at s/r side
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
     Given I am on "SUBPORTAL" portal
@@ -396,7 +396,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Then I softly can see row level action button "Remove Focus Area" against "Automation Permanent Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
 
-  @done @219896 @sprint-11-US-203038 @vaibhav @Allocation
+  @219896 @sprint-11-US-203038 @vaibhav @Allocation
   Scenario: Validate IND User if user create formula announcement with focus area yes then Budget summary section & Budget Summary by Focus Area both section should be display in budget tab
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA-Automation PO user"
     Given I am on "SUBPORTAL" portal
@@ -415,7 +415,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see page block "Budget Summary"
     Then I softly can see page block "Budget Summary by Focus Area"
 
-  @done @219951 @sprint-11-US-203038 @vaibhav @Allocation
+  @219951 @sprint-11-US-203038 @vaibhav @Allocation
   Scenario: Validate IND User budgeted Amount each focus area should get updated from the budget section
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT"
     Given I am on "SUBPORTAL" portal
@@ -445,7 +445,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see value "Automation Permanent Focus Area" for title "Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Then I softly see value "$1,000" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
 
-  @done @219969 @219973 @ValidateSPAUserwhenForannouncementswithallocationlevelByApplicantandFocusAreaisyesthenusershouldseetheBudgetSummarybyfocusAreaSection&budgetsummarysectionalso @sprint-11-US-203038 @vaibhav @Allocation
+  @219969 @219973 @ValidateSPAUserwhenForannouncementswithallocationlevelByApplicantandFocusAreaisyesthenusershouldseetheBudgetSummarybyfocusAreaSection&budgetsummarysectionalso @sprint-11-US-203038 @vaibhav @Allocation
   Scenario: Validate SPA User when For announcements with allocation-level = By Applicant and Focus Area is yes then user should see the Budget Summary by focus Area Section & budget summary section also
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
     Given I am on "SUBPORTAL" portal
@@ -466,7 +466,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---" :
       | Focus Area | Budgeted Amount |
 
-  @ch4 @219974 @219982  @sprint-11-US-203038 @vaibhav @Allocation
+  @219974 @219982  @sprint-11-US-203038 @vaibhav @Allocation
   Scenario: Validate SPI User on opportunity overview section Subaward floor & Subaward Celling field should be hide for formula announcement
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -645,7 +645,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | Budget Tab- The Budgeted Amount is not matching the Allocation Amount for following Focus Areas {Automation Permanent Focus Area} |
 
-  @done @219954 @ValidateINDUserFocusareasbudgetedamountmustbeequaltoAllocationamountforthatfocusareainbudgetsummarysection @sprint-11-US-203038 @vaibhav @Allocation
+  @219954 @ValidateINDUserFocusareasbudgetedamountmustbeequaltoAllocationamountforthatfocusareainbudgetsummarysection @sprint-11-US-203038 @vaibhav @Allocation
   Scenario: Validate IND User Focus area's budgeted amount, must be equal to Allocation amount for that focus area in budget summary section
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -675,7 +675,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
     Then I softly see field "Allocation Amount" as "$1,000.00"
 
-  @done @219459 @219476 @219571 @219575 @DirectedAnnVerifyasSPIuserIcannotseesubawardfloorandsubawardceilingundertheoverviewtabinopportunityoverviewsectiononAppWithFocusAreaYes @sprint-11-US-203541 @komal @Allocation
+  @219459 @219476 @219571 @219575 @DirectedAnnVerifyasSPIuserIcannotseesubawardfloorandsubawardceilingundertheoverviewtabinopportunityoverviewsectiononAppWithFocusAreaYes @sprint-11-US-203541 @komal @Allocation
   Scenario Outline: Directed Ann_ Verify as SPA/SPI  user I see new 'Budget summary', 'Budget Summary by Focus Area' and Budgeted Amount section on App in budget tab only if Focus area set as 'Yes' on Ann
   | Directed Ann Verify as SPI user I cannot see  subaward floor, sub-award ceiling under the overview tab in opportunity overview section on App |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
@@ -707,7 +707,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SPA  |
       | SPI3 |
 
-  @done @219479 @219572 @219577 @DirectedAnnasINDuserIseenewBudgetsummarysectionontopofbudgettabonAppsetasfocusareaisNo @sprint-11-US-203541 @komal @Allocation
+  @219479 @219572 @219577 @DirectedAnnasINDuserIseenewBudgetsummarysectionontopofbudgettabonAppsetasfocusareaisNo @sprint-11-US-203541 @komal @Allocation
   Scenario: Directed Ann as IND user I see new 'Budget summary' and 'Budgeted Amount' section on top of budget tab on App set as focus area is 'No'
   | Directed Ann_ Verify as IND user I should not see 'Budget Summary by Focus Area' section on App in budget tab if Focus area set as 'No' on Ann |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APPLICANT_IND_ORG_FOCUS_AREA_NO"
@@ -792,7 +792,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount should be less than or equal to the Subaward Ceiling Amount. Adjust the Budgeted Amount in the Budget period section. |
 
-  @done @226900 @226896 @DirectedAnnVerifyasSPISPAIseeRequestedbudgetfieldnameshouldrenameasBudgetedAmountonAppunderoverviewtabwhenFocusareaNo @sprint-11-US-203541 @komal @Allocation
+  @226900 @226896 @DirectedAnnVerifyasSPISPAIseeRequestedbudgetfieldnameshouldrenameasBudgetedAmountonAppunderoverviewtabwhenFocusareaNo @sprint-11-US-203541 @komal @Allocation
   Scenario Outline: Directed Ann_ Verify as SPA/SPI  user I see new 'Budget summary' and 'Budgeted Amount' section on App in budget tab only if Focus area set as 'No' on Ann
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -818,7 +818,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SPA  |
       | SPI3 |
 
-  @done @226907 @226908 @226913 @226914 @DirectedAnnVerifyasINDuserIseenewBudgetsummarysectionontopofbudgettabonAppsetasfocusareaisYes @sprint-11-US-203541 @komal @Allocation
+  @226907 @226908 @226913 @226914 @DirectedAnnVerifyasINDuserIseenewBudgetsummarysectionontopofbudgettabonAppsetasfocusareaisYes @sprint-11-US-203541 @komal @Allocation
   Scenario: Directed Ann_ Verify as IND user I cannot see  sub-award floor and sub-award ceiling, under the overview tab in opportunity overview section on App when FA=YES
   | Directed Ann_ Verify as IND user I see 'Budget Summary by Focus Area' section on App in budget tab if Focus area set as 'Yes' on Ann |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APPLICANT_IND_ORG"
@@ -845,7 +845,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #226913
     Then I softly see "Budget Summary by Focus Area" page block displayed
 
-  @done @226909 @226911 @DirectedAnnVerifyvalidationmessageshouldbedisplaytoINDonAppifuserenterbudgetedamountlessthansubawardflooramountWithFocusAreaYes @sprint-11-US-203541 @komal @Allocation
+  @226909 @226911 @DirectedAnnVerifyvalidationmessageshouldbedisplaytoINDonAppifuserenterbudgetedamountlessthansubawardflooramountWithFocusAreaYes @sprint-11-US-203541 @komal @Allocation
   Scenario: Directed Ann_ Verify validation message should be display to IND on App if user enter budgeted amount less/greater than sub-award floor amount
   | Directed Ann_ Verify validation message should be display to IND on App if user enter budgeted amount more than sub-award Ceiling amount  |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APPLICANT_IND_ORG_FOCUS_AREA_NO"
@@ -904,7 +904,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount should be less than or equal to the Subaward Ceiling Amount. Adjust the Budgeted Amount in the Budget period section. |
 
-  @done @219631 @219632 @219654 @CompetitiveAnnVerifyasSPIuserIcannotseesubawardfloorandsubawardceilingundertheoverviewtabinopportunityoverviewsectiononApp @sprint-11-US-203541 @komal @Allocation
+  @219631 @219632 @219654 @CompetitiveAnnVerifyasSPIuserIcannotseesubawardfloorandsubawardceilingundertheoverviewtabinopportunityoverviewsectiononApp @sprint-11-US-203541 @komal @Allocation
   Scenario Outline: Competitive Ann_ Verify as SPA/SPI  user I see new 'Budget summary' and 'Budget Summary by Focus Area' section on App in budget tab only if Focus area set as 'Yes' on Ann
   | Competitive Ann_ Verify as SPI user I cannot see  sub-award floor, sub-award ceiling and Budgeted Amount under the overview tab in opportunity overview section on App |
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default"
@@ -936,7 +936,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SPA  |
       | SPI3 |
 
-  @done @219633 @219656 @219662 @CompetitiveAnnVerifyasINDuserIseenewBudgetsummarysectionontopofbudgettabonAppsetasfocusareaisNo @sprint-11-US-203541 @komal @Allocation
+  @219633 @219656 @219662 @CompetitiveAnnVerifyasINDuserIseenewBudgetsummarysectionontopofbudgettabonAppsetasfocusareaisNo @sprint-11-US-203541 @komal @Allocation
   Scenario: Competitive Ann_ Verify as IND user I see new 'Budget summary' and 'Budgeted Amount' section on top of budget tab on App set as focus area is 'No'
   | Competitive  Ann_ Verify as IND user I should not see 'Budget Summary by Focus Area' section on App in budget tab if Focus area set as 'No' on Ann |
     Given I published "Competitive " type announcement having name "Automation Runtime Announcement" and properties "FOCUS_AREA_NO"
@@ -961,7 +961,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #219656
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @done @219642 @219648 @CompetitiveAnnVerifyvalidationmessageshouldbedisplaytoSPIonAppifuserenterbudgetedamountlessthansubawardflooramount @sprint-11-US-203541 @komal @Allocation
+  @219642 @219648 @CompetitiveAnnVerifyvalidationmessageshouldbedisplaytoSPIonAppifuserenterbudgetedamountlessthansubawardflooramount @sprint-11-US-203541 @komal @Allocation
   Scenario: Competitive  Ann_ Verify validation message should be display to SPI on App if user enter budgeted amount less than sub-award floor amount
   | Competitive  Ann_ Verify validation message should be display to SPI on App if user enter budgeted amount more than sub-award Ceiling amount  |
     Given I published "Competitive " type announcement having name "Automation Runtime Announcement" and properties "FOCUS_AREA_NO"
@@ -1019,7 +1019,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount should be less than or equal to the Subaward Ceiling Amount. Adjust the Budgeted Amount in the Budget period section. |
 
-  @done @219158 @219164 @219195 @PagelayoutmodificationduetoAllocationlevelonsubmittedApplicationslayoutsubmittedagainstallannouncementsInternalSide @sprint-10-US-203669 @komal @Allocation
+  @219158 @219164 @219195 @PagelayoutmodificationduetoAllocationlevelonsubmittedApplicationslayoutsubmittedagainstallannouncementsInternalSide @sprint-10-US-203669 @komal @Allocation
   Scenario Outline: Verify Page layout modification due to Allocation level on submitted Applications layout submitted against all announcements (Internal Side)
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -1084,7 +1084,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | PM   |
       | EXE  |
 
-  @done @219172 @219242 @219231 @FormulaAnnVerifyasAdminuserIseeBudgetSummarybyFocusAreasectionexactafterthebudgetsummarysectionunderbudgettabonApp @sprint-10-US-203669 @komal @Allocation
+  @219172 @219242 @219231 @FormulaAnnVerifyasAdminuserIseeBudgetSummarybyFocusAreasectionexactafterthebudgetsummarysectionunderbudgettabonApp @sprint-10-US-203669 @komal @Allocation
   Scenario: Formula Ann_ Verify as Admin user I see 'Budget Summary by Focus Area' section exact after the budget summary section under budget tab on App
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -1148,7 +1148,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---" :
       | Focus Area | Budgeted Amount |
 
-  @done @219176 @FormulaAnnVerifyasEXEuserIcanseeBudgetSummarybyFocusAreasectiononAppifsettingallocationlevelByapplicantandFocusareaisYesonAnn @sprint-10-US-203669 @komal @Allocation
+  @219176 @FormulaAnnVerifyasEXEuserIcanseeBudgetSummarybyFocusAreasectiononAppifsettingallocationlevelByapplicantandFocusareaisYesonAnn @sprint-10-US-203669 @komal @Allocation
   Scenario: Formula Ann_ Verify as EXE user I can see 'Budget Summary by Focus Area' section on App if setting allocation-level = By applicant and Focus area is 'Yes' on Ann
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -1266,7 +1266,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly do not see "Focus Area" page block displayed
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @done @219297 @219307 @sprint-10-US-203669 @komal @Allocation
+  @219297 @219307 @sprint-10-US-203669 @komal @Allocation
   Scenario: Directed Ann_ Verify as PM user I cannot see  sub-award floor and sub-award ceiling, under the overview tab in App
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1328,7 +1328,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---" :
       | Focus Area | Budgeted Amount |
 
-  @done @219300 @DirectedAnnVerifyasPMuserIseenewBudgetsummarysectionontopofbudgettabonApp @sprint-10-US-203669 @komal @Allocation
+  @219300 @DirectedAnnVerifyasPMuserIseenewBudgetsummarysectionontopofbudgettabonApp @sprint-10-US-203669 @komal @Allocation
   Scenario: Directed Ann_ Verify as PM user I see new 'Budget summary' section on top of budget tab on App
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -1387,7 +1387,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Subaward Ceiling" inside page block
     Then I softly see field "Budgeted Amount" inside page block
 
-  @done @219308 @DirectedAnnVerifyasEXEuserIcannotseeBudgetSummarybyFocusAreasectiononAppifsettingfocusareaisNoonAnn @sprint-10-US-203669 @komal @Allocation
+  @219308 @DirectedAnnVerifyasEXEuserIcannotseeBudgetSummarybyFocusAreasectiononAppifsettingfocusareaisNoonAnn @sprint-10-US-203669 @komal @Allocation
   Scenario: Directed Ann_ Verify as EXE user I can not see 'Budget Summary by Focus Area' section on App  if setting focus area is No on Ann
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -1444,7 +1444,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #219308
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @done @219303 @DirectedAnnVerifyasEXEuserIseenewBudgetsummarysectionontopofbudgettabonApp @sprint-10-US-203669 @komal @Allocation
+  @219303 @DirectedAnnVerifyasEXEuserIseenewBudgetsummarysectionontopofbudgettabonApp @sprint-10-US-203669 @komal @Allocation
   Scenario: Directed Ann_ Verify as EXE user I see new 'Budget summary' section on top of budget tab on App
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1503,7 +1503,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Subaward Floor" inside page block
     Then I softly see field "Subaward Ceiling" inside page block
 
-  @done @219334 @219340 @CompetitiveAnnVerifyasPMuserIcannotseesubawardfloorandsubawardceilingundertheoverviewtabinApp @sprint-10-US-203669 @komal @Allocation
+  @219334 @219340 @CompetitiveAnnVerifyasPMuserIcannotseesubawardfloorandsubawardceilingundertheoverviewtabinApp @sprint-10-US-203669 @komal @Allocation
   Scenario: Competitive Ann_ Verify as PM user I cannot see  sub-award floor and sub-award ceiling, under the overview tab in App
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1566,7 +1566,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---" :
       | Focus Area | Budgeted Amount |
 
-  @done @219338 @CompetitiveAnnVerifyasEXEuserIseenewBudgetsummarysectionontopofbudgettabonApp @sprint-10-US-203669 @komal @Allocation
+  @219338 @CompetitiveAnnVerifyasEXEuserIseenewBudgetsummarysectionontopofbudgettabonApp @sprint-10-US-203669 @komal @Allocation
   Scenario: Competitive Ann_ Verify as EXE user I see new 'Budget summary' section on top of budget tab on App
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1626,7 +1626,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Subaward Floor" inside page block
     Then I softly see field "Subaward Ceiling" inside page block
 
-  @done @219336 @CompetitiveAnnVerifyasPMuserIseenewBudgetsummarysectionontopofbudgettabonApp @sprint-10-US-203669 @komal @Allocation
+  @219336 @CompetitiveAnnVerifyasPMuserIseenewBudgetsummarysectionontopofbudgettabonApp @sprint-10-US-203669 @komal @Allocation
   Scenario: Competitive Ann_ Verify as PM user I see new 'Budget summary' section on top of budget tab on App
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -1739,7 +1739,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Budget" sub tab
     Then I softly see field "Recommended Budget" inside page block
 
-  @done @219360 @DirectedAnnVerifyasAdminuserIcanseeRecommendedBudgetfieldisvisibleunderbudgetsummarywhenAppstatusisnegotiationsubmitted @sprint-10-US-203669 @komal @Allocation
+  @219360 @DirectedAnnVerifyasAdminuserIcanseeRecommendedBudgetfieldisvisibleunderbudgetsummarywhenAppstatusisnegotiationsubmitted @sprint-10-US-203669 @komal @Allocation
   Scenario: Directed Ann_ Verify as Admin user I can see Recommended Budget field is visible under budget summary when App status is negotiation submitted
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1782,7 +1782,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Budget" sub tab
 #    Then I softly see field "Recommended Budget" inside page block
 
-  @done @219325 @CompetitiveAnnVerifyasPMusershouldnotseeFocusAreasectionunderBudgetsubtabofpreapplicationevenifsettingasAllocationlevelisNAFocusAreaisYES @sprint-09-US-208948 @komal @Allocation
+  @219325 @CompetitiveAnnVerifyasPMusershouldnotseeFocusAreasectionunderBudgetsubtabofpreapplicationevenifsettingasAllocationlevelisNAFocusAreaisYES @sprint-09-US-208948 @komal @Allocation
   Scenario: Competitive Ann as PM user should not see 'Focus Area' section under Budget subtab of pre-application even if setting as Allocation level is 'NA' & Focus Area is 'YES'
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2100,7 +2100,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount must be less than or equal to the Subaward Ceiling Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
 
-  @done @219112 @PreapplicationVerifyasSPAusershouldseeBudgetSummarybyFocusAreasectionbelowBudgetSummarysectionunderbudgettabofpreapplicationiffocusareaisYESforCompetitiveAnnouncement @sprint-09-US-208978 @komal @Allocation
+  @219112 @PreapplicationVerifyasSPAusershouldseeBudgetSummarybyFocusAreasectionbelowBudgetSummarysectionunderbudgettabofpreapplicationiffocusareaisYESforCompetitiveAnnouncement @sprint-09-US-208978 @komal @Allocation
   Scenario: Pre-application>>Verify as SPA user should see Budget Summary by Focus Area section below Budget Summary section under budget tab of pre-application if focus area is 'YES' for Competitive Announcement
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2187,7 +2187,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount must be less than or equal to the Subaward Ceiling Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
 
-  @done @221170 @PreapplicationVerifyasSPIusershouldnotseeBudgetSummarybyFocusAreasectionbelowBudgetSummarysectionunderbudgettabofpreapplicationiffocusareaisNOforDirectedAnnouncement @sprint-09-US-208978 @komal @Allocation
+  @221170 @PreapplicationVerifyasSPIusershouldnotseeBudgetSummarybyFocusAreasectionbelowBudgetSummarysectionunderbudgettabofpreapplicationiffocusareaisNOforDirectedAnnouncement @sprint-09-US-208978 @komal @Allocation
   Scenario:Pre-application>>Verify as SPI user should not see Budget Summary by Focus Area section below Budget Summary section under budget tab of pre-application if focus area is 'NO' for Directed Announcement
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "PRE_APP_YES_FOCUS_AREA_NO"
     When I am on "SUBPORTAL" portal
@@ -2204,7 +2204,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #221170
     Then I softly cannot see page block "Budget Summary by Focus Area"
 
-  @done @221113 @PreapplicationVerifyasSPAusershouldseeBudgetedAmountfieldunderPreapplicationOverviewsectionunderOverviewsubtabofpreapplicationforDirectedAnnouncement @sprint-09-US-208978 @komal @Allocation
+  @221113 @PreapplicationVerifyasSPAusershouldseeBudgetedAmountfieldunderPreapplicationOverviewsectionunderOverviewsubtabofpreapplicationforDirectedAnnouncement @sprint-09-US-208978 @komal @Allocation
   Scenario: Pre-application>>Verify as SPA user should see 'Budgeted Amount' field under 'Pre-application Overview' section under Overview subtab of pre-application for Directed Announcement
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "PRE_APPLICATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2448,7 +2448,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly do not see "Actions" in flex table header "---applicationIntake:-:focusAreaTableAppId---"
 #    Then I softly cannot see top right button "Remove Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
 
-  @ch4 @222483 @VerifyINDusercanaddremovefocusareaintheBudgetTabBudgetSummarybyFocusAreasectiononlyifpreapplicationissenttosrfornegotiation @sprint-10-US-221062 @komal @Allocation
+  @222483 @VerifyINDusercanaddremovefocusareaintheBudgetTabBudgetSummarybyFocusAreasectiononlyifpreapplicationissenttosrfornegotiation @sprint-10-US-221062 @komal @Allocation
   Scenario: Verify IND user can add/remove focus area in the "Budget Tab: Budget Summary by Focus Area" section only if pre-application is sent to s/r for negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "INVITED_APPLICANT_IND_ORGPRE_PRE_APPLICATION_NEGOTIATION-Automation EXE user-Automation EXE user"
     When I login to "As a Grantor" app as "EXE" user
@@ -3043,7 +3043,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "2" seconds
     Then I softly see field "Pre-Application Sections for Negotiation" as "Budget Tab: Budget Summary by Focus Area Budget Tab: Budget Details"
 
-  @ch4 @222501  @sprint-10-US-221062 @komal @Allocation
+  @222501  @sprint-10-US-221062 @komal @Allocation
   Scenario: Directive Ann - Verify SPI user see validation message if budget amount not matches with sub award ceiling Amt due to user remove focus area and try to submit pre-app to grantor
     Given I published "Directed" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I login to "As a Grantor" app as "PM" user
@@ -3153,7 +3153,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
 
-  @ch4 @227868 @227871 @VerifySPIUserresubmittheapplicationafternegotiationFromFDMcheckwhentheBudgetedamountmustbeequaltotheAllocationAmount @sprint-13-US-224692 @komal @Allocation
+  @227868 @227871 @VerifySPIUserresubmittheapplicationafternegotiationFromFDMcheckwhentheBudgetedamountmustbeequaltotheAllocationAmount @sprint-13-US-224692 @komal @Allocation
   Scenario Outline:  Verify SPI User  resubmit the application after negotiation (From FDM), check when the Budgeted amount must be equal to the Allocation Amount
   |  Verify SPI User  resubmit the application after negotiation (From FDM), check when the Budgeted amount must be equal to the Allocation Amount |
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "<AllocationLevel>"
@@ -3202,7 +3202,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | {SavedValue:Automation Runtime Formula Announcement} | BY_APPLICANT               |
       | {SavedValue:Automation Runtime Formula Announcement} | BY_APPLICANT_FOCUS_AREA_NO |
 
-  @ch4 @227872 @VerifywhenSPIuserresubmittheapplicationafternegotiationfromFDMcheckFocusareasbudgetedtotalmustbeequaltoAllocationamountforthatfocusareainbudgetsummarysection @sprint-13-US-224692 @komal @Allocation
+  @227872 @VerifywhenSPIuserresubmittheapplicationafternegotiationfromFDMcheckFocusareasbudgetedtotalmustbeequaltoAllocationamountforthatfocusareainbudgetsummarysection @sprint-13-US-224692 @komal @Allocation
   Scenario Outline: Verify when SPI user  resubmit the application after negotiation(from FDM) check Focus area's budgeted total, must be equal to Allocation amount for that focus area in budget summary section
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA-Automation EXE user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3247,7 +3247,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @done @227874  @sprint-13-US-224692 @komal @Allocation @bug-
+  @227874  @sprint-13-US-224692 @komal @Allocation @bug-
   Scenario Outline:  Verify when IND user  resubmit the application after negotiation(from Application) check Focus area's budgeted total, must be equal to Allocation amount for that focus area in budget summary section  & user should able to create the subaward
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA-Automation EXE user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -3315,7 +3315,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @ch4 @274170 @ValidateFormulaPMusercanupdateallocationonparticularFAonApplicantunderApplicantsectiononAnnouncementbeforesubmittingapplication&seeupdatedAllocationAmountonsameApplication&seevalidationFAYES&AllocationTypeByApplicant @Sprint-23-US-273843 @vaibhav @Allocation
+  @274170 @ValidateFormulaPMusercanupdateallocationonparticularFAonApplicantunderApplicantsectiononAnnouncementbeforesubmittingapplication&seeupdatedAllocationAmountonsameApplication&seevalidationFAYES&AllocationTypeByApplicant @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Formula PM user can update allocation on particular FA on Applicant under Applicant section on Announcement before submitting application & see updated Allocation Amount on same Application & see validation FA YES Allocation Type By Applicant
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3533,7 +3533,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Budget Tab - The Subrecipient Match should not be less than the given value.                   |
       | Budget Tab - Enter budget details before submitting an Application to the Grantor.             |
 
-  @ch4 @274172 @ValidatePMusercanupdateallocationonparticularApplicantacrossFAunderApplicantsectiononAnnouncementaftersubmittingapplicationseeupdatedAllocationAmountonsameApplicationFAYES&AllocationTypeByApplicant @Sprint-23-US-273843 @vaibhav @Allocation
+  @274172 @ValidatePMusercanupdateallocationonparticularApplicantacrossFAunderApplicantsectiononAnnouncementaftersubmittingapplicationseeupdatedAllocationAmountonsameApplicationFAYES&AllocationTypeByApplicant @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate PM user can update allocation on particular Applicant across FA under Applicant section on Announcement after submitting application & see updated Allocation Amount on same Application FA YES & Allocation TypeBy Applicant
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3761,7 +3761,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see value "$500" for title "Allocation Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Then I softly see value "$500" for title "Allocation Amount" against the value "Automation Permanent Focus Area2" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
 
-  @done @274245 @ValidateFormulaPMusercanupdateallocationonApplicantunderApplicantsectiononAnnouncementaftersubmittingapplicationusercanseeupdatedAllocationAmountonApplicationFANo&AllocationTypeByApplicant @Sprint-23-US-273843 @vaibhav @Allocation
+  @274245 @ValidateFormulaPMusercanupdateallocationonApplicantunderApplicantsectiononAnnouncementaftersubmittingapplicationusercanseeupdatedAllocationAmountonApplicationFANo&AllocationTypeByApplicant @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Formula PM user can update allocation on Applicant under Applicant section on Announcement after submitting application & user can see updated Allocation Amount on Application FANo Allocation Type By Applicant
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -3825,7 +3825,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$5,000"
 
-  @done @274246 @ValidateFormulaPMusercanupdateallocationonApplicantunderApplicantsectiononAnnouncementbeforesubmittingapplicationseeupdatedAllocationAmountonApplicationFANoAllocationTypeByApplicant @Sprint-23-US-273843 @vaibhav @Allocation
+  @274246 @ValidateFormulaPMusercanupdateallocationonApplicantunderApplicantsectiononAnnouncementbeforesubmittingapplicationseeupdatedAllocationAmountonApplicationFANoAllocationTypeByApplicant @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate Formula PM user can update allocation on Applicant under Applicant section on Announcement before submitting application & see updated Allocation Amount on Application FA No & Allocation Type By Applicant
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -3860,7 +3860,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$5,000"
 
-  @ch4 @276440 @ValidateFormulaByapplicantFocusAreaFAYESsubrecipientusercandownloadpdfforNotyetQualifiedopportunity @Sprint-23-US-275864 @vaibhav @Allocation
+  @276440 @ValidateFormulaByapplicantFocusAreaFAYESsubrecipientusercandownloadpdfforNotyetQualifiedopportunity @Sprint-23-US-275864 @vaibhav @Allocation
   Scenario: Validate Formula By applicant & Focus Area FA YES subrecipient user can download pdf for Not yet Qualified opportunity
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -3892,7 +3892,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Opportunity Files" on page "5" of "govgrant" pdf file
     Then I softly see "Notes" on page "5" of "govgrant" pdf file
 
-  @ch4 @276406  @Sprint-23-US-275864 @vaibhav @Allocation
+  @276406  @Sprint-23-US-275864 @vaibhav @Allocation
   Scenario: Validate Formula By applicant FA No subrecipient user can download pdf for Qualified opportunity
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -3925,7 +3925,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Opportunity Files" on page "5" of "govgrant" pdf file
     Then I softly see "Notes" on page "5" of "govgrant" pdf file
 
-  @ch4 @276407 @ValidateCheckfieldsandDownloadasPDFforOppConvertedtoapplication @Sprint-23-US-275864 @vaibhav @Allocation
+  @276407 @ValidateCheckfieldsandDownloadasPDFforOppConvertedtoapplication @Sprint-23-US-275864 @vaibhav @Allocation
   Scenario: Validate Check fields and Download as PDF for Opp Converted to application
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -3970,7 +3970,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Opportunity Files" on page "5" of "govgrant" pdf file
     Then I softly see "Notes" on page "5" of "govgrant" pdf file
 
-  @ch4 @274151 @VerifywhenSPIuserresubmittheapplicationafternegotiationfromFDMcheckFocusareasbudgetedtotalmustbeequaltoAllocationamountforthatfocusareainbudgetsummarysection @Sprint-23-US-273843 @vaibhav @Allocation
+  @274151 @VerifywhenSPIuserresubmittheapplicationafternegotiationfromFDMcheckFocusareasbudgetedtotalmustbeequaltoAllocationamountforthatfocusareainbudgetsummarysection @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Verify when SPI user  resubmit the application after negotiation(from FDM) check Focus area's budgeted total, must be equal to Allocation amount for that focus area in budget summary section
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "SECOND_FOCUS_AREA_BY_APPLICANT_FOCUS_AREA_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "SECOND_BUDGET_CATEGORY"
@@ -4016,7 +4016,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @done @274119 @ValidatePOusercreatemultipleapplicationsondiffrecipientwhererelatedAnncreatedwithMultipleRecipient @Sprint-23-US-273843 @vaibhav @Allocation
+  @274119 @ValidatePOusercreatemultipleapplicationsondiffrecipientwhererelatedAnncreatedwithMultipleRecipient @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate PO user create multiple applications on diff recipient where related Ann created with Multiple Recipient
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -4156,7 +4156,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I pause execution for "3" seconds
     Then I see field "Status" as "Submitted to Grantor"
 
-  @done @113217 @Validatetheusercanenterprogramincome$onapplicationwhenprogramincomeinsettoyesonthefundingopportunity @Sprint-23-US-273843 @vaibhav @Allocation
+  @113217 @Validatetheusercanenterprogramincome$onapplicationwhenprogramincomeinsettoyesonthefundingopportunity @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate the user can enter program income $ on application when program income is set to yes on the funding opportunity
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -4180,7 +4180,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I pause execution for "3" seconds
     Then I softly see field "Estimated Program Income For Project Period" as "$500.00"
 
-  @ch4 @274238  @Sprint-23-US-273843 @vaibhav @Allocation
+  @274238  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Formula FA No Verify updated values of Allocation Amount should get updated in opportunity and Qualified opportunity as well.
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO_NEGOTIATION_YES"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"

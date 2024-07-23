@@ -2484,7 +2484,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
-  @ch2 @286507  @sprint-1-US-295145 @hitesh @Undo @bug-414554
+  @286507  @sprint-1-US-295145 @hitesh @Undo @bug-414554
   Scenario: Verify user see all tables display correctly in downloaded PDF for award in rejected state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2585,14 +2585,14 @@ Feature: Validate all scenarios of grants and award with undo
     Then I softly see "{SavedValue:AwardEGMSID}" on page "1" of "govgrant" pdf file
     Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrant" pdf file
     Then I softly see following details in "govgrant" pdf file:
-      | Detail                    | Page Number |
-      | {SavedValue:AwardEGMSID}  | 1           |
-      | {SavedValue:GrantEGMSID}  | 1           |
-      | Rejected                  | 1           |
-      | Created by                | 2           |
-      | {SavedValue:PM Username}  | 2           |
-      | Last Modified by          | 2           |
-      | {SavedValue:FO Username}  | 2           |
+      | Detail                   | Page Number |
+      | {SavedValue:AwardEGMSID} | 1           |
+      | {SavedValue:GrantEGMSID} | 1           |
+      | Rejected                 | 1           |
+      | Created by               | 2           |
+      | {SavedValue:PM Username} | 2           |
+      | Last Modified by         | 2           |
+      | {SavedValue:FO Username} | 2           |
     And I switch to parent tab
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Subaward_Submit_for_Approval.pdf" as name

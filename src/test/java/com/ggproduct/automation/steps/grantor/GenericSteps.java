@@ -517,8 +517,9 @@ public class GenericSteps {
 
     @And("I click on Menu icon present on top right corner of the page")
     public void iClickOnMenuIconPresentOnTopRightCornerOfThePage() {
+        I.amPerforming().waitFor().makeThreadSleep(2000);
         By menu = By.xpath("//*[contains(@class,'overview-header')]//*[@title='Menu' or (contains(@class,'menu') and (@class='bars'))] | //gnt-header-overview//lightning-button-menu//button");
-        I.amPerforming().click().on(menu);
+        I.amPerforming().click().withJavaScript(menu);
     }
 
     @And("I upload the attachment {string} of type {string} from computer")
@@ -647,18 +648,5 @@ public class GenericSteps {
     @And("I click on hyperlink against {string} in table {string}")
     public void iClickOnHyperlinkAgainstInTable(String value, String id) {
         grantorProjectManager.clickHyperLinkAgainstValueinTable(value, id);
-    }
-
-    @And("I scroll down to table with id {string} if visible")
-    public void iScrollDownToTableWithIdIfVisible(String tableid) {
-        try {
-            if (I.amPerforming().checkToSee().isDisplayed(tableid)) {
-                I.amPerforming().scroll().onPageToSpecificElement(tableid);
-            }
-        } catch (Exception e) {
-            System.out.println("Element is not located in page");
-            I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_CRITICAL, "Element is not located in page");
-            e.printStackTrace();
-        }
     }
 }
