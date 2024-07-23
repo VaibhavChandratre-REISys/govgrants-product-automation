@@ -83,7 +83,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Back To Strategic Plan" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
- @debug @SubrecipientContactCreation @ProdSan2
+ @SubrecipientContactCreation @ProdSan2
   Scenario: Subrecipient Contact Creation
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab

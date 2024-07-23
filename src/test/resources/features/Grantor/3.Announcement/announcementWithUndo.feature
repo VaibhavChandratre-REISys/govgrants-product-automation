@@ -1,7 +1,7 @@
 @grantor-regression @grantor-parallel-regression @announcement @regression @announcement-undo
 Feature: Validate all scenarios in the Announcement with Undo
 
-  @hitTest @283963 @283966 @283973 @283965 @VerifywhenPmapprovercanclickonundobuttoninAnnouncementrecordwhenrecordisinApprovedstate @sprint-4-US-295141 @hitesh @Undo
+  @283963 @283966 @283973 @283965 @VerifywhenPmapprovercanclickonundobuttoninAnnouncementrecordwhenrecordisinApprovedstate @sprint-4-US-295141 @hitesh @Undo
   Scenario: Verify when Pm approver can click on undo button in Announcement  record when record is in Approved state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
