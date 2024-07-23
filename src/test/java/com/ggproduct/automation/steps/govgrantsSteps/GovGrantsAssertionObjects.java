@@ -233,7 +233,7 @@ public final class GovGrantsAssertionObjects {
         By desiredTextSelector = By.xpath("//*[normalize-space(text())='" + desiredText + "']");
         if (isContaining) {
             try {
-                desiredTextSelector = By.xpath("//div[@class='tab-inner-content']//span[contains(normalize-space(text()),'" + desiredText + "')] | //div[@class='slds-box slds-theme_default'] | //span[contains(normalize-space(text()),'" + desiredText + "')] | //*[contains(normalize-space(text()),'" + desiredText + "')] | //*//text()[contains(.,'" + desiredText + "')] | //*[contains(text(),'" + desiredText + "')]");
+                desiredTextSelector = By.xpath("//div[@class='tab-inner-content']//span[contains(normalize-space(text()),'" + desiredText + "')] | //div[@class='slds-box slds-theme_default'] | //span[contains(normalize-space(text()),'" + desiredText + "')] | //*[contains(normalize-space(text()),'" + desiredText + "')] | //*//text()[contains(.,'" + desiredText + "')] | //*[contains(text(),'" + desiredText + "')] | //span[text()='" + desiredText + "']");
                 I.amPerforming().getElementReference().of(desiredTextSelector);
             } catch (InvalidSelectorException e) {
                 /* Above provided xpath (I.e. //text()[contains(.,'" + desiredText + "')] ) is giving InvalidSelectorException, so handling it over here */
@@ -541,7 +541,7 @@ public final class GovGrantsAssertionObjects {
                 + " | //div[contains(@class, 'alert') and @ng-repeat]" // First variant of flex table messages
                 + " | //div[contains(@class,'alertMessages')]//div[contains(@class,'alertMessage')]//span[@class='ng-binding']" // Second variant of flex table messages
                 + " | //div[contains(@class,'alert-danger')]" // get the alert danger message...
-                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text | //c-flex-layout-page-messages//span//lightning-formatted-text | //span[@class='toastMessage forceActionsText']"
+                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text | //c-flex-layout-page-messages//span//lightning-formatted-text | //span[@class='toastMessage forceActionsText'] | //span[contains(@class,'changeOwnerErrorMessage')]"
         );
 
         List<String> desiredMessages = unsanitizedDesiredMessages
@@ -2248,7 +2248,7 @@ public final class GovGrantsAssertionObjects {
 
     private WebElement getOverLayTitle(String titleName) {
         return I.amPerforming().getElementReference().of(ByUsing.xpath(
-                "//header[contains(@class,'modal-header')]//h2[text()='" + titleName + "']"));
+                "//header[contains(@class,'modal-header')]//h2[text()='" + titleName + "'] | //div[contains(@class,'modal-header')]//h1[text()='" + titleName + "']"));
     }
 
     /**
@@ -3682,4 +3682,98 @@ public final class GovGrantsAssertionObjects {
         }
     }
 
+    public void assertGlobalSearchDisplayOrNot(String usage) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isGlobalSearchDisplay()).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isGlobalSearchDisplay()).isFalse();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isGlobalSearchDisplay());
+        } else {
+            Assert.assertFalse(isGlobalSearchDisplay());
+        }
+    }
+
+    private boolean isGlobalSearchDisplay() {
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'global-header__item_search')]")))) {
+                return true;
+            }
+        } catch (Exception e) {
+            //Handle exception to continue execution
+        }
+        return false;
+
+    }
+
+    public void assertSectionsofGlobalSearchDisplayOrNot( String sectionName, String usage) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isSectionsInGlobalSearchDisplay(sectionName)).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isSectionsInGlobalSearchDisplay(sectionName)).isFalse();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isSectionsInGlobalSearchDisplay(sectionName));
+        } else {
+            Assert.assertFalse(isSectionsInGlobalSearchDisplay(sectionName));
+        }
+
+    }
+
+    private boolean isSectionsInGlobalSearchDisplay(String sectionName) {
+        try {
+            WebElement globalSearchDropdown = I.amPerforming().getElementReference().of(By.xpath("//*[@data-value='Search: All']"));
+            I.amPerforming().click().on(globalSearchDropdown);
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'global-header__item_search')]//ul//h3[@title='" + sectionName + "']")))) {
+                return true;
+            }
+        } catch (Exception e) {
+            //Handle exception to continue execution
+        }
+        return false;
+    }
+
+    public void assertTopRecentRecordsDisplayInsideGlobalSearchBox(String number, String usage) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(Integer.parseInt(number)).isEqualTo(isTopRecentRecordsInGlobalSearchDisplay(number));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(Integer.parseInt(number)).isNotEqualTo(isTopRecentRecordsInGlobalSearchDisplay(number));
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertEquals(Integer.parseInt(number), isTopRecentRecordsInGlobalSearchDisplay(number));
+        } else {
+            Assert.assertNotEquals(Integer.parseInt(number), isTopRecentRecordsInGlobalSearchDisplay(number));
+        }
+    }
+
+    private int isTopRecentRecordsInGlobalSearchDisplay(String number) {
+        List<Elements> recentRecords = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@data-aura-class='forceSearchInputDesktop']//div[@role='listbox']//ul//li")).subList(0,5);
+        return recentRecords.size();
+    }
+
+    public void assertdropdownOptionsInsideQuickSearchSection(String usage, String options, String sectionName) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isDropDownOptionsInsideSectionofGlobalSearch(options, sectionName)).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isDropDownOptionsInsideSectionofGlobalSearch(options, sectionName)).isFalse();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isDropDownOptionsInsideSectionofGlobalSearch(options, sectionName));
+        } else {
+            Assert.assertFalse(isDropDownOptionsInsideSectionofGlobalSearch(options, sectionName));
+        }
+    }
+
+    private boolean isDropDownOptionsInsideSectionofGlobalSearch(String options, String sectionName) {
+        boolean flag = false;
+        By globalDropdownSelector = By.xpath("//*[@data-value='Search: All']");
+        if(I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)){
+            I.amPerforming().click().on(globalDropdownSelector);
+            List<Elements> elements= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//ul[@aria-label='" + sectionName + "']//li"));
+            for (Elements element : elements) {
+                if (element.getText().equals(options)) {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        return flag;
+    }
 }

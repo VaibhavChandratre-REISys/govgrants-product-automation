@@ -506,3 +506,13 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I wait for "2" seconds
     When I perform quick search for "{SavedValue:OrgRiskId}" in "---riskassessment:-:riskAssSourceTableId---" panel
     Then I do not see value "{SavedValue:OrgRiskId}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
+
+  @64124 @orRiskAssessmentTaskNotDisplayedForINDUser @deepika @issuewithINDUser
+  Scenario:  Validate Task for submitting organizational Risk Assessment should not be generated for IND profile User .
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "IND" user
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    Then I see "No Records Found" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---"
+    And I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"

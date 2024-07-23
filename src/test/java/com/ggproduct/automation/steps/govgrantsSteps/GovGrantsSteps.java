@@ -336,7 +336,7 @@ public final class GovGrantsSteps {
     @When("^I perform quick search inside global search \"([^\"]*)\"(| without processing)$")
     public void performQuickSearchInsideGlobalSearch(String searchTerm, String usage) {
         if (usage.contains("without processing")) {
-            By globalSearchInputBoxWithAutosuggestion = By.cssSelector("div.input-group>input#isTypeAhead");
+            By globalSearchInputBoxWithAutosuggestion = By.xpath("//div[contains(@class,'hasEntitySelector')]//input");
             I.amPerforming().textInput().toClear(globalSearchInputBoxWithAutosuggestion);
             I.amPerforming().textInput().in(globalSearchInputBoxWithAutosuggestion, searchTerm);
         } else {
@@ -957,7 +957,7 @@ public final class GovGrantsSteps {
     }
 
     @Description("To click on any hyperlink with value or id inside page details")
-    @And("^I click (in table|on) (subaward dashboard|hyperlink|link name) containing value \"([^\"]*)\"$")
+    @And("^I click (in table|on) (subaward dashboard|hyperlink|link name|hyperlink for global search) containing value \"([^\"]*)\"$")
     public void iClickOnHyperlinkContainingValue(String check, String usage, String linkName) {
         govgrants.perform().pageDetails().clickOnLink(check.contains("table"), usage, linkName);
     }
@@ -1169,5 +1169,17 @@ public final class GovGrantsSteps {
     @Then("I (softly see|see) value \"([^\"]*)\" for title \"([^\"]*)\" against the value \"([^\"]*)\" inside field history table$")
     public void iSoftlySeeValueForTitleAgainstTheValueInsideFieldHistoryTable(String usage,String rowValue, String headerName, String uniqueValue) {
         ggObjects.toCheckValueForTitleInsideFieldHistoryTableAgainstValue(usage.contains("softly"),rowValue,headerName,uniqueValue);
+    }
+
+    @And("I click on row level action button {string} against {string} in global search with id {string}")
+    public void iClickOnRowLevelActionButtonAgainstInGlobalSearchWithId(String buttonName, String uniqueColumnValue, String tableId) {
+        ggObjects.toClickOnRowLevelActionButtonforGloabalSearchTable(tableId,
+                uniqueColumnValue,
+                buttonName);
+    }
+
+    @And("I click on record {string} from global search")
+    public void iClickOnRecordFromGlobalSearch(String recordName) {
+        ggObjects.toClickOnRecordIdForGlobalSearch(recordName);
     }
 }
