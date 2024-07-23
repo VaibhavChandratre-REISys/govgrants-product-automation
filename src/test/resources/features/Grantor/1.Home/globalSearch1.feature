@@ -24,6 +24,7 @@ Feature: Validate all scenarios for the global search
     And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeout"
     Then I softly see field "Status" as "Created"
     And I wait for "3" seconds
+    When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -46,6 +47,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Acknowledged by Subrecipient"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
+    When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutPeerReviewTableId---" by clicking "New" :
       | Reviewer Name | Responsibility  | Description            | Due Date |
@@ -61,6 +63,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Submitted for Review"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
+    When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "Automation PM" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---"
     And I enter a review as "Passed"
@@ -71,6 +74,7 @@ Feature: Validate all scenarios for the global search
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
     And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeout"
+    When I click on "Save" in the page details
     And I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     And I wait for "3" seconds
@@ -127,6 +131,7 @@ Feature: Validate all scenarios for the global search
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:CloseoutID}"
     And I click on row level action button "Edit" against "{SavedValue:CloseoutID}" in global search with id "Closeout"
+    When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutPeerReviewTableId---" by clicking "New" :
       | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
@@ -141,6 +146,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Submitted for Review"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
+    When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "Automation PM" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---"
     And I enter a review as "Passed"
@@ -152,6 +158,7 @@ Feature: Validate all scenarios for the global search
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:CloseoutID}"
     And I click on row level action button "Edit" against "{SavedValue:CloseoutID}" in global search with id "Closeout"
+    When I click on "Save" in the page details
     And I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
