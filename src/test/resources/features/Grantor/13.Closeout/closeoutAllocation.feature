@@ -1287,6 +1287,7 @@ Feature: Validate all scenarios in Closeout
       | Name           | Amendment Request |
       | Automation EXE | Step 1            |
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -2221,6 +2222,7 @@ Feature: Validate all scenarios in Closeout
       | Extra Salary | The narrative | 500        | 1        | Feet        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2344,6 +2346,7 @@ Feature: Validate all scenarios in Closeout
       | 5000  | ProposedBudgetEndDate__c   |
     And I wait for "3" seconds
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
@@ -2730,12 +2733,13 @@ Feature: Validate all scenarios in Closeout
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     And I click on "Submit for Approval" in the page details
+    And I wait for "4" seconds
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     And I click on "Amend Subaward" in the page details
     And I wait for "4" seconds
     When I click on "Activate" in the page details
-    And I wait for "4" seconds
+    And I wait for "10" seconds
     And I navigate to "Closeout" tab
     And I click toggle button to select "Closeouts - All"
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
@@ -2843,7 +2847,7 @@ Feature: Validate all scenarios in Closeout
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
     And I get the "EGMS ID"
