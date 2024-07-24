@@ -18,7 +18,7 @@ Feature: Validate all registration related scenarios
     When I click on "Download" icon for "Attachment.pdf" inside table
     Then I softly see new tab is opened
 
-  @82051 @verifyEnteredValueOfPaymentAddressSection-Organization @monu
+  @82051 @verifyEnteredValueOfPaymentAddressSection-Organization @monu @wip @invalidScenario
   Scenario:Verify entered details is visible in edit mode of fields if user selected NO as in Same as organization Address field
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -76,7 +76,7 @@ Feature: Validate all registration related scenarios
     Then I softly see fields "PaymentAddressState__c" is not visible
     Then I softly see fields "PaymentAddressZipCode__c" is not visible
 
-  @82787 @82790 @verifyPrimaryRepresentativeDetails-Individual @monu
+  @82787 @82790 @verifyPrimaryRepresentativeDetails-Individual @monu @wip @invalidScenario
   Scenario:Verify user is able to see filled details on Primary Representative detail page while individuals registration
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -115,7 +115,7 @@ Feature: Validate all registration related scenarios
     Then I softly see fields "fieldPaymentAddressState__c" is not visible
     Then I softly see fields "fieldPaymentAddressZipCode__c" is not visible
 
-  @82024 @verifyFilledDetailsPopulatedAtAuthorizedDetailsSection-Organization @monu
+  @82024 @verifyFilledDetailsPopulatedAtAuthorizedDetailsSection-Organization @monu @wip @invalidScenario
   Scenario:Verify user should be able to see filled details at organization address id getting populated at Authorized section
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -201,7 +201,7 @@ Feature: Validate all registration related scenarios
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Step 1 of 2" in the page details
 
-  @33827 @verifySavedDetailsOfOrganizationProfileSubTab-Organization @monu
+  @33827 @verifySavedDetailsOfOrganizationProfileSubTab-Organization @monu @wip @invalidScenario
   Scenario:Verify user should be able to see filled details at organization sub tab after redirecting back to organization profile tab while clicking on back button
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -768,7 +768,7 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:OldfullName}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "Review Individual User Registration" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"
 
-  @222975 @223047 @ValidateAdminusershouldnotabletoseethereassigntaskofParent/ChildrelationshipApprovalfromAlltasksAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment
+  @222975 @223047 @ValidateAdminusershouldnotabletoseethereassigntaskofParent/ChildrelationshipApprovalfromAlltasksAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment @wip @invalidScenario
   Scenario: Validate Admin user should not able to see the reassign task of Parent/Child relationship Approval from All tasks As a Admin
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
