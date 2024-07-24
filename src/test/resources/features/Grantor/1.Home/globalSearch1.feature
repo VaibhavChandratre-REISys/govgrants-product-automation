@@ -56,16 +56,16 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Submitted for Review"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
-    And I select "Closeout" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
-    Then I softly can see row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in flex table with id "Closeout"
-    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeout"
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:closeoutRequestNo}" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:closeoutRequestNo}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "Automation PM" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---"
+    And I wait for "3" seconds
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
