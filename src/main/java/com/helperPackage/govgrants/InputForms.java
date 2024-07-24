@@ -1088,7 +1088,7 @@ public final class InputForms {
                 I.amPerforming().textInput().in(lookupInputBoxSelector, searchTerm);
                 By selectButtonLocator = By.xpath("//div[@title='" + searchTerm + "']");
                 I.amPerforming().scroll().toMoveToElement(selectButtonLocator);
-//               I.amPerforming().scroll().withMouseToElement(selectButtonLocator);
+//                I.amPerforming().scroll().withMouseToElement(selectButtonLocator);
                 I.amPerforming().click().on(selectButtonLocator);
             } else {
                 I.amPerforming().click().on(By.xpath("//div[@data-field_api_name='" + Search + "']//input[@type='search']"));
@@ -1178,7 +1178,7 @@ public final class InputForms {
     private void handleClearingMultiSelectInputForLWC(WebElement fieldWrapper) {
         String field = fieldWrapper.toString().split("//")[2].split("\'")[1];
         List<Elements> selectLists = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@data-field_api_name='" + field + "']//ul[contains(@id,'selected-list')]//li[contains(@class,'listbox__item')]"));
-        By addButtonSelector = By.xpath("//div[@data-field_api_name='" + field + "']//button[@title='Move selection to Available'] | //div[@data-field_api_name='" + field + "']//button[@title='Move to Available']");
+        By addButtonSelector = By.xpath("//div[@data-field_api_name='" + field + "']//button[@title='Move selection to Available'] |  //div[@data-field_api_name='" + field + "']//button[@title='Move to Available']");
         String Value = "";
 
         for (Elements elements : selectLists) {

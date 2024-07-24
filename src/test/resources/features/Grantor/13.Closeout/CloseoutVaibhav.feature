@@ -32,7 +32,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Automation PM" for title "Created By" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
     Then I softly see value "Created" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
 
-  @87350 @86706 @88851 @VerifyOverriddenJustificationinCloseout  @meenakshi
+ @87350 @86706 @88851 @VerifyOverriddenJustificationinCloseout  @meenakshi
   Scenario: To verify closeout owner allow to entered the Justification when Overriding the pending items in closeout phase
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -42,6 +42,7 @@ Feature: Validate all scenarios in Closeout
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "CloseoutID"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -200,6 +201,7 @@ Feature: Validate all scenarios in Closeout
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -280,6 +282,7 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutID"
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -529,6 +532,7 @@ Feature: Validate all scenarios in Closeout
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "CloseoutID"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |

@@ -18,6 +18,7 @@ Feature: Validate all scenarios in Desk Review
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReview"
 
@@ -1037,16 +1038,27 @@ Feature: Validate all scenarios in Desk Review
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Submit for Approval" in the page details
-    And I click on "Menu" in the page details
+    And I wait for "2" seconds
+    And I click on Menu icon present on top right corner of the page
+    And I wait for "5" seconds
     And I select "Take Snapshot" from dropdown
+    And I wait for "2" seconds
+    And I refresh the page
     When I navigate to "History" sub tab
     And I click on hyperlink which contains todays date with text "SnapShot on"
+    And I wait for "2" seconds
     When I download the file
     Then I softly see "{SavedValue:EGMSID}" on page "1" of "govgrants" pdf file
-    And I pause execution for "200" seconds
-    Then I softly can see mail notification for "INTERNAL" user with following subject:
-      | Desk Review Approval Requested |
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I pause execution for "120" seconds
+    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I refresh the page
+    And I see the mail subject is as follows :
+     """
+      Sandbox: Notification: Desk Review Approval Requested
+      """
+    Then I refresh the page
+    And I am on "INTERNAL" portal
+    When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
@@ -1100,8 +1112,9 @@ Feature: Validate all scenarios in Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     And I save the field labeled "EGMS ID" as "DeskReviewId"
     Then I softly can see top right button "Accept and Close" in page detail
-    And I click on "Accept And Close" in the page details
-    And I click on "Menu" in the page details
+    And I click on "Accept and Close" in the page details
+    And I click on Menu icon present on top right corner of the page
+    And I wait for "3" seconds
     And I select "Take Snapshot" from dropdown
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Desk Review - Accept And Close"
@@ -1114,10 +1127,14 @@ Feature: Validate all scenarios in Desk Review
     When I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:monitoringTabDeskReviewTableId---"
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     When I pause execution for "120" seconds
-    Then I softly can see mail notification for "EXTERNAL" user with following subject:
-      | Desk Review Closed |
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Desk Review Closed
+      """
 
-  @67834 @validateDownloadDeskReviewInCSV @deepika @skipOnJenkins
+  @67834 @validateDownloadDeskReviewInCSV @deepika @wip
   Scenario: Validate Internal User can Download the Desk Review associated in CSV format
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
