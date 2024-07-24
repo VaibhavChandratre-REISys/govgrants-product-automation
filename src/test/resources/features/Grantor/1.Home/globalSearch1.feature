@@ -163,19 +163,22 @@ Feature: Validate all scenarios for the global search
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
     And I wait for "3" seconds
-    When I navigate to "Planning" tab
-    And I select "Funding Sources" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:closeoutID}"
+    And I navigate to "Closeout" tab
+    And I select "Closeouts" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:CloseoutID}"
     And I wait for "2" seconds
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "Funding Sources"
-    And I perform quick search inside global search "Funding Sources"
+    And I perform quick search inside global search "Closeouts"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Title" inside refine by filter
-    Then I softly see "Funding Source Type" inside refine by filter
+    Then I softly see "Closeout" inside refine by filter
+    Then I softly see "Grant EGMS ID" inside refine by filter
+    Then I softly see "Project Name" inside refine by filter
+    Then I softly see "Project Period" inside refine by filter
     Then I softly see "Created By" inside refine by filter
     Then I softly see "Status" inside refine by filter
-    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "Funding Sources"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Created By" inside table "Funding Sources"
+    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "Closeouts"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Created By" inside table "Closeouts"
 
   @389645 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedEGMSIDGrantEGMSIDCreatedByonobjectsafterglobalsearchtheanyrecordf0orCloseout @sprint-2-US-386939 @hitesh @GlobalSearch
   Scenario: Verify that user redirect to that record when user click on any hyperlink provided (e.g. -EGMS ID, Grant EGMS ID, Created By) on objects after global search the any record for Closeout.
