@@ -803,4 +803,29 @@ public final class GovGrantsAssertionSteps {
     public void iSoftlySeeDropdownOptionUnderTheSection(String usage, String options, String sectionName) {
         ggAssertionObjects.assertdropdownOptionsInsideQuickSearchSection(usage, options, sectionName);
     }
+
+    @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" inside refine by filter$")
+    public void iSoftlySeeInsideRefineByFilter(String usage, String FieldName) {
+        ggAssertionObjects.assertFieldInsideRefineByFilter(usage,FieldName);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) the text \"([^\"]*)\" on left navigation for global search$")
+    public void iSoftlySeeTheTextOnLeftNavigationForGlobalSearch(String usage, String text) {
+        ggAssertionObjects.assertTheTextOnLeftNavigationForGlobalSearch(usage,text);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) record count \"([^\"]*)\" for module \"([^\"]*)\" on left navigation for global search$")
+    public void iSoftlySeeCountForModuleOnLeftNavigationForGlobalSearch(String usage, String countNumber, String moduleName) {
+        ggAssertionObjects.assertCountForModuleOnLeftNavigationForGlobalSearch(usage, countNumber, moduleName);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) options \"([^\"]*)\" inside \"([^\"]*)\" dropdown$")
+    public void iSoftlySeeOptionsInsideDropdown(String usage, String options, String dropDownName) {
+        ggAssertionObjects.assertOptionsInsideDropdown(usage, options,dropDownName );
+    }
+
+    @Then("^I (softly see|see) click on module \"([^\"]*)\" on left navigation for global search$")
+    public void iSoftlySeeClickOnModuleOnLeftNavigationForGlobalSearch(String usage, String names) {
+        ggAssertionObjects.assertClickOnModuleOnLeftNavigationForGlobalSearch(usage, names);
+    }
 }

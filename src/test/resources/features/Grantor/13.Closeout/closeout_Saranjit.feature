@@ -134,6 +134,8 @@ Feature: Validate all scenarios in Closeout
     And I enter value "Yes" into field "ChecklistQuestionPick22__c"
     And I enter value "Yes" into field "ChecklistQuestionPick23__c"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -151,8 +153,8 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Checklist" sub tab
     Then I softly see field "Has the subrecipient submitted all payment requests?" as "Yes"
     Then I softly see field "Has the subrecipient met the match requirement?" as "Yes"
-    Then I softly see field "Did the subrecipient fully expend program income earned during the award period prior to the closeout of the award?" as "Checklist Question Pick 9 Yes"
-    Then I softly see field "Has the subrecipient completed the scope of work as outlined in the subaward agreement?" as "Checklist Question Pick 11 Yes"
+    Then I softly see field "Did the subrecipient fully expend program income earned during the award period prior to the closeout of the award?" as "Yes"
+    Then I softly see field "Has the subrecipient completed the scope of work as outlined in the subaward agreement?" as "Yes"
 
   @96612 @VerifyAdvanceBalanceOfFundingAccountAtcloseoutRequest @monu
   Scenario: Verify user can see advance balance of funding account at closeout request as same as on SubAward

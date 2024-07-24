@@ -1070,3 +1070,198 @@ Feature: Validate all scenarios for the global search
     And I wait for "2" seconds
     And I click on hyperlink for global search containing value "{SavedValue:PM Username}"
     Then I softly see the text containing "{SavedValue:PM Username}"
+
+  @387802 @ValidatethatuserisabletoexpandtheresultbyannouncementmoduleandFilter/RefinethetheresultbyconfiguredColumnsforanannouncement @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate that user is able to expand the result by announcement module and Filter/Refine the the result by configured Columns for an announcement
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I wait for "2" seconds
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "Announcements"
+    And I perform quick search inside global search "Announcement"
+    Then I softly see "EGMS ID" inside refine by filter
+    Then I softly see "Announcement Name" inside refine by filter
+    Then I softly see "Application Due Date" inside refine by filter
+    Then I softly see "Created By" inside refine by filter
+    Then I softly see "Status" inside refine by filter
+    And I filter field record by "{SavedValue:PM Username}" by label "Created By" in left panel for global search
+    Then I softly see value "{SavedValue:PM Username}" for title "Created By" inside table "Announcements"
+    Then I softly see the text "Refine By" on left navigation for global search
+    And I click on "Expand List" button on left navigation for global search
+    Then I softly see the text "Announcements" on left navigation for global search
+    Then I softly see the text "Programs" on left navigation for global search
+    Then I softly see the text "Grants" on left navigation for global search
+
+  @388940 @ValidatethatuserisabletoexpandtheresultbyplanningmoduleandFilterRefinethetheresultbyconfiguredColumnsforanInternalProgram @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate that user is able to expand the result by planning module and Filter/Refine the the result by configured Columns for an Internal Program.
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter "Creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "Programs"
+    And I perform quick search inside global search "Programs"
+    Then I softly see "EGMS ID" inside refine by filter
+    Then I softly see "Type" inside refine by filter
+    Then I softly see "Program Name" inside refine by filter
+    Then I softly see "Created By" inside refine by filter
+    Then I softly see "Status" inside refine by filter
+    And I filter field record by "{SavedValue:PM Username}" by label "Created By" in left panel for global search
+    Then I softly see value "{SavedValue:PM Username}" for title "Created By" inside table "Programs"
+    Then I softly see the text "Refine By" on left navigation for global search
+    And I click on "Expand List" button on left navigation for global search
+    Then I softly see the text "Programs" on left navigation for global search
+    Then I softly see the text "Grants" on left navigation for global search
+    Then I softly see the text "Amendment Requests" on left navigation for global search
+
+  @387857 @ValidatethatadminuserwillseeallthelistofobjectsinthesearchresultwhicharementioninthelistReferDescriptionforglobalsearch @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate that admin user will see all the list of objects in the 'search result' which are mention in the list (Refer Description) for global search
+    When I login to "As a Grantor" app as "ADMIN" user
+    And I navigate to "Announcements" tab
+    And I perform quick search inside global search "Announcement"
+    And I click on "Show more" button on left navigation for global search
+    Then I softly see the text "Config: Batch Jobs" on left navigation for global search
+    Then I softly see the text "Contact Point Addresses" on left navigation for global search
+    Then I softly see the text "Contact Point Emails" on left navigation for global search
+    Then I softly see the text "Contact Point Phones" on left navigation for global search
+    Then I softly see the text "Contact Point Phones" on left navigation for global search
+    Then I softly see the text "Case Comments" on left navigation for global search
+    Then I softly see the text "Task Config" on left navigation for global search
+    Then I softly see the text "Step Progressbar Header Config" on left navigation for global search
+    Then I softly see the text "SObject Config" on left navigation for global search
+    Then I softly see the text "Page Layouts Config" on left navigation for global search
+
+  @388946 @ValidatePMuserisabletoseethetableforextraobjectswhicharepresentinthesearchresultforPlanningmodule @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate PM user is able to see the table for extra objects which are present in the search result for Planning module
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "Programs"
+    And I click on "Expand List" button on left navigation for global search
+    And I click on "Show more" button on left navigation for global search
+    Then I softly see the text "Chatter" on left navigation for global search
+    Then I softly see the text "Email Messages" on left navigation for global search
+    Then I softly see the text "Notes" on left navigation for global search
+    Then I softly see the text "Tasks" on left navigation for global search
+    Then I softly see the text "Folders" on left navigation for global search
+
+  @388338 @387972 @ValidateEXEuserisabletoseethetableforextraobjectswhicharepresentinthesearchresultforannouncementmodule @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate EXE user is able to see the table for extra objects which are present in the search result for announcement module
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Announcements" tab
+    And I perform quick search inside global search "Announcement"
+    And I click on "Show more" button on left navigation for global search
+    Then I softly see the text "Chatter" on left navigation for global search
+    Then I softly see the text "Email Messages" on left navigation for global search
+    Then I softly see the text "Notes" on left navigation for global search
+    Then I softly see the text "Tasks" on left navigation for global search
+    Then I softly see the text "Folders" on left navigation for global search
+    #387972
+    And I click on module "Events" on left navigation for global search
+    Then I softly see the text containing "No results"
+    And I click on module "Folders" on left navigation for global search
+    Then I softly see the text containing "No results"
+    And I click on module "Holidays" on left navigation for global search
+    Then I softly see the text containing "No results"
+    And I click on module "List Emails" on left navigation for global search
+    Then I softly see the text containing "No results"
+    And I click on module "Topics" on left navigation for global search
+    Then I softly see the text containing "No results"
+    And I click on module "Dashboards" on left navigation for global search
+    Then I softly see the text containing "No results"
+
+  @388863 @ValidatethatrecordscountsshouldbeupdatedformatchingresultsformoduleslistedonfixedsidebarofleftnavigationafterglobalsearchanyrecordbyEGMSIDororganizationname&countremainsame0fornonmatchingrecords @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate that records counts should be updated for matching results for modules listed on fixed sidebar of left navigation after global search any record by EGMS ID or organization name & count remain same (0) for non matching records
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I wait for "2" seconds
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I click on "Expand List" button on left navigation for global search
+    Then I softly see record count "1" for module "Announcements" on left navigation for global search
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "add123"
+    Then I softly see record count "0" for module "Announcements" on left navigation for global search
+
+  @388961 @ValidaterecordscountsshouldbeupdatedformatchingresultsformoduleslistedonfixedsidebarofleftnavigationafterglobalsearchanyrecordbyEGMSIDororganizationnamecountremainsame0fornonmatchingrecords @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate records counts should be updated for matching results for modules listed on fixed sidebar of left navigation after global search any record by EGMS ID or organization name & count remain same (0) for non matching records
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter "Creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:ProgramEGMSID}"
+    And I click on "Expand List" button on left navigation for global search
+    Then I softly see record count "1" for module "Programs" on left navigation for global search
+    And I navigate to "Planning" tab
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "add123"
+    Then I softly see record count "0" for module "Programs" on left navigation for global search
+
+  @388882 @ValidateusescansortanyobjectsafterglobalsearchanyrecordbyEGMSIDCreatedDateRelevanceAnnouncementNameInternalOrganizationApplicationDueDateStatus @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate user can sort any objects after global search any record by EGMS ID, Created Date, Relevance, Announcement Name, Internal Organization, Application Due Date, Status
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Announcements" tab
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "Announcements"
+    Then I softly see options "Relevance" inside "Relevance" dropdown
+    Then I softly see options "EGMS ID" inside "Relevance" dropdown
+    Then I softly see options "Announcement Name" inside "Relevance" dropdown
+    Then I softly see options "Application Due Date" inside "Relevance" dropdown
+    Then I softly see options "Created By" inside "Relevance" dropdown
+    Then I softly see options "Status" inside "Relevance" dropdown
+
+  @388972 @ValidatethatusercansortanyobjectsafterglobalsearchanyrecordbyEGMSIDCreatedDateRelevanceInternalProgramInternalOrganizationApplicationDueDateStatus @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Validate that user can sort any objects after global search any record by EGMS ID, Created Date, Relevance, Internal Program, Internal Organization, Application Due Date, Status
+    When I login to "As a Grantor" app as "PM" user
+    And I select "Programs" from dropdown for Global search
+    And I perform quick search inside global search "Programs"
+    Then I softly see options "Relevance" inside "Relevance" dropdown
+    Then I softly see options "EGMS ID" inside "Relevance" dropdown
+    Then I softly see options "Type" inside "Relevance" dropdown
+    Then I softly see options "Program Name" inside "Relevance" dropdown
+    Then I softly see options "Created By" inside "Relevance" dropdown
+    Then I softly see options "Status" inside "Relevance" dropdown
