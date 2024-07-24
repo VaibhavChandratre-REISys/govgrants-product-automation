@@ -840,4 +840,10 @@ public class GrantorProjectManager extends ProjectManager {
         I.amPerforming().waitFor().ElementToBeClickable(hyperlnk);
         I.amPerforming().click().on(hyperlnk);
     }
+
+    public void isButtonClickOnLeftNavigation(String buttonName) {
+        By buttonLabel = By.xpath("//div[contains(@class,'navContainer')]//button[text()='" + buttonName + "'] | //div[contains(@class,'navContainer')]//button[contains(@title,'" + buttonName + "')]");
+        I.amPerforming().waitFor().ElementToBeClickable(buttonLabel);
+        I.amPerforming().click().on(buttonLabel);
+    }
 }

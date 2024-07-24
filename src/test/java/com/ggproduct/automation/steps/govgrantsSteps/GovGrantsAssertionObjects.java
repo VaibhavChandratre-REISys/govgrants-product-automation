@@ -3776,4 +3776,124 @@ public final class GovGrantsAssertionObjects {
         }
         return flag;
     }
+
+    public void assertFieldInsideRefineByFilter(String usage, String fieldName) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isFieldInsideRefineByFilter(fieldName)).isTrue();
+        } else if (usage.equalsIgnoreCase("see")) {
+           Assert.assertTrue(isFieldInsideRefineByFilter(fieldName));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isFieldInsideRefineByFilter(fieldName)).isFalse();
+        } else{
+            Assert.assertFalse(isFieldInsideRefineByFilter(fieldName));
+        }
+    }
+
+    private boolean isFieldInsideRefineByFilter(String fieldName) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-aura-class='forceSearchResultsFilters']//label[text()='" + fieldName + "'] | //div[@data-aura-class='forceSearchResultsFilters']//label//*[text()='" + fieldName + "']"))) {
+                flag = true;
+            }
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+
+        }
+        return flag;
+
+    }
+
+    public void assertTheTextOnLeftNavigationForGlobalSearch(String usage, String text) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isTheTextOnLeftNavigationForGlobalSearch(text)).isTrue();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isTheTextOnLeftNavigationForGlobalSearch(text));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isTheTextOnLeftNavigationForGlobalSearch(text)).isFalse();
+        } else{
+            Assert.assertFalse(isTheTextOnLeftNavigationForGlobalSearch(text));
+        }
+    }
+
+    private boolean isTheTextOnLeftNavigationForGlobalSearch(String text) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-aura-class='forceSearchResultsFilters']//*[normalize-space(text())='" + text + "'] | //div[contains(@class,'scopesBlock')]//*[normalize-space(text())='" + text + "']"))) {
+                flag = true;
+            }
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+
+        }
+        return flag;
+    }
+
+    public void assertCountForModuleOnLeftNavigationForGlobalSearch(String usage, String countNumber, String moduleName) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber,moduleName)).isTrue();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber,moduleName));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber,moduleName)).isFalse();
+        } else{
+            Assert.assertFalse(isCountForModuleOnLeftNavigationForGlobalSearch(countNumber,moduleName));
+        }
+    }
+
+    private boolean isCountForModuleOnLeftNavigationForGlobalSearch(String countNumber, String moduleName) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'scopesBlock')]//*[normalize-space(text())='"  + moduleName + "']/ancestor::a//span//span[text()='" + countNumber + "']"))) {
+                flag = true;
+            }
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+
+        }
+        return flag;
+    }
+
+    public void assertOptionsInsideDropdown(String usage, String options, String dropDownName) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isOptionsInsideDropdown(options, dropDownName)).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isOptionsInsideDropdown(options, dropDownName)).isFalse();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isOptionsInsideDropdown(options, dropDownName));
+        } else {
+            Assert.assertFalse(isOptionsInsideDropdown(options, dropDownName));
+        }
+        I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
+    }
+
+    private boolean isOptionsInsideDropdown(String options, String dropDownName) {
+        boolean flag = false;
+        By globalDropdownSelector = By.xpath("//div[contains(@class,'sortMenuLink')]//button[text()='" + dropDownName + "']");
+        if(I.amPerforming().checkToSee().isDisplayed(globalDropdownSelector)){
+            I.amPerforming().click().on(globalDropdownSelector);
+            List<Elements> elements= I.amPerforming().getElementReference().forListOfElements().of(ByUsing.xpath("//div[contains(@class,'sortMenuLink')]//div//ul//li"));
+            for (Elements element : elements) {
+                if (element.getText().equals(options)) {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        return flag;
+    }
+
+    public void assertClickOnModuleOnLeftNavigationForGlobalSearch(String usage, String names) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isClickOnModuleOnLeftNavigationForGlobalSearch(names)).isTrue();
+        }  else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isClickOnModuleOnLeftNavigationForGlobalSearch(names));
+        }
+    }
+
+    private boolean isClickOnModuleOnLeftNavigationForGlobalSearch(String names) {
+       boolean flag = false;
+        WebElement element= I.amPerforming().getElementReference().of(ByUsing.xpath("//div[@class=' scopesBlock']//li//a[@title='" + names + "']"));
+        if (I.amPerforming().checkToSee().isEnabled(element) && I.amPerforming().checkToSee().isDisplayed(element)) {
+            I.amPerforming().click().on(element);
+            flag = true;
+        }
+        return flag;
+    }
 }

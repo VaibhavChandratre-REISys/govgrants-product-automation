@@ -76,14 +76,14 @@ public final class GovGrantsObjects {
                     }
                 }
             }
-                if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
-                    govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
-                            govgrants.perform().pageDetails().idOfRecord);
-                } else {
-                    govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch, this.searchTermForQsearch);
-                }
+            if (searchTermForQsearch.equalsIgnoreCase("Record Id")) {
+                govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch,
+                        govgrants.perform().pageDetails().idOfRecord);
+            } else {
+                govgrants.perform().quickSearch().performTableSpecificQuickSearchLwc(this.tableIdForQsearch, this.searchTermForQsearch);
             }
         }
+    }
 
 
     /**
@@ -109,7 +109,7 @@ public final class GovGrantsObjects {
      * click logout to log out
      */
     protected void clickLogOut() {
-        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
+        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning")) {
             govgrants.perform().mainPage().clickLoginDropDown();
             govgrants.perform().mainPage().clickLoginDropDownItems("Log Out");
         } else {
@@ -139,18 +139,18 @@ public final class GovGrantsObjects {
      * Click on Sub Tabs inside Grants and Announcements
      */
     protected void clickSubTab(String subTab) {
-            if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-                govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
-            } else {
-                govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
-            }
+        if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+            govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
+        } else {
+            govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
+        }
     }
 
     /**
      * Click on Sub Tabs inside Grants and Announcements
      */
     protected void clickSubTabInSplitScreen(String subTab) {
-         govgrants.perform().pageDetails().clickSubTabsInsideTableViewForSplitScreen(subTab);
+        govgrants.perform().pageDetails().clickSubTabsInsideTableViewForSplitScreen(subTab);
     }
 
     /**
@@ -428,7 +428,7 @@ public final class GovGrantsObjects {
     public void uploadAttachmentInFlexTableFromComputerForLWC(Boolean withoutRandomNumber, String fileName, String fileType) {
 
         By classificationType = By.xpath("//button[@title='Classification' or @name='Classification']");
-        By selectClassificationType = By.xpath("//span[normalize-space(text())='"+ fileType +"']");
+        By selectClassificationType = By.xpath("//span[normalize-space(text())='" + fileType + "']");
         By filePath = By.xpath("//label[contains(@id,'file')]/../input");
         String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
         String[] splitFileName = fileName.split("\\.");
@@ -455,6 +455,7 @@ public final class GovGrantsObjects {
             }
         }
     }
+
     /**
      * complete steps to upload attachment on row level edit click inside attachment block
      * <p>
@@ -603,6 +604,7 @@ public final class GovGrantsObjects {
 
     /**
      * To click on back navigation arrow
+     *
      * @author keerti.munde
      */
 
@@ -610,23 +612,23 @@ public final class GovGrantsObjects {
         I.amPerforming().browserOperationsTo().navigateBack();
     }
 
-    public void toCheckValueForTitleInsideFieldHistoryTable(String usage,String rowValue, String headerName) {
+    public void toCheckValueForTitleInsideFieldHistoryTable(String usage, String rowValue, String headerName) {
         if (usage.equals("softly see")) {
-            I.amPerforming().assertionsTo().assertThat(isFileHistoryDisplayedInsidetable(rowValue,headerName)).isTrue();
+            I.amPerforming().assertionsTo().assertThat(isFileHistoryDisplayedInsidetable(rowValue, headerName)).isTrue();
         } else if (usage.equals("see")) {
-            Assert.assertTrue(isFileHistoryDisplayedInsidetable(rowValue,headerName));
+            Assert.assertTrue(isFileHistoryDisplayedInsidetable(rowValue, headerName));
         } else if (usage.equals("softly do not see")) {
-            I.amPerforming().assertionsTo().assertThat(isFileHistoryDisplayedInsidetable(rowValue,headerName)).isFalse();
+            I.amPerforming().assertionsTo().assertThat(isFileHistoryDisplayedInsidetable(rowValue, headerName)).isFalse();
         } else if (usage.equals("do not see")) {
-            Assert.assertFalse(isFileHistoryDisplayedInsidetable(rowValue,headerName));
+            Assert.assertFalse(isFileHistoryDisplayedInsidetable(rowValue, headerName));
         }
     }
 
     public void toCheckValueForTitleInsideFieldHistoryTableAgainstValue(boolean isSoftly, String rowValue, String headerName, String uniqueValue) {
         if (isSoftly) {
-            I.amPerforming().assertionsTo().assertThat(isFileHistoryDisplayedInsidetableAgainstValue(rowValue,headerName,uniqueValue)).isTrue();
+            I.amPerforming().assertionsTo().assertThat(isFileHistoryDisplayedInsidetableAgainstValue(rowValue, headerName, uniqueValue)).isTrue();
         } else {
-            Assert.assertTrue(isFileHistoryDisplayedInsidetableAgainstValue(rowValue,headerName,uniqueValue));
+            Assert.assertTrue(isFileHistoryDisplayedInsidetableAgainstValue(rowValue, headerName, uniqueValue));
         }
     }
 
@@ -658,10 +660,36 @@ public final class GovGrantsObjects {
         WebElement element = I.amPerforming().getElementReference().of(By.xpath("//div[@role='menu']//ul//li//*[text()='" + buttonName + "']"));
         I.amPerforming().click().withJavaScript(element);
         govgrants.perform().modal().acceptPopUp();
-        }
+    }
 
     public void toClickOnRecordIdForGlobalSearch(String recordName) {
-      WebElement dropdownRecord = I.amPerforming().getElementReference().of(By.xpath("//div[@class='listContent']//ul//li//a//span[@title='" + recordName + "']"));
-      I.amPerforming().click().on(dropdownRecord);
+        WebElement dropdownRecord = I.amPerforming().getElementReference().of(By.xpath("//div[@class='listContent']//ul//li//a//span[@title='" + recordName + "']"));
+        I.amPerforming().click().on(dropdownRecord);
     }
+
+    public void toFilterTheValueByLabelName(String usage, String searchValue, String labelName) {
+        if (usage.equalsIgnoreCase("dropDown")) {
+            WebElement valueName = I.amPerforming().getElementReference().of(By.xpath("//div[@data-aura-class='forceSearchResultsFilters']//label[text()='" + labelName + "']/..//button[@aria-haspopup='listbox']"));
+            I.amPerforming().click().on(valueName);
+            By dropdownOptions = By.xpath("//div[@data-aura-class='forceSearchResultsFilters']//label[text()='Status']/..//div//div[@role='listbox']//span[@title='" + searchValue + "']");
+            I.amPerforming().waitFor().ElementToBeVisible(dropdownOptions);
+            I.amPerforming().click().on(dropdownOptions);
+        } else{
+            WebElement valueName = I.amPerforming().getElementReference().of(By.xpath("//div[@data-aura-class='forceSearchResultsFilters']//label//*[text()='" + labelName + "']/../parent::div//input[@type='text']"));
+            By buttonName = By.xpath("//div[@data-aura-class='forceSearchResultsFilters']//label//*[text()='" + labelName + "']/../parent::div/..//button[@title='Apply filter']");
+            I.amPerforming().click().on(valueName);
+            I.amPerforming().textInput().toClear(valueName);
+            I.amPerforming().textInput().in(valueName, searchValue);
+            if (I.amPerforming().checkToSee().isElementDisplayed(buttonName)) {
+                I.amPerforming().click().on(buttonName);
+            }
+        }
+    }
+
+    public void toClickOnModuleOnLeftNavigationForGlobalSearch(String moduleName) {
+        By buttonLabel = By.xpath("//div[@id='allItemsList']//ul//li//*[text()='" + moduleName + "']");
+        I.amPerforming().waitFor().ElementToBeClickable(buttonLabel);
+        I.amPerforming().click().on(buttonLabel);
+    }
+
 }

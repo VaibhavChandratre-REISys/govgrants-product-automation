@@ -1181,4 +1181,15 @@ public final class GovGrantsSteps {
     public void iClickOnRecordFromGlobalSearch(String recordName) {
         ggObjects.toClickOnRecordIdForGlobalSearch(recordName);
     }
+
+    @And("^I filter (field|dropDown) record by \"([^\"]*)\" by label \"([^\"]*)\" in left panel for global search$")
+    public void iFilterRecordByByLableInLeftPanelForGlobalSearch(String usage, String searchValue, String labelName) {
+        ggObjects.toFilterTheValueByLabelName(usage,searchValue, labelName);
+    }
+
+    @And("I click on module {string} on left navigation for global search")
+    public void iClickOnModuleOnLeftNavigationForGlobalSearch(String moduleName) {
+        ggObjects.toClickOnModuleOnLeftNavigationForGlobalSearch(moduleName);
+    }
+
 }

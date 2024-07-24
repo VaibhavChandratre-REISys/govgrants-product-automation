@@ -671,4 +671,9 @@ public class GenericSteps {
     public void iClickOnHyperlinkAgainstInTable(String value, String id) {
         grantorProjectManager.clickHyperLinkAgainstValueinTable(value, id);
     }
+
+    @And("I click on {string} button on left navigation for global search")
+    public void iClickOnButtonOnLeftNavigationForGlobalSearch(String buttonName) {
+        grantorProjectManager.isButtonClickOnLeftNavigation(buttonName);
+    }
 }
