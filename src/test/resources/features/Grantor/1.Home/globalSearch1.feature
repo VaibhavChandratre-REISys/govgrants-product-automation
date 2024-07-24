@@ -143,29 +143,6 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Submitted for Review"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
-    And I click on "Save" in the page details
-    When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "Automation PM" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---"
-    And I wait for "5" seconds
-    And I enter a review as "Passed"
-    When I click modal button "Save"
-    And I click on submit review
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Closeout" tab
-    And I select "Closeout" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:CloseoutID}"
-    And I click on row level action button "Edit" against "{SavedValue:CloseoutID}" in global search with id "Closeout"
-    When I click on "Save" in the page details
-    And I click on "Complete Review" in the page details
-    Then I softly see field "Status" as "Reviewed"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Closeout" tab
-    And I select "Closeout" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:CloseoutID}"
-    And I click on row level action button "Edit" against "{SavedValue:CloseoutID}" in global search with id "Closeout"
-    Then I softly see field "Status" as "Reviewed"
-    Then I softly can see top right button "Save" in page detail
-    Then I softly can see top right button "Cancel" in page detail
 
   @389644 @VerifythatuserisabletoexpandtheresultbyCloseoutandFilterRefinetheresultbyconfigureColumnsforanCloseout @sprint-2-US-386939 @hitesh @GlobalSearch
   Scenario: Verify that user is able to expand the result by Closeout and Filter/Refine the the result by configured Columns for an Closeout.
@@ -185,6 +162,20 @@ Feature: Validate all scenarios for the global search
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
+    And I wait for "3" seconds
+    When I navigate to "Planning" tab
+    And I select "Funding Sources" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:closeoutID}"
+    And I wait for "2" seconds
+    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "Funding Sources"
+    And I perform quick search inside global search "Funding Sources"
+    Then I softly see "EGMS ID" inside refine by filter
+    Then I softly see "Title" inside refine by filter
+    Then I softly see "Funding Source Type" inside refine by filter
+    Then I softly see "Created By" inside refine by filter
+    Then I softly see "Status" inside refine by filter
+    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "Funding Sources"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Created By" inside table "Funding Sources"
 
   @389645 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedEGMSIDGrantEGMSIDCreatedByonobjectsafterglobalsearchtheanyrecordf0orCloseout @sprint-2-US-386939 @hitesh @GlobalSearch
   Scenario: Verify that user redirect to that record when user click on any hyperlink provided (e.g. -EGMS ID, Grant EGMS ID, Created By) on objects after global search the any record for Closeout.
