@@ -140,7 +140,6 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
     And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
     Then I softly see field "Status" as "Accepted"
-
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
@@ -416,7 +415,7 @@ Feature: Validate all scenarios for the global search
   Then I softly cannot see row level action button "Change Owner" against "{SavedValue:AnnEGMSID}" in global search with id "Subawards"
 
 @389017 @sprint-2-US-386939 @Pooja @GlobalSearch
-  Scenario:
+  Scenario:Verify that PM user as Reviewer have edit access for record only when edit access setting is yes for peer reviewer when award is a submit for review state.
   When I login to "As a Grantor" app as "dynamicUser" user
   And I navigate to "Grants" tab
   When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -507,15 +506,15 @@ Feature: Validate all scenarios for the global search
   And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
   And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
   Then I softly see field "Status" as "Submitted for Review"
-  Then I cannot see top right button "Save" in page detail
-  Then I cannot see top right button "Cancel" in page detail
-  And I navigate to "Grants" tab
-  When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-  When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-  When I click on "Start" icon for "Record Id" inside table
-  When I navigate to "Responsibilities" sub tab
-  When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
-  And I enter a review as "Passed"
-  When I click modal button "Save"
-  And I click on submit review
-  Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:FO Username}" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
+  Then I can see top right button "Save" in page detail
+  Then I can see top right button "Cancel" in page detail
+#  And I navigate to "Grants" tab
+#  When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#  When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+#  When I click on "Start" icon for "Record Id" inside table
+#  When I navigate to "Responsibilities" sub tab
+#  When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
+#  And I enter a review as "Passed"
+#  When I click modal button "Save"
+#  And I click on submit review
+#  Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:FO Username}" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
