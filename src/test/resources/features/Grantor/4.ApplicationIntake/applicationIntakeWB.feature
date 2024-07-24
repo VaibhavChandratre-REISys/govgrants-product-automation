@@ -1389,7 +1389,7 @@ Feature: Application Intake scenarios without background
     When I download the file
     Then I see "Created" on page "1" of "govgrants" pdf file
 
-   @195250  @sprint-12-US-226646 @vaibhav @reassignment @ApplicationRerun @Debug
+   @195250  @sprint-12-US-226646 @vaibhav @reassignment @ApplicationRerun
   Scenario: Validate application related pending task should generated for new Ann owner if application created from old owner even if Ann ownership task reassign to other user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
     Given I am on "SUBPORTAL" portal

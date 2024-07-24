@@ -428,7 +428,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Type |
       | Directed          |
 
-  @74132 @userAllowToDownloadPDFInvitedApplication @skipOnJenkins
+  @74132 @userAllowToDownloadPDFInvitedApplication
   Scenario: To verify system allow to download PDF for Invited Applicants section in overview tab of announcement.
     When I click on "Edit" in the page details
     And I click on top right button "Associate Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
