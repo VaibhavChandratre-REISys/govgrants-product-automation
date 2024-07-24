@@ -138,8 +138,8 @@ Feature: Validate all scenarios for the global search
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:closeoutRequestNo}" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:closeoutRequestNo}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:CloseoutID}" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:CloseoutID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "Automation PM" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---"
     And I wait for "5" seconds
@@ -303,3 +303,32 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "State" as "Closed"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
+
+  @390084 @VerifythatuserisabletoexpandtheresultbyFundingSourceandFilterRefinethetheresultbyconfiguredColumnsforafundingSource @sprint-2-US-386939 @hitesh @GlobalSearch
+  Scenario: Verify that user is able to expand the result by FundingSource and Filter/Refine the the result by configured Columns for a funding Source
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Planning" tab
+    When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
+    When I enter in modal "Creation" values from "FundingSource_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "3" seconds
+    When I enter "Edition" values from "FundingSource_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "FundingSourcesID"
+    And I wait for "3" seconds
+    When I navigate to "Planning" tab
+    And I select "Funding Sources" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:FundingSourcesID}"
+    And I wait for "2" seconds
+    Then I softly see value "{SavedValue:FundingSourcesID}" for title "EGMS ID" inside table "Funding Sources"
+    And I perform quick search inside global search "Funding Sources"
+    Then I softly see "EGMS ID" inside refine by filter
+    Then I softly see "Title" inside refine by filter
+    Then I softly see "Funding Source Type" inside refine by filter
+    Then I softly see "Created By" inside refine by filter
+    Then I softly see "Status" inside refine by filter
+    Then I softly see value "{SavedValue:FundingSourcesID}" for title "EGMS ID" inside table "Funding Sources"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Created By" inside table "Funding Sources"
+
