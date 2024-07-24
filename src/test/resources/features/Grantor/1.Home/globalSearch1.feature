@@ -77,16 +77,17 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
-    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo" in global search with id "Closeout"
+    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeout"
     Then I softly see field "Status" as "Reviewed"
-    Then I cannot see top right button "Edit" in page detail
+    Then I softly can see top right button "Save" in page detail
+    Then I softly can see top right button "Cancel" in page detail
     When I click on "Save" in the page details
     When I click on "Override" in the page details
     And I wait for "3" seconds
     And I navigate to "Closeout" tab
     And I select "Closeout" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:closeoutRequestNo}"
-    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo" in global search with id "Closeout"
+    And I click on row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in global search with id "Closeout"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
 
