@@ -146,7 +146,6 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Submitted for Review"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
-    When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "Automation PM" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---"
     And I wait for "7" seconds
