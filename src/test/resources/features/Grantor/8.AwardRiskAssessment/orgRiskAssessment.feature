@@ -49,6 +49,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    And I wait for "3" seconds
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -60,6 +61,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     Then I softly can see top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     When I perform quick search for "Record Id" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
+    And I wait for "3" seconds
     Then I softly see that "Active" has been added in flextable with Id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
   @61977 @moderateRiskLevelColorChangesToYellow @deepika

@@ -149,6 +149,7 @@ Feature: Validate all scenarios for the global search
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "Automation PM" inside flex table with id "---closeout:-:closeoutPeerReviewTableId---"
+    And I wait for "7" seconds
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I wait for "2" seconds
