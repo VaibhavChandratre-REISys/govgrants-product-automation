@@ -267,7 +267,7 @@ Feature: Validate all registration related scenarios
     And I enter value "No" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
 
-  @82028 @verifyOrganizationDetailPageDuringApproval-Organization @monu
+  @done @82028 @verifyOrganizationDetailPageDuringApproval-Organization @monu
   Scenario:Verify if user can see organization detail page while approval
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -659,7 +659,7 @@ Feature: Validate all registration related scenarios
     And I wait for "4" seconds
     Then I softly see field "Zip Code" as "20172"
 
-  @222890 @ValidateEXEuserfromuserregistrationapprovalqueueshouldnotabletoseethereassigntaskofOrganizationRegistrationApprovalinReassignTask
+  @done @222890 @ValidateEXEuserfromuserregistrationapprovalqueueshouldnotabletoseethereassigntaskofOrganizationRegistrationApprovalinReassignTask
   Scenario: Validate EXE user from user registration approval queue should not able to see the reassign task of Organization Registration Approval in Reassign Task
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
