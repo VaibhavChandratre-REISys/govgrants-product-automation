@@ -126,6 +126,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
     And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
     Then I softly see field "Status" as "Reviewed"
+    And I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
@@ -520,8 +521,8 @@ Feature: Validate all scenarios for the global search
 #  Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:FO Username}" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
 
 
-  @389017 @sprint-2-US-386939 @Pooja @GlobalSearch
-  Scenario:Verify that PM user as Reviewer have edit access for record only when edit access setting is yes for peer reviewer when award is a submit for review state.
+  @389023 @sprint-2-US-386939 @Pooja @GlobalSearch
+  Scenario:Verify that if PM user does not have edit access for peer review then PM user will get error message for award when award is in the submit for review state or in Reviewed states
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -600,7 +601,7 @@ Feature: Validate all scenarios for the global search
     When I get the "EGMS ID"
     And I enter the following values into flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" by clicking "New" :
       | Reviewer Name            | Role            | Description                 | Due Date | Allow Record Editing |
-      | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | Yes                  |
+      | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Review"
@@ -612,5 +613,6 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
     And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID}" in global search with id "Subawards"
     Then I softly see field "Status" as "Submitted for Review"
-    Then I can see top right button "Save" in page detail
-    Then I can see top right button "Cancel" in page detail
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
