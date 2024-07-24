@@ -616,3 +616,41 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
+
+@389027 @sprint-2-US-386939 @Pooja @GlobalSearch
+  Scenario: Verify that user is able to see the 5 most recently used records in the dropdown list when user clicks on search input box for awardbox for announcement
+  When I login to "As a Grantor" app as "EXE" user
+  And I navigate to "Grants" tab
+  And I wait for "3" seconds
+  When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+  And I select "Grants" from dropdown for Global search
+  And I click on global search box
+  Then I softly see recent "5" records in global search box
+
+  @389031 @sprint-2-US-386939 @Pooja @GlobalSearch
+  Scenario: Verify that user is able to see the all the list of modules after clicking on 'suggested for you section' for award.
+  When I login to "As a Grantor" app as "PO" user
+  And I navigate to "Grants" tab
+  Then I softly see dropdown option "All" under the "Suggested For You" section
+  Then I softly see dropdown option "Amendment Requests" under the "Suggested For You" section
+  Then I softly see dropdown option "Announcements" under the "Suggested For You" section
+  Then I softly see dropdown option "Applications" under the "Suggested For You" section
+  Then I softly see dropdown option "Chatter" under the "Suggested For You" section
+  Then I softly see dropdown option "Closeouts" under the "Suggested For You" section
+  Then I softly see dropdown option "Contacts" under the "Suggested For You" section
+  Then I softly see dropdown option "Events" under the "Suggested For You" section
+  Then I softly see dropdown option "Focus Areas" under the "Suggested For You" section
+  Then I softly see dropdown option "Funding Decision Memos (FDM)s" under the "Suggested For You" section
+  Then I softly see dropdown option "Grants" under the "Suggested For You" section
+  Then I softly see dropdown option "Key Performance Indicators (KPI)s" under the "Suggested For You" section
+  Then I softly see dropdown option "Organizations" under the "Suggested For You" section
+  Then I softly see dropdown option "Payment Requests" under the "Suggested For You" section
+  Then I softly see dropdown option "Programs" under the "Suggested For You" section
+  Then I softly see dropdown option "Progress Report" under the "Suggested For You" section
+  Then I softly see dropdown option "Reports" under the "Suggested For You" section
+  Then I softly see dropdown option "Reviews" under the "Suggested For You" section
+  Then I softly see dropdown option "Risk Assessment" under the "Suggested For You" section
+  Then I softly see dropdown option "Site Visits" under the "Suggested For You" section
+  Then I softly see dropdown option "Strategic Plans" under the "Suggested For You" section
+  Then I softly see dropdown option "Subawards" under the "Suggested For You" section
+  Then I softly see dropdown option "Tasks" under the "Suggested For You" section
