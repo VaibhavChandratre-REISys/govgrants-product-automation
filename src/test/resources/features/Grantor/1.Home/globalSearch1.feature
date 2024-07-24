@@ -502,11 +502,6 @@ Feature: Validate all scenarios for the global search
     And I click toggle button to select "Amendment Requests - All"
     And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
     And I pause execution for "3" seconds
     And I click on "Amend Subaward" in the page details
     And I pause execution for "3" seconds
@@ -563,11 +558,54 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Closed/Completed"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
+    And I select "Amendment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
     And I click on row level action button "Edit" against "{SavedValue:budgetPChangeId}" in global search with id "Amendment Requests"
     Then I softly see field "Status" as "Closed/Completed"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
+
+  @390145 @VerifythatuserisabletoexpandtheresultbyAmendmentmoduleandFilterRefinetheresultbyconfiguredColumnsforanAmendment @sprint-2-US-386939 @vaibhav @GlobalSearch
+  Scenario: Verify that user is able to expand the result by Amendment module and Filter/Refine the the result by configured Columns for an Amendment
+    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Grants" tab
+    And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Subawards" sub tab
+    When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
+    And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "budgetPChangeId"
+    And I navigate to "Grants" tab
+    And I select "Amendment Requests" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
+    Then I softly see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "Amendment Requests"
+    And I perform quick search inside global search "Amendment Request"
+    Then I softly see "EGMS ID" inside refine by filter
+    Then I softly see "Subaward ID" inside refine by filter
+    Then I softly see "Subaward Title" inside refine by filter
+    Then I softly see "Request Type" inside refine by filter
+    Then I softly see "Initiated By" inside refine by filter
+    Then I softly see "Status" inside refine by filter
+    And I filter field record by "{SavedValue:budgetPChangeId}" by label "EGMS ID" in left panel for global search
+    Then I softly see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "Amendment Requests"
+    Then I softly see the text "Refine By" on left navigation for global search
+    And I click on "Expand List" button on left navigation for global search
+    Then I softly see the text "Programs" on left navigation for global search
+    Then I softly see the text "Grants" on left navigation for global search
+    Then I softly see the text "Amendment Requests" on left navigation for global search
 
 
