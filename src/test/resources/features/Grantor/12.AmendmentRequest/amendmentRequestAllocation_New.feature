@@ -19819,7 +19819,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Revised Commitment should be equal to or greater than the total of Cummulative Obligation $3000.00 across all budget periods. |
 
-  @hitTest @274156 @ValidatePOuserseeamendmentrequeststatusasforcecloseoncloseoutrequest @Sprint-23-US-273843 @vaibhav @Allocation
+  @274156 @ValidatePOuserseeamendmentrequeststatusasforcecloseoncloseoutrequest @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario: Validate PO user see amendment request status as force close on closeout request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
