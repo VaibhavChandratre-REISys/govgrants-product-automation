@@ -742,8 +742,9 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:progID}"
     And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Progress Report"
     Then I softly see field "Status" as "Sent Back to Subrecipient"
-    Then I can see top right button "Save" in page detail
-    Then I can see top right button "Cancel" in page detail
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -841,14 +842,15 @@ Feature: Validate all scenarios for the global search
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     Then I see value "Force Closed" for title "Status" against the value "{SavedValue:progID}" inside table "---progressreport:-:grantorProgressReportsTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
     And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Progress Report"
     Then I softly see field "Status" as "Force Closed"
-    Then I can see top right button "Save" in page detail
-    Then I can see top right button "Cancel" in page detail
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
 
   @390163 @VerifythatuserisabletoexpandtheresultbyProgressReportmoduleandFilterRefinetheresultbyconfiguredColumnsforanProgressReport
   Scenario:Verify that user is able to expand the result by Progress Report module and Filter/Refine the the result by configured Columns for an Progress Report
@@ -1332,6 +1334,7 @@ Feature: Validate all scenarios for the global search
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "paymentEGMSID"
+    And I pause execution for "5" seconds
     And I navigate to "Monitoring" tab
     And I select "Payment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:paymentEGMSID}"
@@ -1350,6 +1353,33 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text "Payment Requests" on left navigation for global search
     Then I softly see the text "Grants" on left navigation for global search
     Then I softly see the text "Amendment Requests" on left navigation for global search
+
+  @390317 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedegEGMSIDSubawardIDonobjectsafterglobalsearchtheanyrecordforPaymentRequest
+  Scenario:Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, Subaward ID ) on objects after global search the any record for Payment Request.
+    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
+    And I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Grants" tab
+    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---progressReport:-:recipientAwardsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---progressReport:-:recipientAwardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "SubawardId"
+    When I navigate to "Actuals" sub tab
+    And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+    When I enter value "Automation Runtime Payment Request" into field "Title__c"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "paymentEGMSID"
+    And I pause execution for "5" seconds
+    And I navigate to "Monitoring" tab
+    And I select "Payment Requests" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:paymentEGMSID}"
+    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Requests"
+    And I click on hyperlink for global search containing value "{SavedValue:paymentEGMSID}"
+    Then I softly see the text containing "{SavedValue:paymentEGMSID}"
 
 
 
