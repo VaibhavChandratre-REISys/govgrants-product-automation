@@ -764,7 +764,7 @@ Feature: Validate all scenarios for the global search
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
       | Name                        | Progress Report |
-      | {SavedValue:ADMIN Username} | Step 1          |
+      | {SavedValue:PM Username} | Step 1          |
     Given I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1336,9 +1336,9 @@ Feature: Validate all scenarios for the global search
     And I save the field labeled "EGMS ID" as "paymentEGMSID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    And I select "Payment Requests" from dropdown for Global search
+    And I select "Payment Request" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:paymentEGMSID}"
-    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Requests"
+    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Request"
     And I perform quick search inside global search "PR-"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Type" inside refine by filter
@@ -1347,7 +1347,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Payment Period" inside refine by filter
     Then I softly see "Status" inside refine by filter
     And I filter field record by "{SavedValue:paymentEGMSID}" by label "EGMS ID" in left panel for global search
-    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Requests"
+    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Request"
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
     Then I softly see the text "Payment Requests" on left navigation for global search
