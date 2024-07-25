@@ -167,10 +167,10 @@ Feature: Validate all scenarios for the global search
     And I select "Closeouts" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:CloseoutID}"
     And I wait for "2" seconds
-    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "Funding Sources"
+    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "Closeouts"
     And I perform quick search inside global search "CL--"
     Then I softly see "EGMS ID" inside refine by filter
-    Then I softly see "Title" inside refine by filter
+    Then I softly see "Type" inside refine by filter
     Then I softly see "Closeout" inside refine by filter
     Then I softly see "Grant EGMS ID" inside refine by filter
     Then I softly see "Project Name" inside refine by filter
@@ -321,7 +321,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:FundingSourcesID}"
     And I wait for "2" seconds
     Then I softly see value "{SavedValue:FundingSourcesID}" for title "EGMS ID" inside table "Funding Sources"
-    And I perform quick search inside global search "Funding Sources"
+    And I perform quick search inside global search "FS--"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Title" inside refine by filter
     Then I softly see "Funding Source Type" inside refine by filter
@@ -600,7 +600,7 @@ Feature: Validate all scenarios for the global search
     And I select "Amendment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
     Then I softly see value "{SavedValue:budgetPChangeId}" for title "EGMS ID" inside table "Amendment Requests"
-    And I perform quick search inside global search "Amendment Request"
+    And I perform quick search inside global search "CR--"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Subaward ID" inside refine by filter
     Then I softly see "Subaward Title" inside refine by filter
@@ -678,7 +678,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Save" in the page details
     And I close the tab
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "exe" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "EXE." user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -696,30 +696,31 @@ Feature: Validate all scenarios for the global search
     Given I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I wait for "3" seconds
-    And I navigate to "Monitoring" tab
-    And I select "Progress Report" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:progID}"
-    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Progress Report"
-    Then I softly see field "Status" as "Submitted to Grantor"
-    Then I can see top right button "Save" in page detail
-    Then I can see top right button "Cancel" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
     And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Progress Report"
     Then I softly see field "Status" as "Submitted to Grantor"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    And I select "Progress Report" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:progID}"
+    And I click on row level action button "Edit" against "{SavedValue:progID}" in global search with id "Progress Report"
+    Then I softly see field "Status" as "Submitted to Grantor"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    And I wait for "5" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     Given I click on "Send Back to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent Back to Subrecipient"
-    And I wait for "5" seconds
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -728,7 +729,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -736,7 +737,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Sent Back to Subrecipient"
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
-    And I wait for "5" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -757,7 +758,7 @@ Feature: Validate all scenarios for the global search
       | Name                     | Progress Report |
       | {SavedValue:PM Username} | Step 1          |
     Given I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -766,13 +767,14 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    And I wait for "5" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -781,7 +783,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    And I wait for "5" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -832,7 +834,7 @@ Feature: Validate all scenarios for the global search
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     Then I see value "Force Closed" for title "Status" against the value "{SavedValue:progID}" inside table "---progressreport:-:grantorProgressReportsTableId---"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
