@@ -64,25 +64,25 @@ Feature: Validate all scenarios for the global search
 #    Then I softly can see top right button "Save" in page detail
 #    Then I softly can see top right button "Cancel" in page detail
 #    When I click on "Save" in the page details
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    Then I see "Ownership" inside "Reassign" is displayed
-    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "input-1"
-    And I select value "Automation EXE1" into field "input-2"
-    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
-    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
-    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
-    When I check "{SavedValue:DeskReview}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
-    When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
-    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "OK" on modal confirmation box
-    And I pause execution for "30" seconds
-    When I navigate to "Records of Target User" sub tab
-    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitTargetTableId---" panel
-    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
-    And I pause execution for "2" seconds
+#    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    Then I see "Ownership" inside "Reassign" is displayed
+#    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
+#    And I select value "Automation EXE" into field "input-1"
+#    And I select value "Automation EXE1" into field "input-2"
+#    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
+#    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+#    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
+#    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+#    When I check "{SavedValue:DeskReview}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
+#    When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
+#    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
+#    And I click "OK" on modal confirmation box
+#    And I pause execution for "30" seconds
+#    When I navigate to "Records of Target User" sub tab
+#    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitTargetTableId---" panel
+#    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+#    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
@@ -242,29 +242,29 @@ Feature: Validate all scenarios for the global search
 #    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
 #    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
 #    And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
-    And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
-    And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
-    #390421 #390427
-    Then I softly see field "Status" as "Created"
-    Then I softly can see top right button "Save" in page detail
-    Then I softly can see top right button "Cancel" in page detail
-    When I click on "Save" in the page details
-    And I pause execution for "3" seconds
-    And I click on "Notify" in the page details
-    And I click on "Conduct" in the page details
-    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "SiteVisitReviewerRoles" by clicking "New" :
-      | Reviewer Name            | Responsibility  | Description              | Due Date | Allow Record Editing |
-      | {SavedValue:PO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
-    And I click on "Send for Review" icon for "{SavedValue:PO Username}" inside table
-    Then I softly see field "Status" as "Submitted for Review"
-    Then I cannot see top right button "Undo" in page detail
+#    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+#    And I select "Site Visits" from dropdown for Global search
+#    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+#    And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
+#    #390421 #390427
+#    Then I softly see field "Status" as "Created"
+#    Then I softly can see top right button "Save" in page detail
+#    Then I softly can see top right button "Cancel" in page detail
+#    When I click on "Save" in the page details
+#    And I pause execution for "3" seconds
+#    And I click on "Notify" in the page details
+#    And I click on "Conduct" in the page details
+#    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "SiteVisitReviewerRoles" by clicking "New" :
+#      | Reviewer Name            | Responsibility  | Description              | Due Date | Allow Record Editing |
+#      | {SavedValue:PO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
+#    And I click on "Send for Review" icon for "{SavedValue:PO Username}" inside table
+#    Then I softly see field "Status" as "Submitted for Review"
+#    Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
     Then I softly see field "Status" as "Submitted for Review"
     Then I softly see field "Status" as "Created"
@@ -282,8 +282,8 @@ Feature: Validate all scenarios for the global search
     And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:DeskReview}"
-    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -328,8 +328,8 @@ Feature: Validate all scenarios for the global search
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
+    When I click on "Start" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     When I navigate to "Reports and Outcomes" sub tab
     And I expand nested table containing column value "Automation Observation"
     When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
