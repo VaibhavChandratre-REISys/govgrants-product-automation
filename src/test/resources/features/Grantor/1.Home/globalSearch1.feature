@@ -168,7 +168,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:CloseoutID}"
     And I wait for "2" seconds
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "Funding Sources"
-    And I perform quick search inside global search "Closeouts"
+    And I perform quick search inside global search "CL--"
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Title" inside refine by filter
     Then I softly see "Closeout" inside refine by filter
@@ -678,7 +678,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Save" in the page details
     And I close the tab
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "exe" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -840,6 +840,48 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Force Closed"
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
+
+  @390163 @VerifythatuserisabletoexpandtheresultbyProgressReportmoduleandFilterRefinetheresultbyconfiguredColumnsforanProgressReport
+  Scenario:Verify that user is able to expand the result by Progress Report module and Filter/Refine the the result by configured Columns for an Progress Report
+    Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
+    Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime award}" having object api name as "ProgressReports__c"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "progID"
+    And I click on "Edit" in the page details
+    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    And I select "Progress Report" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:progID}"
+    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "Progress Report"
+    And I perform quick search inside global search "PR--"
+    Then I softly see "EGMS ID" inside refine by filter
+    Then I softly see "Type" inside refine by filter
+    Then I softly see "Grant Title" inside refine by filter
+    Then I softly see "External Organization" inside refine by filter
+    Then I softly see "Reporting Period Start Date" inside refine by filter
+    Then I softly see "Reporting Period End Date" inside refine by filter
+    Then I softly see "Due Date" inside refine by filter
+    Then I softly see "Status" inside refine by filter
+    And I filter field record by "{SavedValue:progID}" by label "EGMS ID" in left panel for global search
+    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "Progress Report"
+    Then I softly see the text "Refine By" on left navigation for global search
+    And I click on "Expand List" button on left navigation for global search
+    Then I softly see the text "Reports" on left navigation for global search
+    Then I softly see the text "Grants" on left navigation for global search
+    Then I softly see the text "Amendment Requests" on left navigation for global search
 
 
 
