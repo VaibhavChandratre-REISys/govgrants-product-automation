@@ -693,7 +693,7 @@ Feature: Validate all scenarios for the global search
     Given I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -710,7 +710,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -726,7 +726,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -745,15 +745,15 @@ Feature: Validate all scenarios for the global search
       | Automation Permanent KPI | 95     | 7             |
     And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
-      | Name                     | Progress Report |
-      | {SavedValue:PM Username} | Step 1          |
+      | Name                        | Progress Report |
+      | {SavedValue:ADMIN Username} | Step 1          |
     Given I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -764,7 +764,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -780,7 +780,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -809,7 +809,7 @@ Feature: Validate all scenarios for the global search
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
@@ -821,7 +821,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -831,7 +831,7 @@ Feature: Validate all scenarios for the global search
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     Then I see value "Force Closed" for title "Status" against the value "{SavedValue:progID}" inside table "---progressreport:-:grantorProgressReportsTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -903,6 +903,7 @@ Feature: Validate all scenarios for the global search
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I wait for "3" seconds
+    And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
@@ -911,7 +912,7 @@ Feature: Validate all scenarios for the global search
 
   @390190 @VerifythattherecordownerisabletoedittheaccessforrecordwhenRiskAssessmentisintheCreatedsubmitforrevieworinReviewedstate
   Scenario: Verify that the record owner is able to edit the access for record when Risk Assessment is in the Created, submit for review or in Reviewed state
-    Given I login to "As a Grantor" app as "dynamicUser" user
+    Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -933,8 +934,21 @@ Feature: Validate all scenarios for the global search
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "riskID"
     And I wait for "3" seconds
-    
+    And I navigate to "Monitoring" tab
+    And I select "Risk Assessment" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:riskID}"
+    And I click on row level action button "Edit" against "{SavedValue:riskID}" in global search with id "Risk Assessment"
+    Then I softly see field "Status" as "Created"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    And I wait for "3" seconds
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    When I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
@@ -947,6 +961,15 @@ Feature: Validate all scenarios for the global search
       | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
+    Then I softly see field "Status" as "Submitted for Review"
+    And I wait for "3" seconds
+    And I navigate to "Monitoring" tab
+    And I select "Risk Assessment" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:riskID}"
+    And I click on row level action button "Edit" against "{SavedValue:riskID}" in global search with id "Risk Assessment"
+    Then I softly see field "Status" as "Submitted for Review"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -957,8 +980,7 @@ Feature: Validate all scenarios for the global search
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-  #  When I close "Review" modal by clicking the top right x button
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Subaward Risk Assessments - All"
@@ -966,7 +988,15 @@ Feature: Validate all scenarios for the global search
     And I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     Then I softly can see top right button "Complete Review" in page detail
     When I click on "Complete Review" in the page details
-    Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
+    Then I softly see field "Status" as "Reviewed"
+    And I wait for "3" seconds
+    And I navigate to "Monitoring" tab
+    And I select "Risk Assessment" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:riskID}"
+    And I click on row level action button "Edit" against "{SavedValue:riskID}" in global search with id "Risk Assessment"
+    Then I softly see field "Status" as "Reviewed"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
 
 
 
