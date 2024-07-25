@@ -1535,6 +1535,4 @@ Feature: Validate all scenarios of every modules flow
   @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
    Given I am on "INTERNAL" portal
-   Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
-   Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
-   When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime award}" having object api name as "ProgressReports__c"
+    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"

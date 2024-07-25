@@ -130,7 +130,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I softly see "Program Artifacts" has been added in "ExternalOrganizationRiskAssessmentFiles" flex table
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
-  @62197 @62198 @62513 @pendingTaskCreatedForGrantor @deepika @OrgRiskSet1
+  @62197 @62198 @62513 @62515 @62516 @pendingTaskCreatedForGrantor @deepika @OrgRiskSet1
   Scenario: Validate whether pending task is created for grantor when Authorized Signatory requested for Revision
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "10" seconds
@@ -156,17 +156,19 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---riskassessment:-:homePendingTaskTableId---" panel
     Then I softly see values "Automation Permanent Organization for Risk Assessment" and "Provide or Decline Risk Assessment Access" inside table
-    # @62198
+    # @62198 @62515
     When I click on "View" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:activeOrgTableID---" without waiting for record
     And I navigate to "Risk Assessment" sub tab
     When I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I softly can see top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    # @62516
+    Then I can see top right button "Decline" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I click on top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I pause execution for "10" seconds
     Then I softly cannot see top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
-  @62312 @62314 @deleteIconfCreatedRiskAssessment @deepika @OrgRiskSet1
+  @62312 @62314 @62514 @64608 @deleteIconfCreatedRiskAssessment @deepika @OrgRiskSet1
   Scenario: Validate whether Authorized Signatory can view the delete button across the created Risk Assessment
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "10" seconds
@@ -174,6 +176,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    # @62514 @64608
+    Then I can softly see modal button "Save and Continue"
+    # @62312 @62314
     When I click modal button "Save and Continue"
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
@@ -208,7 +213,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Record Id" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I see "No Records Found" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @62315 @snapHistoryOfOrgRA @deepika @skipOnJenkins @OrgRiskSet1
+  @62315 @snapHistoryOfOrgRA @deepika @OrgRiskSet1
   Scenario: Validate whether Snapshot is captured/(taken) automatically  by the system in the table Snapshot History when Risk Assessment is Activated
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -269,72 +274,6 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     Then I see the following messages in the page details contains:
       | A request to create new assessment has been sent to the Grantor.  Once the request has been approved, you will receive an email and can proceed with an assessment revision. |
-
-  @62514 @64608 @saveAndContinueButtons @deepika
-  Scenario: Validate as soon as user clicks Start icon of pending task record to create Risk Assessment then user will land in Save and Continue Page.
-    #62514
-    Then I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "3" seconds
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I wait for "3" seconds
-    Then I can softly see modal button "Save and Continue"
-#    Then I can see top right button "Save and Continue" in page detail
-
-  @62515 @provideRevisionAccess @deepika @smoke
-  Scenario: Validate whether Grantor can approve the revision request for org level risk Assessment
-    When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "3" seconds
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I navigate to "Assessment" sub tab
-    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I get the "EGMS ID"
-    When I click on "Submit" in the page details
-    And I wait for "3" seconds
-    And I navigate to "Home" tab
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
-    When I click on "View" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:activeOrgTableID---" without waiting for record
-    And I navigate to "Risk Assessment" sub tab
-    When I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
-    Then I can see top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-
-  @62516 @declineButtonViewForGrantor @deepika
-  Scenario: Validate whether Grantor can Decline the revision request for org level risk Assessment
-    When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "3" seconds
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I navigate to "Assessment" sub tab
-    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I get the "EGMS ID"
-    When I click on "Submit" in the page details
-    And I wait for "3" seconds
-    And I navigate to "Home" tab
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
-    When I click on "View" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:activeOrgTableID---" without waiting for record
-    And I navigate to "Risk Assessment" sub tab
-    Then I can see top right button "Decline" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
   @62517 @validateMessageDisplayedWhenProvideAccess @deepika
   Scenario: Validate the message is displayed when clicked on Provide Access for new Risk Assessment by Grantor
