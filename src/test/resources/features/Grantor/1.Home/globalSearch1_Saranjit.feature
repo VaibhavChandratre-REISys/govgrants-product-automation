@@ -37,22 +37,23 @@ Feature: Validate all scenarios for the global search
   @390405 @390408 @ValidateEXEuserisabletoseetheglobalsearchbarforanDeskReview @sprint-2-US-386939 @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Award Desk Review is in the Created, submit for review and sent to grantor state
   |Verify that Non-Owner user doesn't have an edit option in any stage of Award Desk Review and will get error message on page.|
-    Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
-    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
+#    Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
+#    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "EXE" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award Desk Review}" in "---deskreview:-:internalActiveGrants---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalActiveGrants---"
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
-    Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Desk Review" in flex table with id "---deskreview:-:managementInitiateDRtableid---"
-    And I enter "Creation" values from "DeskReview_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I enter "Edition" values from "DeskReview_Field_Values.xlsx"
-    When I click on "Save" in the page details
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - Active"
+#    When I perform quick search for "{SavedValue:Automation Runtime Award Desk Review}" in "---deskreview:-:internalActiveGrants---" panel
+#    And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalActiveGrants---"
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
+#    Given I navigate to "Management" sub tab
+#    And I click on top right button "Initiate Desk Review" in flex table with id "---deskreview:-:managementInitiateDRtableid---"
+#    And I enter "Creation" values from "DeskReview_Field_Values.xlsx"
+#    When I click modal button "Save and Continue"
+#    And I enter "Edition" values from "DeskReview_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+    And I navigate to url " https://test8-internal--qaorg.sandbox.lightning.force.com/lightning/r/SiteVisit__c/a3f75000000NFr0AAG/view?c__Mode=ZWRpdA%3D%3D"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReview"
     And I wait for "2" seconds
@@ -63,10 +64,25 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     When I click on "Save" in the page details
-    When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---deskreview:-:deskReviewOwnerTableId---" by clicking "Edit" :
-      | Responsibility | Name                     |
-      | Owner          | {SavedValue:PM Username} |
+    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    Then I see "Ownership" inside "Reassign" is displayed
+    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
+    And I select value "Automation EXE" into field "input-1"
+    And I select value "Automation EXE1" into field "input-2"
+    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
+    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
+    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
+    When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
+    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
+    And I click "OK" on modal confirmation box
+    And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
+    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitTargetTableId---" panel
+    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
@@ -183,42 +199,57 @@ Feature: Validate all scenarios for the global search
 
   @390406 @ValidateEXEuserisabletoseetheglobalsearchbarforSiteVisit @sprint-2-US-386939 @GlobalSearch
   Scenario:Verify that the record owner is able to edit the access for record when Award site visit is in the Created, submit for review and sent to grantor state
-    Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default-Automation EXE user" of type "Competitive"
-    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Competitive"
+#    Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default-Automation EXE user" of type "Competitive"
+#    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - Active"
-    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "---sitevisits:-:grantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:grantsTableId---"
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
-    Given I navigate to "Management" sub tab
-    And I click on top right button "Initiate Site Visit" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
-    And I pause execution for "4" seconds
-    And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
-    When I click on "Save" in the page details
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - Active"
+#    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "---sitevisits:-:grantsTableId---" panel
+#    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:grantsTableId---"
+#    When I navigate to "Subawards" sub tab
+#    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
+#    Given I navigate to "Management" sub tab
+#    And I click on top right button "Initiate Site Visit" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
+#    And I pause execution for "4" seconds
+#    And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
+#    When I click modal button "Save and Continue"
+#    And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+    And I navigate to url "https://test8-internal--qaorg.sandbox.lightning.force.com/lightning/r/SiteVisit__c/a3f75000000NFr5AAG/view"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I pause execution for "3" seconds
-    And I click modal button "Close"
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
     And I click on "Save" in the page details
+    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    Then I see "Ownership" inside "Reassign" is displayed
+    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
+    And I select value "Automation EXE" into field "input-1"
+    And I select value "Automation EXE1" into field "input-2"
+    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
+    When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
+    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
+    And I click "OK" on modal confirmation box
+    And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
+    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+    And I pause execution for "2" seconds
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---deskreview:-:deskReviewOwnerTableId---" by clicking "Edit" :
       | Responsibility | Name                     |
       | Owner          | {SavedValue:PM Username} |
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:DeskReview}"
-    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
     #390421 #390427
     Then I softly see field "Status" as "Created"
     Then I softly can see top right button "Save" in page detail
@@ -234,7 +265,7 @@ Feature: Validate all scenarios for the global search
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "Record Id"
-    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
+    And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
     Then I softly see field "Status" as "Submitted for Review"
     Then I softly see field "Status" as "Created"
     #390411 #390427
@@ -249,10 +280,10 @@ Feature: Validate all scenarios for the global search
     When I click modal button "Save"
     And I click on submit review
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "Record Id"
-    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
+    And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
     When I click on "Save" in the page details
     And I pause execution for "3" seconds
     And I click on "Notify" in the page details
@@ -287,7 +318,7 @@ Feature: Validate all scenarios for the global search
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I cannot see top right button "Undo" in page detail
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
@@ -326,7 +357,7 @@ Feature: Validate all scenarios for the global search
     And I pause execution for "3" seconds
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
@@ -350,16 +381,16 @@ Feature: Validate all scenarios for the global search
   @390415 @390418 @ValidateEXEuserisabletoseetheglobalsearchbarforSiteVisit @sprint-2-US-386939 @GlobalSearch
   Scenario:Verify that user is able to expand the result by award site visit module and Filter/Refine the the result by configured Columns for an award site visit.
   |Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, S/R POC ) on objects after global search the any record for Award site visit.|
-    Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default-Automation EXE user" of type "Competitive"
-    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Competitive"
+#    Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default-Automation EXE user" of type "Competitive"
+#    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "---sitevisits:-:grantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:grantsTableId---"
+    And I perform quick search for "Automation Runtime Award Site Visit89826" in "---sitevisits:-:grantsTableId---" panel
+    And I click on "View" icon for "Automation Runtime Award Site Visit89826" inside flex table with id "---sitevisits:-:grantsTableId---"
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
+    And I click on "View" icon for "Automation Runtime Award Site Visit89826" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
     And I pause execution for "4" seconds
@@ -392,7 +423,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "Site Visits"
     And I click on hyperlink for global search containing value "{SavedValue:SitevVisitId}"
   #390418 #390432
-    Then I softly see page title contains as "{SavedValue:Automation Runtime Award Site Visit}"
+    Then I softly see page title contains as "Automation Runtime Award Site Visit89826"
 
   @390416 @390419 @ValidateEXEuserisabletoseetheglobalsearchbarforDeskReview @sprint-2-US-386939 @GlobalSearch @done
   Scenario: Verify that user is able to expand the result by award desk review module and Filter/Refine the the result by configured Columns for an award desk review
@@ -494,68 +525,66 @@ Feature: Validate all scenarios for the global search
       #390455
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390459
+  @390459 @done
   Scenario: Verify that Record owner can edit only the negotiation tab when pre-application is in the submit to grantor state and negotiation is in the created state
-#    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
-#    When I am on "SUBPORTAL" portal
-#    And I login to "Grants Portal" app as "SPI3" user
-#    When I navigate to "Opportunities" tab
-#    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-#    When I click toggle button to select "Not Yet Qualified Opportunities - All"
-#    And I perform quick search for "Automation Runtime Announcement for Pre-App103638" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-#    When I click on "View" icon for "Automation Runtime Announcement for Pre-App103638" inside table
-#    When I click on "Qualify" in the page details
-#    And I click on "Create Pre-Application" in the page details
-#    And I wait for "2" seconds
-#    When I click modal button "Save and Continue"
-#    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    When I get the "EGMS ID"
-#    And I save the field labeled "EGMS ID" as "PreAppID"
-#    And I navigate to "Overview" sub tab
-#    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-#      | Name                       | Project Role             | Is Key Contact |
-#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
-#    And I navigate to "Budget" sub tab
-#    Given I expand nested table containing column value "BP01"
-#    And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
-#      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-#      | Construction  | 5000   | 5000       | 50             | 100            |
-#    When I navigate to "Forms and Files" sub tab
-#    And I navigate to "Quickview" sub tab in split screen
-#    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
-#    And I switch to tab number "1"
-#    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-#    And I click on "Save" in the page details
-#    And I switch to parent tab
-#    When I click on "Submit to Grantor" in the page details
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I select "Pre-Applications" from dropdown for Global search
-#    And I perform quick search inside global search "{SavedValue:PreAppID}"
-#    And I click on hyperlink for global search containing value "{SavedValue:PreAppID}"
-#    #390459 #390461
-#    Then I softly see page title contains as "Automation Runtime Announcement for Pre-App103638"
-#    Then I softly can see top right button "Request Negotiation" in page detail
-#    Then I softly can see top right button "Accept" in page detail
-#    Then I softly can see top right button "Reject" in page detail
-#    When I click on "Request Negotiation" in the page details
-#    And I navigate to "Negotiations" sub tab
-#    #390459
-#    Then I softly can see top right button "Save" in page detail
-#    Then I softly can see top right button "Cancel" in page detail
-#    When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
-#    And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
-#      | Form Name                     | Needs Negotiation |
-#      | Standard Pre-Application form | Checked           |
-#    When I click on "Save" in the page details
-#    And  I wait for "2" seconds
-#    #390459
-#    Then I softly can see top right button "Send to Subrecipient" in page detail
-
-    When I login to "As a Grantor" app as "EXE" user
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "Automation Runtime Announcement for Pre-App103638" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "Automation Runtime Announcement for Pre-App103638" inside table
+    When I click on "Qualify" in the page details
+    And I click on "Create Pre-Application" in the page details
+    And I wait for "2" seconds
+    When I click modal button "Save and Continue"
+    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "PreAppID"
+    And I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 5000   | 5000       | 50             | 100            |
+    When I navigate to "Forms and Files" sub tab
+    And I navigate to "Quickview" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I switch to parent tab
+    When I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I select "Pre-Applications" from dropdown for Global search
-    And I perform quick search inside global search "PR-TAO modified-0296"
-#    Then I softly see value "{SavedValue:PreAppID}" for title "EGMS ID" inside table "Pre-Applications"
+    And I perform quick search inside global search "{SavedValue:PreAppID}"
+    And I click on hyperlink for global search containing value "{SavedValue:PreAppID}"
+    #390459 #390461
+    Then I softly see page title contains as "Automation Runtime Announcement for Pre-App103638"
+    Then I softly can see top right button "Request Negotiation" in page detail
+    Then I softly can see top right button "Accept" in page detail
+    Then I softly can see top right button "Reject" in page detail
+    When I click on "Request Negotiation" in the page details
+    And I navigate to "Negotiations" sub tab
+    #390459
+    Then I softly can see top right button "Save" in page detail
+    Then I softly can see top right button "Cancel" in page detail
+    When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
+    And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
+      | Form Name                     | Needs Negotiation |
+      | Standard Pre-Application form | Checked           |
+    When I click on "Save" in the page details
+    And  I wait for "2" seconds
+    #390459
+    Then I softly can see top right button "Send to Subrecipient" in page detail
+    And I select "Pre-Applications" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:PreAppID}"
+    Then I softly see value "{SavedValue:PreAppID}" for title "EGMS ID" inside table "Pre-Applications"
     #390465
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Pre-Application Name" inside refine by filter
@@ -567,9 +596,9 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Status" inside refine by filter
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I select "Pre-Applications" from dropdown for Global search
-    And I perform quick search inside global search "PR-TAO modified-0296"
-    And I click on row level action button "Edit" against "PR-TAO modified-0296" in global search with id "Pre-Applications"
-     #390460
+    And I perform quick search inside global search "{SavedValue:PreAppID}"
+    And I click on row level action button "Edit" against "{SavedValue:PreAppID}" in global search with id "Pre-Applications"
+    #390460
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
   @390873
