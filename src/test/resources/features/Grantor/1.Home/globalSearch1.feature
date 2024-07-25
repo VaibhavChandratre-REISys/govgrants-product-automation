@@ -1275,6 +1275,43 @@ Feature: Validate all scenarios for the global search
     And I click on hyperlink for global search containing value "{SavedValue:riskID}"
     Then I softly see the text containing "{SavedValue:riskID}"
 
+  @390304 @VerifythattherecordownerisnotabletoedittheaccessforrecordwhenPaymentRequestisintheSubmittograntorstate
+  Scenario:Verify that the record owner is not able to edit the access for record when Payment Request is in the Submit to grantor state.
+    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
+    And I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Grants" tab
+    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---progressReport:-:recipientAwardsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---progressReport:-:recipientAwardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "SubawardId"
+    When I navigate to "Actuals" sub tab
+    And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+    When I enter value "Automation Runtime Payment Request" into field "Title__c"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "paymentEGMSID"
+    And I navigate to "Financials" sub tab
+    When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
+    When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
+      | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 100        | 100            |
+    When I close "Add Line Items" modal by clicking the top right x button
+    And I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    And I pause execution for "4" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    And I select "Payment Requests" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:paymentEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:paymentEGMSID}" in global search with id "Payment Requests"
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
 
 
 
