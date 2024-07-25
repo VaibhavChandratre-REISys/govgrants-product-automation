@@ -93,10 +93,10 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Cancel" in page detail
     When I click on "Save" in the page details
     Given I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
+#    And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
+    When I click "Associate" after selection of "Automation Runtime Award Desk2753171547" in the table "---deskreview:-:awardDeskReviewTableId---"
     And I click on "Notify" in the page details
     And I pause execution for "5" seconds
     Given I click on "Conduct" in the page details
@@ -242,32 +242,31 @@ Feature: Validate all scenarios for the global search
 #    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
 #    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
 #    And I pause execution for "2" seconds
-#    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
-#    And I select "Site Visits" from dropdown for Global search
-#    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
-#    And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
-#    #390421 #390427
-#    Then I softly see field "Status" as "Created"
-#    Then I softly can see top right button "Save" in page detail
-#    Then I softly can see top right button "Cancel" in page detail
-#    When I click on "Save" in the page details
-#    And I pause execution for "3" seconds
-#    And I click on "Notify" in the page details
-#    And I click on "Conduct" in the page details
-#    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "SiteVisitReviewerRoles" by clicking "New" :
-#      | Reviewer Name            | Responsibility  | Description              | Due Date | Allow Record Editing |
-#      | {SavedValue:PO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
-#    And I click on "Send for Review" icon for "{SavedValue:PO Username}" inside table
-#    Then I softly see field "Status" as "Submitted for Review"
-#    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
+    #390421 #390427
+    Then I softly see field "Status" as "Created"
+    Then I softly can see top right button "Save" in page detail
+    Then I softly can see top right button "Cancel" in page detail
+    When I click on "Save" in the page details
+    And I pause execution for "3" seconds
+    And I click on "Notify" in the page details
+    And I click on "Conduct" in the page details
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "SiteVisitReviewerRoles" by clicking "New" :
+      | Reviewer Name            | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | {SavedValue:PO Username} | Fiscal Reviewer | Review Financial details | 10       | Yes                  |
+    And I click on "Send for Review" icon for "{SavedValue:PO Username}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
     Then I softly see field "Status" as "Submitted for Review"
-    Then I softly see field "Status" as "Created"
     #390411 #390427
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
