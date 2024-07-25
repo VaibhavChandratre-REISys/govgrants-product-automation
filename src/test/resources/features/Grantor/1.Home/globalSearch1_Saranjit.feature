@@ -25,13 +25,14 @@ Feature: Validate all scenarios for the global search
     And I refresh the page
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "SAN DIEGO ELECTRICAL TRAINING TRUST"
+    And I click on "Expand List" button on left navigation for global search
     Then I softly see record count "3" for module "Organizations" on left navigation for global search
 
     Examples:
       | User  |
       | ADMIN |
-#      | EXE   |
-#      | PM    |
+      | EXE   |
+      | PM    |
 
   @390405 @390408 @ValidateEXEuserisabletoseetheglobalsearchbarforanDeskReview @sprint-2-US-386939 @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Award Desk Review is in the Created, submit for review and sent to grantor state
@@ -342,7 +343,7 @@ Feature: Validate all scenarios for the global search
     #390409 #390425
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390415 @390418 @ValidateEXEuserisabletoseetheglobalsearchbarforSiteVisit @sprint-2-US-386939 @GlobalSearch
+  @390415 @390418 @ValidateEXEuserisabletoseetheglobalsearchbarforSiteVisit @sprint-2-US-386939 @GlobalSearch @done
   Scenario:Verify that user is able to expand the result by award site visit module and Filter/Refine the the result by configured Columns for an award site visit.
   |Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, S/R POC ) on objects after global search the any record for Award site visit.|
     Given I login to "As a Grantor" app as "EXE" user
@@ -385,7 +386,7 @@ Feature: Validate all scenarios for the global search
   #390418 #390432
     Then I softly see page title contains as "{SavedValue:Automation Runtime Site Visit Org level}"
 
-  @390416 @390419 @ValidateEXEuserisabletoseetheglobalsearchbarforDeskReview @sprint-2-US-386939 @GlobalSearch
+  @390416 @390419 @ValidateEXEuserisabletoseetheglobalsearchbarforDeskReview @sprint-2-US-386939 @GlobalSearch @done
   Scenario: Verify that user is able to expand the result by award desk review module and Filter/Refine the the result by configured Columns for an award desk review
   |Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, S/R POC ) on objects after global search the any record for Award desk review.|
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
@@ -427,7 +428,7 @@ Feature: Validate all scenarios for the global search
       #390419 #390431
     Then I softly see page title contains as "{SavedValue:Automation Runtime Award Desk}"
 
-  @390454
+  @390454 @ValidateEXEuserisabletoseetheglobalsearchbarforApplicationNegotiation @sprint-2-US-386939 @GlobalSearch @done
   Scenario: Verify that Record owner can edit only the negotiation tab when application is in the review initiated state and negotiation is in the created state
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
