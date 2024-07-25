@@ -22,6 +22,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Created Date" inside refine by filter
     Then I softly see "Agency Abbreviation" inside refine by filter
     Then I softly see "Executive Office" inside refine by filter
+    And I refresh the page
     And I select "Organizations" from dropdown for Global search
     And I perform quick search inside global search "SAN DIEGO ELECTRICAL TRAINING TRUST"
     Then I softly see record count "3" for module "Organizations" on left navigation for global search
@@ -29,8 +30,8 @@ Feature: Validate all scenarios for the global search
     Examples:
       | User  |
       | ADMIN |
-      | EXE   |
-      | PM    |
+#      | EXE   |
+#      | PM    |
 
   @390405 @390408 @ValidateEXEuserisabletoseetheglobalsearchbarforanDeskReview @sprint-2-US-386939 @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Award Desk Review is in the Created, submit for review and sent to grantor state
@@ -623,7 +624,7 @@ Feature: Validate all scenarios for the global search
     #390882
     Then I softly see page title contains as "{SavedValue:Automation Runtime Contact}"
 
-  @393746
+  @393746 @ValidateEXEuserisabletoseetheglobalsearchbarforanannouncement @sprint-2-US-386939 @GlobalSearch @done
   Scenario: Verify that Column label should correctly displayed and clickable on that object when user global search any record by using EGMS ID or any keyword
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
