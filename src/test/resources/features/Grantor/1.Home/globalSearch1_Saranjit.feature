@@ -83,7 +83,7 @@ Feature: Validate all scenarios for the global search
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
     And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
@@ -92,6 +92,14 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     When I click on "Save" in the page details
+    Given I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
+    And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
+    And I click on "Notify" in the page details
+    And I pause execution for "5" seconds
+    Given I click on "Conduct" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "SiteVisitReviewerRoles" by clicking "New" :
       | Reviewer Name            | Responsibility  | Description              | Due Date | Allow Record Editing |
@@ -117,19 +125,11 @@ Feature: Validate all scenarios for the global search
     When I click modal button "Save"
     And I click on submit review
     And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
+    And I perform quick search inside global search "{SavedValue:DeskReview}"
     And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
     When I click on "Save" in the page details
-    Given I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
-    And I click on "Notify" in the page details
-    And I pause execution for "5" seconds
-    Given I click on "Conduct" in the page details
     And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---deskreview:-:correctiveTableId---" by clicking "New" :
       | Title                  | Description            | Type        |
@@ -251,6 +251,10 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     When I click on "Save" in the page details
+    And I pause execution for "3" seconds
+    And I click on "Notify" in the page details
+    And I click on "Conduct" in the page details
+    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "SiteVisitReviewerRoles" by clicking "New" :
       | Reviewer Name            | Responsibility  | Description              | Due Date | Allow Record Editing |
@@ -278,13 +282,9 @@ Feature: Validate all scenarios for the global search
     And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
+    And I perform quick search inside global search "{SavedValue:DeskReview}"
+    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
     When I click on "Save" in the page details
-    And I pause execution for "3" seconds
-    And I click on "Notify" in the page details
-    And I click on "Conduct" in the page details
-    Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                     | Site Visit |
@@ -374,19 +374,19 @@ Feature: Validate all scenarios for the global search
     #390409 #390425
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390415 @390418 @ValidateEXEuserisabletoseetheglobalsearchbarforSiteVisit @sprint-2-US-386939 @GlobalSearch
+  @390415 @390418 @ValidateEXEuserisabletoseetheglobalsearchbarforSiteVisit @sprint-2-US-386939 @GlobalSearch @done
   Scenario:Verify that user is able to expand the result by award site visit module and Filter/Refine the the result by configured Columns for an award site visit.
   |Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, S/R POC ) on objects after global search the any record for Award site visit.|
-#    Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default-Automation EXE user" of type "Competitive"
-#    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default-Automation EXE user" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    And I perform quick search for "Automation Runtime Award Site Visit89826" in "---sitevisits:-:grantsTableId---" panel
-    And I click on "View" icon for "Automation Runtime Award Site Visit89826" inside flex table with id "---sitevisits:-:grantsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "---sitevisits:-:grantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:grantsTableId---"
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "Automation Runtime Award Site Visit89826" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
     And I pause execution for "4" seconds
@@ -414,7 +414,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "Site Visits"
     And I click on hyperlink for global search containing value "{SavedValue:SitevVisitId}"
   #390418 #390432
-    Then I softly see page title contains as "Automation Runtime Award Site Visit89826"
+    Then I softly see page title contains as "{SavedValue:Automation Runtime Award Site Visit}"
 
   @390416 @390419 @ValidateEXEuserisabletoseetheglobalsearchbarforDeskReview @sprint-2-US-386939 @GlobalSearch @done
   Scenario: Verify that user is able to expand the result by award desk review module and Filter/Refine the the result by configured Columns for an award desk review
@@ -592,7 +592,7 @@ Feature: Validate all scenarios for the global search
     #390460
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390873
+  @390873 @done
   Scenario: Subrecipient Contact-> Verify that the record owner and Admin is able to edit the access for record when Subrecipient contact is in the New, Invitation sent, Register, Active, Invitation Expired state
     When I login to "As a Grantor" app as "EXE" user
     And I select "Contacts" from dropdown for Global search
