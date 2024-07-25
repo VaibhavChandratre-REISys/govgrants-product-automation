@@ -903,14 +903,14 @@ Feature: Validate all scenarios for the global search
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I wait for "3" seconds
-    And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Progress Report" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progID}"
     And I click on hyperlink for global search containing value "{SavedValue:progID}"
     Then I softly see the text containing "{SavedValue:progID}"
 
-  @390190 @VerifythattherecordownerisabletoedittheaccessforrecordwhenRiskAssessmentisintheCreatedsubmitforrevieworinReviewedstate
+  @390190 @390201 @VerifythattherecordownerisabletoedittheaccessforrecordwhenRiskAssessmentisintheCreatedsubmitforrevieworinReviewedstate
   Scenario: Verify that the record owner is able to edit the access for record when Risk Assessment is in the Created, submit for review or in Reviewed state
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -943,7 +943,16 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Created"
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
-    And I wait for "3" seconds
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    And I select "Risk Assessment" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:riskID}"
+    And I click on row level action button "Edit" against "{SavedValue:riskID}" in global search with id "Risk Assessment"
+    Then I softly see field "Status" as "Created"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Subaward Risk Assessments - All"
@@ -970,6 +979,15 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Submitted for Review"
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    And I select "Risk Assessment" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:riskID}"
+    And I click on row level action button "Edit" against "{SavedValue:riskID}" in global search with id "Risk Assessment"
+    Then I softly see field "Status" as "Submitted for Review"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -997,6 +1015,15 @@ Feature: Validate all scenarios for the global search
     Then I softly see field "Status" as "Reviewed"
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    And I select "Risk Assessment" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:riskID}"
+    And I click on row level action button "Edit" against "{SavedValue:riskID}" in global search with id "Risk Assessment"
+    Then I softly see field "Status" as "Reviewed"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
 
 
 
