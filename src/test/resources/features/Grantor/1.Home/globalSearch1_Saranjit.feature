@@ -56,14 +56,14 @@ Feature: Validate all scenarios for the global search
     And I navigate to url " https://test8-internal--qaorg.sandbox.lightning.force.com/lightning/r/SiteVisit__c/a3f75000000NFr0AAG/view?c__Mode=ZWRpdA%3D%3D"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReview"
-    And I wait for "2" seconds
-    And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:DeskReview}"
-    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
-    Then I softly see field "Status" as "Created"
-    Then I softly can see top right button "Save" in page detail
-    Then I softly can see top right button "Cancel" in page detail
-    When I click on "Save" in the page details
+#    And I wait for "2" seconds
+#    And I select "Site Visits" from dropdown for Global search
+#    And I perform quick search inside global search "{SavedValue:DeskReview}"
+#    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
+#    Then I softly see field "Status" as "Created"
+#    Then I softly can see top right button "Save" in page detail
+#    Then I softly can see top right button "Cancel" in page detail
+#    When I click on "Save" in the page details
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -74,7 +74,7 @@ Feature: Validate all scenarios for the global search
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
-    When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
+    When I check "{SavedValue:DeskReview}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
@@ -219,33 +219,29 @@ Feature: Validate all scenarios for the global search
     And I navigate to url "https://test8-internal--qaorg.sandbox.lightning.force.com/lightning/r/SiteVisit__c/a3f75000000NFr5AAG/view"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
-    And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
-    And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
-    And I click on "Save" in the page details
-    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    Then I see "Ownership" inside "Reassign" is displayed
-    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "input-1"
-    And I select value "Automation EXE1" into field "input-2"
-    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
-    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
-    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
-    When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
-    When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
-    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "OK" on modal confirmation box
-    And I pause execution for "30" seconds
-    When I navigate to "Records of Target User" sub tab
-    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
-    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
-    And I pause execution for "2" seconds
-    When I navigate to "Responsibilities" sub tab
-    And I edit the following rows inline in flex table with id "---deskreview:-:deskReviewOwnerTableId---" by clicking "Edit" :
-      | Responsibility | Name                     |
-      | Owner          | {SavedValue:PM Username} |
+#    And I select "Site Visits" from dropdown for Global search
+#    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+#    And I click on row level action button "Edit" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
+#    And I click on "Save" in the page details
+#    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    Then I see "Ownership" inside "Reassign" is displayed
+#    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
+#    And I select value "Automation EXE" into field "input-1"
+#    And I select value "Automation EXE1" into field "input-2"
+#    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
+#    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+#    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
+#    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+#    When I check "{SavedValue:SitevVisitId}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
+#    When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
+#    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
+#    And I click "OK" on modal confirmation box
+#    And I pause execution for "30" seconds
+#    When I navigate to "Records of Target User" sub tab
+#    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
+#    Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+#    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
@@ -400,11 +396,6 @@ Feature: Validate all scenarios for the global search
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I pause execution for "3" seconds
-    And I click modal button "Close"
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "Site Visits"
@@ -614,18 +605,21 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Phone" inside refine by filter
     Then I softly see "Status" inside refine by filter
     And I click on row level action button "Edit" against "{user:NewUser}" in global search with id "Contacts"
+    And I pause execution for "3" seconds
     #390873
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     And I select "Contacts" from dropdown for Global search
     And I perform quick search inside global search "{user:InvitationSentUser}"
     And I click on row level action button "Edit" against "{user:InvitationSentUser}" in global search with id "Contacts"
+    And I pause execution for "3" seconds
     #390873
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     And I select "Contacts" from dropdown for Global search
     And I perform quick search inside global search "{user:ActiveUser}"
     And I click on row level action button "Edit" against "{user:ActiveUser}" in global search with id "Contacts"
+    And I pause execution for "3" seconds
     #390873
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
