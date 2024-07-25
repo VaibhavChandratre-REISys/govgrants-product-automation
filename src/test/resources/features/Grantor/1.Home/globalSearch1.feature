@@ -1313,6 +1313,44 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
+  @390311 @VerifythattherecordownerisnotabletoedVerifythatuserisabletoexpandtheresultbyPaymentRequestmoduleandFilterRefinetheresultbyconfiguredColumnsforanPaymentRequest.
+  Scenario:Verify that user is able to expand the result by Payment Request module and Filter/Refine the the result by configured Columns for an Payment Request.
+    Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
+    And I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Grants" tab
+    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---progressReport:-:recipientAwardsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---progressReport:-:recipientAwardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "SubawardId"
+    When I navigate to "Actuals" sub tab
+    And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+    When I enter value "Automation Runtime Payment Request" into field "Title__c"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "paymentEGMSID"
+    And I navigate to "Monitoring" tab
+    And I select "Payment Requests" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:paymentEGMSID}"
+    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Requests"
+    And I perform quick search inside global search "PR-"
+    Then I softly see "EGMS ID" inside refine by filter
+    Then I softly see "Type" inside refine by filter
+    Then I softly see "Subaward Id" inside refine by filter
+    Then I softly see "External Organization" inside refine by filter
+    Then I softly see "Payment Period" inside refine by filter
+    Then I softly see "Status" inside refine by filter
+    And I filter field record by "{SavedValue:paymentEGMSID}" by label "EGMS ID" in left panel for global search
+    Then I softly see value "{SavedValue:paymentEGMSID}" for title "EGMS ID" inside table "Payment Requests"
+    Then I softly see the text "Refine By" on left navigation for global search
+    And I click on "Expand List" button on left navigation for global search
+    Then I softly see the text "Payment Requests" on left navigation for global search
+    Then I softly see the text "Grants" on left navigation for global search
+    Then I softly see the text "Amendment Requests" on left navigation for global search
+
 
 
 
