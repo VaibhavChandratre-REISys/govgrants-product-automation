@@ -1334,7 +1334,7 @@ Feature: Validate all scenarios for the global search
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "paymentEGMSID"
-    And I pause execution for "5" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Payment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:paymentEGMSID}"
@@ -1373,7 +1373,7 @@ Feature: Validate all scenarios for the global search
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "paymentEGMSID"
-    And I pause execution for "5" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I select "Payment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:paymentEGMSID}"
