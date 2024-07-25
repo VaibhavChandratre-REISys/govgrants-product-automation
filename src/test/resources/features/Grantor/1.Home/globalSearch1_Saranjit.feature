@@ -36,8 +36,8 @@ Feature: Validate all scenarios for the global search
   @390405 @390408 @ValidateEXEuserisabletoseetheglobalsearchbarforanDeskReview @sprint-2-US-386939 @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Award Desk Review is in the Created, submit for review and sent to grantor state
   |Verify that Non-Owner user doesn't have an edit option in any stage of Award Desk Review and will get error message on page.|
-    Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
-    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"
+    Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
+    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -368,7 +368,6 @@ Feature: Validate all scenarios for the global search
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "Site Visits"
-    And I perform quick search inside global search "Site Visits"
     #390430
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Type" inside refine by filter
@@ -384,13 +383,13 @@ Feature: Validate all scenarios for the global search
     Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "Site Visits"
     And I click on hyperlink for global search containing value "{SavedValue:SitevVisitId}"
   #390418 #390432
-    Then I softly see page title contains as "{SavedValue:Automation Runtime Award Desk Review}"
+    Then I softly see page title contains as "{SavedValue:Automation Runtime Site Visit Org level}"
 
   @390416 @390419 @ValidateEXEuserisabletoseetheglobalsearchbarforDeskReview @sprint-2-US-386939 @GlobalSearch
   Scenario: Verify that user is able to expand the result by award desk review module and Filter/Refine the the result by configured Columns for an award desk review
   |Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, S/R POC ) on objects after global search the any record for Award desk review.|
-    Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
-    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"
+    Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
+    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -411,7 +410,6 @@ Feature: Validate all scenarios for the global search
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
     Then I softly see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "Site Visits"
-    And I perform quick search inside global search "Site Visits"
     #390429
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Type" inside refine by filter
@@ -427,7 +425,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "Site Visits"
     And I click on hyperlink for global search containing value "{SavedValue:DeskReview}"
       #390419 #390431
-    Then I softly see page title contains as "{SavedValue:Automation Runtime Award Desk Review}"
+    Then I softly see page title contains as "{SavedValue:Automation Runtime Award Desk}"
 
   @390454
   Scenario: Verify that Record owner can edit only the negotiation tab when application is in the review initiated state and negotiation is in the created state
@@ -460,6 +458,8 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Send to Subrecipient" in page detail
     Then I softly can see top right button "Cancel Negotiation" in page detail
     Then I softly can see top right button "Back to Current Review Step" in page detail
+    And I select "Applications" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AppID}"
     And I click on hyperlink for global search containing value "{SavedValue:AppID}"
       #390457
     Then I softly see page title contains as "{SavedValue:Automation Runtime FDM Announcement}"
@@ -535,7 +535,8 @@ Feature: Validate all scenarios for the global search
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
     #390459
-    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Save" in page detail
+    Then I softly can see top right button "Cancel" in page detail
     When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
