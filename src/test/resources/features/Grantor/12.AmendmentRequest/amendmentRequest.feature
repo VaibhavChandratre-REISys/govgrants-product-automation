@@ -91,7 +91,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Send to Subrecipient" in the page details
     Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
-  @53202 @subrecipientAcknowledgesSOWAmendmentRequest @smoke @wip @poojaAmendmnet
+  @53202 @subrecipientAcknowledgesSOWAmendmentRequest @smoke
   Scenario: Subrecipient acknowledges Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -119,8 +119,9 @@ Feature: Validate all scenarios in the Amendment Request
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Acknowledge" in the page details
-    Then I see that "Amendment Request" is in "Acknowledged" status
+    Then I cannot see top right button "Acknowledge" in page detail
+    Then I can see top right button "Submit to Grantor" in page detail
+
 
   @53203 @97561 @97383 @submitForApprovalSOWAmendmentRequest @monu
   Scenario: Submit Amendment Request for Approval
@@ -281,7 +282,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I submit the approval in the approval decision
     Then I can see the message "Comments are Required." in the approval decision
 
-  @53205 @amendSubawardSOWAmendmentRequest @wip
+  @53205 @amendSubawardSOWAmendmentRequest
   Scenario: Click on Amend of Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -292,13 +293,12 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Edit" in the page details
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Given I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
+    When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
-      | Value                    | Field        |
-      | Automation Permanent KPI | MasterKPI__c |
-      | 10                       | Target__c    |
-    Given I click modal button "Save"
-    When I close "Associate KPI" modal by clicking the top right x button
+      | Value                                    | Field        |
+      | Automation Permanent KPI for Regression2 | MasterKPI__c |
+      | 10                                       | Target__c    |
+    When I click modal button "Save"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -309,22 +309,28 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 3            |
-    When I navigate to "Files" sub tab
-    When I upload attachment "InternalOrganization_Field_Values.xlsx" of type "Terms and Conditions"
+    And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
+    And I wait for "2" seconds
+    Then I softly see field "Amendment Types" as "Scope of Work Change"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I get the "EGMS ID"
     And I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
@@ -336,20 +342,12 @@ Feature: Validate all scenarios in the Amendment Request
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - Approved"
+    And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
     Then I see that "{SavedValue:Automation Runtime Award}" is in "Pending Activation" status
 
@@ -548,7 +546,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Automation Permanent Focus Area | 500      |
     Then I see that "Automation Permanent Focus Area" has been added in flextable with Id "---amendment:-:projectAreasTableId---"
 
-  @53211 @associateFocusAreaToBPCAmendmentRequest @wip
+  @53211 @associateFocusAreaToBPCAmendmentRequest
   Scenario Outline: Validate the association of FocusArea to BPC
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1225,7 +1223,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "Save" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     Then I see value "$1,000.00" for title "Difference" against the value "{SavedValue:fundingAccount}" inside table "---amendment:-:amendmentFundingAccountsTableId---"
 
-  @56974 @grantorSendBackAmendmentToSubRecipient @jitendra @poojaAmendmnetSecond
+  @56974 @grantorSendBackAmendmentToSubRecipient @jitendra
   Scenario: Verify Grantor can Send back the Amendment request to Sub-recipient.
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1281,7 +1279,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
 
-  @57267 @verifyReviseButtonAmendment @jitendra @wip
+  @57267 @verifyReviseButtonAmendment @jitendra
   Scenario: Verify Once Sub-recipient update the requested changes and submit to Grantor Revise button is displayed.
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1321,7 +1319,8 @@ Feature: Validate all scenarios in the Amendment Request
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    Then I can see top right button "Revise" in page detail
+    Then I cannot see top right button "Revise" in page detail
+    Then I can see top right button "Send Back to Subrecipient" in page detail
 
   @57279 @verifyReviseButtonAmendment @jitendra
   Scenario: Verify Once Grantor Revise the Amendment request then he can modify the request and share with Sub-recipient again.
@@ -2136,7 +2135,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @62966 @97938 @97976 @97966 @97942 @97917 @98482  @smoke @wip
+  @62966 @97938 @97976 @97966 @97942 @97917 @98482  @smoke
   Scenario: Validate whether SR user can view the Risk Score which remained as is when Award Risk Assessment is copied to new created award when amendment type -  Terms and conditions amendment
     And I navigate to "Management" sub tab
     When I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
@@ -2228,7 +2227,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---riskassessment:-:riskAssessmentGridViewExternalTableId---" without waiting for record
     Then I softly see field "Overall Risk" as "{SavedValue:OverAllRisk}"
 
-  @68088 @verifyAmendedBudgetPeriodHighlighted @meenakshi @buglogges138281 @poojaAmendmnetThird
+  @68088 @verifyAmendedBudgetPeriodHighlighted @meenakshi @buglogges138281
   Scenario Outline: Validate that after amendment is done (budget period) the changed budget period is highlighted in the Subawards table
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2372,7 +2371,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
 
-  @100693 @ValidateEditOfDateOfFocusAreaAtAmendmentRequest-FundingChangeAmendmentRequest @monu @poojaAmendmnetThird
+  @100693 @ValidateEditOfDateOfFocusAreaAtAmendmentRequest-FundingChangeAmendmentRequest @monu
   Scenario: Verify Internal user can edit or change focus area dates
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2391,7 +2390,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Title                           | End Date |
       | Automation Permanent Focus Area | 3500     |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I save the value from row "1" for column name "End Date" as "endDate" from flex table "---amendment:-:projectAreasTableId---"
     Then I softly see value "{SavedValue:endDate}" for title "End Date" inside table "---amendment:-:projectAreasTableId---"
 

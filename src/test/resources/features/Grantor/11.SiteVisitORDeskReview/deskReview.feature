@@ -1142,6 +1142,7 @@ Feature: Validate all scenarios in Desk Review
     And I select "Download as CSV" from parallel lines dropdown of "Participants"
     And I download the file
     Then I verify that "xls" file is downloaded
+    Then I see that file name contains ".docx" is downloaded
 
   @65244 @deleteCreateDeskReview @deepika @DeskReviewFirst
   Scenario: Validate whether user will be able to delete the created Desk Review
