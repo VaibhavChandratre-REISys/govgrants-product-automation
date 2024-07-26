@@ -23764,7 +23764,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitmentGrant"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitmentGrant}"
 
-  @257892 @ValidateCompetitivePOusercanseeerrormessageafterclickonremovebuttonwhileremovingthefocusareawithbudgetassociatedwithitFAYES @sprint-19-US-250552 @vaibhav @Allocation @TBExecution
+  @257892 @ValidateCompetitivePOusercanseeerrormessageafterclickonremovebuttonwhileremovingthefocusareawithbudgetassociatedwithitFAYES @sprint-19-US-250552 @vaibhav @Allocation
   Scenario: Validate Competitive PO user can see error message after click on remove button while removing the focus area, with budget associated with it (FA=YES)
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -24083,7 +24083,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly see that "Revised Commitment" rendered in view mode only
 
-  @257716 @257727 @257730 @257802 @257532 @ValidateuserseealltheFocusareaswhichwereassociatedontheannouncementevenwithzeroallocationandcopiedtoawardlaterwhenawardiscreated @sprint-19-US-242374 @vaibhav @Allocation @TBExecution
+  @257716 @257727 @257730 @257802 @257532 @ValidateuserseealltheFocusareaswhichwereassociatedontheannouncementevenwithzeroallocationandcopiedtoawardlaterwhenawardiscreated @sprint-19-US-242374 @vaibhav @Allocation
   Scenario: Validate user see all the Focus areas, which were associated on the announcement even with zero allocation and copied to award later when award is created
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -24224,7 +24224,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @258405 @ValidateuseraddNewObligationiszero&SpentisalsoZeroFocusAreashouldnotbevisibleonthenewAwardiftheinitialAwardisfromFDM @sprint-19-US-250549 @vaibhav @Allocation @TBExecution
+  @258405 @ValidateuseraddNewObligationiszero&SpentisalsoZeroFocusAreashouldnotbevisibleonthenewAwardiftheinitialAwardisfromFDM @sprint-19-US-250549 @vaibhav @Allocation
   Scenario: Validate user add New Obligation is zero & Spent is also Zero, Focus Area should not be visible on the new Award if the initial Award is from FDM
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -24300,7 +24300,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Budget" sub tab
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @257077 @308950 @VerifyNewObligationfieldisaneditablefieldandusercannotenternegativevalueinNewObligationfieldwhenamendmentisincreatedstateFANO @sprint-19-US-229281 @hitesh @Allocation @TBExecution
+  @257077 @308950 @VerifyNewObligationfieldisaneditablefieldandusercannotenternegativevalueinNewObligationfieldwhenamendmentisincreatedstateFANO @sprint-19-US-229281 @hitesh @Allocation
   Scenario: Verify New Obligation field is an editable field and user cannot enter negative value in New Obligation field when amendment is in created state FA NO
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Directed"
     When I login to "As a Grantor" app as "FO" user
@@ -24367,7 +24367,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | Overview Tab - New Obligation must be greater than $0 |
 
-  @256855 @257074 @VerifyFDusercannotseeanewsectionofBudgetSummarybyFocusAreawhenFocusAreaisNo @sprint-19-US-229281 @hitesh @Allocation @TBExecution
+  @256855 @257074 @VerifyFDusercannotseeanewsectionofBudgetSummarybyFocusAreawhenFocusAreaisNo @sprint-19-US-229281 @hitesh @Allocation
   Scenario: Verify FD user cannot see a new section of Budget Summary by Focus Area when Focus Area is No
     And I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "FOCUS_AREA_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
