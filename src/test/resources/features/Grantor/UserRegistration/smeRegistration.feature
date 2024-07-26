@@ -143,7 +143,7 @@ Feature: Validate all scenarios for SME Registration
     When I perform quick search for "Automation SME" in "ActiveAccountReviewer" panel
     Then I softly see value "Automation SME" for title "Name" inside table "ActiveAccountReviewer"
 
-  @done @33837 @VerifySystemDisplayAllRelatedTasks @monu
+  @33837 @VerifySystemDisplayAllRelatedTasks @monu
   Scenario: Validate user is able to see all expected contacts
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab

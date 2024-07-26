@@ -545,8 +545,7 @@ public class InternalOrganizationPage extends GranteeProjectManager {
      * It will check symbol is displayed
      *
      * @param symbol
-     * @param tableId
-     * * @param row value
+     * @param tableId * @param row value
      */
     public void assertSymbolIsDisplayedAgainstTheValue(String symbol, String rowValue, String tableId) {
         Assert.assertTrue(assertSymbolIsDisplayedInsideTable(symbol, rowValue, tableId));
@@ -773,7 +772,7 @@ public class InternalOrganizationPage extends GranteeProjectManager {
      * validate if fields is not visible at page details
      */
     private boolean isFieldsVisibleAtPAgeDetails(String fieldApiName) {
-        By fieldsAtPage = By.xpath("//div[@data-field_api_name='" + fieldApiName + "' and @class='slds-hide']");
+        By fieldsAtPage = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']");
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(fieldsAtPage)) {
@@ -971,10 +970,9 @@ public class InternalOrganizationPage extends GranteeProjectManager {
      * return true/false if symbol is displayed/ not displayed
      *
      * @param symbol
-     * @param tableId
-     *  * @param rowValue
+     * @param tableId * @param rowValue
      */
-    private boolean assertSymbolIsDisplayedInsideTable(String symbol, String rowValue,  String tableId) {
+    private boolean assertSymbolIsDisplayedInsideTable(String symbol, String rowValue, String tableId) {
         boolean flag = false;
         try {
             if (("cross".equalsIgnoreCase(symbol) && I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//*[text()='" + rowValue + "']/ancestor::tr//*[contains(@class,'close')]")))

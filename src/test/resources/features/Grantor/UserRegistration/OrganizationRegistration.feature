@@ -267,7 +267,7 @@ Feature: Validate all registration related scenarios
     And I enter value "No" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
 
-  @done @82028 @verifyOrganizationDetailPageDuringApproval-Organization @monu
+  @82028 @verifyOrganizationDetailPageDuringApproval-Organization @monu
   Scenario:Verify if user can see organization detail page while approval
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -657,7 +657,7 @@ Feature: Validate all registration related scenarios
     And I wait for "4" seconds
     Then I softly see field "Zip Code" as "20172"
 
-  @done @222890 @ValidateEXEuserfromuserregistrationapprovalqueueshouldnotabletoseethereassigntaskofOrganizationRegistrationApprovalinReassignTask
+  @222890 @ValidateEXEuserfromuserregistrationapprovalqueueshouldnotabletoseethereassigntaskofOrganizationRegistrationApprovalinReassignTask
   Scenario: Validate EXE user from user registration approval queue should not able to see the reassign task of Organization Registration Approval in Reassign Task
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -681,7 +681,7 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "Review Organization User Registration" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @done @223042 @ValidateAdminusershouldnotabletoseethereassigntaskofOrganizationRegistrationApprovalfrommytaskAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment
+  @223042 @ValidateAdminusershouldnotabletoseethereassigntaskofOrganizationRegistrationApprovalfrommytaskAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Admin user should not able to see the reassign task of Organization Registration Approval from my task As a Admin
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
