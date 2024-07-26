@@ -27,7 +27,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
 
-  @61970 @61971 @orgRiskAssessmentCreationAndTaskcreatedForSPI @deepika  @OrgRisk12
+  @61970 @61971 @orgRiskAssessmentCreationAndTaskcreatedForSPI @deepika  @OrgRisk1
   Scenario: Verify Task is generated for Signing Authority to Create Risk Assessment for an Organization and once the pending is created, the user can create the org risk asssesment
     Then I softly see that "Automation Permanent Organization for Risk Assessment" has been added in flextable with Id "---orgRiskAssessment:-:pendingTaskTableId---"
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
@@ -2040,7 +2040,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Revise Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
     Then I see that "Revise Risk Assessment" has been added in flextable with Id "---orgRiskAssessment:-:pendingTaskTableId---"
 
-  @64606 @reviseAssessmentTaskNotddedtoTheTable @deepika
+  @64606 @65549 @64607 @64611 @64612 @64613 @65386 @reviseAssessmentTaskNotddedtoTheTable @deepika @OrgRiskSet4
   Scenario: Validate when internal user provide access for Risk assessmnet then task shouldn't be created for SPI of Sub Recipient Organization.
     Given I delete the record "Automation Desk Review Org level" from the object "Desk Review"
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
@@ -2052,12 +2052,28 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I get the "EGMS ID"
     When I click on "Submit" in the page details
     And I wait for "3" seconds
+    And I save the field labeled "EGMS ID" as "EGMSID"
+    And I navigate to "Overview" sub tab
+    #65549
+    Then I see field "Effective Date" is not editable
+    Then I see field "Expiration Date" is not editable
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
+    #64613
+    Then I cannot see top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    When I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
+    #64611
+    Then I softly see value "Active" for title "Status" inside table "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Risk Assessment" sub tab
+    #65386
+    Then I can see top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2074,34 +2090,6 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Revise Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
     Then I do not see values "EGMS ID" and "Automation Permanent Organization for Risk Assessment" inside table
-
-  @64607 @validateRA1ActiveWhenRA2Created @deepika @smoke @orgRISK2
-  Scenario: Validate a the second Risk Assessment is in created state when it is not submitted and first Risk Assessment is active
-    When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "3" seconds
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I navigate to "Assessment" sub tab
-    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "EGMSID"
-    When I click on "Submit" in the page details
-    And I wait for "3" seconds
-    And I navigate to "Home" tab
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
-    When I click on "View" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:activeOrgTableID---" without waiting for record
-    And I navigate to "Risk Assessment" sub tab
-    When I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
-    And I click on top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -2115,13 +2103,22 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Assessment" sub tab
     And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     And I click on "Save" in the page details
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Risk Assessment" sub tab
+    And I perform quick search for "Created" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
+    #64612
+    Then I softly see "Total Records: 1" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "{SavedValue:EGMSID}" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
+    #64607
     Then I see that "Active" has been added in flextable with Id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
-  @64610 @spiCannotViewOrgRiskAssessmentInCreatedStatus @deepika @orgRISK2
+  @64610 @spiCannotViewOrgRiskAssessmentInCreatedStatus @deepika @OrgRiskSet4
   Scenario: Validate whether the org Risk Assessment that is in created state is visible to SPI user that are not SA
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -2140,94 +2137,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     When I perform quick search for "Record Id" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I see "No Records Found" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
-  @64611 @spiCanViewOrgRiskAssessmentInActiveStatus @deepika @orgRISK2
-  Scenario: Validate whether the org Risk Assessment that is in Active state is visible to SPI user that are not SA
-    When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "3" seconds
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I navigate to "Assessment" sub tab
-    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "EGMSID"
-    When I click on "Submit" in the page details
-    And I wait for "3" seconds
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I navigate to "Risk Assessment" sub tab
-    When I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
-    Then I softly see value "Active" for title "Status" inside table "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-
-  @64612 @0rgRiskAssessmentIsnOtActiveIFQuestionsAreNotFilled @deepika @LWCModified
-  Scenario: Validate the Risk Assessment should not become active and also cannot be in Created Staus when prompt user to doesn't fill in all the questions.
-    When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "3" seconds
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I navigate to "Assessment" sub tab
-    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "EGMSID"
-    When I click on "Submit" in the page details
-    And I wait for "3" seconds
-    And I navigate to "Home" tab
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
-    When I click on "View" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:activeOrgTableID---" without waiting for record
-    And I navigate to "Risk Assessment" sub tab
-    When I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
-    And I click on top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I wait for "3" seconds
-    When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "3" seconds
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I wait for "3" seconds
-    And I navigate to "Home" tab
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I navigate to "Risk Assessment" sub tab
-    And I perform quick search for "Created" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
-    Then I softly see "Total Records: 1" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-
-  @64613 @SPI2CannotRequestforRevision @deepika @orgRISK2
-  Scenario: Validate the SPI owner that is not an SA, does not have previlages to Request the org Ra for new revision
-    When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "3" seconds
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I navigate to "Assessment" sub tab
-    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "EGMSID"
-    When I click on "Submit" in the page details
-    And I wait for "3" seconds
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I navigate to "Risk Assessment" sub tab
-    Then I cannot see top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-
-  @64733 @downloadOrgRaInPDF @skipOnJenkins
+  @64733 @downloadOrgRaInPDF @skipOnJenkins @OrgRiskSet4
   Scenario: Validate whether user can Download the Active Org Risk assessment in PDF format.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -2273,26 +2185,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I select "Download as XLS" from parallel lines dropdown of "Organization Risk Assessments"
     Then I verify that "xls" file is downloaded
 
-  @65386 @requestNewAssessmentAvialabilityOnActiveRA @deepika @smoke @orgRISK2
-  Scenario: Validate whether Request New Assessment button is available for Authorized Signatory once the Risk Assessment is Active
-    When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "3" seconds
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I navigate to "Assessment" sub tab
-    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "EGMSID"
-    When I click on "Submit" in the page details
-    And I wait for "3" seconds
-    And I navigate to "Home" tab
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I navigate to "Risk Assessment" sub tab
-    Then I can see top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-
-  @65387 @verifyAllInternalUsersCanViewActiveOrgRA @deepika @orgRISK2
+  @65387 @verifyAllInternalUsersCanViewActiveOrgRA @deepika @OrgRiskSet4
   Scenario Outline: Validate whether internal user can see view the Active Risk Assessment from Internal Subrecipient Profile View Page
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -2306,10 +2199,6 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Submit" in the page details
     And I wait for "3" seconds
-    And I navigate to "Home" tab
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
@@ -2318,13 +2207,14 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     When I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I see that "{SavedValue:EGMSID}" has been added in flextable with Id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
     Examples:
       | User |
       | PM   |
       | EXE  |
       | FO   |
 
-  @65388 @validateInternalUserCannotViewCreatedStateRA @orgRISK2
+  @65388 @65389 @validateInternalUserCannotViewCreatedStateRA @OrgRiskSet4
   Scenario: Validate whether Internal Users Can view the Org Risk Assessment that is in Created Status from Internal Subrecipient Profile View page
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -2345,43 +2235,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     When I perform quick search for "Created" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I see that "{SavedValue:EGMSID}" has been added in flextable with Id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-
-  @65389 @riskLevelISNAforCreatedStatusOrgRA @deepika @orgRISK2
-  Scenario: Validate when the Org Risk Assessment is in created state the Risk Assessment is hown as NA inside table
-    When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "3" seconds
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I navigate to "Assessment" sub tab
-    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "EGMSID"
-    And I wait for "3" seconds
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
-    When I click on "View" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:activeOrgTableID---" without waiting for record
-    And I navigate to "Risk Assessment" sub tab
-    When I perform quick search for "Created" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
+    #65389
     Then I see value "NA" for title "Risk Level" against the value "{SavedValue:EGMSID}" inside table "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
-  @65549 @recordOwnerCannotEditEffectiveandExpirationDatesOfRA @deepika @orgRISK2
-  Scenario: Validate Record Owner is not able to edit the Effective Dates under Overview tab of Risk Assessment
-    When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "3" seconds
-    And I navigate to "Risk Assessment" sub tab
-    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
-    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I navigate to "Assessment" sub tab
-    And I enter "OrgAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "EGMSID"
-    When I click on "Submit" in the page details
-    And I wait for "3" seconds
-    And I navigate to "Overview" sub tab
-    Then I see field "Effective Date" is not editable
-    Then I see field "Expiration Date" is not editable
