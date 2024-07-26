@@ -137,8 +137,10 @@ Feature: Payment Request Forms scenarios
     Then I can see row level action button "Preview" against "Request for Advance or Reimbursement - SF-270" in flex table with id "---paymentRequest:-:paymentRequestFormsTableId---"
     Then I can see row level action button "View" against "Request for Advance or Reimbursement - SF-270" in flex table with id "---paymentRequest:-:paymentRequestFormsTableId---"
     Then I can see row level action button "Edit" against "Request for Advance or Reimbursement - SF-270" in flex table with id "---paymentRequest:-:paymentRequestFormsTableId---"
-    And I click on "Edit" icon for "Request for Advance or Reimbursement - SF-270" inside flex table with id "---paymentRequest:-:paymentRequestFormsTableId---" without waiting for record
-    And I switch to tab number "1"
+    And I navigate to "Quickview" sub tab in split screen
+    And I click on "Splitview" icon for "Request for Advance or Reimbursement - SF-270" inside flex table with id "---paymentRequest:-:paymentRequestFormsTableId---" without waiting for record
+    And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     Then I softly see the text containing "OMB Number: 4040-0012"
     Then I softly see the text containing "Expiration Date: 01/31/2025"
     And I select below checkbox options for field "AdvanaceorReimbursement__c"
@@ -157,7 +159,7 @@ Feature: Payment Request Forms scenarios
       | 3rd month                                        | 12345    | 12345     | 12345      |
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
     And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
@@ -169,7 +171,6 @@ Feature: Payment Request Forms scenarios
       | Form validated successfully. |
     #308690
 #    When I click on "Back" in the page
-    And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -1292,8 +1293,10 @@ Feature: Payment Request Forms scenarios
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "Request for Advance or Reimbursement - SF-270" for title "Form Name" inside table "---paymentRequest:-:paymentRequestFormsTableId---"
-    And I click on "Edit" icon for "Request for Advance or Reimbursement - SF-270" inside flex table with id "---paymentRequest:-:paymentRequestFormsTableId---" without waiting for record
-    And I switch to tab number "1"
+    And I navigate to "Quickview" sub tab in split screen
+    And I click on "Splitview" icon for "Request for Advance or Reimbursement - SF-270" inside flex table with id "---paymentRequest:-:paymentRequestFormsTableId---" without waiting for record
+    And I wait for "3" seconds
+    And I click on "Edit" in the split screen page details
     And I select below checkbox options for field "AdvanaceorReimbursement__c"
       | Advance |
     And I enter "SF270_Form" values from "PaymentRequest_Field_Values.xlsx"
@@ -1314,11 +1317,11 @@ Feature: Payment Request Forms scenarios
       | 1st month                                        | 12345    | 12345     | 12345      |
       | 2nd month                                        | 12345    | 12345     | 12345      |
       | 3rd month                                        | 12345    | 12345     | 12345      |
-    When I click on "Save" in the page details
+    And I click on "Save" in the split screen page details
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I wait for "8" seconds
-    When I click on "Validate" in the page details
+    And I click on "Validate" in the split screen page details
     Then I softly see the following messages in the page details :
       | Certify the Request for Advance or Reimbursement (SF-270) by checking the Acknowledgment Box before submitting to Grantor. |
       | To date cannot be before From date in Period Covered By This Request section.                                              |

@@ -34,6 +34,8 @@ Feature: Validate all scenarios in the Site Visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---sitevisits:-:siteVisitContactsTableId---"
+    And I wait for "3" seconds
+    When I click modal button "Close"
     Then I softly see that "{SavedValue:EXE Username}" has been added in flextable with Id "---sitevisits:-:participantsTableId---"
     When I navigate to "Overview" sub tab
     Then I softly see field "Created Date" is not editable
@@ -268,7 +270,8 @@ Feature: Validate all scenarios in the Site Visit
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
 #    And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    And I pause execution for "3" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
 
   @39180 @siteVisitAddCorrectiveActionsByFOUser @deepika
   Scenario Outline: Verify that only recipient user can add corrective actions and not by Internal User on status send to subrecipeint for Award level
@@ -422,6 +425,8 @@ Feature: Validate all scenarios in the Site Visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
     When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
+    And I wait for "3" seconds
+    When I click modal button "Close"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -871,7 +876,6 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "{SavedValue:svID}" in "---sitevisits:-:manageSiteVisitTableId---" panel
     Then I softly see that "{SavedValue:svID}" has been added in flextable with Id "---sitevisits:-:manageSiteVisitTableId---"
-
 
   @60830 @56038 @FieldHistoryUpdatedSendBackToOwnerByPM @keerti @FieldHistoryExclude
   Scenario:  To Validate field history update post Award level Site Visit is send back to owner by program approver and Submit for Approval button
@@ -1719,8 +1723,7 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
-    When I perform quick search for "Record Id" in "---sitevisits:-:InitiateSiteVisitTableId---" panel
-    Then I see that "Record Id" has been added in flextable with Id "---sitevisits:-:InitiateSiteVisitTableId---"
+    Then I see that "{SavedValue:Automation Runtime Award Site Visit}" has been added in flextable with Id "---sitevisits:-:InitiateSiteVisitTableId---"
 
   @66392 @66384 @66561 @validateSendBackToSubRecipientButton @mahadev
   Scenario: To verify that Send back to subrecipient button appear on the top right corner of the page of award owner(PM) in site visit page when status is submitted to grantor

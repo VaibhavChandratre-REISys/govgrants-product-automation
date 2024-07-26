@@ -79,7 +79,6 @@ public class GrantorProjectManager extends ProjectManager {
      * @Author - Mahadev.hanme
      */
     public void AssertPageBlockDisplayed(String pageblockName, boolean assertcan, boolean isSoftly) {
-        I.amPerforming().waitFor().ElementToBeVisible(pageBlock(pageblockName));
         List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(pageBlock(pageblockName), false);
         if (assertcan) {
             if (isSoftly) {
@@ -441,7 +440,7 @@ public class GrantorProjectManager extends ProjectManager {
      */
     public Boolean isButtonDisplayedOnModal(String buttonName) {
         try {
-            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@id,'modaltemp')]//button[@title='" + buttonName + "'] | //c-modal-flex-layout//button[@title='" + buttonName + "']"));
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@id,'modaltemp')]//button[@title='" + buttonName + "'] | //c-modal-flex-layout//button[@title='" + buttonName + "'] | //div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
         } catch (Exception e) {
         }
         return false;

@@ -203,7 +203,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @75542 @75541 @validateFederalNGORelateLogsDetails @meenakshi @wip
+  @75542 @75541 @validateFederalNGORelateLogsDetails @meenakshi
   Scenario Outline: To verify user able to search grant in grant section in Related log tab of announcement.
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -219,6 +219,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     And I click on advance filter "#advfGranteeGrantsByAccount" of table id "---announcement:-:activeFederalTableId---"
     And I enter advance filter values inside id "advfGranteeGrantsByAccount"
       | EGMS ID | contains | Record Id |
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---announcement:-:activeFederalTableId---"
     Examples:
       | Grant Name                                       |

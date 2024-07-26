@@ -57,7 +57,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I click on "Save" in the page details
     When I click on "Send to Subrecipient" in the page details
     #Bug428924
-    Then I see field "Status" as "Reviewed"
+    Then I see field "Status" as "Negotiation Initiated"
     When I save the field labeled "EGMS ID" as "EGMSID"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab

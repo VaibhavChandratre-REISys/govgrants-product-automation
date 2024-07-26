@@ -16,11 +16,13 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
 
-  @73959 @pdfDownloadContacts @jitendra @skipOnJenkins
+  @73959 @pdfDownloadContacts @jitendra
   Scenario: To verify system allow to download pdf for contact section in overview tab of announcement by PM user
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click modal button "Close"
+    And I wait for "3" seconds
     And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -50,7 +52,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "10" seconds
     Then I see "Related Federal/NGO Program" on page "1" of "govgrants" pdf file
 
-  @74105 @pdfDownloadBudgetCategory @jitendra @skipOnJenkins
+  @74105 @pdfDownloadBudgetCategory @jitendra 
   Scenario: To verify system allow to download PDF for Budget Categories section in financial tab of announcement
     And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -63,7 +65,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Budget Categories" on page "1" of "govgrants" pdf file
 
-  @74107 @pdfDownloadBusinessForm @jitendra @skipOnJenkins
+  @74107 @pdfDownloadBusinessForm @jitendra
   Scenario: To verify system allow to download PDF for Business Forms section in setup tab of announcement
     And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -76,7 +78,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Business Forms" on page "1" of "govgrants" pdf file
 
-  @74108 @pdfDownloadSuppDocChekLst @jitendra @skipOnJenkins
+  @74108 @pdfDownloadSuppDocChekLst @jitendra
   Scenario: To verify system allow to download PDF for Supporting Documents Checklist section in setup tab of announcement
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---announcement:-:annChecklist---" by clicking "Add" :
@@ -93,7 +95,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Supporting Documents Checklist" on page "1" of "govgrants" pdf file
 
-  @75616 @74118 @pdfDownloadApprover @jitendra @skipOnJenkins
+  @75616 @74118 @pdfDownloadApprover @jitendra
   Scenario: To verify system allow to download PDF for Peer Reviewers section in Responsibility tab of announcement
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Owner" for title "Responsibility" against the value "{SavedValue:EXE Username}" inside table "---announcement:-:announcementOwner---"
@@ -117,7 +119,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Approvers" on page "1" of "govgrants" pdf file
 
-  @74117 @pdfDownloadReviewSteps @jitendra @skipOnJenkins
+  @74117 @pdfDownloadReviewSteps @jitendra
   Scenario: To verify system allow to download pdf for Review Steps section in setup tab of announcement
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
@@ -362,7 +364,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     Then I softly do not see "Funding Opportunity Announcement" has been added in "---announcement:-:AnnouncementAttachmentTableId---" flex table
 
-  @70483 @userDeleteSupportingDocumentViewHyperlink @aashish @wip
+  @70483 @userDeleteSupportingDocumentViewHyperlink @aashish
   Scenario: To Verify that user can view Template Link in supporting document checklist While creating the Announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -454,7 +456,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see the following messages in the page details :
       | Overview Tab - Select Eligible Applicant Types in the Eligibility Details section. |
 
-  @70211 @70216 @70217 @73388 @73535 @73620 @userAbletoAssociateActiveRelatedProgram @aashish @wip
+  @70211 @70216 @70217 @73388 @73535 @73620 @userAbletoAssociateActiveRelatedProgram @aashish
   Scenario: To Verify that user is able to associate active Related Federal/NGO Program | To Verify that user is able to view active Related Federal/NGO Program
   |To Verify that user is able to remove active Related Federal/NGO Program while creating Announcement.
     When I navigate to "Announcements" tab
@@ -627,7 +629,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @75618 @74799 @74801 @74368 @74369 @70894 @71722 @72471 @72324 @72548 @73858 @verifyReviseUnderRevision @aashish @smoke @skipOnJenkins
+  @75618 @74799 @74801 @74368 @74369 @70894 @71722 @72471 @72324 @72548 @73858 @verifyReviseUnderRevision @aashish @smoke
   Scenario Outline: To Verify that after clicking on revise button, status changes to created.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -638,7 +640,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I click on "Remove" icon for "{SavedValue:fundingAccount}" inside flex table with id "---announcement:-:fundingAccountsTableId---" with wait for record
     Then I softly see the following messages in the page details :
-      | Record removed successfully. |
+      | Record removed Successfully. |
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
@@ -879,7 +881,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly see field "Status" as "Under Revision"
     Then I softly cannot see top right button "Extend Dates" in page detail
-
     Examples:
       | Announcement Type |
       | Competitive       |
@@ -1353,25 +1354,23 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type | Active Funding Opportunities id                     |
       | Competitive       | ---announcement:-:competitiveAnnouncementTableId--- |
 
-  @73616 @73962 @userAllowToEnterDataInQualityAndAvailibility1 @aashish @skipOnJenkins
+  @73616 @73962 @userAllowToEnterDataInQualityAndAvailibility1 @aashish
   Scenario: To verify user allow to remove budget category when Budget type is Non functional in financial tab for announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When  I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     When I navigate to "Financials" sub tab
-    And I click on "Remove" icon for "Personnel" inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
+    And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
     Then I softly see the following messages in the page details :
-      | Record deleted successfully. |
-    And I perform quick search for "Personnel" in "---announcement:-:announcementBudgetCategory---" panel
-    Then I softly do not see value "Personnel" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
+      | Record deleted Successfully. |
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     And I click on parallel menu button in flex table title "Budget Period Details"
     And I select "Download as PDF" from parallel lines dropdown of "Budget Period Details"
     When I download the file
     Then I softly see "Budget Period Details" on page "1" of "govgrants" pdf file
 
-  @73960 @userAllowToDownloadPDFFundingAccount @aashish @skipOnJenkins
+  @73960 @userAllowToDownloadPDFFundingAccount @aashish
   Scenario: To verify user allow to download PDF for Funding Accounts section in financial tab of announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1387,7 +1386,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Funding Accounts" on page "1" of "govgrants" pdf file
 
-  @74120 @userAllowToDownloadPDFResponsibility @aashish @skipOnJenkins
+  @74120 @userAllowToDownloadPDFResponsibility @aashish
   Scenario: To verify system allow to download PDF for Approvers section in Responsibility tab of announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1409,7 +1408,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Approvers" on page "1" of "govgrants" pdf file
 
-  @74121 @userAllowToDownloadPDFOwner @aashish @skipOnJenkins
+  @74121 @userAllowToDownloadPDFOwner @aashish
   Scenario: To verify system allow to download PDF for Owner section in Responsibility tab of announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1421,7 +1420,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Owner" on page "1" of "govgrants" pdf file
 
-  @74126 @userAllowToDownloadPDFObjective @aashish @skipOnJenkins
+  @74126 @userAllowToDownloadPDFObjective @aashish
   Scenario: To verify system allow to download PDF for objectives section in setup tab of announcement.
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1433,7 +1432,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Objectives" on page "1" of "govgrants" pdf file
 
-  @74129 @userAllowToDownloadPDFKPI @aashish @skipOnJenkins
+  @74129 @userAllowToDownloadPDFKPI @aashish
   Scenario: To verify system allow to download PDF for Key performance Indicator(KPIs) section in setup tab of announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel

@@ -104,7 +104,7 @@ public final class PageDetails {
      * modifier saranjit.modak - 09.09.2022 added explicit wait used try catch to handle ElementClickInterceptedException exception
      */
     public void clickAnyTopRightButtonInsideSplitScreen(String buttonName) {
-        By topRightButton = By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "']");
+        By topRightButton = By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "'] | //lightning-button-menu[contains(@class,'" + buttonName + "')]");
         I.amPerforming().waitFor().makeThreadSleep(2000);
         try {
             I.amPerforming().checkToSee().isElementDisplayed(topRightButton);

@@ -33,6 +33,7 @@ public class AmendmentRequestSteps {
         } else {
             amendmentRequestPage.clickAfterSelectionOfInTheTablesForLwc(buttonName, recordValue, numberOfEntries, flexTableId);
         }
+        I.amPerforming().waitFor().makeThreadSleep(2000);
     }
 }
 
