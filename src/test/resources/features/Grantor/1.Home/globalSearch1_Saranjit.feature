@@ -1,7 +1,7 @@
-@globalSearch @grantor-regression @grantor-parallel-regression @regression @testSaran
+@globalSearch @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios for the global search
 
-  @390386 @390389 @ValidateEXEuserisabletoseetheglobalsearchbarforanannouncement @sprint-2-US-386939 @GlobalSearch @done
+  @390386 @390389 @ValidateEXEuserisabletoseetheglobalsearchbarforSubrecipientOrganziation @sprint-2-US-386939 @GlobalSearch
   Scenario Outline: subrecipient organization ->Verify that user is able to expand the result by External S/R org module and Filter/Refine the the result by configured Columns for an External S/R org.
   |subrecipient Organization -> Verify that user redirect to that record when user click on any hyperlink provided (e.g. - Acc Name ) on objects after global search the any record for External S/R org.|
     When I login to "As a Grantor" app as "<User>" user
@@ -34,150 +34,157 @@ Feature: Validate all scenarios for the global search
       | EXE   |
       | PM    |
 
-  @390405 @390408 @ValidateEXEuserisabletoseetheglobalsearchbarforanDeskReview @sprint-2-US-386939 @GlobalSearch
+  @390420 @390405 @390408 @390410 @390424 @390428 @ValidateEXEuserisabletoseetheglobalsearchbarforanAwardDeskReview @sprint-2-US-386939 @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Award Desk Review is in the Created, submit for review and sent to grantor state
   |Verify that Non-Owner user doesn't have an edit option in any stage of Award Desk Review and will get error message on page.|
-#    Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
-#    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
+  |Verify that PM user have edit access for record only when edit access setting is yes for peer reviewer when Award desk review is a submit for review state.|
+  |Verify that the record owner is able to edit the access for record when Org Desk Review is in the Created, submit for review and sent to grantor state|
+  |Verify that Non-Owner user doesn't have an edit option in any stage of Org Desk Review and will get error message on page.|
+  |Verify that PM user have edit access for record only when edit access setting is yes for peer reviewer when org desk review is a submit for review state.|
+    Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
+    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "EXE" user
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - Active"
-#    When I perform quick search for "{SavedValue:Automation Runtime Award Desk Review}" in "---deskreview:-:internalActiveGrants---" panel
-#    And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalActiveGrants---"
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
-#    Given I navigate to "Management" sub tab
-#    And I click on top right button "Initiate Desk Review" in flex table with id "---deskreview:-:managementInitiateDRtableid---"
-#    And I enter "Creation" values from "DeskReview_Field_Values.xlsx"
-#    When I click modal button "Save and Continue"
-#    And I enter "Edition" values from "DeskReview_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-    And I navigate to url "https://test8-internal--qaorg.sandbox.lightning.force.com/lightning/r/SiteVisit__c/a3f75000000NFrPAAW/view?c__tabName=UmVwb3J0cyBhbmQgT3V0Y29tZXM%3D"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award Desk Review}" in "---deskreview:-:internalActiveGrants---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalActiveGrants---"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
+    Given I navigate to "Management" sub tab
+    And I click on top right button "Initiate Desk Review" in flex table with id "---deskreview:-:managementInitiateDRtableid---"
+    And I enter "Creation" values from "DeskReview_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I enter "Edition" values from "DeskReview_Field_Values.xlsx"
+    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReview"
-#    And I wait for "2" seconds
-#    And I select "Site Visits" from dropdown for Global search
-#    And I perform quick search inside global search "{SavedValue:DeskReview}"
-#    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
-#    Then I softly see field "Status" as "Created"
-#    Then I softly can see top right button "Save" in page detail
-#    Then I softly can see top right button "Cancel" in page detail
-#    When I click on "Save" in the page details
-#    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
-#    And I navigate to "Home" tab
-#    Then I see "Ownership" inside "Reassign" is displayed
-#    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
-#    And I select value "Automation EXE" into field "input-1"
-#    And I select value "Automation EXE1" into field "input-2"
-#    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
-#    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
-#    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
-#    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
-#    When I check "{SavedValue:DeskReview}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
-#    When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
-#    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-#    And I click "OK" on modal confirmation box
-#    And I pause execution for "30" seconds
-#    When I navigate to "Records of Target User" sub tab
-#    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitTargetTableId---" panel
-#    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
-#    And I pause execution for "2" seconds
-#    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
-#    And I select "Site Visits" from dropdown for Global search
-#    And I perform quick search inside global search "{SavedValue:DeskReview}"
-#    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
-#    #390420 #390428
-#    Then I softly see field "Status" as "Created"
-#    Then I softly can see top right button "Save" in page detail
-#    Then I softly can see top right button "Cancel" in page detail
-#    When I click on "Save" in the page details
-#    Given I navigate to "Overview" sub tab
-##    And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
-##    When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
-#    And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
-#    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
-#    And I click on "Notify" in the page details
-#    And I pause execution for "5" seconds
-#    Given I click on "Conduct" in the page details
-#    And I pause execution for "3" seconds
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "SiteVisitReviewerRoles" by clicking "New" :
-#      | Reviewer Name            | Responsibility  | Description              | Due Date | Allow Record Editing |
-#      | {SavedValue:PO Username} | Fiscal Reviewer | Review Financial details | 10       | Yes                  |
-#    And I click on "Send for Review" icon for "{SavedValue:PO Username}" inside table
-#    Then I softly see field "Status" as "Submitted for Review"
-#    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-#    And I select "Site Visits" from dropdown for Global search
-#    And I perform quick search inside global search "{SavedValue:DeskReview}"
-#    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
-#    Then I softly see field "Status" as "Submitted for Review"
-#    #390410 #390428
-#    Then I softly can see top right button "Save" in page detail
-#    Then I softly can see top right button "Cancel" in page detail
-#    When I navigate to "Responsibilities" sub tab
-#    When I click on "Enter Review" icon for "{SavedValue:PO Username}" inside flex table with id "SiteVisitReviewerRoles"
-#    And I enter values into fields
-#      | Value  | Field             |
-#      | Passed | Rating__c         |
-#      | Passed | ReviewComments__c |
-#    When I click modal button "Save"
-#    And I pause execution for "5" seconds
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
-    And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:DeskReview}"
-    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
-#    When I click on "Save" in the page details
-#    And I navigate to "Reports and Outcomes" sub tab
-#    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
-#    And I switch to tab number "1"
-#    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-#    And I click on "Save" in the page details
-#    And I close the tab
-#    Given I click on "Complete Review" in the page details
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-#      | Name                       | Desk Review |
-#      | {SavedValue:EXE1 Username} | Step 1      |
-#    And I pause execution for "3" seconds
-#    When I click on "Submit for Approval" in the page details
-#    And I pause execution for "3" seconds
-#    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-#    And I "Approve" in the approval decision
-#    And I pause execution for "3" seconds
-#    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-#    And I click on "Send to Subrecipient" in the page details
-#    And I pause execution for "3" seconds
-#    Then I softly see field "Status" as "Sent to Subrecipient"
-#    Then I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
-#    When I click on "Start" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
-#    When I click on "Submit to Grantor" in the page details
-#    Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
-    And I click on "Start" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
-    Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "2" seconds
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
     And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
     Then I softly see field "Status" as "Created"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
+    When I click on "Save" in the page details
+    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    Then I see "Ownership" inside "Reassign" is displayed
+    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
+    And I select value "Automation EXE" into field "input-1"
+    And I select value "Automation EXE1" into field "input-2"
+    And I select module "Site Visit/Desk Review" from reassign ownership dropdown
+    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
+    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitSourceTableId---" panel
+    When I check "{SavedValue:DeskReview}" boxes in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
+    When I click table top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
+    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
+    And I click "OK" on modal confirmation box
+    And I pause execution for "30" seconds
+    When I navigate to "Records of Target User" sub tab
+    When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:siteVisitTargetTableId---" panel
+    Then I softly see value "{SavedValue:DeskReview}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
+    And I pause execution for "2" seconds
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:DeskReview}"
+    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
+    #390420 #390428
+    Then I softly see field "Status" as "Created"
+    Then I softly can see top right button "Save" in page detail
+    Then I softly can see top right button "Cancel" in page detail
+    When I click on "Save" in the page details
+    Given I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
+    And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
+    And I click on "Notify" in the page details
+    And I pause execution for "5" seconds
+    Given I click on "Conduct" in the page details
+    And I pause execution for "3" seconds
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "SiteVisitReviewerRoles" by clicking "New" :
+      | Reviewer Name            | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | {SavedValue:PO Username} | Fiscal Reviewer | Review Financial details | 10       | Yes                  |
+    And I click on "Send for Review" icon for "{SavedValue:PO Username}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:DeskReview}"
+    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
+    Then I softly see field "Status" as "Submitted for Review"
+    #390410 #390428
+    Then I softly can see top right button "Save" in page detail
+    Then I softly can see top right button "Cancel" in page detail
+    When I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "{SavedValue:PO Username}" inside flex table with id "SiteVisitReviewerRoles"
+    And I enter values into fields
+      | Value  | Field             |
+      | Passed | Rating__c         |
+      | Passed | ReviewComments__c |
+    When I click modal button "Save"
+    And I pause execution for "5" seconds
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:DeskReview}"
+    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
+    When I click on "Save" in the page details
+    And I navigate to "Reports and Outcomes" sub tab
+    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I close the tab
+    Given I click on "Complete Review" in the page details
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
+      | Name                       | Desk Review |
+      | {SavedValue:EXE1 Username} | Step 1      |
+    And I pause execution for "3" seconds
+    When I click on "Submit for Approval" in the page details
+    And I pause execution for "3" seconds
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I "Approve" in the approval decision
+    And I pause execution for "3" seconds
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    And I click on "Send to Subrecipient" in the page details
+    And I pause execution for "3" seconds
+    Then I softly see field "Status" as "Sent to Subrecipient"
+    Then I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+    When I click on "Start" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+    And I click on "Start" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    Then I softly see field "Status" as "Submitted to Grantor"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:DeskReview}"
+    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I softly cannot see top right button "Save" in page detail
+    Then I softly cannot see top right button "Cancel" in page detail
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
     And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
-    Then I softly see field "Status" as "Created"
     #390408 #390424
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390406 @ValidateEXEuserisabletoseetheglobalsearchbarforSiteVisit @sprint-2-US-386939 @GlobalSearch
+  @390406 @390409 @390411 @390421 @390425 @390427 @ValidateEXEuserisabletoseetheglobalsearchbarforAwardSiteVisit @sprint-2-US-386939 @GlobalSearch
   Scenario:Verify that the record owner is able to edit the access for record when Award site visit is in the Created, submit for review and sent to grantor state
+  |Verify that Non-Owner user doesn't have an edit option in any stage of Award Site Visit and will get error message on page.|
+  |Verify that PM (Reviewer)user have edit access for record only when edit access setting is yes for peer reviewer when Award Site Visit is a submit for review state.|
+  |Org Site Visit -> Verify that the record owner is able to edit the access for record when Org site visit is in the Created, submit for review and sent to grantor state|
+  |Org site visit  -> Verify that Non-Owner user doesn't have an edit option in any stage of Org Site Visit and will get error message on page.|
+  |Org Site Visit -> Verify that PM user have edit access for record only when edit access setting is yes for peer reviewer when Org Site Visit is a submit for review state.|
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default-Automation EXE user" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -320,9 +327,11 @@ Feature: Validate all scenarios for the global search
     #390409 #390425
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390415 @390418 @ValidateEXEuserisabletoseetheglobalsearchbarforSiteVisit @sprint-2-US-386939 @GlobalSearch @done
+  @390415 @390418 @390430 @390432 @ValidateEXEuserisabletoseetheglobalsearchbarforAwardSiteVisit @sprint-2-US-386939 @GlobalSearch
   Scenario:Verify that user is able to expand the result by award site visit module and Filter/Refine the the result by configured Columns for an award site visit.
   |Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, S/R POC ) on objects after global search the any record for Award site visit.|
+  |Org Site visit -> Verify that user is able to expand the result by Org site visit module and Filter/Refine the the result by configured Columns for an Org site visit.|
+  |Org Site Visit ->Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, S/R POC ) on objects after global search the any record for Org site visit.|
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default-Automation EXE user" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -362,9 +371,11 @@ Feature: Validate all scenarios for the global search
   #390418 #390432
     Then I softly see page title contains as "{SavedValue:Automation Runtime Award Site Visit}"
 
-  @390416 @390419 @ValidateEXEuserisabletoseetheglobalsearchbarforDeskReview @sprint-2-US-386939 @GlobalSearch @done
+  @390416 @390419 @390429 @390431 @ValidateEXEuserisabletoseetheglobalsearchbarforDeskReview @sprint-2-US-386939 @GlobalSearch
   Scenario: Verify that user is able to expand the result by award desk review module and Filter/Refine the the result by configured Columns for an award desk review
   |Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, S/R POC ) on objects after global search the any record for Award desk review.|
+  |Verify that user is able to expand the result by Org desk review module and Filter/Refine the the result by configured Columns for an Org desk review|
+  |Org site visit -> Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, S/R POC ) on objects after global search the any record for Org desk review.|
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "EXE" user
@@ -404,8 +415,11 @@ Feature: Validate all scenarios for the global search
       #390419 #390431
     Then I softly see page title contains as "{SavedValue:Automation Runtime Award Desk}"
 
-  @390454 @ValidateEXEuserisabletoseetheglobalsearchbarforApplicationNegotiation @sprint-2-US-386939 @GlobalSearch @done
+  @390455 @390454 @390457 @390458 @ValidateEXEuserisabletoseetheglobalsearchbarforApplicationNegotiation @sprint-2-US-386939 @GlobalSearch
   Scenario: Verify that Record owner can edit only the negotiation tab when application is in the review initiated state and negotiation is in the created state
+  |Verify that Non-Owner user doesn't have an edit option in any stage of application and will get error message on page.|
+  |Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, owner first name, owner last name ) on objects after global search the any record for application.|
+  |Verify that user is able to expand the result by for application module and Filter/Refine the the result by configured Columns for an Application.|
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
@@ -462,8 +476,12 @@ Feature: Validate all scenarios for the global search
       #390455
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390459 @done
+  @390459 @390459 @390460 @390461 @390465 @ValidateEXEuserisabletoseetheglobalsearchbarforPre-ApplicationNegotiation @sprint-2-US-386939 @GlobalSearch
   Scenario: Verify that Record owner can edit only the negotiation tab when pre-application is in the submit to grantor state and negotiation is in the created state
+  |Verify that Record owner can edit only the negotiation tab when pre-application is in the submit to grantor state and negotiation is in the created state|
+  |Verify that Non-Owner user doesn't have an edit option in any stage of Pre-application and will get error message on page.|
+  |Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, owner first name, owner last name ) on objects after global search the any record for Pre-application.|
+  |Verify that user is able to expand the result by for Pre-application module and Filter/Refine the the result by configured Columns for an Pre-Application.|
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -538,8 +556,11 @@ Feature: Validate all scenarios for the global search
     #390460
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390873 @done
+  @390873 @390875 @390882 @390886 @ValidateEXEuserisabletoseetheglobalsearchbarforSubrecipientContacts @sprint-2-US-386939 @GlobalSearch
   Scenario: Subrecipient Contact-> Verify that the record owner and Admin is able to edit the access for record when Subrecipient contact is in the New, Invitation sent, Register, Active, Invitation Expired state
+  |Subrecipient Contact -> Verify that Non-Owner user doesn't have an edit option in any stage of Subrecipient Contact and will get error message on page.|
+  |Subrecipient Contact -> Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID ) on objects after global search the any record for S/R contact.|
+  |subrecipient contact -> Verify that user is able to expand the result by S/R Contact module and Filter/Refine the the result by configured Columns for an S/R Contact|
     When I login to "As a Grantor" app as "EXE" user
     And I select "Contacts" from dropdown for Global search
     And I perform quick search inside global search "{user:NewUser}"
@@ -596,7 +617,7 @@ Feature: Validate all scenarios for the global search
     #390882
     Then I softly see page title contains as "SAN DIEGO ELECTRICAL TRAINING TRUST"
 
-  @393746 @ValidateEXEuserisabletoseetheglobalsearchbarforanannouncement @sprint-2-US-386939 @GlobalSearch @done
+  @393746 @ValidateEXEuserisabletoseetheglobalsearchbarforanannouncement @sprint-2-US-386939 @GlobalSearch
   Scenario: Verify that Column label should correctly displayed and clickable on that object when user global search any record by using EGMS ID or any keyword
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
