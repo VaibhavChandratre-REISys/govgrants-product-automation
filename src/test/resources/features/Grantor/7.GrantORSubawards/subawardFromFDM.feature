@@ -2,22 +2,21 @@
 Feature: Validate all scenarios in the award created from FDM
 
   Background: Create award from FDM
-#    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
-#    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
-#    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
+    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
+    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     When I login to "As a Grantor" app as "dynamicUser" user
-    And I navigate to url "https://test8-internal--qaorg.sandbox.lightning.force.com/lightning/r/Award__c/a1o750000028aIgAAI/view"
-#    And I navigate to "Applications" tab
-#    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
-#    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
-#    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
-#    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
-#    And I pause execution for "3" seconds
-#    And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
-#    And I pause execution for "5" seconds
-#    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
-#    When I click on "Save" in the page details
-#    And I get the "EGMS ID"
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "Approved Funding Decision Memos (FDM)"
+    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
+    And I pause execution for "3" seconds
+    And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    And I pause execution for "5" seconds
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
 
  @67486 @67485 @totalObligation @jitendra
   Scenario: To validate that total obligation in the Financial table of funding account page navigated through the Funding account hyperlink present on the Subaward page of Grantor (Internal PM ) is the Sum of Pre-encumbrance, Encumbrance and the Spent value
