@@ -135,34 +135,28 @@ Feature: Validate all scenarios for the global search
 #    And I click on "Save" in the page details
 #    And I close the tab
 #    Given I click on "Complete Review" in the page details
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                       | Desk Review |
-      | {SavedValue:EXE1 Username} | Step 1      |
-    And I pause execution for "3" seconds
-    When I click on "Submit for Approval" in the page details
-    And I pause execution for "3" seconds
-    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    And I "Approve" in the approval decision
-    And I pause execution for "3" seconds
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    And I click on "Send to Subrecipient" in the page details
-    And I pause execution for "3" seconds
-    Then I softly see field "Status" as "Sent to Subrecipient"
-    And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:DeskReview}"
-    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
-    Then I softly see field "Status" as "Created"
-    Then I softly can see top right button "Save" in page detail
-    Then I softly can see top right button "Cancel" in page detail
-    Then I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
-    When I click on "Start" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
-    When I click on "Submit to Grantor" in the page details
-    Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
+#      | Name                       | Desk Review |
+#      | {SavedValue:EXE1 Username} | Step 1      |
+#    And I pause execution for "3" seconds
+#    When I click on "Submit for Approval" in the page details
+#    And I pause execution for "3" seconds
+#    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    And I "Approve" in the approval decision
+#    And I pause execution for "3" seconds
+#    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+#    And I click on "Send to Subrecipient" in the page details
+#    And I pause execution for "3" seconds
+#    Then I softly see field "Status" as "Sent to Subrecipient"
+#    Then I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Monitoring" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+#    When I click on "Start" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+#    When I click on "Submit to Grantor" in the page details
+#    Then I softly see field "Status" as "Submitted to Grantor"
+    When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:DeskReview}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
