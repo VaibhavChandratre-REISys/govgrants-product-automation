@@ -125,9 +125,11 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentFileTableId---"
     And I upload attachment "Attachment.pdf" of type "OTHER" from computer
-    When I click modal button "Close"
     And I wait for "2" seconds
-    Then I softly see "OTHER" has been added in "ExternalOrganizationRiskAssessmentFiles" flex table
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "5" seconds
+    Then I softly see "OTHER" has been added in "Organization Risk Assessment Files" flex table
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
   @62197 @62198 @62513 @62515 @62516 @pendingTaskCreatedForGrantor @deepika @OrgRiskSet1 @TBExecution
@@ -225,7 +227,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Record Id" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I see "No Records Found" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @62315 @snapHistoryOfOrgRA @deepika @OrgRiskSet1 @TBExecution
+  @62315 @snapHistoryOfOrgRA @deepika @skiponjenkins @OrgRiskSet1 @TBExecution
   Scenario: Validate whether Snapshot is captured/(taken) automatically  by the system in the table Snapshot History when Risk Assessment is Activated
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds

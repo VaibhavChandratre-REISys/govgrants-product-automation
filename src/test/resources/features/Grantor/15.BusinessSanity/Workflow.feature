@@ -1534,5 +1534,4 @@ Feature: Validate all scenarios of every modules flow
 
   @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-   Given I am on "INTERNAL" portal
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
