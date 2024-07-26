@@ -73,7 +73,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
 
-  @62519  @62518 @grantorCannotEditCreatedRA @declineButtonViewForGrantor @deepika @done
+  @62519  @62518 @grantorCannotEditCreatedRA @declineButtonViewForGrantor @deepika
   Scenario: Validate the task is not created for subrecipient user when when grantor declines the Risk Assessment
     |Validate whether Grantor user can edit or modify the created Org Level Risk Assessment from Org View Page.|
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
