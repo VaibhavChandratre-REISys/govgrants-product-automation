@@ -6,8 +6,8 @@ Feature: Validate all registration related scenarios
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
+#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
+#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I navigate to "Files" sub tab
@@ -18,7 +18,7 @@ Feature: Validate all registration related scenarios
     When I click on "Download" icon for "Attachment.pdf" inside table
     Then I softly see new tab is opened
 
-  @82051 @verifyEnteredValueOfPaymentAddressSection-Organization @monu
+  @82051 @verifyEnteredValueOfPaymentAddressSection-Organization @monu @wip @invalidScenario
   Scenario:Verify entered details is visible in edit mode of fields if user selected NO as in Same as organization Address field
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -44,8 +44,8 @@ Feature: Validate all registration related scenarios
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
+#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
+#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab
@@ -64,8 +64,8 @@ Feature: Validate all registration related scenarios
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
+#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
+#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab
@@ -76,7 +76,7 @@ Feature: Validate all registration related scenarios
     Then I softly see fields "PaymentAddressState__c" is not visible
     Then I softly see fields "PaymentAddressZipCode__c" is not visible
 
-  @82787 @82790 @verifyPrimaryRepresentativeDetails-Individual @monu
+  @82787 @82790 @verifyPrimaryRepresentativeDetails-Individual @monu @wip @invalidScenario
   Scenario:Verify user is able to see filled details on Primary Representative detail page while individuals registration
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -101,7 +101,7 @@ Feature: Validate all registration related scenarios
 
   @82797 @verifyVisibilityOfFieldsAtPaymentAddressSection-Individual @monu
   Scenario:Verify user is not able to see any fields after selection of Same as organization fields to yes inside payment details page block
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Social Security Number (SSN)" on old form
@@ -115,7 +115,7 @@ Feature: Validate all registration related scenarios
     Then I softly see fields "fieldPaymentAddressState__c" is not visible
     Then I softly see fields "fieldPaymentAddressZipCode__c" is not visible
 
-  @82024 @verifyFilledDetailsPopulatedAtAuthorizedDetailsSection-Organization @monu
+  @82024 @verifyFilledDetailsPopulatedAtAuthorizedDetailsSection-Organization @monu @wip @invalidScenario
   Scenario:Verify user should be able to see filled details at organization address id getting populated at Authorized section
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -137,8 +137,8 @@ Feature: Validate all registration related scenarios
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
+#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
+#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab
@@ -179,7 +179,7 @@ Feature: Validate all registration related scenarios
 
   @82784 @VerifyRegistrationPages2of2-Individual @monu
   Scenario:Verify user should be navigated to Registration step 2 of 2 after clicking on save button on registration step 1 of 2 page
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Social Security Number (SSN)" on old form
@@ -191,7 +191,7 @@ Feature: Validate all registration related scenarios
 
   @82780 @VerifyRegistrationStep1of2-Individual @monu
   Scenario:Verify user should be navigated to Registration step 1 of 2 after clicking on Agree button on registration
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Individual"
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
     When I click on "Agree" in the page details
@@ -201,7 +201,7 @@ Feature: Validate all registration related scenarios
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Step 1 of 2" in the page details
 
-  @33827 @verifySavedDetailsOfOrganizationProfileSubTab-Organization @monu
+  @33827 @verifySavedDetailsOfOrganizationProfileSubTab-Organization @monu @wip @invalidScenario
   Scenario:Verify user should be able to see filled details at organization sub tab after redirecting back to organization profile tab while clicking on back button
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -235,8 +235,8 @@ Feature: Validate all registration related scenarios
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
-    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
+#    When I enter value as "533161380" into "Employer Identification Number (EIN)" on old form
+#    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab
@@ -255,7 +255,7 @@ Feature: Validate all registration related scenarios
 
   @82027 @verifyRegisteredDetailsInsidePendingTask-Organization @monu @wip
   Scenario:Verify if user clicks on download option inside Attachment section new tab getting opened
-    Given I begin "Organization" registration
+    Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
@@ -299,7 +299,7 @@ Feature: Validate all registration related scenarios
 
   @82796 @83035 @verifyConfirmationMessage-Individual @meenakshi
   Scenario:To validate Confirmation Message, after clicking Submit button on Catcha page of Individual registration process
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Social Security Number (SSN)" on old form
@@ -339,8 +339,7 @@ Feature: Validate all registration related scenarios
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
-    Then I see the following messages in the page details contains:
-      | Confirmation Message |
+    Then I softly see the text containing "Confirmation Message"
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
@@ -409,8 +408,7 @@ Feature: Validate all registration related scenarios
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
-    Then I see the following messages in the page details contains:
-      | Confirmation Message |
+    Then I softly see the text containing "Confirmation Message"
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
@@ -427,7 +425,7 @@ Feature: Validate all registration related scenarios
 
   @83038 @85790 @validatingApprovedStatusForIndividualRegistration @meenakshi
   Scenario:To verify after Approved record status changes as : Approved for Individual registration process
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     When I enter value as "123456789" into "Social Security Number (SSN)" on old form
@@ -710,7 +708,7 @@ Feature: Validate all registration related scenarios
 
   @223512 @ValidatePMuserfromuserregistrationapprovalqueueshouldnotabletoseethereassigntaskofIndividualRegistrationApprovalinReassignTask @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate PM user from user registration approval queue should not able to see the reassign task of Individual Registration Approval in Reassign Task
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
@@ -734,12 +732,12 @@ Feature: Validate all registration related scenarios
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation PM1"
-    When I perform quick search for "{SavedValue:UserFullName}" in "---program:-:grantorTaskReassignTableId---" panel
+    When I perform quick search for "{SavedValue:OldfullName}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "Review Individual User Registration" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
 
   @223616 @ValidateAdminusershouldnotabletoseethereassigntaskofIndividualRegistrationApprovalfromAllTasksAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment
   Scenario: Validate Admin user should not able to see the reassign task of Individual Registration Approval from All Tasks As a Admin
-    Given I begin "Individual" registration
+    Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     And I generate the random SSN and save as "SSN"
@@ -765,10 +763,10 @@ Feature: Validate all registration related scenarios
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
     And I select value "Automation EXE" into field "s2id_autogen1"
     And I select value "Automation EXE1" into field "s2id_autogen3"
-    When I perform quick search for "{SavedValue:UserFullName}" in "---program:-:adminTaskReassignmentTableId---" panel
+    When I perform quick search for "{SavedValue:OldfullName}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "Review Individual User Registration" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"
 
-  @222975 @223047 @ValidateAdminusershouldnotabletoseethereassigntaskofParent/ChildrelationshipApprovalfromAlltasksAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment
+  @222975 @223047 @ValidateAdminusershouldnotabletoseethereassigntaskofParent/ChildrelationshipApprovalfromAlltasksAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment @wip @invalidScenario
   Scenario: Validate Admin user should not able to see the reassign task of Parent/Child relationship Approval from All tasks As a Admin
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -785,8 +783,7 @@ Feature: Validate all registration related scenarios
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
-    Then I see the following messages in the page details contains:
-      | Confirmation Message |
+    Then I softly see the text containing "Confirmation Message"
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel

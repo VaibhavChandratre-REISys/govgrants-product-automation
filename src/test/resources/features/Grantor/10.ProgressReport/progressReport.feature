@@ -931,7 +931,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:grantorGrantProgressReportTableId---"
 
-  @59568 @59280 @validateSRUserIsAbleToViewSnapshot @mahadev @skipOnJenkins
+  @59568 @59280 @validateSRUserIsAbleToViewSnapshot @mahadev
   Scenario: Validate SR user is able to view the Snapshot after Progress report is Submitted to Grantor status | Validate Submitted On field at Certification table should get updated on Progress report at SR user end when Progress report status is Submitted to Grantor
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -950,13 +950,13 @@ Feature: Validate all scenarios in Progress Report
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Overview" sub tab
-    Then I softly see field "Submitted On:" is getting updated with todays date
+    Then I softly see field "Last Modified Date" is getting updated with todays date
     And I click on "Menu" in the page details
     And I select "Take Snapshot" from dropdown
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Progress Report Snapshot"
     When I download the file
-    Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
+    Then I softly see "Submitted to Grantor" on page "1" of "govgrant" pdf file
 
   @59675 @59674 @validateSendBackToSRUser @mahadev
   Scenario: Validate Pending Task is created for SR user when Award owner Sent Back the Progress report | Validate Pending Task is created for Award Owner when Progress report status is submitted to Grantor

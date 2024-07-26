@@ -1452,7 +1452,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @59196 @59197 @downloadPRthroughLinkPDF @jitendra @skipOnJenkins
+  @59196 @59197 @downloadPRthroughLinkPDF @jitendra @wip
   Scenario Outline: Validate SR User is able to download Supporting document checklist table in PDF format at Progress report with Status as Active.| Validate SR User is able to download Supporting document checklist table in XLS format when the table status is Active.
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     And I am on "SUBPORTAL" portal

@@ -149,10 +149,10 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    And I perform quick search for "{SavedValue:Automation Runtime Award Desk Review}" in "---deskreview:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:activeGrantsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Desk Review}" in "---deskreview:-:internalActiveGrants---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalActiveGrants---"
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:GrantsSubAwardsTableId---"
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
     Given I navigate to "Management" sub tab
     Then I softly cannot see top right button "Initiate Desk Review" in flex table with id "GrantorDeskReviewAward"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -199,7 +199,9 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
     And I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I pause execution for "3" seconds
     And I click on "Save" in the page details
+    And I pause execution for "5" seconds
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -274,7 +276,10 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
 #    And I click on "Back" in the page details
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I pause execution for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "3" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

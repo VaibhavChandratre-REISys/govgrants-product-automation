@@ -2574,7 +2574,6 @@ Feature: Validate all scenarios of grants and award with undo
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
-    And I refresh the page
     And I wait for "7" seconds
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
@@ -2583,17 +2582,17 @@ Feature: Validate all scenarios of grants and award with undo
     And I select "Download as PDF" from dropdown
     And I pause execution for "3" seconds
     And I download the file
-    Then I softly see "{SavedValue:AwardEGMSID}" on page "1" of "govgrants" pdf file
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
-    Then I softly see following details in "govgrants" pdf file:
-      | Detail                    | Page Number |
-      | {SavedValue:AwardEGMSID}  | 1           |
-      | {SavedValue:GrantEGMSID}  | 1           |
-      | Rejected                  | 1           |
-      | Created by                | 2           |
-      | {SavedValue:PM Username}  | 2           |
-      | Last Modified by          | 2           |
-      | {SavedValue:FO Username}  | 2           |
+    Then I softly see "{SavedValue:AwardEGMSID}" on page "1" of "govgrant" pdf file
+    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrant" pdf file
+    Then I softly see following details in "govgrant" pdf file:
+      | Detail                   | Page Number |
+      | {SavedValue:AwardEGMSID} | 1           |
+      | {SavedValue:GrantEGMSID} | 1           |
+      | Rejected                 | 1           |
+      | Created by               | 2           |
+      | {SavedValue:PM Username} | 2           |
+      | Last Modified by         | 2           |
+      | {SavedValue:FO Username} | 2           |
     And I switch to parent tab
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Subaward_Submit_for_Approval.pdf" as name

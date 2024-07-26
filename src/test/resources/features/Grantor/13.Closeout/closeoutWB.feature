@@ -261,6 +261,7 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
     Given I click on "Send To Subrecipient" in the page details
+    And I pause execution for "3" seconds
     And I logout
     And I checkout to yopmail with mailid "automationspi31@yopmail.com"
     And I pause execution for "180" seconds
@@ -642,6 +643,7 @@ Feature: Validate all scenarios in Closeout
     And I enter "TerminationEdition" values from "Closeout_Field_Values.xlsx"
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
+    And I pause execution for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
@@ -664,8 +666,9 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see top right button "Add Files" in flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---"
     And I click on top right button "Add Files" in flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Federal Closeout Document" from computer
+    And I wait for "4" seconds
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---closeout:-:ExternalCloseoutDetailsTableId---"
 #    #95609 #monu
     And I edit the following rows inline in flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---" by clicking "Edit" :
@@ -791,6 +794,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Open Items" sub tab
     Then I softly see value "{SavedValue:SiteVisitID}" for title "EGMS ID" inside table "---siteVisits:-:PendingSiteVisitDeskReviewTableId---"
     And I click on "Send To Subrecipient" in the page details
+    Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3131,8 +3135,8 @@ Feature: Validate all scenarios in Closeout
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I refresh the page
     When I click on "Override" in the page details
-    Then I see the following messages in the page details :
-      | Open Items - Some records on the grant selected for closeout are Submitted for Approval, to proceed with the business process of Override you may have to either send the record to owner or approve/reject the record. {SavedValue:SOWAMENDMENTREQUEST}, {SavedValue:PayreqId1}} |
+    Then I softly see the following messages in the page details :
+      | Open Items - Some records on the grant selected for closeout are Submitted for Approval, to proceed with the business process of Override you may have to either send the record to owner or approve/reject the record. {{SavedValue:SOWAMENDMENTREQUEST}, {SavedValue:PayreqId1}} |
     And I refresh the page
     When I navigate to "Open Items" sub tab
     Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:SOWAMENDMENTREQUEST}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
@@ -4197,7 +4201,7 @@ Feature: Validate all scenarios in Closeout
     And I refresh the page
     When I click on "Override" in the page details
     Then I softly see the following messages in the page details :
-      | Open Items - Some records on the grant selected for closeout are Submitted for Approval, to proceed with the business process of Override you may have to either send the record to owner or approve/reject the record. {SavedValue:SOWAMENDMENTREQUEST}, {SavedValue:progID}, {SavedValue:PayreqId}, {SavedValue:PayreqId1}} |
+      | Open Items - Some records on the grant selected for closeout are Submitted for Approval, to proceed with the business process of Override you may have to either send the record to owner or approve/reject the record. {{SavedValue:SOWAMENDMENTREQUEST}, {SavedValue:progID}, {SavedValue:PayreqId}, {SavedValue:PayreqId1}} |
     And I refresh the page
     When I navigate to "Open Items" sub tab
     Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:SOWAMENDMENTREQUEST}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
@@ -4922,7 +4926,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---progressReport:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
-    When I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
@@ -5184,14 +5188,14 @@ Feature: Validate all scenarios in Closeout
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:progID}" in "---orgLevelSiteVisits:-:homePendingTaskTableId---" panel
-    When I click on "Start" icon for "Approve Progress Report" inside flex table with id "---orgLevelSiteVisits:-:homePendingTaskTableId---"
+    And I perform quick search for "{SavedValue:progID}" in "---closeout:-:homePendingTaskTableId---" panel
+    When I click on "Start" icon for "Approve Progress Report" inside flex table with id "---closeout:-:homePendingTaskTableId---"
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     When I navigate to "Home" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:PayreqId}" in "---orgLevelSiteVisits:-:homePendingTaskTableId---" panel
-    When I click on "Start" icon for "Approve Payment Request" inside flex table with id "---orgLevelSiteVisits:-:homePendingTaskTableId---"
+    And I perform quick search for "{SavedValue:PayreqId}" in "---closeout:-:homePendingTaskTableId---" panel
+    When I click on "Start" icon for "Approve Payment Request" inside flex table with id "---closeout:-:homePendingTaskTableId---"
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     When I navigate to "Closeout" tab
