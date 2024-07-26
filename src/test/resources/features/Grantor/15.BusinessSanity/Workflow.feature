@@ -1534,6 +1534,14 @@ Feature: Validate all scenarios of every modules flow
 
   @840
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
-
+    When I login to "As a Grantor" app as "FO" user
+    And I navigate to "Applications" tab
+    And I select "Applications" from dropdown for Global search
+    And I perform quick search inside global search "AP-TAO modified-151"
+    Then I softly see value "AP-TAO modified-151" for title "EGMS ID" inside table "Applications"
+    And I click on row level action button "Edit" against "AP-TAO modified-151" in global search with id "Applications"
+    Then I softly see field "Status" as "Sent for Review"
+    Then I can see top right button "Edit" in page detail
+    Then I can see top right button "Submit" in page detail
+    Then I can see top right button "Decline" in page detail
 

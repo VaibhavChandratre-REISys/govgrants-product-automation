@@ -644,7 +644,7 @@ Feature: Validate all scenarios for the global search
     And I click on hyperlink for global search containing value "{SavedValue:budgetPChangeId}"
     Then I softly see the text containing "{SavedValue:budgetPChangeId}"
 
-  @390156 @390157 @VerifythattherecordownerisabletoedittheaccessforrecordwhenProgressReportisintheSubmittoGrantorandsenttoSRstate
+  @390156 @390157-1 @VerifythattherecordownerisabletoedittheaccessforrecordwhenProgressReportisintheSubmittoGrantorandsenttoSRstate
   Scenario: Verify that the record owner is able to edit the access for record when Progress Report is in the Submit to Grantor and sent to S/R state
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -791,6 +791,69 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
+
+  @390157-2 @VerifythattherecordownerisabletoedittheaccessforrecordwhenProgressReportisintheSubmittoGrantorandsenttoSRstate
+  Scenario: Verify that the record owner is able to edit the access for record when Progress Report is in the Submit to Grantor and sent to S/R state
+    Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
+    Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime award}" having object api name as "ProgressReports__c"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "progID"
+    And I click on "Edit" in the page details
+    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Performance" sub tab
+    Given I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Reported Date | Actual |
+      | Automation Permanent KPI | 7             | 7      |
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I close the tab
+    And I wait for "3" seconds
+    Given I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "3" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    Given I click on "Send Back to Subrecipient" in the page details
+    Then I softly see field "Status" as "Sent Back to Subrecipient"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Performance" sub tab
+    Given I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Actual | Reported Date |
+      | Automation Permanent KPI | 95     | 7             |
+    And I wait for "3" seconds
+    And I click on "Submit to Grantor" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
+      | Name                        | Progress Report |
+      | {SavedValue:PM Username}    | Step 1          |
+    Given I click on "Submit for Approval" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1381,7 +1444,125 @@ Feature: Validate all scenarios for the global search
     And I click on hyperlink for global search containing value "{SavedValue:paymentEGMSID}"
     Then I softly see the text containing "{SavedValue:paymentEGMSID}"
 
+  @390367 @390372 @SubrecipientOrganizationVerifythattheAdminisabletoedittheaccessforrecordwhenExternalOrganizationisintheApprovedstate
+  Scenario:Subrecipient Organization ->Verify that the Admin is able to edit the access for record when External Organization is in the Approved state
+    When I login to "As a Grantor" app as "ADMIN" user
+    And I navigate to "Home" tab
+    And I select "Organizations" from dropdown for Global search
+    And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgApproved}"
+    Then I softly see value "{AUTOEnvData:AutomationExternalOrgApproved}" for title "Account Name" inside table "Organizations"
+    And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgApproved}" in global search with id "Organizations"
+    Then I softly see field "Status" as "Active"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    And I select "Organizations" from dropdown for Global search
+    And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgApproved}"
+    Then I softly see value "{AUTOEnvData:AutomationExternalOrgApproved}" for title "External Organization" inside table "Organizations"
+    And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgApproved}" in global search with id "Organizations"
+    Then I softly see field "Status" as "Active"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
 
+  @390379 @SubrecipientOrganizationVerifythatNonOwneruserdoesnthaveaneditoptioninanystageofExternalSROrganizationandwillgeterrormessageonpage
+  Scenario:Subrecipient Organization -> Verify that Non-Owner user doesn't have an edit option in any stage of External S/R Organization and will get error message on page
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Home" tab
+    And I select "External Registration" from dropdown for Global search
+    And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgInProgress}"
+    Then I softly see value "{AUTOEnvData:AutomationExternalOrgInProgress}" for title "External Organization" inside table "External Registration"
+    And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgInProgress}" in global search with id "External Registration"
+    Then I softly see field "Status" as "In Progress"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I wait for "5" seconds
+    And I navigate to "Home" tab
+    And I select "External Registration" from dropdown for Global search
+    And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgSubmitforApproved}"
+    Then I softly see value "{AUTOEnvData:AutomationExternalOrgSubmitforApproved}" for title "External Organization" inside table "External Registration"
+    And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgSubmitforApproved}" in global search with id "External Registration"
+    Then I softly see field "Status" as "Submitted for Approval"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I wait for "5" seconds
+    And I navigate to "Home" tab
+    And I select "External Registration" from dropdown for Global search
+    And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgApproved}"
+    Then I softly see value "{AUTOEnvData:AutomationExternalOrgApproved}" for title "External Organization" inside table "External Registration"
+    And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgApproved}" in global search with id "External Registration"
+    Then I softly see field "Status" as "Approved"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I navigate to "Home" tab
+    And I select "External Registration" from dropdown for Global search
+    And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgRejected}"
+    Then I softly see value "{AUTOEnvData:AutomationExternalOrgRejected}" for title "External Organization" inside table "External Registration"
+    And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgRejected}" in global search with id "External Registration"
+    Then I softly see field "Status" as "Active"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
 
+  @389520 @389525 @389537 @389536 @VerifythatthereviewownerisabletoeditSubmitDeclinetheaccessforrecordwhenReviewsareinsentforreviewstate
+  Scenario:Verify that the review owner is able to edit/Submit/Decline the access for record when Reviews are in sent for review state.
+    When I login to "As a Grantor" app as "FO" user
+    And I navigate to "Applications" tab
+    And I select "Reviews" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
+    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews"
+    And I click on row level action button "Edit" against "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" in global search with id "Reviews"
+    And I wait for "2" seconds
+    Then I softly see that "Status" is in "Sent for Review" status
+    Then I can see top right button "Edit" in page detail
+    Then I can see top right button "Submit" in page detail
+    Then I can see top right button "Decline" in page detail
+    And I wait for "5" seconds
+    #@389536
+    And I navigate to "Applications" tab
+    And I select "Reviews" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
+    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews"
+    And I perform quick search inside global search "R-"
+    Then I softly see "Review Form EGMS ID" inside refine by filter
+    Then I softly see "Announcement EGMS Id" inside refine by filter
+    Then I softly see "Form Name" inside refine by filter
+    Then I softly see "Application EGMS ID" inside refine by filter
+    Then I softly see "Assigned To" inside refine by filter
+    Then I softly see "Min" inside refine by filter
+    Then I softly see "Max" inside refine by filter
+    Then I softly see "Due Date" inside refine by filter
+    Then I softly see "Status" inside refine by filter
+    And I filter field record by "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" by label "Review Form EGMS ID" in left panel for global search
+    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews"
+    Then I softly see the text "Refine By" on left navigation for global search
+    And I click on "Expand List" button on left navigation for global search
+    Then I softly see the text "Reviews" on left navigation for global search
+    Then I softly see the text "Grants" on left navigation for global search
+    Then I softly see the text "Amendment Requests" on left navigation for global search
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I select "Reviews" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
+    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews"
+    And I click on row level action button "Edit" against "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" in global search with id "Reviews"
+    And I wait for "2" seconds
+    #@389525
+    Then I softly see that "Status" is in "Sent for Review" status
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I login to "As a Grantor" app as "FO" user
+    And I navigate to "Applications" tab
+    And I select "Reviews" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
+    Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews"
+    And I click on hyperlink for global search containing value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
+    #@389537
+    Then I softly see the text containing "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
 
 
