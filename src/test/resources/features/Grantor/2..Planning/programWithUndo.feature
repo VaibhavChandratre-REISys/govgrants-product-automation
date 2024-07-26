@@ -439,9 +439,7 @@ Feature: Validate all scenarios for program
      Thank you.
      The EGMS Team
      """
-
-
-  @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo
+   @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138 @hitesh @Undo
   Scenario: Verify Admin user can see Undo and Activate button after approved the program if program owner and approver is same
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Planning" tab
@@ -463,17 +461,21 @@ Feature: Validate all scenarios for program
     And I wait for "3" seconds
     When I click "Associate" after selection of "{SavedValue:ADMIN Username}" in the table "---program:-:associateContactsTableId---"
     And I wait for "3" seconds
+    And I click modal button "Close"
 #    When I click "Associate" after selection of "{SavedValue:ADMIN Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+    And I click modal button "Close"
     When I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Strategic Objectives Admin" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    And I click modal button "Close"
     When I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I perform quick search for "Automation Permanent KPI For Admin" in "---program:-:associateKPITableId---" panel
     And I wait for "3" seconds
     When I click "Associate" after selection of "Automation Permanent KPI For Admin" in the table "---program:-:associateKPITableId---"
 #    When I click "Associate" after selection of "Automation Permanent KPI For Admin" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    And I click modal button "Close"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                        | Program |
@@ -1575,7 +1577,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
 
-   @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138 @hitesh @Undo @skipOnJenkins
+   @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138 @hitesh @Undo
   Scenario: Verify the snapshot is generated in snapshot history section when last approver click undo action
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2957,6 +2959,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
+
   @279387 @332438 @ExternalProgVerifyEXEasstep3approverseewarningmessageafterclickonUndobuttononprogram @sprint-7-US-304339 @hitesh @Undo
   Scenario: External Prog_ Verify EXE as step 3 approver see warning message after click on Undo button on program
     When I login to "As a Grantor" app as "PM" user
@@ -3053,17 +3056,18 @@ Feature: Validate all scenarios for program
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    And I click modal button "Close"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+    And I click modal button "Close"
     When I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    And I click modal button "Close"
     When I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    And I click modal button "Close"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:FD Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:FD Username} | Step 1  |
@@ -3073,7 +3077,8 @@ Feature: Validate all scenarios for program
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
     And I refresh the page
-    And I wait for "5" seconds
+    And I wait for "10" seconds
+    And I refresh the page
     And I navigate to "History" sub tab
     And I click on hyperlink containing value "Internal Program - submit for approval.pdf"
     When I download the file
@@ -3100,7 +3105,8 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     And I refresh the page
-    And I wait for "5" seconds
+    And I wait for "10" seconds
+    And I refresh the page
     And I navigate to "History" sub tab
     And I click on hyperlink containing value "Internal Program - Undo Approval.pdf"
     When I download the file
@@ -3109,7 +3115,7 @@ Feature: Validate all scenarios for program
       | Status                 | Page Number |
       | Submitted for Approval | 1           |
     And I switch to parent tab
-    And I "Send Back" in the approval decision
+    And I "Send back" in the approval decision
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
@@ -3143,7 +3149,8 @@ Feature: Validate all scenarios for program
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
     And I refresh the page
-    And I wait for "5" seconds
+    And I wait for "10" seconds
+    And I refresh the page
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Internal Program - submit for approval.pdf" as name
 

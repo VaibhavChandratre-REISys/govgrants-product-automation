@@ -879,7 +879,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
     Then I softly see value "Attachment.pdf" for title "Title" against the value "Supporting Documents" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
 
-  @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval @skipOnJenkins @organizationalDeskReviewSecond
+  @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval @organizationalDeskReviewSecond
   Scenario: Validate Record Owner user is able to take Snapshot after Org Desk Review is Submitted for Approval status - Org Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -927,10 +927,13 @@ Feature: Validate all scenarios in Organizational Desk Review
       | Automation Observation | Automation Description | Observation |
     And I wait for "3" seconds
     When I click on "Submit for Approval" in the page details
-    And I click on "Menu" in the page details
+    And I wait for "3" seconds
+    And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
+    And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink which contains todays date with text "SnapShot on"
+    And I wait for "5" seconds
     When I download the file
     Then I softly see "{SavedValue:Record Id}" on page "1" of "govgrants" pdf file
 
