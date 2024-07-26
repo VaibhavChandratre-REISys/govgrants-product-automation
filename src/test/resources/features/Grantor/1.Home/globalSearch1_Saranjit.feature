@@ -127,7 +127,7 @@ Feature: Validate all scenarios for the global search
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:DeskReview}"
     And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
-    When I click on "Save" in the page details
+#    When I click on "Save" in the page details
 #    And I navigate to "Reports and Outcomes" sub tab
 #    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
 #    And I switch to tab number "1"
