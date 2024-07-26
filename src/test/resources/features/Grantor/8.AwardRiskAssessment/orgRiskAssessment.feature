@@ -124,17 +124,16 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I wait for "3" seconds
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentFileTableId---"
-    And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
+    And I upload attachment "Attachment.pdf" of type "OTHER" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I softly see "Program Artifacts" has been added in "ExternalOrganizationRiskAssessmentFiles" flex table
+    Then I softly see "OTHER" has been added in "ExternalOrganizationRiskAssessmentFiles" flex table
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
   @62197 @62198 @62513 @62515 @62516 @pendingTaskCreatedForGrantor @deepika @OrgRiskSet1
   Scenario: Validate whether pending task is created for grantor when Authorized Signatory requested for Revision
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "10" seconds
-    And I refresh the page
+    And I wait for "4" seconds
     And I navigate to "Risk Assessment" sub tab
     When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -153,9 +152,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---riskassessment:-:homePendingTaskTableId---" panel
-    Then I softly see values "Automation Permanent Organization for Risk Assessment" and "Provide or Decline Risk Assessment Access" inside table
+    And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:activeOrgTableID---" panel
+    Then I softly see value "Automation Permanent Organization for Risk Assessment" for title "Name" inside table "---orgRiskAssessment:-:activeOrgTableID---"
     # @62198 @62515
     When I click on "View" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:activeOrgTableID---" without waiting for record
     And I navigate to "Risk Assessment" sub tab
@@ -166,6 +165,19 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I click on top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I pause execution for "10" seconds
     Then I softly cannot see top right button "Provide Access" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
+    And I wait for "10" seconds
+    And I refresh the page
+    And I navigate to "Risk Assessment" sub tab
+    When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Assessment" sub tab
+    Then I softly see field "Status" as "Created"
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
   @62312 @62314 @62514 @64608 @deleteIconfCreatedRiskAssessment @deepika @OrgRiskSet1
@@ -231,7 +243,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I click on "Take Snapshot" in the page details
     And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Risk Assessment"
+    And I click on hyperlink containing value "Risk Assessment Snapshot.pdf"
     And I wait for "2" seconds
     When I download the file
     Then I softly see "{SavedValue:EGMSID}" on page "1" of "govgrants" pdf file
