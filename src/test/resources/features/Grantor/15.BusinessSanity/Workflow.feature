@@ -1534,14 +1534,53 @@ Feature: Validate all scenarios of every modules flow
 
   @840
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantor" app as "FO" user
+    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
+    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
+    And I login to "As a Grantor" app as "dynamicUser" user
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
+    And I get the "EGMS ID"
+    And I wait for "2" seconds
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name  | Due in Days |
+      | Pre-Screen | 5           |
+    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+      | Reviewer                 |
+      | {SavedValue:FO Username} |
+    And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "{SavedValue:Automation Runtime Announcement Application Review}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    When I check "{SavedValue:Automation Runtime Announcement Application Review}" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "2" seconds
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
-    And I select "Applications" from dropdown for Global search
-    And I perform quick search inside global search "AP-TAO modified-151"
-    Then I softly see value "AP-TAO modified-151" for title "EGMS ID" inside table "Applications"
-    And I click on row level action button "Edit" against "AP-TAO modified-151" in global search with id "Applications"
-    Then I softly see field "Status" as "Sent for Review"
-    Then I can see top right button "Edit" in page detail
-    Then I can see top right button "Submit" in page detail
-    Then I can see top right button "Decline" in page detail
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I wait for "2" seconds
+    And I click on "Edit" in the page details
+    And I wait for "2" seconds
+    And I click radio button "I disagree" in COI of review form
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Decline" in the page details without processing
+    Then I softly see confirmation box with body "This review form will no longer be editable and will get marked as Review Declined. Are you sure you want to Decline?" is displayed
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    Then I softly see that "Status" is in "Review Declined" status
 
