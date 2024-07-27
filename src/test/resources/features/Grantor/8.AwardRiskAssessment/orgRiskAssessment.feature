@@ -286,6 +286,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
+   And I refresh the page
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account              | Encumbrance |
       | {SavedValue:fundingAccount1} | 1000        |
@@ -495,7 +496,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Submit" in the page details
     Then I see the following messages in the page details contains:
-      | Assessment Tab - Complete all of the questions on the Risk Assessment form. |
+      | Assessment Tab - Sign the Risk Assessment form by checking the Acknowledgement box.|
 
  @hit @63075 @VerifyEffectiveDateAndExpirationDate @keerti
   Scenario: Validate whether the Active Org Risk Assessment for Organization is updated for one year under Effective Date and Expiration Date fields inside flextable
