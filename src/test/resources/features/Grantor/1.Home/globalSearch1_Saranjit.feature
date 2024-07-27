@@ -276,6 +276,7 @@ Feature: Validate all scenarios for the global search
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                     | Site Visit |
       | {SavedValue:PM Username} | Step 2     |
+    And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
     And I switch to tab number "1"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
@@ -486,8 +487,8 @@ Feature: Validate all scenarios for the global search
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I perform quick search for "Automation Runtime Announcement for Pre-App103638" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-    When I click on "View" icon for "Automation Runtime Announcement for Pre-App103638" inside table
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     And I wait for "2" seconds
@@ -518,7 +519,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:PreAppID}"
     And I click on hyperlink for global search containing value "{SavedValue:PreAppID}"
     #390459 #390461
-    Then I softly see page title contains as "Automation Runtime Announcement for Pre-App103638"
+    Then I softly see page title contains as "{SavedValue:Automation Runtime Announcement for Pre-App}"
     Then I softly can see top right button "Request Negotiation" in page detail
     Then I softly can see top right button "Accept" in page detail
     Then I softly can see top right button "Reject" in page detail
