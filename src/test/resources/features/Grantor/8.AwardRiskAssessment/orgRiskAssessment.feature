@@ -136,7 +136,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     #62947
     Then I see value "Record Id" for title "EGMS ID" inside table "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
- @hit @62949 @assessmentValuesareEditable @deepika
+  @62949 @assessmentValuesareEditable @deepika
   Scenario: Validate whether user is able to edit the assessment form once Grantor Provided Access for Revision
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -407,7 +407,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
- @hit @62952 @62802 @orRiskAssessmentIsNotDisplayedForINDUser @deepika @issuewithINDUser
+  @62952 @62802 @orRiskAssessmentIsNotDisplayedForINDUser @deepika @issuewithINDUser
   Scenario:  Validate Data related to organization risk assessment should not be displayed on the Individual Profile view .
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -757,7 +757,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I click on "View" icon for "Record Id" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
- @hit @64126 @64127 @editdeleteButtonsOndraftORAPresentOnOrgProfilePage @deepika @runOrgRisk
+  @64126 @64127 @editdeleteButtonsOndraftORAPresentOnOrgProfilePage @deepika @runOrgRisk
   Scenario: Verify on Draft Organization Risk Assessment user should have the basic Edit Delete view Privileges for the SA of the Organization
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -812,7 +812,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I softly can see row level action button "Delete" against "Created" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     And I softly can see row level action button "Edit" against "Created" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
- @hit @64514 @64515 @64516 @64602 @64513 @64512 @64125 @63979 @overallRiSKScoreWhenAssessmentSelectedDiffTypeQuestions @deepika
+  @64514 @64515 @64516 @64602 @64513 @64512 @64125 @63979 @overallRiSKScoreWhenAssessmentSelectedDiffTypeQuestions @deepika
   Scenario: Validate the High level Risk Score, that shows the Overall Score as per the provided Assessment once Risk Assessment is Active
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -875,7 +875,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Overview" sub tab
     Then I softly see field "Overall Score" as "27.0%"
 
- @hit @64603 @taskIsNotCreatedForSPI @deepika
+  @64603 @taskIsNotCreatedForSPI @deepika
   Scenario: Verify Task is not generated for SPI to Create Risk Assessment for an Organization
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -929,9 +929,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Revise Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
-    Then I see that "Create Risk Assessment" has been added in flextable with Id "---orgRiskAssessment:-:pendingTaskTableId---"
+    Then I see that "Not Started" has been added in flextable with Id "---orgRiskAssessment:-:pendingTaskTableId---"
 
- @hit @62525 @62523 @UserCanviewCompletedTaskAfterProvideRevisionAccess @keerti
+  @62525 @62523 @UserCanviewCompletedTaskAfterProvideRevisionAccess @keerti
   Scenario: Validate whether user is able to view the Completed task once Risk Assessment is Active after provide Revision Access
     Given I delete the record "Automation Desk Review Org level" from the object "Desk Review"
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
@@ -981,7 +981,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "CompletedTasks" panel
     Then I see values "Automation Permanent Organization for Risk Assessment" and "Completed" inside table
 
- @hit @63982 @effectiveDatesOnOrgRiskAssessmentIsBlackDraftOnCreated @deepika @runOrgRisk
+  @63982 @effectiveDatesOnOrgRiskAssessmentIsBlackDraftOnCreated @deepika @runOrgRisk
   Scenario: Verify that Effective and Expiration dates are blank when Org risk assessment is in created state
     Given I delete the record "Automation Desk Review Org level" from the object "Desk Review"
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
