@@ -180,7 +180,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
- @hit @62950 @AScanEditAssessment @deepika
+ @62950 @AScanEditAssessment @deepika
   Scenario: Validate whether AS have edit access for the assessment form
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -224,7 +224,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Submit" in page detail
 
- @hit @62951 @RAinCreatedStatusImpactOnAward @deepika
+ @62951 @RAinCreatedStatusImpactOnAward @deepika
   Scenario Outline: Validate if SA has requested for revision of initial Risk Assessment  and it is being revised and present in Created sttaus does not make an impact on Award Activation system will always refer the active Risk Assessment.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -481,7 +481,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on "View" icon for "Expired" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
     Then I cannot see top right button "Edit" in page detail
 
- @hit @63072 @VerifyErrorMessageForAssessmentForm @keerti
+ @63072 @VerifyErrorMessageForAssessmentForm @keerti
   Scenario: Validate whether the system throws an error message to the user and cannot proceed further without completing the assessment form.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -523,7 +523,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I wait for "3" seconds
     Then I softly see value "{SavedValue:EffectiveDate}" for title "Effective From" inside table "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
- @hit @63077 @VerifyTaskForNoPopUpWhenClickedOnRequestNewAssessment @keerti
+ @63077 @VerifyTaskForNoPopUpWhenClickedOnRequestNewAssessment @keerti
   Scenario: Validate task is not created for Grantor when the SA user clicks as 'No' on pop up when clicked on Request New Assessment
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -727,7 +727,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
       | Detail | Page Number |
       | Active | 1           |
 
- @hit @64128  @63983 @grantorViewOrgRA @deepika @runOrgRisk
+  @64128  @63983 @grantorViewOrgRA @deepika @runOrgRisk
   Scenario: Validate Risk Assessment data/status should be displayed to internal user irrespective of the state of Risk Assessment.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
