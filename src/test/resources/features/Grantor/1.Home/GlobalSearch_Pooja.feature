@@ -1,7 +1,7 @@
-@globalSearch @grantor-regression @grantor-parallel-regression @regression
+@globalSearch @grantor-regression @grantor-parallel-regression @regression @GlobalSearchPooja
 Feature: Validate all scenarios for the global search
 
-  @389003  @sprint-2-US-386939 @Pooja @GlobalSearch @
+  @389003  @sprint-2-US-386939 @Pooja @GlobalSearch
   Scenario Outline: Verify that the record owner is able to edit the access for record when Award is in the Created, submit for review, Reviewed, Accepted state
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
