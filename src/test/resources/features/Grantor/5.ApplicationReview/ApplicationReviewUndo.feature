@@ -96,7 +96,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @334235 @286696 @ValidatePre-ScreenReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectionIdisagreeoptioninCOIsection @Sprint-1-US-235657 @vaibhav @Undo
+ @hit1 @334235 @286696 @ValidatePre-ScreenReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectionIdisagreeoptioninCOIsection @Sprint-1-US-235657 @vaibhav @Undo
   Scenario Outline: Validate Pre-Screen Review Step Competitive Ann FA Yes user can successfully decline the review form after selecting I disagree option in COI section
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -145,7 +145,6 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     #286696
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
       | The following error(s) occurred:              |
       | As COI is disagreed, Review must be declined. |
@@ -3253,6 +3252,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I can see row level action button "Undo" against "Automation PM" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I click on "Undo" icon for "Automation PM" inside flex table with id "---applicationReview:-:appreviewsTableId---"
     Then I softly see that "Status" is in "Sent for Review" status
+    And I wait for "5" seconds
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
