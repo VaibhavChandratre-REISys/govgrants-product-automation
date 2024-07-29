@@ -2052,7 +2052,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-   @274898 @ValidateFormulaannouncementownercannotchangea
+  @ch1 @274898 @ValidateFormulaannouncementownercannotchangea
   Scenario Outline: Validate Formula announcement owner cannot change allocation amount for application when FDM is submitted for approval
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -2235,7 +2235,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274719  @Sprint-23-US-273843 @vaibhav @Allocation
+  @ch1 @274719  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate Formula PM user should see validation on save button after editing allocation on Published Ann when FDM is in Submit for approval Allocation Type By Applicant FA
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2418,7 +2418,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @PoojaAppReviewAlloocation @274560  @Sprint-23-US-273843 @vaibhav @Allocation
+  @ch1 @PoojaAppReviewAlloocation @274560  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate Formula PM user should submit FDM for approval even if mismatch Allocation & budgeted amount on Application on FDM layout & see validation on converted to award button
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NEGOTIATION_YES"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2607,7 +2607,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274715  @Sprint-23-US-273843 @vaibhav @Allocation
+  @ch1 @274715  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate Formula By app FA No user see the validation when budgeted amount is not equal to the Allocation amount user tried to promote it to FDM from management review
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -3003,7 +3003,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274259  @Sprint-23-US-273843 @vaibhav @Allocation
+  @ch1 @274259  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate Formula If announcement owner is transferred, the edit access of "Total commitment Amount" field will be with new owner
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -3204,7 +3204,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274232  @Sprint-23-US-273843 @vaibhav @Allocation
+  @ch1 @274232  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate Formula FA NO user is able to edit the FDM record after it is sent back from approval process
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -3435,7 +3435,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-   @274247 @274258  @Sprint-23-US-273843 @vaibhav @Allocation
+   @ch1 @274247 @274258  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate FDM FANo validation is displayed to PO user upon submit for approval when user enter Total Commitment Amount value less than the Allocation Amount
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -3612,7 +3612,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274230  @Sprint-23-US-273843 @vaibhav @Allocation
+  @ch1 @274230  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate Formula FA No PO user see the validation when the budgeted amount not equal to the Allocation amount & User try to create award from FDM or from the Application
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -3801,7 +3801,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274231 @Sprint-23-US-273843 @vaibhav @Allocation
+  @ch1 @274231 @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate Formula FA No if PM the allocation amount is updated from the announcement then it is updated on the Allocation amount column of FDM as well
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -4310,7 +4310,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | {SavedValue:Automation Runtime Formula Announcement} |
 
 
-  @113042  @Sprint-23-US-273843 @vaibhav @Allocation
+  @ch1 @113042  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate the Notification to Application before FDM Approval
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
