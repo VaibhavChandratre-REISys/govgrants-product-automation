@@ -1,7 +1,7 @@
 @globalSearch @grantor-regression @grantor-parallel-regression @regression @GlobalSearchPooja
 Feature: Validate all scenarios for the global search
 
-  @389003  @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389003  @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that the record owner is able to edit the access for record when Award is in the Created, submit for review, Reviewed, Accepted state
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -144,7 +144,7 @@ Feature: Validate all scenarios for the global search
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @389008  @sprint-2-US-386939 @Pooja @GlobalSearch  @Rerun
+  @389008  @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that Non-Owner user doesn't have an edit option in any stage of award and will get error message on page.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -404,7 +404,7 @@ Feature: Validate all scenarios for the global search
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @389011 @sprint-2-US-386939 @Pooja @GlobalSearch @bug-451578
+  @389011 @sprint-2-US-386939  @GlobalSearch @bug-451578
   Scenario: Verify that user is not able to change the owner in any state of Award and will get the error message and non-owner user is not able to see the change owner option
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -433,7 +433,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
     Then I softly cannot see row level action button "Change Owner" against "{SavedValue:AnnEGMSID}" in global search with id "Subawards"
 
-  @389017 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389017 @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that PM user as Reviewer have edit access for record only when edit access setting is yes for peer reviewer when award is a submit for review state.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -531,7 +531,7 @@ Feature: Validate all scenarios for the global search
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @389023 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389023 @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that if PM user does not have edit access for peer review then PM user will get error message for award when award is in the submit for review state or in Reviewed states
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -630,7 +630,7 @@ Feature: Validate all scenarios for the global search
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @389027 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389027 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to see the 5 most recently used records in the dropdown list when user clicks on search input box for awardbox for announcement
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -639,7 +639,7 @@ Feature: Validate all scenarios for the global search
     And I click on global search box
     Then I softly see recent "5" records in global search box
 
-  @389031 @sprint-2-US-386939 @Pooja @GlobalSearch @Rerun
+  @389031 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to see the all the list of modules after clicking on 'suggested for you section' for award.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -672,7 +672,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see dropdown option "Tasks" under the "Suggested For You" section
 
 
-  @389048 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389048 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that PO user is able to see the table for extra objects which are present in the search result for subaward module
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -687,7 +687,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text "Tasks" on left navigation for global search
     Then I softly see the text "Folders" on left navigation for global search
 
-  @389053 @389043  @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389053 @389043  @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID) on objects after global search the any record for announcement.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -724,7 +724,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     Then I softly see field "Status" as "Created"
 
-  @389060 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389060 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user can sort any objects after global search any record (Eg: EGMS ID, Relevance, Program)
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -739,7 +739,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see options "Cumulative Obligation" inside "Relevance" dropdown
     Then I softly see options "Status" inside "Relevance" dropdown
 
-  @389314  @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389314  @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Grant is in the Created state
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -759,7 +759,7 @@ Feature: Validate all scenarios for the global search
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
 
-  @389322 @sprint-2-US-386939 @Pooja @GlobalSearch @Rerun
+  @389322 @sprint-2-US-386939  @GlobalSearch @Rerun
   Scenario:Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID , Internal Organization, Owner First Name, Owner Last Name ) on objects after global search the any record for Grant.
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -785,7 +785,7 @@ Feature: Validate all scenarios for the global search
     And I click on hyperlink for global search containing value "Automation"
     Then I softly see the text containing "{SavedValue:EXE Username}"
 
-  @389323 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389323 @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that user can sort any objects after global search any record by (Relevance, EGMS ID, Grant Title, Internal organization, External organization,  Project period) Status.
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -802,7 +802,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see options "Owner Last Name" inside "Relevance" dropdown
     Then I softly see options "Status" inside "Relevance" dropdown
 
-  @389324 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389324 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to expand the result by Grant module and Filter/Refine the the result by configured Columns for an Grant.
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -836,7 +836,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text "Site Visits" on left navigation for global search
     Then I softly see the text "Grants" on left navigation for global search
 
-  @389327 @389335 @389342 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389327 @389335 @389342 @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that the record owner is able to edit the access for record when Focus Area is in the Created state
     Given I login to "As a Grantor" app as "EXE" user
     When I navigate to "Planning" tab
@@ -874,7 +874,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     Then I softly see field "Status" as "Draft"
 
-  @389343 @sprint-2-US-386939 @Pooja @GlobalSearch @Rerun
+  @389343 @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that Non-Owner user doesn't have an edit option in any stage of Focus Area and will get error message on page.
     Given I login to "As a Grantor" app as "EXE" user
     When I navigate to "Planning" tab
@@ -921,7 +921,7 @@ Feature: Validate all scenarios for the global search
     And I click on row level action button "Edit" against "{SavedValue:FocusEGMSID}" in global search with id "Focus Areas"
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @389459 @389460 @389461 @389462 @sprint-2-US-386939 @Pooja @GlobalSearch @bug-451518 @Rerun
+  @389459 @389460 @389461 @389462 @sprint-2-US-386939  @GlobalSearch @bug-451518 @Rerun
   Scenario Outline: Verify that the record owner is able to edit the access for record when funding decision memo(FDM) is in the Created state
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -963,6 +963,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "5" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1022,9 +1023,9 @@ Feature: Validate all scenarios for the global search
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-    And I wait for "3" seconds
+    And I wait for "6" seconds
     And I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
@@ -1036,6 +1037,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "5" seconds
     And I click on "Save" in the page details
     And I wait for "5" seconds
     When I click on "Submit" in the page details without processing
@@ -1049,6 +1051,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "5" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1090,6 +1093,7 @@ Feature: Validate all scenarios for the global search
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "5" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1155,7 +1159,7 @@ Feature: Validate all scenarios for the global search
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @389463 @389464 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389463 @389464 @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that the record owner is able to edit the access for record when KPI is in the Created state
     Given I login to "As a Grantor" app as "EXE" user
     When I navigate to "Planning" tab
@@ -1214,7 +1218,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
 
-  @389465 @389466 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389465 @389466 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to expand the result by KPI module and Filter/Refine the the result by configured Columns for an KPI.
     Given I login to "As a Grantor" app as "EXE" user
     When I navigate to "Planning" tab
@@ -1242,7 +1246,7 @@ Feature: Validate all scenarios for the global search
     #389466
     Then I softly see field "Status" as "Created"
 
-    @389475 @389483  @389486 @389479 @sprint-2-US-386939 @Pooja @GlobalSearch @Rerun
+    @389475 @389483  @389486 @389479 @sprint-2-US-386939  @GlobalSearch @Rerun
       Scenario: Verify that the record owner is able to edit the access for record when Strategic plan is in the Created state
       When I login to "As a Grantor" app as "dynamicUser" user
       And I navigate to "Planning" tab
@@ -1290,7 +1294,7 @@ Feature: Validate all scenarios for the global search
       Then I softly see the text containing "You dont have sufficient access to edit this record"
       Then I softly see that "Status" is in "Draft" status
 
-      @389495 @389502 @389505 @sprint-2-US-386939 @Pooja @GlobalSearch @bug-451476
+      @389495 @389502 @389505 @sprint-2-US-386939  @GlobalSearch @bug-451476
       Scenario: Verify that the Admin is able to edit the access for terms and condition when terms and condition is in the New and active state state
       When I login to "As a Grantor" app as "ADMIN" user
         When I navigate to "Planning" tab
