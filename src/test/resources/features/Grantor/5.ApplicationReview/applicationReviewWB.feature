@@ -2420,7 +2420,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "5" seconds
     When I enter value "Negotiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
-    And I save the field labeled "Due Date" as "NegotiationDate"
+    And I save the field containing "Due Date" as "NegotiationDate"
     Then I softly see field "Application Sections for Negotiation" as "Budget: Budget Details"
     Then I softly see field "Details" as "Negotiation Initiated"
     Then I see field "{SavedValue:NegotiationDate}" contains previous date
@@ -13244,7 +13244,7 @@ Feature: Validate all scenarios in the Application Review without background
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
 
-  @ch1 @236829 @236830  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
+  @ch1 @done @236829 @236830  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
   Scenario Outline: Validate user see the remove review record access from the old users
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -13353,6 +13353,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I "Approve" in the approval decision
     And I pause execution for "5" seconds
     And I click on "Publish" in the page details
+    #Bug452157
     Then I see status in Progress-bar is "Published" and is "dark blue"
     When I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
     When I navigate to "Applications" tab
@@ -13469,7 +13470,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                        | Application Name                                         |
       | {SavedValue:Automation Runtime Competitive Announcement} | {SavedValue:Automation Runtime Competitive Announcement} |
 
-  @ch1 @236831  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
+  @ch1 @done @236831  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
   Scenario Outline: Validate old user should not see the average weighted score column on application
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -13577,6 +13578,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I "Approve" in the approval decision
     And I pause execution for "5" seconds
     And I click on "Publish" in the page details
+    #Bug452157
     Then I see status in Progress-bar is "Published" and is "dark blue"
     When I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
     When I navigate to "Applications" tab
@@ -18036,7 +18038,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
-  @ch1 @236758 @236762  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
+  @ch1 @done @236758 @236762  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
   Scenario Outline: Validate user change ownership of the Announcement then user should share the Reviews with the new owner, i.e all the assigned reviews should visible only to the new announcement owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -18140,6 +18142,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     And I pause execution for "5" seconds
+    #Bug452157
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
     When I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
