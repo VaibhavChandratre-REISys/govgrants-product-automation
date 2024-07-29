@@ -368,7 +368,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "Site Visits"
     And I click on hyperlink for global search containing value "{SavedValue:SitevVisitId}"
   #390418 #390432
-    Then I softly see page title contains as "{SavedValue:Automation Runtime Award Site Visit}"
+    Then I softly see page title contains as "{SavedValue:Automation Runtime Site Visit}"
 
   @390416 @390419 @390429 @390431 @ValidateEXEuserisabletoseetheglobalsearchbarforDeskReview @sprint-2-US-386939 @GlobalSearch
   Scenario: Verify that user is able to expand the result by award desk review module and Filter/Refine the the result by configured Columns for an award desk review
