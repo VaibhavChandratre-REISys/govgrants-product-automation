@@ -480,7 +480,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
-  @286419 @286447  @sprint-1-US-295145 @hitesh @Undo @GrantUndoPooja
+  @286419 @286447  @sprint-1-US-295145 @hitesh @Undo
   Scenario:Verify PM user can see Undo and sent to S\R button after approved the award if award  owner and approver is same
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
