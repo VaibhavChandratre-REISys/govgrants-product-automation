@@ -13,6 +13,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -350,7 +351,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Forms and Files" sub tab
@@ -479,6 +480,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I navigate to "Negotiations" sub tab
     Then I softly see "Applicant Response" page block displayed
     And I enter values into fields
       | Value                              | Field                |
@@ -787,6 +789,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I navigate to "Negotiations" sub tab
     Then I softly do not see "Applicant Response" page block displayed
     And I enter values into fields
       | Value                              | Field                |
@@ -1783,6 +1786,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
