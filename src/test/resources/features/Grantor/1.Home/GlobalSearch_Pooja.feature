@@ -641,7 +641,7 @@ Feature: Validate all scenarios for the global search
 
   @389031 @sprint-2-US-386939 @Pooja @GlobalSearch @Rerun
   Scenario: Verify that user is able to see the all the list of modules after clicking on 'suggested for you section' for award.
-    When I login to "As a Grantor" app as "PO" user
+    When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     Then I softly see dropdown option "All" under the "Suggested For You" section
     Then I softly see dropdown option "Amendment Requests" under the "Suggested For You" section
