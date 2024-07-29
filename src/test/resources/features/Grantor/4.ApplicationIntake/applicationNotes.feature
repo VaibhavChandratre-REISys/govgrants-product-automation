@@ -25,11 +25,11 @@ Feature: Application Intake scenarios without background
     And I switch to tab number "1"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+    And I close the tab
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Contact |
@@ -700,12 +700,12 @@ Feature: Application Intake scenarios without background
     And I switch to tab number "1"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     And I switch to tab number "1"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+    And I close the tab
     Then I softly see top right button "New" inside flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
       | Title                    | Description      |
@@ -919,12 +919,12 @@ Feature: Application Intake scenarios without background
     And I switch to tab number "1"
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
     And I switch to tab number "1"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Given I click on "Back" in the page details
+    And I close the tab
     Then I softly see top right button "New" inside flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
       | Title                    | Description      |
@@ -1009,12 +1009,12 @@ Feature: Application Intake scenarios without background
     And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
@@ -1126,12 +1126,12 @@ Feature: Application Intake scenarios without background
     And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     And I wait for "2" seconds
     When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
       | Title                    | Description      |
@@ -1211,12 +1211,12 @@ Feature: Application Intake scenarios without background
     And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
@@ -1307,12 +1307,12 @@ Feature: Application Intake scenarios without background
     And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
@@ -1445,12 +1445,12 @@ Feature: Application Intake scenarios without background
     And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
@@ -1502,12 +1502,12 @@ Feature: Application Intake scenarios without background
     And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
@@ -1695,12 +1695,12 @@ Feature: Application Intake scenarios without background
     And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
@@ -1805,12 +1805,12 @@ Feature: Application Intake scenarios without background
     And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
@@ -1934,12 +1934,12 @@ Feature: Application Intake scenarios without background
     And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I click on "Back" in the page details
+    And I close the tab
     When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |

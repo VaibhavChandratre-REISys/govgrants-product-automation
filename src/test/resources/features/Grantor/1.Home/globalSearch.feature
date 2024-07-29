@@ -382,7 +382,6 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
     And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
     Then I softly see field "Status" as "Created"
-    And I click on "Edit" in the page details
     And I wait for "3" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -446,7 +445,6 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
     And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
     Then I softly see field "Status" as "Created"
-    And I click on "Edit" in the page details
     And I wait for "3" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -648,7 +646,7 @@ Feature: Validate all scenarios for the global search
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I click on "Activate" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I click on "Amend Program" in the page details
     Then I softly see field "Status" as "Being Amended"
     And I navigate to "Planning" tab
