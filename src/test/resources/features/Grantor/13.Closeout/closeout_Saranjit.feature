@@ -10,7 +10,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
 
-  @96255 @VerifySystemErrorMessageForReason @monu
+  @96255 @VerifySystemErrorMessageForReason
   Scenario: Validate user should get error message for reason while creating closeout request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -20,7 +20,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see the following messages in the page details contains:
       | Reason is required to save. |
 
-  @95522 @VerifyAttachmentUploadBySubrecipientForAdhocCloseoutRequest @monu @buglogged141573
+  @95522 @VerifyAttachmentUploadBySubrecipientForAdhocCloseoutRequest  @buglogged141573
   Scenario: Validate sub-recipient user should be able to upload attachment while creating adhoc closeout request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -55,7 +55,7 @@ Feature: Validate all scenarios in Closeout
     And I pause execution for "3" seconds
     Then I softly see new tab is opened
 
-  @95560 @VerifyVisibilityOfAddFilesFopTerminationCloseoutRequest @monu
+  @95560 @VerifyVisibilityOfAddFilesFopTerminationCloseoutRequest
   Scenario: Validate user is able to see Add files button under closeout details while creating termination closeout request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -72,7 +72,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see "File Extension" in flex table header "---closeout:-:CloseoutDetailsTableId---"
     Then I softly see "Description" in flex table header "---closeout:-:CloseoutDetailsTableId---"
 
-  @95671 @VerifyUserCanAcknowledgeCloseoutRequest @monu @buglogged141573
+  @95671 @VerifyUserCanAcknowledgeCloseoutRequest  @buglogged141573
   Scenario: Validate user can acknowledge closeout request without uploading attachment
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -102,7 +102,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "Acknowledge" in the page details
     Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
 
-  @95688 @VerifyChecklistFieldsInReadModeOnly @monu
+  @95688 @VerifyChecklistFieldsInReadModeOnly
   Scenario: Verify user can is not able to edit the checklist details filled by grantor
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
@@ -156,7 +156,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Did the subrecipient fully expend program income earned during the award period prior to the closeout of the award?" as "Yes"
     Then I softly see field "Has the subrecipient completed the scope of work as outlined in the subaward agreement?" as "Yes"
 
-  @96612 @VerifyAdvanceBalanceOfFundingAccountAtcloseoutRequest @monu
+  @96612 @VerifyAdvanceBalanceOfFundingAccountAtcloseoutRequest
   Scenario: Verify user can see advance balance of funding account at closeout request as same as on SubAward
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---subAwardStandAlone:-:GrantsSubAwardsTableId---"
@@ -176,7 +176,7 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Overview" sub tab
     Then I softly see value "{SavedValue:Balance}" for title "Encumbrance Balance" inside table "---closeout:-:closeoutFundingAccountsTableId---"
 
-  @96485 @93576 @93582 @VerifyOverriddenPermissionWithSubRecipientUser  @monu
+  @96485 @93576 @93582 @VerifyOverriddenPermissionWithSubRecipientUser
   Scenario: Validate sub recipient user is not allowed to override pending item
     And I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "GrantID"
@@ -221,7 +221,7 @@ Feature: Validate all scenarios in Closeout
     And I click on "View" icon for "{SavedValue:CloseoutID}" inside flex table with id "---closeout:-:RecipientCloseoutRequestTableId---"
     Then I softly cannot see top right button "Override" in page detail
 
-  @140329 @Verify1StepApprovalForAdhocCloseoutRequest-RnRFuntionality @monu
+  @140329 @Verify1StepApprovalForAdhocCloseoutRequest-RnRFuntionality
   Scenario: Verify user is able to add step 1 approver for adhoc closeout request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -235,7 +235,7 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:PM Username} | Step 1   |
     Then I softly see "Saved Successfully!" inside flex table with id "---closeout:-:closeoutApproverTableId---"
 
-  @140331 @141540 @verifyAdditionOfApproverAtCloseoutRequestAfterOverriden-RnRFuntionality @monu
+  @140331 @141540 @verifyAdditionOfApproverAtCloseoutRequestAfterOverriden-RnRFuntionality
   Scenario: Verify user is able to add approver on closeout request after it is overriden
   |Verify user is able to add approver on closeout request before it is overridden|
     When I navigate to "Requests" sub tab
@@ -272,7 +272,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "New" in flex table with id "---closeout:-:closeoutApproverTableId---"
 
-  @141537 @Verify2StepApprovalForAdhocCloseoutRequest-RnRFuntionality @monu
+  @141537 @Verify2StepApprovalForAdhocCloseoutRequest-RnRFuntionality
   Scenario: Verify user is able to add step 2 approver for closeout request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"

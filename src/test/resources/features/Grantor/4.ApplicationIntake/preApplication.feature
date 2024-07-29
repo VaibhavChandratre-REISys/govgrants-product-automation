@@ -17,7 +17,7 @@ Feature: Validate all scenarios in the Pre-Application
     And I click on "Save" in the page details
     And I get the "EGMS ID"
 
-  @67063 @validateVariousRolesAppearsPreApplication @jitendra
+  @67063 @validateVariousRolesAppearsPreApplication
   Scenario: To Validate that various roles appear in the project roles dropdown in contact tableon preapplication of  SPI profile
     When I navigate to "Overview" sub tab
     When I click on "Edit" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
@@ -30,7 +30,7 @@ Feature: Validate all scenarios in the Pre-Application
       | Project Director/Manager |
       | Authorized Signatory     |
 
-  @67065 @67077 @contactsAtPreApplicationFromSameOrganization @jitendra
+  @67065 @67077 @contactsAtPreApplicationFromSameOrganization
   Scenario: To verify that the contacts appearing in the Associate button in Contact table of preapplication is of the Same organisation |To validate that the new contact can be associated in the contact table in SPI user profile Preapplication
     When I navigate to "Overview" sub tab
     And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
@@ -78,7 +78,7 @@ Feature: Validate all scenarios in the Pre-Application
     Then I softly see value "$5,000.00" for title "Non-Cash Match" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
     Then I softly see value "$100.00" for title "Other Leverage" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
 
-  @70466 @53160 @70467 @submitPreApplication @smoke @deepika
+  @70466 @53160 @70467 @submitPreApplication @smoke
   Scenario: Submitting an pre application to Grantor |To verify that the budget field is editable for the Subrecipient (SPI User) under budget tab on pre-application
   Validate whether SPI user can view the edit button once pre - application has been submitted to Grantor |  Validate whether the user can submit the Pre Application Submission before the due date
     Given I click on "Edit" in the page details
@@ -111,7 +111,7 @@ Feature: Validate all scenarios in the Pre-Application
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     Then I softly cannot see top right button "Edit" in page detail
 
-  @34150 @70524 @70250 @70249 @75584 @70247 @70251 @53162 @34023 @preApplicationToApplication @deepika  @buglogged169487
+  @34150 @70524 @70250 @70249 @75584 @70247 @70251 @53162 @34023 @preApplicationToApplication   @buglogged169487
   Scenario Outline: Validate Grantor accept the submitted pre-application and converted it to application | Validate the subrecipient users able to create application from the approved Pre Application
   Validate Announcement owner will be able to view the Accept and Reject button |Validate the subrecipient users able to create application from the approved Pre Application
   Validate Announcement Owner will be able to view the pending task under announcement tab after every pre application submission happens. |Validate pre-application is converted to Application |Verify whether PM, FO,EXE internal user is able to view Accepted Pre Application
@@ -217,7 +217,7 @@ Feature: Validate all scenarios in the Pre-Application
       | {SavedValue:Automation Runtime Announcement Application} | FO   |
       | {SavedValue:Automation Runtime Announcement Application} | EXE  |
 
-  @70468 @acknowledgeRequiredForPre-App @deepika
+  @70468 @acknowledgeRequiredForPre-App
   Scenario: Validate the system should throw an validation message if the pre-application is submitted with Acknowledging it
     Given I click on "Edit" in the page details
     And I wait for "5" seconds
@@ -232,7 +232,7 @@ Feature: Validate all scenarios in the Pre-Application
     Then I softly see the following messages in the page details :
       | Overview Tab - Enter an Acknowledgement before submitting this Pre-Application. |
 
-  @70523 @snapshotAfterPreApplicationIsSubmitted @deepika @skipOnJenkins
+  @70523 @snapshotAfterPreApplicationIsSubmitted  @skipOnJenkins
   Scenario:  Validate SR user is able to view the Snapshot after Pre- Application is Submitted to Grantor status
     Given I click on "Edit" in the page details
     And I wait for "5" seconds
@@ -267,7 +267,7 @@ Feature: Validate all scenarios in the Pre-Application
     When I download the file
     Then I see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
-  @34155 @75585 @34025 @preApplicationRejectionByGrantor @deepika @buglogged169487
+  @34155 @75585 @34025 @preApplicationRejectionByGrantor  @buglogged169487
   Scenario Outline: Validate when Grantor Rejects the submitted pre-application then the status of Pre-Application status will be in rejected status
   Validate other than Record Owner PM, FO user will not able to Reject submitted Pre-Application | Validate the SPI user can view the rejected pre-applications under Pre-Applications - Submitted table list
     Given I click on "Edit" in the page details
@@ -320,7 +320,7 @@ Feature: Validate all scenarios in the Pre-Application
       | Announcement Name                                        |
       | {SavedValue:Automation Runtime Announcement Application} |
 
-  @75523 @77655 @75522 @preApplicationPDFRelatedLog @aashish
+  @75523 @77655 @75522 @preApplicationPDFRelatedLog
   Scenario Outline: To verify system allow to download PDF for Pre-application section in Related log tab of announcement | To verify user able to view Pre-Applications in Pre-Applications section in Related log tab of announcement
   Validate whether user can view the Accepted Status on progress bar once the pre-application is accepted by Grantor
     Given I click on "Edit" in the page details

@@ -226,7 +226,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     Then I softly see field "Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
-  @69129 @validateAuditorReassign @meenakshi
+  @69129 @validateAuditorReassign
   Scenario: Verify Auditor profile would not have tasks assigned  Re assign will populate no tasks to reassign
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab

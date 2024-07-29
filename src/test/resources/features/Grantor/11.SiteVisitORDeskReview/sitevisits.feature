@@ -270,7 +270,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @39180 @siteVisitAddCorrectiveActionsByFOUser @deepika
+  @39180 @siteVisitAddCorrectiveActionsByFOUser
   Scenario Outline: Verify that only recipient user can add corrective actions and not by Internal User on status send to subrecipeint for Award level
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -338,7 +338,7 @@ Feature: Validate all scenarios in the Site Visit
       | Site Visit Name                            |
       | {SavedValue:Automation Runtime Site Visit} |
 
-  @39159 @siteVisitDeleteAccesstoOwner @deepika
+  @39159 @siteVisitDeleteAccesstoOwner
   Scenario Outline: Verify that record owner can delete created state site visit from Award level
     Given I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
@@ -350,7 +350,7 @@ Feature: Validate all scenarios in the Site Visit
       | Site Visit Name                            |
       | {SavedValue:Automation Runtime Site Visit} |
 
-  @39169 @reportsAndOutcomesEditAccess @deepika
+  @39169 @reportsAndOutcomesEditAccess
   Scenario: Verify that upon conduct,  Reports And Outcomes tab are editable to the internal user for an award  level site visit
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -380,7 +380,7 @@ Feature: Validate all scenarios in the Site Visit
     And I navigate to "Reports and Outcomes" sub tab
     Then I can see row level action button "Edit" against "General Review Form" in flex table with id "---sitevisits:-:reportsTableId---"
 
-  @35666 @54225 @61200 @66227 @recordOnwerConductSiteVisit @deepika
+  @35666 @54225 @61200 @66227 @recordOnwerConductSiteVisit
   Scenario: Verify that PM user (other than record owner) is able to conduct or Notify and user can view location and date of performance
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Notify" in page detail
@@ -409,7 +409,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly cannot see top right button "Conduct" in page detail
 
-  @54221 @siteVisitNotifiedByFOuser @deepika
+  @54221 @siteVisitNotifiedByFOuser
   Scenario: Verify user (record owner only) is able to plan and notify created site visit to subrecipient and other user cannot notify  - Award Level
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -430,7 +430,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I cannot see top right button "Notify" in page detail
 
-  @55211 @66322 @siteVisitsWithOutAddingCorerctiveItems @deepika
+  @55211 @66322 @siteVisitsWithOutAddingCorerctiveItems
   Scenario:  User will not be able to submit the Site Visit to Grantor without adding corrective actions to findings | To verify that submit to grantor button appear on site visit page at SR end
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -500,7 +500,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see the following messages in the page details :
       | Reports and Outcomes Tab - Enter corrective actions on all findings outcomes using the "⌄" icons. |
 
-  @55209 @55208 @subrecipientCannotSeeReportAndOutcomesWhenInNotifiedStatus @deepika
+  @55209 @55208 @subrecipientCannotSeeReportAndOutcomesWhenInNotifiedStatus
   Scenario:  Applicant is not able to view the report or outcomes while in the Notified status and User will not be able to submit the Site Visit for approval without completed forms
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -532,7 +532,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see the following messages in the page details :
       | Reports and Outcomes Tab - Complete all data in the form. |
 
-  @55275 @approverPendingTaskUnderMonitoringAward @deepika
+  @55275 @approverPendingTaskUnderMonitoringAward
   Scenario: Validate whether the approver will be able to view the Pending task under Monitoring
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -580,7 +580,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see that "Approve Site Visit" has been added in flextable with Id "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @55277 @55276 @77257 @approverForwardUserGetPendingTask @deepika
+  @55277 @55276 @77257 @approverForwardUserGetPendingTask
   Scenario: Validate when the Approver forward Site Visit to other user, the Pending Task will be created to the User |Validate when the site viist record is forwarded to another user, an email notification is sent to record owner on same.
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -647,7 +647,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Send Back | Forward |
 
-  @61861 @55278 @55210 @pmUserCanFOuserCannotViewAcceptandCloseSiteVisits @deepika
+  @61861 @55278 @55210 @pmUserCanFOuserCannotViewAcceptandCloseSiteVisits
   Scenario: Validate the Infomation send to the subrecipients other than record owner, Fo user cannot accept and close the site visits and PM can accept and close
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -743,7 +743,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly can see top right button "Accept and Close" in page detail
 
-  @55461 @60838 @66234 @reportsAndOutcomesTabAfterNotifiedStatus @deepika
+  @55461 @60838 @66234 @reportsAndOutcomesTabAfterNotifiedStatus
   Scenario: Validate Validate Approvers Table is not editable for record owner and Reports and Outcome Tab visibility after Notified Status
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -762,7 +762,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "Notify" in the page details
     Then I softly can see top right button "Conduct" in page detail
 
-  @55792 @internalParticipantAssociationSiteVisit @deepika
+  @55792 @internalParticipantAssociationSiteVisit
   Scenario Outline: Internal Participant Association of Site Visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
@@ -774,7 +774,7 @@ Feature: Validate all scenarios in the Site Visit
       | Internal                  |
       | {SavedValue:EXE Username} |
 
-  @55872 @55796 @55805 @recipientsCannotCreateOutcomesSV @deepika
+  @55872 @55796 @55805 @recipientsCannotCreateOutcomesSV
   Scenario: Recipients will not be able to create / edit the Site Visit Outcomes and view the Notify and Conduct button on the Site Visit
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -798,7 +798,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     Then I softly cannot see "Reports and Outcomes" sub tab at view detail page
 
-  @56009 @77251 @55212 @sendBacktoOwnerReceivePendingTaskSV @deepika
+  @56009 @77251 @55212 @sendBacktoOwnerReceivePendingTaskSV
   Scenario: Validate when Site Visit record sent back to Recipients when outcomes are not properly addressed and recipients will be able to receive a pending task
   Verify when the FO user Send Back to owner during approval process of site visits , the record owner recieves an email notification
     Given I navigate to "Responsibilities" sub tab
@@ -998,7 +998,7 @@ Feature: Validate all scenarios in the Site Visit
     When I download the file
     Then I see "Sent to Subrecipient" on page "1" of "govgrants" pdf file
 
-  @60832 @65385 @75868 @theSnapshotAfterSubmitForApproval @deepika
+  @60832 @65385 @75868 @theSnapshotAfterSubmitForApproval
   Scenario: Validate whether record Owner is able to view the Snapshot after Site Visits Accepted and Closed | Also whether the Subrecipient can view the site viist that is accepted and closed by record owner
   Validate whether external user will receive an email notification when Site Visit is accepted and closed.
     Given I navigate to "Responsibilities" sub tab
@@ -1232,7 +1232,7 @@ Feature: Validate all scenarios in the Site Visit
 #    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I softly see "No Records Found" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @61860 @approverCompletedTaskSiteVisits @deepika
+  @61860 @approverCompletedTaskSiteVisits
   Scenario: Validate whether user is able to view the Completed task once approved under Monitoring Tab
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1286,7 +1286,7 @@ Feature: Validate all scenarios in the Site Visit
     And I perform quick search for "Record Id" in "---riskassessment:-:completedTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---riskassessment:-:completedTaskTableId---"
 
-  @61863 @validatePendingTaskCreationforSiteVisitsUnderHomeTab @deepika
+  @61863 @validatePendingTaskCreationforSiteVisitsUnderHomeTab
   Scenario: Validate whether pending task is created for Program approver under Home Tab when the award owner submits the Site Visits for approval
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1335,7 +1335,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "Record Id" in "---sitevisits:-:homePendingTasksTableId---" panel
     Then I see that "Approve Site Visit" has been added in flextable with Id "---sitevisits:-:homePendingTasksTableId---"
 
-  @61864 @61865 @otherThanRecordOnwerFoUserCannotSubmitForApproval @deepika
+  @61864 @61865 @otherThanRecordOnwerFoUserCannotSubmitForApproval
   Scenario: Validate Non award owner can't / does not have permission to Site Visits for Approval and is able to view created Site Visits under Monitoring tab
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1385,7 +1385,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly cannot see top right button "Submit for Approval" in page detail
 
-  @61866 @validatePendingTaskCreationforSiteVisits @deepika @smoke
+  @61866 @validatePendingTaskCreationforSiteVisits  @smoke
   Scenario: Validate whether pending task is created for Program approver under Home Tab when the award owner submits the Site Visits for approval
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1434,7 +1434,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @61870 @61867 @peerReviewIntiationownerToAddProgramReviewerInSiteVisit @deepika
+  @61870 @61867 @peerReviewIntiationownerToAddProgramReviewerInSiteVisit
   Scenario: Validate whether user is to able to intiate the peer review process and  owner is allowed to add a peer reviewer of type Program Reviewer for Site Visits
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1470,7 +1470,7 @@ Feature: Validate all scenarios in the Site Visit
     And I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---sitevisits:-:reviewersFlexTableId---"
 
-  @61868 @66305 @taskIsNotCreatedToSecondApproverWhenPORejectsInSiteVisits @deepika @smoke
+  @61868 @66305 @taskIsNotCreatedToSecondApproverWhenPORejectsInSiteVisits  @smoke
   Scenario: Validate Pending task is not created to fiscal approver when program approver performs send to the owner | To verify that program review form can be filled successfully in reports and outcomes tab when filled by award owner(PM profile) in site review
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1525,7 +1525,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I softly do not see value "Record Id" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @61869 @creationofSecondSiteVisitswhenFirstIsCreated @deepika
+  @61869 @creationofSecondSiteVisitswhenFirstIsCreated
   Scenario: Validate whether Pm user can create second Site Visits when first is created status
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1556,7 +1556,7 @@ Feature: Validate all scenarios in the Site Visit
     Given I navigate to "Management" sub tab
     Then I see that "{SavedValue:secID}" has been added in flextable with Id "---sitevisits:-:grantorSiteVisitsTableID---"
 
-  @65239 @deleteCreateSiteVisit @deepika
+  @65239 @deleteCreateSiteVisit
   Scenario: Validate whether user will be able to delete the created Site Visit
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1569,7 +1569,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Delete" icon for "Record Id" inside flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
     Then I softly see "No Records Found" inside flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
 
-  @65240 @historyOfSiteVisitsendbacktoOwner @deepika @FieldHistoryExclude
+  @65240 @historyOfSiteVisitsendbacktoOwner  @FieldHistoryExclude
   Scenario: Validate History Field is getting Updated at Award owner End when Site Visit status is Submitted to Grantor.
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1629,7 +1629,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on hyperlink containing value "View All"
     Then I see value "In Progress" for title "Original Value" inside field history table
 
-  @65241 @69410 @corerctiveActionsDueDateSiteVisit @deepika
+  @65241 @69410 @corerctiveActionsDueDateSiteVisit
   Scenario: Validate Site Visit Submit to Grantor and Corrective Actions By Subrecipient
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1705,7 +1705,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I see the following messages in the page details contains:
       | Due date must be future date |
 
-  @65242 @foUserCannotDeleteCreatedSiteVisit @deepika
+  @65242 @foUserCannotDeleteCreatedSiteVisit
   Scenario: Validate whether other than record owner can Fo user view the created Site Visit by Pm
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1722,7 +1722,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "Record Id" in "---sitevisits:-:InitiateSiteVisitTableId---" panel
     Then I see that "Record Id" has been added in flextable with Id "---sitevisits:-:InitiateSiteVisitTableId---"
 
-  @66392 @66384 @66561 @validateSendBackToSubRecipientButton @mahadev
+  @66392 @66384 @66561 @validateSendBackToSubRecipientButton
   Scenario: To verify that Send back to subrecipient button appear on the top right corner of the page of award owner(PM) in site visit page when status is submitted to grantor
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1817,7 +1817,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I softly see that "Record Id" has been added in flextable with Id "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @146045 @Verify4StepApprovalAtSiteVisit-RnRFuntionality @monu
+  @146045 @Verify4StepApprovalAtSiteVisit-RnRFuntionality
   Scenario: Verify user is able to add four step approver on site visit created
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1834,7 +1834,7 @@ Feature: Validate all scenarios in the Site Visit
       | {SavedValue:FD Username} | Step 4     |
     Then I softly see "Saved Successfully!" inside flex table with id "---sitevisits:-:approverSiteVisitTableId---"
 
-  @146527 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtSiteVisit-RnRFunctionality @monu
+  @146527 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtSiteVisit-RnRFunctionality
   Scenario: Verify user cannot add the same step for different approver on site visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
@@ -1855,7 +1855,7 @@ Feature: Validate all scenarios in the Site Visit
       | {SavedValue:FO Username} | Step 1     |
     Then I softly see "You cannot specify the same step for multiple users for Site Visit." inside flex table with id "---sitevisits:-:approverSiteVisitTableId---"
 
-  @146528 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtSiteVisit-RnRFunctionality @monu
+  @146528 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtSiteVisit-RnRFunctionality
   Scenario: Verify the user cannot add same user for different step on site visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
@@ -1879,7 +1879,7 @@ Feature: Validate all scenarios in the Site Visit
       | {SavedValue:PM Username} | Step 2     |
     Then I softly see "You cannot specify the same user for multiple steps for Site Visit" inside flex table with id "---sitevisits:-:approverSiteVisitTableId---"
 
-  @145611 @VerifyusercanaddtwostepapproversonSiteVisitandsubmitforapproval @vaibhav
+  @145611 @VerifyusercanaddtwostepapproversonSiteVisitandsubmitforapproval
   Scenario: Verify user can add two step approvers on Site Visit and submit for approval
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
@@ -1918,7 +1918,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @146044 @VerifyusercanaddthreestepapproversonSiteVisitandsubmitforapproval @vaibhav
+  @146044 @VerifyusercanaddthreestepapproversonSiteVisitandsubmitforapproval
   Scenario: Verify user can add three step approvers on Site Visit and submit for approval
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
@@ -1959,7 +1959,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @146048 @VerifyvalidationisdisplayedwhenuserselectNAforstepandsubmitforapprovalonSitevisit @vaibhav
+  @146048 @VerifyvalidationisdisplayedwhenuserselectNAforstepandsubmitforapprovalonSitevisit
   Scenario: Verify validation is displayed when user  select NA for step and submit for approval on Site visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
@@ -1995,7 +1995,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @146487 @Verifyusercannotskipthesteponapproversectionofsitevisit @vaibhav
+  @146487 @Verifyusercannotskipthesteponapproversectionofsitevisit
   Scenario: Verify user cannot skip the step on approver section of site visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"

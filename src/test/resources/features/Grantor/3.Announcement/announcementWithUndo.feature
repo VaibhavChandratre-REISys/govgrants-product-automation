@@ -1919,7 +1919,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I softly see field "Status" as "Under Revision"
     Then I cannot see top right button "Undo" in page detail
 
-  @342506 @ValidateAnnouncementthatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinClosedstate @Sprint-13-US-331643 @vaibhav @Undo
+  @342506 @ValidateAnnouncementthatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinClosedstate @Sprint-13-US-331643  @Undo
   Scenario: Validate Announcement that any user will not see Undo button when Announcement record is in Closed state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

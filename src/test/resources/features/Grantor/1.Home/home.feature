@@ -697,7 +697,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
     Then I see that "Approve Program" has been added in flextable with Id "---home:-:internalHomePendingTaskTableId---"
 
-  @59016 @validateFilesOnHome @deepika
+  @59016 @validateFilesOnHome
   Scenario: Addition of Attachment to Focus Area by User - Admin/EXE/PM
     When I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
@@ -714,7 +714,7 @@ Feature: Validate all scenarios in the home tab
     And I refresh the page
     Then I softly see value "Attachment.pdf" for title "Title" against the value "Supporting Documents" inside table "GrantorFocusAreaFiles"
 
-  @62102 @pageBlockSections @deepika
+  @62102 @pageBlockSections
   Scenario Outline: Verify whether the Overview Tab has the sections: Related Contacts and Indirect rates
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -729,7 +729,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @62103 @pageBlockSectionsRelatedLog @deepika
+  @62103 @pageBlockSectionsRelatedLog
   Scenario Outline:  Validate whether the Related Log displays Active Federal/NGO Applications (Grantee) and Active Federal/NGO Grants (Grantee).
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -746,7 +746,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @62104 @indProfileEditAccess @deepika
+  @62104 @indProfileEditAccess
   Scenario: Verify other than Admin and Ind Profile Users, other users cannot edit the Ind subrecipient profile Information
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -754,7 +754,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
     Then I cannot see row level action button "Edit" against "{user:fullName}" in flex table with id "---home:-:indActiveAccountId---"
 
-  @62105 @externalUserhomePendingTask @deepika
+  @62105 @externalUserhomePendingTask
   Scenario: The Pending Task on the left Navigation shows Pending Tasks that are created for Subrecipient Users
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -794,7 +794,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "Record Id" in "---home:-:externalPendingTasktableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---home:-:externalPendingTasktableId---"
 
-  @62106 @indUserEditProfile @deepika
+  @62106 @indUserEditProfile
   Scenario: Verify whether the Individual Sub Profile Users can view their own contact information under Overview Tab
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "IND" user
@@ -871,7 +871,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @33882 @34674 @validatingcreateSMEReviewer @meenakshi
+  @33882 @34674 @validatingcreateSMEReviewer
   Scenario: To verify internal user able to Create new SME reviewer
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -896,7 +896,7 @@ Feature: Validate all scenarios in the home tab
     Then I see the text "Email Sent Successfully" in modal
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
-  @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038
   Scenario Outline: Validate SPI user should not able to edit following fields a. First Name b. Last Name c. Email d. User Role already read-only on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -913,7 +913,7 @@ Feature: Validate all scenarios in the home tab
 #      | SPA      |
       | IND      |
 
-  @201750 @ValidateSPI\SPA\INDusercanedittheAccessibilityModefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201750 @ValidateSPI\SPA\INDusercanedittheAccessibilityModefieldonexternalprofileuser @sprint-5-US-200038
   Scenario Outline: Validate SPI\SPA\IND user can edit the 'Accessibility Mode' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -926,7 +926,7 @@ Feature: Validate all scenarios in the home tab
 #      | SPA      |
       | IND      |
 
-  @201753 @201756 @ValidatefollowingfieldsareeditableforSPI\SPAuseronexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201753 @201756 @ValidatefollowingfieldsareeditableforSPI\SPAuseronexternalprofileuser @sprint-5-US-200038
   Scenario Outline: Validate following fields are editable for SPI\SPA user on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -946,7 +946,7 @@ Feature: Validate all scenarios in the home tab
       | SPI3     |
 #      | SPA      |
 
-  @201757  @ValidateSPI\SPAIseeMovedAddressLine2fieldbeforetheCityfieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201757  @ValidateSPI\SPAIseeMovedAddressLine2fieldbeforetheCityfieldonexternalprofileuser @sprint-5-US-200038
   Scenario Outline: Validate SPI\SPA I see Moved 'Address Line 2' field before the 'City' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -959,7 +959,7 @@ Feature: Validate all scenarios in the home tab
       | SPI3     |
 #      | SPA      |
 
-  @201758 @ValidateSPI\SPA\INDuserseeMovedCountryfieldaftertheZipCodefieldonexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201758 @ValidateSPI\SPA\INDuserseeMovedCountryfieldaftertheZipCodefieldonexternalprofileuser @sprint-5-US-200038
   Scenario Outline: Validate SPI\SPA\IND user see Moved 'Country' field after the 'Zip Code' field on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user
@@ -973,7 +973,7 @@ Feature: Validate all scenarios in the home tab
 #      | SPA      |
       | IND      |
 
-  @201759 @ValidateSPI\SPA\INDuserIshouldnotseetheProfileDescriptionsectiononexternalprofileuseronexternalprofileuser @sprint-5-US-200038 @vaibhav
+  @201759 @ValidateSPI\SPA\INDuserIshouldnotseetheProfileDescriptionsectiononexternalprofileuseronexternalprofileuser @sprint-5-US-200038
   Scenario Outline: Validate SPI\SPA\IND user I should not see the 'Profile Description' section on external profile user on external profile user
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<userType>" user

@@ -1,7 +1,7 @@
 @applicationNotes @grantor-regression @grantor-parallel-regression @app @regression @ApplicationExecution-reg
 Feature: Application Intake scenarios without background
 
-  @228678 @ValidatePMPOEXEADMINFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinSubmittograntorstate @Sprint-12-US-226970 @Notes
+  @228678 @ValidatePMPOEXEADMINFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinSubmittograntorstate @Sprint-12-US-226970 @Notes @TBExecution2
   Scenario: Validate PM PO EXE ADMIN FD user should be able to Add notes but Edit Delete their own notes on application is in 'Submit to grantor' state
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -28,6 +28,7 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the page details
     And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
+    And I switch to tab number "1"
     Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
@@ -319,7 +320,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
 
-  @228689 @ValidatePMPOEXEFOFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinNegotiationInitiatedstate @Sprint-12-US-226970 @Notes
+  @228689 @ValidatePMPOEXEFOFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinNegotiationInitiatedstate @Sprint-12-US-226970 @Notes @TBExecution2
   Scenario: Validate PM PO EXE FO FD user should be able to Add notes but Edit Delete their own notes on application is in Negotiation Initiated state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -369,7 +370,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Forms and Files" sub tab
@@ -386,7 +387,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Forms and Files" sub tab
@@ -405,7 +406,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Forms and Files" sub tab
@@ -426,7 +427,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Forms and Files" sub tab
@@ -446,7 +447,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
 
-  @228691 @ValidatePMPOEXEFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinNegotiationsubmittedstate @Sprint-12-US-226970 @Notes
+  @228691 @ValidatePMPOEXEFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinNegotiationsubmittedstate @Sprint-12-US-226970 @Notes @TBExecution2
   Scenario: Validate PM PO EXE FD user should be able to Add notes but EditDelete their own notes on application is in Negotiation submitted state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -482,6 +483,7 @@ Feature: Application Intake scenarios without background
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
     Then I softly see "Applicant Response" page block displayed
+    When I click on "Edit" in the page details
     And I enter values into fields
       | Value                              | Field                |
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
@@ -492,7 +494,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     Then I softly see field "Status" as "Negotiation Submitted"
     When I navigate to "Forms and Files" sub tab
@@ -510,7 +512,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     Then I softly see field "Status" as "Negotiation Submitted"
     When I navigate to "Forms and Files" sub tab
@@ -527,7 +529,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     Then I softly see field "Status" as "Negotiation Submitted"
     When I navigate to "Forms and Files" sub tab
@@ -546,7 +548,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     Then I softly see field "Status" as "Negotiation Submitted"
     When I navigate to "Forms and Files" sub tab
@@ -567,7 +569,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     Then I softly see field "Status" as "Negotiation Submitted"
     When I navigate to "Forms and Files" sub tab
@@ -755,7 +757,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
 
-  @228930 @ValidatePMPOEXEusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinCompleteNegotiationstate @Sprint-12-US-226970 @Notes
+  @228930 @ValidatePMPOEXEusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinCompleteNegotiationstate @Sprint-12-US-226970 @Notes @TBExecution2
   Scenario: Validate PM PO EXE user should be able to Add notes but Edit Delete their own notes on application is in 'Complete Negotiation' state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -791,6 +793,7 @@ Feature: Application Intake scenarios without background
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
     Then I softly do not see "Applicant Response" page block displayed
+    And I click on "Edit" in the page details
     And I enter values into fields
       | Value                              | Field                |
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
@@ -801,7 +804,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     When I click on "Complete Negotiation" in the page details
     Then I softly see field "Status" as "Review Initiated"
@@ -820,7 +823,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     Then I softly see field "Status" as "Review Initiated"
     When I navigate to "Forms and Files" sub tab
@@ -837,7 +840,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     Then I softly see field "Status" as "Review Initiated"
     When I navigate to "Forms and Files" sub tab
@@ -856,7 +859,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     Then I softly see field "Status" as "Review Initiated"
     When I navigate to "Forms and Files" sub tab
@@ -877,7 +880,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     Then I softly see field "Status" as "Review Initiated"
     When I navigate to "Forms and Files" sub tab
@@ -897,7 +900,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
 
-  @218704 @218705 @ValidateSPISPAusercanaddeditdeletenotesonapplicationincreatedStatus @Sprint-09-US-204865 @Notes
+  @218704 @218705 @ValidateSPISPAusercanaddeditdeletenotesonapplicationincreatedStatus @Sprint-09-US-204865 @Notes @TBExecution2
   Scenario: Validate SPI SPA user can add edit delete notes on application in created Status
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -963,7 +966,7 @@ Feature: Application Intake scenarios without background
       | Notes Record Of SPA User | Automation Notes |
     Then I softly see value "Notes Record Of SPA User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly see value "Automation SPA" for title "Created By" against the value "Notes Record Of SPA User" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
-    And I save the value from row "1" for column name "Created Date" as "CreatedDate" from flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
+    And I save the value from row "2" for column name "Created Date" as "CreatedDate" from flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" against the value "Notes Record Of SPA User" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of SPA User" in flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of SPA User" in flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---"
@@ -1472,7 +1475,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
 
-  @218779 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonapplicationcreatedbySPIUserwhenitsstatusisconvertedtoaward @Sprint-09-US-204865 @Notes
+  @218779 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonapplicationcreatedbySPIUserwhenitsstatusisconvertedtoaward @Sprint-09-US-204865 @Notes @TBExecution2
   Scenario: Validate SPA user cant add notes but edit delete his notes on application created by SPI user when its status is converted to award
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1557,7 +1560,7 @@ Feature: Application Intake scenarios without background
     Then I softly do not see top right button "New" inside flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly see value "Notes Record Of SPA User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly see value "Automation SPA" for title "Created By" against the value "Notes Record Of SPA User" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
-    And I save the value from row "1" for column name "Created Date" as "CreatedDate" from flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
+    And I save the value from row "2" for column name "Created Date" as "CreatedDate" from flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" against the value "Notes Record Of SPA User" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of SPA User" in flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of SPA User" in flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---"
@@ -1569,7 +1572,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly do not see value "Notes Record Of SPA Test User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
 
-  @218849 @218865 @ValidateSPISPAusercanaddnotesinApplicationinhisNegotiationinitiatedsate @Sprint-09-US-204865 @Notes @TBE
+  @218849 @218865 @ValidateSPISPAusercanaddnotesinApplicationinhisNegotiationinitiatedsate @Sprint-09-US-204865 @Notes @TBExecution2
   Scenario: Validate SPI SPA user can add notes in Application in his Negotiation initiated sate
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -1628,6 +1631,7 @@ Feature: Application Intake scenarios without background
     Then I softly do not see value "Notes Record Of SPI3 User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     #218865
     And I navigate to "Negotiations" sub tab
+    And I click on "Edit" in the page details
     And I enter values into fields
       | Value                              | Field                |
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
@@ -1638,7 +1642,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table
     When I click on "Complete Negotiation" in the page details
     Then I softly see field "Status" as "Review Initiated"
@@ -1665,7 +1669,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly do not see value "Notes Record Of SPI User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
 
-  @218864 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonapplicationcreatedbySPIuserwhenitsstatusisnegotiationinitiated @Sprint-09-US-204865 @Notes
+  @218864 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonapplicationcreatedbySPIuserwhenitsstatusisnegotiationinitiated @Sprint-09-US-204865 @Notes @TBExecution2
   Scenario: Validate SPA user cant add notes but edit delete his notes on application created by SPI user when its status is negotiation initiated
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1763,7 +1767,7 @@ Feature: Application Intake scenarios without background
     Then I softly do not see top right button "New" inside flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly see value "Notes Record Of SPA User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly see value "Automation SPA" for title "Created By" against the value "Notes Record Of SPA User" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
-    And I save the value from row "1" for column name "Created Date" as "CreatedDate" from flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
+    And I save the value from row "2" for column name "Created Date" as "CreatedDate" from flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" against the value "Notes Record Of SPA User" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of SPA User" in flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of SPA User" in flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---"
@@ -1775,7 +1779,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly do not see value "Notes Record Of SPA Test User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
 
-  @219084 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonapplicationcreatedbySPIuserwhenitsstatusisnegotiationcompleted @Sprint-09-US-204865 @Notes @TBE
+  @219084 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonapplicationcreatedbySPIuserwhenitsstatusisnegotiationcompleted @Sprint-09-US-204865 @Notes @TBExecution2
   Scenario: Validate SPA user cant add notes but edit/delete his notes on application created by SPI user when its status is negotiation completed
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1868,6 +1872,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     Then I softly see field "Status" as "Negotiation Initiated"
+    And I click on "Edit" in the page details
     And I enter values into fields
       | Value                              | Field                |
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
@@ -1893,7 +1898,7 @@ Feature: Application Intake scenarios without background
     Then I softly do not see top right button "New" inside flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly see value "Notes Record Of SPA User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly see value "Automation SPA" for title "Created By" against the value "Notes Record Of SPA User" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
-    And I save the value from row "1" for column name "Created Date" as "CreatedDate" from flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
+    And I save the value from row "2" for column name "Created Date" as "CreatedDate" from flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" against the value "Notes Record Of SPA User" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of SPA User" in flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of SPA User" in flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---"
@@ -1905,7 +1910,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly do not see value "Notes Record Of SPA Test User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
 
-  @218737 @218708 @218740 @ValidateSPIusercantaddnotesbuteditdeletehisnotesonhisapplicationinreviewinitiatedStatus @Sprint-09-US-204865 @Notes
+  @218737 @218708 @218740 @ValidateSPIusercantaddnotesbuteditdeletehisnotesonhisapplicationinreviewinitiatedStatus @Sprint-09-US-204865 @Notes @TBExecution2
   Scenario: Validate SPI user cant add notes but edit delete his notes on his application in review initiated Status
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1989,7 +1994,7 @@ Feature: Application Intake scenarios without background
     Then I softly do not see top right button "New" inside flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly see value "Notes Record Of SPI User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly see value "Automation SPI3" for title "Created By" against the value "Notes Record Of SPI User" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
-    And I save the value from row "2" for column name "Created Date" as "CreatedDate" from flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
+    And I save the value from row "1" for column name "Created Date" as "CreatedDate" from flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" against the value "Notes Record Of SPI User" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---"

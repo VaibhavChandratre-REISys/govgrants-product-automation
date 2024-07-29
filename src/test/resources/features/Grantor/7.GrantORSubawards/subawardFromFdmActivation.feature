@@ -87,7 +87,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @660961 @defaultPackageAssociateWithSubaward1 @aashish
+  @660961 @defaultPackageAssociateWithSubaward1
   Scenario: : To Verify that the Default package associated with subaward should be displayed correctly |
   To verify that Initiate Desk review button appear on site visit table of management tab of Award owner after Subaward is activated
     Given I navigate to "Grants" tab
@@ -110,7 +110,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
     And I navigate to "Management" sub tab
     Then I softly can see top right button "Initiate Desk Review" in flex table with id "GrantorDeskReviewAward"
 
-  @68650 @continuationAndVersionCheckAfterPeriodicRenewalAmendmentFromFDM @jitendra @aashish @smoke
+  @68650 @continuationAndVersionCheckAfterPeriodicRenewalAmendmentFromFDM   @smoke
   Scenario Outline: Validate that after periodic renewal amendment Subaward type changes from Initial to Continuation and the Version number is still retained at 1 also the Status changes to pending Activation from Activated
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -203,7 +203,7 @@ Feature: Validate all scenarios of Subaward From FDM and activating an Award usi
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @75542 @75541 @validateFederalNGORelateLogsDetails @meenakshi @wip
+  @75542 @75541 @validateFederalNGORelateLogsDetails  @wip
   Scenario Outline: To verify user able to search grant in grant section in Related log tab of announcement.
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel

@@ -16,7 +16,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
 
-  @73959 @pdfDownloadContacts @jitendra @skipOnJenkins
+  @73959 @pdfDownloadContacts  @skipOnJenkins
   Scenario: To verify system allow to download pdf for contact section in overview tab of announcement by PM user
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
@@ -32,7 +32,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Contacts" on page "1" of "govgrants" pdf file
 
-  @73958 @pdfDownloadRelatedFederal @jitendra
+  @73958 @pdfDownloadRelatedFederal
   Scenario: To verify system allow to download PDF for Related Federal/NGO program in overview tab of announcement
     And I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
@@ -50,7 +50,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "10" seconds
     Then I see "Related Federal/NGO Program" on page "1" of "govgrants" pdf file
 
-  @74105 @pdfDownloadBudgetCategory @jitendra @skipOnJenkins
+  @74105 @pdfDownloadBudgetCategory  @skipOnJenkins
   Scenario: To verify system allow to download PDF for Budget Categories section in financial tab of announcement
     And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -63,7 +63,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Budget Categories" on page "1" of "govgrants" pdf file
 
-  @74107 @pdfDownloadBusinessForm @jitendra @skipOnJenkins
+  @74107 @pdfDownloadBusinessForm  @skipOnJenkins
   Scenario: To verify system allow to download PDF for Business Forms section in setup tab of announcement
     And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -76,7 +76,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Business Forms" on page "1" of "govgrants" pdf file
 
-  @74108 @pdfDownloadSuppDocChekLst @jitendra @skipOnJenkins
+  @74108 @pdfDownloadSuppDocChekLst  @skipOnJenkins
   Scenario: To verify system allow to download PDF for Supporting Documents Checklist section in setup tab of announcement
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---announcement:-:annChecklist---" by clicking "Add" :
@@ -93,7 +93,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Supporting Documents Checklist" on page "1" of "govgrants" pdf file
 
-  @75616 @74118 @pdfDownloadApprover @jitendra @skipOnJenkins
+  @75616 @74118 @pdfDownloadApprover  @skipOnJenkins
   Scenario: To verify system allow to download PDF for Peer Reviewers section in Responsibility tab of announcement
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Owner" for title "Responsibility" against the value "{SavedValue:EXE Username}" inside table "---announcement:-:announcementOwner---"
@@ -117,7 +117,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Approvers" on page "1" of "govgrants" pdf file
 
-  @74117 @pdfDownloadReviewSteps @jitendra @skipOnJenkins
+  @74117 @pdfDownloadReviewSteps  @skipOnJenkins
   Scenario: To verify system allow to download pdf for Review Steps section in setup tab of announcement
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
@@ -135,7 +135,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Peer Reviewers" on page "1" of "govgrants" pdf file
 
-  @74124 @pdfDownloadFocusArea @jitendra @skipOnJenkins
+  @74124 @pdfDownloadFocusArea  @skipOnJenkins
   Scenario: To verify system allow to download PDF for Related Focus Area section in setup tab of announcement
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
@@ -151,7 +151,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Related Focus Areas" on page "1" of "govgrants" pdf file
 
-  @70551 @70552 @73405 @73389 @73406 @73387 @70800 @70885 @71595 @72646 @72641 @73537 @userCanViewAddAndDeleteFocusArea @aashish @FieldHistoryExclude
+  @70551 @70552 @73405 @73389 @73406 @73387 @70800 @70885 @71595 @72646 @72641 @73537 @userCanViewAddAndDeleteFocusArea  @FieldHistoryExclude
   Scenario: To Verify that user is able to remove associated focus areas While creating the Announcement | To verify PM can remove non relevant Budget categories from specific Budget Type in Announcement based on the need.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - Published"
@@ -224,7 +224,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I save the value from row "1" for column name "Program Number" as "prNum" from flex table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly see value "{SavedValue:prNum}" for title "Program Number" inside table "---announcement:-:relatedAnnouncementTableId---"
 
-  @AnnouncmentRerun @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility @aashish @smoke
+  @AnnouncmentRerun @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility  @smoke
   Scenario: To Verify that user able to see Text fields after select Q&A Availability  as "Yes"  And  user can enter and save all required fields while creating Announcement
   | To Validate system generated validation message for  Q&A Availability section when "Question Deadline Date",and "Response Deadline date" is greater then Application Due Date.
     When I navigate to "Announcements" tab
@@ -292,7 +292,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Financial Tab - There should be no gap between the dates. Enter the correct Budget Periods Start Dates and End Dates. |
       | Responsibilities - At least one approver is required                                                                  |
 
-  @70479 @70481 @70503 @70422 @70507 @70542 @70543 @70425 @70424 @70426 @70419 @70417 @70418 @70506 @71951 @73408 @userDeleteSupportingDocument @aashish @FieldHistoryExclude
+  @70479 @70481 @70503 @70422 @70507 @70542 @70543 @70425 @70424 @70426 @70419 @70417 @70418 @70506 @71951 @73408 @userDeleteSupportingDocument  @FieldHistoryExclude
   Scenario: To Verify that user can delete supporting document checklist While creating the Announcement |
   To Verify that user can Edit fields in supporting document checklist While creating the Announcement |
   To Verify that user can preview business forms while creating Announcement|
@@ -362,7 +362,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     Then I softly do not see "Funding Opportunity Announcement" has been added in "---announcement:-:AnnouncementAttachmentTableId---" flex table
 
-  @70483 @userDeleteSupportingDocumentViewHyperlink @aashish @wip
+  @70483 @userDeleteSupportingDocumentViewHyperlink  @wip
   Scenario: To Verify that user can view Template Link in supporting document checklist While creating the Announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -379,7 +379,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on hyperlink containing value "View"
     Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
 
-  @72323 @71972 @jitendra @applicationDueDataOfAnnInHistory @FieldHistoryExclude
+  @72323 @71972  @applicationDueDataOfAnnInHistory @FieldHistoryExclude
   Scenario: To verify field history update with respect to modification in Application Due Dates of Announcement|
   To verify that estimated period start date & end date is displayed according to the entered budget period dates in announcemnt
     And I click on "Edit" in the page details
@@ -405,7 +405,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see value "04/14/2030" for title "Start Date" against the value "BP02" inside table "---announcement:-:budgetPeriodTableId---"
     Then I softly see value "04/13/2031" for title "End Date" against the value "BP02" inside table "---announcement:-:budgetPeriodTableId---"
 
-  @70563 @70556 @70554 @70606 @70718 @73545 @73547 @73564 @73566 @userCanViewAndDeleteKPI @aashish @buglogged151548
+  @70563 @70556 @70554 @70606 @70718 @73545 @73547 @73564 @73566 @userCanViewAndDeleteKPI  @buglogged151548
   Scenario: To  Verify that after associating objectives, related KPIs should be automatically populate while  creating the Announcement
   | To Verify that user is able to view Objective While creating the Announcement | Verify KPIs search and filter fuctionality
     When I navigate to "Announcements" tab
@@ -436,7 +436,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Setup" sub tab
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---announcement:-:objectivesTableId---"
 
-  @AnnouncmentRerun @70163 @70166 @70197 @userAllowToSelectEligibilityDetails @aashish
+  @AnnouncmentRerun @70163 @70166 @70197 @userAllowToSelectEligibilityDetails
   Scenario: To Verify that user is  allowed  to select the Eligibility Details while creating Announcement
   | To verify that  without selecting "Eligibility Details" user is able to see the validation message by clicking on "Submit for approval" button.
     When I navigate to "Announcements" tab
@@ -454,7 +454,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see the following messages in the page details :
       | Overview Tab - Select Eligible Applicant Types in the Eligibility Details section. |
 
-  @70211 @70216 @70217 @73388 @73535 @73620 @userAbletoAssociateActiveRelatedProgram @aashish @wip
+  @70211 @70216 @70217 @73388 @73535 @73620 @userAbletoAssociateActiveRelatedProgram  @wip
   Scenario: To Verify that user is able to associate active Related Federal/NGO Program | To Verify that user is able to view active Related Federal/NGO Program
   |To Verify that user is able to remove active Related Federal/NGO Program while creating Announcement.
     When I navigate to "Announcements" tab
@@ -627,7 +627,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @75618 @74799 @74801 @74368 @74369 @70894 @71722 @72471 @72324 @72548 @73858 @verifyReviseUnderRevision @aashish @smoke @skipOnJenkins
+  @75618 @74799 @74801 @74368 @74369 @70894 @71722 @72471 @72324 @72548 @73858 @verifyReviseUnderRevision  @smoke @skipOnJenkins
   Scenario Outline: To Verify that after clicking on revise button, status changes to created.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -884,7 +884,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @70803 @73849 @73774 @73773 @70817 @70893 @73775 @34768 @70898 @72490 @announcementApprovalCA @verifyApproverCanNotEdit @aashish @FieldHistoryExclude
+  @70803 @73849 @73774 @73773 @70817 @70893 @73775 @34768 @70898 @72490 @announcementApprovalCA @verifyApproverCanNotEdit  @FieldHistoryExclude
   Scenario Outline: Validate the approval of an Announcement | To verify that after unpublished announcement , user can not create application from that announcement
   | To Verify that after submitting for approval, approver can not edit anything on announcement
   |To verify field history update with respect to modification in Pre-Encumbrance field of Announcement
@@ -986,7 +986,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @72328 @72326 @72025 @71974 @announcementDisApprovalbyEXE @aashish @FieldHistoryExclude
+  @72328 @72326 @72025 @71974 @announcementDisApprovalbyEXE  @FieldHistoryExclude
   Scenario Outline: To verify Approval history of announcement when announcement rejected by Executive Office Approval: Victor EXE
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1353,7 +1353,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type | Active Funding Opportunities id                     |
       | Competitive       | ---announcement:-:competitiveAnnouncementTableId--- |
 
-  @73616 @73962 @userAllowToEnterDataInQualityAndAvailibility1 @aashish @skipOnJenkins
+  @73616 @73962 @userAllowToEnterDataInQualityAndAvailibility1  @skipOnJenkins
   Scenario: To verify user allow to remove budget category when Budget type is Non functional in financial tab for announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1371,7 +1371,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I softly see "Budget Period Details" on page "1" of "govgrants" pdf file
 
-  @73960 @userAllowToDownloadPDFFundingAccount @aashish @skipOnJenkins
+  @73960 @userAllowToDownloadPDFFundingAccount  @skipOnJenkins
   Scenario: To verify user allow to download PDF for Funding Accounts section in financial tab of announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1387,7 +1387,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Funding Accounts" on page "1" of "govgrants" pdf file
 
-  @74120 @userAllowToDownloadPDFResponsibility @aashish @skipOnJenkins
+  @74120 @userAllowToDownloadPDFResponsibility  @skipOnJenkins
   Scenario: To verify system allow to download PDF for Approvers section in Responsibility tab of announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1409,7 +1409,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Approvers" on page "1" of "govgrants" pdf file
 
-  @74121 @userAllowToDownloadPDFOwner @aashish @skipOnJenkins
+  @74121 @userAllowToDownloadPDFOwner  @skipOnJenkins
   Scenario: To verify system allow to download PDF for Owner section in Responsibility tab of announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1421,7 +1421,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Owner" on page "1" of "govgrants" pdf file
 
-  @74126 @userAllowToDownloadPDFObjective @aashish @skipOnJenkins
+  @74126 @userAllowToDownloadPDFObjective  @skipOnJenkins
   Scenario: To verify system allow to download PDF for objectives section in setup tab of announcement.
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1433,7 +1433,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Objectives" on page "1" of "govgrants" pdf file
 
-  @74129 @userAllowToDownloadPDFKPI @aashish @skipOnJenkins
+  @74129 @userAllowToDownloadPDFKPI  @skipOnJenkins
   Scenario: To verify system allow to download PDF for Key performance Indicator(KPIs) section in setup tab of announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1445,7 +1445,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Key Performance Indicators (KPIs)" on page "1" of "govgrants" pdf file
 
-  @74131 @userAllowToDownloadPDFHistory @aashish @skipOnJenkins
+  @74131 @userAllowToDownloadPDFHistory  @skipOnJenkins
   Scenario: To verify system allow to download PDF for Field history section in history tab of announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1457,7 +1457,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Field History" on page "1" of "govgrants" pdf file
 
-  @139848 @Verify2StepApprovalAtApproverSection_CompetitiveAnnouncement-RnRFunctionality @monu
+  @139848 @Verify2StepApprovalAtApproverSection_CompetitiveAnnouncement-RnRFunctionality
   Scenario: verify that user can add two step approver on announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1489,7 +1489,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | {SavedValue:FO Username} | Step 2       |
     Then I softly see "Saved Successfully!" inside flex table with id "---announcement:-:approversTableId---"
 
-  @139849 @VerifyErrorMessageWhileSkippingStepsAtApproverSection_CompetitiveAnnouncement-RnRFunctionality @monu
+  @139849 @VerifyErrorMessageWhileSkippingStepsAtApproverSection_CompetitiveAnnouncement-RnRFunctionality
   Scenario: Verify validation when user skip an Approval Step at announcement level
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1535,7 +1535,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 
-  @139850 @VerifyVisibilityOfNewButtonAtApproverSection_CompetitiveAnnouncement-RnRFunctionality @monu
+  @139850 @VerifyVisibilityOfNewButtonAtApproverSection_CompetitiveAnnouncement-RnRFunctionality
   Scenario: verify New button not displayed in approver section when announcement is submitted for approval
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1578,7 +1578,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" for "---announcement:-:approversTableId---" flex table
 
-  @139871 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtAnnouncement-RnRFunctionality @monu
+  @139871 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtAnnouncement-RnRFunctionality
   Scenario: Validate announcement owner cant add same steps for while assigning approvers for announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1611,7 +1611,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I see the following messages in the page details contains:
       | You cannot specify the same step for multiple users for Announcement. |
 
-  @139864 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtAnnouncementApprover-RnRFunctionality @monu
+  @139864 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtAnnouncementApprover-RnRFunctionality
   Scenario: Validate owner cant add same user  for multiple steps for announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1643,7 +1643,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | {SavedValue:PM Username} | Step 2       |
     Then I softly see "You cannot specify the same user for multiple steps for Announcement" inside flex table with id "---announcement:-:approversTableId---"
 
-  @140944 @VerifyColumnAtAnnouncementApproverSection-RnRFunctionality @monu
+  @140944 @VerifyColumnAtAnnouncementApproverSection-RnRFunctionality
   Scenario Outline: Validate the columns present on the announcement for approver definition
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1681,7 +1681,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Monitoring           |
       | Closeout             |
 
-  @145325 @verifyAdditionOfApproverAfterAnnouncementIsUnpublished-RnRFuntionality @monu @buglogged151920
+  @145325 @verifyAdditionOfApproverAfterAnnouncementIsUnpublished-RnRFuntionality  @buglogged151920
   Scenario Outline: Validate Announcement owner can add approvers while its unpublished
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"

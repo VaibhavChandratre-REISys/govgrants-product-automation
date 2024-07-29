@@ -101,7 +101,7 @@ Feature: Validate all scenarios in the Application Intake
     Then I softly see value "100.00%" for title "Percentage" against the value "Program Application Form" inside table "---applicationIntake:-:allFormsTableId---"
     Then I softly see value "100.00%" for title "Percentage" against the value "Standard Assurances Form" inside table "---applicationIntake:-:allFormsTableId---"
 
-  @34346 @73602 @34334 @70459 @viewSubmitedApplication @smoke @deepika
+  @34346 @73602 @34334 @70459 @viewSubmitedApplication @smoke
   Scenario Outline: Validate Viewing the application submitted by sub-recipient as Internal user | Validate whether user can view the edit button once application has been submitted to Grantor
   Verify whether PM, FO,EXE internal user is able to view Submitted Application | Verify when SPI (Record owner of Application) submit the Application to Grantor then it is displayed in the list of Submitted Applications
     When I click on "Edit" in the page details
@@ -156,7 +156,7 @@ Feature: Validate all scenarios in the Application Intake
       | {SavedValue:Automation Runtime Announcement Application} | FO   |
       | {SavedValue:Automation Runtime Announcement Application} | EXE  |
 
-  @70458 @73514 @73515 @70456 @acknowledgeReqiredToSave @deepika
+  @70458 @73514 @73515 @70456 @acknowledgeReqiredToSave
   Scenario: Validate the system should throw an validation message if the application is submitted with Acknowledging it
   Validate whether user has ability to add and remove new focus area while creating an application |Validate whether system should throws a validation message on screen when user tries to remove the existing focus area while submitting an application
   Validate whether user is able to add more focus area to the table while submitting an application
@@ -202,7 +202,7 @@ Feature: Validate all scenarios in the Application Intake
     Then I see the following messages in the page details :
       | Overview Tab - Enter an Acknowledgement for project cost before submitting this Application. |
 
-  @70455 @kpiValuesAreMandatoryToSubmitApplication @deepika
+  @70455 @kpiValuesAreMandatoryToSubmitApplication
   Scenario:  To verify that if KPI value is unfilled while creating and application and upon clicking on the Submit Application on the top right corner of the page validation error must be thrown.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -232,7 +232,7 @@ Feature: Validate all scenarios in the Application Intake
     Then I see the following messages in the page details contains:
       | Proposal Tab - Provide Target Values for all Key Performance Indicators. |
 
-  @70528 @70470 @validateVariousRolesAppearApplication @deepika
+  @70528 @70470 @validateVariousRolesAppearApplication
   Scenario: To Validate that various roles appear in the project roles dropdown in contact table on application of  SPI profile |Validate the Created Date of Application display on Overview Tab
   Validate whether Application Title field is editable after creating the Application
     When I navigate to "Overview" sub tab
@@ -247,7 +247,7 @@ Feature: Validate all scenarios in the Application Intake
       | Project Director/Manager |
       | Authorized Signatory     |
 
-  @70527 @applicationAttachmentAndNotes @deepika  @buglogged169487
+  @70527 @applicationAttachmentAndNotes   @buglogged169487
   Scenario: Validate whether user can add attachment checklist and Notes on the Application
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---applicationIntake:-:ApplicationAttachmentTableId---"
@@ -259,7 +259,7 @@ Feature: Validate all scenarios in the Application Intake
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---applicationIntake:-:ApplicationNotesTableId---"
 
-  @73521 @70526 @snapshotAfterApplicationIsSubmitted @deepika
+  @73521 @70526 @snapshotAfterApplicationIsSubmitted
   Scenario Outline: Validate SR user is able to view the Snapshot after Application is Submitted to Grantor status| Validate once the Application is submitted to Grantor then the field Submitted by on Overview Tab will get updated by the User Name.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -311,7 +311,7 @@ Feature: Validate all scenarios in the Application Intake
       | Application Name                                         |
       | {SavedValue:Automation Runtime Announcement Application} |
 
-  @70525 @userCanAssociateNewContact @deepika
+  @70525 @userCanAssociateNewContact
   Scenario:Validate whether user is able to associate new contacts while creating an application
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---applicationReview:-:flexGridAppContactTableId---"
@@ -320,7 +320,7 @@ Feature: Validate all scenarios in the Application Intake
     #When I perform quick search for "Automation SPA" in "---applicationReview:-:flexGridAppContactTableId---" panel
     Then I softly see value "Automation SPA" for title "Name" inside table "---applicationReview:-:flexGridAppContactTableId---"
 
-  @73944 @73945 @71409 @73947 @73950 @73948 @73949 @maxAppValidationError @deepika
+  @73944 @73945 @71409 @73947 @73950 @73948 @73949 @maxAppValidationError
   Scenario: Validate whether User  will be able to view the following error message "Reached the Maximum number of Applications" when the limit has been reached.
   To verify Converted Opportunities should reflect under Opportunities "Converted to Application - Open" list view to External user
   | To verify ,search functionality for Opportunities Converted to Application - All section in opportunities tab

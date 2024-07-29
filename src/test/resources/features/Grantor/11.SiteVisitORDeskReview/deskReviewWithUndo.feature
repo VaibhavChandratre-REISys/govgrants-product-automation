@@ -2285,7 +2285,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     And I wait for "3" seconds
     Then I can see top right button "Undo" in page detail
 
-  @329543 @ValidateDRthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApproverofdeskreview @Sprint-13-US-331643 @vaibhav @Undo
+  @329543 @ValidateDRthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApproverofdeskreview @Sprint-13-US-331643  @Undo
   Scenario: Validate DR that approval task and email is generated to last step approver on click of undo button by Last Approver of desk review
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default-Automation EXE user" of type "Formula_By_Applicant_Focus_Area"

@@ -11,7 +11,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
 
-  @54291 @54293 @54294 @organizationalDeskReviewCreationEditionAndParticipantAssociation @deepika
+  @54291 @54293 @54294 @organizationalDeskReviewCreationEditionAndParticipantAssociation
   Scenario: Validate the Creation and Edition and Participant Association for Org Level Desk Review
     And I wait for "3" seconds
     Given I navigate to "Related Log" sub tab
@@ -27,7 +27,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---orgLevelDeskReview:-:associateContactsId---"
     Then I softly see that "{SavedValue:EXE Username}" has been added in flextable with Id "---orgLevelDeskReview:-:deskReviewContactsTableId---"
 
-  @54210 @monitoringTypeFiscalDR @deepika
+  @54210 @monitoringTypeFiscalDR
   Scenario: Validate the Monitoring type 'Fiscal' for Organizational Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -37,7 +37,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Save" in the page details
     Then I softly see field "Monitoring Type" as "Fiscal"
 
-  @54295 @monitoringTypeProgramDR @deepika @organizationalDeskReviewFirst
+  @54295 @monitoringTypeProgramDR  @organizationalDeskReviewFirst
   Scenario: Validate the Monitoring type 'Program' for Organizational Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -47,7 +47,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Save" in the page details
     Then I see field "Monitoring Type" as "Program"
 
-  @54423 @orgDeskReviewTypeApplication @deepika @organizationalDeskReviewFirst
+  @54423 @orgDeskReviewTypeApplication  @organizationalDeskReviewFirst
   Scenario: Validate the Desk Review Org Level type Application
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -55,7 +55,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click modal button "Save and Continue"
     Then I see field "Desk Review Type" as "Other"
 
-  @54424 @orgDeskReviewTypeAward @deepika @organizationalDeskReviewFirst
+  @54424 @orgDeskReviewTypeAward  @organizationalDeskReviewFirst
   Scenario: Validate the Desk Review Org Level type Award
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -63,7 +63,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click modal button "Save and Continue"
     Then I see field "Desk Review Type" as "Award"
 
-  @54425 @addParticipantsT0OrgDeskReviewInternalUser @deepika @organizationalDeskReviewFirst
+  @54425 @addParticipantsT0OrgDeskReviewInternalUser  @organizationalDeskReviewFirst
   Scenario Outline: User will be able to add contacts or users from both internal and subrecipient organizations.
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -80,7 +80,7 @@ Feature: Validate all scenarios in Organizational Desk Review
       | {SavedValue:SPI3 Username} |
       | {SavedValue:EXE Username}  |
 
-  @54458 @54459 @approverSectionnotifySubrecipientDeskReviewOrgLevel @smoke @deepika @organizationalDeskReviewFirst
+  @54458 @54459 @approverSectionnotifySubrecipientDeskReviewOrgLevel @smoke  @organizationalDeskReviewFirst
   Scenario: Approver selection and Notify Subrecipient about the Desk Review Org Level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -104,7 +104,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "Notify" in the page details
     Then I softly see field "Status" as "Notified"
 
-  @54462 @addingOutcomeDeskReviewOrgLevel @deepika @organizationalDeskReviewFirst
+  @54462 @addingOutcomeDeskReviewOrgLevel  @organizationalDeskReviewFirst
   Scenario: Adding outcomes to Desk Review OrgLevel
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -145,7 +145,7 @@ Feature: Validate all scenarios in Organizational Desk Review
       | Automation Observation | Automation Description | Observation |
     Then I softly see that "Automation Finding" has been added in flextable with Id "---orgLevelDeskReview:-:correctiveTableId---"
 
-  @54572 @formFillingDeskReviewOrgLevel @smoke @deepika @organizationalDeskReviewFirst
+  @54572 @formFillingDeskReviewOrgLevel @smoke  @organizationalDeskReviewFirst
   Scenario: Filling up of form in Desk Review Org Level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -188,7 +188,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I wait for "3" seconds
     Then I see that "100%" has been added in flextable with Id "---orgLevelDeskReview:-:reportsTableId---"
 
-  @54886 @54571 @66270 @submittingForAprovalOfDeskReviewOrgLevel @deepika  @buglogged150042 @organizationalDeskReviewFirst
+  @54886 @54571 @66270 @submittingForAprovalOfDeskReviewOrgLevel   @buglogged150042 @organizationalDeskReviewFirst
   Scenario: Validate the org level Desk Review Submitting for Approval | Validate Approvers Table is not editable for record owner and award owner end when the status of Org Level Desk Review is Submitted to Approval
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -254,7 +254,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @54888 @55203 @deskReviewCorrectiveActionsSubmitToGrantoBySubrecipientOrgLevel @deepika @organizationalDeskReviewFirstRerun
+  @54888 @55203 @deskReviewCorrectiveActionsSubmitToGrantoBySubrecipientOrgLevel  @organizationalDeskReviewFirstRerun
   Scenario: Validate Org Level Desk Review Submit to Grantor and Corrective Actions By Subrecipient
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -348,7 +348,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @55415 @viewOrgDeskReviewAcceptButtonAfterSRecipientsSubmission @deepika @smoke @organizationalDeskReviewFirstRerun
+  @55415 @viewOrgDeskReviewAcceptButtonAfterSRecipientsSubmission  @smoke @organizationalDeskReviewFirstRerun
   Scenario: Validate Submitted By field at Certification table should get updated on Org Desk Review at SR user end and User will be able to view the Desk Review Accept button after review the submission by Recipients
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -447,7 +447,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:phasePendingTaskTableId---"
     Then I can see top right button "Accept and Close" in page detail
 
-  @55416 @56041 @55997 @submittingForApprovalSendBacktoOwnerReceivePendingTaskDROrgLevel @deepika @organizationalDeskReviewFirst
+  @55416 @56041 @55997 @submittingForApprovalSendBacktoOwnerReceivePendingTaskDROrgLevel  @organizationalDeskReviewFirst
   Scenario: Validate user view the Submit for Approval button when record sent back to Recipients when outcomes are not properly addressed and recipients will be able to receive a pending task
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -516,7 +516,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     Then I softly see that "Record Id" has been added in flextable with Id "---deskreview:-:deskReviewGridViewTableId---"
 
-  @55459 @54887 @deskReviewOrgLevelSendToSubrecipientWithOutAddingCorerctiveItems @deepika @organizationalDeskReviewFirst
+  @55459 @54887 @deskReviewOrgLevelSendToSubrecipientWithOutAddingCorerctiveItems  @organizationalDeskReviewFirst
   Scenario:  Validate User will not be able to submit the Desk Review Org Level to Grantor without adding corrective actions to findings.
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -596,7 +596,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     Then I softly see the following messages in the page details :
       | Reports and Outcomes Tab - Enter corrective actions on all Findings outcomes using the "+" icons. |
 
-  @55460 @approverForwardUserGetPendingTaskDeskReview @deepika @organizationalDeskReviewFirstRerun
+  @55460 @approverForwardUserGetPendingTaskDeskReview  @organizationalDeskReviewFirstRerun
   Scenario: Validate when the Approver forward Org Level Desk Review to other user, the Pending Task will be created to the User
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -667,7 +667,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I "Approve" in the approval decision
     Then I see status in Progress-bar is "Approved" and is "dark blue"
 
-  @55793 @internalUserParticipantOrganizationalDeskReview @smoke @deepika @organizationalDeskReviewFirstRerun
+  @55793 @internalUserParticipantOrganizationalDeskReview @smoke  @organizationalDeskReviewFirstRerun
   Scenario Outline: Internal User participant Association of Organizational Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -682,7 +682,7 @@ Feature: Validate all scenarios in Organizational Desk Review
       | User                      |
       | {SavedValue:EXE Username} |
 
-  @55797 @organizationalDeskReviewPurpose @deepika @organizationalDeskReviewFirst
+  @55797 @organizationalDeskReviewPurpose  @organizationalDeskReviewFirst
   Scenario: Validate the Purpose of Desk Review Org level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -693,7 +693,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     Then I see the following messages in the page details :
       | Purpose is Required to save under Overview. |
 
-  @55798 @organizationalDeskReviewSource @deepika @organizationalDeskReviewFirst
+  @55798 @organizationalDeskReviewSource  @organizationalDeskReviewFirst
   Scenario: Validate the Source of Desk Review Org level
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -704,7 +704,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     Then I see the following messages in the page details :
       | Source is Required to save under Overview. |
 
-  @55806 @55803 @54461 @notifyConductButtonDeskReviewOrgLevel @smoke @deepika @organizationalDeskReviewFirst
+  @55806 @55803 @54461 @notifyConductButtonDeskReviewOrgLevel @smoke  @organizationalDeskReviewFirst
   Scenario: User will be able to view the Notify and Conduct button on the Desk Review to complete the action items
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -731,7 +731,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
 
-  @55867 @55873 @54460 @75861 @NotifyTaskRecipientCannotCreateAndSeeReportAndOutcomesWhenInNotifiedStatusOrgDR @deepika @organizationalDeskReviewFirst
+  @55867 @55873 @54460 @75861 @NotifyTaskRecipientCannotCreateAndSeeReportAndOutcomesWhenInNotifiedStatusOrgDR  @organizationalDeskReviewFirst
   Scenario: Validate whether the respective POC from the applicant organization will receive a pending task D will not be able to create / edit the Outcomes and cannot view the report or outcomes while in the Notified status.
   Validate the external user will receive an email notification when the org desk review is in notified status
     Given I navigate to "Related Log" sub tab
@@ -770,7 +770,7 @@ Feature: Validate all scenarios in Organizational Desk Review
       Sandbox: Notification: Desk Review for {SavedValue:DeskReviewId} has been scheduled
       """
 
-  @56001 @deskReviewWithoutFormFillingOrgLevel @deepika @organizationalDeskReviewFirst
+  @56001 @deskReviewWithoutFormFillingOrgLevel  @organizationalDeskReviewFirst
   Scenario: User will not be able to submit the Desk Review for approval without completed forms
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -797,7 +797,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     Then I see the following messages in the page details :
       | Reports and Outcomes Tab - Complete all data in the form. |
 
-  @55999 @peerReviewDeskReviewOrgLevel @deepika @organizationalDeskReviewFirst
+  @55999 @peerReviewDeskReviewOrgLevel  @organizationalDeskReviewFirst
   Scenario: Validate the peer review on their Org Level Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -851,7 +851,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Complete Review" in the page details
     Then I see status in Progress-bar is "In Progress" and is "dark blue"
 
-  @55998 @UploadsupportingDocumentChecklistFromWorkSpace @deepika @RunAfterJuly @organizationalDeskReviewFirst
+  @55998 @UploadsupportingDocumentChecklistFromWorkSpace  @RunAfterJuly @organizationalDeskReviewFirst
   Scenario: User will be able to review the supporting document checklist submitted by the subrecipient
     When I navigate to "Files" sub tab
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
@@ -994,7 +994,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I perform quick search for "Record Id" in "---orgLevelDeskReview:-:homeCompletedTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---orgLevelDeskReview:-:homeCompletedTaskTableId---"
 
-  @65069 @deleteCreatedOrgDeskReview @deepika @organizationalDeskReviewSecond
+  @65069 @deleteCreatedOrgDeskReview  @organizationalDeskReviewSecond
   Scenario: Validate whether user will be able to delete the created Org Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -1016,7 +1016,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I perform quick search for "{SavedValue:Automation Runtime Desk Review Org level}" in "DeskReview" panel
     Then I softly see "No Records Found" inside flex table with id "DeskReview"
 
-  @65070 @historyOfOrgDeskReviewsendbacktoOwner @deepika @FieldHistoryExclude
+  @65070 @historyOfOrgDeskReviewsendbacktoOwner  @FieldHistoryExclude
   Scenario: Validate History Field is getting Updated at Award owner End when Org Desk Review status is Submitted to Grantor.
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -1082,7 +1082,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on hyperlink containing value "View All"
     Then I see value "In Progress" for title "New Value" inside field history table
 
-  @65071 @corerctiveActionsDueDate @deepika @smoke @organizationalDeskReviewSecond
+  @65071 @corerctiveActionsDueDate  @smoke @organizationalDeskReviewSecond
   Scenario: Validate Org Level Desk Review Submit to Grantor and Corrective Actions By Subrecipient
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -1167,7 +1167,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     Then I softly see the following messages in the page details contains:
       | Due date must be future date |
 
-  @65072 @foUserCannotDeleteCreatedOrgDesskReview @deepika @organizationalDeskReviewSecond
+  @65072 @foUserCannotDeleteCreatedOrgDesskReview  @organizationalDeskReviewSecond
   Scenario: Validate the Created Date of Risk Assessment display on Overview Tab and other than record onwer Fo user can delete the created Org Level Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -1189,7 +1189,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I perform quick search for "Record Id" in "DeskReview" panel
     Then I softly see "No Records Found" inside flex table with id "DeskReview"
 
-  @65073 @recordOwnerHasAccessToDeleteAssociatedContact @deepika @organizationalDeskReviewSecond
+  @65073 @recordOwnerHasAccessToDeleteAssociatedContact  @organizationalDeskReviewSecond
   Scenario: Validate whether record owner has access to delete the associated Contact and Award to Desk Review Org Level |
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -1207,7 +1207,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "Remove" icon for "{SavedValue:Automation Runtime Award Record}" inside flex table with id "---orgLevelDeskReview:-:associateAwardId---"
     Then I softly see "No Records Found" inside flex table with id "---orgLevelDeskReview:-:associateAwardId---"
 
-  @65150 @reviewerCanNotEditAfterSubmittingTheReviewOrgLevel @deepika @organizationalDeskReviewSecond
+  @65150 @reviewerCanNotEditAfterSubmittingTheReviewOrgLevel  @organizationalDeskReviewSecond
   Scenario: Validate after submitting the review comments for Org Level Desk Review, the Edit button should will be unavailable for the reviewer
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -1252,7 +1252,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I close "Site Visit Reviewers" modal by clicking the top right x button
     Then I cannot see top right button "Edit" in page detail
 
-  @148330 @VerifyErrorMessageAtApproverSectionWhileSkippingForDeskReviewOrgLevel-RnRFunctnality @monu @organizationalDeskReviewSecond
+  @148330 @VerifyErrorMessageAtApproverSectionWhileSkippingForDeskReviewOrgLevel-RnRFunctnality  @organizationalDeskReviewSecond
   Scenario: Verify the validation is displayed when NA is defined for step on organization Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -1300,7 +1300,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     Then I see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @148342 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtDeskReviewOrgLevel-RnRFunctionality @monu @organizationalDeskReviewSecond
+  @148342 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtDeskReviewOrgLevel-RnRFunctionality  @organizationalDeskReviewSecond
   Scenario: Verify validation user cannot add the same step for different approver on Organization Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -1350,7 +1350,7 @@ Feature: Validate all scenarios in Organizational Desk Review
       | {SavedValue:FO Username} | Step 1      |
     Then I softly see "You cannot specify the same step for multiple users for Desk Review." inside flex table with id "---orgLevelDeskReview:-:approverSiteVisitTableId---"
 
-  @148325 @Verify3StepApprovalForDeskReviewOrgLevel-RnRFunctnality @monu @organizationalDeskReviewSecond
+  @148325 @Verify3StepApprovalForDeskReviewOrgLevel-RnRFunctnality  @organizationalDeskReviewSecond
   Scenario: Verify user is able to add three step approver for organization Desk Review and submit for approval
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -1403,7 +1403,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @148344 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtDeskReviewOrgLevel-RnRFunctionality @monu @organizationalDeskReviewSecond
+  @148344 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtDeskReviewOrgLevel-RnRFunctionality  @organizationalDeskReviewSecond
   Scenario: Verify validation user cannot add the same approver for different step on Organization Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -1452,7 +1452,7 @@ Feature: Validate all scenarios in Organizational Desk Review
       | {SavedValue:PM Username} | Step 2      |
     Then I softly see "You cannot specify the same user for multiple steps for Desk Review" inside flex table with id "---orgLevelDeskReview:-:approverSiteVisitTableId---"
 
-  @148322 @148323 @Verify1StepApprovalForDeskReviewOrgLevel-RnRFunctnality @monu @organizationalDeskReviewSecond
+  @148322 @148323 @Verify1StepApprovalForDeskReviewOrgLevel-RnRFunctnality  @organizationalDeskReviewSecond
   Scenario: Verify user can add step1 approver on organization Desk Review created
   |Verify user can add two step approver on organization Desk Review created|
     Given I navigate to "Related Log" sub tab

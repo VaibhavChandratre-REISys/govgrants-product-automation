@@ -190,7 +190,7 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click on "View" icon for "{SavedValue:Automation Runtime KPI}" inside table
     Then I see status in Progress-bar is "Inactive" and is "dark blue"
 
-  @105456 @VerifyActiveStrategicPlan @monu
+  @105456 @VerifyActiveStrategicPlan
   Scenario: Validate user is able to see activated strategic plan
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab

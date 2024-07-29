@@ -10,7 +10,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
 
-  @93641 @ValidatingUserCanSeeProjectPeriodCloseoutRequestListView @monu
+  @93641 @ValidatingUserCanSeeProjectPeriodCloseoutRequestListView
   Scenario: Verify user can see created closeout request in draft list view
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
@@ -32,7 +32,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Automation PM" for title "Created By" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
     Then I softly see value "Created" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
 
- @87350 @86706 @88851 @VerifyOverriddenJustificationinCloseout  @meenakshi
+ @87350 @86706 @88851 @VerifyOverriddenJustificationinCloseout
   Scenario: To verify closeout owner allow to entered the Justification when Overriding the pending items in closeout phase
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -101,7 +101,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see "History" sub tab at view detail page
     Then I softly can see "Messages" sub tab at view detail page
 
-  @40636 @40741 @VerifyProjectPeriodCloseoutsStatus @meenakshi
+  @40636 @40741 @VerifyProjectPeriodCloseoutsStatus
   Scenario: To verify Project Period Closeouts with status: Created, Sent to Subrecipient, Overridden , Submitted to Grantor, Rejected, Submitted For Approval, Completed should display in the Project Period Closeouts - All table in the Closeout phase
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
@@ -122,7 +122,7 @@ Feature: Validate all scenarios in Closeout
     And I click toggle button to select "Project Period Closeouts - Submitted"
     Then I softly see value "Submitted for Approval" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
 
-  @93540 @VerifyDifferentTypeOfCloseoutRequestOnSameGrantInCloseout @meenakshi @wip
+  @93540 @VerifyDifferentTypeOfCloseoutRequestOnSameGrantInCloseout  @wip
   Scenario: Verify user can create different type of closeout request on the same grant though another closeout is in progress.
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
@@ -191,7 +191,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see row level action button "Edit" against "{SavedValue:closeoutID2}" in flex table with id "---closeout:-:closeoutTableId---"
     Then I softly can see row level action button "Delete" against "{SavedValue:closeoutID2}" in flex table with id "---closeout:-:closeoutTableId---"
 
-  @93254 @93255 @93256 @VerifyCloseOutRequestDetailsPage @smoke @monu
+  @93254 @93255 @93256 @VerifyCloseOutRequestDetailsPage @smoke
   Scenario: Validate user is able to see closeout request details page after clicking on start button under pending tasks
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -247,7 +247,7 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Overview" sub tab
     Then I softly see field "Reason" as "Automation Test Reason"
 
-  @93096 @40743 @VerifyEditOfCreatedCloseoutRequest @smoke @monu
+  @93096 @40743 @VerifyEditOfCreatedCloseoutRequest @smoke
   Scenario: Validate user is able to edit fields values of created closeout
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -271,7 +271,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Requests" sub tab
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "---closeout:-:closeoutTableId---"
 
-  @93258 @42108 @VerifyExpectedStatusOfCloseoutRequest-Overridden @monu
+  @93258 @42108 @VerifyExpectedStatusOfCloseoutRequest-Overridden
   Scenario: verify Status change as Submit for Approval after clicking submit for Approval button for closeout request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -327,7 +327,7 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "---closeout:-:pendingTaskTableId---"
 
-  @86708 @VerifyStatusOfCloseoutRequestInApprovalHistoryPageBlock @monu
+  @86708 @VerifyStatusOfCloseoutRequestInApprovalHistoryPageBlock
   Scenario: Validate user is able to see status of closeout request in chevron diagram and inside Approval history table after first approval only
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -387,7 +387,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see column "Overall Status" at position "3" contains text "Approved"
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
 
-  @40759 @VerifyExpectedValueInsideFieldHistoryPageBlockOfCloseoutRequest @monu @FieldHistoryExclude
+  @40759 @VerifyExpectedValueInsideFieldHistoryPageBlockOfCloseoutRequest  @FieldHistoryExclude
   Scenario: Validate expected New value and Old value inside Field History page block for closeout request
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
@@ -451,7 +451,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Acknowledged by Subrecipient" for title "New Value" inside field history table
     Then I softly see value "Sent to Subrecipient" for title "Original Value" inside field history table
 
-  @87355 @VerifyCloseoutRequestWithMultipleStatusInListVIew @monu
+  @87355 @VerifyCloseoutRequestWithMultipleStatusInListVIew
   Scenario: Validate user should be able to see Created, Send to sub-recipient, Overridden, Submitted to grantor status of closeout request inside closeout request list view
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
@@ -522,7 +522,7 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "ProjectPeriodCloseoutGrantor" panel
     Then I softly see value "Overridden" for title "Status" inside table "ProjectPeriodCloseoutGrantor"
 
-  @76490 @VerifyEmailNotificationForApprovedCloseoutRequest @monu
+  @76490 @VerifyEmailNotificationForApprovedCloseoutRequest
   Scenario: Validate user should receive email notification for approval of closeout Request
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"

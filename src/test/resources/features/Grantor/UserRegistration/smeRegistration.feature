@@ -1,7 +1,7 @@
 @smeRegistration @smeReviewerRegistration @userRegistration @parallel-regression @regression
 Feature: Validate all scenarios for SME Registration
 
-  @34872 @34840 @VerifyPageDetailsOnRegistrationStep1of1-SMEReviewerRegistration @smoke @monu
+  @34872 @34840 @VerifyPageDetailsOnRegistrationStep1of1-SMEReviewerRegistration @smoke
   Scenario: Validate all expected fields are getting populated on page of Registration Step 1 of 1 while SME reviewer registration
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -34,7 +34,7 @@ Feature: Validate all scenarios for SME Registration
     Then I softly see fields "ExternalReviewerPhone__c" is in edit mode
     Then I softly see field "Email" as "{SavedValue:uniqueEmailID}"
 
-  @34991 @VerifySubjectMatterExpertFieldsDetails-SMEReviewerRegistration @smoke @monu
+  @34991 @VerifySubjectMatterExpertFieldsDetails-SMEReviewerRegistration @smoke
   Scenario: Validate filled details of subject matter expert fields on page of Registration Step 1 of 1
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -64,7 +64,7 @@ Feature: Validate all scenarios for SME Registration
       | Confirmation Message                                                                                                                                                                |
       | Your registration request for access to the EGMS has been completed.  You will be sent an email from salesforce.com (technology platform provider) with your Username and Password. |
 
-  @34834 @34836 @34831 @VerifyCreatedSMEUserDetails-SMEReviewerRegistration @smoke @monu
+  @34834 @34836 @34831 @VerifyCreatedSMEUserDetails-SMEReviewerRegistration @smoke
   Scenario: Validate created SME user details on modal after clicking on view row level action
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -103,7 +103,7 @@ Feature: Validate all scenarios for SME Registration
       | Overview    |
       | Attachments |
 
-  @35013 @VerifyCreatedSMEUserAtActivePartneruser-SMEReviewerRegistration @smoke @monu @wip
+  @35013 @VerifyCreatedSMEUserAtActivePartneruser-SMEReviewerRegistration @smoke  @wip
   Scenario: Validate created SME user should get reflected at salesforce page inside Active Partnet usersall expected fields are getting populated on page of Registration Step 1 of 1 while SME reviewer registration
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -129,7 +129,7 @@ Feature: Validate all scenarios for SME Registration
     Then I see the sub-header is "Step 1 of 1" in the page details
     And I enter "OrgProfileCompleteDetail" values from "UserRegistration_Field_Values.xlsx"
 
-  @33847 @VerifyInternalSubricepientAndSMEReviewerContact @monu
+  @33847 @VerifyInternalSubricepientAndSMEReviewerContact
   Scenario: Validate user is able to see all expected contacts
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -143,7 +143,7 @@ Feature: Validate all scenarios for SME Registration
     When I perform quick search for "robbin Thomos" in "ActiveAccountReviewer" panel
     Then I softly see value "robbin Thomos" for title "Name" inside table "ActiveAccountReviewer"
 
-  @33837 @VerifySystemDisplayAllRelatedTasks @monu
+  @33837 @VerifySystemDisplayAllRelatedTasks
   Scenario: Validate user is able to see all expected contacts
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -159,7 +159,7 @@ Feature: Validate all scenarios for SME Registration
     Then I softly see "Completed Tasks (Assigned By Me)" page block displayed
     Then I softly see value "Completed" for title "Status" inside table "---grantor_tableId:-:CompletedTaskAssignedToMeTableId---"
 
-  @94345 @validatingEmailNotificationForSMEReviewer @meenakshi
+  @94345 @validatingEmailNotificationForSMEReviewer
   Scenario: To verify Email notification should be received to SME contact after sending invitation by internal  user
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
@@ -181,7 +181,7 @@ Feature: Validate all scenarios for SME Registration
       Sandbox: Notification: You have been Invited to Register in theEnterprise Grants Management System (EGMS)
       """
 
-  @35012 @VerifySMEReviewerDetailPage-SMEReviewerRegistration @wip @smoke @monu  @onhold
+  @35012 @VerifySMEReviewerDetailPage-SMEReviewerRegistration @wip @smoke   @onhold
   Scenario: Validate all details of created Sme Reviewer
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
