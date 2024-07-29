@@ -383,7 +383,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:appTableId---" panel
     Then I softly see value "Rejected" for title "Decision Status" against the value "{SavedValue:Automation Runtime Announcement Application Review}" inside table "---applicationReview:-:appTableId---"
 
-  @202576 @ValidateApplicationReviewtaskofpre-screenreviewshouldbegeneratedforassignedreviewerPMuserandhecanreassignreviewtasktootherPMuser @sprint-6-US-201906 @vaibhav @reassignment
+  @202576 @ValidateApplicationReviewtaskofpre-screenreviewshouldbegeneratedforassignedreviewerPMuserandhecanreassignreviewtasktootherPMuser @sprint-6-US-201906 @vaibhav @reassignment @TBExecution
   Scenario Outline: Validate Application Review' task of pre-screen review should be generated for assigned reviewer PM user and he can reassign review task to other PM user
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -413,6 +413,8 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "3" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -458,7 +460,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
     And I pause execution for "100" seconds
     Then I refresh the page
-    #Bug412940
     And I see the mail subject is as follows :
       """
       Sandbox: Notification: Application {SavedValue:AppEGMSID} has been reviewed
@@ -546,7 +547,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @202583 @ValidateApplicationReviewtaskofmanagementreviewshouldbegeneratedforassignedreviewerPMuserandhecanreassignreviewtasktootherPMuser @sprint-6-US-201906 @vaibhav @reassignment
+  @202583 @ValidateApplicationReviewtaskofmanagementreviewshouldbegeneratedforassignedreviewerPMuserandhecanreassignreviewtasktootherPMuser @sprint-6-US-201906 @vaibhav @reassignment @TBExecution
   Scenario Outline: Validate Application Review' task of management review should be generated for assigned reviewer PM user and he can reassign review task to other PM user
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -587,16 +588,21 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
+    And I refresh the page
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -661,6 +667,8 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     Then I softly see that "Sent for Review" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
@@ -690,7 +698,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @202613 @ValidatenewassignedreviewerPOcanreviewthenewlyaddedreviewstepandaddedcustomizeformonAnn @sprint-6-US-201906 @vaibhav @reassignment
+  @202613 @ValidatenewassignedreviewerPOcanreviewthenewlyaddedreviewstepandaddedcustomizeformonAnn @sprint-6-US-201906 @vaibhav @reassignment @TBExecution1
   Scenario Outline: Validate new assigned reviewer PO can review the newly added review step and added customize form on Ann
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -730,16 +738,21 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
+    And I refresh the page
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -805,6 +818,8 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -843,6 +858,9 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     Then I softly see that "Sent for Review" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
@@ -883,7 +901,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @202633 @Validatereviewertableshouldbeupdatedwithnewreviewernameafterreviewtaskreassigntonewreviewer @sprint-6-US-201906 @vaibhav @reassignment
+  @202633 @Validatereviewertableshouldbeupdatedwithnewreviewernameafterreviewtaskreassigntonewreviewer @sprint-6-US-201906 @vaibhav @reassignment @TBExecution1
   Scenario Outline: Validate reviewer table should be updated with new reviewer name after review task reassign to new reviewer
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -915,6 +933,8 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     Then I softly see that "Sent for Review" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
@@ -948,7 +968,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @203354 @ValidateApplicationReviewtaskofmanagementreviewshouldbegeneratedforassignedreviewerFOuserandhecanreassignreviewtasktootherFOuser @sprint-6-US-201906 @vaibhav @reassignment
+  @203354 @ValidateApplicationReviewtaskofmanagementreviewshouldbegeneratedforassignedreviewerFOuserandhecanreassignreviewtasktootherFOuser @sprint-6-US-201906 @vaibhav @reassignment @TBExecution1
   Scenario Outline: Validate Application Review' task of management review should be generated for assigned reviewer FO user and he can reassign review task to other FO user
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1058,11 +1078,13 @@ Feature: Validate all scenarios in the Application Review without background
       | Reviewer                 |
       | {SavedValue:FO Username} |
 #    When I expand nested table containing column value "<Application Name>"
+    And I wait for "2" seconds
     And I click on "Assign" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
+    And I refresh the page
     And I pause execution for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"

@@ -1,7 +1,7 @@
 @AppReview @applicationReviewWBTest @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE
 Feature: Validate all scenarios in the Application Review without background
 
-  @202616 @ValidatenewassignedreviewerEXEcanreviewthenewlyaddedreviewstepandaddedcustomizeformonAnn @sprint-12-US-226646 @vaibhav @reassignment
+  @202616 @ValidatenewassignedreviewerEXEcanreviewthenewlyaddedreviewstepandaddedcustomizeformonAnn @sprint-12-US-226646 @vaibhav @reassignment @TBExecution1
   Scenario Outline: Validate new assigned reviewer EXE can review the newly added review step and added customize form on Ann
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -178,6 +178,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -190,6 +191,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -202,6 +204,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -244,6 +247,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -302,6 +306,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     Then I can see top right button "Edit" in page detail
@@ -312,7 +317,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @202592 @ValidatenewassignedreviewerPMcanreviewheaddedcustomizeformonAnnforpre-screenreview @sprint-12-US-226646 @vaibhav @reassignment
+  @202592 @ValidatenewassignedreviewerPMcanreviewheaddedcustomizeformonAnnforpre-screenreview @sprint-12-US-226646 @vaibhav @reassignment @TBExecution
   Scenario Outline: Validate new assigned reviewer PM can review the added customize form on Ann for pre-screen review
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab

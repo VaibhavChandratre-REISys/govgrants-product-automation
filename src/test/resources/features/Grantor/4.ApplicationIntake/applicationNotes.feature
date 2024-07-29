@@ -707,7 +707,7 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the page details
     And I close the tab
     Then I softly see top right button "New" inside flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
     Then I softly see value "Notes Record Of SPI User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
@@ -926,7 +926,7 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the page details
     And I close the tab
     Then I softly see top right button "New" inside flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
     Then I softly see value "Notes Record Of SPI User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
@@ -939,7 +939,7 @@ Feature: Application Intake scenarios without background
       | Created By      | Title                         | Description      |
       | Automation SPI3 | Notes Record Of SPI Test User | Automation Notes |
     Then I softly see value "Notes Record Of SPI Test User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                     | Description      |
       | Notes Record Of SPI3 User | Automation Notes |
     Then I softly see value "Notes Record Of SPI3 User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
@@ -955,7 +955,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside table
     And I navigate to "Forms and Files" sub tab
     Then I softly see top right button "New" inside flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPA User | Automation Notes |
     Then I softly see value "Notes Record Of SPA User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
@@ -968,7 +968,7 @@ Feature: Application Intake scenarios without background
       | Created By     | Title                         | Description      |
       | Automation SPA | Notes Record Of SPA Test User | Automation Notes |
     Then I softly see value "Notes Record Of SPA Test User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                     | Description      |
       | Notes Record Of SPA1 User | Automation Notes |
     Then I softly see value "Notes Record Of SPA1 User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
@@ -1015,7 +1015,7 @@ Feature: Application Intake scenarios without background
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
     And I get the "EGMS ID"
@@ -1026,7 +1026,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside table
     And I navigate to "Forms and Files" sub tab
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPA User | Automation Notes |
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1133,7 +1133,7 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the page details
     And I close the tab
     And I wait for "2" seconds
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
     And I get the "EGMS ID"
@@ -1217,7 +1217,7 @@ Feature: Application Intake scenarios without background
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
     And I get the "EGMS ID"
@@ -1313,7 +1313,7 @@ Feature: Application Intake scenarios without background
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
     And I get the "EGMS ID"
@@ -1324,7 +1324,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside table
     And I navigate to "Forms and Files" sub tab
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPA User | Automation Notes |
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1451,7 +1451,7 @@ Feature: Application Intake scenarios without background
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
     And I get the "EGMS ID"
@@ -1508,7 +1508,7 @@ Feature: Application Intake scenarios without background
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
     And I get the "EGMS ID"
@@ -1519,7 +1519,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside table
     And I navigate to "Forms and Files" sub tab
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPA User | Automation Notes |
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1603,7 +1603,7 @@ Feature: Application Intake scenarios without background
     Then I softly see field "Status" as "Negotiation Initiated"
     And I navigate to "Forms and Files" sub tab
     Then I softly see top right button "New" inside flex table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
     Then I softly see value "Notes Record Of SPI User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
@@ -1616,7 +1616,7 @@ Feature: Application Intake scenarios without background
       | Created By      | Title                         | Description      |
       | Automation SPI3 | Notes Record Of SPI Test User | Automation Notes |
     Then I softly see value "Notes Record Of SPI Test User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                     | Description      |
       | Notes Record Of SPI3 User | Automation Notes |
     Then I softly see value "Notes Record Of SPI3 User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
@@ -1701,7 +1701,7 @@ Feature: Application Intake scenarios without background
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
     And I get the "EGMS ID"
@@ -1712,7 +1712,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside table
     And I navigate to "Forms and Files" sub tab
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPA User | Automation Notes |
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1811,7 +1811,7 @@ Feature: Application Intake scenarios without background
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
     And I get the "EGMS ID"
@@ -1822,7 +1822,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside table
     And I navigate to "Forms and Files" sub tab
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPA User | Automation Notes |
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -1940,7 +1940,7 @@ Feature: Application Intake scenarios without background
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPI User | Automation Notes |
     And I get the "EGMS ID"
@@ -1951,7 +1951,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside table
     And I navigate to "Forms and Files" sub tab
-    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---applicationIntake:-:subrecipientApplicationNotesTableId---" by clicking "New" :
       | Title                    | Description      |
       | Notes Record Of SPA User | Automation Notes |
     #218708

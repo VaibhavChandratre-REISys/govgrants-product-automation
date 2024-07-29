@@ -2818,7 +2818,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter              | User |
       | {SavedValue:Automation Runtime Announcement} | Automation EXE user | EXE  |
 
-  @204097  @Sprint-08-US-202799 @vaibhav @PoojaNewApplicationReviewWB
+  @204097  @Sprint-08-US-202799 @TBExecution1
   Scenario Outline: Validate EXE user should see validation message on reject button if user tries to reject the FDM while approval but approver should still continue to 'Send back' 'Approve' when FDM has one application which is converted to award
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2883,6 +2883,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEGMSID1}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -2895,6 +2896,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEGMSID1}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -2907,6 +2909,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEGMSID1}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -2944,6 +2947,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEGMSID1}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4010,7 +4014,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter              | User |
       | {SavedValue:Automation Runtime Announcement} | Automation EXE user | EXE  |
 
-  @204088 @Sprint-08-US-202799 @vaibhav @PoojaNewApplicationReviewWB
+  @204088 @Sprint-08-US-202799 @vaibhav @TBExecution1
   Scenario Outline: Validate PM user "Final Decision" should be present before the Applicant Notified column in recommended Non-recommended section on FDM
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -4069,6 +4073,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4081,6 +4086,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4093,6 +4099,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4107,6 +4114,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "2" seconds
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -4133,6 +4141,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4212,6 +4221,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEGMSID1}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4224,6 +4234,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEGMSID1}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4236,6 +4247,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEGMSID1}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4270,6 +4282,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEGMSID1}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4500,7 +4513,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
-  @204096  @Sprint-08-US-202799 @vaibhav @ErrorMessageTimeout @finalAppReviewPooja
+  @204096  @Sprint-08-US-202799 @vaibhav @ErrorMessageTimeout @TBExecution1
   Scenario Outline: Validate PM user should see validation message when any FDM is Rejected by approver during FDM approval even if user tries to promote any application on rejected FDM for Non-recommended Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -4572,6 +4585,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4584,6 +4598,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4624,6 +4639,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4711,6 +4727,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEGMSID1}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4723,6 +4740,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEGMSID1}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4735,6 +4753,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEGMSID1}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -4770,6 +4789,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEGMSID1}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
