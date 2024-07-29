@@ -7165,7 +7165,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:appTableId---" panel
     Then I softly cannot see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
 
-  @134143 @134152 @134174 @134177 @134178 @134179 @134181 @134182 @134194 @Validateotherusersotherthanannouncementownercannotrequestnegotiationontheapplicationfromanyreviewstep  @Sprint-1 @vaibhav
+  @134143 @134152 @134174 @134177 @134178 @134179 @134181 @134182 @134194 @Validateotherusersotherthanannouncementownercannotrequestnegotiationontheapplicationfromanyreviewstep  @Sprint-1 @vaibhav @RerunAppReview
   Scenario: Validate other users other than announcement owner cannot request a negotiation on the application from any review step
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7364,7 +7364,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:appTableId---" panel
     Then I softly cannot see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
 
-  @134200 @Validatemailisgeneratedtoallreviewersassignedtotheapplicationwithinthereviewstep @Sprint-1 @vaibhav
+  @134200 @Validatemailisgeneratedtoallreviewersassignedtotheapplicationwithinthereviewstep @Sprint-1 @vaibhav @RerunAppReview
   Scenario:Validate mail is generated to all reviewers assigned to the application within the review step
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7423,7 +7423,7 @@ Feature: Validate all scenarios in the Application Review without background
       """
 
 
-  @134201 @ValidatependingtaskandemailisgeneratedtoSubrecipientuserwhenannouncementrecordownerclickonSendtoSubrecipient @Sprint-1 @vaibhav
+  @134201 @ValidatependingtaskandemailisgeneratedtoSubrecipientuserwhenannouncementrecordownerclickonSendtoSubrecipient @Sprint-1 @vaibhav @RerunAppReview
   Scenario: Validate  pending task and email is generated to Subrecipient user  when announcement record owner click on Send to Subrecipient
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7477,7 +7477,7 @@ Feature: Validate all scenarios in the Application Review without background
       The EGMS Team
      """
 
-  @134202 @ValidateapplicationrecordownercaneditsectionsandformswithintheapplicationwhentheapplicationisinnegotiationInitiatedstate @Sprint-1 @vaibhav
+  @134202 @ValidateapplicationrecordownercaneditsectionsandformswithintheapplicationwhentheapplicationisinnegotiationInitiatedstate @Sprint-1 @vaibhav @RerunAppReview
   Scenario: Validate application record owner can edit sections and forms within the application when the application is in negotiation Initiated state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7543,7 +7543,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Overview" sub tab
     Then I see "Project Information" page block displayed
 
-  @134206 @ValidateuserscanseetherevisiondetailsintheNegotiationstab @Sprint-1 @vaibhav
+  @134206 @ValidateuserscanseetherevisiondetailsintheNegotiationstab @Sprint-1 @vaibhav @RerunAppReview
   Scenario: Validate users can see the revision details in the Negotiations tab
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7583,7 +7583,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see field "Application Sections for Negotiation" as "Overview: Project Information Budget: Budget Details Files: Forms"
     Then I softly see field "Due Date" as "{Date:MM/dd/yyyy::d+43707}" in "Negotiation Request Details" pageblock
 
-  @134207 @ValidateapplicationrecordownercaneditsectionsandformswithintheapplicationwhentheapplicationisinnegotiationInitiatedstate @Sprint-1 @vaibhav
+  @134207  @Sprint-1 @vaibhav @RerunAppReview
   Scenario: Validate application record owner can edit sections and forms within the application when the application is in negotiation Initiated state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7654,7 +7654,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "2" seconds
     Then I softly see field "Negotiation Request Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
 
-  @134208 @134220 @134396 @134399 @Validateresubmittingtherevisedapplicationtheapplicationsectionsandformsshouldbelocked @Sprint-1 @vaibhav
+  @134208 @134220 @134396 @134399 @Validateresubmittingtherevisedapplicationtheapplicationsectionsandformsshouldbelocked @Sprint-1 @vaibhav @RerunAppReview
   Scenario: Validate  re-submitting the revised application, the application sections and forms should be locked
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7748,7 +7748,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see value "Pending" for title "Decision Status" inside table "---applicationReview:-:appTableId---"
     Then I softly can see row level action button "Request Negotiation" against "{SavedValue:EGMSID}" in flex table with id "---applicationReview:-:appTableId---"
 
-  @134397 @ValidatebuttonsdisplayedtoapplicationrecordownerwhenapplicationisinNegotiationInitiatedstate @sprint-1 @vaibhav
+  @134397 @ValidatebuttonsdisplayedtoapplicationrecordownerwhenapplicationisinNegotiationInitiatedstate @sprint-1 @vaibhav @RerunAppReview
   Scenario: Verify buttons displayed to application record owner when application is in Negotiation Initiated state
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -7857,7 +7857,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see top right button "Submit to Grantor" in page detail
     Then I softly can see top right button "Edit" in page detail
 
-  @134401 @ValidatependingtaskisremovedfromapplicationownerspendingtasklistwhenuserclickonSubmittoGrantorbutton   @Sprint-1 @vaibhav
+  @134401 @ValidatependingtaskisremovedfromapplicationownerspendingtasklistwhenuserclickonSubmittoGrantorbutton   @Sprint-1 @vaibhav @RerunAppReview
   Scenario: Validate pending task is removed from application owner's pending task list when user click on Submit to Grantor button
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7931,7 +7931,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     Then I softly do not see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---negotiation:-:homePendingTasks---"
 
-  @134402 @134403 @134404 @134405 @134406 @ValidatebuttonsdisplayedtoannouncementrecordownerwhenapplicationisinNegotiationSubmittedstate @sprint-1 @vaibhav
+  @134402 @134403 @134404 @134405 @134406 @ValidatebuttonsdisplayedtoannouncementrecordownerwhenapplicationisinNegotiationSubmittedstate @sprint-1 @vaibhav @RerunAppReview
   Scenario: Validate buttons displayed to announcement record owner when application is in Negotiation Submitted state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -8032,7 +8032,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     Then I softly see field "Status" as "Negotiation Initiated"
 
-  @134407 @ValidateactionsdisplayedtoannouncementowneronapplicationrecordwhenrecordisSenttosubrecipientforNegotiation @sprint-1 @vaibhav
+  @134407 @ValidateactionsdisplayedtoannouncementowneronapplicationrecordwhenrecordisSenttosubrecipientforNegotiation @sprint-1 @vaibhav @RerunAppReview
   Scenario: Validate actions displayed to announcement  owner on application record when record is Sent to subrecipient for Negotiation
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -8073,7 +8073,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
 
-  @134410 @ValidateannouncementownercannotsendapplicationforreviewfromanyreviewstepwhenapplicationisinNegotiationInitiatedNegotiationSubmittedstate @sprint-1 @vaibhav
+  @134410  @sprint-1 @vaibhav @RerunAppReview
   Scenario: Validate announcement owner cannot send application for review from any review step when application is in Negotiation Initiated or Negotiation Submitted state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -8272,7 +8272,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see value "Rejected" for title "Decision Status" against the value "{SavedValue:Automation Runtime Announcement Application Review}" inside table "---applicationReview:-:appTableId---"
     Then I softly cannot see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
 
-  @134419 @ValidatestatusofanapplicationwhereNegotiationissubmittedandannouncementownerclickCompleteNegotiationbutton @sprint-1 @vaibhav
+  @134419 @ValidatestatusofanapplicationwhereNegotiationissubmittedandannouncementownerclickCompleteNegotiationbutton @sprint-1 @vaibhav @RerunAppReview
   Scenario: Validate status of an application where Negotiation is submitted and announcement owner click Complete Negotiation button
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
