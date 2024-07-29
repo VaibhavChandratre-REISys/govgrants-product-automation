@@ -317,7 +317,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @202592 @ValidatenewassignedreviewerPMcanreviewheaddedcustomizeformonAnnforpre-screenreview @sprint-12-US-226646  @reassignment @TBExecution
+  @202592 @ValidatenewassignedreviewerPMcanreviewheaddedcustomizeformonAnnforpre-screenreview @sprint-12-US-226646 @reassignment
   Scenario Outline: Validate new assigned reviewer PM can review the added customize form on Ann for pre-screen review
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -330,6 +330,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
@@ -359,12 +360,13 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I get the "EGMS ID"
     When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
-    And I click on "Save" in the page details
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     When I enter the following values into flex table with id "---announcement:-:annReviewFormsTableId---" by clicking "New" :

@@ -6833,8 +6833,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            | Application Name                                             |
       | {SavedValue:Automation Runtime Announcement for Application} | {SavedValue:Automation Runtime Announcement for Application} |
 
-
-  @190912 @190944 @190957 @190983 @ValidateSPIusershouldabletoeditthefieldatsubrecipientsidesubmitapplicationtograntoroncegrantorsendtheapplicationtosubrecipient @Sprint-1  @TBExecution
+  @190912 @190944 @190957 @190983 @ValidateSPIusershouldabletoeditthefieldatsubrecipientsidesubmitapplicationtograntoroncegrantorsendtheapplicationtosubrecipient @Sprint-1
   Scenario: Validate SPI user should able to edit the field at subrecipient side  & submit application to grantor once grantor send the application to subrecipient
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -6879,7 +6878,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
 
-  @190934 @ValidateSPAusershouldabletoeditthefieldatsubrecipientsideoncegrantorsendtheapplicationtosubrecipient @Sprint-1  @TBExecution
+  @190934 @ValidateSPAusershouldabletoeditthefieldatsubrecipientsideoncegrantorsendtheapplicationtosubrecipient @Sprint-1
   Scenario: Validate SPA user should able to edit the field at subrecipient side once grantor send the application to subrecipient
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -6920,7 +6919,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
 
-  @190935 @ValidateINDusershouldabletoeditthefieldatsubrecipientsideoncegrantorsendtheapplicationtosubrecipient @Sprint-1  @TBExecution
+  @190935 @ValidateINDusershouldabletoeditthefieldatsubrecipientsideoncegrantorsendtheapplicationtosubrecipient @Sprint-1
   Scenario: Validate IND user should able to edit the field at subrecipient side once grantor send the application to subrecipient
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default-Automation IND user"
@@ -6960,7 +6959,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
 
-  @190963 @190973 @ValidateS/RshouldabletoeditthesefieldformswhichisselectedfrommultipicklistfromgrantorsidewhenapplicationisinNegotiationinprogressstate @Sprint-1  @TBExecution
+  @190963 @190973 @ValidateS/RshouldabletoeditthesefieldformswhichisselectedfrommultipicklistfromgrantorsidewhenapplicationisinNegotiationinprogressstate @Sprint-1
   Scenario: Validate S/R should able to edit these field & forms which is selected from multi picklist from grantor side when application is in Negotiation in progress state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7076,7 +7075,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "2" seconds
     Then I softly cannot see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
 
-  @191114 @Validateuponresubmissionandwhengrantorcompletesthenegotiationrequesttheapplicatioshouldcomebacktothefirstreviewstep @Sprint-1  @TBExecution
+  @191114 @Validateuponresubmissionandwhengrantorcompletesthenegotiationrequesttheapplicatioshouldcomebacktothefirstreviewstep @Sprint-1 @TBExecution
   Scenario: Validate upon re-submission and when grantor completes the negotiation request, the application should come back to the first review step
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7115,10 +7114,11 @@ Feature: Validate all scenarios in the Application Review without background
       | Value                              | Field                |
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
@@ -8415,7 +8415,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     Then I cannot see top right button "Request Negotiation" in page detail
 
-  @192518 @Validateusershouldabletoseetheentryshouldremovedfromreviewtablewhenapplicationisassignednegotiationinitiated @sprint-1  @TBExecution
+  @192518 @Validateusershouldabletoseetheentryshouldremovedfromreviewtablewhenapplicationisassignednegotiationinitiated @sprint-1
   Scenario: Validate user should able to see the entry should removed from review table when application is assigned or negotiation initiated
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -8574,7 +8574,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see the following messages in the page details contains:
       | No selected applications are available for promotion. |
 
-  @197957 @ValidateReviewNegotiationtaskshouldnotgenerateforPMuserforapplicationonreassignmytaskpage @sprint-7-US-197384  @reassignment @TBExecution
+  @197957 @ValidateReviewNegotiationtaskshouldnotgenerateforPMuserforapplicationonreassignmytaskpage @sprint-7-US-197384 @reassignment
   Scenario: Validate Review Negotiation task should not generate for PM user for application on reassign my task page
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     When I am on "SUBPORTAL" portal
@@ -8804,7 +8804,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:EGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @197959 @ValidateReviewNegotiationtaskshouldnotgenerateforEXEuserforapplicationonreassignmytaskpage @sprint-7-US-197384  @reassignment @taskreassign @TBExecution
+  @197959 @ValidateReviewNegotiationtaskshouldnotgenerateforEXEuserforapplicationonreassignmytaskpage @sprint-7-US-197384 @reassignment
   Scenario: Validate Review Negotiation task should not generate for EXE user for application on reassign my task page
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -8949,7 +8949,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:EGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @197960 @ValidateReviewNegotiationtaskshouldnotgenerateforPOuserforapplicationonreassignmytaskpage @sprint-7-US-197384  @reassignment
+  @197960 @ValidateReviewNegotiationtaskshouldnotgenerateforPOuserforapplicationonreassignmytaskpage @sprint-7-US-197384 @reassignment
   Scenario: Validate Review Negotiation task should not generate for PO user for application on reassign my task page
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -9352,7 +9352,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @202571 @ValidatePMuserinitiatethenegotiationthenusershouldabletoseeapplicationiscomebacktocurrentreviewstepaftercancelthenegotiation @sprint-7-US-183693 @TBExecution
+  @202571 @ValidatePMuserinitiatethenegotiationthenusershouldabletoseeapplicationiscomebacktocurrentreviewstepaftercancelthenegotiation @sprint-7-US-183693
   Scenario Outline: Validate PM user initiate the negotiation then user should able to see application is come back to current review step after cancel the negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -9426,7 +9426,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @202574 @ValidateEXEuserinitiatethenegotiationthenusershouldabletoseeapplicationiscomebacktocurrentreviewstepaftercancelthenegotiation @sprint-7-US-183693 @TBExecution
+  @202574 @ValidateEXEuserinitiatethenegotiationthenusershouldabletoseeapplicationiscomebacktocurrentreviewstepaftercancelthenegotiation @sprint-7-US-183693
   Scenario Outline: Validate EXE user initiate the negotiation then user should able to see application is come back to current review step after cancel the negotiation
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -9641,7 +9641,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @202575 @202625 @ValidatePMuserinitiatethenegotiationthenusershouldabletoeeapplicationiscomebacktocurrentreviewstepaftercancelthenegotiation @TBExecution
+  @202575 @202625 @ValidatePMuserinitiatethenegotiationthenusershouldabletoeeapplicationiscomebacktocurrentreviewstepaftercancelthenegotiation
   Scenario Outline: Validate PM user initiate the negotiation then user should able to see application is come back to current review step after cancel the negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -9678,7 +9678,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @202585 @ValidateEXEuserrequestnegotiation&sendittos/rs/rsendstheresponsetograntor&grantoragaininitiatesthenegotiation&grantorcreatesnegotiation&cancelsthatitthenapplicationmovetofirstreviewstep @sprint-7-US-183693  @TBExecution
+  @202585 @ValidateEXEuserrequestnegotiation&sendittos/rs/rsendstheresponsetograntor&grantoragaininitiatesthenegotiation&grantorcreatesnegotiation&cancelsthatitthenapplicationmovetofirstreviewstep @sprint-7-US-183693
   Scenario Outline: Validate EXE user request negotiation & send it to s/r, & s/r sends the response to grantor & grantor again initiates the negotiation & grantor creates negotiation & cancels that it, then application move to first review step
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -9921,7 +9921,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @202587 @ValidatePMuserrequestnegotiation&sendittos/r&s/rsendstheresponsetograntor&grantoragaininitiatesthenegotiation&grantorcreatesnegotiation&cancelsthatitthenapplicationmovetofirstreviewstep @sprint-7-US-183693 @TBExecution
+  @202587 @ValidatePMuserrequestnegotiation&sendittos/r&s/rsendstheresponsetograntor&grantoragaininitiatesthenegotiation&grantorcreatesnegotiation&cancelsthatitthenapplicationmovetofirstreviewstep @sprint-7-US-183693
   Scenario Outline: Validate PM  user request negotiation & send it to s/r, & s/r sends the response to grantor & grantor again initiates the negotiation & grantor creates negotiation & cancels that it, then application move to first review step
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -10022,7 +10022,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @202606 @ValidatePOusershouldabletoseetheApplicationNegotiationstatusiscancelledwhenuserCancelnegotiationfromtheapplicationafterclickingonRequestNegotiation @sprint-7-US-183693  @TBExecution
+  @202606 @ValidatePOusershouldabletoseetheApplicationNegotiationstatusiscancelledwhenuserCancelnegotiationfromtheapplicationafterclickingonRequestNegotiation @sprint-7-US-183693
   Scenario Outline: Validate PO user should able to see the Application Negotiation status is cancelled when user Cancel negotiation from the application after clicking on Request Negotiation
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
