@@ -821,7 +821,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @ch1 @79202 @deleteReviewersInSMERview @keerti
+  @ch1 @done @79202 @deleteReviewersInSMERview @keerti
   Scenario Outline:  To verify that,user able to delete Reviewers in SME review step in related log tab of Appliction phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
