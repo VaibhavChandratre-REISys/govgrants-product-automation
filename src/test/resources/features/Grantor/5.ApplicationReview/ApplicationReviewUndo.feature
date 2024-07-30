@@ -3267,10 +3267,11 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
+   And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
       | Program Application Form      | Checked           |
-    And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
       | Standard Assurances Form      | Checked           |
     When I click on "Send to Subrecipient" in the page details

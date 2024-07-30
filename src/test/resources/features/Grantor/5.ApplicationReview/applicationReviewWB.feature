@@ -720,7 +720,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    And I get the "Announcement EGMS ID"
+   And I get the "Announcement EGMS ID"
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -886,6 +886,12 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     #81349 #meenakshi
+   And I switch to tab number "1"
+   And I close the tab
+   And I switch to tab number "1"
+   And I close the tab
+   And I switch to tab number "1"
+   And I close the tab
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
@@ -6144,6 +6150,8 @@ Feature: Validate all scenarios in the Application Review without background
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
     When I perform quick search for "<Announcement Name>" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
+    And I wait for "2" seconds
+    And I navigate to "Funding Decision Memo" sub tab
     When I click on "Initiate Negotiation" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     Then I softly can see "Negotiations" sub tab at view detail page
 
@@ -13470,7 +13478,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                        | Application Name                                         |
       | {SavedValue:Automation Runtime Competitive Announcement} | {SavedValue:Automation Runtime Competitive Announcement} |
 
- @hit @236831  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
+ @236831  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
   Scenario Outline: Validate old user should not see the average weighted score column on application
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -14228,7 +14236,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
- @hit1 @225604  @sprint-11-US-203558 @komal @Allocation
+ @225604  @sprint-11-US-203558 @komal @Allocation
   Scenario Outline: PM User when negotiation is initiated from the review steps it must be mandatory for the user to select the "Budget udget Details " picklist value when the budgeted amount in any focus area is not equal to the Allocation amount of that FA for Customized review Step
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -14724,7 +14732,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @hit1 @274129  @sprint-10-US-320518 @hitesh
+ @274129  @sprint-10-US-320518 @hitesh
   Scenario Outline: Verify PM user can see validation on customized review step when Allocation amount is changed on Announcement(FA=YES & Allocation type=By Applicant & FA
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -16645,6 +16653,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I check "{SavedValue:AppEGMSID2}" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
+   And I wait for "2" seconds
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:AppEGMSID2}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:AppEGMSID2}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -16881,7 +16890,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
     #204106
-    Then I see confirmation box with body "Rejecting the FDM will update the 'Final Decision' for all applications in this FDM to 'Cancelled' and the system will not allow you to award any recommended applications in the FDM. Are you sure you wish to continue?" is displayed
+   Then I see confirmation box with quotes in body "Rejecting the FDM will update the 'Final Decision' for all applications in this FDM to 'Cancelled' and the system will not allow you to award any recommended applications in the FDM. Are you sure you wish to continue?" is displayed
     Then I softly see button "Continue" on confirmation pop-up
     Then I softly see button "Cancel" on confirmation pop-up
     And I click "Continue" on modal confirmation box
@@ -17244,6 +17253,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Reject" in the approval decision
+   And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Rejection of the FDM is not allowed because one or more applications in the FDM are undergoing negotiations. |
     #204098
@@ -17664,6 +17674,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+   And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
@@ -17702,10 +17713,11 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+   And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
@@ -18051,7 +18063,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
- @hit @236758 @236762  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
+ @236758 @236762  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
   Scenario Outline: Validate user change ownership of the Announcement then user should share the Reviews with the new owner, i.e all the assigned reviews should visible only to the new announcement owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -18872,6 +18884,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Assign" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I check "All" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
+   When I collapse nested table containing column value "{SavedValue:AppEGMSID}"
     When I expand nested table containing column value "{SavedValue:AppEGMSID1}"
     And I click on "Assign" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I check "All" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -20138,6 +20151,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
+    And I wait for "2" seconds
     And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
     And I pause execution for "3" seconds
@@ -21216,7 +21230,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @hit @220297 @Validatereviewer2canreassignAppreviewtasktoreviewer1onlyafternegotiationcompleteifreviewe1alreadyReviewcompletedforsameform @sprint-12-US-226646 @vaibhav @reassignment
+ @220297 @Validatereviewer2canreassignAppreviewtasktoreviewer1onlyafternegotiationcompleteifreviewe1alreadyReviewcompletedforsameform @sprint-12-US-226646 @vaibhav @reassignment
   Scenario Outline: Validate reviewer 2 can reassign App review task to reviewer 1 only after negotiation complete if reviewer 1 already 'Review completed' for same form
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -21392,7 +21406,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @hit @223618 @ValidateAnnownershouldabletoassignCustomizeAppformforreviewagainafternegotiationiscompletedevenifpreviouslyreviewer1Reviewcompletedforform @sprint-12-US-226646 @vaibhav @reassignment
+ @223618 @ValidateAnnownershouldabletoassignCustomizeAppformforreviewagainafternegotiationiscompletedevenifpreviouslyreviewer1Reviewcompletedforform @sprint-12-US-226646 @vaibhav @reassignment
   Scenario Outline: Validate Ann owner should able to assign (Customize) App form for review again after negotiation is completed even if previously reviewer 1 'Review completed' for form
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
