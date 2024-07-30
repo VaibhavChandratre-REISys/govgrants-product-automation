@@ -2886,9 +2886,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "5" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    And I wait for "3" seconds
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -2901,8 +2899,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -2915,9 +2912,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "5" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    And I wait for "4" seconds
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
@@ -2955,9 +2950,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "5" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    And I wait for "2" seconds
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Applications" tab

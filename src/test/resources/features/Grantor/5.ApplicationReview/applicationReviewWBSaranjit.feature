@@ -712,6 +712,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
@@ -756,8 +757,10 @@ Feature: Validate all scenarios in the Application Review without background
       | Section Order | Section Header  |
       | 1             | Automation Test |
     And I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
     And I wait for "3" seconds
     And I click on "Submit For Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
