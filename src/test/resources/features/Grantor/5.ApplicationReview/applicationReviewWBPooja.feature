@@ -4327,9 +4327,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Funding Decision Memo" sub tab
     And I wait for "3" seconds
     Then I see the following headers in table with id "---subAwardFromFDM:-:recommendedAppTableId---" :
-      | EGMS ID | Application Title | Subrecipient Organization | Grant | Score | Requested Budget | Recommended Budget | State Allocation | Recommend for Funding | Comments | Final Decision | Applicant Notified? |
+      | EGMS ID | Application Title | Subrecipient Organization | Grant | Score |  Recommended Budget | State Allocation | Recommend for Funding | Comments | Final Decision | Applicant Notified? |
     Then I see the following headers in table with id "---subAwardFromFDM:-:fdmNonRecommendedTableId---" :
-      | EGMS ID | Application Title | Subrecipient Organization | Grant | Score | Requested Budget | Recommended Budget | State Allocation | Recommend for Funding | Comments | Final Decision | Applicant Notified? |
+      | EGMS ID | Application Title | Subrecipient Organization | Grant | Score |  Recommended Budget | State Allocation | Recommend for Funding | Comments | Final Decision | Applicant Notified? |
     Examples:
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |

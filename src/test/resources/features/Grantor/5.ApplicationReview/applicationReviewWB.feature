@@ -10949,7 +10949,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-     And I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    And I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I get the "EGMS ID"
     When I navigate to "Applications" tab
@@ -11060,11 +11060,13 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "5" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -11076,7 +11078,9 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
+    And I wait for "2" seconds
     Then I softly can see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
@@ -11473,7 +11477,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @202807 @Validategrantorsendsrequestsnegotiation&s/rsenditbacktograntorbutthegrantordoesnotcompletethenegotiation&clickonBacktoCurrentReviewStepthanIwillbedirectedtothestepfromwhereuserstartednegotiation @sprint-7-US-183693 @TBExecution2
+  @202807 @Validategrantorsendsrequestsnegotiation&s/rsenditbacktograntorbutthegrantordoesnotcompletethenegotiation&clickonBacktoCurrentReviewStepthanIwillbedirectedtothestepfromwhereuserstartednegotiation @sprint-7-US-183693
   Scenario Outline: Validate grantor sends requests negotiation & s/r send it back to grantor but the grantor does not complete the negotiation  & click on "Back to Current Review Step" than I will be directed to the step from where user started negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -12942,7 +12946,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @203418 @ValidateFDusershouldabletoreassignsameformtootherFDuserwhoisalreadyreviewthatformorreviewissubmittedforthatformifnegotiationisdoneonsameapplication @sprint-12-US-226646  @reassignment @TBExecution2
+  @203418 @ValidateFDusershouldabletoreassignsameformtootherFDuserwhoisalreadyreviewthatformorreviewissubmittedforthatformifnegotiationisdoneonsameapplication @sprint-12-US-226646 @reassignment
   Scenario Outline: Validate FD user should able to reassign same form to other FD user who is already review that form or review is submitted for that form if negotiation is done on same application
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"

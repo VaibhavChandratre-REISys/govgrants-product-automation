@@ -1086,11 +1086,11 @@ Feature: Validate all scenarios in the Application Review without background
       | {SavedValue:FO Username} |
 #    When I expand nested table containing column value "<Application Name>"
     And I wait for "2" seconds
-    And I click on "Assign" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
-    And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
-    And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I close "Assign Reviewers" modal by clicking the top right x button
+    And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
+    When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I close "Assign Applications" modal by clicking the top right x button
     And I refresh the page
     And I pause execution for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
