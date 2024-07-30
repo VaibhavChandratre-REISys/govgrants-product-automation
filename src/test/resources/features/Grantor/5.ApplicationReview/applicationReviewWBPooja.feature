@@ -2994,7 +2994,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see the following messages in the page details contains:
       | Rejection of the FDM is not allowed because at least one application in the FDM is converted to award. |
     When I "Send to Owner" in the approval decision
-    And I wait for "5" seconds
+    And I wait for "10" seconds
     And I refresh the page
     And I wait for "5" seconds
     Then I softly see field "Status" as "Created"
