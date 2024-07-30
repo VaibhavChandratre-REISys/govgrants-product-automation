@@ -11060,10 +11060,11 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-    And I wait for "5" seconds
+    And I wait for "6" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "4" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status

@@ -4015,7 +4015,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter              | User |
       | {SavedValue:Automation Runtime Announcement} | Automation EXE user | EXE  |
 
-  @204088 @Sprint-08-US-202799  @TBExecution2
+  @204088 @Sprint-08-US-202799
   Scenario Outline: Validate PM user "Final Decision" should be present before the Applicant Notified column in recommended Non-recommended section on FDM
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
