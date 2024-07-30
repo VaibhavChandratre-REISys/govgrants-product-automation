@@ -1534,40 +1534,10 @@ Feature: Validate all scenarios of every modules flow
 
   @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantor" app as "dynamicUser" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I enter in modal "Grant_Creation4" values from "Award_Field_Values.xlsx"
-    And I click modal button "Continue"
-    And I enter in modal "Grant_Edition1" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I navigate to "Subawards" sub tab
-    When I click on "View" icon for "{SavedValue:Automation Runtime Execution Award}" inside flex table with id "---subAwardStandalone:-:subawardsTableId---"
-    And I get the "EGMS ID"
-    And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
-    When I get the "EGMS ID"
-    And I navigate to "Budget" sub tab
-    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    And I perform quick search for "{SavedValue:fundingAccount}" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
-    And I navigate to "Budget" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
-      | Title                           | Start Date | End Date |
-      | Automation Permanent Focus Area | 0          | 3650     |
-    And I refresh the page
-    And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Encumbrance |
-      | {SavedValue:fundingAccount} | 1000        |
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-      | Construction    | 1000         | 100        | 100            |
+    When I login to "As a Grantor" app as "FO" user
+    And I wait for "5" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    Then I softly see the following messages in the page details contains:
+      | Error                                         |
+      | As COI is disagreed, Review must be declined. |

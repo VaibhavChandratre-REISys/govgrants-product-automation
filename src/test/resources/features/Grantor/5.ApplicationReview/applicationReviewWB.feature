@@ -701,7 +701,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
- @hit @80256 @81349 @81348 @verifyStatusOfApplicationAtManagementReview @monu
+ @hit1 @80256 @81349 @81348 @verifyStatusOfApplicationAtManagementReview @monu
   Scenario Outline: validate status of application is Review Completed once review form is submitted for management review
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement for Application}" on announcement "{SavedValue:Automation Runtime Announcement for Application}" with properties "default"
@@ -5910,7 +5910,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            | Application Name                                             |
       | {SavedValue:Automation Runtime Announcement for Application} | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @hit @81358 @ValidateclickingInitiateNegotiationIconThenSystemNavigateOnNegotiationTab @vaibhav
+  @hit1 @81358 @ValidateclickingInitiateNegotiationIconThenSystemNavigateOnNegotiationTab @vaibhav
   Scenario Outline: Validate clicking Initiate Negotiation Icon Then System Navigate On Negotiation Tab
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -14228,7 +14228,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
- @hit @225604  @sprint-11-US-203558 @komal @Allocation
+ @hit1 @225604  @sprint-11-US-203558 @komal @Allocation
   Scenario Outline: PM User when negotiation is initiated from the review steps it must be mandatory for the user to select the "Budget udget Details " picklist value when the budgeted amount in any focus area is not equal to the Allocation amount of that FA for Customized review Step
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -14348,7 +14348,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @hit @313745  @sprint-10-US-320518 @hitesh
+  @313745  @sprint-10-US-320518 @hitesh
   Scenario Outline:Verify PM user should not see error when FDM is submitted for approval & it is get Approved if Recommended Budget Amount is not equal to Budgeted Amount for Non-Recommended section on FDM
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION_YES_FOCUS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "BUDGETCATEGORY_NO_FOCUSAREA"
@@ -14724,7 +14724,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @hit @274129  @sprint-10-US-320518 @hitesh
+ @hit1 @274129  @sprint-10-US-320518 @hitesh
   Scenario Outline: Verify PM user can see validation on customized review step when Allocation amount is changed on Announcement(FA=YES & Allocation type=By Applicant & FA
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -14769,6 +14769,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     And I click on "Save" in the page details
+   And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
@@ -16249,7 +16250,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter              | User |
       | {SavedValue:Automation Runtime Announcement} | Automation EXE user | EXE  |
 
- @hit @204099  @Sprint-08-US-202799 @vaibhav
+ @hit1 @204099  @Sprint-08-US-202799 @vaibhav
   Scenario Outline: Validate PO user 'Final Decision' status of all applications should be 'Cancelled' when user reject FDM while approval even if  previous applications are in 'Approved' 'Pending' state should be for Recommended Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -17701,6 +17702,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+   And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -18150,8 +18152,8 @@ Feature: Validate all scenarios in the Application Review without background
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    And I wait for "2" seconds
     And I "Approve" in the approval decision
     And I pause execution for "5" seconds
     And I click on "Publish" in the page details
@@ -20687,7 +20689,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @hit @223645 @ValidateAnnownercanseenewreviewerinreviewtableafterreviewerchangehisownership @sprint-12-US-226646 @vaibhav @reassignment
+ @223645 @ValidateAnnownercanseenewreviewerinreviewtableafterreviewerchangehisownership @sprint-12-US-226646 @vaibhav @reassignment
   Scenario Outline: Validate Ann owner can see new reviewer in review table after reviewer change his ownership
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"

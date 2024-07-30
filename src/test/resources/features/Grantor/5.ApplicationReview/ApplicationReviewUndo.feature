@@ -1,7 +1,7 @@
 @AppReview @applicationReviewUndo @applicationReviewAllocation @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE
 Feature: Validate all scenarios in the Application Review with Undo Feature
 
- @hit @286702 @286706 @284504 @286701  @Sprint-1-US-235657 @vaibhav @Undo
+ @hit1 @286702 @286706 @284504 @286701  @Sprint-1-US-235657 @vaibhav @Undo
   Scenario Outline: Validate SME Review Step Competitive Ann FA Yes user can successfully decline the review form after selecting I disagree option in COI section
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -96,7 +96,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @hit1 @334235 @286696 @ValidatePre-ScreenReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectionIdisagreeoptioninCOIsection @Sprint-1-US-235657 @vaibhav @Undo
+ @334235 @286696 @ValidatePre-ScreenReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectionIdisagreeoptioninCOIsection @Sprint-1-US-235657 @vaibhav @Undo
   Scenario Outline: Validate Pre-Screen Review Step Competitive Ann FA Yes user can successfully decline the review form after selecting I disagree option in COI section
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1466,7 +1466,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @hit @280394 @280395 @280398 @ValidateCompetitiveAnnFAYesassignedreviewercanseerowlevelundobuttononlyforthecompletedreviewonreviewstep @Sprint-26-US-282727 @vaibhav @Undo
+  @280394 @280395 @280398 @ValidateCompetitiveAnnFAYesassignedreviewercanseerowlevelundobuttononlyforthecompletedreviewonreviewstep @Sprint-26-US-282727 @vaibhav @Undo
   Scenario Outline: Validate Competitive Ann FA Yes assigned reviewer can see row-level undo button only for the completed review on review step
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1547,7 +1547,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @hit @280399 @ValidateSMEReviewStepCompetitiveAnnFAYesassignedreviewercannotseerowlevelundobuttoninreviewssectionandonthereviewdetailpagewhenthereviewisReviewincompleteorReviewisdeclinedonSMEreviewstep @Sprint-26-US-282727 @vaibhav @Undo
+ @280399 @ValidateSMEReviewStepCompetitiveAnnFAYesassignedreviewercannotseerowlevelundobuttoninreviewssectionandonthereviewdetailpagewhenthereviewisReviewincompleteorReviewisdeclinedonSMEreviewstep @Sprint-26-US-282727 @vaibhav @Undo
   Scenario Outline: Validate SME Review Step Competitive Ann FA Yes assigned reviewer cannot see row-level undo button in reviews section and on the review detail page when the review is Review incomplete or Review is declined on SME review step
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1734,7 +1734,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @hit @280659 @ValidatePreScreenReviewStepCompetitiveAnnFAYesanotherreviewerontheapplicationrecordcannotseerowlevelundobuttonforthecompletedreviewandonthereviewdetailpageonreviewstepwhenreviewresponsesharedisyes
+ @280659 @ValidatePreScreenReviewStepCompetitiveAnnFAYesanotherreviewerontheapplicationrecordcannotseerowlevelundobuttonforthecompletedreviewandonthereviewdetailpageonreviewstepwhenreviewresponsesharedisyes
   Scenario Outline: Validate Pre-Screen Review Step Competitive Ann FA Yes another reviewer on the application record cannot see row-level undo button for the completed review and on the review detail page on review step when review response shared is yes
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -3175,7 +3175,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
- @hit @280799 @ValidatecorrectscoreisupdatedfortheapplicationontheRecommendedapplicationsectiononFDMafterApplicationpromotedtoFDMafternegotiation @Sprint-25-US-227292 @hitesh @Undo
+ @hit1 @280799 @ValidatecorrectscoreisupdatedfortheapplicationontheRecommendedapplicationsectiononFDMafterApplicationpromotedtoFDMafternegotiation @Sprint-25-US-227292 @hitesh @Undo
   Scenario: Validate correct score is updated for the application on the Recommended application section on FDM after Application promoted to FDM after negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -3248,6 +3248,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
+    And I wait for "2" seconds
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     Then I can see row level action button "Undo" against "Automation PM" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I click on "Undo" icon for "Automation PM" inside flex table with id "---applicationReview:-:appreviewsTableId---"

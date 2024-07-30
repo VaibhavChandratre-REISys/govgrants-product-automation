@@ -721,7 +721,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
- @hit1 @78328 @validatingComplianceReviewStepForm @keerti
+ @78328 @validatingComplianceReviewStepForm @keerti
   Scenario Outline: To verify user able to setup the Due Days for the review & set field "Required" :Checked in prescreen review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -758,7 +758,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
- @hit1 @79201 @79204 @numberOfreviewersAndDeleteReviewers @keerti
+ @79201 @79204 @numberOfreviewersAndDeleteReviewers @keerti
   Scenario Outline: To verify user,able to set the maximum number of reviewers for each application in prescreening review step
   | To verify that,user able to delete Reviewers in prescreening review step in related log tab of Appliction phase
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -787,7 +787,8 @@ Feature: Validate all scenarios in the Application Review
       | Saved Successfully! |
     Then I softly see value "{SavedValue:FO Username}" for title "Reviewer" inside table "---applicationReview:-:reviewersTableId---"
     And I click on "Remove" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    Then I softly see the following messages in the page details contains:
+    And I wait for "2" seconds
+   Then I softly see the following messages in the page details contains:
       | Record removed successfully. |
     Then I softly do not see value "{SavedValue:FO Username}" for title "Reviewers" inside table "---applicationReview:-:reviewersTableId---"
     Examples:
@@ -1430,7 +1431,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
- @hit1 @78324 @ValidatingProgramReviewStepForm @meenakshi
+ @78324 @ValidatingProgramReviewStepForm @meenakshi
   Scenario Outline: To verify user able to setup the Due Days  for the review & set field "Required" :Checked in program review form in SME review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1460,7 +1461,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
- @hit1 @78326 @ValidatingFiscalReviewStepForm @meenakshi
+ @78326 @ValidatingFiscalReviewStepForm @meenakshi
   Scenario Outline: To verify user able to setup the Due Day for the review & set field "Required" :Checked in fiscal review form in SME review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1490,7 +1491,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
- @hit1 @79195 @ValidatingManagenmentReviewStepForm @meenakshi
+ @79195 @ValidatingManagenmentReviewStepForm @meenakshi
   Scenario Outline: To verify user able to setup the Due Days for the review & set field "Required" :Checked in management review form in management review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1710,7 +1711,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
- @hit1 @78329 @ValidatingSMEReviewStepForm @meenakshi
+ @78329 @ValidatingSMEReviewStepForm @meenakshi
   Scenario Outline: To verify user able to setup the Due Days for the review & set field "Required" :Unchecked  in fiscal review form in SME review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1740,7 +1741,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
- @hit1 @38460 @ValidatingAddReviewerPreScreenReviewStepForm @meenakshi
+ @38460 @ValidatingAddReviewerPreScreenReviewStepForm @meenakshi
   Scenario Outline: To verify that,user able to add Reviewers in prescreening review step in related log tab of Appliction phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
