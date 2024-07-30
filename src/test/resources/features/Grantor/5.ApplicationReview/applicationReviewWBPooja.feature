@@ -2818,7 +2818,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter              | User |
       | {SavedValue:Automation Runtime Announcement} | Automation EXE user | EXE  |
 
-  @204097  @Sprint-08-US-202799 @TBExecution1
+  @204097 @Sprint-08-US-202799 @TBExecution1
   Scenario Outline: Validate EXE user should see validation message on reject button if user tries to reject the FDM while approval but approver should still continue to 'Send back' 'Approve' when FDM has one application which is converted to award
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2912,9 +2912,8 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "5" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    And I refresh the page
-    And I wait for "4" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "4" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status

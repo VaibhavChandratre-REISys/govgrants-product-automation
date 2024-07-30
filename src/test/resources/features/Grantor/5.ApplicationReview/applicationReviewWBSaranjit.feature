@@ -713,6 +713,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
+    When I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I save the field labeled "Announcement Name" as "Automation Runtime FDM Announcement"
     When I navigate to "Financials" sub tab
