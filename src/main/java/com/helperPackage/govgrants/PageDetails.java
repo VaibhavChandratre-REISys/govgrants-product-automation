@@ -71,6 +71,7 @@ public final class PageDetails {
         try {
             I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -800);
             I.amPerforming().waitFor().makeThreadSleep(2000);
+            I.amPerforming().scroll().toMoveToElement(topRightButton);
             try {
                 I.amPerforming().waitFor().ElementToBeVisible(topRightButton);
                 try {

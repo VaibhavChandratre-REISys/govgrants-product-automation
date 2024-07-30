@@ -700,7 +700,6 @@ Feature: Validate all scenarios in the Application Review without background
 
   @202613 @ValidatenewassignedreviewerPOcanreviewthenewlyaddedreviewstepandaddedcustomizeformonAnn @sprint-6-US-201906 @reassignment @TBExecution1
   Scenario Outline: Validate new assigned reviewer PO can review the newly added review step and added customize form on Ann
-    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
