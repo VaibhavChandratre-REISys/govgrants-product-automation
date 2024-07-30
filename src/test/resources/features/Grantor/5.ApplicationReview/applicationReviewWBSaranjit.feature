@@ -744,6 +744,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---announcement:-:preScreenReviewFormTableId---" by clicking "New" :
       | Step Order | Step Name       | Description |
@@ -757,7 +758,6 @@ Feature: Validate all scenarios in the Application Review without background
       | Section Order | Section Header  |
       | 1             | Automation Test |
     And I close "Review Form" modal by clicking the top right x button
-    And I refresh the page
     And I wait for "3" seconds
     And I click on "Submit For Approval" in the page details
     Then I see field "Status" as "Submitted for Approval"
