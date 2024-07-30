@@ -8059,6 +8059,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Form Name                | Needs Negotiation |
       | Program Application Form | Checked           |
     When I click on "Send to Subrecipient" in the page details
+    And I wait for "4" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
