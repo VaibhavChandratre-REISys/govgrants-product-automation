@@ -2423,6 +2423,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "5" seconds
     When I enter value "Negotiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
+    And I pause execution for "3" seconds
     And I save the field containing "Due Date" as "NegotiationDate"
     Then I softly see field "Application Sections for Negotiation" as "Budget: Budget Details"
     Then I softly see field "Details" as "Negotiation Initiated"
@@ -8410,9 +8411,6 @@ Feature: Validate all scenarios in the Application Review without background
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Submit" in page detail
     Then I cannot see top right button "Decline" in page detail
-#    Then I softly cannot see top right button "Edit" in page detail
-#    Then I softly cannot see top right button "Submit" in page detail
-#    Then I softly cannot see top right button "Decline" in page detail
 
   @134417 @ValidateannouncementownercannotseeRequestNegotiationbuttononanyapplicationwherereviewisinitiated @sprint-1 @vaibhav
   Scenario: Validate announcement owner cannot see Request Negotiation button on any application where review is initiated
@@ -18831,7 +18829,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @ch1 @220028  @sprint-12-US-226646 @vaibhav @reassignment
+  @ch1 @220028 @sprint-12-US-226646 @vaibhav @reassignment
   Scenario Outline: Validate fail email should be generated for both App if reviewer 1 tries to reassign App review form to reviewer 2 in combination of status of application form is Review Completed
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -18867,15 +18865,20 @@ Feature: Validate all scenarios in the Application Review without background
       | Reviewer                 |
       | {SavedValue:PM Username} |
       | Automation PM1           |
+    And I pause execution for "4" seconds
+    And I refresh the page
     When I expand nested table containing column value "{SavedValue:AppEGMSID}"
     And I click on "Assign" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I check "All" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    And I pause execution for "2" seconds
     When I close "Assign Reviewers" modal by clicking the top right x button
     When I collapse nested table containing column value "{SavedValue:AppEGMSID}"
     When I expand nested table containing column value "{SavedValue:AppEGMSID1}"
     And I click on "Assign" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I check "All" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
-    And I pause execution for "5" seconds
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    And I pause execution for "2" seconds
     When I close "Assign Reviewers" modal by clicking the top right x button
     And I pause execution for "5" seconds
     Then I softly see value "2" for title "# of Reviews Assigned" against the value "Automation PM1" inside table "---applicationReview:-:reviewersTableId---"
@@ -18894,6 +18897,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "5" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     And I navigate to "Applications" tab
@@ -18906,6 +18910,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "5" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -18953,10 +18958,11 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
     Then I softly see value "2" for title "# of Reviews Assigned" against the value "Automation PM1" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "2" for title "# of Reviews Assigned" against the value "{SavedValue:PM Username}" inside table "---applicationReview:-:reviewersTableId---"
-#    When I expand nested table containing column value "{SavedValue:AppEGMSID1}"
+    When I expand nested table containing column value "{SavedValue:AppEGMSID1}"
     And I hovering mouse on table id "---applicationReview:-:reviewFormsTableId---" with table row level icon "Automation PM: Review Completed - Recommended" for column value "Automation PM: Review Completed - Recommended"
     Then I softly see "Automation PM: Review Completed - Recommended" shown as help text
-#    When I expand nested table containing column value "{SavedValue:AppEGMSID}"
+    And I refresh the page
+    When I expand nested table containing column value "{SavedValue:AppEGMSID}"
     And I hovering mouse on table id "---applicationReview:-:reviewFormsTableId---" with table row level icon "Automation PM: Review Completed - Recommended" for column value "Automation PM: Review Completed - Recommended"
     Then I softly see "Automation PM: Review Completed - Recommended" shown as help text
 
