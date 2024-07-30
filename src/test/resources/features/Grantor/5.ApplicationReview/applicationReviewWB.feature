@@ -7602,13 +7602,6 @@ Feature: Validate all scenarios in the Application Review without background
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edit_2" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-#    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:NegotiationFormsTableId---"
-#    And I enter value "Checked" into field "AllowEdit__c"
-#    And I click on top right button "Save" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
-#    When I click on "Form Name" column header inside table with id "---negotiation:-:NegotiationFormsTableId---"
-#    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:NegotiationFormsTableId---"
-#    And I enter value "Checked" into field "AllowEdit__c"
-#    And I click on top right button "Save" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
     And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
       | Form Name                | Needs Negotiation |
       | Standard Assurances Form | Checked           |
@@ -7635,6 +7628,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
+    And I wait for "5" seconds
     And I switch to tab number "1"
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -7645,7 +7639,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I switch to tab number "1"
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    And I click on "Back" in the page details
     And I switch to parent tab
     When I navigate to "Overview" sub tab
     Then I see "Project Information" page block displayed
@@ -7912,7 +7905,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details :
       | Form saved successfully. |
-    #    And I click on "Back" in the page detils
     And I close the tab
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I switch to tab number "1"
@@ -7921,7 +7913,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "2" seconds
     Then I softly see the following messages in the page details :
       | Form saved successfully. |
-       #    And I click on "Back" in the page detils
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Negotiations" sub tab
