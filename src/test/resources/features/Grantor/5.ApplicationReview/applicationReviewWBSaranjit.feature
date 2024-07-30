@@ -756,6 +756,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Section Order | Section Header  |
       | 1             | Automation Test |
     And I close "Review Form" modal by clicking the top right x button
+    And I wait for "3" seconds
     And I click on "Submit For Approval" in the page details
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
