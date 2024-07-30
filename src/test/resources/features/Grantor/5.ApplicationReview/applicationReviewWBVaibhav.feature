@@ -1,7 +1,7 @@
 @AppReview @applicationReviewWBTest @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE
 Feature: Validate all scenarios in the Application Review without background
 
-  @202616 @ValidatenewassignedreviewerEXEcanreviewthenewlyaddedreviewstepandaddedcustomizeformonAnn @sprint-12-US-226646  @reassignment @TBExecution1
+  @202616 @ValidatenewassignedreviewerEXEcanreviewthenewlyaddedreviewstepandaddedcustomizeformonAnn @sprint-12-US-226646 @reassignment
   Scenario Outline: Validate new assigned reviewer EXE can review the newly added review step and added customize form on Ann
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

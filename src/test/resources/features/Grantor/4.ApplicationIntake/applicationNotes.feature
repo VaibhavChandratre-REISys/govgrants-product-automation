@@ -1,7 +1,7 @@
 @applicationNotes @grantor-regression @grantor-parallel-regression @app @regression @ApplicationExecution-reg
 Feature: Application Intake scenarios without background
 
-  @228678 @ValidatePMPOEXEADMINFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinSubmittograntorstate @Sprint-12-US-226970 @Notes @TBExecution2
+  @228678 @ValidatePMPOEXEADMINFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinSubmittograntorstate @Sprint-12-US-226970 @Notes
   Scenario: Validate PM PO EXE ADMIN FD user should be able to Add notes but Edit Delete their own notes on application is in 'Submit to grantor' state
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -758,7 +758,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
 
-  @228930 @ValidatePMPOEXEusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinCompleteNegotiationstate @Sprint-12-US-226970 @Notes @TBExecution2
+  @228930 @ValidatePMPOEXEusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinCompleteNegotiationstate @Sprint-12-US-226970 @Notes
   Scenario: Validate PM PO EXE user should be able to Add notes but Edit Delete their own notes on application is in 'Complete Negotiation' state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -1780,7 +1780,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly do not see value "Notes Record Of SPA Test User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
 
-  @219084 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonapplicationcreatedbySPIuserwhenitsstatusisnegotiationcompleted @Sprint-09-US-204865 @Notes @TBExecution2
+  @219084 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonapplicationcreatedbySPIuserwhenitsstatusisnegotiationcompleted @Sprint-09-US-204865 @Notes
   Scenario: Validate SPA user cant add notes but edit/delete his notes on application created by SPI user when its status is negotiation completed
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1912,7 +1912,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly do not see value "Notes Record Of SPA Test User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
 
-  @218737 @218708 @218740 @ValidateSPIusercantaddnotesbuteditdeletehisnotesonhisapplicationinreviewinitiatedStatus @Sprint-09-US-204865 @Notes @TBExecution2
+  @218737 @218708 @218740 @ValidateSPIusercantaddnotesbuteditdeletehisnotesonhisapplicationinreviewinitiatedStatus @Sprint-09-US-204865 @Notes
   Scenario: Validate SPI user cant add notes but edit delete his notes on his application in review initiated Status
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal
