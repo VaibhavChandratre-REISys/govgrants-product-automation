@@ -340,6 +340,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "4" seconds
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     And I pause execution for "4" seconds
+    #Bug452382
     Then I softly see the following messages in the page details contains:
       | Cannot promote <Announcement Name> because it does not meet the minimum review requirements: |
       | Management Review has 0 out of 1 complete reviews                                            |
@@ -695,7 +696,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:rejectedApplicationTableId---"
     When I click on top right button "Notify Selected Applicants" in flex table with id "---applicationReview:-:rejectedApplicationTableId---"
     And I pause execution for "5" seconds
-    #issue at reject application step
+    #issue at reject application step #Bug452271
     Then I softly see the following messages in the page details contains:
       | Rejection Notification has been initiated for selected applications. |
 
@@ -2648,7 +2649,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @ch1 @80265 @ValidateSendBackMessageForFDM @monu
+  @ch1 @done @80265 @ValidateSendBackMessageForFDM @monu
   Scenario Outline: Validate user is able to see sucess message for send back approval action
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2886,6 +2887,9 @@ Feature: Validate all scenarios in the Application Review without background
     #As this msg is coming at same time of page refresh
 #    Then I softly see the following messages in the page details contains:
 #      | Successfully sent to Owner. It may take few minutes to process record |
+    And I pause execution for "20" seconds
+    And I refresh the page
+    #Bug452259
     Then I softly see field "Status" as "Created"
 
     Examples:
@@ -4880,7 +4884,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @ch1 @144051 @VerifyErrorMessageAtApproverSectionWhileSkippingForFDM-RnRFunctnality @monu
+  @ch1 @done @144051 @VerifyErrorMessageAtApproverSectionWhileSkippingForFDM-RnRFunctnality @monu
   Scenario Outline: Verify the validation displayed on FDM when record is submitted for approval without assigning approvers.
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -5320,9 +5324,11 @@ Feature: Validate all scenarios in the Application Review without background
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                     | FDM    |
       | {SavedValue:FO Username} | Step 1 |
-    And I pause execution for "2" seconds
-    Then I softly see "You cannot specify the same user for multiple steps for FDM" inside flex table with id "GrantorReviewStepRolesandResponsibilities"
+    Then I softly see the following messages in the page details contains:
+      | You cannot specify the same user for multiple steps for FDM |
+    And I refresh the page
     #144057
+    When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                     | FDM    |
       | {SavedValue:PM Username} | Step 2 |
@@ -8401,9 +8407,12 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "6" seconds
     And I refresh the page
-    Then I softly cannot see top right button "Edit" in page detail
-    Then I softly cannot see top right button "Submit" in page detail
-    Then I softly cannot see top right button "Decline" in page detail
+    Then I cannot see top right button "Edit" in page detail
+    Then I cannot see top right button "Submit" in page detail
+    Then I cannot see top right button "Decline" in page detail
+#    Then I softly cannot see top right button "Edit" in page detail
+#    Then I softly cannot see top right button "Submit" in page detail
+#    Then I softly cannot see top right button "Decline" in page detail
 
   @134417 @ValidateannouncementownercannotseeRequestNegotiationbuttononanyapplicationwherereviewisinitiated @sprint-1 @vaibhav
   Scenario: Validate announcement owner cannot see Request Negotiation button on any application where review is initiated
@@ -18862,6 +18871,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Assign" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I check "All" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I close "Assign Reviewers" modal by clicking the top right x button
+    When I collapse nested table containing column value "{SavedValue:AppEGMSID}"
     When I expand nested table containing column value "{SavedValue:AppEGMSID1}"
     And I click on "Assign" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I check "All" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
