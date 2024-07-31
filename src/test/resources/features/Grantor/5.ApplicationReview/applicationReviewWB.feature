@@ -157,7 +157,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            |
       | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @ch1 @79978 @79977 @79979 @verifingPromoteToNextAndFDM @keerti
+  @ch1 @done @79978 @79977 @79979 @verifingPromoteToNextAndFDM @keerti
   Scenario Outline: To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of prescreen review review step in Application phase
   | To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of SME review step in Application phase
   | To validate system generated error message ,for user will not be able to Promote to FDM for application when the reviewer decision is still pending for the steps which are Mandatory of management review review step in Application phase
@@ -488,7 +488,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            |
       | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @ch1 @38857 @80254 @80255 @80508 @verifySuccessMessageForNotifyApplication @monu
+  @ch1 @done @38857 @80254 @80255 @80508 @verifySuccessMessageForNotifyApplication @monu
   Scenario Outline: To validate system generated success message ,after notifying applicants for Rejected Application
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -5213,6 +5213,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "5" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -19204,6 +19205,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
+    And I pause execution for "3" seconds
     Then I softly see value "Resubmitted" for title "Decision Status" against the value "{SavedValue:EGMSID}" inside table "---applicationReview:-:reSubmittedAppTableId---"
     #Need to check the assertion Automation Runtime FDM Announcement126893
     Then I softly see value "0" for title "# of Reviews Assigned" against the value "Automation PM1" inside table "---applicationReview:-:reviewersTableId---"

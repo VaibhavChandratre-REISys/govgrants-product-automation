@@ -3563,6 +3563,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
