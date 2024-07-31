@@ -5327,7 +5327,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Name                     | FDM    |
       | {SavedValue:FO Username} | Step 1 |
     Then I softly see the following messages in the page details contains:
-      | You cannot specify the same user for multiple steps for FDM |
+      | You cannot specify the same step for multiple users for FDM. |
     And I refresh the page
     #144057
     When I navigate to "Responsibilities" sub tab
@@ -5335,6 +5335,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Name                     | FDM    |
       | {SavedValue:PM Username} | Step 2 |
     And I pause execution for "2" seconds
+    #Bug452713
     Then I softly see the following messages in the page details :
       | You cannot specify the same step for multiple users for FDM. |
     Examples:
@@ -19216,14 +19217,19 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Assign" icon for "{SavedValue:PM Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I wait for "3" seconds
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I wait for "3" seconds
+    When I click modal button "Close"
+    And I refresh the page
     And I click on "Assign" icon for "Automation PM1" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I wait for "3" seconds
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I wait for "3" seconds
+    When I click modal button "Close"
+    And I refresh the page
     And I click on "Assign" icon for "Automation SME" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -19231,7 +19237,6 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I pause execution for "5" seconds
     When I click modal button "Close"
-    And I pause execution for "2" seconds
     And I refresh the page
     #Need to check the assertion Automation Runtime FDM Announcement126893
     Then I softly see value "2" for title "# of Reviews Assigned" against the value "Automation PM1" inside table "---applicationReview:-:reviewersTableId---"
