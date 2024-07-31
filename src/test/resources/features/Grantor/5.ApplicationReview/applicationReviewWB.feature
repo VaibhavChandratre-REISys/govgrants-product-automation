@@ -2399,7 +2399,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @ch1 @81573 @VerifyEnteringOfNegotiationRequestInformation @monu
+  @ch1 @done @81573 @VerifyEnteringOfNegotiationRequestInformation @monu
   Scenario Outline: Validate  user is able to enter information of negotiation request under negotiation sub tab
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -8348,7 +8348,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see status in Progress-bar is "Review Initiated" and is "dark blue"
     Then I softly see field "Status" as "Review Initiated"
 
-  @ch1 @192539 @ValidatereviewersassignedtotheapplicationwithinthereviewstepthatNegotiationhasbeenrequestedontheapplication @sprint-1 @vaibhav
+  @ch1 @done @192539 @ValidatereviewersassignedtotheapplicationwithinthereviewstepthatNegotiationhasbeenrequestedontheapplication @sprint-1 @vaibhav
   Scenario: Validate reviewers assigned to the application within the review step, that a Negotiation has been requested on the application
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -18830,7 +18830,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @ch1 @220028 @sprint-12-US-226646 @vaibhav @reassignment
+  @ch1 @done @220028 @sprint-12-US-226646 @vaibhav @reassignment
   Scenario Outline: Validate fail email should be generated for both App if reviewer 1 tries to reassign App review form to reviewer 2 in combination of status of application form is Review Completed
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
