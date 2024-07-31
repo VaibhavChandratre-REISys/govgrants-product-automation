@@ -16724,7 +16724,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PO user | PO   |
 
- @hit @204101 @204106  @Sprint-08-US-202799 @vaibhav @PoojaNewApplicationReviewWB
+ @204101 @204106  @Sprint-08-US-202799 @vaibhav @PoojaNewApplicationReviewWB
   Scenario Outline: Validate Announcement owner as PM user should see notification in yopmail for Rejected FDM when FDM is rejected by approver
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -16929,7 +16929,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
- @hit @204105 @204098 @Sprint-08-US-202799 @vaibhav @PoojaNewApplicationReviewWB
+ @204105 @204098 @Sprint-08-US-202799 @vaibhav @PoojaNewApplicationReviewWB
   Scenario Outline: Validate EXE user should see Validation message if user try to Reject the FDM when any recommended application's status is Negotiation Initiated and final decision status is Approved
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -20196,7 +20196,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I wait for "2" seconds
-   When I close "Assign Reviewers" modal by clicking the top right x button
+   And I click modal button "Close"
     And I pause execution for "5" seconds
     Then I softly see value "1" for title "# of Reviews Assigned" against the value "Automation FD" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "2" for title "# of Reviews Assigned" against the value "Automation FD1" inside table "---applicationReview:-:reviewersTableId---"
