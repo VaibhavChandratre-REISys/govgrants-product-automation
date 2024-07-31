@@ -18883,11 +18883,13 @@ Feature: Validate all scenarios in the Application Review without background
     When I expand nested table containing column value "{SavedValue:AppEGMSID}"
     And I click on "Assign" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I check "All" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    And I wait for "2" seconds
     When I close "Assign Reviewers" modal by clicking the top right x button
-   When I collapse nested table containing column value "{SavedValue:AppEGMSID}"
+    When I collapse nested table containing column value "{SavedValue:AppEGMSID}"
     When I expand nested table containing column value "{SavedValue:AppEGMSID1}"
     And I click on "Assign" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I check "All" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    And I wait for "2" seconds
     When I close "Assign Reviewers" modal by clicking the top right x button
     And I refresh the page
     And I pause execution for "5" seconds
