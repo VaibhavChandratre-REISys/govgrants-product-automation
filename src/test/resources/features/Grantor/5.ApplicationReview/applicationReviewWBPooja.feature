@@ -2997,6 +2997,11 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "10" seconds
     And I refresh the page
     And I wait for "5" seconds
+    And I navigate to "Applications" tab
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I click toggle button to select "All Funding Decision Memos (FDM)"
+    When I perform quick search for "<Announcement Name>" in "---subAwardFromFDM:-:fdmTableId---" panel
+    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     Then I softly see field "Status" as "Created"
 
     Examples:
