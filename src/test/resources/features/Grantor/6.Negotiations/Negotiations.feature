@@ -307,13 +307,13 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     And I logout
     And I wait for "5" seconds
-#    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-#    And I pause execution for "180" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: An Application Negotiation Request forApplication {SavedValue:EGMSID} has been Requested
-#      """
+    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I pause execution for "180" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: An Application Negotiation Request forApplication {SavedValue:EGMSID} has been Requested
+      """
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1671,8 +1671,9 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Forms and Files" sub tab
-    And I wait for "5" seconds
+    And I wait for "2" seconds
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
@@ -1681,7 +1682,6 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
-    And I refresh the page
     And I wait for "3" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I switch to tab number "1"
@@ -2129,8 +2129,9 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Forms and Files" sub tab
-    And I wait for "5" seconds
+    And I wait for "2" seconds
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"

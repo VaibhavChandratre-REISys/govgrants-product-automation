@@ -339,7 +339,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see "check" symbol against the value "Standard Assurances Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
     Then I softly see "check" symbol against the value "Program Application Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
 
-  @165879 @ValidateEXEUserIsShowAllowEditButton @sprint-3 @TBExecution
+  @165879 @ValidateEXEUserIsShowAllowEditButton @sprint-3
   Scenario: Validate EXE User Is Show Allow Edit Button
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
@@ -501,7 +501,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "4" seconds
     Then I softly see value "$2,000.00" for title "Budget" against the value "Construction" inside table "---applicationReview:-:budgetTableId---"
 
-  @189567 @sprint-23-US-273843 @TBExecution
+  @189567 @sprint-23-US-273843
   Scenario: Validate the subrecipient should be able to provide Negotiation  Summary comments in the Negotiations tab before re-submitting  pre-application to the grantor in Negotiation Details under Negotiation Tab
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
