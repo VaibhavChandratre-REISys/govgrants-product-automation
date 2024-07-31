@@ -13252,7 +13252,7 @@ Feature: Validate all scenarios in the Application Review without background
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
 
- @hit @236829 @236830  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
+ @236829 @236830  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
   Scenario Outline: Validate user see the remove review record access from the old users
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -20152,7 +20152,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I wait for "2" seconds
-    And I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
     And I pause execution for "3" seconds
     #page is not editting facing blocker Automation Runtime FDM Announcement53972
