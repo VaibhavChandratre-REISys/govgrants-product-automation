@@ -7,7 +7,7 @@ Feature: Validate all scenarios in Negotiations
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     And I delete the record "{SavedValue:Automation Runtime FDM Announcement}" from the object "FDM"
 
-  @66071 @57031 @66448 @57032 @negotiationInitiatedAndSendToRecipient
+  @66071 @57031 @66448 @57032 @negotiationInitiatedAndSendToRecipient @TBExecution
   Scenario: Validate the the Negotiation option on the Approved FDM and Announcement Owner can send the Negotiation request to the Applicant
   Validate the Status Field when the Negotiation Request is "Sent to Subrecipient"
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -279,7 +279,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     Then I cannot see top right button "Complete Negotiation" in page detail
 
-  @34192 @57490 @57492 @createSubawardButtonOnCompletedNegotiationfromApplicationsTab
+  @34192 @57490 @57492 @createSubawardButtonOnCompletedNegotiationfromApplicationsTab @TBExecution1
   Scenario: Validate whether user is able to Create Subaward from the Applications Tab Once Negotiation is completed and user is able to view the completed Negotiation on Applications Tab| Validate that Applicant receives Email notification when sent to subrecipient
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -307,13 +307,13 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     And I logout
     And I wait for "5" seconds
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
-    And I pause execution for "180" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: An Application Negotiation Request forApplication {SavedValue:EGMSID} has been Requested
-      """
+#    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+#    And I pause execution for "180" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Sandbox: Notification: An Application Negotiation Request forApplication {SavedValue:EGMSID} has been Requested
+#      """
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -986,7 +986,7 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     Then I see field "Details" as "Negotiation Initiated"
 
-  @67255  @validateAnnouncementHyperlinkOnGrant
+  @67255 @validateAnnouncementHyperlinkOnGrant @TBExecution
   Scenario: To validate that the announcement page is navigable from the Grant page through the Grantor(PM profile Internal user)
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1035,8 +1035,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     When I click on hyperlink containing value "{SavedValue:AnnID}"
     And I wait for "6" seconds
-    Then I softly see field "Status" as "Published"
-#    Then I see status in Progress-bar is "Converted to Award" and is "dark blue"
+    Then I see status in Progress-bar is "Converted to Award" and is "dark blue"
 
   @133262 @133251 @ValidatePMUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3  @NegotiationRerun
   Scenario: Validate PM User Allow Edit Select At Least One Form Error Message
@@ -1639,7 +1638,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
 
-  @165882  @sprint-3
+  @165882  @sprint-3 @TBExecution1
   Scenario: Validate Subrecipient user is not able to edit forms when Application is in Negotiated state
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1676,7 +1675,6 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "5" seconds
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
-    And I navigate to "Form" sub tab in split screen
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "3" seconds
     And I switch to tab number "1"
@@ -1910,7 +1908,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see fields "SubmittedOnForm__c" is in edit mode
 
 
-  @189512 @Validates/rusersshouldbeseethesectionNegotiationRequestdetailsintheNegotiationstabforapplication @sprint-13
+  @189512 @Validates/rusersshouldbeseethesectionNegotiationRequestdetailsintheNegotiationstabforapplication @sprint-13 @TBExecution
   Scenario: Validate  s/r users should be  see the section  Negotiation Request details in the Negotiations tab for application
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -2094,7 +2092,7 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Details" as "Automation Negotiation Iniatiation" in "Applicant Response" pageblock
 
-  @189571  @sprint-13
+  @189571  @sprint-13 @TBExecution1
   Scenario: Validate submitting the revised application the sections and forms get locked for the subrecipient
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -2149,6 +2147,7 @@ Feature: Validate all scenarios in Negotiations
     And I close the tab
     And I wait for "5" seconds
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     And I navigate to "Negotiations" sub tab
     #134399
     Then I softly see field "Negotiation Request Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock

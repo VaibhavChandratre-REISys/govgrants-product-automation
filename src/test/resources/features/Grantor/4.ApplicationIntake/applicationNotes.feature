@@ -983,7 +983,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly do not see value "Notes Record Of SPA1 User" for title "Title" inside table "---applicationIntake:-:subrecipientApplicationNotesTableId---"
 
-  @218713 @218731 @218712 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonhisapplicationinRejectedStatus @Sprint-09-US-204865 @Notes @TBE
+  @218713 @218731 @218712 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonhisapplicationinRejectedStatus @Sprint-09-US-204865 @Notes
   Scenario: Validate SPA user cant add notes but edit delete his notes on his application in Rejected Status
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal
