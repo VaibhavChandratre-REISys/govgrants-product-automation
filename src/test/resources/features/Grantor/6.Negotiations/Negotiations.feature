@@ -7,7 +7,7 @@ Feature: Validate all scenarios in Negotiations
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     And I delete the record "{SavedValue:Automation Runtime FDM Announcement}" from the object "FDM"
 
-  @66071 @57031 @66448 @57032 @negotiationInitiatedAndSendToRecipient @TBExecution
+  @66071 @57031 @66448 @57032 @negotiationInitiatedAndSendToRecipient
   Scenario: Validate the the Negotiation option on the Approved FDM and Announcement Owner can send the Negotiation request to the Applicant
   Validate the Status Field when the Negotiation Request is "Sent to Subrecipient"
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -279,7 +279,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     Then I cannot see top right button "Complete Negotiation" in page detail
 
-  @34192 @57490 @57492 @createSubawardButtonOnCompletedNegotiationfromApplicationsTab @TBExecution1
+  @34192 @57490 @57492 @createSubawardButtonOnCompletedNegotiationfromApplicationsTab
   Scenario: Validate whether user is able to Create Subaward from the Applications Tab Once Negotiation is completed and user is able to view the completed Negotiation on Applications Tab| Validate that Applicant receives Email notification when sent to subrecipient
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -986,7 +986,7 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     Then I see field "Details" as "Negotiation Initiated"
 
-  @67255 @validateAnnouncementHyperlinkOnGrant @TBExecution
+  @67255 @validateAnnouncementHyperlinkOnGrant
   Scenario: To validate that the announcement page is navigable from the Grant page through the Grantor(PM profile Internal user)
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1688,7 +1688,6 @@ Feature: Validate all scenarios in Negotiations
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I close the tab
-    And I refresh the page
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1908,7 +1907,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see fields "SubmittedOnForm__c" is in edit mode
 
 
-  @189512 @Validates/rusersshouldbeseethesectionNegotiationRequestdetailsintheNegotiationstabforapplication @sprint-13 @TBExecution
+  @189512 @Validates/rusersshouldbeseethesectionNegotiationRequestdetailsintheNegotiationstabforapplication @sprint-13
   Scenario: Validate  s/r users should be  see the section  Negotiation Request details in the Negotiations tab for application
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -2147,7 +2146,7 @@ Feature: Validate all scenarios in Negotiations
     And I close the tab
     And I wait for "5" seconds
     When I click on "Submit to Grantor" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I navigate to "Negotiations" sub tab
     #134399
     Then I softly see field "Negotiation Request Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
