@@ -8219,23 +8219,23 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "Submitted" for title "Status" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Award {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#      Hello Automation PM1,
-#      This email is to notify you that Subaward {SavedValue:Automation Runtime Direct Award} has been peer reviewed.
-#      Log in to EGMS and click here for more details.
-#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#      Thank you.
-#      The EGMS Team
-#      """
-#    Then I refresh the page
+    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Award {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
+      """
+    Then I see the mail text is as follows :
+      """
+      Hello Automation PM1,
+      This email is to notify you that Subaward {SavedValue:Automation Runtime Direct Award} has been peer reviewed.
+      Log in to EGMS and click here for more details.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Thank you.
+      The EGMS Team
+      """
+    Then I refresh the page
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM1" user
     And I navigate to "Grants" tab

@@ -1638,7 +1638,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
 
-  @165882  @sprint-3 @TBExecution1
+  @165882  @sprint-3
   Scenario: Validate Subrecipient user is not able to edit forms when Application is in Negotiated state
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -2091,7 +2091,7 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Details" as "Automation Negotiation Iniatiation" in "Applicant Response" pageblock
 
-  @189571  @sprint-13 @TBExecution1
+  @189571  @sprint-13
   Scenario: Validate submitting the revised application the sections and forms get locked for the subrecipient
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
