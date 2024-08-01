@@ -163,7 +163,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Saved Successfully! |
     Then I softly see that "{SavedValue:EXE Username}" has been added in flextable with Id "---subAwardStandAlone:-:awardApproversTableId---"
 
-  @68591 @validateAcceptRejectButtonForSPISPAUsers @jitendra
+  @68591 @validateAcceptRejectButtonForSPISPAUsers
   Scenario Outline: Validate that if Sub-award is Send to subrecipient before approval SPI user is only able to Accept, Reject the sub-award SPA user cannot in same organization
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -265,7 +265,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @51147 @67814 @65491 @65415 @allSendToRecipientAndAcceptanceBySRBeforeApproval @smoke @jitendra @buglogged151483
+  @51147 @67814 @65491 @65415 @allSendToRecipientAndAcceptanceBySRBeforeApproval @smoke  @buglogged151483
   Scenario Outline: Validate the award send to recipient and acceptance by recipient before approval
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -592,7 +592,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66234 @66227 @FOReassignToOtherOrgUser @jitendra
+  @66234 @66227 @FOReassignToOtherOrgUser
   Scenario Outline: To verify that the "Bureau of child" org user is not able to see different org users drop-down list while forwarding for the approval process by PM user.
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -888,7 +888,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @51139 @68127 @67821 @67819 @67822 @67818 @66009 @65975 @66012 @66013 @68145 @64787 @allActivation @smoke @jitendra
+  @51139 @68127 @67821 @67819 @67822 @67818 @66009 @65975 @66012 @66013 @68145 @64787 @allActivation @smoke
   Scenario Outline: all activation | Validate activate and View Noga button on award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1068,12 +1068,12 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @53835 @paymentRequestScheduleBlankOnDraftAward @mahadev
+  @53835 @paymentRequestScheduleBlankOnDraftAward
   Scenario: Verify that Payment Request Schedule is blank on draft award
     When I navigate to "Terms" sub tab
     Then I see field name "Frequency__c" is blank in flex table with Id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
 
-  @53837 @paymentRequestSchedulesCreationOnDraftAward @mahadev
+  @53837 @paymentRequestSchedulesCreationOnDraftAward
   Scenario: Verify that Payment Request Schedule is blank on draft award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1088,7 +1088,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Payment Request"
     Then I see total records count "Total Records: 12" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
 
-  @53838 @editionOfPaymentRequestSchedule @mahadev
+  @53838 @editionOfPaymentRequestSchedule
   Scenario: Verify that Payment Request Schedule is editable to internal user on draft award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1100,7 +1100,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "View" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
     Then I see field "Description" as "Automation Test Description"
 
-  @53840 @paymentRequestSchedulesUpdateOnDraftAward @mahadev
+  @53840 @paymentRequestSchedulesUpdateOnDraftAward
   Scenario: Verify that Payment Request Schedule is editable to internal user on draft award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1118,7 +1118,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the total records from the flex table id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" as "totalRecords"
     Then I see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
 
-  @NeedtoCheckraisedwithBug @53911 @66200 @67817 @66318 @68036 @69318 @ValidateAdvancePaymentRequestcreation @mahadev @buglogged102071
+  @NeedtoCheckraisedwithBug @53911 @66200 @67817 @66318 @68036 @69318 @ValidateAdvancePaymentRequestcreation  @buglogged102071
   Scenario Outline: Advance Payment Request creation when Advance Payment Allowed selected as Yes
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1303,7 +1303,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66031 @66035 @peerReviewAddForRiskAssementAfterAcceptedafterApprovalAward @jitendra
+  @66031 @66035 @peerReviewAddForRiskAssementAfterAcceptedafterApprovalAward
   Scenario Outline: To verify that the peer reviewers can be added in the responsibility tab of Sub Award Risk Assessment phase by the Award owner(PM profile)
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1442,7 +1442,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66087 @UnableToActivateSubAwardIfRiskAssesmentApprovePMHasNotApprovedIt @jitendra @buglogged127848
+  @66087 @UnableToActivateSubAwardIfRiskAssesmentApprovePMHasNotApprovedIt  @buglogged127848
   Scenario Outline: To validate that if risk assessment record is not approved by the approver (PM Profile) Subaward (PM) is not able to Activate Subaward and validation error appears
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1581,7 +1581,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66879 @UnableToActivateSubAwardIfRiskAssesmentApprovePMHasNotApprovedIt1 @jitendra
+  @66879 @UnableToActivateSubAwardIfRiskAssesmentApprovePMHasNotApprovedIt1
   Scenario Outline: To verify that approver of ( SPI/SPA) cannot be added in Program approver in Responsibility tab by the award owner for Award approval
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1649,7 +1649,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66883 @errorIfKPITargetValueNotEnterBeforeSendToApproval @jitendra
+  @66883 @errorIfKPITargetValueNotEnterBeforeSendToApproval
   Scenario Outline: To validate that if KPI value is not entered before approval it should give a validation error
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1733,7 +1733,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66659 @errorIfEnterGreaterValueThanFundingAccount @jitendra
+  @66659 @errorIfEnterGreaterValueThanFundingAccount
   Scenario Outline: To verify that validation message appears if subaward amount asked is more that Funding Account balance
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1821,7 +1821,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @38205 @DraftAwardNavigation @mahadev
+  @38205 @DraftAwardNavigation
   Scenario Outline: Navigation to draft award by FO User
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1837,7 +1837,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} | PM   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} | FO   |
 
-  @55311 @ProgressReportScheduleUpdateOnActiveAward @mahadev @buglogged142215
+  @55311 @ProgressReportScheduleUpdateOnActiveAward  @buglogged142215
   Scenario Outline: Validate progress report schedules update on active award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1997,7 +1997,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66023 @errorMsgForRiskAssementAfterActivateAward @jitendra @buglogged127848
+  @66023 @errorMsgForRiskAssementAfterActivateAward  @buglogged127848
   Scenario Outline: To verify that after Activate Button on the award owner (PM ) profile is clicked without completing risk assessment validation error must appear
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2153,7 +2153,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @55297 @EditProgressReportSchedule @mahadev
+  @55297 @EditProgressReportSchedule
   Scenario: Validate user can edit progress report schedule on draft award
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2166,7 +2166,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "View" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     Then I see field "Schedule Base" as "Calendar"
 
-  @55296 @ViewProgressReportScheduleOnDraftAward @mahadev
+  @55296 @ViewProgressReportScheduleOnDraftAward
   Scenario: Validate user can view progress report schedule on draft award
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2177,12 +2177,12 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I pause execution for "3" seconds
     Then I see field "Report Title" as "{SavedValue:Automation Runtime Progress Report}"
 
-  @55289 @ViewProgressReportScheduleAutoCreatedOnDraftAward @mahadev
+  @55289 @ViewProgressReportScheduleAutoCreatedOnDraftAward
   Scenario: Validate user can view progress report schedule on draft award
     And I navigate to "Terms" sub tab
     Then I see value "Not Applicable" for title "Frequency" inside table "---subAwardStandAlone:-:progressReportScheduleTableId---"
 
-  @55298 @DownloadProgressReportInPDF @jitendra
+  @55298 @DownloadProgressReportInPDF
   Scenario: Validate user can Download the progress created Report in PDF format.
     And I navigate to "Terms" sub tab
     And I click on "View" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2195,7 +2195,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I pause execution for "10" seconds
     Then I softly verify that "pdf" file is downloaded
 
-  @55306 @DownloadProgressReportInXLS @jitendra
+  @55306 @DownloadProgressReportInXLS
   Scenario: Validate user can Download the progress created Report in XLS format
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2206,7 +2206,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I select "Download as XLS" from parallel lines dropdown of "Progress Reports Schedule"
     Then I verify that "xls" file is downloaded
 
-  @55290 @SelectDesiredFrequencyAsMonth @jitendra
+  @55290 @SelectDesiredFrequencyAsMonth
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as Monthly
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2217,7 +2217,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I pause execution for "5" seconds
     Then I see total records count "Total Records: 12" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55301 @SelectDesiredFrequencyAsQuarterly @jitendra
+  @55301 @SelectDesiredFrequencyAsQuarterly
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as Quarterly.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2228,7 +2228,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records: 4" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55293 @ScheduleEndDateAfterStartDate @jitendra @buglogged128297 @Re-RunStandAlone
+  @55293 @ScheduleEndDateAfterStartDate  @buglogged128297 @Re-RunStandAlone
   Scenario: Verify While creating schedule user is not allowed to select the Schedule End Date after Project Period End Date.
     And I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
@@ -2247,7 +2247,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I see the following messages in the page details contains:
       | Schedule End date cannot be after Project Period End Date |
 
-  @55300 @SelectDesiredFrequencyAsBiMonthly @jitendra
+  @55300 @SelectDesiredFrequencyAsBiMonthly
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as Bi Monthly.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2257,7 +2257,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records: 6" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55299 @SelectDesiredFrequencyAsAnnually @mahadev
+  @55299 @SelectDesiredFrequencyAsAnnually
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as annually.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2268,7 +2268,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records: 1" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55302 @SelectDesiredFrequencyAsSemiAnnually @mahadev
+  @55302 @SelectDesiredFrequencyAsSemiAnnually
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as semi-annually.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2278,7 +2278,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records: 2" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55303 @SelectDesiredFrequencyAsMonthly @mahadev
+  @55303 @SelectDesiredFrequencyAsMonthly
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as monthly.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2289,14 +2289,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the total records from the flex table id "---subAwardStandAlone:-:progressReportScheduleId---" as "totalRecords"
     Then I see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55291 @ScheduleBaseAsReportingPeriod @jitendra
+  @55291 @ScheduleBaseAsReportingPeriod
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as monthly
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter in modal "Progress Report Monthly" values from "Award_Field_Values.xlsx"
     Then I see "Reporting Period" text enter in field "ScheduleBase__c"
 
-  @55294 @verifyUserIsNotAllowedToSelectProgressReportScheduleStartDateBeforeBudgetPeriodStartDate @mahadev
+  @55294 @verifyUserIsNotAllowedToSelectProgressReportScheduleStartDateBeforeBudgetPeriodStartDate
   Scenario: Verify While creating schedule user is not allowed to select the Schedule Start Date which is before Budget period start date on draft award
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2305,7 +2305,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I see the following messages in the page details :
       | Schedule Start date cannot be before Budget Period Start Date. |
 
-  @55292 @verifyUserIsAllowedToSelectProgressReportScheduleStartDate @mahadev
+  @55292 @verifyUserIsAllowedToSelectProgressReportScheduleStartDate
   Scenario: Verify While creating progress report schedule user should be allowed to select the start date
     When I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2316,7 +2316,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the field labeled "Reporting Period Start Date" as "endDate"
     Then I see field "Reporting Period Start Date" as "{SavedValue:endDate}"
 
-  @55309 @verifyUserCannotSubmitAwardforApprovalTillPaymentRequestScheduleNotAdded @mahadev
+  @55309 @verifyUserCannotSubmitAwardforApprovalTillPaymentRequestScheduleNotAdded
   Scenario Outline: Verify User cannot submit award for approval till Payment Request Schedule details is not added
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2420,7 +2420,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @55295 @veifyViewAccessForProgressReportsSchedulesOnDraftAward @mahadev
+  @55295 @veifyViewAccessForProgressReportsSchedulesOnDraftAward
   Scenario Outline: Verify that system allows EXE, PO, FD, and FO can see the created Progress Report Schedules
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2446,7 +2446,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | EXE  | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
       | FO   | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @45728 @veifyNonAwardOwnerCanNotEditSchedule @mahadev
+  @45728 @veifyNonAwardOwnerCanNotEditSchedule
   Scenario Outline: Verify non award owner cannot edit Progress Report Schedule
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2470,7 +2470,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Grant Name                                   | Award Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @45735 @validateUserCannotSelectschdeuleStartDateBeforeBudgetPeriodStartDate @mahadev
+  @45735 @validateUserCannotSelectschdeuleStartDateBeforeBudgetPeriodStartDate
   Scenario: Verify While creating schedule user is not allowed to select the Schedule Start Date before Budget Period Start Date
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2482,7 +2482,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I see the following messages in the page details contains:
       | Schedule Start date cannot be before Budget Period Start Date |
 
-  @57692 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @mahadev
+  @57692 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod
   Scenario: Verify functionality of Desired Frequency as Monthly with Schedule Base type as Reporting period
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2496,7 +2496,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records: 16" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @45740 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @mahadev
+  @45740 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod
   Scenario: Verify functionality of Desired Frequency as Monthly with Schedule Base type as Reporting period
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2510,7 +2510,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records: 6" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @35041 @SelectDesiredFrequencyAsMonthlyWithSchdeuleBaseAsCalendar @mahadev
+  @35041 @SelectDesiredFrequencyAsMonthlyWithSchdeuleBaseAsCalendar
   Scenario: Verify while creating schedule user should be allowed to select the desired frequency as monthly with schdeule base as calendar
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2527,7 +2527,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the total records from the flex table id "---subAwardStandAlone:-:progressReportScheduleId---" as "totalRecords"
     Then I see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @45725 @validateSubRecipientCannotEditSchedule @mahadev
+  @45725 @validateSubRecipientCannotEditSchedule
   Scenario Outline: Verify if subaward is sent to sub-recipient for Accept action then external user should not have access to modify Schedule
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2688,7 +2688,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Grant Name                                   | Award Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @45729 @progressReportAnnuallyWithLessThan365DateError @jitendra
+  @45729 @progressReportAnnuallyWithLessThan365DateError
   Scenario: Verify if annually frequency is selected and schedule dates are less than year it show validation message.
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2700,7 +2700,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I see the following messages in the page details contains:
       | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 365 days if Annually frequency is selected. |
 
-  @45731 @progressReportMonthyWithLessThan28DaysDateError @jitendra
+  @45731 @progressReportMonthyWithLessThan28DaysDateError
   Scenario: Verify if Monthly frequency is selected and schedule period is less than month than Validation message is shown.
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2712,7 +2712,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I see the following messages in the page details contains:
       | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 28 days if Monthly frequency is selected. |
 
-  @45736 @SelectDesiredFrequencyAsBiMonthlyBasedOnGivenDate @jitendra
+  @45736 @SelectDesiredFrequencyAsBiMonthlyBasedOnGivenDate
   Scenario: Verify functionality of Desired Frequency as Bi Monthly with Schedule Base type as Reporting period.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2723,7 +2723,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I pause execution for "3" seconds
     Then I see total records count "Total Records: 8" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @45727 @SelectDesiredFrequencyAsSemiAnnuallyBasedOnGivenDate @jitendra
+  @45727 @SelectDesiredFrequencyAsSemiAnnuallyBasedOnGivenDate
   Scenario: Verify the functionality of Desired Frequency as Semi-Annually with Schedule Base type as Reporting period.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2736,7 +2736,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I pause execution for "3" seconds
     Then I see total records count "Total Records: 3" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @45734 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod1 @jitendra
+  @45734 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod1
   Scenario: Verify Reporting Period End Date is same as the Schedule End Date.
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2755,7 +2755,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I wait for "3" seconds
     Then I verify that the Schedule end date is matching with Reporting Period End Date
 
-  @55315 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod @jitendra @Re-RunStandAlone
+  @55315 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod  @Re-RunStandAlone
   Scenario: Verify Reporting Period Start Date is same as the Schedule Start Date.
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2773,7 +2773,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I wait for "3" seconds
     Then I verify that the Schedule start date is matching with Reporting Period start Date
 
-  @58735 @verifyProgressReportScheduleAutoCreatedWithFrequencyNotApplicable @mahadev
+  @58735 @verifyProgressReportScheduleAutoCreatedWithFrequencyNotApplicable
   Scenario Outline: Verify that Progress Reports Schedule is auto created with the frequency as 'not applicable' on draft award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2871,7 +2871,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Grant Name                                   | Award Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @34933 @SelectDesiredFrequencyAsAnnuallyBasedOnGivenDate @jitendra
+  @34933 @SelectDesiredFrequencyAsAnnuallyBasedOnGivenDate
   Scenario: Verify the functionality of Desired Frequency as Annually with Schedule Base type as Reporting period.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -2978,7 +2978,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @45752 @GrantDeletion  @mahadev @buglogged127950
+  @45752 @GrantDeletion   @buglogged127950
   Scenario Outline: Deletion of award by owner
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2990,13 +2990,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} |
 
-  @45755 @removeObjectivesFromAward  @mahadev @Re-RunStandAlone
+  @45755 @removeObjectivesFromAward   @Re-RunStandAlone
   Scenario: Validate the removing of objectives from award
     When I navigate to "Performance" sub tab
     And I click on "Remove" icon for "Automation Permanent Objective" inside flex table with id "---subAwardStandAlone:-:objectivesTableId---" without waiting for record
     Then I do not see value "Automation Permanent Objective" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
 
-  @45756 @67969 @71182 @71431 @71437 @validateAwardRejectionByProgramApprover @mahadev @Re-RunStandAlone
+  @45756 @67969 @71182 @71431 @71437 @validateAwardRejectionByProgramApprover  @Re-RunStandAlone
   Scenario Outline: Validate award Rejection by Program approver
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -3123,7 +3123,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @45764 @66893  @validateAwardRejectionByExecutiveApprover @mahadev
+  @45764 @66893  @validateAwardRejectionByExecutiveApprover
   Scenario Outline: Validate award Rejection by Executive approver | To verify that after subaward is sent for approval no changes can be made in the Award owner (PM) profile
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -3444,7 +3444,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "Remove" icon for "Automation Permanent KPI" inside flex table with id "---subAwardStandAlone:-:kpiTableId---" without waiting for record
     Then I do not see value "Automation Permanent KPI" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
 
-  @45742 @validateRemovalOfFocusArea  @mahadev
+  @45742 @validateRemovalOfFocusArea
   Scenario: Validate removal of focus area
     When I navigate to "Budget" sub tab
     When I click on "Remove" icon for "Automation Permanent Focus Area" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---" without waiting for record
@@ -3515,7 +3515,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65679 @verifyTopRightButtonsOnTndCTable  @mahadev
+  @65679 @verifyTopRightButtonsOnTndCTable
   Scenario: Verify Terms and Conditions Table have New, Associate and Associate Mandatory Terms and Conditions button on top of the table on Grant
     When I navigate to "Terms" sub tab
     Then I softly can see top right button "New" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -3618,7 +3618,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65680 @65687 @addNewTermsAndConditionsAndValidateNoEditActionForIt @mahadev
+  @65680 @65687 @addNewTermsAndConditionsAndValidateNoEditActionForIt
   Scenario: Verify award owner can add new Terms and Conditions on subaward Terms Tab |
   |Verify New added Terms and Conditions are Editable by award owner on Subaward.|
     And I navigate to "Terms" sub tab
@@ -3738,7 +3738,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65819 @65891 @65890 @validateStatusAfterSendForReviewAndButtonsAfterSavingReview  @mahadev
+  @65819 @65891 @65890 @validateStatusAfterSendForReviewAndButtonsAfterSavingReview
   Scenario Outline: Verify status after send for review | verify buttons on modal after saving review by reviewer
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -3847,7 +3847,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65909 @65898 @65902 @65894 @65910 @validateUploadingDigitalSignatureDocument @mahadev
+  @65909 @65898 @65902 @65894 @65910 @validateUploadingDigitalSignatureDocument
   Scenario Outline: To verify that the attachment can be added by the award owner profile after peer review completion | Validate status after peer review
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -3963,7 +3963,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65954 @validateLessMatch @jitendra
+  @65954 @validateLessMatch
   Scenario Outline: To verify that if the subrecipient match is less than the % match validation error must be thrown in the award owner profile
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4079,7 +4079,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65955 @65899 @65958 @65956 @69461 @validatePendingTaskForPA @mahadev @Re-RunStandAlone
+  @65955 @65899 @65958 @65956 @69461 @validatePendingTaskForPA  @Re-RunStandAlone
   Scenario Outline: To verify that after the program approver is assigned task by the award owner from the Subaward in the created state it must appear in the pending task of the approver
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4201,7 +4201,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65958 @68482 @validatePeerReviewOnSubAward @aashish
+  @65958 @68482 @validatePeerReviewOnSubAward
   Scenario Outline: Validate that Peer Review on Sub award is optional and users can proceed with approval of Sub award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4310,7 +4310,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65970 @validateSendBackTOpmbyFO @jitendra @Re-RunStandAlone
+  @65970 @validateSendBackTOpmbyFO  @Re-RunStandAlone
   Scenario Outline: To verify that after Fiscal Approver (David FO Profile) clicks on the Send back radio button the progress bar changes from “Submitted for Approval” to “created”
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4473,7 +4473,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65957 @65816 @66029 @66036  @66034 @validatePendingTaskForEXEAndAddingReviewers  @mahadev @Re-RunStandAlone
+  @65957 @65816 @66029 @66036  @66034 @validatePendingTaskForEXEAndAddingReviewers   @Re-RunStandAlone
   Scenario Outline: validate adding approvers in risk assessment | validate status for risk assessment | Validate Pending Task for executive approver | To verify that the peer reviewers can be added
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4614,7 +4614,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65966 @validateSendBackByFO @mahadev @buglogged127950
+  @65966 @validateSendBackByFO  @buglogged127950
   Scenario Outline: To verify that if Send Back radio button in the Fiscal Approver(David FO) is clicked it returns back to the Award owner(Pm Profile) and the action in the Grant Draft table changes from View  lock  to  view , Edit, Delete
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4735,7 +4735,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66644 @verifyDraftGrantNotDisplayedAtSubportal  @mahadev
+  @66644 @verifyDraftGrantNotDisplayedAtSubportal
   Scenario Outline: To verify that if Grant is in Draft state and" not sent to the Sub recipient " must not be visible to the Sub recipient(SPI User)
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4750,7 +4750,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} |
 
-  @66931 @71193 @validateActivateButtonNotDisplayedAfterRejectedBYSPI  @mahadev @buglogged142226
+  @66931 @71193 @validateActivateButtonNotDisplayedAfterRejectedBYSPI   @buglogged142226
   Scenario Outline: To Validate that after Subaward is rejected by the Recipient (SPI) user, activate Button do not appear on the Award owner (PM) profile
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4851,7 +4851,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Grant Name                                   | Award Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66881 @validateBPDateCannotBeLessThanProjectPeriodEndDate @mahadev
+  @66881 @validateBPDateCannotBeLessThanProjectPeriodEndDate
   Scenario Outline: To verify that the budget period end date is set ahead of the project period end date validation message must appear on clicking submit for approval button
     And I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
@@ -4958,7 +4958,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @68482 @validatePeerReviewIsOptional @aashish
+  @68482 @validatePeerReviewIsOptional
   Scenario: Validate that Peer Review on Sub award is optional and users can proceed with approval of Sub award
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -4988,7 +4988,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly cannot see top right button "New" in flex table with id "---riskassessment:-:raPeerReviewFlexTableId---"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @68606 @verifyUserCanSeeAwardInPendingTaskTable @aashish
+  @68606 @verifyUserCanSeeAwardInPendingTaskTable
   Scenario Outline: Validate that after Subaward is Sent to the Subrecipient it appears in the Pending task of SPI/SPA user and on acceptance of subaward by SPI user it appears in the Completed task of all.
   | SPI and SPA user can see subrecipient in pendig tasks
     And I click on "Edit" in the page details
@@ -5082,7 +5082,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @68606 @verifyUserCanSeeAwardInCompletedTaskTable @smoke @aashish
+  @68606 @verifyUserCanSeeAwardInCompletedTaskTable @smoke
   Scenario Outline: Validate that after Subaward is Sent to the Subrecipient it appears in the Pending task of SPI/SPA user and on acceptance of subaward by SPI user it appears in the Completed task of all.
   |SPI user can see subaward in completed task table SPI user can see subaward in completed task table
     And I click on "Edit" in the page details
@@ -5178,7 +5178,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @68606 @verifyUserCanSeeAwardAsCompletedStatusInCompletedTableTask @aashish
+  @68606 @verifyUserCanSeeAwardAsCompletedStatusInCompletedTableTask
   Scenario Outline: Validate that after Subaward is Sent to the Subrecipient it appears in the Pending task of SPI/SPA user and on acceptance of subaward by SPI user it appears in the Completed task of all.
   | SPI and SPA user can see subaward in completed status in Completed task table
     And I click on "Edit" in the page details
@@ -5276,7 +5276,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @68587 @verifySubrecepientCanEditAndSaveAward @smoke @aashish
+  @68587 @verifySubrecepientCanEditAndSaveAward @smoke
   Scenario Outline: Validate that Subaward sent to the Subrecipient can be Edited and Viewed by all the member of the Same Org and the Changes made must be affected in the Subaward of all profile.
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5387,7 +5387,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @69320 @verifyFederalProgramAssociateInSubAward @aashish
+  @69320 @verifyFederalProgramAssociateInSubAward
   Scenario Outline: Validate that the Fedral program can be associated in Subaward
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -5407,7 +5407,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65406 @VerifyPaymentRequestScheduleIsGeneratedonMonthlyBasis @aashish @Relook
+  @65406 @VerifyPaymentRequestScheduleIsGeneratedonMonthlyBasis  @Relook
   Scenario Outline: To verify that the payment request schedule is generated on the monthly basis in the award owner terms tab after the sub award is accepted by the Sub recipient.
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5510,7 +5510,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @139359 @Verify1StepApprovalAtAward-RnRFunctnality @monu
+  @139359 @Verify1StepApprovalAtAward-RnRFunctnality
   Scenario: Verify user is able to approve the award on step 1 approver
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5561,7 +5561,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I refresh the page
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @139362 @Verify2StepApprovalAtAward-RnRFunctnality @monu
+  @139362 @Verify2StepApprovalAtAward-RnRFunctnality
   Scenario: Verify user is able add two step approver on award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5592,7 +5592,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:EXE Username} | Step 2 |
     Then I softly see "Saved Successfully!" inside flex table with id "---subAwardStandAlone:-:awardApproversTableId---"
 
-  @139361 @VerifyErrorMessageWhileSkippingApproverStepAtAward-RnRFunctnality @monu @Re-RunStandAlone
+  @139361 @VerifyErrorMessageWhileSkippingApproverStepAtAward-RnRFunctnality  @Re-RunStandAlone
   Scenario: Verify validation is displayed when user skip approver step on subaward
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5637,7 +5637,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @141897 @verifyallApproversAreInheritedFromAwardToCloseout-RnRFunctnality @monu @Re-RunStandAlone
+  @141897 @verifyallApproversAreInheritedFromAwardToCloseout-RnRFunctnality  @Re-RunStandAlone
   Scenario Outline: Verify Approvers are inherited from award to closeout request record
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5754,7 +5754,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @141917 @VerifyUpdationOfInheritedApproverAtCloseoutFromAward-RnRFunctnality @monu @Re-RunStandAlone
+  @141917 @VerifyUpdationOfInheritedApproverAtCloseoutFromAward-RnRFunctnality  @Re-RunStandAlone
   Scenario Outline: Verify the record owner can update the approver that are inherited from award program to closeout record
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5872,7 +5872,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   | Closeout Name                                |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @154937 @Verify3StepApprovalForSubAward-RnRFunctionality @monu
+  @154937 @Verify3StepApprovalForSubAward-RnRFunctionality
   Scenario Outline: Verify user is able to add on 3 step approver on subaward forward
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -6169,7 +6169,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66016 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnThe(PMUser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePageandcompareamountonpdf @vaibhav
+  @66016 @ValidateAfter“AcceptAfterApproval”ButtonIsClickedOnThe(PMUser)ViewNogaButtonAppearsOnTheTopRightCornerOfThePageandcompareamountonpdf
   Scenario Outline: Validate After “Accept After Approval ” Button Is Clicked On The (PMUser) View Noga Button Appears On The Top Right Corner Of The Page and compare amount on pdf
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -6335,7 +6335,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @154936 @Verify4StepApprovalForSubAward-RnRFunctionality @monu
+  @154936 @Verify4StepApprovalForSubAward-RnRFunctionality
   Scenario Outline: Verify user is able to add 4 step approver on sub award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"

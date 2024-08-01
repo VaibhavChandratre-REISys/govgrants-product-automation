@@ -13,7 +13,7 @@ Feature: Validate all scenarios of grants and award without background
       | PM   |
       | EXE  |
 
-  @69453 @verifySupportingDocumentMustAddByOwner @aashish
+  @69453 @verifySupportingDocumentMustAddByOwner
   Scenario: Validate that supporting document cannot be added by anyone except the award owner(Except FO user) |
   Award owner can see add supporting document
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -32,7 +32,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Files" sub tab
     Then I can see top right button "Add" in flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
-  @71423 @71439 @71438 @jitendra @statusOfAllAndDraft
+  @71423 @71439 @71438  @statusOfAllAndDraft
   Scenario:  Verify that all and draft records are getting displayed proper post apply a filter "All and Drafts" on grants by SPI/SPA users.
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -47,7 +47,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click toggle button to select "Grants - Rejected"
     Then I softly see value "Terminated" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsTableId---"
 
-  @66740 @documentattacmentatgrant @jitendra
+  @66740 @documentattacmentatgrant
   Scenario: To verify that the document can be added in the Supporting Document checklist table in the Grant Attachment tab in the Draft state
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -63,7 +63,7 @@ Feature: Validate all scenarios of grants and award without background
       | Automation  | Mandatory | Award      | Active |
     Then I see "Automation" inside flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
-  @68057 @createGrantEXE @jitendra
+  @68057 @createGrantEXE
   Scenario: Valiadate EXE user can create Direct Grant
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -78,7 +78,7 @@ Feature: Validate all scenarios of grants and award without background
     And I get the "EGMS ID"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @68058 @cannotCreateGrantFOUser @jitendra
+  @68058 @cannotCreateGrantFOUser
   Scenario Outline: validate that FO user cannot create Direct Grant
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Grants" tab
@@ -88,7 +88,7 @@ Feature: Validate all scenarios of grants and award without background
       | User |
       | FO   |
 
-  @69084 @createdGrantVisibleToUserFromSameOrganisation @jitendra @smoke
+  @69084 @createdGrantVisibleToUserFromSameOrganisation  @smoke
   Scenario: Validate that  Grant in draft state created by one pm user is visible to the other user(PM/EXE) of the same organisation
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -112,7 +112,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Direct Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @68460 @71420 @adminUserRowLevelButton @jitendra @buglogged127950
+  @68460 @71420 @adminUserRowLevelButton  @buglogged127950
   Scenario: Validate that Edit and View and Delete button appear for Admin in Grant Draft table after the Grant is Created and on clicking the respective icon it works.
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -131,7 +131,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime Direct Award}" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     Then I softly see value "{SavedValue:Automation Runtime Direct Award}" for title "Grant Title" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @68138 @takeSnapShotHistory @jitendra
+  @68138 @takeSnapShotHistory
   Scenario: Validate that Snapshot of Grant page taken is saved in the History tab of the same
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -154,7 +154,7 @@ Feature: Validate all scenarios of grants and award without background
     When I download the file
     Then I see "$0.00" on page "3" of "govgrant" pdf file
 
-  @67891 @68036 @68025 @68019 @68021 @calculateAwardTotal @jitendra @smoke @skipOnJenkins
+  @67891 @68036 @68025 @68019 @68021 @calculateAwardTotal  @smoke @skipOnJenkins
   Scenario: Validate that subaward amount in Grant Draft table is the Sum of all Subaward
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -177,7 +177,7 @@ Feature: Validate all scenarios of grants and award without background
     And I calculate the total from the column header "Subaward Amount" and saved it as "closedTotal" from the flex table "---subAwardStandAlone:-:activeGrantsTableId---"
     Then I softly see total as "{SavedValue:closedTotal}" against column name "Subaward Amount" from flex table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @65619 @65578 @65586 @65573 @validateFieldsAtGrant @jitendra @buglogged127963
+  @65619 @65578 @65586 @65573 @validateFieldsAtGrant  @buglogged127963
   Scenario: To verify Budget period end date entered by Award owner should be same when owner click on save button.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -206,7 +206,7 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly see value "Draft" for title "Status" against the value "{SavedValue:Automation Runtime Execution Award}" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @65688 @validateTnCAssociate @jitendra
+  @65688 @validateTnCAssociate
   Scenario: Verify Associated Terms and Conditions are Editable by award owner on Subaward.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -232,7 +232,7 @@ Feature: Validate all scenarios of grants and award without background
     And I refresh the page
     Then I softly see field "Sequence" as "2"
 
-  @66654 @66655 @65897 @activateAwardEXEUser @jitendra  @LWCRemoved @wip
+  @66654 @66655 @65897 @activateAwardEXEUser @LWCRemoved @wip
   Scenario Outline: To verify that user(exe) is able to activate award by clicking on active button using Grant type =" Formula Grant" | To verify that user(exe) is able to activate award by clicking on active button using Grant type = "Block Grant"
     When I login to "As a Grantor" app as "<user>" user
     And I navigate to "Grants" tab
@@ -430,7 +430,7 @@ Feature: Validate all scenarios of grants and award without background
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} | EXE  | Block Grant   |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} | EXE  | Project Grant |
 
-  @67967 @amountNotDebitedFromFundingAccount @jitendra WBRe-Run
+  @67967 @amountNotDebitedFromFundingAccount
   Scenario Outline: Validate that the funding Account is not debited if it is removed prior to Subaward approval
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -634,7 +634,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @65686 @65684 @65685 @NoDeleteBtnTermsAndCondition @jitendra @bug-LWC-416798
+  @65686 @65684 @65685 @NoDeleteBtnTermsAndCondition  @bug-LWC-416798
   Scenario: Verify Associated Mandatory Terms and Conditions cannot be deleted by award owner on Subaward.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -654,7 +654,7 @@ Feature: Validate all scenarios of grants and award without background
     #Bug-416798
     Then I softly can see row level action button "Remove" against "Term" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
 
-  @65780 @65800 @65814 @65804 @66751 @66745 @StatusNotStartedSentToSubrecipient @jitendra @smoke
+  @65780 @65800 @65814 @65804 @66751 @66745 @StatusNotStartedSentToSubrecipient  @smoke
   Scenario: To verify on click "send to sub recipient button" by  Award owner profile (PM user) it must appear in the pending task of sub-recipient.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -711,7 +711,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Budget" sub tab
     Then I softly see value "{SavedValue:fundingAccount}" for title "Funding Account" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
 
-  @38215 @68038 @67913 @71429 @VerifyActiveGrantsAccessToAllUsers @mahadev
+  @38215 @68038 @67913 @71429 @VerifyActiveGrantsAccessToAllUsers
   Scenario Outline: Verify all internal users can view active grants
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -744,7 +744,7 @@ Feature: Validate all scenarios of grants and award without background
       | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} |
 
-  @64423  @VerifyDirectGrantCreation @mahadev
+  @64423  @VerifyDirectGrantCreation
   Scenario: Verify award owner is able to create direct grant with Budget Category Type as construction
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -758,7 +758,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Save" in the page details
     Then I see field "Status" as "Draft"
 
-  @64784 @68054 @VerifyBPDatesOnGrant @mahadev @buglogged127963
+  @64784 @68054 @VerifyBPDatesOnGrant  @buglogged127963
   Scenario Outline: Verify Budget Period Dates value on grant subaward Tab is same as the Estimated Project Period Start Date and End date on announcement
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -793,7 +793,7 @@ Feature: Validate all scenarios of grants and award without background
       | Annoucement                                      |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64786 @64563 @64717 @64789 @VerifyFieldsFromAnnoucement @mahadev
+  @64786 @64563 @64717 @64789 @VerifyFieldsFromAnnoucement
   Scenario Outline: Verify (EGMS ID of announcement | Leverage Allowed?) and focus Area is carried forward to Announcement ID at grant overview which is created with application
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -834,7 +834,7 @@ Feature: Validate all scenarios of grants and award without background
       | Annoucement                                      |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @35556 @VerifyOnFDMViewPageSubawardInCreatedStatus @keerti
+  @35556 @VerifyOnFDMViewPageSubawardInCreatedStatus
   Scenario Outline: Verify that on FDM View page when user click on Create Subaward action , then Subaward get creates in created status
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -870,7 +870,7 @@ Feature: Validate all scenarios of grants and award without background
       | Internal Program is required to save.          |
       | Funding Organization is required to save.      |
 
-  @64424 @VerifyRequiredMatch%Filed @keerti
+  @64424 @VerifyRequiredMatch%Filed
   Scenario: Verify If you select Subrecipient Match Required setting as Yes and award owner did not enter Required Match % field then it should show validation message.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -885,7 +885,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the following messages in the page details :
       | If you select Subrecipient Match Required setting as Yes then you need to set value for Required Match % |
 
-  @65084 @VerifyActiveGrantsOnSubportal @mahadev
+  @65084 @VerifyActiveGrantsOnSubportal
   Scenario: Verify SR user can view Active grant
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -896,7 +896,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientActiveGrantsTableId---" panel
     Then I see value "{SavedValue:Automation Runtime Award}" for title "Grant Title" inside table "---amendment:-:recipientActiveGrantsTableId---"
 
-  @64951 @VerifyPreviousReviewStepbuttonOnFDM @mahadev
+  @64951 @VerifyPreviousReviewStepbuttonOnFDM
   Scenario: Verify when user click on Previous Review Step button it navigate to Management Review Page
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -910,7 +910,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Previous Review Step" in the page details
     Then I see field "Status" as "Completed"
 
-  @64950 @PreviousReviewStepButton @keerti
+  @64950 @PreviousReviewStepButton
   Scenario: Verify Previous Review Step button is present on Funding Decision Memo Page.
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -924,7 +924,7 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     Then I can see top right button "Previous Review Step" in page detail
 
-  @65576 @VerifyDraftStatusOnGrant @mahadev
+  @65576 @VerifyDraftStatusOnGrant
   Scenario: Verify Draft status on grant
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -940,7 +940,7 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "2" seconds
     Then I see field "Status" as "Draft"
 
-  @65584 @VerifyGrantModalFieldsAfterSaved  @mahadev
+  @65584 @VerifyGrantModalFieldsAfterSaved
   Scenario: To verify that the program settings that was made while creating the draft are enforced on the created draft through the award owner profile as PM profile
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -965,7 +965,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see field "Risk Assessment Required?" as "No"
     Then I softly see field "Grant Abbreviation" as "GA"
 
-  @65582 @verifyGrantTypes @mahadev
+  @65582 @verifyGrantTypes
   Scenario: To verify that the type of grant in drop down is Project grant, formula and block grant
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -981,7 +981,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Edit" in the page details
     Then I see field "Grant Type" as "Competitive"
 
-  @65602 @verifySubtabNavigation @mahadev
+  @65602 @verifySubtabNavigation
   Scenario: Verify when Award owner click on edit action at sub award it should navigate to subawards Tab with Progress bar status as Created
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1001,7 +1001,7 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @65681 @65683 @verifyTermsAndConditions @mahadev @buglogged142219  @LWC-Bug-415720
+  @65681 @65683 @verifyTermsAndConditions  @buglogged142219  @LWC-Bug-415720
   Scenario: Verify Award owner can Associate Terms and Conditions on Subaward Terms Tab | Verify Associated Mandatory Terms and Conditions are not Editable by award owner on Subaward
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1023,7 +1023,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "{SavedValue:NonMandatoryT_C}" for title "Title" inside table "---subAwardStandAlone:-:termsndConditionsTableId---"
 
 
-  @65794 @65822 @verifySRUserCanEnterBudgetDetails @mahadev  @Dev
+  @65794 @65822 @verifySRUserCanEnterBudgetDetails
   Scenario Outline: To verify that the Sub Award budget field is editable in the Subrecipient (SPI User) under budget tab
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1159,7 +1159,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
-  @65978 @verifyPackagesONaward @mahadev
+  @65978 @verifyPackagesONaward
   Scenario Outline: To Verify that the Default package associated with subaward should be displayed correctly
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1176,7 +1176,7 @@ Feature: Validate all scenarios of grants and award without background
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @66224 @66210 @67895 @validateSourceNdInstructionField  @mahadev
+  @66224 @66210 @67895 @validateSourceNdInstructionField
   Scenario: To verify that if source and instruction field  unfilled in site visit review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation error must be thrown.
   | @67895 Validate BP number from subaward is updating the BP number on Grant upon activation of Subaward
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
@@ -1202,7 +1202,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see the following messages in the page details :
       | Source is required to save under Overview. |
 
-  @66223 @67954 @67925 @67916 @67917 @ErrorMsgForPurposeField @jitendra
+  @66223 @67954 @67925 @67916 @67917 @ErrorMsgForPurposeField
   Scenario: To verify that if Purpose field in plan table is left unfilled in site visit review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation error must be thrown
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1225,7 +1225,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see the following messages in the page details :
       | Purpose is required to save under Overview. |
 
-  @53967 @NoIfAreExpenseDetailRequiredonReimbursements @jitendra @smoke
+  @53967 @NoIfAreExpenseDetailRequiredonReimbursements  @smoke
   Scenario Outline: Verify that If Are Expense Details Required on Reimbursements? field is No then user should see only edit action at Reimbursement Payment request Budget category table.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1443,7 +1443,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
-  @66219 @validateInstructionField  @mahadev
+  @66219 @validateInstructionField
   Scenario: To verify that if instruction field is left unfilled in site visit review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation error must be throw
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1464,7 +1464,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the following messages in the page details :
       | Instructions for Subrecipient is required to save under Overview. |
 
-  @66215 @validateCreatedStatusSV @mahadev
+  @66215 @validateCreatedStatusSV
   Scenario: To verify that after the general information in the modal window of site visit is filled by the award owner the status change to created.
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1482,7 +1482,7 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @65911 @verifyDescriptionFieldIsEditable @mahadev
+  @65911 @verifyDescriptionFieldIsEditable
   Scenario: To verify that after the edit button is clicked on the Award owner profile (PM user) sub award description becomes editable
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1499,7 +1499,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Overview" sub tab
     Then I see textarea field "GrantAwardDescription__c" is editable
 
-  @66416 @validateSourceInDeskReview  @mahadev
+  @66416 @validateSourceInDeskReview
   Scenario: To verify that if source field in plan table is left unfilled in Desk review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation message  must be thrown
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1519,7 +1519,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the following messages in the page details :
       | Source is required to save under Overview. |
 
-  @66410 @validateInstructionFieldInDeskReview  @mahadev
+  @66410 @validateInstructionFieldInDeskReview
   Scenario: To verify that if instruction field is left unfilled in Desk review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation message must be thrown
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1539,7 +1539,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the following messages in the page details :
       | Instructions for Subrecipient is required to save under Overview. |
 
-  @68078 @redirectionThresholdCheck @jitendra @smoke
+  @68078 @redirectionThresholdCheck  @smoke
   Scenario Outline: validate that Budget Redirection threshold is default set to 10% on amendment,For a Grant with No Budget redirection threshold set
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -1563,7 +1563,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime award} | {SavedValue:Automation Runtime award} |
 
-  @66750 @68152 @validateBlockGrantCreation @mahadev
+  @66750 @68152 @validateBlockGrantCreation
   Scenario: To verify that Subaward is created state on progress bar when the Grant type is “Block Grant” | To verify that if the Budget Period End Date is left blank and send to subrecipient button is clicked on the top right corner of the page validation message appear
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1588,7 +1588,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see the following messages in the page details :
       | Budget Tab - Provide the Budget Period End Date for the subaward. |
 
-  @65592 @validateGrantTypeAndGrantDescriptionFields @mahadev  @LWCRemoved @wip
+  @65592 @validateGrantTypeAndGrantDescriptionFields @LWCRemoved @wip
   Scenario: To verify that after the new value is entered and clicked on the save button through the award owner profile as a PM profile the value must be retained
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1604,7 +1604,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Save" in the page details
     Then I softly see field "Grant Type" as "Competitive"
 
-  @67528 @totalBudgetCalculation @jitendra @smoke
+  @67528 @totalBudgetCalculation  @smoke
   Scenario: To validate that the total project cost in the subaward budget table is the sum of the values in each row of the column
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1626,7 +1626,7 @@ Feature: Validate all scenarios of grants and award without background
       | {SavedValue:fundingAccount} | 1000        |
     Then I softly see value "$1,100.00" for title "Total Project Cost" against the value "Construction" inside table "---subAwardFromFDM:-:subAwardBudgetTableId---"
 
-  @69453 @verifySupportingDocumentNotAddedByExe @aashish
+  @69453 @verifySupportingDocumentNotAddedByExe
   Scenario: Validate that supporting document cannot be added by anyone except the award owner(Except FO user)
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1646,7 +1646,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Files" sub tab
     Then I cannot see top right button "Add" in flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
-  @69453 @verifySupportingDocumentNotAddedByFOUser @aashish
+  @69453 @verifySupportingDocumentNotAddedByFOUser
   Scenario: Validate that supporting document cannot be added by anyone except the award owner(Except FO user)
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1673,7 +1673,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Files" sub tab
     Then I softly can see top right button "Add" in flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
-  @67809 @createGrantADMIN @aashish
+  @67809 @createGrantADMIN
   Scenario: Validate that the Admin user can create new Grant
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -1688,7 +1688,7 @@ Feature: Validate all scenarios of grants and award without background
     And I get the "EGMS ID"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @69899 @verifyBudgetPeriodNotGreaterThanStartDate @aashish @smoke
+  @69899 @verifyBudgetPeriodNotGreaterThanStartDate  @smoke
   Scenario: To verify that system throws validation message when a user entered start date as grater than budget period start date.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1718,7 +1718,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the following messages in the page details contains:
       | Focus area start date should be between budget period. |
 
-  @67690 @pendingTaskToPMAfterSubmitToApprover @jitendra  @onHold-Bug-414263
+  @67690 @pendingTaskToPMAfterSubmitToApprover @onHold-Bug-414263
   Scenario Outline: Validate that pending task generates for the award owner (PM) profile after subaward is submitted for approval in pending task (assigned to me and assigned by me)
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1898,7 +1898,7 @@ Feature: Validate all scenarios of grants and award without background
       | Performance Tab - Enter Target values.                                                                                                |
       | Responsibilities - At least one approver is required                                                                                  |
 
-  @66096 @defaultPackageAssociateWithSubaward @aashish
+  @66096 @defaultPackageAssociateWithSubaward
   Scenario Outline: To Verify that the Default package associated with subaward should be displayed correctly |
   To verify that Initiate Desk review button appear on site visit table of management tab of Award owner after Subaward is activated
     And I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
@@ -1920,7 +1920,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                   |
       | {SavedValue:Automation Runtime Direct Award} |
 
-  @71436 @jitendra @activeAwardFilter
+  @71436  @activeAwardFilter
   Scenario: Verify that Activated records are getting displayed proper post apply a filter "activated" on grants by SPI/SPA users.
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1930,7 +1930,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime Award}" for title "Grant Title" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @70806 @71417 @jitendra @SetRedirectionThresholdtO15
+  @70806 @71417  @SetRedirectionThresholdtO15
   Scenario Outline: Validate that Budget Redirection threshold setting made on Grant is carried forward to  Budget Redirection Amendment
   | Verify that user is able to see approved tasks in Completed tasks listing of the grants post subaward approved by Fiscal Officer
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -2137,7 +2137,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @71370 @71430 @71434 @awardCloseInFilter @jitendra
+  @71370 @71430 @71434 @awardCloseInFilter
   Scenario Outline: Validate that 'Amount Awarded' ($) value doesn't  get changed on the Grant post Grant is closed
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2459,7 +2459,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
-  @65909 @checkAawrdIsPresentUnderAnotherPMuSER @jitendra
+  @65909 @checkAawrdIsPresentUnderAnotherPMuSER
   Scenario:  Verify that other internal users of organization(ex-Community Health & Equity) are not able to view draft grants with the different organization(Ex-Test Automation Organization).
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "Sarah PM" user
@@ -2469,7 +2469,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @69085 @matchTermsAndCondition @jitendra
+  @69085 @matchTermsAndCondition
   Scenario:Validate that Total mandatory terms and condition in master table of planning and that associated in the Subaward Terms and condition table is same
     When I login to "As a Grantor" app as "PM" user
     When I navigate to "Planning" tab
@@ -2489,7 +2489,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
 
-  @67532 @jitendra @checkAttachemet
+  @67532  @checkAttachemet
   Scenario Outline: To verify that validation message appear on Subrecipient profile if supporting document checklist set as yes while creating  grant on 'Supporting Documents Checklist' section
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2671,7 +2671,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @40066 @meenakshi @closeOutGrantOverview
+  @40066  @closeOutGrantOverview
   Scenario: verify PM user able to Navigating to the Closeout Request section.
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2686,7 +2686,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see "Closeout Requests" page block displayed
 
 
-  @40071 @40605 @meenakshi @closeOutAcknowlegdmentSectionInGrantOverview
+  @40071 @40605  @closeOutAcknowlegdmentSectionInGrantOverview
   Scenario: Verify , whether the fields are carried forward from the Grant Overview tab to Closeout Grant Overview Tab and whether the Acknowledgement section has Default Null Value before sent to sub-recipient.
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2743,7 +2743,7 @@ Feature: Validate all scenarios of grants and award without background
       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @66938 @doNotSeeSubawardButtonAfterRejectingByEXE @monu @smoke @buglogged125748
+  @66938 @doNotSeeSubawardButtonAfterRejectingByEXE  @smoke @buglogged125748
   Scenario Outline: To Validate that if FDM is rejected by EXE user, subaward button in Action column cannot be seen for the Application. in Recommended Application table.
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -3135,7 +3135,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @196571 @196573 @196574 @196575 @196576 @196587  @sprint-4 @vaibhav @reassignment
+  @196571 @196573 @196574 @196575 @196576 @196587  @sprint-4  @reassignment
   Scenario: Validate user should able see the new module Grant after enter the source user & target user in Ownership Reassignment option
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3184,7 +3184,7 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "3" seconds
     Then I softly do not see "No matches found" inside auto search result
 
-  @196596 @196598 @196611 @sprint-4 @vaibhav @reassignment
+  @196596 @196598 @196611 @sprint-4  @reassignment
   Scenario: Validate after clicking on transfer ownership button for grants user should able to see the following message
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3229,7 +3229,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @196600 @ValidatewhenuserclickonNObuttonofwarningmessageforgrantsthenflowshouldbestop @sprint-4 @vaibhav @reassignment @ownershipcheck
+  @196600 @ValidatewhenuserclickonNObuttonofwarningmessageforgrantsthenflowshouldbestop @sprint-4 @reassignment
   Scenario: Validate when user click on NO button of warning message for grants then flow should be stop
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3255,7 +3255,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantSourceOwnerTableId---"
 
-  @196613  @sprint-4 @vaibhav @reassignment @ownvai
+  @196613  @sprint-4  @reassignment @ownvai
   Scenario: Validate award after changing the ownership then new owner & old owner should be update in owner section under responsibility tab
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3308,7 +3308,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @198227  @sprint-4 @vaibhav @reassignment @taskreassign
+  @198227  @sprint-4  @reassignment @taskreassign
   Scenario: Validate User should able to see new user as a owner name after reassigning the task ownership
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3394,7 +3394,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @198233  @sprint-4 @vaibhav @reassignment
+  @198233  @sprint-4  @reassignment
   Scenario: Validate user should able to see the name Acceptance of Subaward by Subrecipient by subrecipient after created award & send to SR after approved award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3508,7 +3508,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     Then I softly see value "Acceptance of Subaward by Subrecipient" for title "Task Type" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @198320  @sprint-4 @vaibhav @reassignment
+  @198320  @sprint-4  @reassignment
   Scenario: Validate user should able to reassign the task from Sarah pm To Simon PM before approved the award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3589,7 +3589,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     Then I can see top right button "Submit for Approval" in page detail
 
-  @198356  @sprint-4 @vaibhav @reassignment
+  @198356  @sprint-4  @reassignment
   Scenario: Validate user should able to reassign the award task with same profile & same Organization
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -3667,7 +3667,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @198402 @sprint-4 @vaibhav @reassignment
+  @198402 @sprint-4  @reassignment
   Scenario: Validate PM user should able to see all the pending tasks in Reassign My Current Task page
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3754,7 +3754,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
 
-  @198594 @sprint-4 @vaibhav @reassignment
+  @198594 @sprint-4  @reassignment
   Scenario: Validate user should not able to select the same user in Reassign To & Reassign from field
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Grants" tab
@@ -3775,7 +3775,7 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "3" seconds
     Then I softly do not see "No matches found" inside auto search result
 
-  @196618  @sprint-4 @vaibhav @reassignment @FieldHistoryExclude
+  @196618  @sprint-4  @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the updated history after reassignment ownership for Grant module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3819,7 +3819,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @196621 @Validateusershouldabletocreatetheownershiptasktonewownerforgrantmodule @sprint-4 @vaibhav @reassignment
+  @196621 @Validateusershouldabletocreatetheownershiptasktonewownerforgrantmodule @sprint-4  @reassignment
   Scenario: Validate user should able to create the ownership task to new owner for grant module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3851,7 +3851,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
 
-  @196622 @ValidateusershouldabletocreatetheownershiptasktonewownerforAwardmodule @sprint-4 @vaibhav @reassignment
+  @196622 @ValidateusershouldabletocreatetheownershiptasktonewownerforAwardmodule @sprint-4  @reassignment
   Scenario: Validate user should able to create the ownership task to new owner for Award module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3899,7 +3899,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
 
-  @196627 @sprint-4 @vaibhav
+  @196627 @sprint-4
   Scenario: Validate user should not reassign the ownership to same profile but different organization for grant module
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -3919,7 +3919,7 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "3" seconds
     Then I softly do not see "Victor EXE" inside auto search result
 
-  @196634  @sprint-4 @vaibhav @reassignment
+  @196634  @sprint-4  @reassignment
   Scenario: Validate admin user should not able to see the inactive user in target user for grant module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3939,7 +3939,7 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "4" seconds
     Then I softly do not see "Undertaker FO" inside auto search result
 
-  @196635 @Validateusershouldabletoseethefuturetasktonewuserforgrantmodule @sprint-4 @vaibhav @reassignment
+  @196635 @Validateusershouldabletoseethefuturetasktonewuserforgrantmodule @sprint-4  @reassignment
   Scenario: Validate user should able to see the future task to new user for grant module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3981,7 +3981,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Subawards" sub tab
     Then I softly can see row level action button "Edit" against "{SavedValue:AwardEGMSID}" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
 
-  @196637 @sprint-4 @vaibhav @reassignment @ownershipcheck
+  @196637 @sprint-4  @reassignment
   Scenario: Validate user should able to see the future task to new user for award module
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -4033,7 +4033,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Send to Subrecipient" in page detail
 
-  @196643  @sprint-4 @vaibhav @reassignment
+  @196643  @sprint-4  @reassignment
   Scenario: Validate when grant is in created and change the ownership then for activate task should assign to new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4174,7 +4174,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Activate" in the page details
     Then I softly see that "Subaward" is in "Activated" status
 
-  @196645  @sprint-4 @vaibhav @reassignment
+  @196645  @sprint-4  @reassignment
   Scenario: Validate reassign the ownership after award is send to subrecipient after approved award then Activated option should display to the new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4307,7 +4307,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     Then I can see top right button "Activate" in page detail
 
-  @196648 @sprint-4 @vaibhav @reassignment
+  @196648 @sprint-4  @reassignment
   Scenario: Validate change the ownership task to Simon PM from Sarah PM user after accept after approval task from S/R then activated task should generate to the new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4438,7 +4438,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---" without waiting for record
     Then I can see top right button "Activate" in page detail
 
-  @196651 @sprint-4 @vaibhav @reassignment
+  @196651 @sprint-4  @reassignment
   Scenario: Validate reassignment ownership task is changed after created award from PO to other PO then submitted for approval option should display to other FO user
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -4541,7 +4541,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I softly can see top right button "Submit for Approval" in page detail
 
-  @196655 @sprint-4 @vaibhav @reassignment
+  @196655 @sprint-4  @reassignment
   Scenario: Validate ownership reassignment from PM to other PM before approve the award user then submit for approval should display to other PM user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4639,7 +4639,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I softly can see top right button "Submit for Approval" in page detail
 
-  @196676 @Validateusershouldnotreassigntheownershiptosameprofilebutdifferentorganizationforawardmodule @sprint-4 @vaibhav @reassignment
+  @196676 @Validateusershouldnotreassigntheownershiptosameprofilebutdifferentorganizationforawardmodule @sprint-4  @reassignment
   Scenario: Validate user should not reassign the ownership to same profile but different organization for award module
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -4663,7 +4663,7 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "3" seconds
     Then I softly do not see "Victor EXE" inside auto search result
 
-  @196677  @Sprint-4 @vaibhav @reassignment
+  @196677  @Sprint-4  @reassignment
   Scenario: Validate admin user should not able to see the inactive user in target user for award module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4687,7 +4687,7 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "3" seconds
     Then I softly do not see "Victor EXE" inside auto search result
 
-  @196685  @sprint-4 @vaibhav @reassignment @ownvai
+  @196685  @sprint-4  @reassignment @ownvai
   Scenario: Validate old owner name should be display in created by field in overview tab for grant record
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4724,7 +4724,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Overview" sub tab
     Then I softly see field "Created by" as "{SavedValue:PM Username}"
 
-  @196686  @sprint-4 @vaibhav @reassignment
+  @196686  @sprint-4  @reassignment
   Scenario: Validate old owner name should be display in created by field in overview tab for award record
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4767,7 +4767,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Overview" sub tab
     Then I softly see field "Created by" as "{SavedValue:PM Username}"
 
-  @198226  @sprint-4 @vaibhav  @reassignment @FieldHistoryExclude
+  @198226  @sprint-4   @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the updated history after reassignment of task ownership for Award module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4853,7 +4853,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @198595 @198598  @sprint-4 @vaibhav @reassignment
+  @198595 @198598  @sprint-4  @reassignment
   Scenario: Validate  user should able to see email in yopmail when award rejected by approver after task is created for award & acknowledge by subrecipient
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4966,7 +4966,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @198596  @sprint-4 @vaibhav @reassignment
+  @198596  @sprint-4  @reassignment
   Scenario: Validate user should able to see email in yopmail when award send back by approver after task is created for award & acknowledge by subrecipient
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5079,7 +5079,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @198597  @sprint-4 @vaibhav @reassignment @ownvai
+  @198597  @sprint-4  @reassignment @ownvai
   Scenario: Validate user should able to see email in yopmail when award send back by approver after task is created for award & acknowledge by subrecipient
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5189,7 +5189,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @198228 @198229  @sprint-4 @vaibhav @reassignment
+  @198228 @198229  @sprint-4  @reassignment
   Scenario: Validate after changing the task ownership from previous user to new user then all edit access should go to new task Owner
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -5294,7 +5294,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly can see row level action button "View" against "{SavedValue:AwardEGMSID}" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:AwardEGMSID}" in flex table with id "---subAwardStandAlone:-:subawardsTableId---"
 
-  @198323 @198418 @sprint-4 @vaibhav @reassignment
+  @198323 @198418 @sprint-4  @reassignment
   Scenario: Validate user should able to reassign the task from Victor EXE  to Scott EXE after approved the award
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -5417,7 +5417,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @220549 @ValidateGrantsFileAdminUsercanseeSupportingDocumentChecklist @sprint-7-US-205248 @vaibhav
+  @220549 @ValidateGrantsFileAdminUsercanseeSupportingDocumentChecklist @sprint-7-US-205248
   Scenario: Validate Grants Files Admin User can see Supporting Document Checklist
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -5431,7 +5431,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Files" sub tab
     Then I softly can see page block "Supporting Documents Checklist"
 
-  @220552  @sprint-7-US-205248 @vaibhav
+  @220552  @sprint-7-US-205248
   Scenario: Validate EXE user click on "Add" button user can add the details in Supporting Document Checklist section in "Created" status
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -5464,7 +5464,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add" in flex table with id "---subAwardStandAlone:-:grantSupportDocTableId---"
 
-  @220558  @sprint-7-US-205248 @vaibhav
+  @220558  @sprint-7-US-205248
   Scenario: Validate PO user click on Upload Template icon a new modal will open named as Add Supporting Checklist Document
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -5483,7 +5483,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---subAwardStandAlone:-:grantSupportDocTableId---" without waiting for record
     Then I softly see "Add Supporting Documents Checklist" opens in overLay window
 
-  @220559 @sprint-7-US-205248 @vaibhav
+  @220559 @sprint-7-US-205248
   Scenario: Validate PO user click on Upload Template icon a new modal will open It will have one option Upload File from Computer
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -5502,7 +5502,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---subAwardStandAlone:-:grantSupportDocTableId---" without waiting for record
     Then I see "Upload File from Computer" page block displayed
 
-  @220561  @sprint-7-US-205248 @vaibhav
+  @220561  @sprint-7-US-205248
   Scenario: Validate Upload FIles from Computer will have sections like Classification Upload File Choose a File OR Drag it here Description
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -5523,7 +5523,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see field "Upload File" as " " on modal
     Then I see field "Description" as " " on modal
 
-  @220564 @sprint-7-US-205248 @vaibhav
+  @220564 @sprint-7-US-205248
   Scenario: Validate PM user can see to buttons at the bottom of Upload Files from Computer Upload It will enable only after we choose a file to upload else it will be disabled
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5544,7 +5544,7 @@ Feature: Validate all scenarios of grants and award without background
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
 
-  @220563  @sprint-7-US-205248 @vaibhav
+  @220563  @sprint-7-US-205248
   Scenario: Validate EXE user should have two options if user click on Classification in Upload File from Computer Template for Grant Others
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -5565,7 +5565,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I see field "Classification" as "Template for Grant" on modal
     Then I see field "Classification" as "Others" on modal
 
-  @220565  @sprint-7-US-205248 @vaibhav
+  @220565  @sprint-7-US-205248
   Scenario: Validate PM user can see to buttons at the bottom of Upload Files from Computer Cancel If click on Cancel than the modal will close and details filled will be lost
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5587,7 +5587,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click modal button "Close"
     Then I see value "Not Applicable" for title "Template Link" against the value "Active" inside table "---subAwardStandAlone:-:grantSupportDocTableId---"
 
-  @195680  @sprint-12-US-226646 @vaibhav @reassignment
+  @195680  @sprint-12-US-226646  @reassignment
   Scenario: Validate that new approver's name should be update in the responsibility tab when approval task is reassigned
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5690,7 +5690,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "NA" for title "Award" against the value "Automation PM1" inside table "---subAwardStandAlone:-:awardApproversTableId---"
     Then I softly see value "Step 2" for title "Amendment Request" against the value "Automation FO" inside table "---subAwardStandAlone:-:awardApproversTableId---"
 
-  @223179  @sprint-12-US-226646 @vaibhav @reassignment
+  @223179  @sprint-12-US-226646  @reassignment
   Scenario: Validate email should get generate for reassign owner (reverse reassignment) of award after peer reviewer submit his review to award owner after ownership reassignment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5824,7 +5824,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @229039  @sprint-12-US-226646 @vaibhav @reassignment
+  @229039  @sprint-12-US-226646  @reassignment
   Scenario: Validate Award Module the Award for yopamail of peer review
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5900,7 +5900,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @206972  @sprint-12-US-226646 @vaibhav @reassignment
+  @206972  @sprint-12-US-226646  @reassignment
   Scenario: Validate task type should be renamed for new owner of EXE user as "Initial Acceptance of Sub award by Subrecipient" after award is accepted by subrecipient
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -5995,7 +5995,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "Initial Acceptance of Subaward by Subrecipient" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @196617  @sprint-12-US-226646 @vaibhav @reassignment @FieldHistoryExclude
+  @196617  @sprint-12-US-226646  @reassignment @FieldHistoryExclude
   Scenario: Validate Intercept should fetched from the application
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -6018,7 +6018,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM" for title "User" inside field history table
 
-  @196982  @sprint-12-US-226646 @vaibhav @reassignment
+  @196982  @sprint-12-US-226646  @reassignment
   Scenario: Validate new owner PM can create sub-award after FDM is approves from app after it's related Ann ownership will assign to other PM user
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -6053,7 +6053,7 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     Then I softly see value "Automation PM1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @222066  @sprint-12-US-226646 @vaibhav @reassignment
+  @222066  @sprint-12-US-226646  @reassignment
   Scenario: Validate Award approver should not modified on initial record if approvers are changed at runtime
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -6216,7 +6216,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "Step 1" for title "Program" against the value "Automation FO" inside table "---program:-:approverTableId---"
     Then I softly see value "Step 1" for title "Award" against the value "Automation FO" inside table "---program:-:approverTableId---"
 
-  @198230  @sprint-12-US-226646 @vaibhav @reassignment
+  @198230  @sprint-12-US-226646  @reassignment
   Scenario: Validate user should able to see the name "Initial Acceptance of Subaward" by subrecipient after created award & send to S/R before approved award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6294,7 +6294,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "Initial Acceptance of Subaward by Subrecipient" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @196603  @sprint-12-US-226646 @vaibhav @reassignment
+  @196603  @sprint-12-US-226646  @reassignment
   Scenario: Validate after ownership of a grant record is changed then email should be reached to the yopmail
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6379,7 +6379,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @223439  @sprint-12-US-226646 @vaibhav @reassignment
+  @223439  @sprint-12-US-226646  @reassignment
   Scenario: Validate Grant Module>>Verify the transfer task ownership is fail in case of any reason then related task of Grant should not be updated
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6455,7 +6455,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team.
       """
 
-  @222062  @sprint-12-US-226646 @vaibhav @reassignment
+  @222062  @sprint-12-US-226646  @reassignment
   Scenario: Validate Award_ If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (Fiscal reviewer)validate reassignment fails
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6529,7 +6529,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team.
       """
 
-  @223288  @sprint-12-US-226646 @vaibhav @reassignment
+  @223288  @sprint-12-US-226646  @reassignment
   Scenario: Validate Grant Module user should able to reassign the ownership to new user of more than 10 records & 1 email should be triggered for all records
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -7166,7 +7166,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @225064  @sprint-12-US-226646 @vaibhav @reassignment
+  @225064  @sprint-12-US-226646  @reassignment
   Scenario: Validate Reassignment Task all simultaneous reassignment ownership should reassigned to new owner & Validate mail yopmail
     And I activated standalone subaward "Automation Runtime Bulks Grants Records" with properties "Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -7462,7 +7462,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation EXE" for title "Name" inside table "---closeout:-:closeoutOwnerTableId---"
 
-  @224420  @sprint-12-US-226646 @vaibhav @reassignment
+  @224420  @sprint-12-US-226646  @reassignment
   Scenario: Validate Reassignment Task all simultaneous reassignment task ownership should reassigned to new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -7775,7 +7775,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---announcement:-:pendingTaskTableId---"
 
-  @196614 @Validateusershouldnotabletoreassignownershiptothenewownerforrejectedaward @sprint-11-US-224734 @vaibhav @reassignment
+  @196614 @Validateusershouldnotabletoreassignownershiptothenewownerforrejectedaward @sprint-11-US-224734  @reassignment
   Scenario: Validate user should not able to reassign ownership to the new owner for rejected award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -7867,7 +7867,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
     Then I softly do not see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantSourceOwnerTableId---"
 
-  @198368  @sprint-11-US-224734 @vaibhav @reassignment
+  @198368  @sprint-11-US-224734  @reassignment
   Scenario: Validate user reassign the task ownership of "Accepted Subaward By Subrecipient" from PM user to another PM user then email should get to the new PM user
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8007,7 +8007,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @204886  @sprint-11-US-224734 @vaibhav @reassignment
+  @204886  @sprint-11-US-224734  @reassignment
   Scenario: Validate Award PM as new peer reviewer he can edit the tables on award after review task ownership assign to PM if allow edit access is 'yes'
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -8078,7 +8078,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Reviewer Name" against the value "Fiscal Reviewer" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
 
-  @204895  @sprint-11-US-224734 @vaibhav @reassignment
+  @204895  @sprint-11-US-224734  @reassignment
   Scenario: Validate Award PM as new peer reviewer he can not edit the tables on award after review task ownership assign to PM if allow edit access is 'No'
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -8148,7 +8148,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM1" for title "Reviewer Name" against the value "Fiscal Reviewer" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
 
-  @204896  @sprint-11-US-224734 @vaibhav @reassignment @FieldHistoryExclude
+  @204896  @sprint-11-US-224734  @reassignment @FieldHistoryExclude
   Scenario: Validate Award new award owner will receive email for submitted review by reviewer after change the award ownership
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8206,23 +8206,23 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "Submitted" for title "Status" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Award {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#      Hello Automation PM1,
-#      This email is to notify you that Subaward {SavedValue:Automation Runtime Direct Award} has been peer reviewed.
-#      Log in to EGMS and click here for more details.
-#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
-#      Thank you.
-#      The EGMS Team
-#      """
-#    Then I refresh the page
+    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Award {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
+      """
+    Then I see the mail text is as follows :
+      """
+      Hello Automation PM1,
+      This email is to notify you that Subaward {SavedValue:Automation Runtime Direct Award} has been peer reviewed.
+      Log in to EGMS and click here for more details.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com if you have any questions or need assistance with this task.
+      Thank you.
+      The EGMS Team
+      """
+    Then I refresh the page
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM1" user
     And I navigate to "Grants" tab
@@ -8236,7 +8236,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @218010  @sprint-11-US-224734 @vaibhav @reassignment
+  @218010  @sprint-11-US-224734  @reassignment
   Scenario: Validate Award for peer review pending task & completed task should generate correctly
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -8377,7 +8377,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
     Then I softly see value "Initial Acceptance of Subaward by Subrecipient" for title "Task Type" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @196662 @196620  @sprint-4-US-192896 @vaibhav @reassignment @FieldHistoryExclude
+  @196662 @196620  @sprint-4-US-192896  @reassignment @FieldHistoryExclude
   Scenario: Validate user should able to see the award record in Target user after check the checkbox from source user & click on transfer ownership button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8422,7 +8422,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @195696  @sprint-7-US-191250 @vaibhav @reassignment
+  @195696  @sprint-7-US-191250  @reassignment
   Scenario: Validate Award If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility reassignment fails
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8527,7 +8527,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team.
       """
 
-  @229503  @sprint-13-US-231194 @vaibhav @reassignment
+  @229503  @sprint-13-US-231194  @reassignment
   Scenario: Validate user should able to see email in yopmail when award rejected after approver
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8669,7 +8669,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @235147 @ValidateownershiptransferofaGrantthathas5000termsandconditionsassociatedtoitandthenRecordTransfertoOtheruserforthisgrant @vaibhav @reassignment
+  @235147 @ValidateownershiptransferofaGrantthathas5000termsandconditionsassociatedtoitandthenRecordTransfertoOtheruserforthisgrant  @reassignment
   Scenario: Validate ownership transfer of a Grant that has 5000 terms and conditions associated to it and then Record Transfer to Other user for this grant
     And I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
@@ -8690,7 +8690,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Direct Award}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:Automation Runtime Direct Award}" for title "Grant Title" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
 
-  @229504  @sprint-13-US-231194 @vaibhav @reassignment
+  @229504  @sprint-13-US-231194  @reassignment
   Scenario: Validate user should able to see email in yopmail when award approved by last approver
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8816,7 +8816,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @204884  @sprint-11-US-218319 @vaibhav @reassignment
+  @204884  @sprint-11-US-218319  @reassignment
   Scenario: Validate Award EXE as peer reviewer he can reassign his review task to other EXE user and new reviewer can complete review
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -8900,7 +8900,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation EXE1" for title "Reviewer Name" against the value "Submitted" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
 
-  @221993  @sprint-11-US-218319 @vaibhav @reassignment
+  @221993  @sprint-11-US-218319  @reassignment
   Scenario: Validate user should get failure email if user tries to reassign same user for multiple approval steps
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -9024,7 +9024,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team.
       """
 
-  @221996  @sprint-11-US-218319 @vaibhav @reassignment @buglogged-265858
+  @221996  @sprint-11-US-218319  @reassignment @buglogged-265858
   Scenario: Validate Award step3 approver is inserted for award column when approval task is reassigned
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -9148,7 +9148,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @222070  @sprint-11-US-218319 @vaibhav @reassignment
+  @222070  @sprint-11-US-218319  @reassignment
   Scenario: Validate Award If approver and owner of a award are same validate after reassigning the approval task ownership of record is not changed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -9275,7 +9275,7 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:completeTaskTableId---" panel
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:completeTaskTableId---"
 
-  @224674  @sprint-11-US-218319 @vaibhav @reassignment
+  @224674  @sprint-11-US-218319  @reassignment
   Scenario: Validate Award failure and success email should generated for approvers and for peer reviewers
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -9746,7 +9746,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation FO1" for title "Reviewer Name" against the value "Fiscal Reviewer" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
 
-  @223152  @sprint-11-US-217998 @vaibhav @reassignment
+  @223152  @sprint-11-US-217998  @reassignment
   Scenario: Validate Award email should get generate for new owner of award after peer reviewer submit his review to award owner after ownership reassignment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -9831,7 +9831,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @223495  @sprint-11-US-217998 @vaibhav @reassignment
+  @223495  @sprint-11-US-217998  @reassignment
   Scenario: Validate Grant Module after transferring the more than 10 record to new owner then all future task access visible to new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -10527,7 +10527,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly can see row level action button "View" against "{SavedValue:GrantEGMSID10}" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:GrantEGMSID10}" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @224335  @sprint-11-US-218319 @vaibhav @reassignment
+  @224335  @sprint-11-US-218319  @reassignment
   Scenario: Validate Award the approver behavior after approver forwarded the approve task other other user and then other user reassign that approver task
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab

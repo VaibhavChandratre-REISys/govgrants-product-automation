@@ -1635,7 +1635,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | Application2                     | User |
       | {SavedValue:Automation Runtime Announcement} | Automation Runtime Application_2 | PO   |
 
-  @113322 @ValidateApplicantscanfillinthedetailedbudgetonapplicationwhenfundingopportunityisextended @Sprint-23-US-273843 @vaibhav @Allocation
+  @113322 @ValidateApplicantscanfillinthedetailedbudgetonapplicationwhenfundingopportunityisextended @Sprint-23-US-273843  @Allocation
   Scenario: Validate Applicants can fill in the detailed budget on application when funding opportunity is extended
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

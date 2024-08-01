@@ -1,7 +1,7 @@
 @paymentRequestWithBackground @ScheduleRequest @paymentRequest @grantor-regression @grantor-parallel-regression @regression @paymentRequestExecution
 Feature: Scheduled Reimbursement Payment Request Scenarios
 
-  @38313 @taskCreationForSubrecipientUser @mahadev @PaymentRerun
+  @38313 @taskCreationForSubrecipientUser  @PaymentRerun
   Scenario Outline: Validate task is getting created for SPI user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -17,7 +17,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | {SavedValue:Automation Runtime award} | SPI3       |
       | {SavedValue:Automation Runtime award} | SPA        |
 
-  @55398 @submittedPRDisplayedInCompletedTask @mahadev
+  @55398 @submittedPRDisplayedInCompletedTask
   Scenario Outline: Validate submitted payment request displays under completed task for SPI user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -45,7 +45,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @55401 @ValidatedUserNotifiedFieldUpdatedExternalPortal-SPI3 @mahadev @PaymentRerun
+  @55401 @ValidatedUserNotifiedFieldUpdatedExternalPortal-SPI3  @PaymentRerun
   Scenario Outline: Verify when Batch is run then User Notified field gets Updated at External Portal
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -67,7 +67,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            | Grant Name                            | User |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | SPI3  |
 
-  @55401 @ValidatedUserNotifiedFieldUpdatedExternalPortal-SPA @mahadev
+  @55401 @ValidatedUserNotifiedFieldUpdatedExternalPortal-SPA
   Scenario Outline: Verify when Batch is run then User Notified field gets Updated at External Portal
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -88,7 +88,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            | Grant Name                            | User |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | SPA  |
 
-  @153111 @Verify3StepApprovalFor-ScheduledPaymentRequest-RnRFunctionality @monu
+  @153111 @Verify3StepApprovalFor-ScheduledPaymentRequest-RnRFunctionality
   Scenario Outline: Verify user is able to add three step approver for schedule reimbursement payment request and reject it on step three
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -152,7 +152,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @153110 @VerifyErrorMessageAtApproverSectionWhileSkippingAt-ScheduledPaymentRequest-RnRFunctionality @monu
+  @153110 @VerifyErrorMessageAtApproverSectionWhileSkippingAt-ScheduledPaymentRequest-RnRFunctionality
   Scenario Outline: Verify the validation message when approval step has <NA>  on schedule reimbursement payment request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -194,7 +194,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @153108 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUser-ScheduledPaymentrequest-RnRFunctionality @monu
+  @153108 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUser-ScheduledPaymentrequest-RnRFunctionality
   Scenario Outline: Verify validation displayed when same step is added for different approver for schedule Payment Request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -236,7 +236,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @153107 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStep-SchedulePaymentRequest-RnRFunctionality @monu
+  @153107 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStep-SchedulePaymentRequest-RnRFunctionality
   Scenario Outline: Verify validation displayed when same approver is added on different  step for schedule reimbursement Payment Request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -278,7 +278,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @153109 @VerifyInheritatedApproverAtScheduledPaymentRequestFromAward-RnRFunctionality @monu @PaymentRerun
+  @153109 @VerifyInheritatedApproverAtScheduledPaymentRequestFromAward-RnRFunctionality  @PaymentRerun
   Scenario Outline: Validate Approvers are getting inherited from award record to schedule reimbursement payment request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -329,7 +329,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @152781 @Verify3StepApprovalFor-ScheduledReimbursementPaymentRequest-RnRFunctionality @monu
+  @152781 @Verify3StepApprovalFor-ScheduledReimbursementPaymentRequest-RnRFunctionality
   Scenario Outline: Verify user is able to add three step approver for Reimbursement payment request and forward it on step three
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -396,7 +396,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @152888 @VerifyUserIsAbleApproveTheScheduleReimbursementPaymentRequestInTwoStepApprover  @vaibhav
+  @152888 @VerifyUserIsAbleApproveTheScheduleReimbursementPaymentRequestInTwoStepApprover
   Scenario Outline: Verify User Is Able Approve The Schedule Reimbursement Payment Request In Two Step Approver
     And I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "<Award Name>" from the object "Payment Request"

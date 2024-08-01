@@ -2717,7 +2717,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PM   |
 
-  @274013  @Sprint-23-US-273843 @vaibhav @Allocation @Re-RunPlanningAndAnnouncement
+  @274013  @Sprint-23-US-273843  @Allocation @Re-RunPlanningAndAnnouncement
   Scenario: Validate Ann owner(PM User) should see following column names in the table under invited applicants section when Ann is in Published, Approved, Closed, and Under Revision status
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab

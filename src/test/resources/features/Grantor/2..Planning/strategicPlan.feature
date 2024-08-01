@@ -29,7 +29,7 @@ Feature: Validate all scenarios in Strategic Plan
     And I wait for "2" seconds
     Then I softly see "Strategic Plan" has been added in "Strategic Plan Files" flex table
 
-  @105447 @verifyDeletionOfStrategicPlan @monu
+  @105447 @verifyDeletionOfStrategicPlan
   Scenario: Validate user is able to delete strategic plan
     And I save the field labeled "EGMS ID" as "egmsid"
     And I navigate to "Planning" tab
@@ -97,7 +97,7 @@ Feature: Validate all scenarios in Strategic Plan
     When I click on "View" icon for "{SavedValue:Strategic Goals ID}" inside flex table with id "---strategicplan:-:strategicGoalObjectivesTableId---"
     Then I softly cannot see top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
 
-  @51048 @editionOfObjective @monu
+  @51048 @editionOfObjective
   Scenario: Edition of Objective inside a Strategic Goal by User - Admin/EXE/PM
     When I enter value "Automation Test Description" into field "StrategyDescription__c"
     And I click on "Save" in the page details
