@@ -83,7 +83,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Back To Strategic Plan" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
- @SubrecipientContactCreation @ProdSan2
+ @SubrecipientContactCreation @ProdSan2 @rerun
   Scenario: Subrecipient Contact Creation
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -220,7 +220,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
 
-  @65077 @publishingCompetitiveAnnouncementCA @ProdSan2 
+  @65077 @publishingCompetitiveAnnouncementCA @ProdSan2 @rerun
   Scenario: Validate the activation of Competitive Announcement
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -486,7 +486,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @72342 @publishingDirectedAnnouncement @ProdSan2 
+  @72342 @publishingDirectedAnnouncement @ProdSan2 @rerun
   Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -750,7 +750,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
 
-  @72343_1 @publishingFormulaAnnouncementByApplicantFocusArea @ProdSan2 
+  @72343_1 @publishingFormulaAnnouncementByApplicantFocusArea @ProdSan2 @rerun
   Scenario: Validate the activation of Formula By Applicant Focus Area Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1033,7 +1033,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I softly see field "Status" as "Published"
 
-  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 @sanTest
+  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 @sanTest @rerun
   Scenario: Validate the activation of Formula By Applicant Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -1817,7 +1817,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72361 @activeOrgRiskAssessment @ProdSan2
+  @72361 @activeOrgRiskAssessment @ProdSan2 @rerun
   Scenario: Validate the Activation of Org Risk Assessment and the status changes to Active
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 #    Given I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
