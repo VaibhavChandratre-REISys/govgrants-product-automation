@@ -157,7 +157,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            |
       | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @ch1 @done @79978 @79977 @79979 @verifingPromoteToNextAndFDM @keerti
+  @79978 @79977 @79979 @verifingPromoteToNextAndFDM @keerti
   Scenario Outline: To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of prescreen review review step in Application phase
   | To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of SME review step in Application phase
   | To validate system generated error message ,for user will not be able to Promote to FDM for application when the reviewer decision is still pending for the steps which are Mandatory of management review review step in Application phase
@@ -488,7 +488,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            |
       | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @ch1 @done @38857 @80254 @80255 @80508 @verifySuccessMessageForNotifyApplication @monu
+  @38857 @80254 @80255 @80508 @verifySuccessMessageForNotifyApplication @monu
   Scenario Outline: To validate system generated success message ,after notifying applicants for Rejected Application
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -1911,7 +1911,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @ch1 @done @80258 @ValidateFDMShouldNotGetEditedAfterSubmissionByOwner @monu @buglogged125748
+  @80258 @ValidateFDMShouldNotGetEditedAfterSubmissionByOwner @monu @buglogged125748
   Scenario Outline: Validate user is not able to edit the FDM once it is submitted for approval
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2157,7 +2157,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @ch1 @done @80509 @80510 @verifyPromoteToFDMButtonOnApplicationPhase @monu
+  @80509 @80510 @verifyPromoteToFDMButtonOnApplicationPhase @monu
   Scenario Outline: Verify user is able to see Promote to FDM button after rejection of application
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2399,7 +2399,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @ch1 @done @81573 @VerifyEnteringOfNegotiationRequestInformation @monu
+  @81573 @VerifyEnteringOfNegotiationRequestInformation @monu
   Scenario Outline: Validate  user is able to enter information of negotiation request under negotiation sub tab
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2650,7 +2650,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @ch1 @done @80265 @ValidateSendBackMessageForFDM @monu
+  @80265 @ValidateSendBackMessageForFDM @monu
   Scenario Outline: Validate user is able to see sucess message for send back approval action
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -3740,7 +3740,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see "Other Leverage" in flex table header "{grantor_tableId:SubAwardBudgetTableId}"
     Then I softly see "Total Project Cost" in flex table header "{grantor_tableId:SubAwardBudgetTableId}"
 
-  @ch1 @done @143968 @144050 @VerifyUpdationOfInheritedApproverAtFDMFromAnnouncement-RnRFunctnality @monu
+  @143968 @144050 @VerifyUpdationOfInheritedApproverAtFDMFromAnnouncement-RnRFunctnality @monu
   Scenario Outline: Validate FDM owner can add new approvers on FDM and save them
   | Verify the approver from announcement are inherited to FDM|
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
@@ -3971,7 +3971,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @ch1 @done @143969 @VerifySelectionOfNAInsideStepsOfCopiedApproverAtFDMFromAnnouncement-RnRFunctnality @monu
+  @143969 @VerifySelectionOfNAInsideStepsOfCopiedApproverAtFDMFromAnnouncement-RnRFunctnality @monu
   Scenario Outline: Validate FDM owner can select NA step for already copied/ Saved users
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -4655,7 +4655,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @ch1 @done @143982 @Verify3StepApprovalForFDM-RnRFunctnality @monu
+  @143982 @Verify3StepApprovalForFDM-RnRFunctnality @monu
   Scenario Outline: Verify user can add three step approver on FDM and Submit for Approval
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -4885,7 +4885,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @ch1 @done @144051 @VerifyErrorMessageAtApproverSectionWhileSkippingForFDM-RnRFunctnality @monu
+  @144051 @VerifyErrorMessageAtApproverSectionWhileSkippingForFDM-RnRFunctnality @monu
   Scenario Outline: Verify the validation displayed on FDM when record is submitted for approval without assigning approvers.
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -5111,7 +5111,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @ch1 @144056 @144057 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserForFDM-RnRFunctnality @monu
+  @144056 @144057 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserForFDM-RnRFunctnality @monu
   Scenario Outline: Verify user cannot add same steps different user on FDM
   |Verify user cannot add same approver for different steps on FDM|
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
@@ -8349,7 +8349,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see status in Progress-bar is "Review Initiated" and is "dark blue"
     Then I softly see field "Status" as "Review Initiated"
 
-  @ch1 @done @192539 @ValidatereviewersassignedtotheapplicationwithinthereviewstepthatNegotiationhasbeenrequestedontheapplication @sprint-1 @vaibhav
+  @192539 @ValidatereviewersassignedtotheapplicationwithinthereviewstepthatNegotiationhasbeenrequestedontheapplication @sprint-1 @vaibhav
   Scenario: Validate reviewers assigned to the application within the review step, that a Negotiation has been requested on the application
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -8469,7 +8469,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     Then I softly do not see value "{SavedValue:EGMSID}" for title "Application EGMS ID" inside table "---applicationReview:-:appreviewsTableId---"
 
-  @ch1 @done @134420 @ValidateannouncementownercannotInitiateNegotiationforanapplicationwhichisalreadypromotedtonextstepfromanyreviewstep @sprint-1 @vaibhav
+  @134420 @ValidateannouncementownercannotInitiateNegotiationforanapplicationwhichisalreadypromotedtonextstepfromanyreviewstep @sprint-1 @vaibhav
   Scenario: Validate  announcement owner cannot Initiate Negotiation for an application which is already promoted to next step from any review step
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -11427,7 +11427,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @ch1 @done @202805 @Validategrantorsendsrequestsnegotiation&s/rsenditbacktograntorbutthegrantordoesnotcompletethenegotiation&clicksonRequestRevisionthenusershoulddirectedtosecondstepbecauseitisnotyetcompleted
+  @202805 @Validategrantorsendsrequestsnegotiation&s/rsenditbacktograntorbutthegrantordoesnotcompletethenegotiation&clicksonRequestRevisionthenusershoulddirectedtosecondstepbecauseitisnotyetcompleted
   Scenario Outline: Validate grantor sends requests negotiation & s/r send it back to grantor but the grantor does not complete the negotiation & clicks on "Request Revision" then user should directed to second step because it is not yet completed
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -12276,7 +12276,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @ch1 @done @196944 @Validatependingtaskshouldnotgenerateforoldownerofappit'srelatedAnnownershipwillassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment
+  @196944 @Validatependingtaskshouldnotgenerateforoldownerofappit'srelatedAnnownershipwillassigntonewuser @sprint-12-US-226646 @vaibhav @reassignment
   Scenario Outline: pending task should not generate for old owner of app if it's related Ann ownership will assign to new user
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -13257,8 +13257,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-
-  @ch1 @done @236829 @236830  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
+  @236829 @236830  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
   Scenario Outline: Validate user see the remove review record access from the old users
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -13484,7 +13483,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                        | Application Name                                         |
       | {SavedValue:Automation Runtime Competitive Announcement} | {SavedValue:Automation Runtime Competitive Announcement} |
 
-  @ch1 @done @236831  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
+  @236831  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
   Scenario Outline: Validate old user should not see the average weighted score column on application
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -18052,7 +18051,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
-  @ch1 @done @236758 @236762  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
+  @236758 @236762  @sprint-14-US-236321 @vaibhav @reassignment @bug-412783
   Scenario Outline: Validate user change ownership of the Announcement then user should share the Reviews with the new owner, i.e all the assigned reviews should visible only to the new announcement owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -18562,7 +18561,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @ch1 @done @219909  @sprint-10-US-205576 @vaibhav @reassignment @finalAppReviewPooja
+  @219909  @sprint-10-US-205576 @vaibhav @reassignment @finalAppReviewPooja
   Scenario Outline: Validate new reviewer EXE can complete the review for form which is assign to him while prescreen review
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -18831,7 +18830,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @ch1 @done @220028 @sprint-12-US-226646 @vaibhav @reassignment
+  @220028 @sprint-12-US-226646 @vaibhav @reassignment
   Scenario Outline: Validate fail email should be generated for both App if reviewer 1 tries to reassign App review form to reviewer 2 in combination of status of application form is Review Completed
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -18973,7 +18972,7 @@ Feature: Validate all scenarios in the Application Review without background
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
 
-  @ch1 @223637 @ValidateAppRevAnnownershouldabletoassignAppformforreviewagainafternegotiationiscompletedevenifpreviouslyreviewer1holdasAssignedforformstatus @sprint-11-US-224734 @vaibhav @reassignment
+  @223637 @ValidateAppRevAnnownershouldabletoassignAppformforreviewagainafternegotiationiscompletedevenifpreviouslyreviewer1holdasAssignedforformstatus @sprint-11-US-224734 @vaibhav @reassignment
   Scenario Outline: Validate App Rev Ann owner should able to assign App form for review again after negotiation is completed even if previously reviewer 1 hold as 'Assigned' for form status
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
