@@ -1615,7 +1615,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @72348 @awardHappyPathStandAlone @ProdSan1
+  @72348 @awardHappyPathStandAlone @ProdSan1 @TBExecution
   Scenario: Validate the activation of subaward Happy path stand alone and status changes to Activated | Validate subaward Happy path stand alone
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2628,7 +2628,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:GrantsSubAwardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---amendment:-:amendmentRequestTableId---" without waiting for record
-    When I click on "Amend Subaward" in the page details
+    When I click on "Amend Award" in the page details
     When I click on "Activate" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
@@ -2643,7 +2643,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see field "Status" as "Amended"
     Then I see status in Progress-bar is "Amended" and is "dark blue"
 
-  @72359 @completeCloseout @ProdSan1
+  @72359 @completeCloseout @ProdSan1 @TBExecution
   Scenario: Validate the Closeout is submitted for approval and the status changes to Submitted for Approval
     And I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -2667,7 +2667,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                      | Closeout |
       | {SavedValue:EXE Username} | Step 1   |
-    And I click on "Send to Grantee" in the page details
+    And I click on "Send To Grantee" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2723,7 +2723,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "closeoutID"
-    And I click on "Send to Grantee" in the page details
+    And I click on "Send To Grantee" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2755,7 +2755,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     Then I softly see field "Status" as "Completed"
 
-  @FundingChangeAmendmentRequest @ProdSan1
+  @FundingChangeAmendmentRequest @ProdSan1 @TBExecution
   Scenario Outline: validate the end to end flow for Funding change amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "<Properties>-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE" user
@@ -2828,7 +2828,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I pause execution for "10" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
@@ -2889,7 +2889,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "3" seconds
     And I "Approve" in the approval decision
     And I pause execution for "3" seconds
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I pause execution for "10" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
@@ -2940,7 +2940,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     And I pause execution for "3" seconds
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I pause execution for "10" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
@@ -2995,7 +2995,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I "Approve" in the approval decision
     And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     And I pause execution for "3" seconds
@@ -3003,7 +3003,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @SubrecipientBudgetRedirection @ProdSan1
+  @SubrecipientBudgetRedirection @ProdSan1 @TBExecution
   Scenario: Validate Subrecipient side Budget Redirection Amendment End to End flow
     And I activated standalone subaward "Automation Runtime Award" with properties "IS_BUILDUP_FUNCTIONALITY_YES" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -3063,7 +3063,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Amendment Requests - Approved"
     And I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I wait for "4" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
@@ -3179,7 +3179,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Amendment Requests - Approved"
     And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
@@ -3234,7 +3234,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
@@ -3324,7 +3324,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:FundTermsID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:FundTermsID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
@@ -3411,7 +3411,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:budRedKPCSOWId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:budRedKPCSOWId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
@@ -3484,7 +3484,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "3" seconds
     And I "Approve" in the approval decision
     And I pause execution for "3" seconds
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I pause execution for "5" seconds
     When I click on "Activate" in the page details
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
@@ -3554,7 +3554,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    And I click on "Amend Subaward" in the page details
+    And I click on "Amend Award" in the page details
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
