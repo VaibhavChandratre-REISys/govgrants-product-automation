@@ -235,7 +235,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "5" seconds
     Then I softly can see row level action button "Initiate Negotiation" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
 
-  @57218 @57219 @pendingTaskActionIconApplicantEditNegotiationRequest  @bug-408966-2024 @NegotiationPooja
+  @57218 @57219 @pendingTaskActionIconApplicantEditNegotiationRequest  @bug-408966-2024
   Scenario: Validate whether users will review the information and Applicant will be able to edit the respective application section(s) that the Agency mentioned
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -698,7 +698,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     Then I cannot see top right button "Send to Subrecipient" in page detail
 
-  @62669 @AddedAttachmentForNegotiations @keerti @NegotiationPooja
+  @62669 @AddedAttachmentForNegotiations @keerti
   Scenario: Validate the Addition of  attachment to Negotiations
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -875,7 +875,7 @@ Feature: Validate all scenarios in Negotiations
     When I clear the value from field "ApplicationSectionsForRevision__c"
     Then I see multipicklist field "ApplicationSectionsForRevision__c" contains value "Overview: Project Information" under list "Application Sections for Negotiation"
 
-  @65267 @VerifyCalendarFieldValue @keerti
+  @65267 @VerifyCalendarFieldValue
   Scenario: Verify Calendar field value at negotiation tab when award owner initiated the negotiation by clicking on initiate negotiation after FDM.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -894,7 +894,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     Then I see field "Due Date" as "{Date:M/d/yyyy::d+7}"
 
-  @66068 @negotiationInitiatedWithBlankDueDate   @bug-411037-2024
+  @66068 @negotiationInitiatedWithBlankDueDate @bug-411037-2024
   Scenario: Validate whether record owner can save the negotiation request without Due date on Overview Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -911,7 +911,7 @@ Feature: Validate all scenarios in Negotiations
     Then I see the following messages in the page details :
       | Due Date is required to save under Negotiations. |
 
-  @66381 @66451 @createSubawardFromNegotiation  @smoke  @bug-411045-2024 @NegotiationPooja
+  @66381 @66451 @createSubawardFromNegotiation  @smoke  @bug-411045-2024
   Scenario: Validate whether User will be able to create draft award created from Complete Negotiation | Validate when Negotiation Request is completed and user clicks on Create Subaward then the sttaus changes to 'Converted to Award'
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1114,7 +1114,7 @@ Feature: Validate all scenarios in Negotiations
       | Saved successfully! |
     Then I softly see "check" symbol against the value "Standard Assurances Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
 
-  @133264  @sprint-3  @NegotiationPooja
+  @133264  @sprint-3
   Scenario: that edit action is displayed for "Allow edit" column when Subrecipient user has submitted application to grantor and Application is in Negotiation Initiated state
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1270,7 +1270,7 @@ Feature: Validate all scenarios in Negotiations
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Application Sections for Revision" is not editable
 
-  @133979 @ValidatePMUserSelectAllowEditMoreThanONeFormSubmittedToGrantor @sprint-3  @NegotiationPooja
+  @133979 @ValidatePMUserSelectAllowEditMoreThanONeFormSubmittedToGrantor @sprint-3
   Scenario: Validate PM User Select Allow Edit More Than ONe Form Submitted To Grantor
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab

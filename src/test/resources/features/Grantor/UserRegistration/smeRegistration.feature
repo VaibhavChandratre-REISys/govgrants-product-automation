@@ -85,8 +85,7 @@ Feature: Validate all scenarios for SME Registration
     And I click "Send" button in modal
     And I wait for "2" seconds
     #34836 #monu
-    Then I see the following messages in the page details :
-      | Email Sent Successfully |
+    Then I see the text "Email Sent Successfully" in modal
     #34831 #monu
     And I wait for "2" seconds
     When I click modal button "Close"
@@ -137,11 +136,12 @@ Feature: Validate all scenarios for SME Registration
     When I perform quick search for "Automation PM" in "{grantor_tableId:InternalContactsTableId}" panel
     Then I softly see value "Automation PM" for title "Name" inside table "{grantor_tableId:InternalContactsTableId}"
     When I navigate to "{grantor_sidebar:SubrecipientsLink}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
-    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST}" in "---home:-:subrecipientContactTableId---" panel
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---home:-:subrecipientContactTableId---" panel
     Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Name" inside table "---home:-:subrecipientContactTableId---"
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
-    When I perform quick search for "robbin Thomos" in "ActiveAccountReviewer" panel
-    Then I softly see value "robbin Thomos" for title "Name" inside table "ActiveAccountReviewer"
+    And I pause execution for "2" seconds
+    When I perform quick search for "Automation SME" in "ActiveAccountReviewer" panel
+    Then I softly see value "Automation SME" for title "Name" inside table "ActiveAccountReviewer"
 
   @33837 @VerifySystemDisplayAllRelatedTasks
   Scenario: Validate user is able to see all expected contacts

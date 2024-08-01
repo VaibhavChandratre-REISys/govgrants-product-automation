@@ -134,10 +134,10 @@ Feature: Validate all scenarios in Strategic Plan
     And I click on "Save" in the page details
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---strategicplan:-:flexGridGrantorObjectiveFiles---"
-    And I upload attachment "Attachment.pdf" of type "Strategic Plan" from computer
+    And I upload attachment "Attachment.pdf" of type "Strategic Objective" from computer
     When I close "Add File" modal by clicking the top right x button
     And I wait for "2" seconds
-    Then I see "Strategic Plan" has been added in "Objective Files" flex table
+    Then I see "Strategic Objective" has been added in "Objective Files" flex table
 
   @34724 @associatingKPIToObjective @smoke
   Scenario: Associating KPI to Objective inside a Strategic Goal by User - Admin/EXE/PM

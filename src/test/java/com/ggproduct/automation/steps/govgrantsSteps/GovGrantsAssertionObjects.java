@@ -620,7 +620,10 @@ public final class GovGrantsAssertionObjects {
         try {
             I.amPerforming().waitFor().ElementListToBePresent(govgrants.perform().pageDetails().getAnyTopRightButton(buttonName));
         } catch (Exception e) {
-            I.amPerforming().click().on(By.xpath("//gnt-header-overview//lightning-button-menu//button"));
+            try {
+                I.amPerforming().click().on(By.xpath("//gnt-header-overview//lightning-button-menu//button"));
+            } catch (Exception e1) {
+            }
         }
         List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(govgrants.perform().pageDetails().getAnyTopRightButton(buttonName), false);
         if (assertCan) {

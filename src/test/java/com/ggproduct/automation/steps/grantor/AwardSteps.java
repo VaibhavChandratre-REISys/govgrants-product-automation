@@ -21,13 +21,13 @@ import java.util.Map;
 public class AwardSteps {
     AwardPage awardPage;
 
-    public AwardSteps(){
+    public AwardSteps() {
         this.awardPage = new AwardPage();
     }
 
     @Description("To verify text area is editable ")
     @Then("^I (see|softly see) textarea field \"([^\"]*)\" is editable$")
-    public void iSeeTextareaFieldIsEditable(String usage,String fieldAPIName) {
+    public void iSeeTextareaFieldIsEditable(String usage, String fieldAPIName) {
         if (usage.contains("softly")) {
             I.amPerforming().assertionsTo().assertThat(awardPage.isFieldEditable(fieldAPIName)).isTrue();
         } else {
@@ -37,23 +37,23 @@ public class AwardSteps {
 
     @And("^I (softly see|see) \"([^\"]*)\" is present after mouse hover for active subaward$")
     public void iSeeIsPresentAfterMouseHoverForActiveSubaward(String usage, String createdUser) {
-        awardPage.assertSeeTextAfterHoveringOnAward(usage,createdUser);
+        awardPage.assertSeeTextAfterHoveringOnAward(usage, createdUser);
     }
 
     @And("^I mouse hover to link contains \"([^\"]*)\"$")
     public void iMouseHoverToLinkContains(String link) {
         I.amPerforming().scroll().toMoveToElement(I.amPerforming()
-        .getElementReference().of(By.xpath("//a[text()='"+link+"']")));
+                .getElementReference().of(By.xpath("//a[text()='" + link + "']")));
     }
 
     @And("^I save the field value having link labeled \"([^\"]*)\" as \"([^\"]*)\"$")
     public void iSaveTheFieldValueHavingLinkLabeledAs(String label, String fieldKey) {
-        awardPage.saveFieldValueHavingLinkLabeledAs(label,fieldKey);
+        awardPage.saveFieldValueHavingLinkLabeledAs(label, fieldKey);
     }
 
     @And("^I click \"([^\"]*)\" link present on hovered tooltip$")
     public void iClickLinkPresentOnHoveredTooltip(String text) {
-        I.amPerforming().click().on(By.xpath("//div[contains(@class,'form-group')]//a[text()='"+text+"'] | //lightning-formatted-lookup//a[text()='"+text+"'] "));
+        I.amPerforming().click().on(By.xpath("//div[contains(@class,'form-group')]//a[text()='" + text + "'] | //lightning-formatted-lookup//a[text()='" + text + "'] "));
     }
 
     @Then("^I (softly see|see) page title contains as \"([^\"]*)\"$")
@@ -64,13 +64,13 @@ public class AwardSteps {
     @And("^I calculate the total from the column header \"([^\"]*)\" and saved it as \"([^\"]*)\" from the flex table \"([^\"]*)\"$")
     public void iCalculateTheTotalFromTheColumnHeaderAndSavedItAsFromTheFlexTable(String colName, String key, String tableId) {
         I.amPerforming().waitFor().makeThreadSleep(5000);
-        WebElement row = I.amPerforming().getElementReference().of(By.xpath("//div[@id='" + tableId + "']//table//tbody//tr"));
+        WebElement row = I.amPerforming().getElementReference().of(By.xpath("//div[@id='" + tableId + "']//table//tbody//tr|//c-lwc-flex-table[@data-flextablename='" + tableId + "']//table//tbody//tr"));
         Map<String, Integer> columnMapping = govgrants.perform().flexTable().constructColumnMapping(row, Collections.singleton(colName));
-        By specificColumnValue = By.xpath("//div[@id='GrantorActiveGrantsgrid']//th//span[text()='"+colName+"']/ancestor::thead/following-sibling::tbody/tr[not(contains(@ng-if,'noRecords'))]//td["+columnMapping.get(colName)+"]//span/field[@field-Name='TotalAwardedAmount__c']");
+        By specificColumnValue = By.xpath("//div[@id='GrantorActiveGrantsgrid']//th//span[text()='" + colName + "']/ancestor::thead/following-sibling::tbody/tr[not(contains(@ng-if,'noRecords'))]//td[" + columnMapping.get(colName) + "]//span/field[@field-Name='TotalAwardedAmount__c']");
         I.amPerforming().waitFor().ElementListToBePresent(specificColumnValue);
         List<Elements> rowValues = I.amPerforming().getElementReference().forListOfElements().of(specificColumnValue);
         double total = rowValues.stream().mapToDouble(
-                locator-> {
+                locator -> {
                     try {
                         I.amPerforming().getElementReference().of(locator);
                         return NumberFormat.getCurrencyInstance(Locale.US).parse(locator.getText()).doubleValue();
@@ -81,24 +81,25 @@ public class AwardSteps {
                 }
         ).sum();
 
-        I.amPerforming().propertiesFileOperationsTo().saveValue(key,String.valueOf(total));
+        I.amPerforming().propertiesFileOperationsTo().saveValue(key, String.valueOf(total));
     }
 
     @Then("^I (softly see|see) the field \"([^\"]*)\" is equal to the sum of the following fields :$")
     public void verifySumOfFields(String usage, String fieldToCompare, List<String> fieldsToSum) {
-        awardPage.verifyTotalObligation(usage,fieldToCompare,fieldsToSum);
+        awardPage.verifyTotalObligation(usage, fieldToCompare, fieldsToSum);
 
     }
+
     @Then("^I (softly see|see) the field \"([^\"]*)\" is equal to the field \"([^\"]*)\" minus the following fields :$")
     public void verifyDifferenceOfFields(String usage, String fieldToCompare, String initialFieldValue, List<String> fieldsToSum) {
-        awardPage.validateAvailableBalance(usage,fieldToCompare,initialFieldValue, fieldsToSum);
+        awardPage.validateAvailableBalance(usage, fieldToCompare, initialFieldValue, fieldsToSum);
     }
 
     @And("^I save the total records from the flex table id \"([^\"]*)\" as \"([^\"]*)\"$")
     public void iGetTheTotalRecordsFromTheFlexTableId(String flexTableId, String key) {
-       I.amPerforming().propertiesFileOperationsTo().saveValue(key,I.amPerforming().actionToGet().text(By.xpath(
-             "//div[@id='"+flexTableId+"']//*[@ng-bind='totalRecords'] | //div[@id='"+flexTableId+"']//table//tfoot//tr[last()]//*[contains(@class, 'ng-binding')] | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//div//span[contains(text(),'Total Records')]"
-       )));
+        I.amPerforming().propertiesFileOperationsTo().saveValue(key, I.amPerforming().actionToGet().text(By.xpath(
+                "//div[@id='" + flexTableId + "']//*[@ng-bind='totalRecords'] | //div[@id='" + flexTableId + "']//table//tfoot//tr[last()]//*[contains(@class, 'ng-binding')] | //c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//div//span[contains(text(),'Total Records')]"
+        )));
     }
 
     @Then("^I (softly see|see) table with header \"([^\"]*)\" contains records \"([^\"]*)\"$")
@@ -108,6 +109,6 @@ public class AwardSteps {
 
     @Then("I (softly see|softly do not see) \"([^\"]*)\" field is editable inside enhanced grid$")
     public void assertFieldIsNotEditableInsideTable(String usage, String fieldApiName) {
-        awardPage.assertFieldIsNotEditableAtEnhancedTable(usage , fieldApiName);
+        awardPage.assertFieldIsNotEditableAtEnhancedTable(usage, fieldApiName);
     }
 }

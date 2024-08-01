@@ -244,7 +244,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I enter value "asf" into field "City__c"
     And I enter value "20171" into field "Zip4__c"
     When I enter values into fields
-      | Value | Field                      |
+      | Value | Field                           |
       | 4000  | RevisedCommitment__c       |
       | 2000  | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
