@@ -1538,5 +1538,5 @@ Feature: Validate all scenarios of every modules flow
     And I login to "Grants Portal" app as "SPI3" user
     And I wait for "9" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "14k. NHPA" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "14k. NHPA" from computer
     When I click modal button "Close"
