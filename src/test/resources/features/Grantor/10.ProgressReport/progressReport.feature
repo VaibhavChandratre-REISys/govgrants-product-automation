@@ -833,7 +833,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:internalProgressReportFlexTableId---"
 
-  @58959 @NoViewAccessToOtherOrganisationuSERPR @jitendra
+  @prog1 @58959 @NoViewAccessToOtherOrganisationuSERPR @jitendra
   Scenario: Validate Internal User with different organization should not be able to view the Progress report with submitted to Grantor state.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -991,7 +991,7 @@ Feature: Validate all scenarios in Progress Report
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
 
-  @59677 @59676 @allowsEditAfterSentBackToSR @jitendra
+ @prog1 @59677 @59676 @allowsEditAfterSentBackToSR @jitendra
   Scenario: Validate SR is able to Edit the Progress report when Award owner Sent Back the Progress report | Validate History Field is getting Updated at Award owner End when Progress report status is Submitted to Grantor.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1030,7 +1030,7 @@ Feature: Validate all scenarios in Progress Report
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Sent Back to Subrecipient" and is "dark blue"
 
-  @59773 @59774 @59776 @59777 @validateSRUserEntersKPIActualValue @mahadev
+  @prog1 @59773 @59774 @59776 @59777 @validateSRUserEntersKPIActualValue @mahadev
   Scenario: Validate SR user is able to enter Actual field value at KPI under performance tab at Progress report | Validate SR user is able to select Reported Date field at KPI under performance tab at Progress report
   Validate SR user is able to enter Actual field value at KPI under performance tab more than the Target Value at Progress report | Validate SR user is able to enter Actual field value at KPI under performance tab less than the Target Value at Progress repor
     When I navigate to "Performance" sub tab

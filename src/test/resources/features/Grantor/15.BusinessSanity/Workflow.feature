@@ -1532,12 +1532,11 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @test
+  @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantor" app as "FO" user
-    And I wait for "5" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
-    Then I softly see the following messages in the page details contains:
-      | Error                                         |
-      | As COI is disagreed, Review must be declined. |
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I wait for "9" seconds
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
