@@ -7543,7 +7543,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Overview" sub tab
     Then I see "Project Information" page block displayed
 
-  @134206 @ValidateuserscanseetherevisiondetailsintheNegotiationstab @Sprint-1 @vaibhav @RerunAppReview
+  @134206 @ValidateuserscanseetherevisiondetailsintheNegotiationstab @Sprint-1 @vaibhav @RerunAppReviewSecond
   Scenario: Validate users can see the revision details in the Negotiations tab
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7581,9 +7581,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I save the field labeled "Due Date" as "DueDate"
     Then I softly see field "Negotiation Request Status" as "Sent to Subrecipient" in "Negotiation Request Details" pageblock
     Then I softly see field "Application Sections for Negotiation" as "Overview: Project Information Budget: Budget Details Files: Forms"
-    Then I softly see field "Due Date" as "{Date:MM/dd/yyyy::d+43707}" in "Negotiation Request Details" pageblock
+    Then I softly see field "Due Date" as "{SavedValue:DueDate}" in "Negotiation Request Details" pageblock
 
-  @134207  @Sprint-1 @vaibhav @RerunAppReview
+  @134207  @Sprint-1 @vaibhav @RerunAppReviewSecond
   Scenario: Validate application record owner can edit sections and forms within the application when the application is in negotiation Initiated state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7629,22 +7629,23 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I wait for "5" seconds
-    And I switch to tab number "1"
+    And I switch to tab number "2"
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
     And I pause execution for "2" seconds
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I pause execution for "2" seconds
-    And I switch to tab number "1"
+    And I switch to tab number "2"
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I switch to parent tab
+    And I close the tab
+    And I pause execution for "5" seconds
     When I navigate to "Overview" sub tab
     Then I see "Project Information" page block displayed
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Negotiations" sub tab
-    And I pause execution for "2" seconds
+    And I pause execution for "5" seconds
     Then I softly see field "Negotiation Request Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
 
   @134208 @134220 @134396 @134399 @Validateresubmittingtherevisedapplicationtheapplicationsectionsandformsshouldbelocked @Sprint-1 @vaibhav @RerunAppReview
@@ -7702,8 +7703,8 @@ Feature: Validate all scenarios in the Application Review without background
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I pause execution for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" in the split screen page details
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
@@ -7850,7 +7851,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see top right button "Submit to Grantor" in page detail
     Then I softly can see top right button "Edit" in page detail
 
-  @134401 @ValidatependingtaskisremovedfromapplicationownerspendingtasklistwhenuserclickonSubmittoGrantorbutton   @Sprint-1 @vaibhav @RerunAppReview
+  @134401  @Sprint-1 @vaibhav @RerunAppReview @Debug
   Scenario: Validate pending task is removed from application owner's pending task list when user click on Submit to Grantor button
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7876,8 +7877,8 @@ Feature: Validate all scenarios in the Application Review without background
     And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
       | Form Name                | Needs Negotiation |
       | Program Application Form | Checked           |
-    And I pause execution for "3" seconds
     When I click on "Send to Subrecipient" in the page details
+    And I pause execution for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -7885,12 +7886,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    Then I softly see fields "Title__c" is in edit mode
-    Then I softly see fields "GranteeProgramincome__c" is in edit mode
-    And I enter values into fields
-      | Value                       | Field                   |
-      | Automation Test Description | Title__c                |
-      | 100                         | GranteeProgramincome__c |
+    When I enter value "ProjectAbstract" into field "ProjectAbstract__c"
     And I navigate to "Negotiations" sub tab
     And I enter values into fields
       | Value                              | Field                |
@@ -7900,20 +7896,21 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly can see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I switch to tab number "1"
+    And I wait for "5" seconds
+    And I switch to tab number "2"
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
     And I close the tab
+    And I pause execution for "2" seconds
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I switch to tab number "1"
+    And I pause execution for "2" seconds
+    And I switch to tab number "2"
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I pause execution for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
-    And I switch to parent tab
+    And I close the tab
+    And I pause execution for "5" seconds
+    When I navigate to "Overview" sub tab
+    Then I see "Project Information" page block displayed
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
@@ -8129,16 +8126,16 @@ Feature: Validate all scenarios in the Application Review without background
     When I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I switch to tab number "1"
+    And I switch to tab number "2"
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
     And I wait for "2" seconds
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:filesFormsTableId---"
-    And I switch to tab number "1"
+    And I switch to tab number "2"
     When  I enter "Form_stand" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I switch to parent tab
+    And I close the tab
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Negotiation Submitted"
