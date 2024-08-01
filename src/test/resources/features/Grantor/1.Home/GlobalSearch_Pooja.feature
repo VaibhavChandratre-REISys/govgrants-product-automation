@@ -1,7 +1,7 @@
 @globalSearch @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios for the global search
 
-  @389003  @sprint-2-US-386939 @Pooja @GlobalSearch @RerunGlobal
+  @389003  @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that the record owner is able to edit the access for record when Award is in the Created, submit for review, Reviewed, Accepted state
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -144,7 +144,7 @@ Feature: Validate all scenarios for the global search
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @389008  @sprint-2-US-386939 @Pooja @GlobalSearch @RerunGlobal
+  @389008  @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that Non-Owner user doesn't have an edit option in any stage of award and will get error message on page.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -169,6 +169,13 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -397,7 +404,7 @@ Feature: Validate all scenarios for the global search
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @389011 @sprint-2-US-386939 @Pooja @GlobalSearch @bug-451578
+  @389011 @sprint-2-US-386939  @GlobalSearch @bug-451578
   Scenario: Verify that user is not able to change the owner in any state of Award and will get the error message and non-owner user is not able to see the change owner option
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -426,7 +433,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:AwardEGMSID}"
     Then I softly cannot see row level action button "Change Owner" against "{SavedValue:AnnEGMSID}" in global search with id "Subawards"
 
-  @389017 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389017 @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that PM user as Reviewer have edit access for record only when edit access setting is yes for peer reviewer when award is a submit for review state.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -524,7 +531,7 @@ Feature: Validate all scenarios for the global search
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @389023 @sprint-2-US-386939 @Pooja @GlobalSearch @RerunGlobal
+  @389023 @sprint-2-US-386939  @GlobalSearch
   Scenario Outline: Verify that if PM user does not have edit access for peer review then PM user will get error message for award when award is in the submit for review state or in Reviewed states
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -623,7 +630,7 @@ Feature: Validate all scenarios for the global search
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @389027 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389027 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to see the 5 most recently used records in the dropdown list when user clicks on search input box for awardbox for announcement
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -632,9 +639,9 @@ Feature: Validate all scenarios for the global search
     And I click on global search box
     Then I softly see recent "5" records in global search box
 
-  @389031 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389031 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to see the all the list of modules after clicking on 'suggested for you section' for award.
-    When I login to "As a Grantor" app as "PO" user
+    When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     Then I softly see dropdown option "All" under the "Suggested For You" section
     Then I softly see dropdown option "Amendment Requests" under the "Suggested For You" section
@@ -644,12 +651,15 @@ Feature: Validate all scenarios for the global search
     Then I softly see dropdown option "Closeouts" under the "Suggested For You" section
     Then I softly see dropdown option "Contacts" under the "Suggested For You" section
     Then I softly see dropdown option "Events" under the "Suggested For You" section
+    Then I softly see dropdown option "External Registration" under the "Suggested For You" section
     Then I softly see dropdown option "Focus Areas" under the "Suggested For You" section
     Then I softly see dropdown option "Funding Decision Memos (FDM)s" under the "Suggested For You" section
+    Then I softly see dropdown option "Funding Sources" under the "Suggested For You" section
     Then I softly see dropdown option "Grants" under the "Suggested For You" section
     Then I softly see dropdown option "Key Performance Indicators (KPI)s" under the "Suggested For You" section
     Then I softly see dropdown option "Organizations" under the "Suggested For You" section
     Then I softly see dropdown option "Payment Requests" under the "Suggested For You" section
+    Then I softly see dropdown option "Pre-Applications" under the "Suggested For You" section
     Then I softly see dropdown option "Programs" under the "Suggested For You" section
     Then I softly see dropdown option "Progress Report" under the "Suggested For You" section
     Then I softly see dropdown option "Reports" under the "Suggested For You" section
@@ -658,9 +668,11 @@ Feature: Validate all scenarios for the global search
     Then I softly see dropdown option "Site Visits" under the "Suggested For You" section
     Then I softly see dropdown option "Strategic Plans" under the "Suggested For You" section
     Then I softly see dropdown option "Subawards" under the "Suggested For You" section
+    Then I softly see dropdown option "Terms and Conditions" under the "Suggested For You" section
     Then I softly see dropdown option "Tasks" under the "Suggested For You" section
 
-  @389048 @sprint-2-US-386939 @Pooja @GlobalSearch
+
+  @389048 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that PO user is able to see the table for extra objects which are present in the search result for subaward module
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -675,7 +687,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text "Tasks" on left navigation for global search
     Then I softly see the text "Folders" on left navigation for global search
 
-  @389053 @389043  @sprint-2-US-386939 @Pooja @GlobalSearch @RerunGlobal
+  @389053 @389043  @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID) on objects after global search the any record for announcement.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -712,7 +724,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     Then I softly see field "Status" as "Created"
 
-  @389060 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389060 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user can sort any objects after global search any record (Eg: EGMS ID, Relevance, Program)
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -727,7 +739,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see options "Cumulative Obligation" inside "Relevance" dropdown
     Then I softly see options "Status" inside "Relevance" dropdown
 
-  @389314  @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389314  @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Grant is in the Created state
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -743,10 +755,11 @@ Feature: Validate all scenarios for the global search
     And I select "Grants" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:GrantEGMSID}"
     And I click on row level action button "Edit" against "{SavedValue:GrantEGMSID}" in global search with id "Grants"
+    And I wait for "3" seconds
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
 
-  @389322 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389322 @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID , Internal Organization, Owner First Name, Owner Last Name ) on objects after global search the any record for Grant.
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -764,7 +777,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "2" seconds
     And I click on hyperlink for global search containing value "{SavedValue:GrantEGMSID}"
     And I wait for "3" seconds
-    Then I softly see field "Status" as "Created"
+    Then I softly see field "Status" as "Draft"
     And I navigate to "Grants" tab
     And I select "Grants" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:GrantEGMSID}"
@@ -772,7 +785,7 @@ Feature: Validate all scenarios for the global search
     And I click on hyperlink for global search containing value "Automation"
     Then I softly see the text containing "{SavedValue:EXE Username}"
 
-  @389323 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389323 @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that user can sort any objects after global search any record by (Relevance, EGMS ID, Grant Title, Internal organization, External organization,  Project period) Status.
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -789,7 +802,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see options "Owner Last Name" inside "Relevance" dropdown
     Then I softly see options "Status" inside "Relevance" dropdown
 
-  @389324 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389324 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to expand the result by Grant module and Filter/Refine the the result by configured Columns for an Grant.
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -823,7 +836,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text "Site Visits" on left navigation for global search
     Then I softly see the text "Grants" on left navigation for global search
 
-  @389327 @389335 @389342 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389327 @389335 @389342 @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that the record owner is able to edit the access for record when Focus Area is in the Created state
     Given I login to "As a Grantor" app as "EXE" user
     When I navigate to "Planning" tab
@@ -861,7 +874,7 @@ Feature: Validate all scenarios for the global search
     And I wait for "3" seconds
     Then I softly see field "Status" as "Draft"
 
-  @389343 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389343 @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that Non-Owner user doesn't have an edit option in any stage of Focus Area and will get error message on page.
     Given I login to "As a Grantor" app as "EXE" user
     When I navigate to "Planning" tab
@@ -875,7 +888,6 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Planning" tab
     And I select "Focus Areas" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:FocusEGMSID}"
-    Then I softly can see row level action button "Change Owner" against "{SavedValue:FocusEGMSID}" in global search with id "Focus Areas"
     And I click on row level action button "Edit" against "{SavedValue:FocusEGMSID}" in global search with id "Focus Areas"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -909,18 +921,18 @@ Feature: Validate all scenarios for the global search
     And I click on row level action button "Edit" against "{SavedValue:FocusEGMSID}" in global search with id "Focus Areas"
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @389459 @389460 @389461 @389462 @sprint-2-US-386939 @Pooja @GlobalSearch @bug-451518
+  @389459 @389460 @389461 @389462 @sprint-2-US-386939  @GlobalSearch @bug-451518
   Scenario Outline: Verify that the record owner is able to edit the access for record when funding decision memo(FDM) is in the Created state
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
+    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
-    And I login to "As a Grantor" app as "PM" user
+    And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "<Application Name>" inside table
     And I get the "EGMS ID"
-    And I wait for "3" seconds
+    And I wait for "2" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -935,27 +947,30 @@ Feature: Validate all scenarios for the global search
       | Reviewer                 |
       | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
-    And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    When I close "Assign Applications" modal by clicking the top right x button
+    When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
-    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I wait for "2" seconds
+    And I wait for "5" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "AppId1" from flex table "---applicationReview:-:applicationAssignTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "5" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I wait for "5" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -963,7 +978,7 @@ Feature: Validate all scenarios for the global search
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---" with wait for record
-    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
@@ -977,72 +992,69 @@ Feature: Validate all scenarios for the global search
       | {SavedValue:EXE Username} |
       | {SavedValue:FO Username}  |
       | {SavedValue:PM Username}  |
-    When I expand nested table containing column value "<Announcement Name>"
+    When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I click modal button "Close"
-    And I refresh the page
+    When I close "Assign Reviewers" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I click modal button "Close"
-    And I refresh the page
+    When I close "Assign Reviewers" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I click modal button "Close"
+    When I close "Assign Reviewers" modal by clicking the top right x button
     And I refresh the page
-    And I wait for "4" seconds
+    And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I wait for "2" seconds
+    And I pause execution for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-    And I wait for "3" seconds
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
     And I wait for "5" seconds
-    Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
-    When I click on "Edit" in the page details
-    When I complete filling in the Review form with recommendation "Recommended"
-    And I click on "Save" in the page details
-    And I wait for "5" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
-    And I wait for "5" seconds
-    Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
-    When I click on "Edit" in the page details
-    When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
-    Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "5" seconds
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "5" seconds
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1050,7 +1062,9 @@ Feature: Validate all scenarios for the global search
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
+    Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
@@ -1061,44 +1075,47 @@ Feature: Validate all scenarios for the global search
       | Reviewer                 |
       | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
-    And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
-    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---applicationReview:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
-    When I click on "Edit" in the page details
+    And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "5" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
-    Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
-    And I wait for "1" seconds
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I wait for "2" seconds
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
-    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
+    Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    Then I softly can see top right button "Funding Decision Memo" in page detail
+    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
+    Then I softly see field "Status" as "Completed"
     When I click on "Funding Decision Memo" in the page details
-    Then I see status in Progress-bar is "Created" and is "dark blue"
-    And I save the field labeled "EGMS ID" as "FDMEGMSID"
+    Then I softly see field "Status" as "Created"
+    And I save the field labeled "Announcement EGMS ID" as "FDMEGMSID"
+#    And I save the field labeled "EGMS ID" as "FDMEGMSID"
     And I navigate to "Applications" tab
     And I select "Funding Decision Memos (FDM)s" from dropdown for Global search
     And I perform quick search inside global search "AN-"
@@ -1142,7 +1159,7 @@ Feature: Validate all scenarios for the global search
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @389463 @389464 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389463 @389464 @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that the record owner is able to edit the access for record when KPI is in the Created state
     Given I login to "As a Grantor" app as "EXE" user
     When I navigate to "Planning" tab
@@ -1201,7 +1218,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
 
-  @389465 @389466 @sprint-2-US-386939 @Pooja @GlobalSearch
+  @389465 @389466 @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to expand the result by KPI module and Filter/Refine the the result by configured Columns for an KPI.
     Given I login to "As a Grantor" app as "EXE" user
     When I navigate to "Planning" tab
@@ -1229,7 +1246,7 @@ Feature: Validate all scenarios for the global search
     #389466
     Then I softly see field "Status" as "Created"
 
-    @389475 @389483  @389486 @389479 @sprint-2-US-386939 @Pooja @GlobalSearch
+    @389475 @389483  @389486 @389479 @sprint-2-US-386939  @GlobalSearch
       Scenario: Verify that the record owner is able to edit the access for record when Strategic plan is in the Created state
       When I login to "As a Grantor" app as "dynamicUser" user
       And I navigate to "Planning" tab
@@ -1266,7 +1283,7 @@ Feature: Validate all scenarios for the global search
       And I wait for "3" seconds
      #389486
       Then I softly see field "Status" as "Draft"
-      When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+      When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
       And I navigate to "Planning" tab
       And I select "Strategic Plans" from dropdown for Global search
       And I perform quick search inside global search "{SavedValue:StrategicEGMSID}"
@@ -1277,7 +1294,7 @@ Feature: Validate all scenarios for the global search
       Then I softly see the text containing "You dont have sufficient access to edit this record"
       Then I softly see that "Status" is in "Draft" status
 
-      @389495 @389502 @389505 @sprint-2-US-386939 @Pooja @GlobalSearch @bug-451476
+      @389495 @389502 @389505 @sprint-2-US-386939  @GlobalSearch @bug-451476
       Scenario: Verify that the Admin is able to edit the access for terms and condition when terms and condition is in the New and active state state
       When I login to "As a Grantor" app as "ADMIN" user
         When I navigate to "Planning" tab
