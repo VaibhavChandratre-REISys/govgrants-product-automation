@@ -95,7 +95,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
     And I wait for "2" seconds
-    And I close "Create Subrecipient Contact" modal by clicking the top right x button
+    And I close "Create Grantee Contact" modal by clicking the top right x button
     And I save the contact name as "Automation Runtime Contact"
     And I navigate to "Grantee" content inside "Contacts" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:subrecipientContactTableId---" panel
@@ -105,7 +105,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    And I click on "Edit" in the page details
     And I enter "Edition" values from "SubrecipientContact_Field_Values.xlsx"
     And I click modal button "Save"
-    And I close "View Subrecipient Contact" modal by clicking the top right x button
+    And I close "View Grantee Contact" modal by clicking the top right x button
     And I wait for "2" seconds
     Then I softly see value "New" for title "Status" inside table "---home:-:subrecipientContactTableId---"
 
@@ -1755,8 +1755,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
-#    When I click modal button "Close"
-#    And I click on "Edit" icon for "Created" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
     And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2826,7 +2824,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
@@ -2983,7 +2981,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendments" subheader on left panel
     And I wait for "3" seconds
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:AmendmentId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
@@ -3061,7 +3059,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - Approved"
     And I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
@@ -3177,7 +3175,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - Approved"
     And I perform quick search for "Record Id" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
@@ -3232,7 +3230,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
@@ -3322,7 +3320,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:FundTermsID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:FundTermsID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
@@ -3409,7 +3407,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:budRedKPCSOWId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:budRedKPCSOWId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
@@ -3552,7 +3550,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
