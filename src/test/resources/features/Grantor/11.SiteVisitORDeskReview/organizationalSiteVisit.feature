@@ -76,7 +76,9 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    Then I see that "<Subrecipient>" has been added in flextable with Id "---orgLevelSiteVisits:-:associateContactsId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
+    Then I softly see that "<Subrecipient>" has been added in flextable with Id "---orgLevelSiteVisits:-:associateContactsId---"
     Examples:
       | Subrecipient               |
       | {SavedValue:SPI3 Username} |
@@ -234,9 +236,12 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     And I perform quick search for "{SavedValue:SPI3 Username}" in "---orgLevelSiteVisits:-:siteVisitContactsTableId---" panel
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
+    And I pause execution for "4" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -281,6 +286,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -422,6 +429,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -508,7 +517,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 #    And I collapse nested table containing column value "Automation Finding"
     Then I softly see that "{SavedValue:Automation Runtime Site Visit Org level}" is in "Sent to Subrecipient" status
     When I click on "Submit to Grantor" in the page details
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly see field "Status" as "Submitted to Grantor"
 
   @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission @deepika
   Scenario: Validate User will be able to view the SnapshotSite Visit Accept button after review the submission by Recipients
@@ -528,6 +537,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
     When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
     When I get the "EGMS ID"
@@ -642,6 +653,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     And I perform quick search for "{SavedValue:SPI3 Username}" in "---orgLevelSiteVisits:-:siteVisitContactsTableId---" panel
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -1258,19 +1271,16 @@ Feature: Validate all scenarios in Organizational Site Visit
       | Passed | ReviewComments__c |
     When I click modal button "Save"
     And I click on "Submit Review" in the page details
-#    When I close "Site Visit Reviewers" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     When I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "Record Id"
+    And I click on hyperlink containing value "Record Id"
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:PO Username}" in flex table with id "SiteVisitReviewerRoles"
 

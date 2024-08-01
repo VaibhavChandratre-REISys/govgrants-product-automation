@@ -851,6 +851,7 @@ Feature: Validate all scenarios in the Application Review
       | Saved successfully! |
     Then I softly see value "{SavedValue:FO Username}" for title "Reviewer" inside table "---applicationReview:-:reviewersTableId---"
     And I click on "Remove" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
+    And I pause execution for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Record removed successfully. |
     Then I softly do not see value "{SavedValue:FO Username}" for title "Reviewers" inside table "---applicationReview:-:reviewersTableId---"

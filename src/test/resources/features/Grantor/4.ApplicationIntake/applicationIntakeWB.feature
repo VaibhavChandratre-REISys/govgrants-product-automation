@@ -684,7 +684,6 @@ Feature: Application Intake scenarios without background
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
-    And I halt execution
     When I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Enter budget details before submitting an Application to the Grantor.                                                                  |
@@ -692,7 +691,6 @@ Feature: Application Intake scenarios without background
       | Overview Tab - Specify at least one contact as Key Personnel for Application.                                                                       |
       | Budget Tab - Budgeted Amount should be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section. |
       | Budget Tab - The Subrecipient Match should not be less than the given value.                                                                        |
-    And I halt execution
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
