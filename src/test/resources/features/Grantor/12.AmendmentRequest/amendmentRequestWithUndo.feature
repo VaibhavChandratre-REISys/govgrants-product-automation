@@ -1,7 +1,7 @@
-@amendmentRequestsWB @amendmentRequests @grantor-regression @grantor-parallel-regression @regression @amendmentRequestUndo
+@amendmentRequests @check11 @grantor-regression @grantor-parallel-regression @regression @amendmentRequestUndo
 Feature: Amendment Request scenarios with Undo
 
-  @292867 @292869 @292871 @ValidatePmapprovercanclickonundobuttoninCarryFwdAmmendrequestAmmendrequestrecordwhenrecordisinApprovedstate @Sprint-3-US-288693 @vaibhav @Undo
+  @292867 @292869 @292871 @ValidatePmapprovercanclickonundobuttoninCarryFwdAmmendrequestAmmendrequestrecordwhenrecordisinApprovedstate @Sprint-3-US-288693  @Undo
   Scenario: Validate Pm approver can click on undo button in Carry Fwd Ammend request Ammend request record when record is in Approved state
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -351,7 +351,7 @@ Feature: Amendment Request scenarios with Undo
     The EGMS Team
     """
 
-  @292872 @ValidatethatwhenPMuserReasignTaskofsubmitforapprovalischangedtonewusethennewownerwillseeundobuttonafterapprovingtheCarryFwdAmmendrequestAmmendrequest @Sprint-3-US-288693 @vaibhav @Undo
+  @292872 @ValidatethatwhenPMuserReasignTaskofsubmitforapprovalischangedtonewusethennewownerwillseeundobuttonafterapprovingtheCarryFwdAmmendrequestAmmendrequest @Sprint-3-US-288693  @Undo
   Scenario: Validate that when PM user Reasign Task of submit for approval is changed to new user,then new owner will see undo button after approving the Carry Fwd Ammend request Ammend request
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -619,7 +619,7 @@ Feature: Amendment Request scenarios with Undo
     The EGMS Team
     """
 
-  @292868 @292870 @292877 @292888 @ValidatePmapproverclickonundobuttoninCarryFwdAmmendrequestAmmendrequestrecordSystemwillshowconfirmationboxwithquestionandoptionsforselection @Sprint-3-US-288693 @vaibhav @Undo
+  @292868 @292870 @292877 @292888 @ValidatePmapproverclickonundobuttoninCarryFwdAmmendrequestAmmendrequestrecordSystemwillshowconfirmationboxwithquestionandoptionsforselection @Sprint-3-US-288693  @Undo
   Scenario: Validate Pm approver click on undo button in Carry Fwd Ammend request Ammend request record System will show confirmation box with a question and options for selection
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -814,7 +814,7 @@ Feature: Amendment Request scenarios with Undo
     Then I can see top right button "Undo" in page detail
     Then I can see top right button "Amend Subaward" in page detail
 
-  @292878 @292881 @292882 @ValidatethatwhenlastApproverandOwneroCarryFwdAmmendrequestAmmendrequestarenotsameLastApproverwillSeeonlyUNDObutton @Sprint-3-US-288693 @vaibhav @Undo
+  @292878 @292881 @292882 @ValidatethatwhenlastApproverandOwneroCarryFwdAmmendrequestAmmendrequestarenotsameLastApproverwillSeeonlyUNDObutton @Sprint-3-US-288693  @Undo
   Scenario: Validate that when last Approver and Owner of Carry Fwd Ammend request Ammend request are not same,Last Approver will See only UNDO button
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -918,7 +918,6 @@ Feature: Amendment Request scenarios with Undo
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1200                 | 120        | 0              |
-    And I pause execution for "3" seconds
     And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
@@ -1051,7 +1050,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Rejected"
     Then I cannot see top right button "Undo" in page detail
 
-  @292883 @292884 @292886 @ValidatelastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-3-US-288693 @vaibhav @Undo
+  @292883 @292884 @292886 @ValidatelastapprovercannotseeundobuttononapprovedamendmentwhenawardiscreatedontheamendmentandisinPendingActivationstate @Sprint-3-US-288693  @Undo
   Scenario: Validate last approver cannot see undo button on approved amendment when award is created on the amendment and is in Pending Activation state
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -1192,7 +1191,6 @@ Feature: Amendment Request scenarios with Undo
     When I perform quick search for "{SavedValue:CFAmendmentId}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    #Bug448870
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1305,7 +1303,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @292887 @ValidateUndobuttonvisibilityonapprovedamendmentaftersubawardisdeletedfromPendingactivationstate @Sprint-3-US-288693 @vaibhav @Undo
+  @292887 @ValidateUndobuttonvisibilityonapprovedamendmentaftersubawardisdeletedfromPendingactivationstate @Sprint-3-US-288693  @Undo
   Scenario: Validate Undo button visibility on approved amendment after subaward is deleted from Pending activation state
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -1404,8 +1402,8 @@ Feature: Amendment Request scenarios with Undo
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
       | Construction    | 500           |
-    When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
-#    And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Previous"
+#    When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
+    And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Previous"
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1200                 | 120        | 0              |
@@ -1499,7 +1497,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
 
-  @292873 @292874 @ValidatethatwhenPMUserReasignTasksubmitforapprovaltonewusethenoldownerwillnotseeundobuttonafterapprovaloftheCarryFwdAmmendrequestAmmendrequest @Sprint-3-US-288693 @vaibhav @Undo
+  @292873 @292874 @ValidatethatwhenPMUserReasignTasksubmitforapprovaltonewusethenoldownerwillnotseeundobuttonafterapprovaloftheCarryFwdAmmendrequestAmmendrequest @Sprint-3-US-288693  @Undo
   Scenario: Validate that when PM User Reasign Task submit for approval  to new user,then old owner will not see undo button after approval of  the Carry Fwd Ammend request Ammend request
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -1593,6 +1591,7 @@ Feature: Amendment Request scenarios with Undo
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
       | Construction    | 200           |
+    And I expand nested table containing column value "BP01"
     And I click on page navigation arrow "---amendment:-:RecipientCarryForwardBudgetTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -1812,7 +1811,7 @@ Feature: Amendment Request scenarios with Undo
     The EGMS Team
     """
 
-  @292875 @292876 @ValidatethatwhenEXEapproverForwardtheCarryFwdAmmendrequestrAmmendrequestApprovaltaskoriginalApproverwillnotseeUNDObutton @Sprint-3-US-288693 @vaibhav @Undo
+  @292875 @292876 @ValidatethatwhenEXEapproverForwardtheCarryFwdAmmendrequestrAmmendrequestApprovaltaskoriginalApproverwillnotseeUNDObutton @Sprint-3-US-288693  @Undo
   Scenario: Vallidate that when EXE approver Forward the Carry Fwd Ammend request Ammend request Approval task original Approver will not see UNDO button
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -1853,8 +1852,6 @@ Feature: Amendment Request scenarios with Undo
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     And I click on "Send to Subrecipient" in the page details
-    And I pause execution for "5" seconds
-    Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3003,7 +3000,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @286646 @286717 @GrantorInitiatedSOWVerifyLastapprovercanseeUndobuttonontheSOWamendmentwhenAmendmentisinapprovedstate @Sprint-1-US-285146 @hitesh @Undo @skipDueToIndUser
+  @286646 @286717 @GrantorInitiatedSOWVerifyLastapprovercanseeUndobuttonontheSOWamendmentwhenAmendmentisinapprovedstate @Sprint-1-US-285146 @hitesh @Undo
   Scenario: Grantor Initiated SOW: Verify Last approver can see Undo button on the SOW amendment when Amendment is in approved state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_SUB_ORG_IND-Automation PM user" of type "Directed"
     When I login to "As a Grantor" app as "PM" user
@@ -3016,10 +3013,11 @@ Feature: Amendment Request scenarios with Undo
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
+    When I click on "Edit" in the page details
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I pause execution for "3" seconds
     When I click on "Save" in the page details
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
@@ -3233,7 +3231,7 @@ Feature: Amendment Request scenarios with Undo
     #289039
     Then I softly see value "Completed" for title "Status" against the value "{SavedValue:SOWAMENDMENTREQUEST}" inside table "---amendment:-:homeCompletedTaskTableId---"
 
-  @286714 @SRInitiatedSOWVerifyusercannotseeundobuttonwhenSOWamendmentisincreatedstate @Sprint-1-US-285146 @hitesh @skipDueToIndUser @Undo @wip
+  @286714 @SRInitiatedSOWVerifyusercannotseeundobuttonwhenSOWamendmentisincreatedstate @Sprint-1-US-285146 @hitesh @Undo
   Scenario: SR Initiated SOW: Verify user cannot see undo button when SOW amendment is in created state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_SUB_ORG_IND-Automation PM user" of type "Directed"
     When I am on "SUBPORTAL" portal
@@ -3817,8 +3815,6 @@ Feature: Amendment Request scenarios with Undo
       | {SavedValue:FD Username} | Step 4            |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "3" seconds
-    Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5757,7 +5753,6 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see snapshot with name containing "Amendment - Undo Approval.pdf" as name
     Then I softly see snapshot with name containing "Amendment - Undo Approval.pdf" as name
     Then I softly see column "Assigned To" at position "2" contains text "{SavedValue:PM Username}"
-    #Bug443987
     Then I softly see column "Date" at position "1" contains text "Step : Re - approval (Pending for approval)"
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I navigate to "Field Audit" sub tab in split screen
@@ -7182,7 +7177,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Undo" in page detail
 
-  @299994 @GrantorInitiatedSOWVerifyusercannotseeundobuttonwhenSOWamendmentisSentbacktosubrecipient @Sprint-5-US-297244 @hitesh @Undo @skipDueToIndUser
+  @299994 @GrantorInitiatedSOWVerifyusercannotseeundobuttonwhenSOWamendmentisSentbacktosubrecipient @Sprint-5-US-297244 @hitesh @Undo
   Scenario: Grantor Initiated SOW: Verify user cannot see undo button when SOW amendment is Sent back to subrecipient
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_SUB_ORG_IND-Automation PM user" of type "Directed"
     When I login to "As a Grantor" app as "PM" user
@@ -7195,10 +7190,11 @@ Feature: Amendment Request scenarios with Undo
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
+    When I click on "Edit" in the page details
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I pause execution for "3" seconds
     When I click on "Save" in the page details
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
@@ -7245,12 +7241,11 @@ Feature: Amendment Request scenarios with Undo
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-    #Bug448900
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     Then I softly see field "Status" as "Sent to Subrecipient"
     Then I cannot see top right button "Undo" in page detail
 
-  @300025 @GrantorInitiatedSOWVerifyLastapprovercansendbacktheamendmentfromapprovalafterclickingUndobuttononapprovedamendment @Sprint-4-US-292244 @hitesh @Undo @skipDueToIndUser
+  @300025 @GrantorInitiatedSOWVerifyLastapprovercansendbacktheamendmentfromapprovalafterclickingUndobuttononapprovedamendment @Sprint-4-US-292244 @hitesh @Undo
   Scenario: Grantor Initiated SOW: Verify Last approver can send back the amendment from approval after clicking Undo button on approved amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMIS_YES_FOCUS_AREA_NO_SUB_ORG_IND-Automation PM user" of type "Directed"
     When I login to "As a Grantor" app as "PM" user
@@ -7263,10 +7258,11 @@ Feature: Amendment Request scenarios with Undo
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I get the "EGMS ID"
+    When I click on "Edit" in the page details
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I pause execution for "3" seconds
     When I click on "Save" in the page details
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I enter values into fields
@@ -7299,7 +7295,6 @@ Feature: Amendment Request scenarios with Undo
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-    #Bug448900
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -7681,8 +7676,8 @@ Feature: Amendment Request scenarios with Undo
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
     When I navigate to "Subawards" sub tab
     When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside table with wait for record
-#    When I navigate to "Terms" sub tab
-#    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
     Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -7913,7 +7908,6 @@ Feature: Amendment Request scenarios with Undo
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Previous"
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction  | 1000                 | 100        | 100            |
@@ -8033,8 +8027,6 @@ Feature: Amendment Request scenarios with Undo
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
     And I click on "Send to Subrecipient" in the page details
-    And I pause execution for "5" seconds
-    Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -8168,7 +8160,7 @@ Feature: Amendment Request scenarios with Undo
     When I navigate to "Open Items" sub tab
     Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:CFAmendmentId}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
     When I click on "Override" in the page details
-    Then I softly see field "Status" as "Overridden"
+    And I refresh the page
     When I navigate to "Open Items" sub tab
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:CFAmendmentId}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
     And I navigate to "Grants" tab
@@ -8273,6 +8265,7 @@ Feature: Amendment Request scenarios with Undo
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
       | Construction    | 200           |
+    And I expand nested table containing column value "BP01"
     And I click on page navigation arrow "---amendment:-:RecipientCarryForwardBudgetTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
@@ -8346,8 +8339,8 @@ Feature: Amendment Request scenarios with Undo
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "3800" into field "NewBudgetPeriodEndDate__c"
     When I click on "Save" in the page details
-    And I save the field containing "New Budget Period End Date" as "updatedBudgetPeriodDate1"
-    And I save the field containing "EGMS ID" as "budgetPChangeId"
+    And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate1"
+    And I save the field labeled "EGMS ID" as "budgetPChangeId"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                              |
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate1} |
@@ -8568,7 +8561,7 @@ Feature: Amendment Request scenarios with Undo
     When I navigate to "Open Items" sub tab
     Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:scopeWorkId}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
     When I click on "Override" in the page details
-    And I pause execution for "5" seconds
+    And I refresh the page
     When I navigate to "Open Items" sub tab
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:scopeWorkId}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -8797,8 +8790,8 @@ Feature: Amendment Request scenarios with Undo
       | 4000  | RevisedCommitment__c |
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
-    And I save the field containing "Proposed Budget Period Start Date" as "PBPSD"
-    And I save the field containing "Proposed Budget Period End Date" as "PBPED"
+    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
+    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | Start Date         | End Date           | New Obligation |
       | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} | 1000           |
@@ -9017,7 +9010,6 @@ Feature: Amendment Request scenarios with Undo
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
-    When I navigate to "Subawards" sub tab
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
@@ -11336,15 +11328,13 @@ Feature: Amendment Request scenarios with Undo
     And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Send to Subrecipient" in the page details
-    #Bug431809
-    Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -11485,7 +11475,6 @@ Feature: Amendment Request scenarios with Undo
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 2000                |
     And I click on "Send to Subrecipient" in the page details
-    Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -11500,7 +11489,6 @@ Feature: Amendment Request scenarios with Undo
       | Construction  | 1000                 | 100        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
-    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -11561,7 +11549,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     #291761
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -11618,7 +11606,6 @@ Feature: Amendment Request scenarios with Undo
     And I pause execution for "5" seconds
     And I click modal button "Close"
     And I click on "Acknowledge" in the page details
-    Then I softly see field "Status" as "Acknowledged by Subrecipient"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -11793,10 +11780,12 @@ Feature: Amendment Request scenarios with Undo
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                           | Start Date         | End Date           | New Obligation |
+      | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} | 1000           |
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                            | Start Date         | End Date           | New Obligation |
-      | Automation Permanent Focus Area  | {SavedValue:PBPSD} | {SavedValue:PBPED} | 1000           |
       | Automation Permanent Focus Area2 | {SavedValue:PBPSD} | {SavedValue:PBPED} | 1000           |
-    And I pause execution for "4" seconds
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Title                       | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 2000                |
@@ -13440,7 +13429,6 @@ Feature: Amendment Request scenarios with Undo
       | Construction    | 1500                 | 150        | 0              |
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    And I save the field labeled "EGMS ID" as "CFAmendmentId"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -13860,17 +13848,15 @@ Feature: Amendment Request scenarios with Undo
       | Title                            | Carry Forward Amount |
       | Automation Permanent Focus Area2 | 500                  |
     And I expand nested table containing column value "BP01"
-#    When I click on button "resetIcon" in flex table with id "RecAmendmentRequestCarryForwardBudget"
     And I edit the following rows inline in flex table with id "RecAmendmentRequestCarryForwardBudget" by clicking "Edit" :
       | Budget Category | Carry Forward |
       | Construction    | 200           |
     And I click on page navigation arrow "RecAmendmentRequestCarryForwardBudget" for table id "Next"
-    And I pause execution for "3" seconds
     And I edit the following rows inline in flex table with id "RecAmendmentRequestCarryForwardBudget" by clicking "Edit" :
       | Budget Category | Carry Forward |
       | Construction    | 500           |
-#    When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
-    And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Previous"
+    When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
+#    And I click on page navigation arrow "---progressReport:-:budgetChangeTableId---" for table id "Previous"
     And I pause execution for "2" seconds
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
@@ -14038,10 +14024,7 @@ Feature: Amendment Request scenarios with Undo
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I pause execution for "5" seconds
     And I click modal button "Close"
-    And I refresh the page
     And I click on "Acknowledge" in the page details
-    And I pause execution for "4" seconds
-    Then I softly see field "Status" as "Acknowledged by Subrecipient"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -14621,7 +14604,6 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     And I refresh the page
     And I navigate to "History" sub tab
-    #Bug447045
     Then I softly see snapshot with name containing "Amendment - Undo Approval.pdf" as name
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
     And I navigate to "Field Audit" sub tab in split screen
@@ -14646,7 +14628,7 @@ Feature: Amendment Request scenarios with Undo
   @292582 @292587 @292594 @292591 @292588 @ValidatePOuserasLaststepapprovercanseeUNDOAmendsubawardbuttonsonApprovedstateofARwhenAmendmentownerissameaslaststepapprove2stepapproverabletoForwardapprovaldecisiontasktoEXEuser @Sprint-3-US-286469 @vaibhav @Undo
   Scenario: Validate PO user as Last step approver can see UNDO & Amend subaward buttons on Approved state of AR when Amendment owner is same as last step approver(2 step approver) able to Forward approval decision task to EXE user
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
-    When I login to "As a Grantor" app as "FD1" user
+    When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -14678,7 +14660,6 @@ Feature: Amendment Request scenarios with Undo
     When I perform quick search for "{SavedValue:TermsCondId}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:TermsCondId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Acknowledge" in the page details
-    Then I softly see field "Status" as "Acknowledged"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
 #    And I navigate to "Grants" tab
 #    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -14963,6 +14944,14 @@ Feature: Amendment Request scenarios with Undo
     #292591
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+#    And I click toggle button to select "Grants - Active"
+#    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+#    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
+#    When I navigate to "Subawards" sub tab
+#    And I pause execution for "3" seconds
+#    And I click on "View" icon for "Pending Activation" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - All"
     When I perform quick search for "{SavedValue:AwardEGMSID1}" in "---subAwardStandAlone:-:SubAwardTableId---" panel

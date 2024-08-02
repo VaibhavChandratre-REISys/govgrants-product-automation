@@ -1,7 +1,7 @@
 @globalSearch @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios for the global search
 
-  @387431 @387434 @ValidateEXEuserisabletoseetheglobalsearchbarforanannouncement @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @387431 @387434 @ValidateEXEuserisabletoseetheglobalsearchbarforanannouncement @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate EXE user is able to see the global search bar for an announcement
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -10,7 +10,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Suggested For You" section inside global search dropdown
     Then I softly see "All Searchable Items" section inside global search dropdown
 
-  @387457 @ValidatetherecordownerisabletoedittheaccessforrecordwhenannouncementisintheCreatedsubmitforrevieworinUnpublishedstate @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @387457 @ValidatetherecordownerisabletoedittheaccessforrecordwhenannouncementisintheCreatedsubmitforrevieworinUnpublishedstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate the record owner is able to edit the access for record when announcement is in the Created, submit for review or in Unpublished state
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -123,7 +123,7 @@ Feature: Validate all scenarios for the global search
     And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
     Then I softly see field "Status" as "Under Revision"
 
-  @387461 @ValidatethatNonOwneruserdoesnthaveaneditoptioninanystageofannouncementandwillgeterrormessageonpage @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @387461 @ValidatethatNonOwneruserdoesnthaveaneditoptioninanystageofannouncementandwillgeterrormessageonpage @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that Non-Owner user doesn't have an edit option in any stage of announcement and will get error message on page
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -333,7 +333,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @387477 @Validateuserisnotabletochangetheownerinanystateofannouncementandwillgettheerrormessageandnonowneruserisnotabletoseethechangeowneroption  @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @387477 @Validateuserisnotabletochangetheownerinanystateofannouncementandwillgettheerrormessageandnonowneruserisnotabletoseethechangeowneroption  @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate user is not able to change the owner in any state of announcement and will get the error message and non-owner user is not able to see the change owner option
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -361,7 +361,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
     Then I softly cannot see row level action button "Change Owner" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
 
-  @387731 @ValidatePMuserhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenannouncementisasubmitforreviewstate @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @387731 @ValidatePMuserhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenannouncementisasubmitforreviewstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate PM user have edit access for record only when edit access setting is yes for peer reviewer when announcement is a submit for review state
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -381,7 +381,6 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
     And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
     Then I softly see field "Status" as "Created"
-    And I click on "Edit" in the page details
     And I wait for "3" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -425,7 +424,7 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
 
-  @387762 @ValidatePMuserdoesnothaveeditaccessforpeerreviewthenPMuserwillgeterrormessageforannouncementwhenannouncementisinthesubmitforreviewstateorinReviewedstates @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @387762 @ValidatePMuserdoesnothaveeditaccessforpeerreviewthenPMuserwillgeterrormessageforannouncementwhenannouncementisinthesubmitforreviewstateorinReviewedstates @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate PM user does not have edit access for peer review then PM user will get error message for announcement when announcement is in the submit for review state or in Reviewed states
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -445,7 +444,6 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
     And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
     Then I softly see field "Status" as "Created"
-    And I click on "Edit" in the page details
     And I wait for "3" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -490,7 +488,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @387769 @Validateuserisabletoseethen5mostrecentlyusedrecordsinthedropdownlistwhenuserclicksonsearchinputboxforannouncement @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @387769 @Validateuserisabletoseethen5mostrecentlyusedrecordsinthedropdownlistwhenuserclicksonsearchinputboxforannouncement @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate user is able to see the 5 most recently used records in the dropdown list when user clicks on search input box for announcement
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -498,7 +496,7 @@ Feature: Validate all scenarios for the global search
     And I click on global search box
     Then I softly see recent "5" records in global search box
 
-  @387772 @Validatethatuserisabletoseetheallthelistofmodulesafterclickingonsuggestedforyousectionforannouncement @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @387772 @Validatethatuserisabletoseetheallthelistofmodulesafterclickingonsuggestedforyousectionforannouncement @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that user is able to see the all the list of modules after clicking on 'suggested for you section' for announcement
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -526,7 +524,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see dropdown option "Subawards" under the "Suggested For You" section
     Then I softly see dropdown option "Tasks" under the "Suggested For You" section
 
-  @388883 @388920 @ValidatethatEXEuserisabletoseetheglobalsearchbarforanInternalProgram @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388883 @388920 @ValidatethatEXEuserisabletoseetheglobalsearchbarforanInternalProgram @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that EXE user is able to see the global search bar for an Internal Program
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -535,7 +533,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Suggested For You" section inside global search dropdown
     Then I softly see "All Searchable Items" section inside global search dropdown
 
-  @388932 @Validatethatuserisabletoseethe5mostrecentlyusedrecordsinthedropdownlistwhenuserclicksonsearchinputboxforInternalProgram @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388932 @Validatethatuserisabletoseethe5mostrecentlyusedrecordsinthedropdownlistwhenuserclicksonsearchinputboxforInternalProgram @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that user is able to see the 5 most recently used records in the dropdown list when user clicks on search input box for Internal Program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -543,7 +541,7 @@ Feature: Validate all scenarios for the global search
     And I click on global search box
     Then I softly see recent "5" records in global search box
 
-  @388921 @ValidatethattherecordownerisabletoedittheaccessforrecordwhenInternalProgramisintheCreatedsubmitforreviewandBeingAmendedstate @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388921 @ValidatethattherecordownerisabletoedittheaccessforrecordwhenInternalProgramisintheCreatedsubmitforreviewandBeingAmendedstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that the record owner is able to edit the access for record when Internal Program is in the Created, submit for review and Being Amended state
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -647,7 +645,7 @@ Feature: Validate all scenarios for the global search
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I click on "Activate" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I click on "Amend Program" in the page details
     Then I softly see field "Status" as "Being Amended"
     And I navigate to "Planning" tab
@@ -658,7 +656,7 @@ Feature: Validate all scenarios for the global search
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
 
-  @388924 @ValidatethatNonOwneruserdoesnthaveaneditoptioninanystateofInternalProgramandwillgeterrormessageonpage @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388924 @ValidatethatNonOwneruserdoesnthaveaneditoptioninanystateofInternalProgramandwillgeterrormessageonpage @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that Non-Owner user doesn't have an edit option in any state of Internal Program and will get error message on page
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -802,7 +800,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @388926 @ValidatethatuserisnotabletochangetheownerinanystateofInternalProgramandwillgettheerrormessageandnonowneruseisnotabletoseethechangeowneroption @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388926 @ValidatethatuserisnotabletochangetheownerinanystateofInternalProgramandwillgettheerrormessageandnonowneruseisnotabletoseethechangeowneroption @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that user is not able to change the owner in any state of Internal Program and will get the error message and non-owner user is not able to see the change owner option
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -835,7 +833,7 @@ Feature: Validate all scenarios for the global search
     Then I softly can see row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
     Then I softly cannot see row level action button "Change Owner" against "{SavedValue:ProgramEGMSID}" in global search with id "Programs"
 
-  @388928 @ValidateEXEhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenInternalProgramisasubmitforreviewstate @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388928 @ValidateEXEhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenInternalProgramisasubmitforreviewstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Validte EXE have edit access for record only when edit access setting is yes for peer reviewer when Internal Program is a submit for review state
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -885,7 +883,7 @@ Feature: Validate all scenarios for the global search
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
 
-  @388930 @ValidateEXEuserdoesnothaveeditaccessforpeerreviewthenEXEuserwillgeterrormessageforInternalProgramwhenInternalProgramisinthesubmitforreviewstateorinReviewedstates @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388930 @ValidateEXEuserdoesnothaveeditaccessforpeerreviewthenEXEuserwillgeterrormessageforInternalProgramwhenInternalProgramisinthesubmitforreviewstateorinReviewedstates @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate EXE user does not have edit access for peer review then EXE user will get error message for Internal Program when Internal Program is in the submit for review state or in Reviewed states
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -936,7 +934,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @388935 @ValidatethatuserisabletoseetheallthelistofmodulesafterclickingonsuggestedforyousectionforInternalProgram @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388935 @ValidatethatuserisabletoseetheallthelistofmodulesafterclickingonsuggestedforyousectionforInternalProgram @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that user is able to see the all the list of modules after clicking on 'suggested for you section' for Internal Program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -964,7 +962,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see dropdown option "Subawards" under the "Suggested For You" section
     Then I softly see dropdown option "Tasks" under the "Suggested For You" section
 
-  @388990 @388995 @ValidatehatEXEuserisabletoseetheglobalsearchbarforanAward @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388990 @388995 @ValidatehatEXEuserisabletoseetheglobalsearchbarforanAward @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that EXE user is able to see the global search bar for an Award
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -973,7 +971,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see "Suggested For You" section inside global search dropdown
     Then I softly see "All Searchable Items" section inside global search dropdown
 
-  @388859 @ValidatewhenanyuserglobalsearchanyrecordbyusingEGMSIDoranykeyword&clickonrecordandfindingtheresultthenthatrecordshouldopeninconsoletab @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388859 @ValidatewhenanyuserglobalsearchanyrecordbyusingEGMSIDoranykeyword&clickonrecordandfindingtheresultthenthatrecordshouldopeninconsoletab @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate when any user global search any record by using EGMS ID or any keywords & click on record and finding the result then that record should open in console tab
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -994,7 +992,7 @@ Feature: Validate all scenarios for the global search
     And I click on record "{SavedValue:AnnEGMSID}" from global search
     Then I softly see field "Status" as "Created"
 
-  @388949 @ValidatethatwhenanyuserglobalsearchanyrecordbyusingEGMSIDoranykeyword&clickonrecordandfindingtheresultthenthatrecordshouldopeninconsoletab @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388949 @ValidatethatwhenanyuserglobalsearchanyrecordbyusingEGMSIDoranykeyword&clickonrecordandfindingtheresultthenthatrecordshouldopeninconsoletab @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that when any user global search any record by using EGMS ID or any keywords & click on record and finding the result then that record should open in console tab
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1014,7 +1012,7 @@ Feature: Validate all scenarios for the global search
     And I click on record "{SavedValue:ProgramEGMSID}" from global search
     Then I softly see field "Status" as "Created"
 
-  @388862 @ValidateuserredirecttothatrecordwhenusercliconanyhyperlinkprovidedEGMSIDInternalOrganizationCreatedbyonobjectsafterglobalsearchtheanyrecordforannouncement @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388862 @ValidateuserredirecttothatrecordwhenusercliconanyhyperlinkprovidedEGMSIDInternalOrganizationCreatedbyonobjectsafterglobalsearchtheanyrecordforannouncement @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate user redirect to that record when user click on any hyperlink provided EGMS ID Internal Organization Created by on objects after global search the any record for announcement
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1043,7 +1041,7 @@ Feature: Validate all scenarios for the global search
     And I click on hyperlink for global search containing value "{SavedValue:EXE Username}"
     Then I softly see the text containing "{SavedValue:EXE Username}"
 
-  @388952 @ValidateuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedEGMSIDInternalOrganizationCreatedbyonobjectsafterglobalsearchtheanyrecordforinternalProgram @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388952 @ValidateuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedEGMSIDInternalOrganizationCreatedbyonobjectsafterglobalsearchtheanyrecordforinternalProgram @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate user redirect to that record when user click on any hyperlink provided EGMS ID Internal Organization Created by on objects after global search the any record for internal Program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1071,7 +1069,7 @@ Feature: Validate all scenarios for the global search
     And I click on hyperlink for global search containing value "{SavedValue:PM Username}"
     Then I softly see the text containing "{SavedValue:PM Username}"
 
-  @387802 @ValidatethatuserisabletoexpandtheresultbyannouncementmoduleandFilter/RefinethetheresultbyconfiguredColumnsforanannouncement @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @387802 @ValidatethatuserisabletoexpandtheresultbyannouncementmoduleandFilter/RefinethetheresultbyconfiguredColumnsforanannouncement @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that user is able to expand the result by announcement module and Filter/Refine the the result by configured Columns for an announcement
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1104,7 +1102,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text "Programs" on left navigation for global search
     Then I softly see the text "Grants" on left navigation for global search
 
-  @388940 @ValidatethatuserisabletoexpandtheresultbyplanningmoduleandFilterRefinethetheresultbyconfiguredColumnsforanInternalProgram @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388940 @ValidatethatuserisabletoexpandtheresultbyplanningmoduleandFilterRefinethetheresultbyconfiguredColumnsforanInternalProgram @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that user is able to expand the result by planning module and Filter/Refine the the result by configured Columns for an Internal Program.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1136,7 +1134,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text "Grants" on left navigation for global search
     Then I softly see the text "Amendment Requests" on left navigation for global search
 
-  @387857 @ValidatethatadminuserwillseeallthelistofobjectsinthesearchresultwhicharementioninthelistReferDescriptionforglobalsearch @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @387857 @ValidatethatadminuserwillseeallthelistofobjectsinthesearchresultwhicharementioninthelistReferDescriptionforglobalsearch @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that admin user will see all the list of objects in the 'search result' which are mention in the list (Refer Description) for global search
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -1153,7 +1151,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text "SObject Config" on left navigation for global search
     Then I softly see the text "Page Layouts Config" on left navigation for global search
 
-  @388946 @ValidatePMuserisabletoseethetableforextraobjectswhicharepresentinthesearchresultforPlanningmodule @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388946 @ValidatePMuserisabletoseethetableforextraobjectswhicharepresentinthesearchresultforPlanningmodule @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate PM user is able to see the table for extra objects which are present in the search result for Planning module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1167,7 +1165,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text "Tasks" on left navigation for global search
     Then I softly see the text "Folders" on left navigation for global search
 
-  @388338 @387972 @ValidateEXEuserisabletoseethetableforextraobjectswhicharepresentinthesearchresultforannouncementmodule @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388338 @387972 @ValidateEXEuserisabletoseethetableforextraobjectswhicharepresentinthesearchresultforannouncementmodule @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate EXE user is able to see the table for extra objects which are present in the search result for announcement module
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1192,7 +1190,7 @@ Feature: Validate all scenarios for the global search
     And I click on module "Dashboards" on left navigation for global search
     Then I softly see the text containing "No results"
 
-  @388863 @ValidatethatrecordscountsshouldbeupdatedformatchingresultsformoduleslistedonfixedsidebarofleftnavigationafterglobalsearchanyrecordbyEGMSIDororganizationname&countremainsame0fornonmatchingrecords @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388863 @ValidatethatrecordscountsshouldbeupdatedformatchingresultsformoduleslistedonfixedsidebarofleftnavigationafterglobalsearchanyrecordbyEGMSIDororganizationname&countremainsame0fornonmatchingrecords @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that records counts should be updated for matching results for modules listed on fixed sidebar of left navigation after global search any record by EGMS ID or organization name & count remain same (0) for non matching records
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1217,7 +1215,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "add123"
     Then I softly see record count "0" for module "Announcements" on left navigation for global search
 
-  @388961 @ValidaterecordscountsshouldbeupdatedformatchingresultsformoduleslistedonfixedsidebarofleftnavigationafterglobalsearchanyrecordbyEGMSIDororganizationnamecountremainsame0fornonmatchingrecords @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388961 @ValidaterecordscountsshouldbeupdatedformatchingresultsformoduleslistedonfixedsidebarofleftnavigationafterglobalsearchanyrecordbyEGMSIDororganizationnamecountremainsame0fornonmatchingrecords @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate records counts should be updated for matching results for modules listed on fixed sidebar of left navigation after global search any record by EGMS ID or organization name & count remain same (0) for non matching records
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -1241,7 +1239,7 @@ Feature: Validate all scenarios for the global search
     And I perform quick search inside global search "add123"
     Then I softly see record count "0" for module "Programs" on left navigation for global search
 
-  @388882 @ValidateusescansortanyobjectsafterglobalsearchanyrecordbyEGMSIDCreatedDateRelevanceAnnouncementNameInternalOrganizationApplicationDueDateStatus @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388882 @ValidateusescansortanyobjectsafterglobalsearchanyrecordbyEGMSIDCreatedDateRelevanceAnnouncementNameInternalOrganizationApplicationDueDateStatus @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate user can sort any objects after global search any record by EGMS ID, Created Date, Relevance, Announcement Name, Internal Organization, Application Due Date, Status
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1254,7 +1252,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see options "Created By" inside "Relevance" dropdown
     Then I softly see options "Status" inside "Relevance" dropdown
 
-  @388972 @ValidatethatusercansortanyobjectsafterglobalsearchanyrecordbyEGMSIDCreatedDateRelevanceInternalProgramInternalOrganizationApplicationDueDateStatus @sprint-2-US-386939 @vaibhav @GlobalSearch
+  @388972 @ValidatethatusercansortanyobjectsafterglobalsearchanyrecordbyEGMSIDCreatedDateRelevanceInternalProgramInternalOrganizationApplicationDueDateStatus @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate that user can sort any objects after global search any record by EGMS ID, Created Date, Relevance, Internal Program, Internal Organization, Application Due Date, Status
     When I login to "As a Grantor" app as "PM" user
     And I select "Programs" from dropdown for Global search

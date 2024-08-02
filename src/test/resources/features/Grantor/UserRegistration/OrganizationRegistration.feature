@@ -1,7 +1,7 @@
 @organizationRegistrationPage @userRegistration @parallel-regression @regression @grantor-regression @regression
 Feature: Validate all registration related scenarios
 
-  @81962 @verifyDownloadOptionOpensInNewWindow-Organization @monu
+  @81962 @verifyDownloadOptionOpensInNewWindow-Organization
   Scenario:Verify if user clicks on download option inside Attachment section new tab getting opened
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -18,7 +18,7 @@ Feature: Validate all registration related scenarios
     When I click on "Download" icon for "Attachment.pdf" inside table
     Then I softly see new tab is opened
 
-  @82051 @verifyEnteredValueOfPaymentAddressSection-Organization @monu @wip @invalidScenario
+  @82051 @verifyEnteredValueOfPaymentAddressSection-Organization
   Scenario:Verify entered details is visible in edit mode of fields if user selected NO as in Same as organization Address field
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -39,7 +39,7 @@ Feature: Validate all registration related scenarios
     Then I see "(918) 908-9089" text enter in field "PaymentAddressVendorLocation__c"
     Then I see "1234" text enter in field "PaymentAddressZipCode4__c"
 
-  @82052 @verifyErrorMessageForPaymentAddressSectionFields-Organization @monu
+  @82052 @verifyErrorMessageForPaymentAddressSectionFields-Organization
   Scenario:Verify user is able to see error message after filling all details except Payment address section
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -76,7 +76,7 @@ Feature: Validate all registration related scenarios
     Then I softly see fields "PaymentAddressState__c" is not visible
     Then I softly see fields "PaymentAddressZipCode__c" is not visible
 
-  @82787 @82790 @verifyPrimaryRepresentativeDetails-Individual @monu @wip @invalidScenario
+  @82787 @82790 @verifyPrimaryRepresentativeDetails-Individual
   Scenario:Verify user is able to see filled details on Primary Representative detail page while individuals registration
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -99,7 +99,7 @@ Feature: Validate all registration related scenarios
     Then I see "USA" text enter in field "fieldPrimaryRepCountry__c"
     Then I see "Prince George’s" text enter in field "fieldCounty__c"
 
-  @82797 @verifyVisibilityOfFieldsAtPaymentAddressSection-Individual @monu
+  @82797 @verifyVisibilityOfFieldsAtPaymentAddressSection-Individual
   Scenario:Verify user is not able to see any fields after selection of Same as organization fields to yes inside payment details page block
     Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
@@ -115,7 +115,7 @@ Feature: Validate all registration related scenarios
     Then I softly see fields "fieldPaymentAddressState__c" is not visible
     Then I softly see fields "fieldPaymentAddressZipCode__c" is not visible
 
-  @82024 @verifyFilledDetailsPopulatedAtAuthorizedDetailsSection-Organization @monu @wip @invalidScenario
+  @82024 @verifyFilledDetailsPopulatedAtAuthorizedDetailsSection-Organization
   Scenario:Verify user should be able to see filled details at organization address id getting populated at Authorized section
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -132,7 +132,7 @@ Feature: Validate all registration related scenarios
     Then I see "Sterling" text enter in field "PrimaryRepCity__c"
     Then I see "20171" text enter in field "PrimaryRepZipCode__c"
 
-  @82025 @verifyFilledDetailsAtAuthorizedRepresentativePage-Organization @monu
+  @82025 @verifyFilledDetailsAtAuthorizedRepresentativePage-Organization
   Scenario:Verify user should be navigated to captch page after filling all details at authorised representative detail
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -149,7 +149,7 @@ Feature: Validate all registration related scenarios
     When I click on "Save" in the page details
     Then I see the ReCaptcha input box
 
-  @82030 @verifyEmailNotificationForOrganizationRegistration-Organization @monu @wip
+  @82030 @verifyEmailNotificationForOrganizationRegistration-Organization  @wip
   Scenario:Verify user should be able to see email notificatio after queued email is approved
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -177,7 +177,7 @@ Feature: Validate all registration related scenarios
        {regconfirmationmailbody:mailbody}
       """
 
-  @82784 @VerifyRegistrationPages2of2-Individual @monu
+  @82784 @VerifyRegistrationPages2of2-Individual
   Scenario:Verify user should be navigated to Registration step 2 of 2 after clicking on save button on registration step 1 of 2 page
     Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
@@ -189,7 +189,7 @@ Feature: Validate all registration related scenarios
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Step 2 of 2" in the page details
 
-  @82780 @VerifyRegistrationStep1of2-Individual @monu
+  @82780 @VerifyRegistrationStep1of2-Individual
   Scenario:Verify user should be navigated to Registration step 1 of 2 after clicking on Agree button on registration
     Given I begin "Individual" registration as "Register As Individual"
     Then I see the header is "Registration" in the page details
@@ -201,7 +201,7 @@ Feature: Validate all registration related scenarios
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Step 1 of 2" in the page details
 
-  @33827 @verifySavedDetailsOfOrganizationProfileSubTab-Organization @monu @wip @invalidScenario
+  @33827 @verifySavedDetailsOfOrganizationProfileSubTab-Organization
   Scenario:Verify user should be able to see filled details at organization sub tab after redirecting back to organization profile tab while clicking on back button
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -230,7 +230,7 @@ Feature: Validate all registration related scenarios
     Then I see "(918) 908-9089" text enter in field "fieldPaymentAddressVendorLocation__c"
     Then I see "Yes" text enter in field "fieldSameAsOrganizationAddress__c"
 
-  @81954 @verifyEINNumberAndDUNSNumberAtOrganizationProfileSubTab-Organization @monu
+  @81954 @verifyEINNumberAndDUNSNumberAtOrganizationProfileSubTab-Organization
   Scenario:Verify user should be able to see filled details of EIN Number and DUNS Number at organization sub tab
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -243,7 +243,7 @@ Feature: Validate all registration related scenarios
     Then I softly see field "EIN" as "533161380"
     Then I softly see field "Unique Entity Identifier (UEI)" as "LZJHU2FMMQ13"
 
-  @81952 @verifyRecipientPortalDetailsUnderContactUS @monu @wip
+  @81952 @verifyRecipientPortalDetailsUnderContactUS  @wip
   Scenario:Verify user should be able to see details of recipient portal details under contact us sub tab
     Given I am on "SUBPORTAL" portal
     Then I softly see the text containing :
@@ -253,7 +253,7 @@ Feature: Validate all registration related scenarios
       | Phone: (703)-480-7600           |
       | Fax: (123) 123-4567             |
 
-  @82027 @verifyRegisteredDetailsInsidePendingTask-Organization @monu @wip
+  @82027 @verifyRegisteredDetailsInsidePendingTask-Organization  @wip
   Scenario:Verify if user clicks on download option inside Attachment section new tab getting opened
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -267,7 +267,7 @@ Feature: Validate all registration related scenarios
     And I enter value "No" into field "fieldSameAsOrganizationAddress__c"
     When I click on "Save" in the page details
 
-  @82028 @verifyOrganizationDetailPageDuringApproval-Organization @monu
+  @82028 @verifyOrganizationDetailPageDuringApproval-Organization
   Scenario:Verify if user can see organization detail page while approval
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -297,7 +297,7 @@ Feature: Validate all registration related scenarios
     Then I softly can see "Messages" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
 
-  @82796 @83035 @verifyConfirmationMessage-Individual @meenakshi
+  @82796 @83035 @verifyConfirmationMessage-Individual
   Scenario:To validate Confirmation Message, after clicking Submit button on Catcha page of Individual registration process
     Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
@@ -322,7 +322,7 @@ Feature: Validate all registration related scenarios
       | Confirmation Message                                                                                                                                                                |
       | Your registration request for access to the EGMS has been completed.  You will be sent an email from salesforce.com (technology platform provider) with your Username and Password. |
 
-  @84611 @83374 @83527 @84612 @83373 @84613 @validateSAUserforUserRegistration-Organization @meenakshi
+  @84611 @83374 @83527 @84612 @83373 @84613 @validateSAUserforUserRegistration-Organization
   Scenario:To verify SA allow to modify newly created contact in contact table  for Additional user registration process
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -391,7 +391,7 @@ Feature: Validate all registration related scenarios
     Then I softly see value "{SavedValue:uniqueEmailID}" for title "Email" inside table "---home:-:userContactsTableId---"
     Then I softly see value "(704) 777-7869" for title "Phone" inside table "---home:-:userContactsTableId---"
 
-  @85792 @validateSAUserforUserRegistration-Organization @meenakshi
+  @85792 @validateSAUserforUserRegistration-Organization
   Scenario:To verify SA allow to modify newly created contact in contact table  for Additional user registration process
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -423,7 +423,7 @@ Feature: Validate all registration related scenarios
       Sandbox: Notification: Organization Registration for AUTOMATIONRUNTIME Organization has Been Approved
       """
 
-  @83038 @85790 @validatingApprovedStatusForIndividualRegistration @meenakshi
+  @83038 @85790 @validatingApprovedStatusForIndividualRegistration
   Scenario:To verify after Approved record status changes as : Approved for Individual registration process
     Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
@@ -453,7 +453,7 @@ Feature: Validate all registration related scenarios
       Sandbox: Your EGMS Registration has Been Approved
       """
 
-  @83539 @validatingRegistrationLegalDisclaimer1of2 @monu
+  @83539 @validatingRegistrationLegalDisclaimer1of2
   Scenario:To verify after sending Invitation for created contact , user is able to see Registration Legal Disclaimer 1 of 2 page on click of click here link
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -505,7 +505,7 @@ Feature: Validate all registration related scenarios
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
 
-  @83531 @validatingEditingOfContact @monu
+  @83531 @validatingEditingOfContact
   Scenario:To verify user is able to edit phone number of newly created contact
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -569,7 +569,7 @@ Feature: Validate all registration related scenarios
     Then I softly see "Address Information" page block displayed on modal
     Then I softly see "System Information" page block displayed on modal
 
-  @84614 @validateRolesDropdownValues-Organization @monu
+  @84614 @validateRolesDropdownValues-Organization
   Scenario:To verify while creating new contacts for Activated users, roles picklist having all expected values
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -604,7 +604,7 @@ Feature: Validate all registration related scenarios
     Then I see only the following ordered options in dropdown field "UserRole__c" :
       | --None-- | Non-User | Secondary | Primary |
 
-  @85781 @validatePlaceOfPerformanceFieldsWRTOrganizationFields-Organization @monu
+  @85781 @validatePlaceOfPerformanceFieldsWRTOrganizationFields-Organization
   Scenario:Verify place of performance fields while creating organization user is getting populated to created application by same user
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -681,7 +681,7 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "Review Organization User Registration" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @223042 @ValidateAdminusershouldnotabletoseethereassigntaskofOrganizationRegistrationApprovalfrommytaskAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment
+  @223042 @ValidateAdminusershouldnotabletoseethereassigntaskofOrganizationRegistrationApprovalfrommytaskAsaAdmin @sprint-12-US-226646  @reassignment
   Scenario: Validate Admin user should not able to see the reassign task of Organization Registration Approval from my task As a Admin
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -706,7 +706,7 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "Review Organization User Registration" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"
 
-  @223512 @ValidatePMuserfromuserregistrationapprovalqueueshouldnotabletoseethereassigntaskofIndividualRegistrationApprovalinReassignTask @sprint-12-US-226646 @vaibhav @reassignment
+  @223512 @ValidatePMuserfromuserregistrationapprovalqueueshouldnotabletoseethereassigntaskofIndividualRegistrationApprovalinReassignTask @sprint-12-US-226646  @reassignment
   Scenario: Validate PM user from user registration approval queue should not able to see the reassign task of Individual Registration Approval in Reassign Task
     Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
@@ -735,7 +735,7 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:OldfullName}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "Review Individual User Registration" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @223616 @ValidateAdminusershouldnotabletoseethereassigntaskofIndividualRegistrationApprovalfromAllTasksAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment
+  @223616 @ValidateAdminusershouldnotabletoseethereassigntaskofIndividualRegistrationApprovalfromAllTasksAsaAdmin @sprint-12-US-226646  @reassignment
   Scenario: Validate Admin user should not able to see the reassign task of Individual Registration Approval from All Tasks As a Admin
     Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
@@ -766,7 +766,7 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:OldfullName}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "Review Individual User Registration" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"
 
-  @222975 @223047 @ValidateAdminusershouldnotabletoseethereassigntaskofParent/ChildrelationshipApprovalfromAlltasksAsaAdmin @sprint-12-US-226646 @vaibhav @reassignment @wip @invalidScenario
+  @222975 @223047 @ValidateAdminusershouldnotabletoseethereassigntaskofParent/ChildrelationshipApprovalfromAlltasksAsaAdmin @sprint-12-US-226646  @reassignment @wip @invalidScenario
   Scenario: Validate Admin user should not able to see the reassign task of Parent/Child relationship Approval from All tasks As a Admin
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details

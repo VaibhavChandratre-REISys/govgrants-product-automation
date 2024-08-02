@@ -72,8 +72,11 @@ Feature: Validate all scenarios in Progress Report
     Then I softly see that "{SavedValue:PM Username}" has been added in flextable with Id "---progressReport:-:approversTableId---"
     And I click on "Send Back to Subrecipient" in the page details
     Then I softly see status in Progress-bar is "Sent Back to Subrecipient" and is "dark blue"
-#    When I navigate to "History" sub tab
-#    Then I softly see value "Sent Back to Subrecipient" for title "New Value" inside table "History"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Sent Back to Subrecipient" for title "New Value" inside field history table
+    And I click on back arrow
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -103,8 +106,11 @@ Feature: Validate all scenarios in Progress Report
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I "Send to Owner" in the approval decision
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-#    When I navigate to "History" sub tab
-#    Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted to Grantor" for title "New Value" inside field history table
+    And I click on back arrow
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -220,8 +226,11 @@ Feature: Validate all scenarios in Progress Report
     And I refresh the page
     And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-#    When I navigate to "History" sub tab
-#    Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted to Grantor" for title "New Value" inside field history table
+    And I click on back arrow
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -252,7 +261,7 @@ Feature: Validate all scenarios in Progress Report
     And I click toggle button to select "Progress Reports - Approved"
     Then I softly see all values "Approved" under column "Status" inside flextable with id "---progressReport:-:internalProgressReportFlexTableId---"
 
-  @55313 @55316 @verifyDraftProgressReportNotDisplayedOnGrantAtInternal @mahadev
+  @55313 @55316 @verifyDraftProgressReportNotDisplayedOnGrantAtInternal
   Scenario Outline: Verify generated progress report should not displayed at management tab of grant | Verify Progress Report table is getting updated at Sub-recipient user end on award
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -276,7 +285,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
- @prog @57646 @57690 @verifyProgressReportTablUpdatedWithStatusSubmittedForApprovalAtSubPortal @mahadev @NewProgressFinal
+ @prog @57646 @57690 @verifyProgressReportTablUpdatedWithStatusSubmittedForApprovalAtSubPortal  @NewProgressFinal
   Scenario Outline: Verify Progress report table get updated with status Submitted for Approval at grantee portal | To edit Progress Report
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -325,7 +334,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @34931 @submitProgressReportToGrantorInternalUser @jitendra
+  @34931 @submitProgressReportToGrantorInternalUser
   Scenario Outline: Verify that all internal users can view submitted Progress Reports
     And I click on "Edit" in the page details
     When I enter "Edition" values from "<progressReportSheet>"
@@ -354,7 +363,7 @@ Feature: Validate all scenarios in Progress Report
       | progressReportSheet              | kpiTableId                        | formTableId                        |
       | ProgressReport_Field_Values.xlsx | ---progressReport:-:kpiTableId--- | ---progressReport:-:formTableId--- |
 
-  @55310 @editProgressReportSchedule @jitendra
+  @55310 @editProgressReportSchedule
   Scenario Outline: To edit Progress Report
     And I click on "Edit" in the page details
     When I enter "Edition" values from "<progressReportSheet>"
@@ -377,7 +386,7 @@ Feature: Validate all scenarios in Progress Report
       | progressReportsScheduleId                        | progressReportSheet              | subawardsTableId                            | activeGrantsTableId                        |
       | ---progressReport:-:progressReportsScheduleId--- | ProgressReport_Field_Values.xlsx | ---subAwardStandalone:-:subawardsTableId--- | ---progressReport:-:activeGrantsTableId--- |
 
-  @59679 @58763 @45730 @ProgramApproverSenBackPRToOwner @jitendra @NewProgressFinal
+  @59679 @58763 @45730 @ProgramApproverSenBackPRToOwner  @NewProgressFinal
   Scenario: Validate  Progress Report send back to owner functionality by program approver. | Validate Performance Tab under Subaward view at Sub-recipient user is getting updated when Progress report status is Submitted to Grantor on active subaward
   Validate Submit for Approval button disappear from Progress report once Award owner click on it.
     And I click on "Edit" in the page details
@@ -426,7 +435,7 @@ Feature: Validate all scenarios in Progress Report
     And I refresh the page
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @59680 @58742 @validateInternalUserIsNotAllowedToEditProgressReportWhoseStatusIsSendBackToSubRecipient @mahadev
+  @59680 @58742 @validateInternalUserIsNotAllowedToEditProgressReportWhoseStatusIsSendBackToSubRecipient
   Scenario: Validate Internal User is not allowed to Edit the Progress report generated whose status is Send back to sub-recipient on active award
   Validate Internal user is not able to see Send Back to Subrecipient button once Progress report is send back to subrecipient.
     And I click on "Edit" in the page details
@@ -459,7 +468,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Record Id}" in flex table with id "---progressreport:-:internalProgressReportFlexTableId---"
 
-  @58774 @validateManagementSubtabOnGrantviewProgressReportTableIsUpdatedWhenProgressReportStatusIsSubmittedForApproval  @mahadev @NewProgressFinal
+  @58774 @validateManagementSubtabOnGrantviewProgressReportTableIsUpdatedWhenProgressReportStatusIsSubmittedForApproval   @NewProgressFinal
   Scenario Outline: Validate management sub tab on grant view  progress report table is getting updated when Progress report status is Submitted for Approval on active subaward
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -502,7 +511,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @58662 @NotEditButtonInPRScheduleForSPI @jitendra @NewProgressFinal
+  @58662 @NotEditButtonInPRScheduleForSPI  @NewProgressFinal
   Scenario: Validate SPI user is not allowed to change the Progress report Schedule on Active subaward when status of Progress Report is submitted to Grantor.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -532,7 +541,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Terms" sub tab
     Then I cannot see row level action button "Edit" against "Progress Report" in flex table with id "---progressreport:-:progressReportsScheduleId---"
 
-  @58896 @mahadev @NewProgressFinal
+  @58896  @NewProgressFinal
   Scenario Outline: Validate Internal User with another profile but same organization can view the Progress report whose status is Submitted to Grantor at Management Tab
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -572,7 +581,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @59039 @59042 @validateInternalUserIsAllowedToAddProgramApproverOnProgressReport  @mahadev 
+  @59039 @59042 @validateInternalUserIsAllowedToAddProgramApproverOnProgressReport
   Scenario: Validate Internal user is allowed to add Program Approver when Progress report status is Submitted to Grantor | Validate SPI user 'does not' have edit access to Performance Narrative Table under Progress report when Progress report state is Submitted to Grantor State.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -606,7 +615,7 @@ Feature: Validate all scenarios in Progress Report
       | {SavedValue:PM Username} | Step 1          |
     Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---progressReport:-:approversTableId---"
 
-  @58893 @validateMultipleProgressReports  @mahadev
+  @58893 @validateMultipleProgressReports
   Scenario Outline: Validate initially generated progress report remains the same at progress reports table when another Progress report is generated on active award
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -645,7 +654,7 @@ Feature: Validate all scenarios in Progress Report
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @58753 @PMNoPRshown @jitendra
+  @58753 @PMNoPRshown
   Scenario: Validate Internal user should not see progress report under Sub-award performance tab when Progress report is in Draft status.
     Given I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -658,7 +667,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Performance" sub tab
     Then I do not see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:progressReportFlexTableId---"
 
-  @58756 @PerformanceTabUpdate @jitendra
+  @58756 @PerformanceTabUpdate
   Scenario: Validate Performance Tab under Subaward View at Internal user is getting updated when Progress report status is  Submitted to Grantor on active subaward.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -687,7 +696,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Performance" sub tab
     Then I see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:Record Id}" inside table "---progressReport:-:grantorProgressReportsTableId---"
 
-  @58881 @58882 @ListViewSPISeeAprrovedPR @jitendra
+  @58881 @58882 @ListViewSPISeeAprrovedPR
   Scenario: Verify that Sub-recipient User will be able to see Approved Progress Report on active award by using List View. | Verify that Sub-recipient User will be able to see Submitted Progress Report on active award by using List View.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -742,7 +751,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:progressReportFlexTableId---" panel
     Then I softly see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:progressReportFlexTableId---"
 
-  @59044 @58883 @SeeApprovedPROnActiveAwardByInternalUser @jitendra @NewProgressFinal
+  @59044 @58883 @SeeApprovedPROnActiveAwardByInternalUser  @NewProgressFinal
   Scenario: Verify that Internal User will be able to see Approved Progress Report on active award by using List View. |Validate SPI user is not able to edit forms table under forms and attachments view when Progress report state is Submitted for Approval.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -802,7 +811,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:internalProgressReportFlexTableId---"
 
- @prog @58884 @SeeSendBackToSubrecipientPROnActiveAwardByInternalUser @jitendra
+ @prog @58884 @SeeSendBackToSubrecipientPROnActiveAwardByInternalUser
   Scenario: Verify that Internal User will be able to see Send back to Sub-recipient Progress Report record on active award by using List View .
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -833,7 +842,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:internalProgressReportFlexTableId---"
 
-  @prog1 @58959 @NoViewAccessToOtherOrganisationuSERPR @jitendra
+  @prog1 @58959 @NoViewAccessToOtherOrganisationuSERPR
   Scenario: Validate Internal User with different organization should not be able to view the Progress report with submitted to Grantor state.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -859,7 +868,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     Then I do not see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:internalProgressReportFlexTableId---"
 
-  @59278 @59136 @CanNotSubmitPRWithNotFillingReqData @jitendra
+  @59278 @59136 @CanNotSubmitPRWithNotFillingReqData
   Scenario: Validate Sub-recipient user is not allowed to submit progress report to grantor when required data is not filled under Forms and Attachments Tab.
   Validate if SR user keep the Actual field under performance tab as empty validate message is display on Progress report when KPI is selected as Yes on Grant
     And I click on "Edit" in the page details
@@ -886,8 +895,8 @@ Feature: Validate all scenarios in Progress Report
     Given I click on "Submit to Grantor" in the page details
     And I wait for "5" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    
-  @59567 @58773 @NoEditAccessForFormsSPI @jitendra
+
+  @59567 @58773 @NoEditAccessForFormsSPI
   Scenario: Validate Management Tab under Grant view at Internal user is getting updated when Progress report status is Submitted for Approval on active subaward.
   Validate Submitted By field at Certification table should get updated on Progress report at SR user end when Progress report status is Submitted to Grantor
     And I click on "Edit" in the page details
@@ -931,7 +940,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:grantorGrantProgressReportTableId---"
 
-  @59568 @59280 @validateSRUserIsAbleToViewSnapshot @mahadev
+  @59568 @59280 @validateSRUserIsAbleToViewSnapshot
   Scenario: Validate SR user is able to view the Snapshot after Progress report is Submitted to Grantor status | Validate Submitted On field at Certification table should get updated on Progress report at SR user end when Progress report status is Submitted to Grantor
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -958,7 +967,7 @@ Feature: Validate all scenarios in Progress Report
     When I download the file
     Then I softly see "Submitted to Grantor" on page "1" of "govgrant" pdf file
 
-  @59675 @59674 @validateSendBackToSRUser @mahadev
+  @59675 @59674 @validateSendBackToSRUser
   Scenario: Validate Pending Task is created for SR user when Award owner Sent Back the Progress report | Validate Pending Task is created for Award Owner when Progress report status is submitted to Grantor
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -991,7 +1000,7 @@ Feature: Validate all scenarios in Progress Report
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
 
- @prog1 @59677 @59676 @allowsEditAfterSentBackToSR @jitendra
+ @prog1 @59677 @59676 @allowsEditAfterSentBackToSR
   Scenario: Validate SR is able to Edit the Progress report when Award owner Sent Back the Progress report | Validate History Field is getting Updated at Award owner End when Progress report status is Submitted to Grantor.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1015,8 +1024,11 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-#    When I navigate to "History" sub tab
-#    Then I softly see value "Submitted to Grantor" for title "New Value" inside table "History"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted to Grantor" for title "New Value" inside field history table
+    And I click on back arrow
     And I click on "Send Back to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
@@ -1030,7 +1042,7 @@ Feature: Validate all scenarios in Progress Report
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Sent Back to Subrecipient" and is "dark blue"
 
-  @prog1 @59773 @59774 @59776 @59777 @validateSRUserEntersKPIActualValue @mahadev
+  @prog1 @59773 @59774 @59776 @59777 @validateSRUserEntersKPIActualValue
   Scenario: Validate SR user is able to enter Actual field value at KPI under performance tab at Progress report | Validate SR user is able to select Reported Date field at KPI under performance tab at Progress report
   Validate SR user is able to enter Actual field value at KPI under performance tab more than the Target Value at Progress report | Validate SR user is able to enter Actual field value at KPI under performance tab less than the Target Value at Progress repor
     When I navigate to "Performance" sub tab

@@ -2,7 +2,7 @@
 Feature: Validate all scenarios in the Application Review with Allocation Feature
 
 
-  @239509 @239522 @239528 @239530  @sprint-15-US-236836 @vaibhav @Allocation
+  @239509 @239522 @239528 @239530  @sprint-15-US-236836  @Allocation
   Scenario Outline: Validate that EXE user will see a new column, "Total commitment Amount " in the recommended application section of FDM layout
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -215,7 +215,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @239521 @239523 @239527 @239529  @sprint-15-US-236836 @vaibhav @Allocation
+  @239521 @239523 @239527 @239529  @sprint-15-US-236836  @Allocation
   Scenario Outline: Validate that PO user will see "Total commitment Amount" in the recommended application section of FDM layout is a dollar field
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -383,8 +383,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                      | FDM    |
-      | {SavedValue:EXE Username} | NA     |
+      | Name                      | FDM |
+      | {SavedValue:EXE Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
       | {SavedValue:EXE Username} | Step 1 |
@@ -406,7 +406,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @239524 @239525 @242462  @sprint-15-US-236836 @vaibhav @Allocation @FirstRunApplicationReviewPooja
+  @239524 @239525 @242462  @sprint-15-US-236836  @Allocation
   Scenario Outline: Validate that The maximum limit visible to Admin user is of 16 digits on field 'Total Commitment Amount' on the recommended Application section
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -595,7 +595,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @241034 @241088 @241151  @sprint-15-US-238637 @vaibhav @Allocation
+  @241034 @241088 @241151  @sprint-15-US-238637  @Allocation
   Scenario Outline: Validate pm user can see a new column "Total commitment Amount " in the recommended application section of FDM
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NEGOTIATION_YES-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -811,7 +811,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @241132 @241135 @241140 @241147 @sprint-15-US-238637 @vaibhav @Allocation
+  @241132 @241135 @241140 @241147 @sprint-15-US-238637  @Allocation @ReviewAllocationSecondRun
   Scenario Outline: Validate admin user can edit Total Commitment Amount when user click on the row level edit button of application
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "BUDGETCATEGORY_NO_FOCUSAREA"
@@ -875,11 +875,14 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "5" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "3" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -890,8 +893,10 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "3" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -899,11 +904,14 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "6" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "5" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I wait for "3" seconds
@@ -941,11 +949,14 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "6" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "3" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I wait for "3" seconds
@@ -998,12 +1009,10 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Edit" in the page details
     When I enter value "AuGr" into field "GrantCode__c"
     And I enter value "Automation Test Description" into field "Justification__c"
+    And I wait for "5" seconds
     And I click on "Save" in the page details
-    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                        | FDM |
-      | {SavedValue:ADMIN Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                        | FDM    |
       | {SavedValue:ADMIN Username} | Step 1 |
@@ -1011,13 +1020,14 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | Yes                   | Recommended | 3000                    |
+    And I wait for "5" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Examples:
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @241134 @241143  @sprint-15-US-238637 @vaibhav @Allocation
+  @241134 @241143  @sprint-15-US-238637  @Allocation @ReviewAllocationSecondRun
   Scenario Outline: Validate exe user cannot enter more than 16 digits in Total Commitment Amount column of recommended application section
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1080,10 +1090,11 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "10" seconds
+    And I wait for "5" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1096,6 +1107,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1108,6 +1120,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I wait for "3" seconds
@@ -1145,11 +1158,13 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "6" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I wait for "3" seconds
@@ -1172,16 +1187,17 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     #241134
     And I edit the following rows inline in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---" by clicking "Edit" :
       | Application Title                                | Total Commitment Amount |
-      | {SavedValue:Automation Runtime FDM Announcement} | 1234567890234567       |
+      | {SavedValue:Automation Runtime FDM Announcement} | 1234567890234567        |
+    And I wait for "3" seconds
     And I refresh the page
-    And I wait for "4" seconds
+    And I wait for "7" seconds
     Then I softly see value "$1,234,567,890,234,567.00" for title "Total Commitment Amount" inside table "---grantor_tableId:-:RecommendedApplicationTableId---"
 
     Examples:
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @241137  @sprint-15-US-238637 @vaibhav @Allocation @FirstRunApplicationReviewPooja
+  @241137  @sprint-15-US-238637  @Allocation
   Scenario Outline: Validate validation is displayed to PO user upon submit for approval when user enter Total Commitment Amount value less than the Allocation Amount
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NEGOTIATION_YES-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1345,8 +1361,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                        | FDM |
-      | {SavedValue:EXE Username}   | NA  |
+      | Name                      | FDM |
+      | {SavedValue:EXE Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
       | {SavedValue:EXE Username} | Step 1 |
@@ -1359,7 +1375,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @241149  @sprint-15-US-238637 @vaibhav @Allocation @FirstRunApplicationReviewPooja
+  @241149  @sprint-15-US-238637  @Allocation
   Scenario Outline: Validate validation is not displayed to exe user when "Total commitment Amount" is equal to Allocation amount
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NEGOTIATION_YES-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1521,8 +1537,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                        | FDM |
-      | {SavedValue:EXE Username}   | NA  |
+      | Name                      | FDM |
+      | {SavedValue:EXE Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
       | {SavedValue:EXE Username} | Step 1 |
@@ -1545,7 +1561,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @243375  @sprint-16-US-242634 @vaibhav @Allocation @FirstRunApplicationReviewPooja
+  @243375  @sprint-16-US-242634  @Allocation @ReviewAllocationRerun
   Scenario Outline: Validate Comp Ann That Sarah PM user should able to add recommended budget On FDM layout, that should accept value in dollar and it must be less than or equal to Award Ceiling Amount
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1716,7 +1732,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @243389  @sprint-16-US-242634 @vaibhav @Allocation @FirstRunApplicationReviewPooja
+  @243389  @sprint-16-US-242634  @Allocation
   Scenario Outline: Validate Directed Ann That Sarah PM user should able to add recommended budget On FDM layout that should accept value in dollar and it must be less than or equal to Award Ceiling Amount
     Given I published "Directed" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1888,7 +1904,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @276387  @Sprint-23-US-273843 @vaibhav @Allocation @FirstRunApplicationReviewPooja
+  @276387  @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate PO user see correct validation message if user try to enter recommended amount more then sub award ceiling amount on FDM in created state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -1990,7 +2006,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see that "Promoted to Management Review Step" has been added in flextable with Id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -2052,7 +2068,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-   @274898 @ValidateFormulaannouncementownercannotchangea
+  @274898 @ValidateFormulaannouncementownercannotchangea
   Scenario Outline: Validate Formula announcement owner cannot change allocation amount for application when FDM is submitted for approval
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -2103,7 +2119,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-     And I refresh the page
+    And I refresh the page
     And I pause execution for "5" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
@@ -2156,7 +2172,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see that "Promoted to Management Review Step" has been added in flextable with Id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -2172,8 +2188,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
-     And I refresh the page
-     And I pause execution for "5" seconds
+    And I refresh the page
+    And I pause execution for "5" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -2216,8 +2232,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                        | FDM |
-      | {SavedValue:PM Username}    | NA  |
+      | Name                     | FDM |
+      | {SavedValue:PM Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                     | FDM    |
       | {SavedValue:PM Username} | Step 1 |
@@ -2235,7 +2251,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274719  @Sprint-23-US-273843 @vaibhav @Allocation
+  @274719  @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate Formula PM user should see validation on save button after editing allocation on Published Ann when FDM is in Submit for approval Allocation Type By Applicant FA
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2338,7 +2354,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see that "Promoted to Management Review Step" has been added in flextable with Id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -2396,8 +2412,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                        | FDM |
-      | {SavedValue:PM Username}    | NA  |
+      | Name                     | FDM |
+      | {SavedValue:PM Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                     | FDM    |
       | {SavedValue:PM Username} | Step 1 |
@@ -2418,7 +2434,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @PoojaAppReviewAlloocation @274560  @Sprint-23-US-273843 @vaibhav @Allocation
+  @274560  @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate Formula PM user should submit FDM for approval even if mismatch Allocation & budgeted amount on Application on FDM layout & see validation on converted to award button
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NEGOTIATION_YES"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2522,7 +2538,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see that "Promoted to Management Review Step" has been added in flextable with Id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -2589,8 +2605,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                        | FDM |
-      | {SavedValue:PM Username}    | NA  |
+      | Name                     | FDM |
+      | {SavedValue:PM Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                     | FDM    |
       | {SavedValue:PM Username} | Step 1 |
@@ -2607,7 +2623,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274715  @Sprint-23-US-273843 @vaibhav @Allocation
+  @274715  @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate Formula By app FA No user see the validation when budgeted amount is not equal to the Allocation amount user tried to promote it to FDM from management review
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -2713,7 +2729,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see that "Promoted to Management Review Step" has been added in flextable with Id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -2771,7 +2787,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274809 @Sprint-23-US-273843 @vaibhav @Allocation
+  @274809 @Sprint-23-US-273843  @Allocation @ReviewAllocationRerun
   Scenario Outline: Validate User can complete negotiation from review step when Ann type is formula and allocation level is by applicant
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -2833,7 +2849,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @PoojaAppReviewAlloocation @274248 @274257  @Sprint-23-US-273843 @vaibhav @Allocation
+  @274248 @274257  @Sprint-23-US-273843  @Allocation @ReviewAllocationSecondRun
   Scenario Outline: Validate FDM default Total Commitment Amount is populated from allocation Amount column in recommended application section FA No
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_NO_NEGOTIATION_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -2938,9 +2954,9 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
-    Then I softly see that "Promoted to Management Review Step" has been added in flextable with Id "---applicationReview:-:appTableId---"
+    And I wait for "3" seconds
     And I click on "Next Review Step" in the page details
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
@@ -2967,11 +2983,13 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "6" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I wait for "3" seconds
@@ -2990,6 +3008,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I enter value "AuGr" into field "GrantCode__c"
     And I enter value "Automation Test Description" into field "Justification__c"
     And I click on "Save" in the page details
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Created"
     Then I softly see value "$1,000.00" for title "Total Commitment Amount" inside table "---grantor_tableId:-:RecommendedApplicationTableId---"
     #274257
@@ -2997,13 +3016,13 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Application Title                                | Total Commitment Amount |
       | {SavedValue:Automation Runtime FDM Announcement} | 1234567890234567        |
     And I refresh the page
-    And I wait for "4" seconds
+    And I wait for "5" seconds
     Then I softly see value "$1,234,567,890,234,567.00" for title "Total Commitment Amount" inside table "---grantor_tableId:-:RecommendedApplicationTableId---"
-     Examples:
+    Examples:
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274259  @Sprint-23-US-273843 @vaibhav @Allocation
+  @274259  @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate Formula If announcement owner is transferred, the edit access of "Total commitment Amount" field will be with new owner
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -3108,7 +3127,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see that "Promoted to Management Review Step" has been added in flextable with Id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -3187,7 +3206,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     Then I softly see field "Status" as "Created"
     Then I edit the following rows inline in flex table with id "---grantor_tableId:-:RecommendedApplicationTableId---" by clicking "Edit" :
       | Application Title                                               | Total Commitment Amount |
-      | {SavedValue:Automation Runtime Announcement Application Review} | 1234567890234567       |
+      | {SavedValue:Automation Runtime Announcement Application Review} | 1234567890234567        |
     And I refresh the page
     And I wait for "4" seconds
     Then I softly see value "$1,234,567,890,234,567.00" for title "Total Commitment Amount" inside table "---grantor_tableId:-:RecommendedApplicationTableId---"
@@ -3204,7 +3223,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274232  @Sprint-23-US-273843 @vaibhav @Allocation
+  @274232  @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate Formula FA NO user is able to edit the FDM record after it is sent back from approval process
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -3296,6 +3315,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "6" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -3309,7 +3329,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see that "Promoted to Management Review Step" has been added in flextable with Id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -3351,6 +3371,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
+    And I wait for "3" seconds
     When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
@@ -3363,13 +3384,13 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
-      | Application Title                                               | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
-      | {SavedValue:Automation Runtime Announcement Application Review} | 1000               | Yes                   | Recommended | 6000                    |
+      | Application Title   | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
+      | <Announcement Name> | 1000               | Yes                   | Recommended | 6000                    |
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                        | FDM |
-      | {SavedValue:PM Username}    | NA  |
+      | Name                     | FDM |
+      | {SavedValue:PM Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                     | FDM    |
       | {SavedValue:PM Username} | Step 1 |
@@ -3377,8 +3398,9 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "5" seconds
     And I "Send Back" in the approval decision
-    And I wait for "10" seconds
+    And I wait for "20" seconds
     And I refresh the page
+    #Bug452259
     Then I softly see field "Status" as "Created"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
@@ -3386,8 +3408,9 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | {SavedValue:EXE Username} | Step 2 |
     And I navigate to "Funding Decision Memo" sub tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
-      | Application Title                                               | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
-      | {SavedValue:Automation Runtime Announcement Application Review} | 1000               | Yes                   | Recommended | 7000                    |
+      | Application Title  | Recommended Budget | Recommend for Funding | Comments    | Total Commitment Amount |
+      | <Application Name> | 1000               | Yes                   | Recommended | 7000                    |
+    And I wait for "5" seconds
     And I refresh the page
     And I navigate to "Funding Decision Memo" sub tab
     Then I softly see value "$7,000.00" for title "Total Commitment Amount" inside table "---grantor_tableId:-:RecommendedApplicationTableId---"
@@ -3396,7 +3419,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274235  @Sprint-23-US-273843 @vaibhav @Allocation
+  @274235  @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate FA NO when negotiation is initiated during the review steps then it should must mandatory for user to select the Budget: Budget Details picklist value for Negotiation field when the budgeted Amount is not equal to the Allocation Amount
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -3435,7 +3458,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-   @274247 @274258  @Sprint-23-US-273843 @vaibhav @Allocation
+  @274247 @274258  @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate FDM FANo validation is displayed to PO user upon submit for approval when user enter Total Commitment Amount value less than the Allocation Amount
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -3486,8 +3509,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
     And I click modal button "Close"
-     And I refresh the page
-     And I pause execution for "3" seconds
+    And I refresh the page
+    And I pause execution for "3" seconds
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I pause execution for "2" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3499,9 +3522,11 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I pause execution for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I pause execution for "3" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -3511,9 +3536,11 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I pause execution for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I pause execution for "3" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -3526,6 +3553,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "5" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -3539,7 +3567,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see that "Promoted to Management Review Step" has been added in flextable with Id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -3554,13 +3582,14 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    And I wait for "3" seconds
     And I click modal button "Close"
     And I wait for "3" seconds
     Then I softly see that "Assigned" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
-     And I refresh the page
-     And I pause execution for "3" seconds
+    And I refresh the page
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3595,11 +3624,11 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title                                               | Recommend for Funding | Comments    | Total Commitment Amount |
       | {SavedValue:Automation Runtime Announcement Application Review} | Yes                   | Recommended | 200                     |
-    And I refresh the page
+    And I pause execution for "4" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "ReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                      | FDM    |
-      | {SavedValue:EXE Username} | NA     |
+      | Name                      | FDM |
+      | {SavedValue:EXE Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
       | {SavedValue:EXE Username} | Step 1 |
@@ -3612,7 +3641,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274230  @Sprint-23-US-273843 @vaibhav @Allocation
+  @274230  @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate Formula FA No PO user see the validation when the budgeted amount not equal to the Allocation amount & User try to create award from FDM or from the Application
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -3716,7 +3745,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see that "Promoted to Management Review Step" has been added in flextable with Id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -3783,8 +3812,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                        | FDM |
-      | {SavedValue:PO Username}    | NA  |
+      | Name                     | FDM |
+      | {SavedValue:PO Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                     | FDM    |
       | {SavedValue:PO Username} | Step 1 |
@@ -3795,13 +3824,14 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I navigate to "Funding Decision Memo" sub tab
     And I wait for "9" seconds
     And I click on "Create Subaward" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
+    #Bug452074
     Then I softly see the following messages in the page details contains:
       | The Budgeted Amount must be equal to the Allocation Amount in the applications.So please select the "Budget: Budget Details" option in the "Application Sections for Negotiations" field and send the application back for revision to the subrecipient. |
     Examples:
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274231 @Sprint-23-US-273843 @vaibhav @Allocation
+  @274231 @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate Formula FA No if PM the allocation amount is updated from the announcement then it is updated on the Allocation amount column of FDM as well
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -3904,7 +3934,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see that "Promoted to Management Review Step" has been added in flextable with Id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -3970,7 +4000,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274131  @Sprint-23-US-273843 @vaibhav @Allocation
+  @274131  @Sprint-23-US-273843  @Allocation @ReviewAllocationRerun
   Scenario Outline: Validate Formula PM user can do negotiation on Management review step & promote App to next step when Allocation amount is not equal to budgeted amount FA YES Allocation type By Applicant FA
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -4075,7 +4105,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see that "Promoted to Management Review Step" has been added in flextable with Id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -4275,7 +4305,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274563  @Sprint-23-US-273843 @vaibhav @Allocation
+  @274563  @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate Formula FA No user see the validation when the budgeted Amount is not equal to the Allocation amount when user tried to promote application to the next step
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO-Automation EXE user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -4310,7 +4340,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | {SavedValue:Automation Runtime Formula Announcement} |
 
 
-  @113042  @Sprint-23-US-273843 @vaibhav @Allocation
+  @113042  @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate the Notification to Application before FDM Approval
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"
@@ -4401,6 +4431,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "5" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -4415,7 +4446,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "5" seconds
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
-    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     Then I softly see that "Promoted to Management Review Step" has been added in flextable with Id "---applicationReview:-:appTableId---"
     And I click on "Next Review Step" in the page details
@@ -4477,8 +4508,8 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                     | FDM    |
-      | {SavedValue:PO Username} | NA     |
+      | Name                     | FDM |
+      | {SavedValue:PO Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                     | FDM    |
       | {SavedValue:PO Username} | Step 1 |
