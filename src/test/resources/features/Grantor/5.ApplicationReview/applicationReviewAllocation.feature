@@ -811,7 +811,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @241132 @241135 @241140 @241147 @sprint-15-US-238637 @vaibhav @Allocation @ReviewAllocationSecondRun
+  @241132 @241135 @241140 @241147 @sprint-15-US-238637 @vaibhav @Allocation
   Scenario Outline: Validate admin user can edit Total Commitment Amount when user click on the row level edit button of application
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation ADMIN user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "BUDGETCATEGORY_NO_FOCUSAREA"
@@ -1027,7 +1027,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @241134 @241143  @sprint-15-US-238637 @vaibhav @Allocation @ReviewAllocationSecondRun
+  @241134 @241143  @sprint-15-US-238637 @vaibhav @Allocation
   Scenario Outline: Validate exe user cannot enter more than 16 digits in Total Commitment Amount column of recommended application section
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2849,7 +2849,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274248 @274257  @Sprint-23-US-273843 @vaibhav @Allocation @ReviewAllocationSecondRun
+  @274248 @274257  @Sprint-23-US-273843 @vaibhav @Allocation
   Scenario Outline: Validate FDM default Total Commitment Amount is populated from allocation Amount column in recommended application section FA No
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_NO_NEGOTIATION_NO"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "FIRST_BUDGET_CATEGORY_NO_FOCUS_AREA"

@@ -430,7 +430,7 @@ Feature: Validate all scenarios of grants and award without background
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} | EXE  | Block Grant   |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} | EXE  | Project Grant |
 
-  @67967 @amountNotDebitedFromFundingAccount @jitendra WBRe-Run
+  @67967 @amountNotDebitedFromFundingAccount @jitendra
   Scenario Outline: Validate that the funding Account is not debited if it is removed prior to Subaward approval
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1023,7 +1023,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "{SavedValue:NonMandatoryT_C}" for title "Title" inside table "---subAwardStandAlone:-:termsndConditionsTableId---"
 
 
-  @65794 @65822 @verifySRUserCanEnterBudgetDetails @mahadev  @Dev
+  @65794 @65822 @verifySRUserCanEnterBudgetDetails @mahadev
   Scenario Outline: To verify that the Sub Award budget field is editable in the Subrecipient (SPI User) under budget tab
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab

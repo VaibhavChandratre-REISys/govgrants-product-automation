@@ -859,7 +859,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79664 @79665 @TabOfApplicationPhase @keerti @ReviewRerun
+  @79664 @79665 @TabOfApplicationPhase @keerti
   Scenario Outline: To verify that,user able to click view icon for Application in SME review step in related log tab of Appliction phase
   | To verify that,user able to click view icon for Application in Management review step in related log tab of Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -1040,7 +1040,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79749 @79755 @79748 @79747 @79753 @79754 @verifingReviewSectionAndReviewQuestion @keerti @ReviewRerun
+  @79749 @79755 @79748 @79747 @79753 @79754 @verifingReviewSectionAndReviewQuestion @keerti
   Scenario Outline: To verify the user able to assign reviewers in the reviews section for Pre-screening review steps of related log tab in the Application phase.
   | To verify,user able to fill  the review questions ,in review form in prescreen review step
   | To verify the user able to assign reviewers in the reviews section for SME review steps of related log tab in the Application phase.
@@ -2259,7 +2259,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80060 @verifyErrorMessageForSubAwardAbbreviation @monu @ReviewRerun
+  @80060 @verifyErrorMessageForSubAwardAbbreviation @monu
   Scenario Outline: validate user should be able to get error message while clicking on submit for approval button if sub award abbreviation fiels is empty
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -2461,7 +2461,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80257 @verifyRemovalOfFundingAccountFromApplicationPhase @monu @ReviewRerun
+  @80257 @verifyRemovalOfFundingAccountFromApplicationPhase @monu
   Scenario Outline: validate user is able to remove funding account from funding Account section
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -2684,7 +2684,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @81346 @verifyInformationDetailsAndEditButtonAtFDMPage @monu @ReviewRerun
+  @81346 @verifyInformationDetailsAndEditButtonAtFDMPage @monu
   Scenario Outline: validate user is able to see all expected details and Edit button at FDM page
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -3263,7 +3263,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80049 @verifyEnteringOfJustificationForFDM @monu @ReviewRerun
+  @80049 @verifyEnteringOfJustificationForFDM @monu
   Scenario Outline: validate user is able to enter justification for FDM
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab

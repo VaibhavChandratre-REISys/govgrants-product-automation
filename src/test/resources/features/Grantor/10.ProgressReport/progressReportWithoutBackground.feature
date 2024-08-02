@@ -1,7 +1,7 @@
 @grantor-regression @grantor-parallel-regression @progressReport @progressReportNB @regression
 Feature: Validate scenarios in Progress Report without background
 
-  @59832 @59571 @validateSRUserCannotEditPreviousDateField @mahadev @buglogged150448 @
+  @59832 @59571 @validateSRUserCannotEditPreviousDateField @mahadev @buglogged150448
   Scenario: Validate SR user is not able to edit the Previous Actual field on KPI table under Performance tab at Progress report
   Validate Supporting checklist Table is empty if Supporting document checklist data is not added at Grant at SR user end. | Validate SR user is not able to edit the Previous Actual field on KPI table under Performance tab at Progress report
     Given I activated standalone subaward "Automation Runtime Award" with properties "AWARD_NO_SUPPORTINGDOC_PROGRAM" of type "Competitive"
@@ -330,7 +330,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @34944 @validateInternalUserIsAbleToSeeSchedulesGeneratedUnderScheduledActivitiesOnActiveAward  @mahadev @
+  @34944 @validateInternalUserIsAbleToSeeSchedulesGeneratedUnderScheduledActivitiesOnActiveAward  @mahadev
   Scenario Outline: Validate Internal User is able to see the Schedules generated under Scheduled Activities on active award
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -355,7 +355,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @65419 @checkSheduleCreatedAfternegotiationAccepted @jitendra @
+  @65419 @checkSheduleCreatedAfternegotiationAccepted @jitendra
   Scenario Outline: Verify once batch is run and User edit the Frequency then the Schedule should be generated accordingly
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -566,7 +566,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @59132 @validateSRUserNotAllowedToSubmitPRToGrantorWhenAcknowledgemetNotChecked @mahadev @
+  @59132 @validateSRUserNotAllowedToSubmitPRToGrantorWhenAcknowledgemetNotChecked @mahadev
   Scenario: Validate Sub-recipient user is not allowed to submit progress report to grantor when Acknowledgement box is not checked at Overview tab
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"

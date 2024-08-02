@@ -501,7 +501,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "4" seconds
     Then I softly see value "$2,000.00" for title "Budget" against the value "Construction" inside table "---applicationReview:-:budgetTableId---"
 
-  @189567 @sprint-23-US-273843 @Debug
+  @189567 @sprint-23-US-273843
   Scenario: Validate the subrecipient should be able to provide Negotiation  Summary comments in the Negotiations tab before re-submitting  pre-application to the grantor in Negotiation Details under Negotiation Tab
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal

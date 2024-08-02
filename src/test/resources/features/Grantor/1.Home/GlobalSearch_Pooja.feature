@@ -1115,7 +1115,6 @@ Feature: Validate all scenarios for the global search
     When I click on "Funding Decision Memo" in the page details
     Then I softly see field "Status" as "Created"
     And I save the field labeled "Announcement EGMS ID" as "FDMEGMSID"
-#    And I save the field labeled "EGMS ID" as "FDMEGMSID"
     And I navigate to "Applications" tab
     And I select "Funding Decision Memos (FDM)s" from dropdown for Global search
     And I perform quick search inside global search "AN-"
