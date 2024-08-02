@@ -744,22 +744,22 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "SME Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name      | Due in Days | Required? |
-      | Program Review | 7           | Checked   |
+      | Form Name      | Due in Days |
+      | Program Review | 7           |
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name     | Due in Days | Required? |
-      | Fiscal Review | 7           | Checked   |
+      | Form Name     | Due in Days |
+      | Fiscal Review | 7           |
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name         | Due in Days | Required? |
-      | Compliance Review | 7           | Checked   |
+      | Form Name         | Due in Days |
+      | Compliance Review | 7           |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Due in Days" against the value "Compliance Review" inside table "---applicationReview:-:reviewStepFormId---"
     Examples:
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79201 @79204 @numberOfreviewersAndDeleteReviewers @keerti
+ @79201 @79204 @numberOfreviewersAndDeleteReviewers @keerti
   Scenario Outline: To verify user,able to set the maximum number of reviewers for each application in prescreening review step
   | To verify that,user able to delete Reviewers in prescreening review step in related log tab of Appliction phase
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -785,10 +785,11 @@ Feature: Validate all scenarios in the Application Review
       | Reviewer                 |
       | {SavedValue:FO Username} |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "{SavedValue:FO Username}" for title "Reviewer" inside table "---applicationReview:-:reviewersTableId---"
     And I click on "Remove" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    Then I softly see the following messages in the page details contains:
+    And I wait for "2" seconds
+   Then I softly see the following messages in the page details contains:
       | Record removed successfully. |
     Then I softly do not see value "{SavedValue:FO Username}" for title "Reviewers" inside table "---applicationReview:-:reviewersTableId---"
     Examples:
@@ -1465,10 +1466,10 @@ Feature: Validate all scenarios in the Application Review
     And I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "SME Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name      | Due in Days | Required? | Minimum # of Reviews Required |
-      | Program Review | 7           | Checked   | 1                             |
+      | Form Name      | Due in Days |Minimum # of Reviews Required |
+      | Program Review | 7           |  1                            |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Due in Days" inside table "---applicationReview:-:reviewStepFormId---"
     Examples:
       | Announcement Name                                               |
@@ -1495,10 +1496,10 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "SME Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name     | Due in Days | Required? |
-      | Fiscal Review | 7           | Checked   |
+      | Form Name     | Due in Days |
+      | Fiscal Review | 7           |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Due in Days" inside table "---applicationReview:-:reviewStepFormId---"
     Examples:
       | Announcement Name                                               |
@@ -1525,10 +1526,10 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "Management Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name         | Due in Days | Required? |
-      | Management Review | 7           | Checked   |
+      | Form Name         | Due in Days |
+      | Management Review | 7           |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Due in Days" inside table "---applicationReview:-:reviewStepFormId---"
     Examples:
       | Announcement Name                                               |
@@ -1748,13 +1749,13 @@ Feature: Validate all scenarios in the Application Review
       | Form Name         | Due in Days | Required? | Minimum # of Reviews Required |
       | Compliance Review | 7           | Unchecked | 0                             |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Due in Days" inside table "---applicationReview:-:reviewStepFormId---"
     Examples:
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @38460 @ValidatingAddReviewerPreScreenReviewStepForm
+  @38460 @ValidatingAddReviewerPreScreenReviewStepForm @meenakshi
   Scenario Outline: To verify that,user able to add Reviewers in prescreening review step in related log tab of Appliction phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1778,7 +1779,7 @@ Feature: Validate all scenarios in the Application Review
       | Reviewer                 |
       | {SavedValue:PM Username} |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "pm.automation@yopmail.com" for title "Email" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "Test Automation Organization" for title "Organization" inside table "---applicationReview:-:reviewersTableId---"

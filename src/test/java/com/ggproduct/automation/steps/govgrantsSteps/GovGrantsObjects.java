@@ -429,7 +429,7 @@ public final class GovGrantsObjects {
 
         By classificationType = By.xpath("//button[@title='Classification' or @name='Classification']");
         By selectClassificationType = By.xpath("//span[normalize-space(text())='" + fileType + "']");
-        By filePath = By.xpath("//label[contains(@id,'file')]/../input");
+        By filePath = By.xpath("//label[contains(@id,'file')]/../input | //div//input[contains(@id,'file'')]");
         String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
         String[] splitFileName = fileName.split("\\.");
         String newFileName = withoutRandomNumber ? fileName : splitFileName[0] + I.amPerforming().addOnsTo().getStringRandomNumber() + "." + splitFileName[1];
@@ -440,7 +440,7 @@ public final class GovGrantsObjects {
             }
             I.amPerforming().click().on(classificationType);
             I.amPerforming().click().on(selectClassificationType);
-            I.amPerforming().waitFor().makeThreadSleep(5000);
+//            I.amPerforming().waitFor().makeThreadSleep(5000);
             I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);
             I.amPerforming().click().withJavaScript(By.xpath("//button[text()='Upload']"));
         } finally {
