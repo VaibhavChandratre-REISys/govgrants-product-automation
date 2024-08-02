@@ -5930,7 +5930,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            | Application Name                                             |
       | {SavedValue:Automation Runtime Announcement for Application} | {SavedValue:Automation Runtime Announcement for Application} |
 
-  2 @81358 @ValidateclickingInitiateNegotiationIconThenSystemNavigateOnNegotiationTab
+  @81358 @ValidateclickingInitiateNegotiationIconThenSystemNavigateOnNegotiationTab
   Scenario Outline: Validate clicking Initiate Negotiation Icon Then System Navigate On Negotiation Tab
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I am on "SUBPORTAL" portal

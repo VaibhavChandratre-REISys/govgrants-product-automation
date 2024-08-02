@@ -4083,7 +4083,7 @@ Feature: Amendment Request scenarios without background
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
   @101252 @ValidateIncreasedTargetValueOfAmendmentRequest-PeriodicRenewal
-  Scenario: Verify progress report should display with Updated increased target value
+  Scenario Outline: Verify progress report should display with Updated increased target value
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
