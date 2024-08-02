@@ -1,7 +1,7 @@
 @uatBusinessFlowSanity @regression
 Feature: Validate sanity testing of Complete UAT Business Flow
 
-  @138456 @VerifyDeactivationOfStrategicPlan @monu
+  @138456 @VerifyDeactivationOfStrategicPlan
   Scenario: Verify user should able to deactivate the strategic plan
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -32,7 +32,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     And I click on "Deactivate" in the page details
     Then I softly see field "Status" as "Inactive"
 
-  @138473 @VerifySubmissionOfAnnouncementForApproval_CompetitiveAnnouncement @monu
+  @138473 @VerifySubmissionOfAnnouncementForApproval_CompetitiveAnnouncement
   Scenario: Verify validation when user skip an Approval Step at announcement level
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -84,7 +84,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @142316 @VerifyRejectFunctionalityOfAnnouncement_CompetitiveAnnouncement @monu
+  @142316 @VerifyRejectFunctionalityOfAnnouncement_CompetitiveAnnouncement
   Scenario: Verify Approver user should able to reject an Announcement
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -144,7 +144,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     Then I softly see status in Progress-bar is "Rejected" and is "red"
     Then I softly see field "Status" as "Rejected"
 
-  @138494 @142313 @VerifyCreationOfPreApplicationWithSPIUser_PreApplication @monu
+  @138494 @142313 @VerifyCreationOfPreApplicationWithSPIUser_PreApplication
   Scenario Outline: Validate External (Subrecipient) user should able to create Pre-Application
   |Verify user should able to Publish an Announcement|
     When I login to "As a Grantor" app as "EXE" user
@@ -390,7 +390,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
       | Announcement Type |
       | Competitive       |
 
-  @138501 @141613 @VerifyCreationOfApplicationWithSPIUser_Application @monu
+  @138501 @141613 @VerifyCreationOfApplicationWithSPIUser_Application
   Scenario: Validate External (Subrecipient) user should able to create Application
   |Verify that External user (Subrecipient) should able to qualify Opportunity|
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
@@ -409,7 +409,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     Then I softly see field "Status" as "Created"
     Then I softly see status in Progress-bar is "Created" and is "Green"
 
-  @138919 @VerifyDeletionOfKPI_KPI @monu
+  @138919 @VerifyDeletionOfKPI_KPI
   Scenario: Validate user (record owner) should able to delete KPI
     Given I am on "INTERNAL" portal
     Given I login to "As a Grantor" app as "EXE" user
@@ -428,7 +428,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     When I perform quick search for "{SavedValue:Automation Runtime KPI}" in "---keyperformanceindicator:-:kpiTableId---" panel
     Then I softly see "No records found" inside flex table with id "---keyperformanceindicator:-:kpiTableId---"
 
-  @138954 @VerifyVisibilityOfKPIToAllUsers_KPI @monu
+  @138954 @VerifyVisibilityOfKPIToAllUsers_KPI
   Scenario Outline: Validate user (all users) should able to View KPI
     Given I am on "INTERNAL" portal
     Given I login to "As a Grantor" app as "EXE" user
@@ -454,7 +454,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
       | FD       |
       | PM       |
 
-  @141094 @141331 @141371 @VerifyCreationOfPackage @monu
+  @141094 @141331 @141371 @VerifyCreationOfPackage
   Scenario: Validate user should able to create Package
   |Validate user should able to associate forms in the Package|
     Given I am on "INTERNAL" portal
@@ -483,7 +483,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     And I perform quick search for "SF 424: Other Attachments Form" in "---UATRelatedTableID:-:PackageAssociateFormsTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---UATRelatedTableID:-:PackageAssociateFormsTableId---"
 
-  @141385 @141287 @141390 @141387 @VerifyCreationOfTermsAndCondition @monu
+  @141385 @141287 @141390 @141387 @VerifyCreationOfTermsAndCondition
   Scenario: Validate user is able to create Terms and Conditions
   |Validate user should able to Edit Terms and Condtions|
   |Validate that user should able to View Terms and Conditions|
@@ -509,7 +509,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     And I click on "View" icon for "{SavedValue:Terms&ConditionID}" inside flex table with id "---UATRelatedTableID:-:GrantorTermsAndConditionTableId---" without waiting for record
     Then I softly see field "Details" as "Automation Description"
 
-  @141422 @VerifySendBackFunctionalityForProgram @monu
+  @141422 @VerifySendBackFunctionalityForProgram
   Scenario: Validate that Approver user should able to send back the program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -546,7 +546,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     When I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
 
-  @141434 @VerifyForwardFunctionalityForProgram @monu
+  @141434 @VerifyForwardFunctionalityForProgram
   Scenario: Validate Approver user should able to forward the Program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -588,7 +588,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
 #      | Successfully Re-Assigned |
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @141474 @VerifyCreationOfNGOProgram @monu
+  @141474 @VerifyCreationOfNGOProgram
   Scenario: Verify that user should able to create External NGO Program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -604,7 +604,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     When I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
 
-  @141591 @VerifySendbackFunctionalityOfAnnouncementForApproval_CompetitiveAnnouncement @monu
+  @141591 @VerifySendbackFunctionalityOfAnnouncementForApproval_CompetitiveAnnouncement
   Scenario: Verify Approver user should able to send back the Announcement
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -656,7 +656,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     When I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
 
-  @141602 @VerifyVisibilityOfStrategicPlanToUsers @monu
+  @141602 @VerifyVisibilityOfStrategicPlanToUsers
   Scenario: Verify user is able to view Strategic Plan
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -675,7 +675,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     When I perform quick search for "{SavedValue:Strategic ID}" in "---strategicplan:-:StrategicPlansTableId---" panel
     Then I softly see value "{SavedValue:Strategic ID}" for title "EGMS ID" inside table "---strategicplan:-:StrategicPlansTableId---"
 
-  @138503 @VerifySubmissionOfApplicationWithSPIUser_Application @monu
+  @138503 @VerifySubmissionOfApplicationWithSPIUser_Application
   Scenario: Validate external user (Subrecipient) should able to submit the application to Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -721,7 +721,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     When I click on "Submit Application" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @138980 @138981 @139041 @141002 @142359 @VerifyPreScreenReviewProcess_Application @monu
+  @138980 @138981 @139041 @141002 @142359 @VerifyPreScreenReviewProcess_Application
   Scenario Outline: Validate user should able to send application for review (Prescreening review)
   |Validate user should able to send application for review (SME review)|
   |Verify reviewer should able to review the application|
@@ -987,7 +987,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
       | Announcement Name                                            | Application Name                                             |
       | {SavedValue:Automation Runtime Announcement for Application} | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @142369 @VerifyApproveFunctionaltyOfFDM @monu
+  @142369 @VerifyApproveFunctionaltyOfFDM
   Scenario Outline: Verify Approver user should able to approve the FDM
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1243,7 +1243,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
       | Announcement Name                                            | Application Name                                             |
       | {SavedValue:Automation Runtime Announcement for Application} | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @141012 @VerifySendBAckFunctionalityForFDM @monu
+  @141012 @VerifySendBAckFunctionalityForFDM
   Scenario Outline: Validate Approver user should able to send back the FDM
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1497,7 +1497,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
       | Announcement Name                                            | Application Name                                             |
       | {SavedValue:Automation Runtime Announcement for Application} | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @141011 @VerifyForwardFunctionalityForFDM @monu
+  @141011 @VerifyForwardFunctionalityForFDM
   Scenario Outline: Validate Approver user should able to forward the FDM
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1756,7 +1756,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
       | Announcement Name                                            | Application Name                                             |
       | {SavedValue:Automation Runtime Announcement for Application} | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @141992 @141999 @VerifySubmissionOfProgramForPeerReview @monu
+  @141992 @141999 @VerifySubmissionOfProgramForPeerReview
   Scenario: Verify user should able to submit Program for peer review
   |Verify user/peer reviewer should able to review the Program|
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -1793,7 +1793,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     When I close "Review" modal by clicking the top right x button
     Then I softly see that "Submitted" has been added in flextable with Id "---UATRelatedTableID:-:ProgramPeerReviewTableId---"
 
-  @141854 @VerifySubmissionOfSubAwardToSubRecipient @monu
+  @141854 @VerifySubmissionOfSubAwardToSubRecipient
   Scenario: Verify grantor user should able to sent the subaward to Subrecipient
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1854,7 +1854,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @142009 @VerifyRejectFunctionalityOfSubAward @monu
+  @142009 @VerifyRejectFunctionalityOfSubAward
   Scenario: Verify Approver user should able to reject the Subaward
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1921,7 +1921,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
     Then I softly see that "Status" is in "Rejected" status
 
-  @142016 @VerifySendBackFunctionalityOfSubAward @monu
+  @142016 @VerifySendBackFunctionalityOfSubAward
   Scenario: Verify Approver user should able to send back the Subaward
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1987,7 +1987,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     When I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
 
-  @142017 @VerifyForwardFunctionalityOfSubAward @monu
+  @142017 @VerifyForwardFunctionalityOfSubAward
   Scenario: Verify Approver user should able to forward the Subaward
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2058,7 +2058,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
 #      | Successfully Re-Assigned |
     Then I softly see field "Status" as "Submitted for Approval"
 
-  @142825 @VerifyForwardFunctionalityOfProgressReport @monu
+  @142825 @VerifyForwardFunctionalityOfProgressReport
   Scenario: Verify Approver user should able to forward the Progress Report
     Given I activated standalone subaward "Automation Runtime award" with properties "default"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -2106,7 +2106,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     And I pause execution for "1" seconds
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
 
-  @142887 @VerifyAmendmentRequestCreation @monu
+  @142887 @VerifyAmendmentRequestCreation
   Scenario: Verify user should able to create Amendment (Subrecipient Initiated)
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST"
     Given I am on "SUBPORTAL" portal
@@ -2130,7 +2130,7 @@ Feature: Validate sanity testing of Complete UAT Business Flow
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @142055 @VerifyMakingPaymentRequestMarkAsPaid @monu
+  @142055 @VerifyMakingPaymentRequestMarkAsPaid
   Scenario: Verify user should able to mark the payment as paid on Payment Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "default"
     And I am on "SUBPORTAL" portal

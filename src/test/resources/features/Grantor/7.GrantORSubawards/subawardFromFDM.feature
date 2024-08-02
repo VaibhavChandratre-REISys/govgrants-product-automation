@@ -18,7 +18,7 @@ Feature: Validate all scenarios in the award created from FDM
     When I click on "Save" in the page details
     And I get the "EGMS ID"
 
- @67486 @67485 @totalObligation @jitendra
+ @67486 @67485 @totalObligation
   Scenario: To validate that total obligation in the Financial table of funding account page navigated through the Funding account hyperlink present on the Subaward page of Grantor (Internal PM ) is the Sum of Pre-encumbrance, Encumbrance and the Spent value
     And I navigate to "Budget" sub tab
     And I click on hyperlink containing value "{SavedValue:fundingAccount}"
@@ -47,7 +47,7 @@ Feature: Validate all scenarios in the award created from FDM
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     Then I softly see that "Progress Report" has been added in flextable with Id "---subAwardFromFDM:-:progressReportSchedulesTableId---"
 
-  @64947 @BusinessFormProgressReport @jitendra
+  @64947 @BusinessFormProgressReport
   Scenario: Verify Business Forms for Progress report on announcement is same on grant Attachments Tab.
     When I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -157,7 +157,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @67662 @deleteFSmultiple @jitendra
+  @67662 @deleteFSmultiple
   Scenario: Validate review initiation and completion for the award | verify award acceptance
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -291,7 +291,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @67671 @validateUsershouldAllowedToUseMoneyMoreThanPreEncumbranceAmount @jitendra
+  @67671 @validateUsershouldAllowedToUseMoneyMoreThanPreEncumbranceAmount
   Scenario Outline: Validate User is allowed to utilize money greater than Pre En-cumbrance Balance but less than available Balance
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -420,7 +420,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @67665 @67564 @validateEncumberanceGreaterAndLessValue @jitendra
+  @67665 @67564 @validateEncumberanceGreaterAndLessValue
   Scenario: Validate that the encumbrance value should not be less than budget value before Submitting for approval
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -462,7 +462,7 @@ Feature: Validate all scenarios in the award created from FDM
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
 
-  @67700 @emailNotificationAfterPMApproverSubaward @jitendra
+  @67700 @emailNotificationAfterPMApproverSubaward
   Scenario Outline: Validate that after program approver approves the subaward the mail generates for the Fiscal approver
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -602,7 +602,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @67698 @validateEmailNotificationToAwardOwnerAfterAwardSubmission @monu @smoke
+  @67698 @validateEmailNotificationToAwardOwnerAfterAwardSubmission  @smoke
   Scenario Outline: To Validate that email is getting generated for award owner once user submit subaward for approval
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -1017,7 +1017,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @67557 @PRFrequencyNotEnterAndSubmitForApprove @jitendra
+  @67557 @PRFrequencyNotEnterAndSubmitForApprove
   Scenario Outline: To validate that if frequency column is not set in the payment requests schedule Table  by the Grantor (Internal user pm profile ) and Submit for approval button is clicked the validation message must appear.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -1114,7 +1114,7 @@ Feature: Validate all scenarios in the award created from FDM
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
 
-  @54166 @validatePaymentRelatedSettingOnAwardFromAnnouncement @mahadev @smoke
+  @54166 @validatePaymentRelatedSettingOnAwardFromAnnouncement  @smoke
   Scenario Outline: Validate payment related settings are get copied from announcement to grant
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1132,7 +1132,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Annoucement Name                                 | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64943 @verifyApproversCarryForwardedFromAnnoucementToAward @mahadev
+  @64943 @verifyApproversCarryForwardedFromAnnoucementToAward
   Scenario: Verify Approvers added at announcement is same on subaward when grant which is created with application
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
@@ -1148,7 +1148,7 @@ Feature: Validate all scenarios in the award created from FDM
     Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---subAwardStandAlone:-:awardApproversTableId---"
     Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---subAwardStandAlone:-:awardApproversTableId---"
 
-  @45743 @VerifyProjectPeriodStartDateIsSameAsScheduleStartDateOnAwardCreatedFromFDM @mahadev
+  @45743 @VerifyProjectPeriodStartDateIsSameAsScheduleStartDateOnAwardCreatedFromFDM
   Scenario Outline: Verify if award is created from FDM then Project Period Start Date populated is same as progress report schedule start date
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
@@ -1173,7 +1173,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @45726 @VerifyProjectPeriodStartDateIsSameAsScheduleEndDateOnAwardCreatedFromFDM @mahadev
+  @45726 @VerifyProjectPeriodStartDateIsSameAsScheduleEndDateOnAwardCreatedFromFDM
   Scenario Outline: Verify if award is created from FDM then Project Period End Date populated same as progress report schedule End date
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
@@ -1198,7 +1198,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @45745 @VerifyAwardRejectionByS/R @keerti @bug-94597
+  @45745 @VerifyAwardRejectionByS/R  @bug-94597
   Scenario Outline: Validate the rejection of award by recipient after approval
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -1243,7 +1243,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @38214 @validateViewAccessToDraftGrantForInternalUsers  @mahadev
+  @38214 @validateViewAccessToDraftGrantForInternalUsers
   Scenario Outline: Verify all internal users can view draft grants
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1263,7 +1263,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64570 @64566 @64720 @64721 @64569 @64719 @64723 @64568 @64564 @64718 @64562 @VerifyWorkPlanRequiredFocusAreaRequiredProjectPeriodStartDateProjectPeriodEndDate @keerti
+  @64570 @64566 @64720 @64721 @64569 @64719 @64723 @64568 @64564 @64718 @64562 @VerifyWorkPlanRequiredFocusAreaRequiredProjectPeriodStartDateProjectPeriodEndDate
   Scenario Outline: Verify Work Plan Required? field setting entered at announcement is same on grant which is created with application.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -1316,7 +1316,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Annoucement                                      |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64788 @VerifyFundingAccountFieldOnBudgetTab  @keerti
+  @64788 @VerifyFundingAccountFieldOnBudgetTab
   Scenario Outline: Verify Funding Account field on Budget Tab Subaward overview is same as announcement financial tab.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -1338,7 +1338,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64791 @VerifyKeyPerformanceIndicatorsValue @keerti
+  @64791 @VerifyKeyPerformanceIndicatorsValue
   Scenario Outline: Verify Key Performance Indicators (KPIs) value Performance tab Subaward overview is same as announcement Key Performance Indicators (KPIs) table setup Tab.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -1361,7 +1361,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64790 @VerifyObjectivesFieldValueOnPerformanceTab  @keerti @buglogged127817
+  @64790 @VerifyObjectivesFieldValueOnPerformanceTab   @buglogged127817
   Scenario Outline: Verify Objectives field value Performance tab Subaward overview is same as announcement Objectives table setup Tab.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -1383,7 +1383,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64722 @VerifyRelatedFocusAreasField @keerti
+  @64722 @VerifyRelatedFocusAreasField
   Scenario Outline: Verify Related Focus Areas field value setup tab overview at announcement is same on grant which is created with application Overview Tab.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -1567,7 +1567,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64793 @VerifViewPermissionOfGrantToSubRecipientUser-Draft  @keerti
+  @64793 @VerifViewPermissionOfGrantToSubRecipientUser-Draft
   Scenario: Verify SR user is not able to view the grant whose status is draft.
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
@@ -1707,7 +1707,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @81590 @verifyInitiateNegotiationIconISNotVisible @monu
+  @81590 @verifyInitiateNegotiationIconISNotVisible
   Scenario Outline: validate Initiate Negotiation icon should not be visible to Announcement owner
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Applications" tab

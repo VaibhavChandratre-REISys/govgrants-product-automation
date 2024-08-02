@@ -150,7 +150,7 @@ Feature: Validate all scenarios in Focus Area
     And I click on "View" icon for "{SavedValue:Automation Runtime Focus Area}" inside table
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @106643 @109276 @VerifyAssociatedFocusAreaAtRlatedGrantRecord @monu
+  @106643 @109276 @VerifyAssociatedFocusAreaAtRlatedGrantRecord
   Scenario: Validate user should be able to see associated focus area at grant record for program
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -172,7 +172,7 @@ Feature: Validate all scenarios in Focus Area
     And I navigate to "Budget" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---focusarea:-:SubAwardFocusAreaTableId---"
 
-  @106615 @VerifyCorrespondingAnnouncement @monu
+  @106615 @VerifyCorrespondingAnnouncement
   Scenario: Validate user should be able to see related announcement associated with program
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -185,7 +185,7 @@ Feature: Validate all scenarios in Focus Area
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---program:-:AnnouncementTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime FDM Announcement}" for title "Announcement Name" inside table "---program:-:AnnouncementTableId---"
 
-  @109436 @ValidateEditOfBusinessForm @monu
+  @109436 @ValidateEditOfBusinessForm
   Scenario Outline: Validate expected user is able to edit business form on internal program
     When I login to "As a Grantor" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -211,7 +211,7 @@ Feature: Validate all scenarios in Focus Area
       | ADMIN    |
       | PM       |
 
-  @109641 @109606 @ValidateDeletionOfReviewerFromInternalProgram @monu
+  @109641 @109606 @ValidateDeletionOfReviewerFromInternalProgram
   Scenario: Validate user is able to delete associated Reviewer at internal program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab

@@ -340,7 +340,7 @@ Feature: Validate all scenarios in Desk Review
     Then I softly can see top right button "Send back to Subrecipient" in page detail
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @55279 @66469 @66148 @approverSendBackToUserDeskReview @deepika @DeskReviewFirst
+  @55279 @66469 @66148 @approverSendBackToUserDeskReview  @DeskReviewFirst
   Scenario: Validate whether the approver will be able to SendBack to Owner |Validate Pending task is not created to fiscal approver when program approver performs send to the owner.
   Verify when the FO user Send Back to owner during approval process of desk review, the record owner recieves an email notification
     Given I navigate to "Responsibilities" sub tab
@@ -402,7 +402,7 @@ Feature: Validate all scenarios in Desk Review
     When I perform quick search for "{SavedValue:dvID}" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     Then I softly do not see value "{SavedValue:dvID}" for title "EGMS ID" inside table "---deskreview:-:monitoringTabPhasePendingTasks---"
 
-  @55280 @55281 @approverForwardUserReceivePendingTaskDeskReview @deepika @DeskReviewFirst
+  @55280 @55281 @approverForwardUserReceivePendingTaskDeskReview  @DeskReviewFirst
   Scenario: Validate when the approver forward Site Visit to other user, the Pending Task will be created to the User
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -458,7 +458,7 @@ Feature: Validate all scenarios in Desk Review
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     Then I softly see that "Approve Desk Review" has been added in flextable with Id "---deskreview:-:monitoringTabPhasePendingTasks---"
 
-  @55282 @deskReviewWithoutFormFilling @deepika @smoke @DeskReviewFirst
+  @55282 @deskReviewWithoutFormFilling  @smoke @DeskReviewFirst
   Scenario: User will not be able to submit the Desk Review for approval without completed forms
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -484,7 +484,7 @@ Feature: Validate all scenarios in Desk Review
     Then I see the following messages in the page details :
       | Reports and Outcomes Tab - Complete all data in the form. |
 
-  @55283 @55284 @viewSendToSubrecipientButtonDeskReview @deepika @DeskReviewFirst
+  @55283 @55284 @viewSendToSubrecipientButtonDeskReview  @DeskReviewFirst
   Scenario:  Validate the Infomation send to the subrecipients and user will not be able to submit to Grantor without adding corrective actions to findings
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -550,7 +550,7 @@ Feature: Validate all scenarios in Desk Review
     Then I softly see the following messages in the page details :
       | Reports and Outcomes Tab - Enter corrective actions on all findings outcomes using the "⌄" icons. |
 
-  @55364 @deskReviewDeleteAccesstoOwner @deepika @DeskReviewFirst
+  @55364 @deskReviewDeleteAccesstoOwner  @DeskReviewFirst
   Scenario Outline: Verify that record owner can delete created state desk review from Award level
     Given I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
@@ -562,7 +562,7 @@ Feature: Validate all scenarios in Desk Review
       | Desk Review Name                           |
       | {SavedValue:Automation Runtime Award Desk} |
 
-  @55365 @55363 @SendBackToOnwerDeskReviewUnderMonitoringTab @deepika @DeskReviewFirst
+  @55365 @55363 @SendBackToOnwerDeskReviewUnderMonitoringTab  @DeskReviewFirst
   Scenario: Validate whether the approver sendback to owner, the record owner will get a pending task
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -619,7 +619,7 @@ Feature: Validate all scenarios in Desk Review
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     Then I softly see that "Record Id" has been added in flextable with Id "---deskreview:-:deskReviewGridViewTableId---"
 
-  @55366 @detailsOnDeskReviewBeforeNotification @deepika @DeskReviewFirst
+  @55366 @detailsOnDeskReviewBeforeNotification  @DeskReviewFirst
   Scenario: Verify user is not able to delete desk review record if it is not in Created state (Negative TC)
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -645,7 +645,7 @@ Feature: Validate all scenarios in Desk Review
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     Then I softly cannot see row level action button "Delete" against "Record id" in flex table with id "---deskreview:-:deskReviewGridViewTableId---"
 
-  @55369 @submittedToGrantorOptionallySendBackToSubrecipientDeskReview @deepika @DeskReviewFirst
+  @55369 @submittedToGrantorOptionallySendBackToSubrecipientDeskReview  @DeskReviewFirst
   Scenario: Verify other than record owner can FO user would be able to conduct created desk review
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -668,7 +668,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     Then I cannot see top right button "Conduct" in page detail
 
-  @55368 @55801 @55804 @reportsAndOutcomesEditAccessDeskReview @deepika @DeskReviewFirst
+  @55368 @55801 @55804 @reportsAndOutcomesEditAccessDeskReview  @DeskReviewFirst
   Scenario: User will be able to view the Notify and conduct button and upon conduct, Reports And Outcomes tab are editable to the internal user for an award level desk review
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -706,7 +706,7 @@ Feature: Validate all scenarios in Desk Review
 #    When I perform quick search for "General Review Form" in "---deskreview:-:reportsTableId---" panel
     Then I softly cannot see row level action button "Edit" against "General Review Form" in flex table with id "---deskreview:-:reportsTableId---"
 
-  @55791 @internalUserParticipantAssociationDeskReview @deepika @DeskReviewFirst
+  @55791 @internalUserParticipantAssociationDeskReview  @DeskReviewFirst
   Scenario Outline: Internal User participant Association of Desk Review
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -718,7 +718,7 @@ Feature: Validate all scenarios in Desk Review
       | Internal                  |
       | {SavedValue:EXE Username} |
 
-  @55866 @55874 @subrecipientCannotSeeReportAndOutcomesWhenInNotifiedStatusDR @deepika @DeskReviewFirst
+  @55866 @55874 @subrecipientCannotSeeReportAndOutcomesWhenInNotifiedStatusDR  @DeskReviewFirst
   Scenario: Recipients will not be able to create / edit the Outcomes and the Applicant is not able to view the report or outcomes while in the Notified status.
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -743,7 +743,7 @@ Feature: Validate all scenarios in Desk Review
     And I wait for "5" seconds
     Then I cannot see "Reports and Outcomes" sub tab at view detail page
 
-  @56017 @62112 @peerReviewIntiationfFDeskReview @deepika @smoke @DeskReviewFirst
+  @56017 @62112 @peerReviewIntiationfFDeskReview  @smoke @DeskReviewFirst
   Scenario: Validate whether user is to able to initiate the peer review on their process for Desk Review
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -794,7 +794,7 @@ Feature: Validate all scenarios in Desk Review
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "Status" as "Reviewed"
 
-  @56015 @sendBacktoOwnerReceivePendingTaskdv @deepika @smoke @DeskReviewFirst
+  @56015 @sendBacktoOwnerReceivePendingTaskdv  @smoke @DeskReviewFirst
   Scenario: Validate the supporting document checklist submitted by the subrecipient and record sent back to Recipients when outcomes are not properly addressed and recipients receive a pending task
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -853,7 +853,7 @@ Feature: Validate all scenarios in Desk Review
     Then I see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "Status" as "In Progress"
 
-  @56040 @56367 @submittingForApprovalButtonDeskReview @deepika @DeskReviewFirst
+  @56040 @56367 @submittingForApprovalButtonDeskReview  @DeskReviewFirst
   Scenario: Validate whether the  User will be able to view the Submit for Approval button and approver will be able to view the Pending task under Monitoring
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -896,7 +896,7 @@ Feature: Validate all scenarios in Desk Review
     When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
     Then I softly see that "Approve Desk Review" has been added in flextable with Id "---deskreview:-:monitoringTabPhasePendingTasks---"
 
-  @61053 @FieldHistoryUpdatePostAwardLevelDeskReviewIsSendBackToOwnerByProgramApprover @Keerti @FieldHistoryExclude
+  @61053 @FieldHistoryUpdatePostAwardLevelDeskReviewIsSendBackToOwnerByProgramApprover  @FieldHistoryExclude
   Scenario: To Validate field history update post Award level Desk Review is send back to owner by program approver.
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -945,7 +945,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on hyperlink containing value "View All"
     Then I see value "Created" for title "Original Value" inside field history table
 
-  @61054 @FieldHistoryUpdatePostAwardLevelDeskReviewIsSendBackToOwnerByProgramApprover @Keerti @FieldHistoryExclude
+  @61054 @FieldHistoryUpdatePostAwardLevelDeskReviewIsSendBackToOwnerByProgramApprover  @FieldHistoryExclude
   Scenario: To Validate field history update post Award level Desk Review is send back to owner by program approver.
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -999,7 +999,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on hyperlink containing value "View All"
     Then I softly see value "In Progress" for title "New Value" inside field history table
 
-  @69411 @61057 @61055 @55370 @66139 @77253 @66274 @snapshotAfterSubmitForApprovalDeskReviewIsAcceptedAndClosed @Keerti @skipOnJenkins
+  @69411 @61057 @61055 @55370 @66139 @77253 @66274 @snapshotAfterSubmitForApprovalDeskReviewIsAcceptedAndClosed  @skipOnJenkins
   Scenario: Validate whether record Owner is able to view the Accept and Close Button and User view the Snapshot after Desk Review is Submitted for Approval status also after Accepted and Closed |Subrecipient can view Closed Desk Review
   Validate whether the approver receives an email notification to approve the desk review| Validate whether external user will receive an email notification when desk review is accepted and closed.
     Given I navigate to "Responsibilities" sub tab
@@ -1134,7 +1134,7 @@ Feature: Validate all scenarios in Desk Review
       Sandbox: Desk Review Closed
       """
 
-  @67834 @validateDownloadDeskReviewInCSV @deepika @wip
+  @67834 @validateDownloadDeskReviewInCSV  @wip
   Scenario: Validate Internal User can Download the Desk Review associated in CSV format
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1144,7 +1144,7 @@ Feature: Validate all scenarios in Desk Review
     Then I verify that "xls" file is downloaded
     Then I see that file name contains ".docx" is downloaded
 
-  @65244 @deleteCreateDeskReview @deepika @DeskReviewFirst
+  @65244 @deleteCreateDeskReview  @DeskReviewFirst
   Scenario: Validate whether user will be able to delete the created Desk Review
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1160,7 +1160,7 @@ Feature: Validate all scenarios in Desk Review
     Given I navigate to "Management" sub tab
     Then I softly see "No Records Found" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
 
-  @65245 @historyOfDeskReviewsendbacktoOwner @deepika @FieldHistoryExclude
+  @65245 @historyOfDeskReviewsendbacktoOwner  @FieldHistoryExclude
   Scenario: Validate History Field is getting Updated at Award owner End when Desk Review status is Submitted to Grantor.
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -1208,7 +1208,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on hyperlink containing value "View All"
     Then I see value "In Progress" for title "New Value" inside field history table
 
-  @65246 @69407 @corerctiveActionsDueDateDeskReview @deepika @DeskReviewFirst
+  @65246 @69407 @corerctiveActionsDueDateDeskReview  @DeskReviewFirst
   Scenario: Validate Desk Review Submit to Grantor and Corrective Actions By Subrecipient
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -1278,7 +1278,7 @@ Feature: Validate all scenarios in Desk Review
     Then I softly see the following messages in the page details contains:
       | Due date must be future date |
 
-  @65247 @foUserCannotDeleteCreatedDeskReview @deepika @DeskReviewFirst
+  @65247 @foUserCannotDeleteCreatedDeskReview  @DeskReviewFirst
   Scenario: Validate whether other than record owner can Fo user view the created Desk Review by PM
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1291,7 +1291,7 @@ Feature: Validate all scenarios in Desk Review
     Given I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:Automation Runtime Award Desk}" for title "Title" inside table "---deskreview:-:managementInitiateDRtableid---"
 
-  @56368 @viewCreatedDeskReview @meenakshi @DeskReviewFirst
+  @56368 @viewCreatedDeskReview  @DeskReviewFirst
   Scenario: User will be able to view the list of all Site Visit / Desk Review created for Awards under Monitoring tab - Desk Review
     And I save the field labeled "EGMS ID" as "DeskReviewEGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:DeskReviewEGMSID}"
@@ -1305,7 +1305,7 @@ Feature: Validate all scenarios in Desk Review
     Given I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:DeskReviewEGMSID}" for title "EGMS ID" inside table "---deskreview:-:managementInitiateDRtableid---"
 
-  @145608 @verifyRemovalOfAddedApproverFromDeskReview-RnRFuntionality @monu @DeskReviewFirst
+  @145608 @verifyRemovalOfAddedApproverFromDeskReview-RnRFuntionality  @DeskReviewFirst
   Scenario: Verify the user can remove the added approver on approver section for Desk Review
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1329,7 +1329,7 @@ Feature: Validate all scenarios in Desk Review
     Then I softly cannot see row level action button "Remove" against "Step 1" in flex table with id "---deskreview:-:approverDeskReviewTableId---"
 
 
-  @145732 @145733 @Verify1StepApprovalForDeskReview-RnRFunctnality @Verify2StepApprovalForDeskReview-RnRFunctnality @monu @DeskReviewFirst
+  @145732 @145733 @Verify1StepApprovalForDeskReview-RnRFunctnality @Verify2StepApprovalForDeskReview-RnRFunctnality  @DeskReviewFirst
   Scenario: Verify user is able to add two step approver on desk review
   |Verify user is able to add step 1 approver on Desk review created|
     #145733
@@ -1344,7 +1344,7 @@ Feature: Validate all scenarios in Desk Review
       | {SavedValue:FO Username} | Step 2      |
     Then I softly see "Saved Successfully!" inside flex table with id "---deskreview:-:approverDeskReviewTableId---"
 
-  @145742 @Verify3StepApprovalForDeskReview-RnRFunctnality @monu @DeskReviewFirst
+  @145742 @Verify3StepApprovalForDeskReview-RnRFunctnality  @DeskReviewFirst
   Scenario: Verify user is able to add 3 step approver on Desk review and submit for approval
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1388,7 +1388,7 @@ Feature: Validate all scenarios in Desk Review
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @145748 @VerifyErrorMessageAtApproverSectionWhileSkippingAtDeskReview-RnRFunctionality @monu @DeskReviewFirst
+  @145748 @VerifyErrorMessageAtApproverSectionWhileSkippingAtDeskReview-RnRFunctionality  @DeskReviewFirst
   Scenario: Verify the validation is displayed when no approver is defined on desk review and submit for approval
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1422,7 +1422,7 @@ Feature: Validate all scenarios in Desk Review
     And I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @145878 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtDeskReview-RnRFunctionality @monu @DeskReviewSecondRun
+  @145878 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtDeskReview-RnRFunctionality  @DeskReviewSecondRun
   Scenario: Verify validation when same approver is defined for different steps on Desk Review
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1462,7 +1462,7 @@ Feature: Validate all scenarios in Desk Review
       | {SavedValue:PM Username} | Step 2      |
     Then I softly see "You cannot specify the same user for multiple steps for Desk Review" inside flex table with id "---deskreview:-:approverDeskReviewTableId---"
 
-  @145879 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtDeskReview-RnRFunctionality @monu @DeskReviewSecondRun
+  @145879 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtDeskReview-RnRFunctionality  @DeskReviewSecondRun
   Scenario: Verify the validation when same steps are defined for different approver on Desk approver
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
@@ -1489,7 +1489,7 @@ Feature: Validate all scenarios in Desk Review
       | {SavedValue:FO Username} | Step 1      |
     Then I softly see "You cannot specify the same step for multiple users for Desk Review." inside flex table with id "---deskreview:-:approverDeskReviewTableId---"
 
-  @145737 @approvalAt2Step-FromDeskReview-RnRFuntionality @monu @DeskReviewSecondRun
+  @145737 @approvalAt2Step-FromDeskReview-RnRFuntionality  @DeskReviewSecondRun
   Scenario: Verify user is able to approve desk review in step 2
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :

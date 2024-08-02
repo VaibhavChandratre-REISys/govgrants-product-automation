@@ -477,7 +477,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     Then I see the following messages in the page details contains:
       | The subrecipient organization risk assessment is expired. Please notify the subrecipient to renew their organization risk assessment. |
 
-  @201170 @ValidateOrganizationRiskAssessmentsarenotshownintheReassignmodal @sprint-12-US-226646 @vaibhav @reassignment 
+  @201170 @ValidateOrganizationRiskAssessmentsarenotshownintheReassignmodal @sprint-12-US-226646  @reassignment
   Scenario: Validate Organization Risk Assessments are not shown in the Reassign modal
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
     When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
@@ -507,7 +507,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     When I perform quick search for "{SavedValue:OrgRiskId}" in "---riskassessment:-:riskAssSourceTableId---" panel
     Then I do not see value "{SavedValue:OrgRiskId}" for title "Risk Assessment ID" inside table "---riskassessment:-:riskAssTargetTableId---"
 
-  @64124 @orRiskAssessmentTaskNotDisplayedForINDUser @deepika @issuewithINDUser
+  @64124 @orRiskAssessmentTaskNotDisplayedForINDUser  @issuewithINDUser
   Scenario:  Validate Task for submitting organizational Risk Assessment should not be generated for IND profile User .
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "IND" user

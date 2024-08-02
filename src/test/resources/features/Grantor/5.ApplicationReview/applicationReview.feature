@@ -5,7 +5,7 @@ Feature: Validate all scenarios in the Application Review
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
 
-  @51066 @38463 @38462 @38464 @65082 @smeReviewEnterDueInDays @smeReviewAddReviewer @smeReviewAssignApplicationToReviewer @smeReviewSendForReview @smoke @jitendra
+  @51066 @38463 @38462 @38464 @65082 @smeReviewEnterDueInDays @smeReviewAddReviewer @smeReviewAssignApplicationToReviewer @smeReviewSendForReview @smoke
   Scenario Outline: Enter Due in Days for all review forms in SME-review | Verify Pending Task is created for Reviewer
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -360,7 +360,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @65079 @73778 @73791 @75228 @VerifyAwardOwnerCanInitiateReviewProcess @keerti
+  @65079 @73778 @73791 @75228 @VerifyAwardOwnerCanInitiateReviewProcess
   Scenario Outline: Verify Award owner can Initiate the Review Process.
   | To Verify that under related log tab , corresponding data is display about related submitted applications for announcement
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -393,7 +393,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @65083  @verifyValidationMessageOnSendForReview @mahadev
+  @65083  @verifyValidationMessageOnSendForReview
   Scenario Outline: Verify Validation message is shown if application is not selected for submitting the review process
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -430,7 +430,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @75230 @VerifyDownloadPDFforApplicaiton @aashish
+  @75230 @VerifyDownloadPDFforApplicaiton
   Scenario Outline: To verify system allow to download PDF for Application section in Related log tab of announcement.
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -459,7 +459,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @75449 @75451 @75450 @75448 @75454 @VerifyAbleToViewApplication @aashish
+  @75449 @75451 @75450 @75448 @75454 @VerifyAbleToViewApplication
   Scenario Outline: To verify user is able to view Applications in Applications section in Related log tab of announcement
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -510,7 +510,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78318 @78319 @79203 @reviewStepsAndPreScreenReview @keerti
+  @78318 @78319 @79203 @reviewStepsAndPreScreenReview
   Scenario Outline: To verify user will be able to view the review steps under the respective announcement related log tab
   | To verify User will be able to click the view icon on the Prescreening review step under announcement related log tab review steps section
   | To verify that,user able to click view icon for Application in prescreening review step in related log tab of Appliction phase
@@ -550,7 +550,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78320 @79661 @79662 @79663 @SMEReviewStepSMEReviewFormIcon @keerti
+  @78320 @79661 @79662 @79663 @SMEReviewStepSMEReviewFormIcon
   Scenario Outline: To verify User will be able to click the view icon on the SME review step under announcement related log tab review step section
   | To verify user able to click "Review Form" Icon and see the review panel categories for Program Review in forms section of related log tab in SME review step of Application phase
   | To verify user able to click "Review Form" Icon and see the review panel categories for Fiscal Review in forms section of related log tab in SME review step of Application phase
@@ -601,7 +601,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78090 @validatingApplicationUnderReviewTable @keerti
+  @78090 @validatingApplicationUnderReviewTable
   Scenario Outline: To Validate the Announcement owner will be able to view the announcement under "Application Under Review" table
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -626,7 +626,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78321 @managementReviewStep @keerti
+  @78321 @managementReviewStep
   Scenario Outline: To verify User will be able to click the view icon on the management review step under announcement related log tab review step section
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -658,7 +658,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78322 @ValidatingprescreenReviewStepFormWithRequired @keerti
+  @78322 @ValidatingprescreenReviewStepFormWithRequired
   Scenario Outline: To verify user able to setup the Due Days for the review & set field "Required" :Checked in prescreen review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -690,7 +690,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78323 @ValidatingprescreenReviewStepForm @keerti
+  @78323 @ValidatingprescreenReviewStepForm
   Scenario Outline: To verify user able to setup the Due Days for the review & set field "Required" :Unchecked in prescreen review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -722,7 +722,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78328 @validatingComplianceReviewStepForm @keerti
+  @78328 @validatingComplianceReviewStepForm
   Scenario Outline: To verify user able to setup the Due Days for the review & set field "Required" :Checked in prescreen review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -744,22 +744,22 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "SME Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name      | Due in Days | Required? |
-      | Program Review | 7           | Checked   |
+      | Form Name      | Due in Days |
+      | Program Review | 7           |
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name     | Due in Days | Required? |
-      | Fiscal Review | 7           | Checked   |
+      | Form Name     | Due in Days |
+      | Fiscal Review | 7           |
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name         | Due in Days | Required? |
-      | Compliance Review | 7           | Checked   |
+      | Form Name         | Due in Days |
+      | Compliance Review | 7           |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Due in Days" against the value "Compliance Review" inside table "---applicationReview:-:reviewStepFormId---"
     Examples:
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79201 @79204 @numberOfreviewersAndDeleteReviewers @keerti
+ @79201 @79204 @numberOfreviewersAndDeleteReviewers
   Scenario Outline: To verify user,able to set the maximum number of reviewers for each application in prescreening review step
   | To verify that,user able to delete Reviewers in prescreening review step in related log tab of Appliction phase
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -785,17 +785,18 @@ Feature: Validate all scenarios in the Application Review
       | Reviewer                 |
       | {SavedValue:FO Username} |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "{SavedValue:FO Username}" for title "Reviewer" inside table "---applicationReview:-:reviewersTableId---"
     And I click on "Remove" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    Then I softly see the following messages in the page details contains:
+    And I wait for "2" seconds
+   Then I softly see the following messages in the page details contains:
       | Record removed successfully. |
     Then I softly do not see value "{SavedValue:FO Username}" for title "Reviewers" inside table "---applicationReview:-:reviewersTableId---"
     Examples:
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79206 @pdfForReviewSteps @keerti
+  @79206 @pdfForReviewSteps
   Scenario Outline: To verify user able to download pdf for Review Steps section in related log tab of Apllication phase.
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -822,7 +823,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79202 @deleteReviewersInSMERview @keerti
+  @79202 @deleteReviewersInSMERview
   Scenario Outline:  To verify that,user able to delete Reviewers in SME review step in related log tab of Appliction phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -859,7 +860,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79664 @79665 @TabOfApplicationPhase @keerti
+  @79664 @79665 @TabOfApplicationPhase  @ReviewRerun
   Scenario Outline: To verify that,user able to click view icon for Application in SME review step in related log tab of Appliction phase
   | To verify that,user able to click view icon for Application in Management review step in related log tab of Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -1040,7 +1041,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79749 @79755 @79748 @79747 @79753 @79754 @verifingReviewSectionAndReviewQuestion @keerti
+  @79749 @79755 @79748 @79747 @79753 @79754 @verifingReviewSectionAndReviewQuestion  @ReviewRerun
   Scenario Outline: To verify the user able to assign reviewers in the reviews section for Pre-screening review steps of related log tab in the Application phase.
   | To verify,user able to fill  the review questions ,in review form in prescreen review step
   | To verify the user able to assign reviewers in the reviews section for SME review steps of related log tab in the Application phase.
@@ -1247,7 +1248,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79960 @79961 @verifyingCompletedTaskForPrescreenManagementReview @keerti
+  @79960 @79961 @verifyingCompletedTaskForPrescreenManagementReview
   Scenario Outline: To verify the tasks will be displayed on completed tasks for the reviewer, when reviewer submit Reviews form successfully,for prescreen review step in  Application phase
   | To verify the tasks will be displayed on completed tasks for the reviewer, when reviewer submit Reviews form successfully,for management review step in  Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -1444,7 +1445,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78324 @ValidatingProgramReviewStepForm @meenakshi
+  @78324 @ValidatingProgramReviewStepForm
   Scenario Outline: To verify user able to setup the Due Days  for the review & set field "Required" :Checked in program review form in SME review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1465,16 +1466,16 @@ Feature: Validate all scenarios in the Application Review
     And I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "SME Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name      | Due in Days | Required? | Minimum # of Reviews Required |
-      | Program Review | 7           | Checked   | 1                             |
+      | Form Name      | Due in Days |Minimum # of Reviews Required |
+      | Program Review | 7           |  1                            |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Due in Days" inside table "---applicationReview:-:reviewStepFormId---"
     Examples:
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78326 @ValidatingFiscalReviewStepForm @meenakshi
+  @78326 @ValidatingFiscalReviewStepForm
   Scenario Outline: To verify user able to setup the Due Day for the review & set field "Required" :Checked in fiscal review form in SME review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1495,16 +1496,16 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "SME Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name     | Due in Days | Required? |
-      | Fiscal Review | 7           | Checked   |
+      | Form Name     | Due in Days |
+      | Fiscal Review | 7           |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Due in Days" inside table "---applicationReview:-:reviewStepFormId---"
     Examples:
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79195 @ValidatingManagenmentReviewStepForm @meenakshi
+  @79195 @ValidatingManagenmentReviewStepForm
   Scenario Outline: To verify user able to setup the Due Days for the review & set field "Required" :Checked in management review form in management review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1525,16 +1526,16 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "Management Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name         | Due in Days | Required? |
-      | Management Review | 7           | Checked   |
+      | Form Name         | Due in Days |
+      | Management Review | 7           |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Due in Days" inside table "---applicationReview:-:reviewStepFormId---"
     Examples:
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79666 @ValidatingErrorMessageSameReviewerPreScreenReviewStepForm @meenakshi
+  @79666 @ValidatingErrorMessageSameReviewerPreScreenReviewStepForm
   Scenario Outline: To validate system generated error message, When user adding same reviewer multiple times in Reviewers section of related log tab in prescreen review step of Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1566,7 +1567,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79746 @ValidatingReviewPanelCategoriesManagementReviewStepForm @meenakshi
+  @79746 @ValidatingReviewPanelCategoriesManagementReviewStepForm
   Scenario Outline: To validate user able to click on "Review Form" Icon in the forms sec   tion of management review step on related log tab of Application phase.
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1595,7 +1596,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80151 @ValidatingSystemGeneratedErrorMessagePreScreenReviewStepForm @meenakshi
+  @80151 @ValidatingSystemGeneratedErrorMessagePreScreenReviewStepForm
   Scenario Outline: To validate system generated error message, When Announcement Owner assigning application to the reviewer who has submitted the application in application phase of prescreening review step
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1628,7 +1629,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79667 @ValidatingErrorMessageSameReviewerSMEReviewStepForm @meenakshi
+  @79667 @ValidatingErrorMessageSameReviewerSMEReviewStepForm
   Scenario Outline: To validate system generated error message, When user adding same reviewer multiple times in Reviewers section of related log tab in SME review step of Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1660,7 +1661,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79668 @ValidatingErrorMessageSameReviewerManagementReviewStepForm @meenakshi
+  @79668 @ValidatingErrorMessageSameReviewerManagementReviewStepForm
   Scenario Outline: To validate system generated error message, When user adding same reviewer multiple times in Reviewers section of related log tab in management review step of Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1692,7 +1693,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79199 @79200 @ValidatingUserClickReviewFormInPreScreenReviewStepForm @meenakshi
+  @79199 @79200 @ValidatingUserClickReviewFormInPreScreenReviewStepForm
   Scenario Outline: To verify user able to click "Review Form" Icon in forms section of related log tab in prescreening review step of Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1724,7 +1725,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78329 @ValidatingSMEReviewStepForm @meenakshi
+  @78329 @ValidatingSMEReviewStepForm
   Scenario Outline: To verify user able to setup the Due Days for the review & set field "Required" :Unchecked  in fiscal review form in SME review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1748,13 +1749,13 @@ Feature: Validate all scenarios in the Application Review
       | Form Name         | Due in Days | Required? | Minimum # of Reviews Required |
       | Compliance Review | 7           | Unchecked | 0                             |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Due in Days" inside table "---applicationReview:-:reviewStepFormId---"
     Examples:
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @38460 @ValidatingAddReviewerPreScreenReviewStepForm @meenakshi
+  @38460 @ValidatingAddReviewerPreScreenReviewStepForm
   Scenario Outline: To verify that,user able to add Reviewers in prescreening review step in related log tab of Appliction phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1778,7 +1779,7 @@ Feature: Validate all scenarios in the Application Review
       | Reviewer                 |
       | {SavedValue:PM Username} |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "pm.automation@yopmail.com" for title "Email" inside table "---applicationReview:-:reviewersTableId---"
     Then I softly see value "Test Automation Organization" for title "Organization" inside table "---applicationReview:-:reviewersTableId---"
@@ -1787,7 +1788,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79978 @ValidatingSuccessMessagePromoteNextButtonPreScreenReviewStepForm @meenakshi
+  @79978 @ValidatingSuccessMessagePromoteNextButtonPreScreenReviewStepForm
   Scenario Outline: To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of prescreen review review step in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1821,7 +1822,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80157 @ValidatingErrorMessageAnnouncementOwnerAssigningInPreScreenReviewStepForm @meenakshi
+  @80157 @ValidatingErrorMessageAnnouncementOwnerAssigningInPreScreenReviewStepForm
   Scenario Outline: To validate system generated error message, When Announcement Owner assigning application to the reviewer who has submitted the application in application phase of prescreening review step
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1848,7 +1849,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79752 @ValidatingErrorMessagePromoteNextButtonPreScreenReviewStepForm @meenakshi
+  @79752 @ValidatingErrorMessagePromoteNextButtonPreScreenReviewStepForm
   Scenario Outline: To validate system generated error message , when user clicking Promote to Next step button without selecting Application in Application section of Application phase of prescreening review step
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1875,7 +1876,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79750 @ValidatingPendingTaskReviewerPreScreenReviewStepForm @meenakshi
+  @79750 @ValidatingPendingTaskReviewerPreScreenReviewStepForm
   Scenario Outline:  To verify the tasks will be displayed on Pending tasks for the reviewer, when <announcment owner> is clicked on "Send for review" button from the Reviews section in prescreen review step on related log tab of the application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1922,7 +1923,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79669 @ValidatingPendingTaskReviewerSMEReviewStepForm @meenakshi
+  @79669 @ValidatingPendingTaskReviewerSMEReviewStepForm
   Scenario Outline:To verify the tasks will be displayed on Pending tasks for the reviewer, when <announcment owner> is clicked on "Send for review" button from the Reviews section in SME review step on related log tab of the application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -2036,7 +2037,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79960 @verifingCompletedTaskForPrescreenAndManagementReview @meenakshi
+  @79960 @verifingCompletedTaskForPrescreenAndManagementReview
   Scenario Outline: To verify the tasks will be displayed on completed tasks for the reviewer, when reviewer submit Reviews form successfully,for prescreen review step in  Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -2095,7 +2096,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79977 @validatingErrorMessagePromoteToNextStepForSMEReviewForm @meenakshi
+  @79977 @validatingErrorMessagePromoteToNextStepForSMEReviewForm
   Scenario Outline: To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of SME review step in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -2139,7 +2140,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79671 @validatingPendingTaskForSMEReviewForm @meenakshi
+  @79671 @validatingPendingTaskForSMEReviewForm
   Scenario Outline: To verify, user able to click Action icon on the Pending task to perform the review for SME review step for Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -2200,7 +2201,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @38494 @ValidatingCompletedTaskReviewerPreScreenReviewStepForm @meenakshi
+  @38494 @ValidatingCompletedTaskReviewerPreScreenReviewStepForm
   Scenario Outline:To verify prescreen Review Form status as completed after submitting review form by reviewer in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -2259,7 +2260,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80060 @verifyErrorMessageForSubAwardAbbreviation @monu
+  @80060 @verifyErrorMessageForSubAwardAbbreviation
   Scenario Outline: validate user should be able to get error message while clicking on submit for approval button if sub award abbreviation fiels is empty
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -2461,7 +2462,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80257 @verifyRemovalOfFundingAccountFromApplicationPhase @monu
+  @80257 @verifyRemovalOfFundingAccountFromApplicationPhase
   Scenario Outline: validate user is able to remove funding account from funding Account section
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -2684,7 +2685,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @81346 @verifyInformationDetailsAndEditButtonAtFDMPage @monu
+  @81346 @verifyInformationDetailsAndEditButtonAtFDMPage
   Scenario Outline: validate user is able to see all expected details and Edit button at FDM page
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -2878,7 +2879,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @38850 @80052 @80053 @verifyModificationOfPre-EncumbranceAFDM @monu
+  @38850 @80052 @80053 @verifyModificationOfPre-EncumbranceAFDM
   Scenario Outline: validate user is able to modify pre-encumbrance at FDM page
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -3082,7 +3083,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @38853 @80054 @80055 @80056 @verifyEnteringOfRecommendedBudgetInRecommendedApplication @monu
+  @38853 @80054 @80055 @80056 @verifyEnteringOfRecommendedBudgetInRecommendedApplication
   Scenario Outline: validate user is able to enter recommended budget in recommended application section
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -3263,7 +3264,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80049 @verifyEnteringOfJustificationForFDM @monu
+  @80049 @verifyEnteringOfJustificationForFDM
   Scenario Outline: validate user is able to enter justification for FDM
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -3466,7 +3467,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80050 @verifyDownloadAsPDFOptionAtFundingAccount @monu
+  @80050 @verifyDownloadAsPDFOptionAtFundingAccount
   Scenario Outline: validate user is able to see expected contents inside downloaded file at Funding account section
     And I reviewed the application "<Application Name>"
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -3489,7 +3490,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80057 @verifyDownloadAsPDFOptionAtRecommendedApplicationSection @monu
+  @80057 @verifyDownloadAsPDFOptionAtRecommendedApplicationSection
   Scenario Outline: validate user is able to see expected contents inside downloaded file at recommended application page block
     And I reviewed the application "<Application Name>"
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -3512,7 +3513,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80151 @79745 @80152 @79981 @79672 @79673 @79962 @80153 @79743 @80150 @79979 @79982 @79751 @79961 @79963 @ValidatingErrorMessagePreScreenReviewStepForm @meenakshi
+  @80151 @79745 @80152 @79981 @79672 @79673 @79962 @80153 @79743 @80150 @79979 @79982 @79751 @79961 @79963 @ValidatingErrorMessagePreScreenReviewStepForm
   Scenario Outline: To validate system generated error message, When Announcement Owner assigning application to the reviewer who has submitted the application in application phase of prescreening review step
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -3846,7 +3847,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80260 @validatingActionIconforPreScreenReviewForm @meenakshi
+  @80260 @validatingActionIconforPreScreenReviewForm
   Scenario Outline: To verify, user able to click Action icon on the Pending task to perform the review in prescreening review step for Application phase.
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -3890,7 +3891,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79980 @ValidatePreScreenReviewStatusWithoutPromoteToNextStep @monu
+  @79980 @ValidatePreScreenReviewStatusWithoutPromoteToNextStep
   Scenario Outline: Validate status of pre screen review step once user click Previous review steps
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
