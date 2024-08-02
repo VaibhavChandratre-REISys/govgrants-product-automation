@@ -109,7 +109,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click in table hyperlink containing value "View"
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
-  @60834 @AdditionOfAttachmentForAwardSiteVisits @keerti
+  @60834 @AdditionOfAttachmentForAwardSiteVisits
   Scenario: Validating addition of attachment to Award Site Visits
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"

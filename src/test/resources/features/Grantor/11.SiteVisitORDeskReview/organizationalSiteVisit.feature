@@ -988,7 +988,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I download the file
     Then I softly see "A Simple PDF File " on page "1" of "govgrants" pdf file
 
-  @61398 @56044 @submittingForApprovalFieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByProgramApprover @keerti @FieldHistoryExclude
+  @61398 @56044 @submittingForApprovalFieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByProgramApprover  @FieldHistoryExclude
   Scenario: To Validate User will be able to view the Submit for Approval button  and field history update post Org level Site Visit is send back to owner by program approver
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1056,7 +1056,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on hyperlink containing value "View All"
     Then I softly see value "Created" for title "Original Value" inside field history table
 
-  @61399 @FieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByFiscalApprover @keerti @FieldHistoryExclude
+  @61399 @FieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByFiscalApprover  @FieldHistoryExclude
   Scenario: To Validate field history update for Org Level Site Visits  is send back to owner by Fiscal Approver
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1121,7 +1121,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on hyperlink containing value "View All"
     Then I see value "In Progress" for title "New Value" inside field history table
 
-  @61400 @61401 @ViewSnapshotandApproversTableIsNotEditableAfterSiteVisitsIsSubmittedToApproval @keerti
+  @61400 @61401 @ViewSnapshotandApproversTableIsNotEditableAfterSiteVisitsIsSubmittedToApproval
   Scenario: Validate Record Owner user is able to view the Snapshot and Approvers Table is not editable for record owner and award owner end when the status of Org Level Site Visits is Submitted to Approval
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1186,7 +1186,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "History" sub tab
     Then I see snapshot with name containing "Sitevisit_submit_for_approval" as name
 
-  @61402 @SiteVisitsReviewerCanNotEditAfterSubmittingTheReview @keerti
+  @61402 @SiteVisitsReviewerCanNotEditAfterSubmittingTheReview
   Scenario: Validate after submitting the review comments for Org Level Site Visits, the Edit button should will be unavailable for the reviewer
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1230,7 +1230,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 #    When I close "Site Visit Reviewers" modal by clicking the top right x button
     Then I cannot see top right button "Edit" in page detail
 
-  @56007 @PeerReviewAfterSVIsAcceptedAndClosed @keerti
+  @56007 @PeerReviewAfterSVIsAcceptedAndClosed
   Scenario: Validate peer review  process and also system does not allow the peer reviewer to edit/Enter review comments if the Org Level Site Visits marked as complete review by the Record owner
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1283,7 +1283,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:PO Username}" in flex table with id "SiteVisitReviewerRoles"
 
-  @61406 @61405 @66273 @CreatedDatedisplayedOnOverviewTabAddAttchments @keerti
+  @61406 @61405 @66273 @CreatedDatedisplayedOnOverviewTabAddAttchments
   Scenario: Validate whether the PM user can add the attachments to Org Level Site Visits and view the Created Date on Overview Tab |Validate whether record owner has access to delete the asoociated Contact and Application- Org Site visits
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1306,7 +1306,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Files" sub tab
     Then I softly see "Pre-Site Visit Letter" has been added in "Site Visit Files" flex table
 
-  @61407 @61994 @CreatedDateCanNotEditSVDatesUnderOverviewTab @keerti
+  @61407 @61994 @CreatedDateCanNotEditSVDatesUnderOverviewTab
   Scenario: Validate the Created Date of Risk Assessment display on Overview Tab and owner cannot edit the Site Visits Dates under Overview tab
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1331,7 +1331,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Overview" sub tab
     Then I softly see field "StartDate__c" is not editable
 
-  @61993 @RecordOwnerCanViewSnapshotAfterOSVIsSubmittedForApproval @keerti
+  @61993 @RecordOwnerCanViewSnapshotAfterOSVIsSubmittedForApproval
   Scenario: Validate Record Owner user is able to view the Snapshot after Site Visit is Submitted for Approval status - Org Site Visits
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1381,7 +1381,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I download the file
     Then I see "Submitted for Approval" on page "1" of "govgrants" pdf file
 
-  @61988 @RecordOwnerCanViewSnapshotAfterRAIsSubmittedForApproval @keerti
+  @61988 @RecordOwnerCanViewSnapshotAfterRAIsSubmittedForApproval
   Scenario: Validate whether user is able to view the Completed task once approved under Monitoring Tab
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"

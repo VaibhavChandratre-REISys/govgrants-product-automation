@@ -1198,7 +1198,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @45745 @VerifyAwardRejectionByS/R @keerti @bug-94597
+  @45745 @VerifyAwardRejectionByS/R  @bug-94597
   Scenario Outline: Validate the rejection of award by recipient after approval
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -1263,7 +1263,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64570 @64566 @64720 @64721 @64569 @64719 @64723 @64568 @64564 @64718 @64562 @VerifyWorkPlanRequiredFocusAreaRequiredProjectPeriodStartDateProjectPeriodEndDate @keerti
+  @64570 @64566 @64720 @64721 @64569 @64719 @64723 @64568 @64564 @64718 @64562 @VerifyWorkPlanRequiredFocusAreaRequiredProjectPeriodStartDateProjectPeriodEndDate
   Scenario Outline: Verify Work Plan Required? field setting entered at announcement is same on grant which is created with application.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -1316,7 +1316,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Annoucement                                      |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64788 @VerifyFundingAccountFieldOnBudgetTab  @keerti
+  @64788 @VerifyFundingAccountFieldOnBudgetTab
   Scenario Outline: Verify Funding Account field on Budget Tab Subaward overview is same as announcement financial tab.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -1338,7 +1338,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64791 @VerifyKeyPerformanceIndicatorsValue @keerti
+  @64791 @VerifyKeyPerformanceIndicatorsValue
   Scenario Outline: Verify Key Performance Indicators (KPIs) value Performance tab Subaward overview is same as announcement Key Performance Indicators (KPIs) table setup Tab.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -1361,7 +1361,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64790 @VerifyObjectivesFieldValueOnPerformanceTab  @keerti @buglogged127817
+  @64790 @VerifyObjectivesFieldValueOnPerformanceTab   @buglogged127817
   Scenario Outline: Verify Objectives field value Performance tab Subaward overview is same as announcement Objectives table setup Tab.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -1383,7 +1383,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64722 @VerifyRelatedFocusAreasField @keerti
+  @64722 @VerifyRelatedFocusAreasField
   Scenario Outline: Verify Related Focus Areas field value setup tab overview at announcement is same on grant which is created with application Overview Tab.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -1567,7 +1567,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64793 @VerifViewPermissionOfGrantToSubRecipientUser-Draft  @keerti
+  @64793 @VerifViewPermissionOfGrantToSubRecipientUser-Draft
   Scenario: Verify SR user is not able to view the grant whose status is draft.
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab

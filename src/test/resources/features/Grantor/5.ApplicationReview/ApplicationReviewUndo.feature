@@ -2909,7 +2909,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @304073 @ApplicationReviewVerifyannownercanseerowlevelundobuttononlyforthecompletedreviewonreviewstepincaseofAnnownerandreviewerissame @Sprint-6-US-303298 @hitesh @Undo
+  @304073 @ApplicationReviewVerifyannownercanseerowlevelundobuttononlyforthecompletedreviewonreviewstepincaseofAnnownerandreviewerissame @Sprint-6-US-303298  @Undo
   Scenario: Application Review_  Verify ann owner can see row-level undo button only for the completed review on review step in case of Ann owner and reviewer is same
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2964,7 +2964,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly can see row level action button "Undo" against "{SavedValue:PM Username}" in flex table with id "---applicationReview:-:appreviewsTableId---"
 
-  @280801  @Sprint-25 @hitesh @Undo
+  @280801  @Sprint-25  @Undo
   Scenario Outline: FDM When reviewer has clicked undo button for the review on any review step and review in in sent for review state, then the application cannot be converted into Award
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3182,7 +3182,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
- @280799 @ValidatecorrectscoreisupdatedfortheapplicationontheRecommendedapplicationsectiononFDMafterApplicationpromotedtoFDMafternegotiation @Sprint-25-US-227292 @hitesh @Undo
+ @280799 @ValidatecorrectscoreisupdatedfortheapplicationontheRecommendedapplicationsectiononFDMafterApplicationpromotedtoFDMafternegotiation @Sprint-25-US-227292  @Undo
   Scenario: Validate correct score is updated for the application on the Recommended application section on FDM after Application promoted to FDM after negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -3285,7 +3285,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Back to Current Review Step" in the page details
     Then I softly see value "Negotiation In-Progress" for title "Decision Status" against the value "{SavedValue:Automation Runtime FDM Announcement}" inside table "---applicationReview:-:appTableId---"
 
-  @280800 @Verifyassignedreviewercannotseeundobuttononreviewssectionandonreviewdetailspagewhennegotiationisinitiatedforapplicationonanyreviewstep @Sprint-25 @hitesh @Undo
+  @280800 @Verifyassignedreviewercannotseeundobuttononreviewssectionandonreviewdetailspagewhennegotiationisinitiatedforapplicationonanyreviewstep @Sprint-25  @Undo
   Scenario Outline: Verify assigned reviewer cannot see undo button on reviews section and on review details page when negotiation is initiated for application on any review step
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"

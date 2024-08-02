@@ -2884,7 +2884,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I pause execution for "3" seconds
     Then I see total records count "Total Records: 2" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @58823 @AwardOwnerCancreateRAAnyTimeBeforeActivatingAward @keerti
+  @58823 @AwardOwnerCancreateRAAnyTimeBeforeActivatingAward
   Scenario Outline: Validate when the Award is in Submitted for Approval and the Award Owner can still create the Risk Assessment any time before Activating the Award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -3246,7 +3246,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @45762 @VarifyAwardRejectionByFiscalApprover @keerti @Re-RunStandAlone
+  @45762 @VarifyAwardRejectionByFiscalApprover  @Re-RunStandAlone
   Scenario Outline: Validate award Rejection by Fiscal approver
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -3347,7 +3347,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @45739 @VarifyAwardRejectionByRecipientBeforeApproval @keerti
+  @45739 @VarifyAwardRejectionByRecipientBeforeApproval
   Scenario Outline: Validate the rejection of award by recipient before approval
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -3438,7 +3438,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @45754 @VarifyKPIRemovingFromAward @keerti
+  @45754 @VarifyKPIRemovingFromAward
   Scenario: Validate removing KPI from Award
     When I navigate to "Performance" sub tab
     When I click on "Remove" icon for "Automation Permanent KPI" inside flex table with id "---subAwardStandAlone:-:kpiTableId---" without waiting for record
@@ -3451,7 +3451,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I refresh the page
     Then I do not see value "Automation Permanent Focus Area" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @65228 @VerifyRelatedFocusAreasField @keerti @Re-RunStandAlone
+  @65228 @VerifyRelatedFocusAreasField  @Re-RunStandAlone
   Scenario Outline: Verify Key Performance Indicators (KPIs) value Performance tab Subaward overview is same as Program Key Performance Indicators (KPIs) table setup Tab.
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3467,7 +3467,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65227 @VerifyObjectiveFieldValueUnderPerformanceIsSameAsObjectiveAtProgram @keerti
+  @65227 @VerifyObjectiveFieldValueUnderPerformanceIsSameAsObjectiveAtProgram
   Scenario Outline: Verify objecive value under Performance tab Subaward overview is same as Program objective table setup Tab.
     When I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
@@ -3490,7 +3490,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @65226 @VerifyRelatedFocusAreasField @keerti
+  @65226 @VerifyRelatedFocusAreasField
   Scenario Outline: Verify Focus Area field value Budget tab Subaward overview is same as Program Related Focus Areas table setup Tab.
     When I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
@@ -3522,7 +3522,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly can see top right button "Associate" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     Then I softly can see top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
 
-  @65400  @validateAfterSendToSubreciepientSubreciepientCanViewRecord  @keerti @Re-RunStandAlone
+  @65400  @validateAfterSendToSubreciepientSubreciepientCanViewRecord   @Re-RunStandAlone
   Scenario Outline: To verify that  after clicking on the "send to subreciepient button " from the award owner profile after creating subaward is visible to the Subreciepient.
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -6422,7 +6422,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @349938 @VerifyPMusershouldseeBudgetedamountreadonlycolumnincreatedSenttoSrbeforeaapproval @sprint-15-US @hitesh
+  @349938 @VerifyPMusershouldseeBudgetedamountreadonlycolumnincreatedSenttoSrbeforeaapproval @sprint-15-US
   Scenario: Verify PM user should see 'Budgeted amount' read only column in created, Sent to S/r before a approval
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"

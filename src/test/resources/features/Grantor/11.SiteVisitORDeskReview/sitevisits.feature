@@ -877,7 +877,7 @@ Feature: Validate all scenarios in the Site Visit
     When I perform quick search for "{SavedValue:svID}" in "---sitevisits:-:manageSiteVisitTableId---" panel
     Then I softly see that "{SavedValue:svID}" has been added in flextable with Id "---sitevisits:-:manageSiteVisitTableId---"
 
-  @60830 @56038 @FieldHistoryUpdatedSendBackToOwnerByPM @keerti @FieldHistoryExclude
+  @60830 @56038 @FieldHistoryUpdatedSendBackToOwnerByPM  @FieldHistoryExclude
   Scenario:  To Validate field history update post Award level Site Visit is send back to owner by program approver and Submit for Approval button
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -932,7 +932,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on hyperlink containing value "View All"
     Then I softly see value "In Progress" for title "New Value" inside field history table
 
-  @60833 @theSnapshotAfterSiteVisitsIsSendToSubrecipient @keerti
+  @60833 @theSnapshotAfterSiteVisitsIsSendToSubrecipient
   Scenario: Validate whether record Owner is able to view the Snapshot after Site Visits Send to Subrecipient
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1122,7 +1122,7 @@ Feature: Validate all scenarios in the Site Visit
     When I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "ApplicantSiteVisitReports"
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
 
-  @60839 @56013 @60837 @60840 @peerReviewerCanNotEdit/EnterReviewComments @keerti @smoke
+  @60839 @56013 @60837 @60840 @peerReviewerCanNotEdit/EnterReviewComments  @smoke
   Scenario: Validate system does not allow the peer reviewer to edit/Enter review comments and Edit button hidden if the Site Visits marked as complete review
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
@@ -1177,7 +1177,7 @@ Feature: Validate all scenarios in the Site Visit
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "---sitevisits:-:reviewersFlexTableId---"
 
-  @60835 @60831 @TaskIsNotCreatedForFiscalApproverWhenProgramApproverSendsBackSiteVisitToOwner @keerti @FieldHistoryExclude
+  @60835 @60831 @TaskIsNotCreatedForFiscalApproverWhenProgramApproverSendsBackSiteVisitToOwner  @FieldHistoryExclude
   Scenario: To Validate  Approvers Table is not editable and field history update Award Level Site Visits  is send back to owner by Fiscal Approver
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :

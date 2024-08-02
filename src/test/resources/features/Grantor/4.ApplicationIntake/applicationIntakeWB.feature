@@ -1,7 +1,7 @@
 @applicationIntakeWB @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
 Feature: Application Intake scenarios without background
 
-  @76373 @69366 @65078 @VerifyCreateApplicationButton @keerti @smoke
+  @76373 @69366 @65078 @VerifyCreateApplicationButton  @smoke
   Scenario: Verify whether SPI user is able to qualify opportunity | Verify Create Application button is displayed to SR User when User click on Qualify Button.
   Validate whether SPI has access to 'Not yet Qualified' list view
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
@@ -2794,7 +2794,7 @@ Feature: Application Intake scenarios without background
       | {SavedValue:Automation Runtime Announcement} | Directed          | EXE  |
       | {SavedValue:Automation Runtime Announcement} | Competitive       | EXE  |
 
-  @313662 @VerifyPMusercanseethevalueBudgetTabFocusAreareplacedwithBudgetTabBudgetSummarybyFocusAreaintheApplicationsectionforNegotiationonFDMFANO @sprint-8-US-308117 @hitesh
+  @313662 @VerifyPMusercanseethevalueBudgetTabFocusAreareplacedwithBudgetTabBudgetSummarybyFocusAreaintheApplicationsectionforNegotiationonFDMFANO @sprint-8-US-308117
   Scenario Outline: Verify PM user can see the value "Budget Tab: Focus Area" replaced with "Budget Tab: Budget Summary by Focus Area" in the Application section for Negotiation on FDM (FA= NO)
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION_YES_FOCUS_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "BUDGETCATEGORY_NO_FOCUSAREA"

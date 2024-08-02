@@ -816,7 +816,7 @@ Feature: Validate all scenarios in the home tab
     When I navigate to "Overview" sub tab
     Then I see that "{user:OldfullName}" has been added in flextable with Id "---home:-:indContactTableId---"
 
-  @62255 @CreatedNotes @keerti @onhold @wip
+  @62255 @CreatedNotes  @onhold @wip
   Scenario: Verify created notes on Home Tab
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -826,7 +826,7 @@ Feature: Validate all scenarios in the home tab
     And I click modal button "Save and Close"
     Then I see the text containing "title"
 
-  @62254 @PerformGlobalSearchOnHomeTab @keerti
+  @62254 @PerformGlobalSearchOnHomeTab
   Scenario: Verify Global search on Home Tab
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -844,7 +844,7 @@ Feature: Validate all scenarios in the home tab
 #    And I perform quick search for "{SavedValue:ProgramID}" in "Program__c" panel
     Then I see value "{SavedValue:ProgramID}" for title "EGMS ID" inside table "Programs||List View"
 
-  @62912 @VerifyrecentlyViewedRecordAndDetailsOnMiniPageLayoutAndHoverLink @keerti @wip
+  @62912 @VerifyrecentlyViewedRecordAndDetailsOnMiniPageLayoutAndHoverLink  @wip
   Scenario: The Internal User should be able to view the recently viewed record and details on the Mini pagelayout and the hover link  will take to the record
     Given I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Home" tab
@@ -854,7 +854,7 @@ Feature: Validate all scenarios in the home tab
     And I mouse hover to link contains "Test Automation Organization"
     Then I softly see page title contains as "Test Automation Organization"
 
-  @62911 @VerifyStatusIsNewForInvitation/BulkInvitationISentStatusChanges @keerti
+  @62911 @VerifyStatusIsNewForInvitation/BulkInvitationISentStatusChanges
   Scenario Outline: Validate once Contact has registered the status will be New , when the Invitation/Bulk Invitation is sent, the status changes from Invitation Sent
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
