@@ -106,6 +106,9 @@ public class UsersAndURL implements UsersController {
             case "PM":
                 password = "Salesforce2035";
                 break;
+            case "SPI3":
+                password = "Salesforce2034";
+                break;
             default:
                 password = "Salesforce2034";
         }
