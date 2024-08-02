@@ -486,7 +486,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @72342 @publishingDirectedAnnouncement @ProdSan2
+  @72342 @publishingDirectedAnnouncement @ProdSan2 @TBExecution
   Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1033,7 +1033,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I softly see field "Status" as "Published"
 
-  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 @sanTest
+  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 @TBExecution1
   Scenario: Validate the activation of Formula By Applicant Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -1471,7 +1471,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Negotiations" content inside "Application Reviews" subheader on left panel
     Then I can see row level action button "View" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---negotiation:-:negotiationCompletedTaskTableId---"
 
-  @38224 @awardHappyPathFromFDM @ProdSan2
+  @38224 @awardHappyPathFromFDM @ProdSan2 @TBExecution
   Scenario Outline: Validate  the activation of subaward from FDM happy path and the status changes to Activated
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1483,7 +1483,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I wait for "3" seconds
-    And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    And I click on "Create Award" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
     And I pause execution for "5" seconds
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1615,7 +1615,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @72348 @awardHappyPathStandAlone @ProdSan1 @TBExecution
+  @72348 @awardHappyPathStandAlone @ProdSan1 @TBExecution1
   Scenario: Validate the activation of subaward Happy path stand alone and status changes to Activated | Validate subaward Happy path stand alone
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1731,9 +1731,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I see that "Subaward" is in "Activated" status
+    Then I see that "Award" is in "Activated" status
 
-  @72360 @activeRiskAssessment @ProdSan2
+  @72360 @activeRiskAssessment @ProdSan2 @TBExecution
   Scenario: Validate the Activation of Risk Assessment and the status changes to Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1791,7 +1791,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-    And I click toggle button to select "Subaward Risk Assessments - All"
+    And I click toggle button to select "Award Risk Assessments - All"
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     And I click on "Complete Review" in the page details
@@ -2400,7 +2400,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72355 @siteVisitAcceptAndCloseOrgLevel @ProdSan2 @sanTest
+  @72355 @siteVisitAcceptAndCloseOrgLevel @ProdSan2 @TBExecution1
   Scenario: Validate once the Org Level Site Visit is clicked on Accept and Close butted then status changes to closed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -2553,7 +2553,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72358 @activationOfBudgetPeriodAmendmentRequest @ProdSan2
+  @72358 @activationOfBudgetPeriodAmendmentRequest @ProdSan2 @TBExecution
   Scenario: Validate the Budget period amendment activation
     And I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -2643,7 +2643,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see field "Status" as "Amended"
     Then I see status in Progress-bar is "Amended" and is "dark blue"
 
-  @72359 @completeCloseout @ProdSan1 @TBExecution
+  @72359 @completeCloseout @ProdSan1 @TBExecution1
   Scenario: Validate the Closeout is submitted for approval and the status changes to Submitted for Approval
     And I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
@@ -2697,7 +2697,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     Then I softly see field "Status" as "Completed"
 
-  @CompletedSchedulesCloseout @ProdSan2
+  @CompletedSchedulesCloseout @ProdSan2 @TBExecution
   Scenario: Validate Complete Scheduled Closeout End to End flow
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -2755,7 +2755,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     Then I softly see field "Status" as "Completed"
 
-  @FundingChangeAmendmentRequest @ProdSan1 @TBExecution
+  @FundingChangeAmendmentRequest @ProdSan1 @TBExecution1
   Scenario Outline: validate the end to end flow for Funding change amendment request
     And I activated standalone subaward "Automation Runtime Award" with properties "<Properties>-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE" user
@@ -2839,7 +2839,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | User | Properties                            |
       | SPI3 | ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO |
 
-  @PeriodicRenewalAmendmentRequests @ProdSan2
+  @PeriodicRenewalAmendmentRequests @ProdSan2 @TBExecution
   Scenario: validate the end to end flow for Periodic Renewal Amendment Request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2897,7 +2897,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
 
-  @ScopeOfWorkChangeAmendmentRequest @ProdSan2
+  @ScopeOfWorkChangeAmendmentRequest @ProdSan2 @TBExecution1
   Scenario Outline: Validate end to end flow for scope of work change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     And I login to "As a Grantor" app as "PM" user
@@ -2952,7 +2952,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @SubrecipientKeyPersonnelChangeAmendmentRequest @ProdSan2
+  @SubrecipientKeyPersonnelChangeAmendmentRequest @ProdSan2 @TBExecution
   Scenario: Validate end to end flow for key personnel change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3001,9 +3001,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "3" seconds
     And I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Award" is in "Activated" status
 
-  @SubrecipientBudgetRedirection @ProdSan1 @TBExecution
+  @SubrecipientBudgetRedirection @ProdSan1 @TBExecution1
   Scenario: Validate Subrecipient side Budget Redirection Amendment End to End flow
     And I activated standalone subaward "Automation Runtime Award" with properties "IS_BUILDUP_FUNCTIONALITY_YES" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -3067,7 +3067,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "4" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Award" is in "Activated" status
 
   @ValidatedDetailBudgetYesScenarioInAward @ProdSan2
   Scenario: Validate Detail Budget Yes Scenario In Award
@@ -3120,7 +3120,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
-  @TermsandConditionAmendmentRequest @ProdSan2
+  @TermsandConditionAmendmentRequest @ProdSan2 @TBExecution
   Scenario: Validate Terms and Conditions Amendment Request End to End flow
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -3183,16 +3183,16 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Award" is in "Activated" status
 
-  @SubrecipientBudgetPeriodAmendmentRequest @ProdSan2
+  @SubrecipientBudgetPeriodAmendmentRequest @ProdSan2 @TBExecution1
   Scenario: Validate Subrecipient Amendment Request End to End flow
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
     When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
+    And I click toggle button to select "Awards  - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
     And I navigate to "Management" sub tab
@@ -3238,9 +3238,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Award" is in "Activated" status
 
-  @FundingChangeandTermsandConditions @ProdSan2
+  @FundingChangeandTermsandConditions @ProdSan2 @TBExecution
   Scenario: Validate Funding Change and Terms & Conditions End to End flow
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -3328,16 +3328,16 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Award" is in "Activated" status
 
-  @CombinationOfSubrecipientBRandKPCandSOW @ProdSan2
+  @CombinationOfSubrecipientBRandKPCandSOW @ProdSan2 @TBExecution1
   Scenario: Validate Combinations of Subrecipient BR and KPC and SOW
     Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation PO user" of type "Formula_By_Applicant"
     When I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
     And I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - All"
+    And I click toggle button to select "Awards  - All"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
     Given I navigate to "Management" sub tab
@@ -3415,9 +3415,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Award" is in "Activated" status
 
-  @CarryForwardAmendmentRequest @ProdSan2
+  @CarryForwardAmendmentRequest @ProdSan2 @TBExecution
   Scenario: Validate Carry Forward Amendment Request End to End flow
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -3430,7 +3430,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Award" is in "Activated" status
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
@@ -3491,7 +3491,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
+    And I click toggle button to select "Awards  - Active"
     When I perform quick search for "{SavedValue:ActivatedSubAwardId}" in "---amendment:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
     Given I navigate to "Management" sub tab
@@ -3558,4 +3558,4 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Activate" in the page details
     And I wait for "3" seconds
-    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Award" is in "Activated" status
