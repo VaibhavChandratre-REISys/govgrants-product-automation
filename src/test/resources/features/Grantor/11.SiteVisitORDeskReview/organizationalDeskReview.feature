@@ -859,7 +859,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I close "Upload Template" modal by clicking the top right x button
     Then I see value "Mandatory" for title "Required" against the value "Active" inside table "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
 
-  @bug-429768 @61061 @61995 @61059 @CreatedDateOfRAdisplayedOnOverviewTabAdditionOfAttachment @Keerti @buglogged150045 @organizationalDeskReviewSecond
+  @bug-429768 @61061 @61995 @61059 @CreatedDateOfRAdisplayedOnOverviewTabAdditionOfAttachment  @buglogged150045 @organizationalDeskReviewSecond
   Scenario: Validate the Created Date of Desk Review display on Overview Tab and Adding Attachments- Organizational Desk Review
     When I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---orgRiskAssessment:-:orgriskSupportingDocTableId---" by clicking "Add" :
@@ -937,7 +937,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I download the file
     Then I softly see "{SavedValue:Record Id}" on page "1" of "govgrants" pdf file
 
-  @61990 @RecordOwnerCanViewCompletedTask @keerti @organizationalDeskReviewSecond
+  @61990 @RecordOwnerCanViewCompletedTask  @organizationalDeskReviewSecond
   Scenario: Validate whether user is able to view the Completed task once approved under Monitoring Tab - Org Level Desk review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"

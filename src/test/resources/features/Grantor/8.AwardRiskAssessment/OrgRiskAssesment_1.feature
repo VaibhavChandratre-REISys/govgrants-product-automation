@@ -27,7 +27,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
 
-  @62517 @validateMessageDisplayedWhenProvideAccess @deepika
+  @62517 @validateMessageDisplayedWhenProvideAccess
   Scenario: Validate the message is displayed when clicked on Provide Access for new Risk Assessment by Grantor
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -73,7 +73,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
 
-  @62519  @62518 @grantorCannotEditCreatedRA @declineButtonViewForGrantor @deepika
+  @62519  @62518 @grantorCannotEditCreatedRA @declineButtonViewForGrantor
   Scenario: Validate the task is not created for subrecipient user when when grantor declines the Risk Assessment
     |Validate whether Grantor user can edit or modify the created Org Level Risk Assessment from Org View Page.|
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
@@ -104,7 +104,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I click on "View" icon for "Record Id" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
     Then I cannot see top right button "Edit" in page detail
 
-  @62520 @77260 @taskCreationWhenGrantorProvideAccess @deepika
+  @62520 @77260 @taskCreationWhenGrantorProvideAccess
   Scenario: Validate task is created for Subrecipient User when Grantor provides access to Revise Risk Assessment | Validate when the external user request for new assessment, the internal user recives an email notification to Revise Risk Assessment for Subrecipient Organization
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -155,7 +155,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
       Sandbox: Notification: Access has been granted to reviseOrganization Risk Assessment
       """
 
-  @62670 @62303 @62304 @62306 @62305 @grantorProvidedAccessForRevisionRequest  @GrantorAddedAttachmentsSentForRevisionRequestOfOrgLevelRA @EffectiveDatAandExpirationDatesForOrgLRAIsInCraetedStatus @keerti @OrgLRAOnceActiveThenCreatedDateIsTodaysDate @requestRevisionButtonAvailability @deepika
+  @62670 @62303 @62304 @62306 @62305 @grantorProvidedAccessForRevisionRequest  @GrantorAddedAttachmentsSentForRevisionRequestOfOrgLevelRA @EffectiveDatAandExpirationDatesForOrgLRAIsInCraetedStatus  @OrgLRAOnceActiveThenCreatedDateIsTodaysDate @requestRevisionButtonAvailability
   Scenario: Validate once grantor declines the Risk Assessment for Revision, the Request New Assessment button is again available for Signing Authority for new revision
    |Validate once the Org Level Risk Assessment is Active, then the Created Date is Today's date|
     |Valdiate the Effective Date and Expiration Dates are not populated when Org Risk Assessment is in Craeted Status|
@@ -202,7 +202,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     Then I can see top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @62672 @62671 @validateRequestNewAssessmentButtonAvailbility @validateExpiredRAWhenSecIsActive @deepika @smoke
+  @62672 @62671 @validateRequestNewAssessmentButtonAvailbility @validateExpiredRAWhenSecIsActive  @smoke
   Scenario: Validate as soon as user can activate the second Risk Assessment the first Risk Assessment will go in Expired State
     |Validate once Signing Authority user clicks on Request New Assessment Button then the button is hidden from Flex table|
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
@@ -254,7 +254,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I perform quick search for "Expired" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I see that "Expired" has been added in flextable with Id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @62673 @62522 @recordOwnerCannotEditDates @UserAllowedToRevise/UpdateRiskAssessment @keerti
+  @62673 @62522 @recordOwnerCannotEditDates @UserAllowedToRevise/UpdateRiskAssessment
   Scenario:Validate Record Owner cannot edit the Organization Type under Overview tab of Risk Assessment
   |Validate using the task, User should see be allowed to revise/update risk assessment i.e.. select other answers per their wish and submit and risk assessment should turn active.|
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
