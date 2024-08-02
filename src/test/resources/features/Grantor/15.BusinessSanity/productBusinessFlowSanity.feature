@@ -95,6 +95,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
     And I wait for "2" seconds
+    And I halt execution
     And I close "Create Grantee Contact" modal by clicking the top right x button
     And I save the contact name as "Automation Runtime Contact"
     And I navigate to "Grantee" content inside "Contacts" subheader on left panel
@@ -3513,6 +3514,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Carry Forward |
       | Construction    | 500           |
+    And I wait for "2" seconds
     When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
