@@ -1922,7 +1922,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     When I click on "Edit" in the page details
     And I clear the value from field "FederalAwardIdentifier__c"
-    And I clear the value from field "RequestTransfertoAward__c"
+#    And I clear the value from field "RequestTransfertoAward__c"
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
     When I click on "Save" in the page details
