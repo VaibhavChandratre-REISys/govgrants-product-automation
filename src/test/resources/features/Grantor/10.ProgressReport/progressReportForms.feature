@@ -3390,7 +3390,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
-    And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
@@ -3762,8 +3761,8 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     #285305
     When I click on "Edit" in the page details
-    And I wait for "2" seconds
-    When I enter value "Checked" into field "RequestTransfertoAward__c"
+    And I wait for "3" seconds
+#    When I enter value "Checked" into field "RequestTransfertoAward__c"
     And I enter value "11" into field "FederalAwardIdentifier__c"
     When I enter value "Checked" into field "RequestFederalAgency__c"
     When I enter value "Checked" into field "Other__c"

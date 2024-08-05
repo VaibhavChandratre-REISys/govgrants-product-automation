@@ -49,8 +49,8 @@ Feature: Validate all scenarios in Progress Report
 #    Then I softly see value "100%" for title "Percentage" inside table "---progressReport:-:formTableId---"
 #    Then I softly see that "100%" has been added in flextable with Id "---progressReport:-:formTableId---"
     When I click on "Submit to Grantor" in the page details
-   Then I softly see field "Status" as "Submitted to Grantor"
-   And I wait for "5" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "5" seconds
     And I navigate to "Performance" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---progressReport:-:kpiTableId---"
     When I navigate to "Monitoring" tab
@@ -87,6 +87,7 @@ Feature: Validate all scenarios in Progress Report
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
+   And I wait for "2" seconds
     And I navigate to "Performance" sub tab
     Given I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
@@ -862,7 +863,7 @@ Feature: Validate all scenarios in Progress Report
     And I wait for "3" seconds
     When I get the "EGMS ID"
     Given I click on "Submit to Grantor" in the page details
-    Given I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    Given I re-login to "As a Grantor" app as "SARAH PM" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Progress Reports - All"
