@@ -460,7 +460,6 @@ Feature: Validate scenarios in Progress Report Notes
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
-
     When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
