@@ -1969,7 +1969,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see that "RequestTransfertoAward__c" rendered in view mode only
     Then I softly see that "Other__c" rendered in view mode only
    #TO DO: commented below step due to Logged the bug for below validation Bug ID:- 281717 once bug reolved will uncomment this step
-   Then I softly see that "Total Amount" rendered in view mode only
+    Then I softly see that "Total Amount" rendered in view mode only
     Then I softly see that "(ii) Percentage of Federal participation" rendered in view mode only
     Then I softly see that "(iii) Federal Share" rendered in view mode only
     Then I softly see that "(iv) Selling and handling allowance" rendered in view mode only
@@ -1986,8 +1986,6 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | One selection is required in "2b. Acquired Equipment with current fair market value of $5,000 or more", if "1b" is checked in 'Report' section. |
     When I click on "Edit" in the page details
-    When I enter value "UnChecked" into field "FederallyownedProperty__c"
-    When I enter value "Checked" into field "AcquiredEquipment__c"
     When I enter value "Checked" into field "AcknowledgeEquipment__c"
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
