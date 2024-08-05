@@ -77,7 +77,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I can see row level action button "View" against "Federal Financial Report - SF-425" in flex table with id "---progressReport:-:formTableId---"
     Then I can see row level action button "Edit" against "Federal Financial Report - SF-425" in flex table with id "---progressReport:-:formTableId---"
     And I navigate to "Quickview" sub tab in split screen
-    And I click on "Edit" icon for "Tangible Personal Property Report - Disposition Request/Report - SF-428-C" inside flex table with id "---progressReport:-:formTableId---"
+    And I click on "Edit" icon for "Federal Financial Report - SF-425" inside flex table with id "---progressReport:-:formTableId---"
     And I pause execution for "4" seconds
     And I switch to tab number "1"
     Then I softly see the text containing "OMB Number: 4040-0018"
@@ -753,11 +753,13 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     And I pause execution for "5" seconds
     And I click modal button "Close"
+    When I navigate to "Forms and Files" sub tab
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "4" seconds
     Then I softly see value "Tangible Personal Property Report - Supplemental Sheet - SF-428-S" for title "Form Name" inside table "---progressReport:-:formTableId---"
@@ -783,6 +785,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I refresh the page
     And I click on top right button "New" in flex table with id "---progressReport:-:sf428SDetailIndividualTableId---"
     And I click modal button "Save"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | GP or ACQ is required to save.             |
       | Description is required to save.           |
@@ -1869,7 +1872,6 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see fields "Other__c" is in edit mode
     Then I softly see that "AcknowledgeEquipment__c" rendered in view mode only
     Then I softly see that "RequestFederalAgency__c" rendered in view mode only
-    #TO DO: commented below step due to Logged the bug for below validation Bug ID:- 281717 once bug reolved will uncomment this step
     Then I softly see that "Total Amount" rendered in view mode only
     Then I softly see fields "PercentageofFederalParticipation__c" is in edit mode
     Then I softly see fields "FederalShare__c" is in edit mode
@@ -1922,7 +1924,6 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     When I click on "Edit" in the page details
     And I clear the value from field "FederalAwardIdentifier__c"
-#    And I clear the value from field "RequestTransfertoAward__c"
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
     When I click on "Save" in the page details
@@ -1968,7 +1969,6 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see fields "FederalAwardIdentifier__c" is in edit mode
     Then I softly see that "RequestTransfertoAward__c" rendered in view mode only
     Then I softly see that "Other__c" rendered in view mode only
-   #TO DO: commented below step due to Logged the bug for below validation Bug ID:- 281717 once bug reolved will uncomment this step
     Then I softly see that "Total Amount" rendered in view mode only
     Then I softly see that "(ii) Percentage of Federal participation" rendered in view mode only
     Then I softly see that "(iii) Federal Share" rendered in view mode only
@@ -3451,8 +3451,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see "(iii) Federal Share" inside page block detail
     Then I softly see "(iv) Selling and handling allowance" inside page block detail
     Then I softly see fields "SaleProceedsrEstimateofCurrentFai__c" is in edit mode
-    #TO DO: commented below step due to Logged the bug for below validation Bug ID:- 281717 once bug reolved will uncomment this step
-#    Then I softly see that "Total Amount" rendered in view mode only
+    Then I softly see that "Total Amount" rendered in view mode only
     Then I softly see fields "FederalShare__c" is in edit mode
     Then I softly see fields "SellingandHandlingAllowance__c" is in edit mode
     Then I softly see that "(v) Amount remitted to the Federal Government" rendered in view mode only
@@ -3686,8 +3685,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see that "(i) Acknowledge equipment acquired under this federal award will be retained for use as originally approved" rendered in view mode only
     Then I softly see that "(ii) Request Federal Agency disposition instructions" rendered in view mode only
     Then I softly see that "(ii) Request Federal Agency disposition instructions" rendered in view mode only
-    #TO DO: commented below step due to Logged the bug for below validation Bug ID:- 281717 once bug reolved will uncomment this step
-#    Then I softly see that "Total Amount" rendered in view mode only
+    Then I softly see that "Total Amount" rendered in view mode only
     Then I softly see that "(ii) Percentage of Federal participation" rendered in view mode only
     Then I softly see that "(iii) Federal Share" rendered in view mode only
     Then I softly see that "(iv) Selling and handling allowance" rendered in view mode only
@@ -3946,8 +3944,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see fields "Other__c" is in edit mode
     Then I softly see fields "AcknowledgeEquipment__c" is in edit mode
     Then I softly see fields "RequestFederalAgencyDispositionInstr__c" is in edit mode
-     #TO DO: commented below step due to Logged the bug for below validation Bug ID:- 281717 once bug reolved will uncomment this step
-#    Then I softly see that "Total Amount" rendered in view mode only
+    Then I softly see that "Total Amount" rendered in view mode only
     Then I softly see that "(ii) Percentage of Federal participation" rendered in view mode only
     Then I softly see that "(iii) Federal Share" rendered in view mode only
     Then I softly see that "(iv) Selling and handling allowance" rendered in view mode only
