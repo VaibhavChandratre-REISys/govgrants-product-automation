@@ -279,7 +279,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:AnnouncementReviewPanel---" without waiting for record
     Then I softly can see top right button "New" in flex table with id "---announcement:-:AnnouncementReviewPanel---"
 
-  @71150 @71578 @71303 @71051 @71054 @71497 @71500 @71503 @71523 @71518 @71151 @71152 @71540 @71153 @71056 @71314 @71307 @verifyTotalReviewFormWeight @aashish @smoke
+  @71150 @71578 @71303 @71051 @71054 @71497 @71500 @71503 @71523 @71518 @71151 @71152 @71540 @71153 @71056 @71314 @71307 @verifyTotalReviewFormWeight @smoke
   Scenario: To validate system generated error message when total Review Form  weight(%) is more than 100 % while creating Announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -706,7 +706,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I wait for "3" seconds
     Then I see "{SavedValue:Automation Announcement for pdf Tests}" on page "1" of "govgrants" pdf file
 
-  @75632 @75621 @searchFunctionalityForMessagesMyFeedInCollab @keerti @buglogged95462 @wip @ExcludeSendEmail
+  @75632 @75621 @searchFunctionalityForMessagesMyFeedInCollab  @buglogged95462 @wip @ExcludeSendEmail
   Scenario: To verify search functionality for messages section in collab tab for announcement
   | To verify entered My Feed from the collab tab section of announcement is getting displayed on home phase.
     Given I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "default"

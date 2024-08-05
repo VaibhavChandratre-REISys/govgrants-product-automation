@@ -1206,7 +1206,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @65080 @VerifyDraftAnnouncementIsNotDisplayedForSRUer @keerti
+  @65080 @VerifyDraftAnnouncementIsNotDisplayedForSRUer
   Scenario Outline: Verify Draft announcement is not displayed at SR user end.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"

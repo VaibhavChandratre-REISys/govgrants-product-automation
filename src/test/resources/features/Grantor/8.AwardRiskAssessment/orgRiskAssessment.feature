@@ -434,7 +434,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I select "Download as XLS" from parallel lines dropdown of "Organization Risk Assessments"
     Then I verify that "xls" file is downloaded
 
-  @65387 @verifyAllInternalUsersCanViewActiveOrgRA @deepika @OrgRiskSet4
+  @65387 @verifyAllInternalUsersCanViewActiveOrgRA  @OrgRiskSet4
   Scenario Outline: Validate whether internal user can see view the Active Risk Assessment from Internal Subrecipient Profile View Page
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds

@@ -1,7 +1,7 @@
 @grantor-regression @grantor-parallel-regression @announcement @regression @announcement-undo
 Feature: Validate all scenarios in the Announcement with Undo
 
-  @283963 @283966 @283973 @283965 @VerifywhenPmapprovercanclickonundobuttoninAnnouncementrecordwhenrecordisinApprovedstate @sprint-4-US-295141 @hitesh @Undo
+  @283963 @283966 @283973 @283965 @VerifywhenPmapprovercanclickonundobuttoninAnnouncementrecordwhenrecordisinApprovedstate @sprint-4-US-295141  @Undo
   Scenario: Verify when Pm approver can click on undo button in Announcement  record when record is in Approved state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -206,7 +206,7 @@ Feature: Validate all scenarios in the Announcement with Undo
    The EGMS Team
   """
 
-  @283969 @VerifythatwhenExeapproverForwardtheAnnouncementApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-295141 @hitesh @Undo 
+  @283969 @VerifythatwhenExeapproverForwardtheAnnouncementApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-295141  @Undo
   Scenario: Verify that when Exe approver Forward the Announcement Approval task , Forwarded Approver will see UNDO button and not previous One
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -329,7 +329,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I "Approve" in the approval decision
     Then I can see top right button "Undo" in page detail
 
-  @283970 @VerifythatwhenEXEapproverSendbacktheAnnouncementrecordExewillnotseeUNDObutton @sprint-4-US-295141 @hitesh @Undo 
+  @283970 @VerifythatwhenEXEapproverSendbacktheAnnouncementrecordExewillnotseeUNDObutton @sprint-4-US-295141  @Undo
   Scenario: Verify that when EXE approver Send back the Announcement record , Exe will not see UNDO button
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -425,7 +425,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I softly see field "Status" as "Draft"
     Then I cannot see top right button "Undo" in page detail
 
-  @283974 @VerifythatwhenlastApproverandOwnerofAnnouncementarenotsameLastApproverwillSeeonlyUNDObutton @sprint-4-US-295141 @hitesh @Undo
+  @283974 @VerifythatwhenlastApproverandOwnerofAnnouncementarenotsameLastApproverwillSeeonlyUNDObutton @sprint-4-US-295141  @Undo
   Scenario: Verify that when last Approver and Owner of Announcement are not same , Last Approver will See only UNDO button.
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -495,7 +495,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I softly cannot see top right button "Publish" in page detail
     Then I softly cannot see top right button "Revise" in page detail
 
-  @284672 @VerifywhenallApproversapprovetheAnnouncementandlastapproverclickonundobuttononlylastapproverstaskshouldgetcancelledfromcompletedtask @sprint-4-US-295141 @hitesh @Undo
+  @284672 @VerifywhenallApproversapprovetheAnnouncementandlastapproverclickonundobuttononlylastapproverstaskshouldgetcancelledfromcompletedtask @sprint-4-US-295141  @Undo
   Scenario: Verify when all  Approvers approve the Announcement and last approver click on undo button, only last approver's task should get cancelled  from completed task
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -605,7 +605,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I perform quick search for "Record Id" in "---announcement:-:announcementCompletedTaskTable---" panel
     Then I softly see value "Completed" for title "Status" against the value "{SavedValue:AnnEGMSID}" inside table "---announcement:-:announcementCompletedTaskTable---"
 
-  @285570 @285574 @VerifythatOwnerofAnnwillnotseeUndobuttonwhenAnnissenttoreviewState @sprint-4-US-295141 @hitesh @Undo
+  @285570 @285574 @VerifythatOwnerofAnnwillnotseeUndobuttonwhenAnnissenttoreviewState @sprint-4-US-295141  @Undo
   Scenario: Verify that Owner of Ann will not see Undo button when Ann is sent to review State
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -723,7 +723,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @285584 @VerifythatOwnerofAnnwillnotseeUndobuttonwhenAnnownerclickonSubmitforApprovalButton @sprint-4-US-295141 @hitesh @Undo
+  @285584 @VerifythatOwnerofAnnwillnotseeUndobuttonwhenAnnownerclickonSubmitforApprovalButton @sprint-4-US-295141  @Undo
   Scenario: Verify that Owner of Ann will not see Undo button when Ann owner click on Submit for Approval Button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -846,7 +846,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I softly see field "Status" as "Submitted for Approval"
     Then I cannot see top right button "Undo" in page detail
 
-  @285603 @VerifythatOwnerofAnnwillnotseeUndobuttonwhenAnnownerclickonPublishButton @sprint-4-US-295141 @hitesh @Undo 
+  @285603 @VerifythatOwnerofAnnwillnotseeUndobuttonwhenAnnownerclickonPublishButton @sprint-4-US-295141  @Undo
   Scenario: Verify that Owner of Ann will not see Undo button when Ann owner click on Publish Button
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -923,7 +923,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Publish" in the page details
     Then I cannot see top right button "Undo" in page detail
 
-  @285608 @VerifythatOwnerofAnnwillnotseeUndobuttonwhenAnnownerclickonReviseButton @sprint-4-US-295141 @hitesh @Undo
+  @285608 @VerifythatOwnerofAnnwillnotseeUndobuttonwhenAnnownerclickonReviseButton @sprint-4-US-295141  @Undo
   Scenario: Verify that Owner of Ann will not see Undo button when Ann owner click on Revise Button
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -1000,7 +1000,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Revise" in the page details
     Then I cannot see top right button "Undo" in page detail
 
-  @285610 @283964 @VerifythatwhenPMuserafterclickofRejectButtonWillnotSeeUndoButton @sprint-4-US-295141 @hitesh @Undo
+  @285610 @283964 @VerifythatwhenPMuserafterclickofRejectButtonWillnotSeeUndoButton @sprint-4-US-295141  @Undo
   Scenario: Verify that when PM user after click of Reject Button Will not See Undo Button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1098,7 +1098,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I see status in Progress-bar is "Rejected" and is "Red"
     Then I cannot see top right button "Undo" in page detail
 
-  @283967 @283968 @VerifythatwhenPMuserReassigntaskofsubmitforapprovaltaskischangedtonewuserthennewownerwillseeundobuttonafterapprovingtheAnnouncement @sprint-4-US-295141 @hitesh @Undo
+  @283967 @283968 @VerifythatwhenPMuserReassigntaskofsubmitforapprovaltaskischangedtonewuserthennewownerwillseeundobuttonafterapprovingtheAnnouncement @sprint-4-US-295141  @Undo
   Scenario: Verify that when PM user Reassign task of submit for approval task is changed to new user,then new owner will see undo button after approving the Announcement .
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1215,7 +1215,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     #283968
     Then I cannot see top right button "Undo" in page detail
 
-  @283971 @VerifythatwhensarahpmapproverForwardtheAnnouncementApprovaltaskoriginalApproverwillnotseeUNDObutton @sprint-4-US-295141 @hitesh @Undo
+  @283971 @VerifythatwhensarahpmapproverForwardtheAnnouncementApprovaltaskoriginalApproverwillnotseeUNDObutton @sprint-4-US-295141  @Undo
   Scenario: Verify that when sarah pm approver Forward the Announcement Approval task , original  Approver will not see UNDO button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1326,7 +1326,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @302578 @VerifythatUndoButtonVisibilityWhenUserDynamicallyChnageApproverofAnnouncementafterInternalprogramisactivate @sprint-26-US-299251 @hitesh @Undo
+  @302578 @VerifythatUndoButtonVisibilityWhenUserDynamicallyChnageApproverofAnnouncementafterInternalprogramisactivate @sprint-26-US-299251  @Undo
   Scenario: Verify that Undo Button Visibility When User Dynamically  Chnage Approver of Announcement after Internal program is activate
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1394,7 +1394,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
-  @302609 @CompetitiveAnnVerifythatApprovalHistoryandsnapshothistoryupdatedafterclickonUNDObutton @sprint-26-US-299251 @hitesh @Undo @FieldHistoryExclude
+  @302609 @CompetitiveAnnVerifythatApprovalHistoryandsnapshothistoryupdatedafterclickonUNDObutton @sprint-26-US-299251  @Undo @FieldHistoryExclude
   Scenario: Competitive Ann Verify that Approval History and snapshot history updated after click on UNDO button.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1494,7 +1494,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I softly see value "Automation PM" for title "User" inside field history table
 
 
-  @302658 @VerifythatUserWillNotSeeUndowhenAnnouncementisinClosed @sprint-26-US-299251 @hitesh @Undo
+  @302658 @VerifythatUserWillNotSeeUndowhenAnnouncementisinClosed @sprint-26-US-299251  @Undo
   Scenario: Verify that User Will Not See Undo when Announcement is in Closed state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1505,7 +1505,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @342791 @342362 @342488 @AnnouncementVerifythatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApprover @sprint-13-US-331643 @hitesh @Undo
+  @342791 @342362 @342488 @AnnouncementVerifythatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApprover @sprint-13-US-331643  @Undo
   Scenario: Announcement Verify that approval task and email is generated to last step approver on click of undo button by Last Approver
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -1635,7 +1635,7 @@ Feature: Validate all scenarios in the Announcement with Undo
    The EGMS Team
      """
 
-  @342365 @342366 @342381 @342501 @AnnouncementVerifythatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinSubmittedforreviewstate @sprint-13-US-331643 @hitesh @Undo
+  @342365 @342366 @342381 @342501 @AnnouncementVerifythatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinSubmittedforreviewstate @sprint-13-US-331643  @Undo
   Scenario: Announcement Verify that any user will not see Undo button when Announcement record is in Submitted for review state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1823,7 +1823,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     #342501
     Then I cannot see top right button "Undo" in page detail
 
-  @342504 @AnnouncementVerifythatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinUnderRevisionstate @sprint-13-US-331643 @hitesh @Undo
+  @342504 @AnnouncementVerifythatanyuserwillnotseeUndobuttonwhenAnnouncementrecordisinUnderRevisionstate @sprint-13-US-331643  @Undo
   Scenario: Announcement that any user will not see Undo button when Announcement record is in Under Revision state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

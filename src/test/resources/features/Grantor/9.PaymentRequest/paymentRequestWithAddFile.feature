@@ -1,7 +1,7 @@
 @paymentRequestWithBackground @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest-check @regression @paymentRequestExecution
 Feature: Validate all scenarios in Payment Request with add file
 
-  @193832 @193959 @VerifySPIusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles @hitesh
+  @193832 @193959 @VerifySPIusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles
   Scenario:Verify SPI user can add file on ad-hoc reimbursement PR if user has edit access on top edit button for PR in created state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -39,7 +39,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I wait for "2" seconds
     Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
 
-  @193834 @VerifySPAusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles @hitesh
+  @193834 @VerifySPAusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles
   Scenario:Verify SPA user can add file on ad-hoc reimbursement PR if user has edit access on top edit button for PR in created state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -69,7 +69,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I wait for "2" seconds
     Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
 
-  @193842 @VerifyINDusercanaddfileonschedulereimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles @hitesh
+  @193842 @VerifyINDusercanaddfileonschedulereimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles
   Scenario:Verify IND user can add file on schedule reimbursement PR if user has edit access on top edit button for PR in created state
     Given I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Payment Request"
@@ -99,7 +99,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I wait for "2" seconds
     Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
 
-  @193863 @193866 @193871 @193873 @193879 @193923 @193931 @@VerifySPIusercannotaddfileonadhocreimbursementPRinsubmittograntorstate @sprint-14-US-225425 @addFiles @hitesh
+  @193863 @193866 @193871 @193873 @193879 @193923 @193931 @@VerifySPIusercannotaddfileonadhocreimbursementPRinsubmittograntorstate @sprint-14-US-225425 @addFiles
   Scenario:Verify SPI user can not add file on ad-hoc reimbursement PR in submit to grantor state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -229,7 +229,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I navigate to "Forms and Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---paymentRequest:-:reimburseFilesTableId---"
 
-  @193868 @193878 @193939 @VerifyEXEusercannotseetopleveleditbuttonandabletoaddfileonAdvancePRinsubmittograntorstate @sprint-14-US-225425 @addFiles @hitesh
+  @193868 @193878 @193939 @VerifyEXEusercannotseetopleveleditbuttonandabletoaddfileonAdvancePRinsubmittograntorstate @sprint-14-US-225425 @addFiles
   Scenario:Verify EXE user can not see top level edit button and able to add file on Advance PR in submit to grantor state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -326,7 +326,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I navigate to "Forms and Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
 
-  @193869 @193894 @193937 @VerifyAdminusercannotseetopleveleditbuttonandabletoaddfileonAdvancePRinsubmittograntorstate @sprint-14-US-225425 @addFiles @hitesh
+  @193869 @193894 @193937 @VerifyAdminusercannotseetopleveleditbuttonandabletoaddfileonAdvancePRinsubmittograntorstate @sprint-14-US-225425 @addFiles
   Scenario:Verify Admin user can not see top level edit button and able to add file on Advance PR in submit to grantor state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation ADMIN user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -419,7 +419,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I navigate to "Forms and Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
 
-  @193906 @VerifyEXEusercannotseetopleveleditbuttonandnotabletoaddfileonAdhocreimbursementPRinforceclosedstate @sprint-14-US-225425 @addFiles @hitesh
+  @193906 @VerifyEXEusercannotseetopleveleditbuttonandnotabletoaddfileonAdhocreimbursementPRinforceclosedstate @sprint-14-US-225425 @addFiles
   Scenario:Verify EXE user can not see top level edit button and not able to add file on Ad-hoc reimbursement PR in force closed state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -499,7 +499,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I navigate to "Forms and Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---paymentRequest:-:reimburseFilesTableId---"
 
-  @193919 @VerifyPMusercannotseetopleveleditbuttonandnotabletoaddfileonadhocreimbursementPRwhenPMusersentPRtoSRuser @sprint-14-US-225425 @addFiles @hitesh
+  @193919 @VerifyPMusercannotseetopleveleditbuttonandnotabletoaddfileonadhocreimbursementPRwhenPMusersentPRtoSRuser @sprint-14-US-225425 @addFiles
   Scenario:Verify PM user can not see top level edit button and not able to add file on ad-hoc reimbursement PR when PM user sent PR to S\R user
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -553,7 +553,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I navigate to "Forms and Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---paymentRequest:-:reimburseFilesTableId---"
 
-  @193921 @VerifySPAusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRwhengrantorsentbacktoSRPR @sprint-14-US-225425 @addFiles @hitesh
+  @193921 @VerifySPAusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRwhengrantorsentbacktoSRPR @sprint-14-US-225425 @addFiles
   Scenario:Verify SPA user can add file on ad-hoc reimbursement PR if user has edit access on top edit button for PR when grantor sent back to S\R PR
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -620,7 +620,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I wait for "2" seconds
     Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
 
-  @193944 @VerifyINDusercannotseetopleveleditbuttonandnotabletoaddfileonAd-hocreimbursementPRinforceclosedstate @sprint-14-US-225425 @addFiles @hitesh
+  @193944 @VerifyINDusercannotseetopleveleditbuttonandnotabletoaddfileonAd-hocreimbursementPRinforceclosedstate @sprint-14-US-225425 @addFiles
   Scenario:Verify IND user can not see top level edit button and not able to add file on Ad-hoc reimbursement PR in force closed state
     Given I activated standalone subaward "Automation Runtime Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -705,7 +705,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I navigate to "Forms and Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
 
-  @193968 @VerifySPIusercandownloadthefileinpaidstateofAdvancePR @sprint-14-US-225425 @addFiles @hitesh
+  @193968 @VerifySPIusercandownloadthefileinpaidstateofAdvancePR @sprint-14-US-225425 @addFiles
   Scenario:Verify SPI user can download the file in paid state of Advance PR
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -794,7 +794,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I click on "Download" icon for "Attachment.pdf" inside flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---" without waiting for record
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
-  @193977 @VerifyPMusercannotseetopleveleditbuttonandshouldabletoaddfileonadhocreimbursementPRwhenusersendtoownerwhileapproval @sprint-14-US-225425 @addFiles @hitesh
+  @193977 @VerifyPMusercannotseetopleveleditbuttonandshouldabletoaddfileonadhocreimbursementPRwhenusersendtoownerwhileapproval @sprint-14-US-225425 @addFiles
   Scenario:Verify PM user can not see top level edit button and should able to add file on ad-hoc reimbursement PR when user send to owner while approval
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -865,7 +865,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I wait for "2" seconds
     Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
 
-  @193986 @VerifySPIusercanseetopleveleditbuttonandabletoaddfileonad-hocreimbursementPRwhengrantorusersendbacktoSRwhileapproval @sprint-14-US-225425 @addFiles @hitesh
+  @193986 @VerifySPIusercanseetopleveleditbuttonandabletoaddfileonad-hocreimbursementPRwhengrantorusersendbacktoSRwhileapproval @sprint-14-US-225425 @addFiles
   Scenario:Verify SPI user can see top level edit button and able to add file on ad-hoc reimbursement PR when grantor user send back to S\R while approval
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal

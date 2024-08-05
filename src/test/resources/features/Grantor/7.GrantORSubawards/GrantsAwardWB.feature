@@ -1,7 +1,7 @@
 @grantsAwardWB @grantor-regression @grantor-parallel-regression @grantAndAward @regression @AwardExecution
 Feature: Validate all scenarios of grants and award without background
 
-  @35555 @VerifyUsersCanSeeNewButtonOnGrantListView @keerti
+  @35555 @VerifyUsersCanSeeNewButtonOnGrantListView
   Scenario Outline: Verify that users can see new button on grant list view
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Grants" tab
@@ -853,7 +853,7 @@ Feature: Validate all scenarios of grants and award without background
       | User |
       | PM   |
 
-  @64415 @64416 @64417 @64418 @64420 @64421 @64422 @64419  @keerti @AwardValidationHold
+  @64415 @64416 @64417 @64418 @64420 @64421 @64422 @64419   @AwardValidationHold
   Scenario: Verify validation message is displayed when award owner did not enter Grant Title field while creating direct grant.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -10665,7 +10665,7 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
-  @274116  @sprint-23-US-273843 @hitesh
+  @274116  @sprint-23-US-273843
   Scenario:Verify PM user can not see a Focus area with zero value for New Obligation and Cumulative Obligation column on the award created from FDM
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

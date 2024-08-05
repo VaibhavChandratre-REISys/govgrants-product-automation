@@ -1,7 +1,7 @@
 @globalSearch @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios for the global search
 
-  @389538 @ValidateEXEuserisabletoseetheglobalsearchbarforanannouncement @sprint-2-US-386939 @hitesh @GlobalSearch
+  @389538 @ValidateEXEuserisabletoseetheglobalsearchbarforanannouncement @sprint-2-US-386939  @GlobalSearch
   Scenario: VerifythattherecordownerisabletoedittheaccessforrecordwhenCloseoutRequestisintheCreatedAcknowledgedbySRSenttoreviewReviewedOverriddenorinUnpublishedstate
   Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -91,7 +91,7 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
 
-  @389558 @VerifythatPeerreviewerhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenCloseoutisasubmittedforreviewandReviewedstate @sprint-2-US-386939 @hitesh @GlobalSearch
+  @389558 @VerifythatPeerreviewerhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenCloseoutisasubmittedforreviewandReviewedstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that Peer reviewer have edit access for record only when edit access setting is yes for peer reviewer when Closeout is a submitted for review and Reviewed state.
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -144,7 +144,7 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
 
-  @389644 @VerifythatuserisabletoexpandtheresultbyCloseoutandFilterRefinetheresultbyconfigureColumnsforanCloseout @sprint-2-US-386939 @hitesh @GlobalSearch
+  @389644 @VerifythatuserisabletoexpandtheresultbyCloseoutandFilterRefinetheresultbyconfigureColumnsforanCloseout @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to expand the result by Closeout and Filter/Refine the the result by configured Columns for an Closeout.
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -180,7 +180,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "Closeouts"
     Then I softly see value "{SavedValue:EXE Username}" for title "Created By" inside table "Closeouts"
 
-  @389645 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedEGMSIDGrantEGMSIDCreatedByonobjectsafterglobalsearchtheanyrecordf0orCloseout @sprint-2-US-386939 @hitesh @GlobalSearch
+  @389645 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedEGMSIDGrantEGMSIDCreatedByonobjectsafterglobalsearchtheanyrecordf0orCloseout @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user redirect to that record when user click on any hyperlink provided (e.g. -EGMS ID, Grant EGMS ID, Created By) on objects after global search the any record for Closeout.
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
@@ -213,7 +213,7 @@ Feature: Validate all scenarios for the global search
     And I click on hyperlink for global search containing value "{SavedValue:EXE Username}"
     Then I softly see the text containing "{SavedValue:EXE Username}"
 
-  @390081 @VerifythattherecordownerisabletoedittheaccessforrecordwhenFundingSourceisintheCreatedstate @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390081 @VerifythattherecordownerisabletoedittheaccessforrecordwhenFundingSourceisintheCreatedstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Funding Source is in the Created state
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -237,7 +237,7 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
 
-  @390082 @VerifythatNonOwneruserdoesnthaveaneditoptioninanystageofFundingsourcesandwillgeterrormessageonpage @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390082 @VerifythatNonOwneruserdoesnthaveaneditoptioninanystageofFundingsourcesandwillgeterrormessageonpage @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that Non-Owner user doesn't have an edit option in any stage of Funding sources and will get error message on page.
     Given I login to "As a Grantor" app as "EXE" user
     When I navigate to "Planning" tab
@@ -302,7 +302,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
 
-  @390084 @VerifythatuserisabletoexpandtheresultbyFundingSourceandFilterRefinethetheresultbyconfiguredColumnsforafundingSource @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390084 @VerifythatuserisabletoexpandtheresultbyFundingSourceandFilterRefinethetheresultbyconfiguredColumnsforafundingSource @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to expand the result by FundingSource and Filter/Refine the the result by configured Columns for a funding Source
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -330,7 +330,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see value "{SavedValue:FundingSourcesID}" for title "EGMS ID" inside table "Funding Sources"
     Then I softly see value "{SavedValue:EXE Username}" for title "Created By" inside table "Funding Sources"
 
-  @390085 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedEGMSIDCreatedbyonobjectsafteglobalsearchtheanyrecordforFundingSources @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390085 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedEGMSIDCreatedbyonobjectsafteglobalsearchtheanyrecordforFundingSources @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, Created by ) on objects after global search the any record for Funding Sources.
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -359,7 +359,7 @@ Feature: Validate all scenarios for the global search
     And I click on hyperlink for global search containing value "{SavedValue:FundingSourcesID}"
     Then I softly see the text containing "{SavedValue:FundingSourcesID}"
 
-  @390107 @SubrecipientOrganizationVerifythattheAdminisabletoedittheaccessfororganizationwhenOrganizationiintheactivestate @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390107 @SubrecipientOrganizationVerifythattheAdminisabletoedittheaccessfororganizationwhenOrganizationiintheactivestate @sprint-2-US-386939  @GlobalSearch
   Scenario: Subrecipient Organization -> Verify that the Admin is able to edit the access for organization when Organization is in the active state.
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Home" tab
@@ -371,7 +371,7 @@ Feature: Validate all scenarios for the global search
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
 
-  @390112 @SubrecipientOrganizationVerifythaNonwneruserdoesnthaveaneditoptioninanyOrganizationandwillgeterrormessageonpage @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390112 @SubrecipientOrganizationVerifythaNonwneruserdoesnthaveaneditoptioninanyOrganizationandwillgeterrormessageonpage @sprint-2-US-386939  @GlobalSearch
   Scenario: Subrecipient Organization -> Verify that Non-owner user doesn't have an edit option in any Organization and will get error message on page.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -383,7 +383,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390139 @390140-1 @VerifythattherecordownerisabletoedittheaccessforrecordwhenAmendmentisintheCreatedAcknowledgedstate @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390139 @390140-1 @VerifythattherecordownerisabletoedittheaccessforrecordwhenAmendmentisintheCreatedAcknowledgedstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Amendment is in the Created, Acknowledged state
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -572,7 +572,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
- @390140-2 @VerifythattherecordownerisabletoedittheaccessforrecordwhenAmendmentisintheCreatedAcknowledgedstate @sprint-2-US-386939 @hitesh @GlobalSearch
+ @390140-2 @VerifythattherecordownerisabletoedittheaccessforrecordwhenAmendmentisintheCreatedAcknowledgedstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Amendment is in the Created, Acknowledged state
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -632,7 +632,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390145 @VerifythatuserisabletoexpandtheresultbyAmendmentmoduleandFilterRefinetheresultbyconfiguredColumnsforanAmendment @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390145 @VerifythatuserisabletoexpandtheresultbyAmendmentmoduleandFilterRefinetheresultbyconfiguredColumnsforanAmendment @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user is able to expand the result by Amendment module and Filter/Refine the the result by configured Columns for an Amendment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -675,7 +675,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text "Grants" on left navigation for global search
     Then I softly see the text "Amendment Requests" on left navigation for global search
 
-  @390150 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedegEGMSIDonobjectsafterglobalsearchtheanyrecordforamendment @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390150 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedegEGMSIDonobjectsafterglobalsearchtheanyrecordforamendment @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID ) on objects after global search the any record for amendment.
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -704,7 +704,7 @@ Feature: Validate all scenarios for the global search
     And I click on hyperlink for global search containing value "{SavedValue:budgetPChangeId}"
     Then I softly see the text containing "{SavedValue:budgetPChangeId}"
 
-  @390156 @390157-1 @VerifythattherecordownerisabletoedittheaccessforrecordwhenProgressReportisintheSubmittoGrantorandsenttoSRstate @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390156 @390157-1 @VerifythattherecordownerisabletoedittheaccessforrecordwhenProgressReportisintheSubmittoGrantorandsenttoSRstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Progress Report is in the Submit to Grantor and sent to S/R state
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -852,7 +852,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390157-2 @VerifythattherecordownerisabletoedittheaccessforrecordwhenProgressReportisintheSubmittoGrantorandsenttoSRstate @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390157-2 @VerifythattherecordownerisabletoedittheaccessforrecordwhenProgressReportisintheSubmittoGrantorandsenttoSRstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Progress Report is in the Submit to Grantor and sent to S/R state
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -975,7 +975,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390163 @VerifythatuserisabletoexpandtheresultbyProgressReportmoduleandFilterRefinetheresultbyconfiguredColumnsforanProgressReport @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390163 @VerifythatuserisabletoexpandtheresultbyProgressReportmoduleandFilterRefinetheresultbyconfiguredColumnsforanProgressReport @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that user is able to expand the result by Progress Report module and Filter/Refine the the result by configured Columns for an Progress Report
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -1017,7 +1017,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text "Grants" on left navigation for global search
     Then I softly see the text "Amendment Requests" on left navigation for global search
 
-  @390169 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedegEGMSIDonobjectsafterglobalsearchtheanyrecordforProgressReport @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390169 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedegEGMSIDonobjectsafterglobalsearchtheanyrecordforProgressReport @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID ) on objects after global search the any record for Progress Report
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -1045,7 +1045,7 @@ Feature: Validate all scenarios for the global search
     And I click on hyperlink for global search containing value "{SavedValue:progID}"
     Then I softly see the text containing "{SavedValue:progID}"
 
-  @390190 @390201 @VerifythattherecordownerisabletoedittheaccessforrecordwhenRiskAssessmentisintheCreatedsubmitforrevieworinReviewedstate @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390190 @390201 @VerifythattherecordownerisabletoedittheaccessforrecordwhenRiskAssessmentisintheCreatedsubmitforrevieworinReviewedstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that the record owner is able to edit the access for record when Risk Assessment is in the Created, submit for review or in Reviewed state
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1234,7 +1234,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390220 @VerifythatPMRevieweruserhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenRiskAssessmentisasubmitforreviewstate @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390220 @VerifythatPMRevieweruserhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenRiskAssessmentisasubmitforreviewstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that PM Reviewer user have edit access for record only when edit access setting is yes for peer reviewer when Risk Assessment is a submit for review state
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -1278,7 +1278,7 @@ Feature: Validate all scenarios for the global search
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
 
-  @390222 @VerifythatPMRevieweruserhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenRiskAssessmentisasubmitforreviewstate @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390222 @VerifythatPMRevieweruserhaveeditaccessforrecordonlywheneditaccesssettingisyesforpeerreviewerwhenRiskAssessmentisasubmitforreviewstate @sprint-2-US-386939  @GlobalSearch
   Scenario: Verify that PM Reviewer user have edit access for record only when edit access setting is yes for peer reviewer when Risk Assessment is a submit for review state
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -1323,7 +1323,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390224 @VerifythatuserisabletoexpandtheresultbyRiskAssessmentmoduleandFilterRefinethetheresultbyconfiguredColumnsforanRiskAssessment @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390224 @VerifythatuserisabletoexpandtheresultbyRiskAssessmentmoduleandFilterRefinethetheresultbyconfiguredColumnsforanRiskAssessment @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that user is able to expand the result by Risk Assessment module and Filter/Refine the the result by configured Columns for an Risk Assessment.
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -1367,7 +1367,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text "Grants" on left navigation for global search
     Then I softly see the text "Amendment Requests" on left navigation for global search
 
-  @390225 @VerifythatuserisabletoexpandtheresultbyRiskAssessmentmoduleandFilterRefinethetheresultbyconfiguredColumnsforanRiskAssessment @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390225 @VerifythatuserisabletoexpandtheresultbyRiskAssessmentmoduleandFilterRefinethetheresultbyconfiguredColumnsforanRiskAssessment @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that user is able to expand the result by Risk Assessment module and Filter/Refine the the result by configured Columns for an Risk Assessment.
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -1400,7 +1400,7 @@ Feature: Validate all scenarios for the global search
     And I click on hyperlink for global search containing value "{SavedValue:riskID}"
     Then I softly see the text containing "{SavedValue:riskID}"
 
-  @390304 @VerifythattherecordownerisnotabletoedittheaccessforrecordwhenPaymentRequestisintheSubmittograntorstate @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390304 @VerifythattherecordownerisnotabletoedittheaccessforrecordwhenPaymentRequestisintheSubmittograntorstate @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that the record owner is not able to edit the access for record when Payment Request is in the Submit to grantor state.
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1438,7 +1438,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390311 @VerifythattherecordownerisnotabletoedVerifythatuserisabletoexpandtheresultbyPaymentRequestmoduleandFilterRefinetheresultbyconfiguredColumnsforanPaymentRequest @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390311 @VerifythattherecordownerisnotabletoedVerifythatuserisabletoexpandtheresultbyPaymentRequestmoduleandFilterRefinetheresultbyconfiguredColumnsforanPaymentRequest @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that user is able to expand the result by Payment Request module and Filter/Refine the the result by configured Columns for an Payment Request.
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1477,7 +1477,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text "Grants" on left navigation for global search
     Then I softly see the text "Amendment Requests" on left navigation for global search
 
-  @390317 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedegEGMSIDSubawardIDonobjectsafterglobalsearchtheanyrecordforPaymentRequest @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390317 @VerifythatuserredirecttothatrecordwhenuserclickonanyhyperlinkprovidedegEGMSIDSubawardIDonobjectsafterglobalsearchtheanyrecordforPaymentRequest @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that user redirect to that record when user click on any hyperlink provided (e.g. - EGMS ID, Subaward ID ) on objects after global search the any record for Payment Request.
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1504,7 +1504,7 @@ Feature: Validate all scenarios for the global search
     And I click on hyperlink for global search containing value "{SavedValue:paymentEGMSID}"
     Then I softly see the text containing "{SavedValue:paymentEGMSID}"
 
-  @390367 @390372 @SubrecipientOrganizationVerifythattheAdminisabletoedittheaccessforrecordwhenExternalOrganizationisintheApprovedstate @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390367 @390372 @SubrecipientOrganizationVerifythattheAdminisabletoedittheaccessforrecordwhenExternalOrganizationisintheApprovedstate @sprint-2-US-386939  @GlobalSearch
   Scenario:Subrecipient Organization ->Verify that the Admin is able to edit the access for record when External Organization is in the Approved state
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
@@ -1526,7 +1526,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @390379 @SubrecipientOrganizationVerifythatNonOwneruserdoesnthaveaneditoptioninanystageofExternalSROrganizationandwillgeterrormessageonpage @sprint-2-US-386939 @hitesh @GlobalSearch
+  @390379 @SubrecipientOrganizationVerifythatNonOwneruserdoesnthaveaneditoptioninanystageofExternalSROrganizationandwillgeterrormessageonpage @sprint-2-US-386939  @GlobalSearch
   Scenario:Subrecipient Organization -> Verify that Non-Owner user doesn't have an edit option in any stage of External S/R Organization and will get error message on page
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1568,7 +1568,7 @@ Feature: Validate all scenarios for the global search
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @389520 @389525 @389537 @389536 @VerifythatthereviewownerisabletoeditSubmitDeclinetheaccessforrecordwhenReviewsareinsentforreviewstate @sprint-2-US-386939 @hitesh @GlobalSearch
+  @389520 @389525 @389537 @389536 @VerifythatthereviewownerisabletoeditSubmitDeclinetheaccessforrecordwhenReviewsareinsentforreviewstate @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that the review owner is able to edit/Submit/Decline the access for record when Reviews are in sent for review state.
     When I login to "As a Grantor" app as "FO" user
     And I navigate to "Applications" tab

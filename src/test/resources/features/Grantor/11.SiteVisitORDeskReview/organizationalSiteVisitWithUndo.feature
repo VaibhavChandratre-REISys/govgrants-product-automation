@@ -1,7 +1,7 @@
 @organizationalSiteVisitUndo @grantor-regression @grantor-parallel-regression @siteVisit @regression @organizationalSiteVisitUndo @siteVisit_Lwc_Run
 Feature: Validate all scenarios in Organizational Site Visit With Undo
 
-  @289790 @289791 @289792 @289793 @289797 @289798 @289808 @289809 @291842 @VerifywhenPmapprovercanclickonundobuttoninOrganizationalSiteVisitrecordwhenrecordisinApprovedstate @sprint-2-US-288691 @hitesh @Undo @FieldHistoryExclude
+  @289790 @289791 @289792 @289793 @289797 @289798 @289808 @289809 @291842 @VerifywhenPmapprovercanclickonundobuttoninOrganizationalSiteVisitrecordwhenrecordisinApprovedstate @sprint-2-US-288691  @Undo @FieldHistoryExclude
   Scenario: Verify when Pm approver can click on undo button in Organizational Site Visit record when record is in Approved state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -152,7 +152,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @289794 @289799 @289803 @VerifythatwhenExeapproverForwardtheOrganizationalSiteVisitApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-2-US-288691 @hitesh @Undo
+  @289794 @289799 @289803 @VerifythatwhenExeapproverForwardtheOrganizationalSiteVisitApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-2-US-288691  @Undo
   Scenario:Verify that when Exe approver Forward the Organizational Site Visit Approval task , Forwarded Approver will see UNDO button and not previous One.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -240,7 +240,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Send Back | Forward |
 
-  @289800 @289801 @VerifythatPMapproveruserwillnotseeUNDObuttoninSendtoSrstateofOrganizationalSiteVisitrecord @sprint-2-US-288691 @hitesh @Undo
+  @289800 @289801 @VerifythatPMapproveruserwillnotseeUNDObuttoninSendtoSrstateofOrganizationalSiteVisitrecord @sprint-2-US-288691  @Undo
   Scenario: Verify that PM approver user will not see UNDO button in Send to S/r state of Organizational Site Visit record.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -360,7 +360,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #289801
     Then I cannot see top right button "Undo" in page detail
 
-  @289802 @VerifythatAdminapproveruserwillnotseeUNDObuttoninClosedstateofOrganizationalSiteVisit @sprint-2-US-288691 @hitesh @Undo
+  @289802 @VerifythatAdminapproveruserwillnotseeUNDObuttoninClosedstateofOrganizationalSiteVisit @sprint-2-US-288691  @Undo
   Scenario: Verify that Admin approver user will not see UNDO button in Closed state of Organizational Site Visit
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -458,7 +458,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I see status in Progress-bar is "Closed" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @289804 @VerifythatafterPOuserclickonUndobuttonEmailwillbesenttoPreviousApproverandOwnerofOrganizationalSiteVisitrecord @sprint-2-US-288691 @hitesh @Undo
+  @289804 @VerifythatafterPOuserclickonUndobuttonEmailwillbesenttoPreviousApproverandOwnerofOrganizationalSiteVisitrecord @sprint-2-US-288691  @Undo
   Scenario:Verify that after POuser click on Undo button Email will be sent to Previous Approver and Owner of Organizational Site Visit record
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -622,7 +622,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     The EGMS Team
     """
 
-  @289805 @VerifythatafterEXEuserclickonUndobuttonAllthetablesofOrganizationalSiteVisitwillnotgetaffected @sprint-2-US-288691 @hitesh @Undo
+  @289805 @VerifythatafterEXEuserclickonUndobuttonAllthetablesofOrganizationalSiteVisitwillnotgetaffected @sprint-2-US-288691  @Undo
   Scenario:Verify that after EXE user click on Undo button All the tables of Organizational Site Visit will not get affected
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -713,7 +713,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly cannot see top right button "Add Files" in flex table with id "---orgLevelSiteVisits:-:siteVisitAddFilesTableId---"
     Then I softly cannot see top right button "Add" in flex table with id "---orgLevelSiteVisits:-:siteVisitNotesTableId---"
 
-  @290426 @304192 @290427 @VerifyPOusercannotseeundobuttoninnotifiedstateofOrganizationalSiteVisit @sprint-2-US-288691 @hitesh @Undo
+  @290426 @304192 @290427 @VerifyPOusercannotseeundobuttoninnotifiedstateofOrganizationalSiteVisit @sprint-2-US-288691  @Undo
   Scenario:Verify PO user can not see undo button in notified state of Organizational Site Visit
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Home" tab
@@ -813,7 +813,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #304142
     Then I cannot see top right button "Undo" in page detail
 
-  @289807 @VerifyAuditorusercannotseeundobuttoninapprovedstateofOrganizationalSiteVisit @sprint-2-US-288691 @hitesh @Undo @366345
+  @289807 @VerifyAuditorusercannotseeundobuttoninapprovedstateofOrganizationalSiteVisit @sprint-2-US-288691  @Undo @366345
   Scenario:Verify Auditor user can not see undo button in approved state of Organizational Site Visit
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -894,7 +894,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @342521 @342527 @342529 @342544 @VerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinCreatedState @sprint-2-US-288691 @hitesh @Undo @366345
+  @342521 @342527 @342529 @342544 @VerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinCreatedState @sprint-2-US-288691  @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Created State
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1054,7 +1054,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342548
     Then I cannot see top right button "Undo" in page detail
 
-  @342554 @342559 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinSubmitforReviewState @sprint-13-US-331643 @hitesh @Undo @366345
+  @342554 @342559 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinSubmitforReviewState @sprint-13-US-331643  @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Submit for ReviewState.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1148,7 +1148,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
      Then I softly see field "Status" as " Submitted for Review"
     Then I cannot see top right button "Undo" in page detail
 
-  @342571 @342575 @342584 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisininSendtoSrState @sprint-13-US-331643 @hitesh @Undo @366345
+  @342571 @342575 @342584 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisininSendtoSrState @sprint-13-US-331643  @Undo @366345
   Scenario:OSV->Verify that Undo Button will not visible to any user when Organization Site visit is in in Send to S/r State
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1309,7 +1309,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
      #342584
     Then I cannot see top right button "Undo" in page detail
 
-  @308890 @OSVVerifythatUNDOiconorbuttonisnotavailableontheactionbuttonsofOrganizationSiteVisitrecordontablethatispresentonsidebarorphaselevelorthatonOrganization @sprint-7-US-306815 @hitesh @Undo
+  @308890 @OSVVerifythatUNDOiconorbuttonisnotavailableontheactionbuttonsofOrganizationSiteVisitrecordontablethatispresentonsidebarorphaselevelorthatonOrganization @sprint-7-US-306815  @Undo
   Scenario:OSV-Verify that UNDO icon or button is not available on the action buttons of Organization Site Visit record on table that is present on side bar or phase level or that on Organization
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1359,7 +1359,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     Then I softly cannot see row level action button "Undo" against "{SavedValue:SitevVisitId}" in global search with id "Site Visits"
 
-  @308900 @310751 @OSVVerifythatapproverundobuttonvisibilitywillchangeasperpositionofapproverofOrgSiteVisitlastormiddle @sprint-7-US-306815 @hitesh @Undo
+  @308900 @310751 @OSVVerifythatapproverundobuttonvisibilitywillchangeasperpositionofapproverofOrgSiteVisitlastormiddle @sprint-7-US-306815  @Undo
   Scenario:OSV-Verify that approver undo button visibility will change as per position of approver of Org Site Visit last or middle
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab

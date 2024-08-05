@@ -1682,7 +1682,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Extra Salary | The narrative | 500          | 50         | 50             |
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---applicationReview:-:addLineItemsModalTableId---"
 
-  @319874 @VerifyusercannotseebudgetsummarybyfocusareasectiononfundingchangeamendmentrequestFANo @Sprint-9-US-318292 @hitesh
+  @319874 @VerifyusercannotseebudgetsummarybyfocusareasectiononfundingchangeamendmentrequestFANo @Sprint-9-US-318292
   Scenario:Verify IND user can budgeted amount get updated after remove focus area when budget associated with that focus area & also easily remove FAs having zero dollar budget associated with that FA on Application layout
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "SECOND_FOCUS_AREA_APPLICANT_IND_ORG_PRE_APPLICATION-Automation PM user"
     And I am on "SUBPORTAL" portal
@@ -1745,7 +1745,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I refresh the page
     Then I softly see field "Budgeted Amount" as "$0.00"
 
- @274123 @VerifyPOusernotifytoSRuserforcompletednegotiation @sprint-23-US-273843 @hitesh
+ @274123 @VerifyPOusernotifytoSRuserforcompletednegotiation @sprint-23-US-273843
   Scenario Outline:Verify PO user notify to S\R user for completed negotiation.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "NEGOTIATION-Automation PO user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
