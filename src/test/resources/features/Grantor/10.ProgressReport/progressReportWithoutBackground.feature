@@ -259,7 +259,7 @@ Feature: Validate scenarios in Progress Report without background
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on "Submit to Grantor" in the page details
@@ -982,7 +982,7 @@ Feature: Validate scenarios in Progress Report without background
       | Description | Required  | Applies To      | Status |
       | Automation  | Mandatory | Progress Report | Active |
     And I click on "Upload Template" icon for "Automation" inside flex table with id "---progressreport:-:grantChecklistsTableId---" with wait for record
-    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     And I click modal button "Close"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -1011,7 +1011,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @59289 @TemplateLinkOptional @jitendra
+  @59289 @TemplateLinkOptional
   Scenario Outline: Validate  Supporting Checklist Table at Progress Report is generated with the latest updated data by award owner at SR User End
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -7558,7 +7558,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "Edit" in the page details
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Save" in the page details

@@ -5203,7 +5203,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @hitRun @198024 @ValidateEXEusercandotheneedfulonaawardriskassessmentandsubmititforpeerreviewtoanotheruserafterownershipistransferred @sprint-12-US-226646  @reassignment
+  @198024 @ValidateEXEusercandotheneedfulonaawardriskassessmentandsubmititforpeerreviewtoanotheruserafterownershipistransferred @sprint-12-US-226646  @reassignment
   Scenario: Validate EXE user can do the needful on a award risk assessment and submit it for peer review to another user after ownership is transferred
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -5508,7 +5508,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
 
-  @hitRun @197973 @201283 @ValidateADMINhasanoptiontochangeownershipofAwardRiskAssessmenttransferitsownershipwhenithasstatusascreatedandownerisPM @sprint-12-US-226646  @reassignment @buglogged-201264
+   @197973 @201283 @ValidateADMINhasanoptiontochangeownershipofAwardRiskAssessmenttransferitsownershipwhenithasstatusascreatedandownerisPM @sprint-12-US-226646  @reassignment @buglogged-201264
   Scenario: Validate ADMIN has an option to change ownership of Award Risk Assessment, transfer its ownership when it has status as created and owner is PM
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6035,7 +6035,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PO1" for title "Name" inside table "---riskassessment:-:riskAssOwnerTableId---"
 
-  @hitRun @198700 @ValidateEXEprofileuserasRAownershouldremainsameasgrantownerifownershipofGrantistransferredfromEXE1toEXE2whichisinCreatedstatusbeforecreatingtheRAonthataward @sprint-12-US-226646  @reassignment
+  @198700 @ValidateEXEprofileuserasRAownershouldremainsameasgrantownerifownershipofGrantistransferredfromEXE1toEXE2whichisinCreatedstatusbeforecreatingtheRAonthataward @sprint-12-US-226646  @reassignment
   Scenario: Validate EXE profile user as RA owner should remain same as grant owner if ownership of Grant is transferred from EXE1 to EXE2 which is in 'Created' status before creating the RA on that award
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab

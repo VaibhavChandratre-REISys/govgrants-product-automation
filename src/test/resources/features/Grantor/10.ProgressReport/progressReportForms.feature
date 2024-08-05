@@ -446,7 +446,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     #286159
     And I close the tab
-    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
@@ -3383,6 +3383,7 @@ Feature: Validate scenarios in Progress Report Forms
 #    We don't have support for dropdown in form hence commented this step
 #    And I select "Tangible Personal Property Report - Final Report - SF-428-B" from dropdown at forms
 #    When I click on "Edit" in the page details
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
@@ -3735,6 +3736,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
     #285304
     When I click on "Edit" in the page details
+    And I wait for "2" seconds
     When I enter value "Checked" into field "RequestTransfertoAward__c"
     And I enter value "11" into field "FederalAwardIdentifier__c"
     When I enter value "Unchecked" into field "RequestFederalAgency__c"
@@ -3757,6 +3759,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     #285305
     When I click on "Edit" in the page details
+    And I wait for "2" seconds
     When I enter value "Checked" into field "RequestTransfertoAward__c"
     And I enter value "11" into field "FederalAwardIdentifier__c"
     When I enter value "Checked" into field "RequestFederalAgency__c"
