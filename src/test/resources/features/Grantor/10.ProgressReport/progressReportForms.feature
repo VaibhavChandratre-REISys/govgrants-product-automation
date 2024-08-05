@@ -3391,7 +3391,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I switch to tab number "1"
     And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "3" seconds
 #    Then I softly see the following messages in the page details :
 #      | Form saved successfully. |
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
@@ -6864,7 +6864,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
- @prog1 @329934 @ValidateusershouldbeabletoeditallformsontheprogressreportwhichisreparentedtonewawardafterFCamendmentrequestandapproveprogressreportsuccessfullyPreconditionPartiallyfilledsomeformsonProgressreportofInitialaward @sprint-11-US-328848 @Forms @EndToEndFlow
+ @329934 @ValidateusershouldbeabletoeditallformsontheprogressreportwhichisreparentedtonewawardafterFCamendmentrequestandapproveprogressreportsuccessfullyPreconditionPartiallyfilledsomeformsonProgressreportofInitialaward @sprint-11-US-328848 @Forms @EndToEndFlow
   Scenario: Validate user should be able to edit all forms on the progress report which is reparented to new award after FC amendment request and approve progress report successfully Pre-condition Partially filled some forms on Progress report of Initial award
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"

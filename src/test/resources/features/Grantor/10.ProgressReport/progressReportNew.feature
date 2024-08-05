@@ -225,7 +225,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     And I close the tab
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
@@ -242,7 +242,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Name                     | Progress Report |
       | {SavedValue:FO Username} | Step 2          |
     Given I click on "Submit for Approval" in the page details
-    And I wait for "2" seconds
+    And I wait for "10" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -4338,7 +4338,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @prog1 @62240 @62247 @validateSubmittedForApprovalPRAfterTCAmendmentIsCarryForwardedAonGrantAtInternalportalAndPM
+  @62240 @62247 @validateSubmittedForApprovalPRAfterTCAmendmentIsCarryForwardedAonGrantAtInternalportalAndPM
   Scenario Outline: Validate Progress reports with Submitted for approval Status is carried forward at Performance Tab Subaward Overview at SR user end when Award owner performed Terms and Conditions Change Amendment.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
