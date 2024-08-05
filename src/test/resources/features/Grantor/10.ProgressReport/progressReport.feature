@@ -386,7 +386,7 @@ Feature: Validate all scenarios in Progress Report
       | progressReportsScheduleId                        | progressReportSheet              | subawardsTableId                            | activeGrantsTableId                        |
       | ---progressReport:-:progressReportsScheduleId--- | ProgressReport_Field_Values.xlsx | ---subAwardStandalone:-:subawardsTableId--- | ---progressReport:-:activeGrantsTableId--- |
 
-  @59679 @58763 @45730 @ProgramApproverSenBackPRToOwner  @NewProgressFinal
+  @59679 @58763 @45730 @ProgramApproverSenBackPRToOwner @NewProgressFinal @TBExecution
   Scenario: Validate  Progress Report send back to owner functionality by program approver. | Validate Performance Tab under Subaward view at Sub-recipient user is getting updated when Progress report status is Submitted to Grantor on active subaward
   Validate Submit for Approval button disappear from Progress report once Award owner click on it.
     And I click on "Edit" in the page details
@@ -433,7 +433,7 @@ Feature: Validate all scenarios in Progress Report
     And I "Send to Owner" in the approval decision
     And I wait for "5" seconds
     And I refresh the page
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
   @59680 @58742 @validateInternalUserIsNotAllowedToEditProgressReportWhoseStatusIsSendBackToSubRecipient
   Scenario: Validate Internal User is not allowed to Edit the Progress report generated whose status is Send back to sub-recipient on active award
