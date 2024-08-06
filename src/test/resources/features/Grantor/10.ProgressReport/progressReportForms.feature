@@ -5693,7 +5693,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see value "Request for Advance or Reimbursement - SF-270" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Payment Request Report" for title "Report Type" inside table "---program:-:previewPackageTableId---"
 
-  @287721 @ValidateEXEusercanseebelow13formsonProgressReportunderFilesFormssectionofProgressReport @sprint-1-US-278368 @Forms @Buglogged-339404 @TBExecution
+  @287721 @ValidateEXEusercanseebelow13formsonProgressReportunderFilesFormssectionofProgressReport @sprint-1-US-278368 @Forms
   Scenario: Validate EXE user can see below 13 forms on Progress Report under Files & Forms section of Progress Report
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
