@@ -80,8 +80,8 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" icon for "Federal Financial Report - SF-425" inside flex table with id "---progressReport:-:formTableId---"
     And I pause execution for "4" seconds
     And I switch to tab number "1"
-    Then I softly see the text containing "OMB Number: 4040-0018"
-    Then I see the page contains text "Expiration Date: 11/30/2024"
+    Then I softly see the text containing "OMB Number: 4040-0014"
+    Then I see the page contains text "Expiration Date: 02/28/2025"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     When I click on "Save" in the page details
@@ -673,7 +673,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | "Sum of Cumulative Federal Cash Disbursement" must be Equal to "10 b Cash Disbursement" in Transactions section of Federal Financial Report (SF-425). |
 
-  @284854 @283885 @283920 @284017 @ValidateSF428SSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-26-US-282679 @Forms @TBExecution1
+  @284854 @283885 @283920 @284017 @ValidateSF428SSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-26-US-282679 @Forms
   Scenario: Validate SF428 S SPI user can able to save & validate form after entering correct & valid data on all fields present on form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"

@@ -888,7 +888,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @59193 @validateDocumentLinkFieldValueChangeToViewHyperlink @TBExecution1
+  @59193 @validateDocumentLinkFieldValueChangeToViewHyperlink
   Scenario Outline: Validate once document is uploaded by SR user than Document Link field value change to view hyperlink on created Progress report
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -1214,7 +1214,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @59672 @validateAwardOwnerCanNotDeleteSupportingDocumentChecklist @TBExecution1
+  @59672 @validateAwardOwnerCanNotDeleteSupportingDocumentChecklist
   Scenario Outline: Validate Internal User is not able to delete the uploaded supporting documents by SPI3 user when Progress report status is submitted to Grantor
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -1356,7 +1356,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @59573 @59572 @59188_1 @59574 @59288 @dowloadAttachment @TBExecution1
+  @59573 @59572 @59188_1 @59574 @59288 @dowloadAttachment
   Scenario Outline: : Validate SR User is able to download the uploaded document from attachment table on Progress report | Validate SR user is able to download the document from Subrecipient Document Link field when document is uploaded.
   Validate SR user is able to Delete the documents uploaded at supporting document checklist table at progress report | Validate SR User can View the template document at Progress report if template is uploaded by award owner at Grant level.
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
@@ -2171,9 +2171,6 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" in the page details
-    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the page details
     And I wait for "2" seconds
     And I navigate to "Performance" sub tab
     Given I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
@@ -2666,7 +2663,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click "{SavedValue:SubAwardID}" lookup link
     Then I see field "Subaward Title" as "{SavedValue:Automation Runtime Award}"
 
-  @60921 @budgetPeriodOnPROverviewTab @TBExecution1
+  @60921 @budgetPeriodOnPROverviewTab
   Scenario: Validate on Progress report Budget Period field at Report Overview table under Overview tab is same as Award.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
@@ -2893,7 +2890,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @60881 @validateProgramApprovercannotApproveProgressReportWhenFinalprogressreportApproved @buglogged135383 @TBExecution1
+  @60881 @validateProgramApprovercannotApproveProgressReportWhenFinalprogressreportApproved @buglogged135383
   Scenario Outline: Validate Program Approver cannot approve the progress report when Final progress report is already approved
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3924,7 +3921,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @63103 @63118 @validatePRCreatedStatusAfterCloseoutApprovalAtSPIEndEarlyCompletion @TBExecution1
+  @63103 @63118 @validatePRCreatedStatusAfterCloseoutApprovalAtSPIEndEarlyCompletion
   Scenario Outline: Verify Progress report with created status changed to Force Closed when closeout request is approved with type as Early completion by award owner.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -4676,7 +4673,6 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Override" in the page details
     And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
-    And I refresh the page
     And I wait for "2" seconds
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -5626,7 +5622,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62916 @62917 @validateAwardedBudgetFieldSameAfterAdvPRApproved1 @TBExecution1
+  @62916 @62917 @validateAwardedBudgetFieldSameAfterAdvPRApproved1
   Scenario Outline: Verify (Perentage of Budget Remaining | YTD Expenditures) fields gets updated on Progress report at award owner end
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -6237,7 +6233,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Responsibilities" sub tab
     Then I cannot see top right button "New" in flex table with id "---progressreport:-:peerReviewersTableId---"
 
-  @197383 @ValidatestateissubmitforapprovalofPR&thenchangetheOwnershipofPRthenPRissamestatebothnew&oldowner @sprint-4 @reassignment @TBExecution1
+  @197383 @ValidatestateissubmitforapprovalofPR&thenchangetheOwnershipofPRthenPRissamestatebothnew&oldowner @sprint-4 @reassignment
   Scenario: Validate state is submit for approval of PR & then change the Ownership of PR  then PR is same state both new & old owner
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -6435,7 +6431,7 @@ Feature: Validate scenarios in Progress Report without background
     And I pause execution for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
-    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "ProgressReports__c"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "ProgressReports__c,false"
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
