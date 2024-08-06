@@ -813,7 +813,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I cannot see row level action button "Edit" against "Notes Record1" in flex table with id "---progressreport:-:progressNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record1" in flex table with id "---progressreport:-:progressNotesTableId---"
 
-  @236045  @sprint-12-US-234322 @Notes @TBExecution
+  @236045  @sprint-12-US-234322 @Notes
   Scenario:Verify that <IND> User Cant Add notes In Progress Report If the record status is in the Submitted to Grantor  And Can Only Edit /Delete Notes Added by him
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"

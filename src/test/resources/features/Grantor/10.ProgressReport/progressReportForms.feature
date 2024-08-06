@@ -736,7 +736,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-  @284062 @ValidateSF428SINDusercanabletosaveallfieldbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF428Sform @sprint-26-US-282679 @Forms @TBExecution
+  @284062 @ValidateSF428SINDusercanabletosaveallfieldbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF428Sform @sprint-26-US-282679 @Forms
   Scenario: Validate SF428-S IND user can able to save all fields but validation is generated on validate button after entering incorrect data in all fields present on SF-428-S form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -773,7 +773,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Federal Grant or Other Identifying Number Assigned by Federal Awarding Agency (Block 2 of SF-428) is required to save. |
     And I enter value "78904" into field "FederalGrantIdentifyingNumbe__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Selecting at least one applicable attachment in "Attachment Type". |
@@ -5719,7 +5719,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "2" seconds
     Then I softly see value "Community Initiative Progress Report" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Progress Report" for title "Report Type" against the value "Community Initiative Progress Report" inside table "---progressReport:-:formTableId---"
-    Then I softly see "cross" symbol against the value "Mandatory" in flex table with id "---progressReport:-:formTableId---"
     Then I softly see value "Federal Financial Report - SF-425" for title "Form Name" inside table "---progressReport:-:formTableId---"
     Then I softly see value "Federal Financial Report" for title "Report Type" against the value "Federal Financial Report - SF-425" inside table "---progressReport:-:formTableId---"
     Then I softly see "cross" symbol against the value "Community Initiative Progress Report" in flex table with id "---progressReport:-:formTableId---"

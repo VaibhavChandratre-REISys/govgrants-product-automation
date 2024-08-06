@@ -386,7 +386,7 @@ Feature: Validate all scenarios in Progress Report
       | progressReportsScheduleId                        | progressReportSheet              | subawardsTableId                            | activeGrantsTableId                        |
       | ---progressReport:-:progressReportsScheduleId--- | ProgressReport_Field_Values.xlsx | ---subAwardStandalone:-:subawardsTableId--- | ---progressReport:-:activeGrantsTableId--- |
 
-  @59679 @58763 @45730 @ProgramApproverSenBackPRToOwner @NewProgressFinal @TBExecution
+  @59679 @58763 @45730 @ProgramApproverSenBackPRToOwner @NewProgressFinal
   Scenario: Validate  Progress Report send back to owner functionality by program approver. | Validate Performance Tab under Subaward view at Sub-recipient user is getting updated when Progress report status is Submitted to Grantor on active subaward
   Validate Submit for Approval button disappear from Progress report once Award owner click on it.
     And I click on "Edit" in the page details

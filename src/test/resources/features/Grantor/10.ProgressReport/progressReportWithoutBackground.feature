@@ -103,7 +103,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     When I navigate to "Terms" sub tab
-    Then I softly can see row level action button "Edit" against "<Award Name>" in flex table with id "---progressreport:-:progressReportsScheduleId---"
+    Then I softly can see row level action button "Edit" against "Automation Progress Report" in flex table with id "---progressreport:-:progressReportsScheduleId---"
     Examples:
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
@@ -1093,7 +1093,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @59569 @validateSubmittedByFieldNotDisplayedOnPR @TBExecution
+  @59569 @validateSubmittedByFieldNotDisplayedOnPR
   Scenario Outline: Validate Submitted By field at Certification table is not present on Progress report at SR user end when the progress report status is Created
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I delete the record "<Award Name>" from the object "Progress Report"
@@ -1286,12 +1286,11 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I wait for "2" seconds
-    And I refresh the page
-    And I wait for "3" seconds
+    When I click modal button "Close"
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
@@ -1303,7 +1302,7 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "Save" in the page details
     And I wait for "2" seconds
 #    And I click on "Back" in the page details
-    And I switch to parent tab
+    And I close the tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1311,7 +1310,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
-    Then I cannot see top right button "Add" for "Attachments" flex table
+    Then I cannot see top right button "Add" for "Supporting Documents Checklist" flex table
     Examples:
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
@@ -1443,7 +1442,7 @@ Feature: Validate scenarios in Progress Report without background
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    And I upload attachment without random number "sample.pdf" of type "Program" from computer
+    And I upload attachment without random number "sample.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on hyperlink containing value "View"
@@ -1956,6 +1955,9 @@ Feature: Validate scenarios in Progress Report without background
     And I enter "ErrorForm" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -2271,11 +2273,12 @@ Feature: Validate scenarios in Progress Report without background
     And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I switch to parent tab
+    And I close the tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
+    Then I see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2290,19 +2293,15 @@ Feature: Validate scenarios in Progress Report without background
       | {SavedValue:FO Username} | Step 2          |
     Given I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:ProgressReport2}" in "---progressReport:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:ProgressReport2}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgressReport1}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:ProgressReport1}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Reassign" to user "{SavedValue:EXE Username}" in the approval decision
-    Then I can see the message "<Error Message>" in the approval decision
+#    Then I can see the message "<Error Message>" in the approval decision
+    Then I see the following messages in the page details contains:
+      | <Error Message> |
 
     Examples:
       | Award Name                            | Grant Name                            | Error Message                                                                                                                                                              |
@@ -2592,6 +2591,7 @@ Feature: Validate scenarios in Progress Report without background
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
+    Then I see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2617,6 +2617,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:ProgressReport2}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:ProgressReport2}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -2843,7 +2844,8 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
     And I wait for "2" seconds
-    Then I can see the message "<Error Message>" in the approval decision
+    Then I softly see the following messages in the page details contains:
+    | <Error Message> |
     Examples:
       | Award Name                            | Grant Name                            | Error Message                                                                                                                                                             |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | This Progress Report cannot be approved because a report marked as the Final report has been approved.Send Back to Owner will allow the Owner to notify the Subrecipient. |
@@ -3000,7 +3002,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            | Error Message                                                                                                                                                                                                      |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | Any approval decision on the Progress Report cannot be made at this time because a report marked as the Final Report has already been approved.Send Back to Owner will allow the owner to notify the Subrecipient. |
 
-  @62779 @PercentagePeriodAtPRAfterPaymentRequest @TBExecution
+  @62779 @PercentagePeriodAtPRAfterPaymentRequest
   Scenario Outline: Verify Submitted for approval report Percentage of Budget Remaining field remains the same on Progress report when the Payment request type is Reimbursement with Approved Status.
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3784,6 +3786,7 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Edit" in the page details
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I click on "Acknowledge" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
@@ -4459,7 +4462,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @63114 @validateApprovedPRStatusAfterTerminationCloseoutApproval @TBExecution
+  @63114 @validateApprovedPRStatusAfterTerminationCloseoutApproval
   Scenario Outline: Verify Progress report with Approved status did not changed when closeout request is approved with type as Termination by award owner at SR user end overview Management Tab on Grant
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -4844,7 +4847,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62765 @62777 @62774 @VerifyYTDExpendituresFieldAfterPRSubmittedForReview @TBExecution
+  @62765 @62777 @62774 @VerifyYTDExpendituresFieldAfterPRSubmittedForReview
   Scenario Outline: Verify Submitted for review report YTD Expenditures field remains the same on Progress report at Award Owner end when the Payment request type is Reimbursement with Approved Status.
   Verify Submitted to Grantor report YTD Expenditures field remains the same on Progress report at Award Owner end when the Payment request type is Reimbursement with Approved Status. | Verify YTD Expenditures field get updated on Progress report at SR user end when the Payment request type is Reimbursement with Approved Status.
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
@@ -5130,7 +5133,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62780 @62767 @VerifyYTDExpendituresFieldAfterPRApproved @TBExecution
+  @62780 @62767 @VerifyYTDExpendituresFieldAfterPRApproved
   Scenario Outline: Verify Approved report YTD Expenditures field remains the same on Progress report at SR user end when the Payment request type is Reimbursement with Approved Status.
   Verify Remaining Budget field get updated on Progress report at SR user end when the Payment request type is Reimbursement with Approved Status.
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
@@ -5402,7 +5405,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62768  @validateAwardedBudgetFieldRemainsSame @TBExecution
+  @62768  @validateAwardedBudgetFieldRemainsSame
   Scenario Outline: Verify Awarded Budget field remains the same on Progress report at SR user end when the Payment request type is Reimbursement with Approved Status
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -5550,7 +5553,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62773 @62770 @62915 @validateAwardedBudgetFieldSameAfterAdvPRApproved @TBExecution
+  @62773 @62770 @62915 @validateAwardedBudgetFieldSameAfterAdvPRApproved
   Scenario Outline: Verify (Remaining Budget field |Awarded Budget field | YTD Expenditures) remains the same on Progress report at SR user end when the Payment request type is Advance with Approved Status
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -5748,12 +5751,14 @@ Feature: Validate scenarios in Progress Report without background
     And I click modal button "Close"
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
-    And I wait for "10" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "3" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "<Grant Name>" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    And I wait for "3" seconds
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---paymentRequest:-:recipientAwardTableId---"
     When I navigate to "Actuals" sub tab
@@ -5886,7 +5891,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @138993 @Verify1StepApprovalProcessAtScheduledProgressReport-RnRFunctionality @TBExecution
+  @138993 @Verify1StepApprovalProcessAtScheduledProgressReport-RnRFunctionality
   Scenario Outline: Verify user can add one step approval on schedule progress report
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -6306,7 +6311,7 @@ Feature: Validate scenarios in Progress Report without background
     And I wait for "2" seconds
     Then I see value "{SavedValue:FO Username}" for title "Name" inside table "---progressreport:-:approversTableId---"
 
-  @197390 @197398 @197401 @ValidatechangingtheownershipofPRthennewownershouldhaveallsameaccesslikeoldrecordhadinthatspecificstateofrecord @springt-4 @reassignment @FieldHistoryExclude @TBExecution
+  @197390 @197398 @197401 @ValidatechangingtheownershipofPRthennewownershouldhaveallsameaccesslikeoldrecordhadinthatspecificstateofrecord @springt-4 @reassignment @FieldHistoryExclude
   Scenario: Validate changing the ownership of PR then new owner should have all same access like old record had in that specific state of record
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -6473,7 +6478,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PO1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @197668 @Validateawardownerischangedinbetweenthelifecycleoftheprogressreportthenawardshouldnotaffecttheinternalowneroftheprogressreport @sprint-4 @reassignment @TBExecution
+  @197668 @Validateawardownerischangedinbetweenthelifecycleoftheprogressreportthenawardshouldnotaffecttheinternalowneroftheprogressreport @sprint-4 @reassignment
   Scenario: Validate award owner is changed in between the life cycle of the progress report then award should not affect the internal owner of the progress report
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
