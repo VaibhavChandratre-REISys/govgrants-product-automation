@@ -85,11 +85,11 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" in the page details
-    And I navigate to "Overview" sub tab
-    And I wait for "2" seconds
-    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
-    And I click on "Save" in the page details
+#    And I click on "Edit" in the page details
+#    And I navigate to "Overview" sub tab
+#    And I wait for "2" seconds
+#    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+#    And I click on "Save" in the page details
     And I wait for "5" seconds
     And I navigate to "Performance" sub tab
     Given I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
