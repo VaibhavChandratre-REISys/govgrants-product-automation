@@ -6724,7 +6724,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I close the tab
     #SF 428 Form
     And I wait for "3" seconds
-    And I click on "View" icon for "Tangible Personal Property Report - SF-42" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     When I click on "Edit" in the page details
     And I enter "SF428_Form" values from "ProgressReport_Field_Values.xlsx"
