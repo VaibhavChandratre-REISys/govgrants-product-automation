@@ -2199,7 +2199,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @60882 @validateFiscalApprovercannotForwardProgressReportWhenFinalprogressreportAlreadyApproved @buglogged133121 @TBExecution
+  @60882 @validateFiscalApprovercannotForwardProgressReportWhenFinalprogressreportAlreadyApproved @buglogged133121
   Scenario Outline: Validate Fiscal Approver cannot Forward the Progress report when Final progress report request is already approved
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2736,7 +2736,7 @@ Feature: Validate scenarios in Progress Report without background
     And I wait for "5" seconds
     Then I softly see field "External Organization" as "SAN DIEGO ELECTRICAL TRAINING TRUST"
 
-  @60879 @validateProgramApprovercannotApprovePRWhenFinalPRAlreadyApproved @smoke @TBExecution
+  @60879 @validateProgramApprovercannotApprovePRWhenFinalPRAlreadyApproved @smoke
   Scenario Outline: Validate Program approver is not allowed to approve the pending progress report if another Final Progress report is approved
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -5721,7 +5721,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62918 @62919 @validateFieldSameAfterAdvPRApproved @TBExecution
+  @62918 @62919 @validateFieldSameAfterAdvPRApproved
   Scenario Outline: Verify (Remaining Budget |Awarded Budget ) fields remains the same on Progress report at award owner end when advance PR is approved
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -5883,7 +5883,7 @@ Feature: Validate scenarios in Progress Report without background
     And I wait for "2" seconds
     Then I softly see "Saved Successfully!" inside flex table with id "---progressReport:-:approversTableId---"
     And I wait for "3" seconds
-    And I click on "Submit f6or Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
