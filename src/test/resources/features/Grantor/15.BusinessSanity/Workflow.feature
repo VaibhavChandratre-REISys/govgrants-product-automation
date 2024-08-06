@@ -1537,6 +1537,35 @@ Feature: Validate all scenarios of every modules flow
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I wait for "9" seconds
+    And I select "Tangible Personal Property Report - Final Report - SF-428-B" from dropdown at forms
+    When I click on "Edit" in the page details
+    And I select value inside table "---progressReport:-:formTableId---" is "All"
+    And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I enter "SF428B_Form_deselect" values from "ProgressReport_Field_Values.xlsx"
+    And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "14k. NHPA" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
     When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+#    We don't have support for dropdown in form hence commented this step
+#    And I select "Tangible Personal Property Report - SF-428" from dropdown at forms
+    And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details :
+      | Select the Final (Award Closeout) Report (SF-428-B) as required form is filled. |

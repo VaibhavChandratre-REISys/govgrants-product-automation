@@ -3384,12 +3384,12 @@ Feature: Validate scenarios in Progress Report Forms
     #Fill SF428-B Form
     And I close the tab
 #    We don't have support for dropdown in form hence commented this step
-#    And I select "Tangible Personal Property Report - Final Report - SF-428-B" from dropdown at forms
-#    When I click on "Edit" in the page details
+    And I select "Tangible Personal Property Report - Final Report - SF-428-B" from dropdown at forms
+    When I click on "Edit" in the page details
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
-    And I enter "SF428B_2c_deselect" values from "ProgressReport_Field_Values.xlsx"
+    And I enter "SF428B_Form_deselect" values from "ProgressReport_Field_Values.xlsx"
     And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "3" seconds
@@ -6729,6 +6729,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     #SF 428 Form
+    And I wait for "3" seconds
     And I click on "View" icon for "Tangible Personal Property Report - SF-42" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     When I click on "Edit" in the page details
@@ -6743,6 +6744,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Select Supplement Sheet as Yes as required form is filled. |
     And I close the tab
     # SF429-A Form
+    And I wait for "3" seconds
     And I click on "View" icon for "Real Property Status Report ATTACHMENT A (General Reporting)- SF-429-A" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I click on "Edit" in the page details
@@ -6762,6 +6764,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     # SF429-B Form
+    And I wait for "3" seconds
     And I click on "View" icon for "Real Property Status Report ATTACHMENT B (Request to Acquire, Improve or Furnish)- SF-429-B" inside flex table with id "---progressReport:-:formTableId---" without Split
     And I switch to tab number "1"
     And I click on "Edit" in the page details
@@ -6772,6 +6775,7 @@ Feature: Validate scenarios in Progress Report Forms
 #      | Form saved successfully. |
     And I close the tab
     # SF429-C Form
+    And I wait for "3" seconds
     And I click on "View" icon for "Real Property Status Report ATTACHMENT C (Disposition or Encumbrance Request)-SF-429-C" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I click on "Edit" in the page details
@@ -6782,6 +6786,7 @@ Feature: Validate scenarios in Progress Report Forms
 #      | Form saved successfully. |
     And I close the tab
     # SF429 Form
+    And I wait for "3" seconds
     And I click on "View" icon for "Real Property Status Report (Cover Page) - SF-429" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I click on "Edit" in the page details
@@ -6792,6 +6797,7 @@ Feature: Validate scenarios in Progress Report Forms
 #      | Form saved successfully. |
     And I close the tab
     #SF-271
+    And I wait for "3" seconds
     And I click on "View" icon for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I click on "Edit" in the page details
@@ -6824,6 +6830,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Form validated successfully. |
     And I close the tab
     #Community Form
+    And I wait for "3" seconds
     And I click on "View" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I click on "Edit" in the page details
