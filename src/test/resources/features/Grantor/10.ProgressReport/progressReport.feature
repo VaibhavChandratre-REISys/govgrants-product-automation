@@ -30,6 +30,7 @@ Feature: Validate all scenarios in Progress Report
       | Performance Tab - Provide a value for Plans for Progress Report before submitting to Grantor.               |
       | Performance tab - Please add some value in the Actual of the KPI table                                      |
     And I click on "Edit" in the page details
+    When I enter value "Checked" into field "Agreement1__c"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I pause execution for "5" seconds
