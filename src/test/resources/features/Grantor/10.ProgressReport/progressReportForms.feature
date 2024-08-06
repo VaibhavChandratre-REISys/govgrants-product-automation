@@ -3312,7 +3312,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Annual Report (SF-428-A) is required to be submitted as it is selected in field 6 'Attachment'. |
       | Select Supplement Sheet as Yes as required form is filled.                                      |
 
- @prog @285223 @ValidateSF428BvalidationshouldbedisplayonparentformSF428ifchildformnotvalidatedbutselectyesonparentform @sprint-26-US-282679  @Forms
+ @285223 @ValidateSF428BvalidationshouldbedisplayonparentformSF428ifchildformnotvalidatedbutselectyesonparentform @sprint-26-US-282679  @Forms
   Scenario: Validate SF428 B validation should be display on parent form SF428 if child form not validated but select yes on parent form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -3385,30 +3385,36 @@ Feature: Validate scenarios in Progress Report Forms
     And I close the tab
 #    We don't have support for dropdown in form hence commented this step
 #    And I select "Tangible Personal Property Report - Final Report - SF-428-B" from dropdown at forms
-#    When I click on "Edit" in the page details
-#    And I select value inside table "---progressReport:-:formTableId---" is "All"
-#    And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-#    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-#    And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
-#    When I click modal button "Close"
-#    And I wait for "2" seconds
-#    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-#    And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
-#    When I click modal button "Close"
-#    And I wait for "2" seconds
-#    And I refresh the page
-#    And I wait for "3" seconds
-#    When I click on "Validate" in the page details
+   And I select value inside table "---progressReport:-:formTableId---" is "All"
+   And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+   And I switch to tab number "1"
+   And I enter "SF428B_Form_deselect" values from "ProgressReport_Field_Values.xlsx"
+   And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
+   When I click on "Save" in the page details
+   And I wait for "3" seconds
 #    Then I softly see the following messages in the page details :
-#      | Form validated successfully. |
-#    And I close the tab
-##    We don't have support for dropdown in form hence commented this step
-##    And I select "Tangible Personal Property Report - SF-428" from dropdown at forms
-#    And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-#    And I switch to tab number "1"
-#    When I click on "Validate" in the page details
-#    Then I softly see the following messages in the page details :
-#      | Select the Final (Award Closeout) Report (SF-428-B) as required form is filled. |
+#      | Form saved successfully. |
+   And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
+   And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
+   When I click modal button "Close"
+   And I wait for "2" seconds
+   And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
+   And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
+   When I click modal button "Close"
+   And I wait for "2" seconds
+   And I refresh the page
+   And I wait for "3" seconds
+   When I click on "Validate" in the page details
+   Then I softly see the following messages in the page details :
+     | Form validated successfully. |
+   And I close the tab
+#    We don't have support for dropdown in form hence commented this step
+#    And I select "Tangible Personal Property Report - SF-428" from dropdown at forms
+   And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+   And I switch to tab number "1"
+   When I click on "Validate" in the page details
+   Then I softly see the following messages in the page details :
+     | Select the Final (Award Closeout) Report (SF-428-B) as required form is filled. |
 
   @280653 @ValidateSPIusercanseefieldReportsResidualUnusedSuppliesseefollowingoptionsunderthiieldonCompleterelevantsectionsofSF428Bform @sprint-25-US-280119  @Forms @BugLogged-281717
   Scenario: Validate SPI user can see field "Reports Residual Unused Supplies" & see following options under this field on Complete relevant section(s) of SF428B form
@@ -6268,7 +6274,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Please enter Zip code in the Zip + 4 codes format (e.g. 12345-1234) in the 'Zip / Postal code' field. |
 
- @prog1 @339610 @Validateusershouldbeabletosubmitandapprovedprogressreportwithfillingalldataonall13forms @sprint-12-US-328869 @Forms  @EndToEndFlow
+ @339610 @Validateusershouldbeabletosubmitandapprovedprogressreportwithfillingalldataonall13forms @sprint-12-US-328869 @Forms  @EndToEndFlow
   Scenario: Validate user should be able to submit and approved progress report with filling all data on all 13 forms
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -6601,7 +6607,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
-  @prog1 @329635 @Validateusershouldabletosubmitandaprovedprogressreportwithfillingpartialdataforsomefieldsondifferentdifferentformsfromall13forms @sprint-11-US-328863 @Forms @EndToEndFlow
+  @329635 @Validateusershouldabletosubmitandaprovedprogressreportwithfillingpartialdataforsomefieldsondifferentdifferentformsfromall13forms @sprint-11-US-328863 @Forms @EndToEndFlow
   Scenario: Validate user should able to submit and approved progress report with filling partial data for some fields on different different forms from all 13 forms
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"

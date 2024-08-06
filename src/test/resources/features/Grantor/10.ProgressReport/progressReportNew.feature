@@ -197,7 +197,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
- @prog1 @60658 @validateSubmittedForApprovalPRAfterFundingChangeAmendmentIsCarryForwarded
+ @60658 @validateSubmittedForApprovalPRAfterFundingChangeAmendmentIsCarryForwarded
   Scenario Outline: Validate Progress report with Submitted For Approval Status is carried forward at Performance Tab Subaward Overview at SR user end when Award owner performed Funding Change Amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -6731,7 +6731,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
- @prog1 @60723 @60724 @validateCreatedPRAfterFCAmendment
+ @60723 @60724 @validateCreatedPRAfterFCAmendment
   Scenario Outline: Validate Progress reports with Created Status when Award owner performed Funding Change Amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
