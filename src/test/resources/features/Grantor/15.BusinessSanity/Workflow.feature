@@ -1537,8 +1537,7 @@ Feature: Validate all scenarios of every modules flow
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I wait for "9" seconds
-    And I select "Tangible Personal Property Report - Final Report - SF-428-B" from dropdown at forms
-    When I click on "Edit" in the page details
+    When I navigate to "Forms and Files" sub tab
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
