@@ -716,13 +716,12 @@ Feature: Validate all scenarios in Negotiations
     And I click modal button "Close"
     And I wait for "3" seconds
     Then I see value "General Assurances" for title "Classification" inside table "GrantorApplicationFiles"
-    Then I softly see "General Assurances" has been added in "Application Files" flex table
-    And I click on "Edit" icon for "General Assurances" inside flex table with id "---applicationIntake:-:ApplicationAttachmentTableId---"
+    And I click on "Edit" icon for "General Assurances" inside flex table with id "GrantorApplicationFiles"
     And I select Classification as "Suspension" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
-    And I refresh the page
-    Then I softly see value "Suspension" for title "Classification" inside table "---applicationIntake:-:ApplicationAttachmentTableId---"
+    And I wait for "2" seconds
+    Then I softly see value "Suspension" for title "Classification" inside table "GrantorApplicationFiles"
 
   @62667 @RecordOwnerCanViewSnapshotAfterNegotiationIsInSubmittedToGrantor  @skipOnJenkins
   Scenario: Validate Record Owner user is able to view the Snapshot after Negotiation  is in "Submitted to Grantor" status
