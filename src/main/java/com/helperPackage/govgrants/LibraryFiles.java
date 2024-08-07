@@ -98,7 +98,8 @@ public final class LibraryFiles {
      * @param classification
      */
     public void selectClassificationAtUploadFileModalUnderLibrary(String classification) {
-        I.amPerforming().click().on(getClassificationAtUploadFileModalUnderLibrary(classification));
+        I.amPerforming().dropDownSelection().from(By.xpath("//div[@id='WorkspaceFileEdit']//select")).selectByValue(classification);
+//        I.amPerforming().click().on(getClassificationAtUploadFileModalUnderLibrary(classification));
     }
 
     /**

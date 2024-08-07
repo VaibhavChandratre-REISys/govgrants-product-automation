@@ -717,10 +717,12 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     Then I see value "General Assurances" for title "Classification" inside table "GrantorApplicationFiles"
     And I click on "Edit" icon for "General Assurances" inside flex table with id "GrantorApplicationFiles"
+    And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Suspension" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
     And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "GrantorApplicationFiles"
     Then I softly see value "Suspension" for title "Classification" inside table "GrantorApplicationFiles"
 
   @62667 @RecordOwnerCanViewSnapshotAfterNegotiationIsInSubmittedToGrantor  @skipOnJenkins

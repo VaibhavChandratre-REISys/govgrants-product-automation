@@ -26,18 +26,22 @@ Feature: Validate all scenarios in Payment Request with add file
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     And I pause execution for "3" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Invoice" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I softly see "Attachment.pdf" has been added in "Reimbursement Files" flex table
+    Then I softly see value "Invoice" for title "Classification" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     #193959
-    And I edit the following rows inline in flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---" by clicking "Edit" :
-      | Classification | Classification |
-      | Invoice        | Receipt        |
-    Then I softly see value "Receipt" for title "Classification" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
-    And I click on "Delete" icon for "Attachment.pdf" inside flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---" without waiting for record
+    And I click on "Edit" icon for "Invoice" inside flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Receipt" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
     And I wait for "2" seconds
-    Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
+    Then I softly see value "Receipt" for title "Classification" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
+    And I click on "Delete" icon for "Receipt" inside flex table with id "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---" without waiting for record
+    And I wait for "2" seconds
+    Then I softly do not see value "Receipt" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
 
   @193834 @VerifySPAusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles
   Scenario:Verify SPA user can add file on ad-hoc reimbursement PR if user has edit access on top edit button for PR in created state

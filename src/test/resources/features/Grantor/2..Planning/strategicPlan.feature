@@ -29,10 +29,13 @@ Feature: Validate all scenarios in Strategic Plan
     And I wait for "2" seconds
     Then I softly see "Strategic Plan" has been added in "Strategic Plan Files" flex table
     And I click on "Edit" icon for "Strategic Plan" inside flex table with id "---strategicplan:-:strategicGoalObjectivesAttTableId---"
+    And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Other" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
     And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---strategicplan:-:strategicGoalObjectivesAttTableId---"
     Then I softly see value "Other" for title "Classification" inside table "---strategicplan:-:strategicGoalObjectivesAttTableId---"
 
   @105447 @verifyDeletionOfStrategicPlan

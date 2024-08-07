@@ -311,10 +311,13 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Delete" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on "Edit" icon for "Other" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Supporting Documents" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
     And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly see value "Supporting Documents" for title "Classification" inside table "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"

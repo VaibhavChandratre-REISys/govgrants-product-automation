@@ -107,10 +107,12 @@ Feature: Validate all scenarios in the Pre-Application
     And I upload attachment "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I click on "Edit" icon for "Other" inside flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Justification Of Project Cost" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
     And I refresh the page
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
     Then I softly see value "Justification Of Project Cost" for title "Classification" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details

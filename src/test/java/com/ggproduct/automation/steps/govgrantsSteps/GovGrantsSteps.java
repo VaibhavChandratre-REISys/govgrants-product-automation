@@ -1192,4 +1192,9 @@ public final class GovGrantsSteps {
         ggObjects.toClickOnModuleOnLeftNavigationForGlobalSearch(moduleName);
     }
 
+    @And("I update title as {string} on upload file modal")
+    public void iUpdateTitleAsOnUploadFileModal(String titleName) {
+        ggObjects.toUpdateTitleAsOnUploadFileModal(titleName);
+    }
+
 }
