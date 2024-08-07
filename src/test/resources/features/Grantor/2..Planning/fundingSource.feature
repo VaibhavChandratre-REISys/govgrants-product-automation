@@ -303,13 +303,19 @@ Feature: Validate all scenarios in Funding Source
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Delete" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    And I click on "Edit" icon for "Other" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    And I select Classification as "Supporting Documents" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    Then I softly see value "Supporting Documents" for title "Classification" inside table "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
@@ -353,7 +359,7 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---" without waiting for record
-    Then I softly verify that the file "Attachment.pdf" is downloaded
+    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
 
   @196553 @ValidatefilerelatedpermissionsforADMINprofileduringtheworkflowStatusCreatedActivatedClosedwhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048
   Scenario: Validate file related permissions for ADMIN profile during the workflow Status (Created, Activated, Closed) when Internal Funding Source is created by EXE

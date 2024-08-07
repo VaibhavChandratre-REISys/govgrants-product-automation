@@ -46,10 +46,16 @@ Feature: Validate all scenarios in Key Performance Indicator(KPI)
     And I click on "Save" in the page details
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---keyperformanceindicator:-:GrantorKPIFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I upload attachment "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "Other" has been added in "KPI Files" flex table
+    And I click on "Edit" icon for "Other" inside flex table with id "---keyperformanceindicator:-:GrantorKPIFilesTableId---"
+    And I select Classification as "Supporting Documents" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    Then I softly see value "Supporting Documents" for title "Classification" inside table "---keyperformanceindicator:-:GrantorKPIFilesTableId---"
     Examples:
       | User  |
       | ADMIN |

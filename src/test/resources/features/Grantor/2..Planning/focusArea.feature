@@ -34,9 +34,15 @@ Feature: Validate all scenarios in Focus Area
     And I click on "Save" in the page details
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---focusarea:-:FocusAreaFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     And I click modal button "Close"
     Then I see "Other" has been added in "Focus Area Files" flex table
+    And I click on "Edit" icon for "Other" inside flex table with id "---focusarea:-:FocusAreaFilesTableId---"
+    And I select Classification as "Supporting Documents" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    Then I softly see value "Supporting Documents" for title "Classification" inside table "---focusarea:-:FocusAreaFilesTableId---"
     Examples:
       | User  |
       | ADMIN |

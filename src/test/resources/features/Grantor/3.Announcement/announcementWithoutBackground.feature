@@ -895,9 +895,15 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Close"
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Program Artifacts" from computer
     And I pause execution for "5" seconds
     And I click modal button "Close"
+    And I click on "Edit" icon for "Program Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
+    And I select Classification as "Other Artifacts" at upload file modal
+    When I click modal button "Save"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see value "Other Artifacts" for title "Classification" inside table "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"

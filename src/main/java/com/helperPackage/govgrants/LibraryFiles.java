@@ -107,7 +107,7 @@ public final class LibraryFiles {
      * @param classification
      */
     public WebElement getClassificationAtUploadFileModalUnderLibrary(String classification) {
-        By selectValueFromDropdown = By.xpath("//select[@name='Classification']//option[text()='" + classification + "'] //button[@name='Classification']//span[contains(text(),'" + classification + "')]");
+        By selectValueFromDropdown = By.xpath("//select[@name='Classification']//option[text()='" + classification + "'] | //button[@name='Classification']//span[contains(text(),'" + classification + "')]");
         return I.amPerforming().getElementReference().of(selectValueFromDropdown);
     }
 

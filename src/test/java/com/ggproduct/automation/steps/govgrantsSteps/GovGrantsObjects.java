@@ -440,7 +440,7 @@ public final class GovGrantsObjects {
             }
             I.amPerforming().click().on(classificationType);
             I.amPerforming().click().on(selectClassificationType);
-            I.amPerforming().waitFor().makeThreadSleep(5000);
+            I.amPerforming().waitFor().makeThreadSleep(2000);
             I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);
             I.amPerforming().click().withJavaScript(By.xpath("//button[text()='Upload']"));
         } finally {

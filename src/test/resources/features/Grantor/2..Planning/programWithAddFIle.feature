@@ -19,7 +19,7 @@ Feature: Validate all scenarios for program with add file
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
-    And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
+    And I upload attachment "AttachmentTesting.pdf" of type "Program Artifacts" from computer
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see "Program Artifacts" has been added in "Program Files" flex table

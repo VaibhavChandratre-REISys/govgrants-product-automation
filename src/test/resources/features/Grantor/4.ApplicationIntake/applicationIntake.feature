@@ -253,6 +253,12 @@ Feature: Validate all scenarios in the Application Intake
     And I click on top right button "Add Files" in flex table with id "---applicationIntake:-:ApplicationAttachmentTableId---"
     And I upload attachment "Attachment.pdf" of type "General Assurances" from computer
     When I click modal button "Close"
+    And I click on "Edit" icon for "General Assurances" inside flex table with id "---applicationIntake:-:ApplicationAttachmentTableId---"
+    And I select Classification as "Supporting Documents" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    Then I softly see value "Supporting Documents" for title "Classification" inside table "---applicationIntake:-:ApplicationAttachmentTableId---"
     And I wait for "3" seconds
     Then I softly see "General Assurances" has been added in "Application Files" flex table
     When I enter the following values into flex table with id "---applicationIntake:-:ApplicationNotesTableId---" by clicking "New" :
