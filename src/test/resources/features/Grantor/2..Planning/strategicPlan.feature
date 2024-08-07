@@ -33,7 +33,7 @@ Feature: Validate all scenarios in Strategic Plan
     When I click modal button "Save"
     And I click modal button "Close"
     And I refresh the page
-    Then I softly see value "Others" for title "Classification" inside table "---strategicplan:-:strategicGoalObjectivesAttTableId---"
+    Then I softly see value "Other" for title "Classification" inside table "---strategicplan:-:strategicGoalObjectivesAttTableId---"
 
   @105447 @verifyDeletionOfStrategicPlan
   Scenario: Validate user is able to delete strategic plan

@@ -2334,6 +2334,12 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see "Financial Artifacts" has been added in "Subaward Risk Assessment Files" flex table
+    And I click on "Edit" icon for "Financial Artifacts" inside flex table with id "---orgRiskAssessment:-:awardRiskAssessmentTableId---"
+    And I select Classification as "Program Artifacts" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Program Artifacts" for title "Classification" inside table "---orgRiskAssessment:-:awardRiskAssessmentTableId---"
 
   @60218 @taskNotCreatedForFOWhenPMSendbacktoOwnerOfRiskAssessment
   Scenario: To validate  task is not created for Fiscal Approver when progress approver Sends back the Risk Assessment to Owner.
