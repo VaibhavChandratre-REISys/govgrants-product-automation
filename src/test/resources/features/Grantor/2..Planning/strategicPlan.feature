@@ -29,7 +29,7 @@ Feature: Validate all scenarios in Strategic Plan
     And I wait for "2" seconds
     Then I softly see "Strategic Plan" has been added in "Strategic Plan Files" flex table
     And I click on "Edit" icon for "Strategic Plan" inside flex table with id "---strategicplan:-:strategicGoalObjectivesAttTableId---"
-    And I select Classification as "Others" at upload file modal
+    And I select Classification as "Other" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
     And I refresh the page
