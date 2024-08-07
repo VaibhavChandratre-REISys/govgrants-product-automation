@@ -362,7 +362,7 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Supporting Documents" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Supporting Documents" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on "Download" icon for "Supporting Documents" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---" without waiting for record
-    Then I softly verify that the file "Attachment.pdf" is downloaded
+    Then I softly verify that the file "Automation.pdf" is downloaded
 
   @196553 @ValidatefilerelatedpermissionsforADMINprofileduringtheworkflowStatusCreatedActivatedClosedwhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048
   Scenario: Validate file related permissions for ADMIN profile during the workflow Status (Created, Activated, Closed) when Internal Funding Source is created by EXE
