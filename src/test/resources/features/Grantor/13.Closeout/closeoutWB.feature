@@ -681,9 +681,10 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Automation.pdf" for title "Title" inside table "---closeout:-:ExternalCloseoutDetailsTableId---"
     Then I softly see value "Other" for title "Classification" inside table "---closeout:-:ExternalCloseoutDetailsTableId---"
     #95607 #monu
-    And I click on "Delete" icon for "Attachment.pdf" inside flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---"
+    And I click on "Delete" icon for "Automation.pdf" inside flex table with id "---closeout:-:ExternalCloseoutDetailsTableId---"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
-      | File Attachment.pdf deleted successfully. |
+      | File Automation.pdf deleted successfully. |
 
   @96201 @96202 @VerifyCloseoutDeobligatedAmountForCloseout-Scheduled  @buglogged140762
   Scenario: Validate user can see closeout deobligated amount for created scheduled closeout request

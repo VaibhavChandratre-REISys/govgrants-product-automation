@@ -1283,7 +1283,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:PO Username}" in flex table with id "SiteVisitReviewerRoles"
 
-  @61406 @61405 @66273 @CreatedDatedisplayedOnOverviewTabAddAttchments @TBExecution
+  @61406 @61405 @66273 @CreatedDatedisplayedOnOverviewTabAddAttchments
   Scenario: Validate whether the PM user can add the attachments to Org Level Site Visits and view the Created Date on Overview Tab |Validate whether record owner has access to delete the asoociated Contact and Application- Org Site visits
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"

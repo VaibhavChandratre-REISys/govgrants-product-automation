@@ -1413,7 +1413,9 @@ Feature: Validate scenarios in Progress Report without background
     Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---" without waiting for record
-    Then I softly do not see "Automation.pdf" has been added in "Progress Report Files" flex table
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details :
+      | File Automation.pdf deleted successfully. |
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |

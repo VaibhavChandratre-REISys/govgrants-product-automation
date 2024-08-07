@@ -208,7 +208,7 @@ Feature: Validate all scenarios in the Amendment Request
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:AmendmentAttachmentTableId---"
     And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---amendment:-:AmendmentAttachmentTableId---"
     And I update title as "Automation.pdf" on upload file modal
-    And I select Classification as "Other" at upload file modal
+    And I select Classification as "Terms and Conditions" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
     And I refresh the page
