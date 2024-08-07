@@ -104,7 +104,7 @@ Feature: Validate all scenarios in the Pre-Application
 #    And I click on "Back" in the page details
     And I switch to parent tab
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I upload attachment "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I click on "Edit" icon for "Other" inside flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I select Classification as "Supporting Documents" at upload file modal

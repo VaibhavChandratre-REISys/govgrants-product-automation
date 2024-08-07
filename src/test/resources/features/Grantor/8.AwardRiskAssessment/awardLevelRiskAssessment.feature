@@ -2330,7 +2330,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "Save and Continue" in the page details
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---orgRiskAssessment:-:awardRiskAssessmentTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Financial Artifacts" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Financial Artifacts" from computer
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see "Financial Artifacts" has been added in "Subaward Risk Assessment Files" flex table
