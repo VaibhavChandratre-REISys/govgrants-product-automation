@@ -124,16 +124,16 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I wait for "3" seconds
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentFileTableId---"
-    And I upload attachment "Attachment.pdf" of type "OTHER" from computer
+    And I upload attachment "AttachmentTesting.pdf" of type "OTHER" from computer
     When I click modal button "Close"
     And I wait for "5" seconds
     Then I softly see "OTHER" has been added in "Organization Risk Assessment Files" flex table
-    And I click on "Edit" icon for "Other" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentFileTableId---"
-    And I select Classification as "Financial Artifacts" at upload file modal
+    And I click on "Edit" icon for "OTHER" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentFileTableId---"
+    And I select Classification as "AGENCY DETAILS" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
     And I refresh the page
-    Then I softly see value "Financial Artifacts" for title "Classification" inside table "---orgRiskAssessment:-:orgRiskAssessmentFileTableId---"
+    Then I softly see value "AGENCY DETAILS" for title "Classification" inside table "---orgRiskAssessment:-:orgRiskAssessmentFileTableId---"
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
   @62197 @62198 @62513 @62515 @62516 @pendingTaskCreatedForGrantor  @OrgRiskSet1
