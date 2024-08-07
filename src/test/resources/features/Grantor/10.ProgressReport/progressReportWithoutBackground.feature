@@ -1356,7 +1356,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @59573 @59572 @59188_1 @59574 @59288 @dowloadAttachment
+  @59573 @59572 @59188_1 @59574 @59288 @dowloadAttachment @TBExecution
   Scenario Outline: : Validate SR User is able to download the uploaded document from attachment table on Progress report | Validate SR user is able to download the document from Subrecipient Document Link field when document is uploaded.
   Validate SR user is able to Delete the documents uploaded at supporting document checklist table at progress report | Validate SR User can View the template document at Progress report if template is uploaded by award owner at Grant level.
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
@@ -1398,20 +1398,22 @@ Feature: Validate scenarios in Progress Report without background
     And I upload attachment without random number "sample.pdf" of type "SF-PPR" from computer
     And I click modal button "Close"
     And I click on "Edit" icon for "sample.pdf" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Other" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
     Then I softly see value "Other" for title "Classification" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
-#    And I wait for "2" seconds
-#    When I click on "Download" icon for "sample.pdf" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---" without waiting for record
-#    And I wait for "2" seconds
-#    And I download the file
-#    Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
-#    And I switch to parent tab
-#    When I click on "Delete" icon for "sample.pdf" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---" without waiting for record
-#    Then I softly do not see "sample.pdf" has been added in "Progress Report Files" flex table
+    And I wait for "2" seconds
+    When I click on "Download" icon for "Automation.pdf" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I download the file
+    Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
+    When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---" without waiting for record
+    Then I softly do not see "Automation.pdf" has been added in "Progress Report Files" flex table
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |

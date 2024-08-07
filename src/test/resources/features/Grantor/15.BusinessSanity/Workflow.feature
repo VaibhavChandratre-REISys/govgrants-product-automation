@@ -1536,7 +1536,14 @@ Feature: Validate all scenarios of every modules flow
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
-    And I wait for "9" seconds
-    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "14k. NHPA" from computer
-    When I click modal button "Close"
+    And I halt execution
+    And I click on "Edit" icon for "2b_Sale_Acquired_Bug.png" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    And I update title as "2b_Acquired_Bug.png" on upload file modal
+    And I select Classification as "Other" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "2b_Acquired_Bug.png" for title "Title" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I softly see value "Other" for title "Classification" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
+    And I halt execution

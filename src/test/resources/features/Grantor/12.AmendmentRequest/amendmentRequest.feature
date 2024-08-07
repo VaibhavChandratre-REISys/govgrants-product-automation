@@ -173,7 +173,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PM Username}" in flex table with id "---amendment:-:approversTableId---"
 
-  @53204 @approvalOfSOWAmendmentRequest
+  @53204 @approvalOfSOWAmendmentRequest @TBExecution
   Scenario: Approval of Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -202,10 +202,19 @@ Feature: Validate all scenarios in the Amendment Request
       | {SavedValue:FO Username} | Step 3            |
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---amendment:-:AmendmentAttachmentTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:AmendmentAttachmentTableId---"
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---amendment:-:AmendmentAttachmentTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Other" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---amendment:-:AmendmentAttachmentTableId---"
+    Then I softly see value "Terms and Conditions" for title "Classification" inside table "---amendment:-:AmendmentAttachmentTableId---"
     And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
