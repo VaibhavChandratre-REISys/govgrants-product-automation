@@ -132,7 +132,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I select Classification as "AGENCY DETAILS" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
-    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see value "AGENCY DETAILS" for title "Classification" inside table "---orgRiskAssessment:-:orgRiskAssessmentFileTableId---"
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
