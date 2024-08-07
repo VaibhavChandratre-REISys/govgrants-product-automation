@@ -334,10 +334,10 @@ Feature: Validate all scenarios in Funding Source
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    Then I softly can see row level action button "Delete" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    Then I softly can see row level action button "Download" against "Supporting Documents" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    Then I softly can see row level action button "Edit" against "Supporting Documents" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    Then I softly can see row level action button "View" against "Supporting Documents" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    Then I softly can see row level action button "Delete" against "Supporting Documents" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I navigate to "Overview" sub tab
     When I save the value from row "1" for column name "EGMS ID" as "FundingAccId" from flex table "---fundingsource:-:fundingAccountTableId---"
     And I click on "View" icon for "{SavedValue:FundingAccId}" inside flex table with id "---fundingsource:-:fundingAccountTableId---"
@@ -346,10 +346,10 @@ Feature: Validate all scenarios in Funding Source
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    Then I softly cannot see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    Then I softly cannot see row level action button "Delete" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    Then I softly can see row level action button "Download" against "Supporting Documents" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Supporting Documents" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    Then I softly can see row level action button "View" against "Supporting Documents" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Supporting Documents" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     #196555
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Planning" tab
@@ -359,10 +359,10 @@ Feature: Validate all scenarios in Funding Source
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
-    And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---" without waiting for record
-    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
+    Then I softly can see row level action button "Download" against "Supporting Documents" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    Then I softly can see row level action button "View" against "Supporting Documents" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    And I click on "Download" icon for "Supporting Documents" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---" without waiting for record
+    Then I softly verify that the file "Attachment.pdf" is downloaded
 
   @196553 @ValidatefilerelatedpermissionsforADMINprofileduringtheworkflowStatusCreatedActivatedClosedwhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048
   Scenario: Validate file related permissions for ADMIN profile during the workflow Status (Created, Activated, Closed) when Internal Funding Source is created by EXE
