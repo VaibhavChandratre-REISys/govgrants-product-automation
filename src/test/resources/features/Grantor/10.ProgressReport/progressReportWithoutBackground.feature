@@ -6406,7 +6406,7 @@ Feature: Validate scenarios in Progress Report without background
     And I pause execution for "3" seconds
     Then I softly do not see "Undertaker FO" inside auto search result
 
-  @197664 @197732 @Validateprogressreport1internalownershouldchangedinanystate&progressreport2iscreatedbyschedulethentheinternalownershouldawardowneronly @sprint-4 @reassignment @TBExecution1
+  @197664 @197732 @Validateprogressreport1internalownershouldchangedinanystate&progressreport2iscreatedbyschedulethentheinternalownershouldawardowneronly @sprint-4 @reassignment
   Scenario: Validate progress report 1 internal owner should changed in any state & progress report 2 is created by schedule then the internal owner should award owner only
     And I activated standalone subaward "Automation Runtime Award" with properties "default-Automation PO user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
@@ -6441,7 +6441,8 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    And I click on "Save" in the page details
+    When I click modal button "Close"
+    And I wait for "2" seconds
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID1"
     And I click on "Edit" in the page details
@@ -6544,7 +6545,7 @@ Feature: Validate scenarios in Progress Report without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation EXE1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 
-  @197760 @197898 @197909 @ValidateAsaadminusershouldabletoreassignthetaskofprogressreportwithsameprofile&sameOrganization @Sprint-4 @reassignment @TBExecution1
+  @197760 @197898 @197909 @ValidateAsaadminusershouldabletoreassignthetaskofprogressreportwithsameprofile&sameOrganization @Sprint-4 @reassignment
   Scenario: Validate As a admin user should able to reassign the task of progress report with same profile & same Organization
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default-Automation ADMIN user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
