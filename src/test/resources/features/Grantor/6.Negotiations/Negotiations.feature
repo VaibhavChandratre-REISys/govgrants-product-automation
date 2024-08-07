@@ -720,6 +720,7 @@ Feature: Validate all scenarios in Negotiations
     And I select Classification as "Suspension" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
+    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Suspension" for title "Classification" inside table "GrantorApplicationFiles"
 

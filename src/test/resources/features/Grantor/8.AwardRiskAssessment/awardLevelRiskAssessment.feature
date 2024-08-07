@@ -2338,6 +2338,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I select Classification as "Program Artifacts" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
+    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Program Artifacts" for title "Classification" inside table "---orgRiskAssessment:-:awardRiskAssessmentTableId---"
 

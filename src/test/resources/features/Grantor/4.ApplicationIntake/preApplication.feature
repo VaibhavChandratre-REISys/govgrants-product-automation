@@ -107,11 +107,11 @@ Feature: Validate all scenarios in the Pre-Application
     And I upload attachment "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I click on "Edit" icon for "Other" inside flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
-    And I select Classification as "Supporting Documents" at upload file modal
+    And I select Classification as "Suspension" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
     And I refresh the page
-    Then I softly see value "Supporting Documents" for title "Classification" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    Then I softly see value "Suspension" for title "Classification" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
