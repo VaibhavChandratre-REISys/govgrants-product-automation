@@ -1539,5 +1539,5 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Unchecked        |
     And I halt execution
