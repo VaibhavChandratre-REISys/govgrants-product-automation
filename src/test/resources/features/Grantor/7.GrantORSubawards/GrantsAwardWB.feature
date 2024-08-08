@@ -10727,7 +10727,6 @@ Feature: Validate all scenarios of grants and award without background
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 1000              |
     And I wait for "5" seconds
-    And I wait for "5" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I wait for "4" seconds
@@ -10748,6 +10747,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
