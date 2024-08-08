@@ -741,7 +741,7 @@ Feature: Validate all scenarios of grants and award with undo
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @grant @286458  @sprint-1-US-295145  @Undo
+  @286458  @sprint-1-US-295145  @Undo
   Scenario:Verify Admin user as step 1 approver should not see Undo button in Reject state of award
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Grants" tab
@@ -2484,7 +2484,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
- @grant @286507  @sprint-1-US-295145  @Undo @bug-414554
+ @286507  @sprint-1-US-295145  @Undo @bug-414554
   Scenario: Verify user see all tables display correctly in downloaded PDF for award in rejected state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab

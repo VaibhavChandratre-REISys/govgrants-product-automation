@@ -3247,7 +3247,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see that "Subaward" is in "Activated" status
 
   @FundingChangeandTermsandConditions @ProdSan4
-  Scenario: Validate Funding Change and Terms & Conditions End to End flow
+  Scenario: Validate Funding Change and 524950 & Conditions End to End flow
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
