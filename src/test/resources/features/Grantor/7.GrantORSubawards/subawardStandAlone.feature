@@ -2228,7 +2228,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records: 4" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55293 @ScheduleEndDateAfterStartDate  @buglogged128297 @Re-RunStandAlone
+  @55293 @ScheduleEndDateAfterStartDate @TBExecution1
   Scenario: Verify While creating schedule user is not allowed to select the Schedule End Date after Project Period End Date.
     And I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
@@ -2243,9 +2243,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I enter in modal value "5660" into field "CalReportingEndDate__c"
     And I pause execution for "5" seconds
     And I click modal button "Save"
-    #Bug422373
     Then I see the following messages in the page details contains:
-      | Schedule End date cannot be after Project Period End Date |
+      | Schedule End date cannot be after Budget Period End Date. |
 
   @55300 @SelectDesiredFrequencyAsBiMonthly
   Scenario: Verify While creating schedule user should be allowed to select the Desired Frequency as Bi Monthly.
@@ -2755,7 +2754,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I wait for "3" seconds
     Then I verify that the Schedule end date is matching with Reporting Period End Date
 
-  @55315 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod  @Re-RunStandAlone
+  @55315 @SelectDesiredFrequencyAsMonthlywithScheduleBaseAsReportingPeriod
   Scenario: Verify Reporting Period Start Date is same as the Schedule Start Date.
     When I click on "Edit" in the page details
     And I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -2996,7 +2995,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Remove" icon for "Automation Permanent Objective" inside flex table with id "---subAwardStandAlone:-:objectivesTableId---" without waiting for record
     Then I do not see value "Automation Permanent Objective" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
 
-  @45756 @67969 @71182 @71431 @71437 @validateAwardRejectionByProgramApprover  @Re-RunStandAlone
+  @45756 @67969 @71182 @71431 @71437 @validateAwardRejectionByProgramApprover @TBExecution1
   Scenario Outline: Validate award Rejection by Program approver
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"

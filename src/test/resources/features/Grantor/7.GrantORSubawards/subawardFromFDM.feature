@@ -1477,7 +1477,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @65412 @addFederalProgram @bug-94597
+  @65412 @addFederalProgram @TBExecution1
   Scenario Outline: To verify that federal program can be added from the award owner profile in overview tab after the sub award is accepted by the sub recipient
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -1564,6 +1564,8 @@ Feature: Validate all scenarios in the award created from FDM
     And I click on top right button "Associate" in flex table with id "---subAwardFromFDM:-:federalProgramTableId---"
     When I click "Add" after selection of "Federal" in the table "---subAwardFromFDM:-:federalListTableId---"
     And I pause execution for "3" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
     Then I see total records count "Total Records:1" in flex table "---subAwardStandAlone:-:federalProgramTableId---"
     Examples:
       | Award Name                                       | Grant Name                                       |
