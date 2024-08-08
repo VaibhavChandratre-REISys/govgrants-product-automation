@@ -957,8 +957,8 @@ public class InternalOrganizationPage extends GranteeProjectManager {
     private boolean assertSymbolIsDisplayedInsideTable(String symbol, String tableId) {
         boolean flag = false;
         try {
-            if (("cross".equalsIgnoreCase(symbol) && I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@id='" + tableId + "']//*[contains(@class,'fa-close')]")))
-                    || ("check".equalsIgnoreCase(symbol) && I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@id='" + tableId + "']//*[contains(@class,'fa-check')]")))) {
+            if (("cross".equalsIgnoreCase(symbol) && I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//*[contains(@class,'close')]")))
+                    || ("check".equalsIgnoreCase(symbol) && I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//*[contains(@class,'check')]")))) {
                 flag = true;
             }
         } catch (Exception e) {

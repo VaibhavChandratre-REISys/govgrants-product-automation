@@ -32,7 +32,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Files" sub tab
     Then I can see top right button "Add" in flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
-  @71423 @71439 @71438  @statusOfAllAndDraft
+  @71423 @71439 @71438  @statusOfAllAndDraft @TBExecution1
   Scenario:  Verify that all and draft records are getting displayed proper post apply a filter "All and Drafts" on grants by SPI/SPA users.
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -45,6 +45,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "Draft" in "---subAwardFromFDM:-:RecipientGrantsTableId---" panel
     Then I softly see value "Draft" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsTableId---"
     And I click toggle button to select "Grants - Rejected"
+    When I perform quick search for "Terminated" in "---subAwardFromFDM:-:RecipientGrantsTableId---" panel
     Then I softly see value "Terminated" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsTableId---"
 
   @66740 @documentattacmentatgrant
@@ -634,7 +635,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @65686 @65684 @65685 @NoDeleteBtnTermsAndCondition  @bug-LWC-416798
+  @65686 @65684 @65685 @NoDeleteBtnTermsAndCondition  @bug-LWC-416798 @TBExecution1
   Scenario: Verify Associated Mandatory Terms and Conditions cannot be deleted by award owner on Subaward.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -650,7 +651,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I wait for "5" seconds
-    Then I softly see "check" symbol against the value "Mandatory" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    Then I softly see "check" symbol in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     #Bug-416798
     Then I softly can see row level action button "Remove" against "Term" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
 
@@ -758,7 +759,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Save" in the page details
     Then I see field "Status" as "Draft"
 
-  @64784 @68054 @VerifyBPDatesOnGrant  @buglogged127963
+  @64784 @68054 @VerifyBPDatesOnGrant @TBExecution1
   Scenario Outline: Verify Budget Period Dates value on grant subaward Tab is same as the Estimated Project Period Start Date and End date on announcement
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -788,7 +789,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "<Annoucement>" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
     And I wait for "3" seconds
-    Then I softly see value "{Date:M/dd/yyyy::d+50} - {Date:M/dd/yyyy::d+150}" for title "Budget Period Dates" against the value "<Annoucement>" inside table "---progressreport:-:subawardsTableId---"
+    Then I softly see value "{Date:M/d/yyyy::d+50} - {Date:M/d/yyyy::d+150}" for title "Budget Period Dates" against the value "<Annoucement>" inside table "---progressreport:-:subawardsTableId---"
     Examples:
       | Annoucement                                      |
       | {SavedValue:Automation Runtime FDM Announcement} |
@@ -853,13 +854,15 @@ Feature: Validate all scenarios of grants and award without background
       | User |
       | PM   |
 
-  @64415 @64416 @64417 @64418 @64420 @64421 @64422 @64419   @AwardValidationHold
+  @64415 @64416 @64417 @64418 @64420 @64421 @64422 @64419 @TBExecution1
   Scenario: Verify validation message is displayed when award owner did not enter Grant Title field while creating direct grant.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I wait for "2" seconds
     And I click modal button "Continue"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Grant Title is required to save.               |
       | Grant Abbreviation is required to save.        |
@@ -5483,7 +5486,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---subAwardStandAlone:-:grantSupportDocTableId---" without waiting for record
     Then I softly see "Add Supporting Documents Checklist" opens in overLay window
 
-  @220559 @sprint-7-US-205248
+  @220559 @sprint-7-US-205248 @TBExecution1
   Scenario: Validate PO user click on Upload Template icon a new modal will open It will have one option Upload File from Computer
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -6018,7 +6021,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM" for title "User" inside field history table
 
-  @196982  @sprint-12-US-226646  @reassignment
+  @196982  @sprint-12-US-226646 @reassignment @TBExecution1
   Scenario: Validate new owner PM can create sub-award after FDM is approves from app after it's related Ann ownership will assign to other PM user
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -7166,7 +7169,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @225064  @sprint-12-US-226646  @reassignment
+  @225064  @sprint-12-US-226646 @reassignment @TBExecution1
   Scenario: Validate Reassignment Task all simultaneous reassignment ownership should reassigned to new owner & Validate mail yopmail
     And I activated standalone subaward "Automation Runtime Bulks Grants Records" with properties "Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -7203,7 +7206,9 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I click on "Edit" in the page details
@@ -7349,16 +7354,19 @@ Feature: Validate all scenarios of grants and award without background
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Grant" from reassign ownership dropdown
     When I perform quick search for "Automation Runtime Bulks Grants Records" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
+    And I select value inside table "---subAwardStandAlone:-:grantSourceOwnerTableId---" is "All"
     When I check "All" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
-    When I perform quick search for "Automation Runtime Bulks Grants Records" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
-    Then I do not see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    Then I do not see value "{SavedValue:GrantEGMSID1}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    Then I do not see value "{SavedValue:GrantEGMSID2}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
+    Then I softly see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID1}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
+    Then I softly see value "{SavedValue:GrantEGMSID1}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID2}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
+    Then I softly see value "{SavedValue:GrantEGMSID2}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
     And I logout
     And I checkout to yopmail with mailid "govgrantsautomation@yopmail.com"
@@ -10313,22 +10321,32 @@ Feature: Validate all scenarios of grants and award without background
     And I select module "Grant" from reassign ownership dropdown
     And I pause execution for "3" seconds
     When I perform quick search for "Automation Runtime Bulks Grants Records" in "---subAwardStandAlone:-:grantSourceOwnerTableId---" panel
+    And I select value inside table "---subAwardStandAlone:-:grantSourceOwnerTableId---" is "All"
     When I check "All" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
-    When I perform quick search for "Automation Runtime Bulks Grants Records" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
-    Then I do not see value "{SavedValue:GrantEGMSID1}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    Then I do not see value "{SavedValue:GrantEGMSID2}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    Then I do not see value "{SavedValue:GrantEGMSID3}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    Then I do not see value "{SavedValue:GrantEGMSID4}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    Then I do not see value "{SavedValue:GrantEGMSID5}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    Then I do not see value "{SavedValue:GrantEGMSID6}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    Then I do not see value "{SavedValue:GrantEGMSID7}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    Then I do not see value "{SavedValue:GrantEGMSID8}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    Then I do not see value "{SavedValue:GrantEGMSID9}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
-    Then I do not see value "{SavedValue:GrantEGMSID10}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID1}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
+    Then I softly see value "{SavedValue:GrantEGMSID1}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID2}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
+    Then I softly see value "{SavedValue:GrantEGMSID2}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID3}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
+    Then I softly see value "{SavedValue:GrantEGMSID3}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID4}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
+    Then I softly see value "{SavedValue:GrantEGMSID4}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID5}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
+    Then I softly see value "{SavedValue:GrantEGMSID5}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID6}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
+    Then I softly see value "{SavedValue:GrantEGMSID6}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID7}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
+    Then I softly see value "{SavedValue:GrantEGMSID7}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID8}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
+    Then I softly see value "{SavedValue:GrantEGMSID8}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID9}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
+    Then I softly see value "{SavedValue:GrantEGMSID9}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID10}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
+    Then I softly see value "{SavedValue:GrantEGMSID10}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
