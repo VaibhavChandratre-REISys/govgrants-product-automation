@@ -173,7 +173,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PM Username}" in flex table with id "---amendment:-:approversTableId---"
 
-  @53204 @approvalOfSOWAmendmentRequest @TBExecution
+  @53204 @approvalOfSOWAmendmentRequest
   Scenario: Approval of Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"

@@ -1534,16 +1534,10 @@ Feature: Validate all scenarios of every modules flow
 
   @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
+    Given I login to "As a Grantor" app as "PM" user
     And I halt execution
-    And I click on "Edit" icon for "2b_Sale_Acquired_Bug.png" inside flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
-    And I update title as "2b_Acquired_Bug.png" on upload file modal
-    And I select Classification as "Other" at upload file modal
-    When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
-    And I wait for "2" seconds
-    Then I softly see value "2b_Acquired_Bug.png" for title "Title" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
-    Then I softly see value "Other" for title "Classification" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Personnel |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     And I halt execution
