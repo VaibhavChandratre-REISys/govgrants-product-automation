@@ -72,11 +72,12 @@ Feature: Validate all scenarios in the award created from FDM
       | {SavedValue:FO Username} | Step 3 |
     Then I see that "{SavedValue:EXE Username}" has been added in flextable with Id "---subAwardFromFDM:-:awardApproverTableId---"
 
-  @50990 @riskAssessmentActivationAndAwardAcceptanceBySPI @bug-94597
+  @50990 @riskAssessmentActivationAndAwardAcceptanceBySPI @TBExecution
   Scenario Outline: Send an award to sub-recipient before approval
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
       | Title                      | Project Role   | Is Key Personnel |
@@ -145,6 +146,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Name                     | Award  |
       | {SavedValue:FO Username} | Step 3 |
     When I click on "Send to Subrecipient" in the page details
+    Then I see field "Status" as "Sent to Subrecipient"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1263,7 +1265,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @64570 @64566 @64720 @64721 @64569 @64719 @64723 @64568 @64564 @64718 @64562 @VerifyWorkPlanRequiredFocusAreaRequiredProjectPeriodStartDateProjectPeriodEndDate
+  @64570 @64566 @64720 @64721 @64569 @64719 @64723 @64568 @64564 @64718 @64562 @VerifyWorkPlanRequiredFocusAreaRequiredProjectPeriodStartDateProjectPeriodEndDate @TBExecution
   Scenario Outline: Verify Work Plan Required? field setting entered at announcement is same on grant which is created with application.
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -1272,7 +1274,7 @@ Feature: Validate all scenarios in the award created from FDM
     When I navigate to "Overview" sub tab
     And I save the field labeled "Internal Organization" as "InternalOrg"
     And I save the field labeled "Program ID" as "ProgramID"
-    And I save the field labeled "KPI's Required?" as "KPI"
+    And I save the field labeled "KPIs Required?" as "KPI"
     #@64570 this functionality is disabled now
     #And I save the field labeled "Work Plan Required?" as "WPR"
     And I save the field labeled "Program Income Allowed?" as "PIA"

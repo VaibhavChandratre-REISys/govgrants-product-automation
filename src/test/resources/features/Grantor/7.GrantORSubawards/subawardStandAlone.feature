@@ -5637,7 +5637,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @141897 @verifyallApproversAreInheritedFromAwardToCloseout-RnRFunctnality  @Re-RunStandAlone
+  @141897 @verifyallApproversAreInheritedFromAwardToCloseout-RnRFunctnality @TBExecution
   Scenario Outline: Verify Approvers are inherited from award to closeout request record
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5734,6 +5734,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
+    Then I see field "Status" as "Activated"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -5754,7 +5755,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @141917 @VerifyUpdationOfInheritedApproverAtCloseoutFromAward-RnRFunctnality  @Re-RunStandAlone
+  @141917 @VerifyUpdationOfInheritedApproverAtCloseoutFromAward-RnRFunctnality @TBExecution
   Scenario Outline: Verify the record owner can update the approver that are inherited from award program to closeout record
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5857,6 +5858,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "2" seconds
     When I perform quick search for "<Award Name>" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "<Award Name>" inside flex table with id "---closeout:-:grantsTableId---"
     And I save the field labeled "EGMS ID" as "closeoutID"
