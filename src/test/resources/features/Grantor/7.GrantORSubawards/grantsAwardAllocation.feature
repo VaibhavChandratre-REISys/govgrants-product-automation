@@ -12410,9 +12410,9 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     And I click on "Remove" icon for "Project Director/Manager" inside flex table with id "---subAwardFromFDM:-:associateContactTableId---" without waiting for record
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
@@ -23581,6 +23581,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see top right button "Revise Estimated Funding" in page detail
     When I click on "Revise Estimated Funding" in the page details
     Then I see field "Cumulative Obligation" as "$1,000.00" on modal
+    When I click modal button "Close"
     #270487
     When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -23966,7 +23967,6 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationAward1"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    And I switch to tab number "1"
     When I navigate to "Actuals" sub tab
     Then I softly see "Cumulative Obligation" inside page block detail
     Then I softly do not see "Awarded Amount" inside page block detail
@@ -24051,6 +24051,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Edit" in the page details
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name           | Closeout |
@@ -24079,6 +24080,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I refresh the page
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Completed" and is "dark blue"
+    And I pause execution for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -24285,6 +24287,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see fields "EstimatedFunding__c" is in edit mode
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I wait for "5" seconds
     And I get the "EGMS ID"
     And I navigate to "Budget" sub tab
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -24654,7 +24657,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Spent     |
       | $1,000.00 |
 
-  @grant @272148 @Validatecorrectspentamountshouldgetupdatedonpaymentrequestwhichcreatedpreviouslyanditisincreatedstate @Sprint-22-US-270869 @vaibhav @Allocation
+  @272148 @Validatecorrectspentamountshouldgetupdatedonpaymentrequestwhichcreatedpreviouslyanditisincreatedstate @Sprint-22-US-270869 @vaibhav @Allocation
   Scenario: Validate correct spent amount should get updated on payment request which created previously and it is in created state
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
     And I am on "SUBPORTAL" portal

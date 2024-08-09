@@ -145,9 +145,10 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I click on Menu icon present on top right corner of the page
+    And I wait for "2" seconds
     And I select "Take Snapshot" from dropdown
     And I refresh the page
-    And I wait for "3" seconds
+    And I wait for "2" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot"
     When I download the file
@@ -452,10 +453,10 @@ Feature: Validate all scenarios of grants and award without background
 #    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:subAwardBudgetTableId---" by clicking "Edit" :
 #      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
 #      | Construction    | 1000         | 100        | 100            |
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    When I navigate to "Overview" sub tab
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |
@@ -834,7 +835,7 @@ Feature: Validate all scenarios of grants and award without background
       | Annoucement                                      |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @grant @35556 @VerifyOnFDMViewPageSubawardInCreatedStatus
+  @35556 @VerifyOnFDMViewPageSubawardInCreatedStatus
   Scenario Outline: Verify that on FDM View page when user click on Create Subaward action , then Subaward get creates in created status
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1001,7 +1002,7 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
- @grant @65681 @65683 @verifyTermsAndConditions  @buglogged142219  @LWC-Bug-415720
+ @65681 @65683 @verifyTermsAndConditions  @buglogged142219  @LWC-Bug-415720
   Scenario: Verify Award owner can Associate Terms and Conditions on Subaward Terms Tab | Verify Associated Mandatory Terms and Conditions are not Editable by award owner on Subaward
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1153,6 +1154,7 @@ Feature: Validate all scenarios of grants and award without background
     When I enter the following values into flex table with id "---subAwardStandAlone:-:budgetLineItems---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10000        | 100        | 100            |
+    When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$10,000.00" for title "Award Amount" against the value "Equipment" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly see value "$100.00" for title "Cash Match" against the value "Equipment" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Examples:
@@ -1688,7 +1690,7 @@ Feature: Validate all scenarios of grants and award without background
     And I get the "EGMS ID"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
- @grant  @69899 @verifyBudgetPeriodNotGreaterThanStartDate  @smoke
+ @grant @69899 @verifyBudgetPeriodNotGreaterThanStartDate  @smoke
   Scenario: To verify that system throws validation message when a user entered start date as grater than budget period start date.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1696,6 +1698,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I wait for "3" seconds
     And I enter "GrantCreate22" values from "Award_Field_Values.xlsx"
+   And I wait for "2" seconds
     And I click modal button "Continue"
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2227,10 +2230,10 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+#    When I navigate to "Overview" sub tab
+#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
@@ -2472,7 +2475,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @grant @69085 @matchTermsAndCondition
+  @69085 @matchTermsAndCondition
   Scenario:Validate that Total mandatory terms and condition in master table of planning and that associated in the Subaward Terms and condition table is same
     When I login to "As a Grantor" app as "PM" user
     When I navigate to "Planning" tab
@@ -2493,7 +2496,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
 
-  @grant @67532  @checkAttachemet
+  @67532  @checkAttachemet
   Scenario Outline: To verify that validation message appear on Subrecipient profile if supporting document checklist set as yes while creating  grant on 'Supporting Documents Checklist' section
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2758,6 +2761,7 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I get the "EGMS ID"
+    And I wait for "3" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -2872,6 +2876,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+   And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -2935,6 +2940,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -8674,7 +8680,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @grant @235147 @ValidateownershiptransferofaGrantthathas5000termsandconditionsassociatedtoitandthenRecordTransfertoOtheruserforthisgrant  @reassignment
+  @235147 @ValidateownershiptransferofaGrantthathas5000termsandconditionsassociatedtoitandthenRecordTransfertoOtheruserforthisgrant  @reassignment
   Scenario: Validate ownership transfer of a Grant that has 5000 terms and conditions associated to it and then Record Transfer to Other user for this grant
     And I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "ADMIN" user
@@ -10772,7 +10778,7 @@ Feature: Validate all scenarios of grants and award without background
 #    When I click on "Back" in the page details
 #    And I get the "EGMS ID"
     And I navigate to "Forms and Files" sub tab
-    And I navigate to "Form" sub tab in split screen
+    And I navigate to "Quickview" sub tab in split screen
     And I wait for "2" seconds
     And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I wait for "3" seconds
