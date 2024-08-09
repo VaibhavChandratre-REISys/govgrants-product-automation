@@ -1171,7 +1171,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    And I navigate to "Overview" sub tab
 #    And I enter value "VA" into field "Addressline1__c"
     When I click on "Save" in the page details
-    And I wait for "3" seconds
+    And I wait for "10" seconds
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
