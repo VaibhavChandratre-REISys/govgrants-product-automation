@@ -1562,7 +1562,7 @@ Feature: Validate all scenarios in the award created from FDM
     And I pause execution for "3" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see total records count "Total Records: 1" in flex table "---subAwardStandAlone:-:federalProgramTableId---"
+    Then I see total records count "Total Records: 1" in flex table "---subAwardFromFDM:-:federalProgramTableId---"
     Examples:
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
