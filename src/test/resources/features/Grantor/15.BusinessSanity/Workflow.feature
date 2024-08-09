@@ -1534,10 +1534,12 @@ Feature: Validate all scenarios of every modules flow
 
   @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I login to "As a Grantor" app as "PM" user
-    And I halt execution
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Unchecked        |
-    And I halt execution
+    And I activated standalone subaward "Automation By Applicant Admin User Closed Award" with properties "Automation ADMIN user" of type "Formula_By_Applicant"
+#
+#    Given I login to "As a Grantor" app as "PM" user
+#    And I halt execution
+#    When I navigate to "Overview" sub tab
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Unchecked        |
+#    And I halt execution

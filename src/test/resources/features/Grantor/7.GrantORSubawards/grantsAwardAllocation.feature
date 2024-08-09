@@ -16439,7 +16439,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click modal button "Continue"
     Then I softly see field "Focus Area Required?" inside page block
     Then I softly see field "Allocation Level" inside page block
-    Then I see only the following ordered options in dropdown field "Allocation Level" :
+    Then I see only the following ordered options in dropdown field "AllocationLevel__c" :
       | --None-- | By Applicant | By Applicant and Focus Area | N/A |
     #237036
     Then I softly see "Grant Type" inside page block detail
