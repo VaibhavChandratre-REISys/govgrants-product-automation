@@ -265,7 +265,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @51147 @67814 @65491 @65415 @allSendToRecipientAndAcceptanceBySRBeforeApproval @smoke @TBExecution
+  @51147 @67814 @65491 @65415 @allSendToRecipientAndAcceptanceBySRBeforeApproval @smoke @TBExecution1
   Scenario Outline: Validate the award send to recipient and acceptance by recipient before approval
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -376,6 +376,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 5000        |
+    And I click on "Submit For Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Total Encumbrance must be equal to the total Award Amount in the Subaward budget section |
     Examples:
@@ -1649,7 +1651,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @66883 @errorIfKPITargetValueNotEnterBeforeSendToApproval @TBExecution
+  @66883 @errorIfKPITargetValueNotEnterBeforeSendToApproval
   Scenario Outline: To validate that if KPI value is not entered before approval it should give a validation error
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1837,7 +1839,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} | PM   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} | FO   |
 
-  @55311 @ProgressReportScheduleUpdateOnActiveAward @buglogged142215 @TBExecution
+  @55311 @ProgressReportScheduleUpdateOnActiveAward @buglogged142215 @TBExecution1
   Scenario Outline: Validate progress report schedules update on active award
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -1870,12 +1872,11 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
-    And I pause execution for "5" seconds
-    And I check the checkbox in modal with field value "I Agree"
-    And I click modal button "Save and Continue"
-    And I pause execution for "3" seconds
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click on "Save and Continue" in the page details
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Risk Assessment | Name                     |
@@ -1942,6 +1943,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2193,7 +2195,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I select "Download as PDF" from parallel lines dropdown of "Progress Reports Schedule"
     And I download the file
     And I pause execution for "10" seconds
-    Then I softly verify that "pdf" file is downloaded
+    Then I see that file name contains ".pdf" is downloaded
 
   @55306 @DownloadProgressReportInXLS
   Scenario: Validate user can Download the progress created Report in XLS format
@@ -2228,7 +2230,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Progress Report"
     Then I see total records count "Total Records: 4" in flex table "---subAwardStandAlone:-:progressReportScheduleId---"
 
-  @55293 @ScheduleEndDateAfterStartDate @TBExecution1
+  @55293 @ScheduleEndDateAfterStartDate
   Scenario: Verify While creating schedule user is not allowed to select the Schedule End Date after Project Period End Date.
     And I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
@@ -2995,7 +2997,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Remove" icon for "Automation Permanent Objective" inside flex table with id "---subAwardStandAlone:-:objectivesTableId---" without waiting for record
     Then I do not see value "Automation Permanent Objective" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
 
-  @45756 @67969 @71182 @71431 @71437 @validateAwardRejectionByProgramApprover @TBExecution1
+  @45756 @67969 @71182 @71431 @71437 @validateAwardRejectionByProgramApprover
   Scenario Outline: Validate award Rejection by Program approver
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -3611,8 +3613,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Pending"
     And I pause execution for "6" seconds
-    And I perform quick search for "<Award Name>" in "---subAwardFromFDM:-:RecipientGrantsPendingTableId---" panel
-    Then I see value "Draft" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsPendingTableId---"
+    And I perform quick search for "<Award Name>" in "---amendment:-:recipientActiveGrantsTableId---" panel
+    Then I see value "Draft" for title "Status" inside table "---amendment:-:recipientActiveGrantsTableId---"
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
@@ -5772,6 +5774,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I get the "EGMS ID"
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    And I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page

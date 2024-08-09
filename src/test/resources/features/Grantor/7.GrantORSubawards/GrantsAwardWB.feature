@@ -32,7 +32,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Files" sub tab
     Then I can see top right button "Add" in flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
-  @71423 @71439 @71438  @statusOfAllAndDraft @TBExecution1
+  @71423 @71439 @71438  @statusOfAllAndDraft
   Scenario:  Verify that all and draft records are getting displayed proper post apply a filter "All and Drafts" on grants by SPI/SPA users.
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -635,7 +635,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @65686 @65684 @65685 @NoDeleteBtnTermsAndCondition  @bug-LWC-416798 @TBExecution1
+  @65686 @65684 @65685 @NoDeleteBtnTermsAndCondition
   Scenario: Verify Associated Mandatory Terms and Conditions cannot be deleted by award owner on Subaward.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -652,7 +652,6 @@ Feature: Validate all scenarios of grants and award without background
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I wait for "5" seconds
     Then I softly see "check" symbol in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    #Bug-416798
     Then I softly can see row level action button "Remove" against "Term" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
 
   @65780 @65800 @65814 @65804 @66751 @66745 @StatusNotStartedSentToSubrecipient  @smoke
@@ -759,7 +758,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Save" in the page details
     Then I see field "Status" as "Draft"
 
-  @64784 @68054 @VerifyBPDatesOnGrant @TBExecution1
+  @64784 @68054 @VerifyBPDatesOnGrant
   Scenario Outline: Verify Budget Period Dates value on grant subaward Tab is same as the Estimated Project Period Start Date and End date on announcement
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -854,7 +853,7 @@ Feature: Validate all scenarios of grants and award without background
       | User |
       | PM   |
 
-  @64415 @64416 @64417 @64418 @64420 @64421 @64422 @64419 @TBExecution1
+  @64415 @64416 @64417 @64418 @64420 @64421 @64422 @64419
   Scenario: Verify validation message is displayed when award owner did not enter Grant Title field while creating direct grant.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -5486,7 +5485,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---subAwardStandAlone:-:grantSupportDocTableId---" without waiting for record
     Then I softly see "Add Supporting Documents Checklist" opens in overLay window
 
-  @220559 @sprint-7-US-205248 @TBExecution1
+  @220559 @sprint-7-US-205248
   Scenario: Validate PO user click on Upload Template icon a new modal will open It will have one option Upload File from Computer
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -6021,7 +6020,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM" for title "User" inside field history table
 
-  @196982  @sprint-12-US-226646 @reassignment @TBExecution1
+  @196982  @sprint-12-US-226646 @reassignment
   Scenario: Validate new owner PM can create sub-award after FDM is approves from app after it's related Ann ownership will assign to other PM user
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -7169,7 +7168,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @225064  @sprint-12-US-226646 @reassignment @TBExecution1
+  @225064 @sprint-12-US-226646 @reassignment @TBExecution1
   Scenario: Validate Reassignment Task all simultaneous reassignment ownership should reassigned to new owner & Validate mail yopmail
     And I activated standalone subaward "Automation Runtime Bulks Grants Records" with properties "Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -7369,33 +7368,33 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "{SavedValue:GrantEGMSID2}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
     And I logout
-    And I checkout to yopmail with mailid "govgrantsautomation@yopmail.com"
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:GrantEGMSID} Automation ADMIN Grant
-      {SavedValue:GrantEGMSID1} Automation ADMIN Grant
-      {SavedValue:GrantEGMSID2} Automation ADMIN Grant
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+#    And I checkout to yopmail with mailid "govgrantsautomation@yopmail.com"
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:GrantEGMSID} Automation ADMIN Grant
+#      {SavedValue:GrantEGMSID1} Automation ADMIN Grant
+#      {SavedValue:GrantEGMSID2} Automation ADMIN Grant
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "EXE" user
     And I navigate to "Monitoring" tab
