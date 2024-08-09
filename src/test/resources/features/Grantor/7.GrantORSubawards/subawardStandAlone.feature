@@ -2184,7 +2184,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Terms" sub tab
     Then I see value "Not Applicable" for title "Frequency" inside table "---subAwardStandAlone:-:progressReportScheduleTableId---"
 
-  @55298 @DownloadProgressReportInPDF @TBExecution
+  @55298 @DownloadProgressReportInPDF
   Scenario: Validate user can Download the progress created Report in PDF format.
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
@@ -3523,7 +3523,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly can see top right button "Associate" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     Then I softly can see top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
 
-  @65400  @validateAfterSendToSubreciepientSubreciepientCanViewRecord @TBExecution
+  @65400  @validateAfterSendToSubreciepientSubreciepientCanViewRecord
   Scenario Outline: To verify that  after clicking on the "send to subreciepient button " from the award owner profile after creating subaward is visible to the Subreciepient.
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
