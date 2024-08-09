@@ -5358,10 +5358,11 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I perform quick search for "<Grant Name>" in "---amendment:-:recipientActiveGrantsTableId---" panel
     And I click toggle button to select "Grants - Pending"
     And I pause execution for "4" seconds
-    When I perform quick search for "<Grant Name>" in "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---" panel
-    And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---" without waiting for record
+    And I click on "View" icon for "<Grant Name>" inside flex table with id "---amendment:-:recipientActiveGrantsTableId---" without waiting for record
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:RecipientSubAwardTableId---" without waiting for record
     Then I softly can see top right button "Edit" in page detail
@@ -5375,9 +5376,10 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
 #    Then I softly see field "Brief information about the subaward." as "Automation Test1 Description"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Pending"
-    When I perform quick search for "<Grant Name>" in "---subAwardFromFDM:-:RecipientGrantsPendingTableId---" panel
-    And I click on "View" icon for "<Grant Name>" inside flex table with id "---subAwardFromFDM:-:RecipientGrantsPendingTableId---"
+    When I perform quick search for "<Grant Name>" in "---amendment:-:recipientActiveGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside flex table with id "---amendment:-:recipientActiveGrantsTableId---"
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:RecipientSubAwardTableId---" without waiting for record
     And I pause execution for "6" seconds
@@ -5643,6 +5645,34 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Management" sub tab
+    When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Assessment" sub tab
+    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "RAEGMSID"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
+      | {SavedValue:PM Username} | NA              |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
+      | {SavedValue:PM Username} | Step 1          |
+    When I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
+    And I "Approve" in the approval decision
+    Then I see status in Progress-bar is "Active" and is "dark blue"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
@@ -5761,6 +5791,33 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I navigate to "Management" sub tab
+    When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Assessment" sub tab
+    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "RAEGMSID"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
+      | {SavedValue:PM Username} | NA              |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
+      | {SavedValue:PM Username} | Step 1          |
+    When I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
+    And I "Approve" in the approval decision
+    Then I see status in Progress-bar is "Active" and is "dark blue"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
@@ -5854,13 +5911,15 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
+    And I wait for "3" seconds
+    Then I see that "Subaward" is in "Activated" status
     Given I delete the record "<Closeout Name>" from the object "Closeout"
     When I create a post award record "Closeout" for the Award "<Closeout Name>" having object api name as "Closeout"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     When I perform quick search for "<Award Name>" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "<Award Name>" inside flex table with id "---closeout:-:grantsTableId---"
     And I save the field labeled "EGMS ID" as "closeoutID"
