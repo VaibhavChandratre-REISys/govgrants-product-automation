@@ -17084,7 +17084,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
-#    When I navigate to "Overview" sub tab
+    When I navigate to "Overview" sub tab
 #    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
 #      | Name                      | Project Role             | Is Key Personnel |
 #      | {SavedValue:IND Username} | Project Director/Manager | Checked          |
