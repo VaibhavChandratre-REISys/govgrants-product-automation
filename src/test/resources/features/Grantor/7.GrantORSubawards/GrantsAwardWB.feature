@@ -131,7 +131,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime Direct Award}" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     Then I softly see value "{SavedValue:Automation Runtime Direct Award}" for title "Grant Title" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @grant @68138 @takeSnapShotHistory
+  @68138 @takeSnapShotHistory
   Scenario: Validate that Snapshot of Grant page taken is saved in the History tab of the same
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -222,7 +222,11 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Terms" sub tab
-    And I save the value from row "1" for column name "EGMS ID" as "NonMandatoryT_C" from flex table "---subAwardStandAlone:-:grantTermConditionPopUp---"
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    When I perform quick search for "NonMandatoryT_C" in "---subAwardStandAlone:-:grantTermConditionPopUp---" panel
+    When I click "Associate" after selection of "NonMandatoryT_C" in the table "---subAwardStandAlone:-:grantTermConditionPopUp---"
+    And I click modal button "Close"
+    And I save the value from row "1" for column name "EGMS ID" as "NonMandatoryT_C" from flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" icon for "{SavedValue:NonMandatoryT_C}" inside flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---" without waiting for record
     And I enter value "2" into field "Sequence__c"
@@ -430,7 +434,7 @@ Feature: Validate all scenarios of grants and award without background
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} | EXE  | Block Grant   |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} | EXE  | Project Grant |
 
-  @grant @67967 @amountNotDebitedFromFundingAccount
+  @67967 @amountNotDebitedFromFundingAccount
   Scenario Outline: Validate that the funding Account is not debited if it is removed prior to Subaward approval
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1154,7 +1158,7 @@ Feature: Validate all scenarios of grants and award without background
     When I enter the following values into flex table with id "---subAwardStandAlone:-:budgetLineItems---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10000        | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Subaward Budget Category" modal by clicking the top right x button
     Then I softly see value "$10,000.00" for title "Award Amount" against the value "Equipment" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly see value "$100.00" for title "Cash Match" against the value "Equipment" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Examples:
@@ -1698,8 +1702,9 @@ Feature: Validate all scenarios of grants and award without background
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I wait for "3" seconds
     And I enter "GrantCreate22" values from "Award_Field_Values.xlsx"
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     And I click modal button "Continue"
+    And I wait for "2" seconds
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I navigate to "Subawards" sub tab
@@ -2129,9 +2134,9 @@ Feature: Validate all scenarios of grants and award without background
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Direct Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    And I click toggle button to select "Subawards  - All"
+    When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
@@ -2244,6 +2249,7 @@ Feature: Validate all scenarios of grants and award without background
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:FO Username} | Step 3 |
+    And I wait for "2" seconds
     When I get the "EGMS ID"
     And I enter the following values into flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" by clicking "New" :
       | Reviewer Name            | Role            | Description                 | Due Date | Allow Record Editing |
@@ -2761,7 +2767,7 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I get the "EGMS ID"
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -10750,8 +10756,10 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I wait for "2" seconds
     And I navigate to "Budget" sub tab
