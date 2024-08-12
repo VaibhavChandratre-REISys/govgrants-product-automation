@@ -1159,6 +1159,7 @@ Feature: Validate all scenarios of grants and award without background
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10000        | 100        | 100            |
     When I close "Subaward Budget Category" modal by clicking the top right x button
+    And I wait for "2" seconds
     Then I softly see value "$10,000.00" for title "Award Amount" against the value "Equipment" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly see value "$100.00" for title "Cash Match" against the value "Equipment" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Examples:
@@ -2135,8 +2136,9 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Grants" tab
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - All"
-    When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    And I click toggle button to select "Subawards  - All"
+    When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
@@ -2241,14 +2243,10 @@ Feature: Validate all scenarios of grants and award without background
 #      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:PM Username} | Step 1 |
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                      | Award  |
+      | {SavedValue:PM Username}  | Step 1 |
       | {SavedValue:EXE Username} | Step 2 |
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award  |
-      | {SavedValue:FO Username} | Step 3 |
+      | {SavedValue:FO Username}  | Step 3 |
     And I wait for "2" seconds
     When I get the "EGMS ID"
     And I enter the following values into flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" by clicking "New" :
@@ -2764,8 +2762,8 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+   And I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+   When I click on "View" icon for "<Application Name>" inside table
     And I get the "EGMS ID"
     And I wait for "5" seconds
     When I navigate to "Applications" tab
@@ -3002,8 +3000,8 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     Then I softly cannot see row level action button "Create Subaward" against "<Application Name>" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
     Examples:
-      | Announcement Name                                               | Application Name                                     |
-      | {SavedValue:Automation Runtime Announcement Application Review} | {Automation Runtime Announcement Application Review} |
+      | Announcement Name                                               | Application Name                                                |
+      | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
   @64787 @validateUploadedDocumentAtTemplateLink @wip
   Scenario Outline: Verify that uploaded document at supporting document checklist getting displayed on template link
@@ -7580,6 +7578,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+   And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I activated standalone subaward "Automation Runtime Award Desk Review" with properties "Automation EXE user" of type "Competitive"

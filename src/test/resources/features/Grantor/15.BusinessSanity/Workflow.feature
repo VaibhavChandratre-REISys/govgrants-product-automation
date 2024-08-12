@@ -1534,14 +1534,13 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-        When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "IND" user
+    When I login to "As a Grantor" app as "PM" user
     And I wait for "5" seconds
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{AUTOEnvData:IndCompetitiveClosedAward}" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "{AUTOEnvData:IndCompetitiveClosedAward}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{AUTOEnvData:IndCompetitiveClosedAward}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
-    Then I softly see that "Subaward" is in "Closed" status
+    And I click on hyperlink containing value "GT--00299"
+    And I wait for "4" seconds
+    When I navigate to "Actuals" sub tab
+    Then I softly see "Cumulative Obligation" inside page block detail
+    Then I softly do not see "Awarded Amount" inside page block detail
+    Then I softly see field "Cumulative Obligation" as "$1,000.00"
+    And I save the field labeled "Cumulative Obligation" as "CumulativeObligation"
+    Then I softly see value "{SavedValue:CumulativeObligationAward1}" is "Equals to" the value "{SavedValue:CumulativeObligation}"

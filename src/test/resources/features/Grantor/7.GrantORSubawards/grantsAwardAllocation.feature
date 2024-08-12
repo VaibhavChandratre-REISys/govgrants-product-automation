@@ -12143,7 +12143,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation SPI3 user | SPI3  |
       | Automation IND user  | IND   |
 
- @grant1 @239574 @ValidatefocusareawithzeroallocationamountshouldnotbecopiedonawardfromApplication @sprint-15-US-237846  @Allocation
+ @grant4 @239574 @ValidatefocusareawithzeroallocationamountshouldnotbecopiedonawardfromApplication @sprint-15-US-237846  @Allocation
   Scenario: Validate focus area with zero allocation amount should not be copied on award from Application
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     When I login to "As a Grantor" app as "PM" user
@@ -12481,7 +12481,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @grant1 @239760 @239763 @240308 @ValidatePMusershouldseeBudgetedamountreadonlycolumnincreatedSenttoS/rbeforeapprovalinsentforreviewandpeerreviewedstateofaward @sprint-15-US-237846  @Allocation
+  @239760 @239763 @240308 @ValidatePMusershouldseeBudgetedamountreadonlycolumnincreatedSenttoS/rbeforeapprovalinsentforreviewandpeerreviewedstateofaward @sprint-15-US-237846  @Allocation
   Scenario Outline: Validate PM user should see 'Budgeted amount' read only column in created, Sent to S/r before a approval, in sent for review and peer reviewed state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -12718,7 +12718,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @grant1 @239774 @ValidatePOusershouldseeNewobligation&CumulativeObligationreadonlycolumninSubmittedforApprovalApprovedsenttosubrecipientafterapprovalActiveandclosestateofaward @sprint-15-US-237846  @Allocation
+  @grant4 @239774 @ValidatePOusershouldseeNewobligation&CumulativeObligationreadonlycolumninSubmittedforApprovalApprovedsenttosubrecipientafterapprovalActiveandclosestateofaward @sprint-15-US-237846  @Allocation
   Scenario Outline: Validate PO user should see 'New obligation' & 'Cumulative Obligation' read only column in Submitted for Approval, Approved, sent to subrecipient after approval, Active and close state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -12832,7 +12832,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @grant1 @239776 @ValidatePMusershouldseeNewobligation&CumulativeObligationcolumninRejectedstateofaward @sprint-15-US-237846  @Allocation
+  @239776 @ValidatePMusershouldseeNewobligation&CumulativeObligationcolumninRejectedstateofaward @sprint-15-US-237846  @Allocation
   Scenario Outline: Validate PM user should see 'New obligation' & 'Cumulative Obligation' column in Rejected state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -13712,7 +13712,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
     Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
 
- @grant1 @241958 @ValidateEXEusershouldabletoeditthefocusareastartdateandenddateifapproversentbacktoowner @sprint-15-US-237846  @Allocation
+ @241958 @ValidateEXEusershouldabletoeditthefocusareastartdateandenddateifapproversentbacktoowner @sprint-15-US-237846  @Allocation
   Scenario Outline: Validate EXE user should able to edit the focus area start date and end date if approver sent back to owner
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -13806,7 +13806,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @grant1 @241960 @ValidateforwardedapproverPOonlyviewtheNewobligation&Cumulativeobligationvalueonaward @sprint-15-US-237846  @Allocation
+ @241960 @ValidateforwardedapproverPOonlyviewtheNewobligation&Cumulativeobligationvalueonaward @sprint-15-US-237846  @Allocation
   Scenario Outline: Validate forwarded approver PO only view the 'New obligation' & 'Cumulative obligation' value on award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_RISK_ASSESSMENT_NO-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -14384,7 +14384,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @grant1 @240486 @240514 @240521 @240543 @240568 @ValidatePMusershouldseeBudgetedamountreadonlycolumnincreatedSentS/rbeforeapprovalinsentforreviewandpeerreviewedstateofaward @sprint-16-US-220612  @Allocation
+ @grant4 @240486 @240514 @240521 @240543 @240568 @ValidatePMusershouldseeBudgetedamountreadonlycolumnincreatedSentS/rbeforeapprovalinsentforreviewandpeerreviewedstateofaward @sprint-16-US-220612  @Allocation
   Scenario Outline: Validate PM user should see 'Budgeted amount' read only column in created, Sent to S/r before a approval, in sent for review and peer reviewed state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -14582,7 +14582,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @grant1 @240504 @240535 @ValidateVictorEXEusershouldnotseebudgetedamountcolumninRejectedstateofawardAndfocusarea=Yes @sprint-16-US-220612  @Allocation
+ @240504 @240535 @ValidateVictorEXEusershouldnotseebudgetedamountcolumninRejectedstateofawardAndfocusarea=Yes @sprint-16-US-220612  @Allocation
   Scenario Outline: Validate Victor EXE user should not see 'budgeted amount' column in Rejected state of award (And focus area=Yes)
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -14664,7 +14664,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @grant1 @240522 @ValidatePOusershouldseeNewobligation&CumulativeObligationreadonlycolumninSubmittedforApprovalApprovedsenttosubrecipientafterapprovalActiveandclosestateofawardFA=yes @sprint-16-US-220612  @Allocation
+ @240522 @ValidatePOusershouldseeNewobligation&CumulativeObligationreadonlycolumninSubmittedforApprovalApprovedsenttosubrecipientafterapprovalActiveandclosestateofawardFA=yes @sprint-16-US-220612  @Allocation
   Scenario Outline: Validate PO user should see 'New obligation' & 'Cumulative Obligation' read only column in Submitted for Approval, Approved, sent to subrecipient after approval, Active and close state of award (FA=yes)
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -14787,7 +14787,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @grant1 @240515 @240548 @ValidatePMusershouldnotseebudgetedamountcolumninsubmitforapprovalapprovedsenttoS\RafterapprovalactiveandclosestateofawardFA=NO @sprint-16-US-220612  @Allocation
+ @240515 @240548 @ValidatePMusershouldnotseebudgetedamountcolumninsubmitforapprovalapprovedsenttoS\RafterapprovalactiveandclosestateofawardFA=NO @sprint-16-US-220612  @Allocation
   Scenario Outline: Validate PM user should not see 'budgeted amount' column in Submit For Approval, approved, sent to S\R after approval, active and close state of award (FA=NO)
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO_RISKASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "BUDGETCATEGORY_NO_FOCUSAREA"
@@ -15690,7 +15690,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | SPI3 | Automation SPI3 user | {SavedValue:SPI3 Username} |
       | IND  | Automation IND user  | {SavedValue:IND Username}  |
 
- @grant1 @243359 @ValidateSPI/SPAusershouldseeNewobligation&CumulativeObligationreadonlycolumninSubmittedforApprovalApprovedsenttosubrecipientafterapprovalActiveandclosestateofaward @sprint-16-US-226895  @Allocation
+ @243359 @ValidateSPI/SPAusershouldseeNewobligation&CumulativeObligationreadonlycolumninSubmittedforApprovalApprovedsenttosubrecipientafterapprovalActiveandclosestateofaward @sprint-16-US-226895  @Allocation
   Scenario Outline: Validate SPI/SPA user should see 'New obligation' & 'Cumulative Obligation' read only column in Submitted for Approval, Approved, sent to subrecipient after approval, Active and close state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -16023,7 +16023,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @grant1 @243366 @ValidateSPI/SPAusershouldseeNewobligation&CumulativeObligationcolumninRejectedstateofaward @sprint-16-US-226895  @Allocation
+ @243366 @ValidateSPI/SPAusershouldseeNewobligation&CumulativeObligationcolumninRejectedstateofaward @sprint-16-US-226895  @Allocation
   Scenario Outline: Validate SPI/SPA user should see 'New obligation' & 'Cumulative Obligation' column in Rejected state of award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation PO user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -16113,7 +16113,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
- @grant1 @243382 @ValidateSPI/SPAuserseeAwardAmountshouldbedisplayinsteadofAwardedBudgetinActualsSummaryandPaymentsSummarysectionsonactiveaward @sprint-16-US-226895  @Allocation
+ @243382 @ValidateSPI/SPAuserseeAwardAmountshouldbedisplayinsteadofAwardedBudgetinActualsSummaryandPaymentsSummarysectionsonactiveaward @sprint-16-US-226895  @Allocation
   Scenario Outline: Validate SPI/SPA user see 'Award Amount' should be display instead of 'Awarded Budget' in Actuals Summary and Payments Summary sections on active award
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -23970,6 +23970,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationAward1"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I wait for "2" seconds
     And I switch to tab number "1"
     And I wait for "2" seconds
     When I navigate to "Actuals" sub tab
