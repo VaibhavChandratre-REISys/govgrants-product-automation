@@ -684,8 +684,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - AByApplicantFocusYesClosedAwardDirectGrantll"
-    When I perform quick search for "{AUTOEnvData:}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
