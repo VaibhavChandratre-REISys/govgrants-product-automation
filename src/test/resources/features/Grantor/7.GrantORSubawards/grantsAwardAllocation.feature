@@ -23907,7 +23907,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I see the following messages in the page details :
       | Financial Tab - Total of Net Spent This Action for funding accounts should match Net Spent This Action. |
 
-  @grant @247546 @VerifyEXEusershouldseeAwardedAmountfieldrenamedasCumulativeObligationfieldwithvaluepopulatedunderActualsummarysectionofActualtabonGrantlayoutwhenGrantisinClosedstate @Sprint-17-US-246018
+  @api2 @247546 @VerifyEXEusershouldseeAwardedAmountfieldrenamedasCumulativeObligationfieldwithvaluepopulatedunderActualsummarysectionofActualtabonGrantlayoutwhenGrantisinClosedstate @Sprint-17-US-246018
   Scenario: Verify EXE user should see Awarded Amount field renamed as Cumulative Obligation field with value populated under Actual summary section of Actual tab on Grant layout when Grant is in Closed state
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "As a Grantor" app as "EXE" user

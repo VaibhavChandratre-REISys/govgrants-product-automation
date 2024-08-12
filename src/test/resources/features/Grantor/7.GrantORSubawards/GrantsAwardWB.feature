@@ -206,7 +206,7 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly see value "Draft" for title "Status" against the value "{SavedValue:Automation Runtime Execution Award}" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @grant @65688 @validateTnCAssociate
+  @api1 @65688 @validateTnCAssociate
   Scenario: Verify Associated Terms and Conditions are Editable by award owner on Subaward.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1027,7 +1027,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly can see row level action button "Edit" against "{SavedValue:NonMandatoryT_C}" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     Then I softly see value "{SavedValue:NonMandatoryT_C}" for title "Title" inside table "---subAwardStandAlone:-:termsndConditionsTableId---"
 
-  @grant @65794 @65822 @verifySRUserCanEnterBudgetDetails
+  @api1 @65794 @65822 @verifySRUserCanEnterBudgetDetails
   Scenario Outline: To verify that the Sub Award budget field is editable in the Subrecipient (SPI User) under budget tab
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1695,7 +1695,7 @@ Feature: Validate all scenarios of grants and award without background
     And I get the "EGMS ID"
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
- @grant @69899 @verifyBudgetPeriodNotGreaterThanStartDate  @smoke
+ @api1 @69899 @verifyBudgetPeriodNotGreaterThanStartDate  @smoke
   Scenario: To verify that system throws validation message when a user entered start date as grater than budget period start date.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1939,7 +1939,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime Award}" for title "Grant Title" inside table "---subAwardStandAlone:-:activeGrantsTableId---"
 
-  @grant @70806 @71417  @SetRedirectionThresholdtO15
+  @api1 @70806 @71417  @SetRedirectionThresholdtO15
   Scenario Outline: Validate that Budget Redirection threshold setting made on Grant is carried forward to  Budget Redirection Amendment
   | Verify that user is able to see approved tasks in Completed tasks listing of the grants post subaward approved by Fiscal Officer
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -2148,7 +2148,7 @@ Feature: Validate all scenarios of grants and award without background
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @grant @71370 @71430 @71434 @awardCloseInFilter
+  @api2 @71370 @71430 @71434 @awardCloseInFilter
   Scenario Outline: Validate that 'Amount Awarded' ($) value doesn't  get changed on the Grant post Grant is closed
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2754,7 +2754,7 @@ Feature: Validate all scenarios of grants and award without background
       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
- @grant @66938 @doNotSeeSubawardButtonAfterRejectingByEXE  @smoke @buglogged125748
+ @api2 @66938 @doNotSeeSubawardButtonAfterRejectingByEXE  @smoke @buglogged125748
   Scenario Outline: To Validate that if FDM is rejected by EXE user, subaward button in Action column cannot be seen for the Application. in Recommended Application table.
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7476,7 +7476,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation EXE" for title "Name" inside table "---closeout:-:closeoutOwnerTableId---"
 
- @grant @224420  @sprint-12-US-226646  @reassignment
+ @api2 @224420  @sprint-12-US-226646  @reassignment
   Scenario: Validate Reassignment Task all simultaneous reassignment task ownership should reassigned to new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -10680,7 +10680,7 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
- @grant @274116  @sprint-23-US-273843
+ @api2 @274116  @sprint-23-US-273843
   Scenario:Verify PM user can not see a Focus area with zero value for New Obligation and Cumulative Obligation column on the award created from FDM
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
