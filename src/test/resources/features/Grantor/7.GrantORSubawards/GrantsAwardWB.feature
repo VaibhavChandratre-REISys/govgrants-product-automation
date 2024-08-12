@@ -226,15 +226,13 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "NonMandatoryT_C" in "---subAwardStandAlone:-:grantTermConditionPopUp---" panel
     When I click "Associate" after selection of "NonMandatoryT_C" in the table "---subAwardStandAlone:-:grantTermConditionPopUp---"
     And I click modal button "Close"
-    And I save the value from row "1" for column name "EGMS ID" as "NonMandatoryT_C" from flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I save the value from row "1" for column name "Title" as "NonMandatoryT_C" from flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I wait for "3" seconds
     And I click on "Edit" icon for "{SavedValue:NonMandatoryT_C}" inside flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---" without waiting for record
     And I enter value "2" into field "Sequence__c"
     And I enter value "2" into field "Description__c"
     And I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
-    Then I softly see field "Sequence" as "2"
+    Then I see field "Sequence" as "2" on modal
 
   @66654 @66655 @65897 @activateAwardEXEUser @LWCRemoved @wip
   Scenario Outline: To verify that user(exe) is able to activate award by clicking on active button using Grant type =" Formula Grant" | To verify that user(exe) is able to activate award by clicking on active button using Grant type = "Block Grant"
@@ -1160,8 +1158,8 @@ Feature: Validate all scenarios of grants and award without background
       | Extra Salary | The narrative | 10000        | 100        | 100            |
     When I close "Subaward Budget Category" modal by clicking the top right x button
     And I wait for "2" seconds
-    Then I softly see value "$10,000.00" for title "Award Amount" against the value "Equipment" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    Then I softly see value "$100.00" for title "Cash Match" against the value "Equipment" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
+    Then I softly see value "$10,000.00" for title "Award Amount" against the value "Equipment" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
+    Then I softly see value "$100.00" for title "Cash Match" against the value "Equipment" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     Examples:
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
@@ -2136,9 +2134,8 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Grants" tab
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - All"
-    And I click toggle button to select "Subawards  - All"
-    When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
+    And I perform quick search for "<Award Name>" in "---progressReport:-:recipientAwardsTableId---" panel
+    When I click on "View" icon for "<Award Name>" inside flex table with id "---progressReport:-:recipientAwardsTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
