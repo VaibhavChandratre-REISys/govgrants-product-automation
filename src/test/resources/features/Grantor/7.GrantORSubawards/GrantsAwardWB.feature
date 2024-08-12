@@ -7250,7 +7250,7 @@ Feature: Validate all scenarios of grants and award without background
     And I save the field labeled "EGMS ID" as "GrantEGMSID1"
     And I enter value "abc" into field "GrantDescription__c"
     And I click on "Save" in the page details
-    And I save the field labeled "Grant Title" as "Automation Runtime Bulks Grants Records Test"
+    And I save the field labeled "Grant Title" as "Automation Runtime Bulks Records"
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I get the "EGMS ID"
@@ -7405,7 +7405,8 @@ Feature: Validate all scenarios of grants and award without background
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
+    And I click toggle button to select "Grants - Active"
+    And I wait for "5" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Bulks Grants Records}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulks Grants Records}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
