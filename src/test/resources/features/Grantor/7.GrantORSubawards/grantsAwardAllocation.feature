@@ -12209,7 +12209,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000  | 100      | 100           |
-##    And I refresh the page
+    And I refresh the page
 ##    When I expand nested table containing column value "BP01"
 ##    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
 #    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
@@ -12217,6 +12217,8 @@ Feature: Validate all scenarios of grants and award for Allocation
 #      | Category Name | Budget | Cash Match | Non-Cash Match |
 #      | Construction  | 0      | 0          | 0              |
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "2" seconds
+   Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -19470,6 +19472,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
