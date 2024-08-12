@@ -1534,37 +1534,14 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
-    And I wait for "9" seconds
-    When I navigate to "Forms and Files" sub tab
-    And I select value inside table "---progressReport:-:formTableId---" is "All"
-    And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "1"
-    And I enter "SF428B_Form_deselect" values from "ProgressReport_Field_Values.xlsx"
-    And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I wait for "3" seconds
-#    Then I softly see the following messages in the page details :
-#      | Form saved successfully. |
-    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    And I refresh the page
-    And I wait for "3" seconds
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Form validated successfully. |
-    And I close the tab
-#    We don't have support for dropdown in form hence commented this step
-#    And I select "Tangible Personal Property Report - SF-428" from dropdown at forms
-    And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
-    And I switch to tab number "1"
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Select the Final (Award Closeout) Report (SF-428-B) as required form is filled. |
+        When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "IND" user
+    And I wait for "5" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:IndCompetitiveClosedAward}" in "---paymentRequest:-:recipientGrantTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:IndCompetitiveClosedAward}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{AUTOEnvData:IndCompetitiveClosedAward}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+    Then I softly see that "Subaward" is in "Closed" status

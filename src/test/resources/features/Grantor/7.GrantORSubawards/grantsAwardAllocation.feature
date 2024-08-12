@@ -17433,7 +17433,6 @@ Feature: Validate all scenarios of grants and award for Allocation
 #    And I refresh the page
 #    When I expand nested table containing column value "BP01"
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 0      | 0          | 0              |
@@ -18574,6 +18573,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see field "NewObligation__c" not in edit mode
     Then I softly see field "CumulativeObligation__c" not in edit mode
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -19308,7 +19308,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I enter "<Filter>" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition_By_Applicant" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -19445,9 +19445,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "CumulativeObligation__c" not in edit mode
 
     Examples:
-      | User |
-      | SPI3 |
-      | IND  |
+      | User |  Filter            |
+      | SPI3 | GrantFields1       |
+      | IND  | GrantFieldsIndUser |
 
  @grant3 @243662 @244182 @244185 @243799 @243918 @244254 @244257 @ValidateEXEusershouldseeBudgetedAmountfieldonawardincreatedSenttoSrbeforeapprovalinreviewandpeerreviewedstatesFANo @sprint-16-US-237985  @Allocation
   Scenario Outline: Validate EXE user should see 'Budgeted Amount' field on award in created, Sent to S/r before approval, in review and peer-reviewed states FA=No
@@ -19455,7 +19455,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I enter "<Filter>" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition_ByApp_Focus_No" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -19595,9 +19595,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Budgeted Amount" inside "Budget Summary" section
 
     Examples:
-      | User |
-      | SPI3 |
-      | IND  |
+      | User |  Filter            |
+      | SPI3 | GrantFields1       |
+      | IND  | GrantFieldsIndUser |
 
  @243670 @ValidatePOusershouldnotseeBudgetedAmountfieldonawardinsubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedAmendedPendingActivationFAYes @sprint-16-US-237985  @Allocation
   Scenario: Validate PO user should not see 'Budgeted Amount' field on award in submitted to approval Approved, Sent to S/r after approval, activated, Amended or Pending Activation FA=Yes
