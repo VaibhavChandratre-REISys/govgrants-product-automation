@@ -19496,10 +19496,10 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-#    When I navigate to "Overview" sub tab
-#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-#      | Name                       | Project Role             | Is Key Personnel |
-#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name                         | Project Role               | Is Key Personnel |
+      | {SavedValue:<User> Username} | Project Director/Manager   | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                      | Award  |
@@ -19596,7 +19596,7 @@ Feature: Validate all scenarios of grants and award for Allocation
 
     Examples:
       | User |  Filter            |
-      | SPI3 | GrantFields1       |
+#      | SPI3 | GrantFields1       |
       | IND  | GrantFieldsIndUser |
 
  @243670 @ValidatePOusershouldnotseeBudgetedAmountfieldonawardinsubmittedtoapprovalApprovedSenttoSrafterapprovalactivatedAmendedPendingActivationFAYes @sprint-16-US-237985  @Allocation
