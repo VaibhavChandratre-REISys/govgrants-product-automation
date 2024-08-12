@@ -12208,14 +12208,14 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 1000   | 100        | 100            |
-#    And I refresh the page
-#    When I expand nested table containing column value "BP01"
+      | Construction  | 1000  | 100      | 100           |
+##    And I refresh the page
+##    When I expand nested table containing column value "BP01"
+##    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
 #    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
-    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 0      | 0          | 0              |
+#    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
+#      | Category Name | Budget | Cash Match | Non-Cash Match |
+#      | Construction  | 0      | 0          | 0              |
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
