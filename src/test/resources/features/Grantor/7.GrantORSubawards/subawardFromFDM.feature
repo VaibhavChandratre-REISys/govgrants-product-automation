@@ -1473,7 +1473,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @65412 @addFederalProgram @TBExecution1
+  @65412 @addFederalProgram
   Scenario Outline: To verify that federal program can be added from the award owner profile in overview tab after the sub award is accepted by the sub recipient
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"

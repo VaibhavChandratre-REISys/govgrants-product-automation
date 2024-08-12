@@ -1534,7 +1534,7 @@ Feature: Validate all scenarios of every modules flow
 
   @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-#    And I activated standalone subaward "Automation By Applicant Admin User Closed Award" with properties "Automation ADMIN user" of type "Formula_By_Applicant"
+    And I activated standalone subaward "Automation By Applicant Closed Award" with properties "default" of type "Formula_By_Applicant"
 #
 #    Given I login to "As a Grantor" app as "PM" user
 #    And I halt execution
@@ -1543,8 +1543,8 @@ Feature: Validate all scenarios of every modules flow
 #      | Name                       | Project Role             | Is Key Personnel |
 #      | {SavedValue:SPI3 Username} | Project Director/Manager | Unchecked        |
 #    And I halt execution
-    And I published "Competitive" type announcement having name "Automation Executable Award Test" and properties "default"
-    And I initiated an application review for application "{SavedValue:Automation Executable Award Test}" on announcement "{SavedValue:Automation Executable Award Test}" with properties "default"
-    And I created approved FDM on application "{SavedValue:Automation Executable Award Test}"
-    Given I created award from approved FDM with announcement "{SavedValue:Automation Executable Award Test}"
-    And I activate award from FDM having application name "{SavedValue:Automation Executable Award Test}"
+#    And I published "Competitive" type announcement having name "Automation Executable Award Test" and properties "default"
+#    And I initiated an application review for application "{SavedValue:Automation Executable Award Test}" on announcement "{SavedValue:Automation Executable Award Test}" with properties "default"
+#    And I created approved FDM on application "{SavedValue:Automation Executable Award Test}"
+#    Given I created award from approved FDM with announcement "{SavedValue:Automation Executable Award Test}"
+#    And I activate award from FDM having application name "{SavedValue:Automation Executable Award Test}"
