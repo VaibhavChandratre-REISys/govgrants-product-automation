@@ -1532,11 +1532,19 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug
+  @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
-    And I wait for "9" seconds
-    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "14k. NHPA" from computer
-    When I click modal button "Close"
+    And I activated standalone subaward "Automation Permanent Ind Closed Award By App Details Budget Yes" with properties "SECOND_BUD_CAT_SECOND_FOCUS_BUILD_UP_IND_ORG" of type "Competitive"
+
+#    Given I login to "As a Grantor" app as "PM" user
+#    And I halt execution
+#    When I navigate to "Overview" sub tab
+#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
+#      | Name                       | Project Role             | Is Key Personnel |
+#      | {SavedValue:SPI3 Username} | Project Director/Manager | Unchecked        |
+#    And I halt execution
+#    And I published "Competitive" type announcement having name "Automation Executable Award Test" and properties "default"
+#    And I initiated an application review for application "{SavedValue:Automation Executable Award Test}" on announcement "{SavedValue:Automation Executable Award Test}" with properties "default"
+#    And I created approved FDM on application "{SavedValue:Automation Executable Award Test}"
+#    Given I created award from approved FDM with announcement "{SavedValue:Automation Executable Award Test}"
+#    And I activate award from FDM having application name "{SavedValue:Automation Executable Award Test}"

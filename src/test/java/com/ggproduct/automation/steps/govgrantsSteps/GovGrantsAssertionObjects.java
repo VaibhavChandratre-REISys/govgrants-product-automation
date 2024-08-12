@@ -843,6 +843,7 @@ public final class GovGrantsAssertionObjects {
         }
 //            I.amPerforming().getElementReference().of(govgrants.perform().flexTable().getFlexTableColumn(columnValueUpdated));
         WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//tbody/tr//*[text()='" + columnValueUpdated + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
+        I.amPerforming().scroll().withMouseToElement(ClickSelector);
         I.amPerforming().click().withJavaScript(ClickSelector);
         List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(govgrants.perform().flexTable().getTableActionIcon(tableId, buttonName, columnValueUpdated), false);
         if (shouldBeVisible) {

@@ -1814,7 +1814,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62923 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment  @buglogged-171710
+  @62923 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment
   Scenario Outline: Verify Budget Period field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward at Award Owner end.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -3632,7 +3632,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62373 @validateFrequencyAfterPeriodicAmendmentIsSameAsMonthlyOnAward   @smoke @buglogged-171710
+  @62373 @validateFrequencyAfterPeriodicAmendmentIsSameAsMonthlyOnAward @smoke
   Scenario Outline: Validate frequency remains the same for Progress report schedules after Periodic renewal amendment when frequency type is Monthly at Award Owner end
     Given I activated standalone subaward "Automation Runtime Award" with properties "PROGRESS_REPORT_MONTHLY" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -4982,7 +4982,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62928 @validateAwardedBudgetAfterFCAmendmentOnInternalPortal  @smoke
+  @62928 @validateAwardedBudgetAfterFCAmendmentOnInternalPortal @smoke
   Scenario Outline: Verify Awarded Budget field value on Progress report should get updated after funding change amendment is done by award owner at Award owner end
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -6509,7 +6509,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62921 @validateAwardedBudgetDecreasedAfterFCAmendment  @smoke
+  @62921 @validateAwardedBudgetDecreasedAfterFCAmendment @smoke
   Scenario Outline: Verify Awarded Budget field values at performance tab on progress report decrease when award owner performed Funding change amendment on subaward
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal

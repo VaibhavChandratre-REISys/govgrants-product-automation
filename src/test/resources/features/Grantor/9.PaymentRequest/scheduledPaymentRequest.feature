@@ -1,4 +1,4 @@
-@paymentRequestWithBackground @ScheduleRequest @paymentRequest @grantor-regression @grantor-parallel-regression @regression @paymentRequestExecution
+@paymentRequestWithBackground @paymentRequest @ScheduleRequest @paymentRequest @grantor-regression @grantor-parallel-regression @regression @paymentRequestExecution
 Feature: Scheduled Reimbursement Payment Request Scenarios
 
   @38313 @taskCreationForSubrecipientUser  @PaymentRerun

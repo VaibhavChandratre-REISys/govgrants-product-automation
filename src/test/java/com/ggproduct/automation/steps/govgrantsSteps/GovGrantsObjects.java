@@ -408,6 +408,7 @@ public final class GovGrantsObjects {
             if (!withoutRandomNumber) {
                 renameFile(defaultFilePath, fileName, newFileName);
             }
+            I.amPerforming().waitFor().ElementToBeVisible(classificationType);
             I.amPerforming().dropDownSelection().from(classificationType).selectByValue(fileType);
             I.amPerforming().waitFor().makeThreadSleep(5000);
             I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);
@@ -692,4 +693,10 @@ public final class GovGrantsObjects {
         I.amPerforming().click().on(buttonLabel);
     }
 
+    public void toUpdateTitleAsOnUploadFileModal(String titleName) {
+       By title = By.xpath("//div[@id='WorkspaceFileEdit']//label[text()='Title']/..//div//input[@part='input']");
+       I.amPerforming().waitFor().ElementToBeVisible(title);
+       I.amPerforming().textInput().toClear(title);
+       I.amPerforming().textInput().in(title,titleName);
+    }
 }

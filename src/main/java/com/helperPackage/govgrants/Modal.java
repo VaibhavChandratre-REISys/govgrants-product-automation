@@ -17,7 +17,7 @@ public final class Modal {
         By modalButton = getModalContentSpecificButton(buttonName);
         try {
             govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
-            I.amPerforming().click().on(modalButton, false);
+            I.amPerforming().click().withJavaScript(modalButton, false);
             govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         } catch (Exception ee) {
             try {
@@ -35,7 +35,7 @@ public final class Modal {
     }
 
     public By getModalContentSpecificButton(String buttonName) {
-        return By.xpath("//div[contains(@class,'modal__footer')]//button[@title='" + buttonName + "' or text()='" + buttonName + "'] | //button[contains(text(),'" + buttonName + "')]");
+        return By.xpath("//div[contains(@class,'modal__footer')]//button[@title='" + buttonName + "' or text()='" + buttonName + "'] | //div[contains(@class,'modal__container')]//button[contains(text(),'" + buttonName + "')] | //div[@id='WorkspaceFileEdit']//button[@title='" + buttonName + "' or text()='" + buttonName + "']");
     }
 
     /**
