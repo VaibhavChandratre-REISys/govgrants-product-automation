@@ -32,7 +32,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Files" sub tab
     Then I can see top right button "Add" in flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
-  @71423 @71439 @71438  @statusOfAllAndDraft
+  @71423 @71439 @71438  @statusOfAllAndDraft @TBExecution
   Scenario:  Verify that all and draft records are getting displayed proper post apply a filter "All and Drafts" on grants by SPI/SPA users.
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -7168,7 +7168,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @225064 @sprint-12-US-226646 @reassignment @TBExecution
+  @225064 @sprint-12-US-226646 @reassignment
   Scenario: Validate Reassignment Task all simultaneous reassignment ownership should reassigned to new owner & Validate mail yopmail
     And I activated standalone subaward "Automation Runtime Bulks Grants Records" with properties "Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -7250,7 +7250,7 @@ Feature: Validate all scenarios of grants and award without background
     And I save the field labeled "EGMS ID" as "GrantEGMSID1"
     And I enter value "abc" into field "GrantDescription__c"
     And I click on "Save" in the page details
-    And I save the field labeled "Grant Title" as "Automation Runtime Bulks Grants Records"
+    And I save the field labeled "Grant Title" as "Automation Runtime Bulks Grants Records Test"
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I get the "EGMS ID"

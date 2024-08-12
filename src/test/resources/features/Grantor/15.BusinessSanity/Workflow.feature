@@ -1534,8 +1534,8 @@ Feature: Validate all scenarios of every modules flow
 
   @test
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    And I activated standalone subaward "Automation By Applicant Closed Award" with properties "default" of type "Formula_By_Applicant"
-#
+    And I activated standalone subaward "Automation Permanent Ind Closed Award By App Details Budget Yes" with properties "SECOND_BUD_CAT_SECOND_FOCUS_BUILD_UP_IND_ORG" of type "Competitive"
+
 #    Given I login to "As a Grantor" app as "PM" user
 #    And I halt execution
 #    When I navigate to "Overview" sub tab

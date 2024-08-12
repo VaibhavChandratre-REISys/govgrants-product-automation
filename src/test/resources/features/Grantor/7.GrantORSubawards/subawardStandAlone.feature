@@ -2997,7 +2997,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Remove" icon for "Automation Permanent Objective" inside flex table with id "---subAwardStandAlone:-:objectivesTableId---" without waiting for record
     Then I do not see value "Automation Permanent Objective" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
 
-  @45756 @67969 @71182 @71431 @71437 @validateAwardRejectionByProgramApprover
+  @45756 @67969 @71182 @71431 @71437 @validateAwardRejectionByProgramApprover @TBExecution
   Scenario Outline: Validate award Rejection by Program approver
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -5786,7 +5786,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
-  @141917 @VerifyUpdationOfInheritedApproverAtCloseoutFromAward-RnRFunctnality @TBExecution
+  @141917 @VerifyUpdationOfInheritedApproverAtCloseoutFromAward-RnRFunctnality
   Scenario Outline: Verify the record owner can update the approver that are inherited from award program to closeout record
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
