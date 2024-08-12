@@ -12209,7 +12209,6 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000  | 100      | 100           |
-    And I refresh the page
 ##    When I expand nested table containing column value "BP01"
 ##    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
 #    And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
@@ -12217,7 +12216,7 @@ Feature: Validate all scenarios of grants and award for Allocation
 #      | Category Name | Budget | Cash Match | Non-Cash Match |
 #      | Construction  | 0      | 0          | 0              |
     When I click on "Submit to Grantor" in the page details
-    And I pause execution for "2" seconds
+    And I pause execution for "3" seconds
    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -19500,6 +19499,10 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     When I navigate to "Overview" sub tab
+   And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---"
+   And I check "All" boxes in flex table with id "---subAwardStandAlone:-:keyContactsTableId---"
+   When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:keyContactsTableId---"
+   And I refresh the page
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                         | Project Role               | Is Key Personnel |
       | {SavedValue:<User> Username} | Project Director/Manager   | Checked          |
