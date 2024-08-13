@@ -2238,10 +2238,10 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    When I navigate to "Overview" sub tab
-#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-#      | Name                       | Project Role             | Is Key Personnel |
-#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+     | Name                       | Project Role             | Is Key Personnel |
+     | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                      | Award  |
