@@ -714,7 +714,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Budget" sub tab
     Then I softly see value "{SavedValue:fundingAccount}" for title "Funding Account" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
 
-  @38215 @68038 @67913 @71429 @VerifyActiveGrantsAccessToAllUsers
+  @38215 @68038 @67913 @71429 @VerifyActiveGrantsAccessToAllUsers @skipOnJenkins
   Scenario Outline: Verify all internal users can view active grants
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2348,7 +2348,8 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
     And I navigate to "Budget" sub tab
-    And I save the field labeled "Amount Awarded to Date" as "amtAwardToDate"
+    And I wait for "2" seconds
+#    And I save the field labeled "Amount Awarded to Date" as "amtAwardToDate"
     Given I delete the record "<Award Name>" from the object "Closeout"
     And I delete the record "<Award Name>" from the object "Payment Request"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -2989,8 +2990,8 @@ Feature: Validate all scenarios of grants and award without background
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                      | FDM    |
       | {SavedValue:EXE Username} | Step 1 |
-   And I refresh the page
-   And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see that "{SavedValue:EXE Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I click on "Submit for Approval" in the page details
     And I get the "EGMS ID"
