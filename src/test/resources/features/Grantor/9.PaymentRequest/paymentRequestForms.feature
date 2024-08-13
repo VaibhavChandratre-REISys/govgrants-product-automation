@@ -101,6 +101,7 @@ Feature: Payment Request Forms scenarios
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     When I click modal button "Close"
+    And I refresh the page
     And I wait for "5" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
@@ -204,6 +205,7 @@ Feature: Payment Request Forms scenarios
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     When I click modal button "Close"
+    And I refresh the page
     And I wait for "5" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 

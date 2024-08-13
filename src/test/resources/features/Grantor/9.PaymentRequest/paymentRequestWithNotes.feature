@@ -1252,7 +1252,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     #236273
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
-  @236277 @VerifyPMPOFDusershouldnotabletoAddnotesnotesonschedulereimbursementpaymentrequestisinRejectedstate @sprint-14-US-225425 @Notes @TBExecution
+  @236277 @VerifyPMPOFDusershouldnotabletoAddnotesnotesonschedulereimbursementpaymentrequestisinRejectedstate @sprint-14-US-225425 @Notes
   Scenario:Verify PM/PO/FD user should not able to 'Add' notes notes on schedule reimbursement payment request is in 'Rejected' state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Payment Request"

@@ -9843,7 +9843,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @223495  @sprint-11-US-217998  @reassignment
+  @223495  @sprint-11-US-217998  @reassignment @EndToEndFlow
   Scenario: Validate Grant Module after transferring the more than 10 record to new owner then all future task access visible to new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
