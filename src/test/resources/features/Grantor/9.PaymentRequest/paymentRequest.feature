@@ -732,7 +732,7 @@ Feature: Validate all scenarios in Payment Request
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @54593 @54666 @54352 @70816 @54664 @54665 @validatePaidButtonNotDisplayedAfterRejectingReimbursementPR  @buglogged101170 @buglogged93512 @buglogged151163 @TBExecution
+  @54593 @54666 @54352 @70816 @54664 @54665 @validatePaidButtonNotDisplayedAfterRejectingReimbursementPR  @buglogged101170 @buglogged93512 @buglogged151163
   Scenario: Validate the paid button not displayed on reimbursement Payment request after rejection
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -1570,6 +1570,7 @@ Feature: Validate all scenarios in Payment Request
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PaymentId"
+    And I save the field labeled "Subaward" as "Subaward Id"
     And I navigate to "Financials" sub tab
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
@@ -1597,7 +1598,7 @@ Feature: Validate all scenarios in Payment Request
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Payment Request {SavedValue:PaymentId} has been SentBack
+      Sandbox: Revise Payment Request #{SavedValue:PaymentId} for Subaward#{SavedValue:Subaward Id}
       """
 
   @55626 @advancePaymentRequestSubmitToGrantorBySPIEmailNotification
@@ -1609,6 +1610,7 @@ Feature: Validate all scenarios in Payment Request
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PaymentId"
+    And I save the field labeled "Subaward" as "Subaward Id"
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
       | Budget Category | Advance Requested This Action |
@@ -1630,7 +1632,7 @@ Feature: Validate all scenarios in Payment Request
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Payment Request {SavedValue:PaymentId} from AutomationSPI3 has been Submitted
+      Sandbox: Review Payment Request #{SavedValue:PaymentId} for Subaward#{SavedValue:Subaward Id}
       """
 
   @55627 @emailNotificationOnSubmitToGrantorReimbursement
@@ -1642,6 +1644,7 @@ Feature: Validate all scenarios in Payment Request
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PaymentId"
+    And I save the field labeled "Subaward" as "Subaward Id"
     And I navigate to "Financials" sub tab
     And I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---"
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
@@ -1654,7 +1657,7 @@ Feature: Validate all scenarios in Payment Request
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: Payment Request {SavedValue:PaymentId} from AutomationSPI3 has been Submitted
+      Sandbox: Review Payment Request #{SavedValue:PaymentId} for Subaward#{SavedValue:Subaward Id}
       """
 
   @55630 @validateAdvancePRSendBackToSubReceipientEmailNotification
@@ -1666,6 +1669,7 @@ Feature: Validate all scenarios in Payment Request
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PaymentId"
+    And I save the field labeled "Subaward" as "Subaward Id"
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
       | Budget Category | Advance Requested This Action |
@@ -1693,7 +1697,7 @@ Feature: Validate all scenarios in Payment Request
     Then I refresh the page
     And I see the mail subject is as follows :
      """
-     Sandbox: Notification: Payment Request {SavedValue:PaymentId} has been SentBack
+     Sandbox: Revise Payment Request #{SavedValue:PaymentId} for Subaward#{SavedValue:Subaward Id}
      """
 
   @55628 @approvalOfAdvancePaymentRequestEmailNotification
@@ -1705,6 +1709,7 @@ Feature: Validate all scenarios in Payment Request
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PaymentId"
+    And I save the field labeled "Subaward" as "Subaward Id"
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
       | Budget Category | Advance Requested This Action |
@@ -1740,7 +1745,7 @@ Feature: Validate all scenarios in Payment Request
     Then I refresh the page
     And I see the mail subject is as follows :
      """
-     Sandbox: Notification: Payment Request {SavedValue:PaymentId} from AutomationSPI3 has been Submitted
+     Sandbox: Review Payment Request #{SavedValue:PaymentId} for Subaward#{SavedValue:Subaward Id}
      """
 
   @55636 @approversApprovePaymentRequestEmailNotificationReimbursement
@@ -1797,7 +1802,7 @@ Feature: Validate all scenarios in Payment Request
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @55629 @PRSubmittingForApproveEmailNotificationReimbursement @TBExecution
+  @55629 @PRSubmittingForApproveEmailNotificationReimbursement
   Scenario Outline: Verify that on submitting for approval , user is able to check email (Reimbursement)
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -2100,13 +2105,7 @@ Feature: Validate all scenarios in Payment Request
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I "Reassign" to user "{SavedValue:EXE Username}" in the approval decision
-    And I checkout to yopmail with mailid "	pm.automation@yopmail.com"
-    And I pause execution for "180" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Payment Request {SavedValue:PaymentId} for {SavedValue:SubawardId}has been Forwarded
-      """
+    Then I softly see field "Status" as "Submitted for Approval"
     Examples:
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |

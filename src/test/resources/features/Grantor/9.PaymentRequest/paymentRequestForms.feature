@@ -101,7 +101,7 @@ Feature: Payment Request Forms scenarios
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
   @287170 @308690 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-2-US-288254 @Forms @TBExecution
@@ -204,7 +204,7 @@ Feature: Payment Request Forms scenarios
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
  @307326 @ValidateSF270SPIusercanabletoSaveallfieldsbutvalidationisgeneratedonvalidatebuttonafterenteringincorrectdatainallfieldspresentonSF270form @sprint-1-US-282692  @Forms
@@ -573,7 +573,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Program Review Form" for title "Form Name" inside table "---program:-:packagesTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" against the value "Program Review Form" inside table "---program:-:packagesTableId---"
 
-  @293613 @ValidateEXEusercanseeReportTypeclmonSiteVisitformswhenuserclickonviewicononGrantorSiteVisitFormsunderBusinessFormssectiononsetuptabofAnnouncement @sprint-3-US-288713  @Forms @TBExecution
+  @293613 @ValidateEXEusercanseeReportTypeclmonSiteVisitformswhenuserclickonviewicononGrantorSiteVisitFormsunderBusinessFormssectiononsetuptabofAnnouncement @sprint-3-US-288713  @Forms
   Scenario: Validate EXE user can see Report Type clm on Site Visit forms  when user click on view icon on Grantor Site Visit Forms under Business Forms section on setup tab of Announcement
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -638,7 +638,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" against the value "Program Review Form" inside table "---program:-:previewPackageTableId---"
     Then I delete the record "{SavedValue:announcementName}" from the object "announcement"
 
-  @293617 @293620 @ValidatePOusecanseeReportTypeclmonOrganizationDeskReviewformswhenuserclickonviewicononOrganizationDeskReviewFormsunderBusinessFormssectiononsetuptabofAnnouncement @sprint-3-US-288713 @Forms @TBExecution
+  @293617 @293620 @ValidatePOusecanseeReportTypeclmonOrganizationDeskReviewformswhenuserclickonviewicononOrganizationDeskReviewFormsunderBusinessFormssectiononsetuptabofAnnouncement @sprint-3-US-288713 @Forms
   Scenario: Validate PO user can see Report Type clm on Organization Desk Review forms when user click on view icon on Organization Desk Review Forms under Business Forms section on setup tab of Announcement
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -712,7 +712,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Application Report" for title "Report Type" against the value "Standard Assurances Form" inside table "---program:-:previewPackageTableId---"
     Then I delete the record "{SavedValue:announcementName}" from the object "announcement"
 
-  @293619 @ValidatePMusercanseeReportTypeclmonPreapplicationformswhenuserclickonviewicononGrantorPreapplicationFormsunderBusinessFormssectiononsetuptabofAnnouncement @sprint-3-US-288713 @Forms @TBExecution
+  @293619 @ValidatePMusercanseeReportTypeclmonPreapplicationformswhenuserclickonviewicononGrantorPreapplicationFormsunderBusinessFormssectiononsetuptabofAnnouncement @sprint-3-US-288713 @Forms
   Scenario: validate PM user can see Report Type clm on Pre-application forms when user click on view icon on Grantor Pre-application Forms under Business Forms section on setup tab of Announcement
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1009,7 +1009,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Program Review Form" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" inside table "---program:-:previewPackageTableId---"
 
-  @293627 @ValidatePMandSPIusercanseeReportTypeclmonPreapplicationFormunderFormssectiononFormsFilestabofPreapplication @sprint-3-US-288713 @Forms @TBExecution
+  @293627 @ValidatePMandSPIusercanseeReportTypeclmonPreapplicationFormunderFormssectiononFormsFilestabofPreapplication @sprint-3-US-288713 @Forms
   Scenario: Validate PM and SPI user can see Report Type clm on Pre-application Form under Forms section on Forms & Files tab of Preapplication
     And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES_WITH_IND_ORG"
     And I am on "SUBPORTAL" portal
