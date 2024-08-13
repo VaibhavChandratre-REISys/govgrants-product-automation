@@ -19,7 +19,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72340 @activateKPI @ProdSan3
+  @72340 @activateKPI @ProdSan2
   Scenario: Validate the activation of KPI and the status changes to Active
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -2486,7 +2486,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept and Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan3
+  @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan2
   Scenario: Validate once the Org level Desk Review is clicked on Accept and Close butted then status changes to closed
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -2562,7 +2562,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72358 @activationOfBudgetPeriodAmendmentRequest @ProdSan3
+  @72358 @activationOfBudgetPeriodAmendmentRequest @ProdSan2
   Scenario: Validate the Budget period amendment activation
     And I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -2706,7 +2706,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     Then I softly see field "Status" as "Completed"
 
-  @CompletedSchedulesCloseout @ProdSan3
+  @CompletedSchedulesCloseout @ProdSan2
   Scenario: Validate Complete Scheduled Closeout End to End flow
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -2848,7 +2848,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | User | Properties                            |
       | SPI3 | ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO |
 
-  @PeriodicRenewalAmendmentRequests @ProdSan3
+  @PeriodicRenewalAmendmentRequests @ProdSan2
   Scenario: validate the end to end flow for Periodic Renewal Amendment Request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2906,7 +2906,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
 
-  @ScopeOfWorkChangeAmendmentRequest @ProdSan3
+  @ScopeOfWorkChangeAmendmentRequest @ProdSan2
   Scenario Outline: Validate end to end flow for scope of work change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     And I login to "As a Grantor" app as "PM" user
@@ -2961,7 +2961,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @SubrecipientKeyPersonnelChangeAmendmentRequest @ProdSan3
+  @SubrecipientKeyPersonnelChangeAmendmentRequest @ProdSan2
   Scenario: Validate end to end flow for key personnel change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3078,7 +3078,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @ValidatedDetailBudgetYesScenarioInAward @ProdSan3
+  @ValidatedDetailBudgetYesScenarioInAward @ProdSan2
   Scenario: Validate Detail Budget Yes Scenario In Award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3129,7 +3129,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
-  @TermsandConditionAmendmentRequest @ProdSan3
+  @TermsandConditionAmendmentRequest @ProdSan2
   Scenario: Validate Terms and Conditions Amendment Request End to End flow
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -3194,7 +3194,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @SubrecipientBudgetPeriodAmendmentRequest @ProdSan3
+  @SubrecipientBudgetPeriodAmendmentRequest @ProdSan2
   Scenario: Validate Subrecipient Amendment Request End to End flow
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -3339,7 +3339,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @CombinationOfSubrecipientBRandKPCandSOW @ProdSan3
+  @CombinationOfSubrecipientBRandKPCandSOW @ProdSan2
   Scenario: Validate Combinations of Subrecipient BR and KPC and SOW
     Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation PO user" of type "Formula_By_Applicant"
     When I am on "SUBPORTAL" portal
@@ -3426,7 +3426,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @CarryForwardAmendmentRequest @ProdSan3
+  @CarryForwardAmendmentRequest @ProdSan2
   Scenario: Validate Carry Forward Amendment Request End to End flow
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -3569,7 +3569,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @SF429-B_FillFullForm
+  @SF429-B_FillFullForm @ProdSan3
   Scenario: Validate SF429-B_Fill Full Form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"

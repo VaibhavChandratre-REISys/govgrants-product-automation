@@ -7182,6 +7182,8 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulks Grants Records}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Grant Title" as "Automation First Active Award"
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
     When I enter value "Automation Runtime Payment Request" into field "Title__c"
@@ -7407,11 +7409,11 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
     And I wait for "5" seconds
-    When I perform quick search for "{SavedValue:Automation Runtime Bulks Grants Records}" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Bulks Grants Records}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation First Active Award}" in "---paymentRequest:-:recipientGrantTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation First Active Award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Bulks Grants Records}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+    And I click on "View" icon for "{SavedValue:Automation First Active Award}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
