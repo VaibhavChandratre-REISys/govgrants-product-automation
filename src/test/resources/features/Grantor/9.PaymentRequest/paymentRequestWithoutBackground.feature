@@ -823,7 +823,7 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @55402 @ValidatedUserNotifiedFieldUpdatedInternalPortal
+  @pay2 @55402 @ValidatedUserNotifiedFieldUpdatedInternalPortal
   Scenario Outline: Verify when Batch is run then User Notified field gets Updated at Internal Portal
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "INTERNAL" portal
@@ -870,7 +870,7 @@ Feature: Payment Request scenarios without background
       | SPI3       |
       | SPA        |
 
-  @51068 @ReimbursementPaymentRequestAddAttachment @buglogged129945
+  @pay2 @51068 @ReimbursementPaymentRequestAddAttachment @buglogged129945
   Scenario Outline: Validate the attachment for Reimbursement Payment Request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal

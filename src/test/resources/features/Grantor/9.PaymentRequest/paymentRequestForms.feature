@@ -432,12 +432,13 @@ Feature: Payment Request Forms scenarios
     Then I softly see value "Payment Request" for title "Package Type" inside table "---program:-:packagesFormsTableId---"
     Then I softly see "check" symbol against the value "Request for Advance or Reimbursement - SF-270" in flex table with id "---program:-:packagesFormsTableId---"
 
-  @293600 @ValidatePMusercanseeReportTypeonformsforSiteVisitOrganizationDeskReviewPreapplicationApplicationonFormssectionofFormsPackagessectionundersetupofPlanningmodule @sprint-3-US-288713  @Forms
+  @pay2 @293600 @ValidatePMusercanseeReportTypeonformsforSiteVisitOrganizationDeskReviewPreapplicationApplicationonFormssectionofFormsPackagessectionundersetupofPlanningmodule @sprint-3-US-288713  @Forms
   Scenario: Validate PM user can see Report Type on forms for Site Visit Organization Desk Review Pre-application Application on Forms section of Forms & Packages section under setup of Planning module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Forms and Packages" content inside "Setup" subheader on left panel
-    And I select value inside table "---program:-:formsPackagesFormsTableId---" is "All"
+    And I select value inside table "---program:-:formsPackagesFormsTableId---" is "100"
+    And I wait for "2" seconds
     Then I softly see value "Standard Pre-Application Form" for title "Form Name" inside table "---program:-:formsPackagesFormsTableId---"
     Then I softly see value "Pre-Application Report" for title "Report Type" inside table "---program:-:formsPackagesFormsTableId---"
     Then I softly see value "Program Application Form" for title "Form Name" inside table "---program:-:formsPackagesFormsTableId---"
