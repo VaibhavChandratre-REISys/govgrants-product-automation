@@ -732,7 +732,7 @@ Feature: Validate all scenarios in Payment Request
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @54593 @54666 @54352 @70816 @54664 @54665 @validatePaidButtonNotDisplayedAfterRejectingReimbursementPR  @buglogged101170 @buglogged93512 @buglogged151163
+  @54593 @54666 @54352 @70816 @54664 @54665 @validatePaidButtonNotDisplayedAfterRejectingReimbursementPR  @buglogged101170 @buglogged93512 @buglogged151163 @TBExecution
   Scenario: Validate the paid button not displayed on reimbursement Payment request after rejection
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -742,6 +742,7 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Financials" sub tab
     And I enter value "1000" into field "YTDEarnedAmount__c"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field containing "Available Program Income" as "available program income"
     Then I softly see field "Program Income This action" as "$1,000.00"
     Then I softly see field "Available Program Income" as "$1,000.00"
