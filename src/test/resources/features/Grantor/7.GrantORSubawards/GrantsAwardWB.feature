@@ -2949,7 +2949,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
-    And I wait for "6" seconds
+    And I wait for "10" seconds
     When I click on "Submit" in the page details without processing
     And I wait for "2" seconds
     When I click alert button "OK"
