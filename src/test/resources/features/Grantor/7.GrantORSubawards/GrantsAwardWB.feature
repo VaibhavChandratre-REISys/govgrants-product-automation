@@ -2365,8 +2365,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I save the field labeled "EGMS ID" as "CloseoutID"
     When I click on "Save" in the page details
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
