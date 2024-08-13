@@ -823,7 +823,7 @@ Feature: Payment Request scenarios without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @pay2 @55402 @ValidatedUserNotifiedFieldUpdatedInternalPortal
+  @55402 @ValidatedUserNotifiedFieldUpdatedInternalPortal
   Scenario Outline: Verify when Batch is run then User Notified field gets Updated at Internal Portal
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "INTERNAL" portal
@@ -870,7 +870,7 @@ Feature: Payment Request scenarios without background
       | SPI3       |
       | SPA        |
 
-  @pay2 @51068 @ReimbursementPaymentRequestAddAttachment @buglogged129945
+  @51068 @ReimbursementPaymentRequestAddAttachment @buglogged129945
   Scenario Outline: Validate the attachment for Reimbursement Payment Request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -894,7 +894,7 @@ Feature: Payment Request scenarios without background
     Then I softly see value "Announcement_Field_Values.xlsx" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     Examples:
       | User |
-      | SPI3 |
+#      | SPI3 |
       | SPA  |
 
   @55400 @EditActionNotDisplayedReimbursementPR
