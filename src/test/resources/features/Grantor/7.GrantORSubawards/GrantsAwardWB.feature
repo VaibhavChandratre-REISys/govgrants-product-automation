@@ -2152,10 +2152,12 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
-    And I enter value "<Award Name>" into field "ProjectTitle__c"
+    And I enter value "Automation Runtime Execution Award" into field "ProjectTitle__c"
     And I click modal button "Continue"
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "Automation Runtime Execution Grant"
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I wait for "2" seconds
@@ -2471,7 +2473,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly do not see value "Activated" for title "Status" inside table "---subAwardFromFDM:-:grantsTableId---"
     Examples:
       | Award Name                                      | Grant Name                                      |
-      | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
+      | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Grant} |
 
   @65909 @checkAawrdIsPresentUnderAnotherPMuSER
   Scenario:  Verify that other internal users of organization(ex-Community Health & Equity) are not able to view draft grants with the different organization(Ex-Test Automation Organization).
@@ -7481,7 +7483,7 @@ Feature: Validate all scenarios of grants and award without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation EXE" for title "Name" inside table "---closeout:-:closeoutOwnerTableId---"
 
- @api2 @224420  @sprint-12-US-226646  @reassignment
+ @api2 @224420 @sprint-12-US-226646  @reassignment
   Scenario: Validate Reassignment Task all simultaneous reassignment task ownership should reassigned to new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -7615,7 +7617,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime Direct Award}" in the table "---deskreview:-:awardDeskReviewTableId---"
     And I click on "Notify" in the page details
     Given I click on "Conduct" in the page details
     And I navigate to "Responsibilities" sub tab
@@ -10684,7 +10686,7 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
 
- @api2 @274116  @sprint-23-US-273843
+ @api2 @274116 @sprint-23-US-273843
   Scenario:Verify PM user can not see a Focus area with zero value for New Obligation and Cumulative Obligation column on the award created from FDM
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -10757,8 +10759,9 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
+    And I wait for "2" seconds
     When I click on "Create Application" in the page details
-   And I wait for "2" seconds
+    And I wait for "5" seconds
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I navigate to "Budget" sub tab
