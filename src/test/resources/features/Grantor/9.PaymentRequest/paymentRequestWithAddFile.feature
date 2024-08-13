@@ -553,7 +553,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I navigate to "Forms and Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---paymentRequest:-:reimburseFilesTableId---"
 
-  @193921 @VerifySPAusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRwhengrantorsentbacktoSRPR @sprint-14-US-225425 @addFiles
+  @193921 @VerifySPAusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRwhengrantorsentbacktoSRPR @sprint-14-US-225425 @addFiles @TBExecution
   Scenario:Verify SPA user can add file on ad-hoc reimbursement PR if user has edit access on top edit button for PR when grantor sent back to S\R PR
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
