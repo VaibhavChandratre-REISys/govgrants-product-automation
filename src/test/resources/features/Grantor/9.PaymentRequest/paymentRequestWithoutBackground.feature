@@ -2133,7 +2133,7 @@ Feature: Payment Request scenarios without background
 
       """
 
-  @197769 @ValidatesystemcreatenewschedulepaymentrequestafterpreviousPRownershiptaskreassigntootheruserthennewPRinternalsideownershouldbeawardonly @sprint-4  @reassignment
+  @197769 @ValidatesystemcreatenewschedulepaymentrequestafterpreviousPRownershiptaskreassigntootheruserthennewPRinternalsideownershouldbeawardonly @sprint-4  @reassignment @TBExecution
   Scenario: Validate system create new schedule payment request after previous PR ownership task reassign to other user then new PR internal side owner should be award only
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Payment Request"
@@ -6953,7 +6953,7 @@ Feature: Payment Request scenarios without background
     Then I see the following messages in the page details contains:
       | Financials Tab - Reimbursed Amount cannot be greater than the reimbursement balance. Subrecipient needs to apply advance. Please Send Request back. |
 
-  @116558 @Validatethatpaymentrequestrelatedsettingsarecarriedproperlyfromannouncementtograntlevel @Sprint-23-US-273843  @Allocation
+  @116558 @Validatethatpaymentrequestrelatedsettingsarecarriedproperlyfromannouncementtograntlevel @Sprint-23-US-273843 @Allocation @TBExecution
   Scenario: Validate that payment request related settings are carried properly from announcement to grant level
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

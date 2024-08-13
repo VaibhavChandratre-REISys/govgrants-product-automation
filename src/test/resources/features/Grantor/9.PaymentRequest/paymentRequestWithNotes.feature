@@ -628,7 +628,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     And I click on "Delete" icon for "Notes Record" inside flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record" for title "Title" inside table "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
-  @236238 @VerifyPMPOADMINFOsameOrgusershouldbeabletoAddnotesbutEditDeletetheirownnotesonschedulereimbursementpaymentrequestisinSubmittograntorstate @sprint-14-US-225425  @Notes
+  @236238 @VerifyPMPOADMINFOsameOrgusershouldbeabletoAddnotesbutEditDeletetheirownnotesonschedulereimbursementpaymentrequestisinSubmittograntorstate @sprint-14-US-225425 @Notes @TBExecution
   Scenario:Verify PM/PO/ADMIN//FO same Org user should be able to 'Add' notes but 'Edit/Delete' their own notes on schedule reimbursement payment request is in 'Submit to grantor' state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Payment Request"
@@ -1252,7 +1252,7 @@ Feature: Validate all scenarios in Payment Request With Notes
     #236273
     Then I softly cannot see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
 
-  @236277 @VerifyPMPOFDusershouldnotabletoAddnotesnotesonschedulereimbursementpaymentrequestisinRejectedstate @sprint-14-US-225425  @Notes
+  @236277 @VerifyPMPOFDusershouldnotabletoAddnotesnotesonschedulereimbursementpaymentrequestisinRejectedstate @sprint-14-US-225425 @Notes @TBExecution
   Scenario:Verify PM/PO/FD user should not able to 'Add' notes notes on schedule reimbursement payment request is in 'Rejected' state
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Payment Request"
