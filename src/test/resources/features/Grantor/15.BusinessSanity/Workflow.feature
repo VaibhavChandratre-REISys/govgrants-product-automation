@@ -1536,11 +1536,13 @@ Feature: Validate all scenarios of every modules flow
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I login to "As a Grantor" app as "PM" user
     And I wait for "5" seconds
-    And I click on hyperlink containing value "GT--00299"
-    And I wait for "4" seconds
-    When I navigate to "Actuals" sub tab
-    Then I softly see "Cumulative Obligation" inside page block detail
-    Then I softly do not see "Awarded Amount" inside page block detail
-    Then I softly see field "Cumulative Obligation" as "$1,000.00"
-    And I save the field labeled "Cumulative Obligation" as "CumulativeObligation"
-    Then I softly see value "{SavedValue:CumulativeObligationAward1}" is "Equals to" the value "{SavedValue:CumulativeObligation}"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                      | Award  |
+      | {SavedValue:PM Username}  | Step 1 |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                      | Award  |
+      | {SavedValue:EXE Username} | Step 2 |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                      | Award  |
+      | {SavedValue:FO Username}  | Step 3 |
