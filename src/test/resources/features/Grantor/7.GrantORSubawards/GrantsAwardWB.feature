@@ -7170,7 +7170,7 @@ Feature: Validate all scenarios of grants and award without background
 
   @225064 @sprint-12-US-226646 @reassignment
   Scenario: Validate Reassignment Task all simultaneous reassignment ownership should reassigned to new owner & Validate mail yopmail
-    And I activated standalone subaward "Automation Runtime Bulks Grants Records" with properties "Automation EXE user" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Bulks Grants Records" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
