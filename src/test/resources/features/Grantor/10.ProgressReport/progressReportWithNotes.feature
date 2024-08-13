@@ -128,7 +128,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
 
-  @236024 @236026  @sprint-12-US-234322  @Notes @ProgressFailedScenarios
+  @236024 @236026  @sprint-12-US-234322 @Notes
   Scenario: Verify that <PM> User can add notes in Progress report record in submit to grantor states and edit /delete only his own notes
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation EXE user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -239,8 +239,8 @@ Feature: Validate scenarios in Progress Report Notes
     Then I softly see value "Automation Notes4" for title "Description" inside table "---progressreport:-:progressNotesTableId---"
     And I click on "Delete" icon for "Notes Record4" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record4" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
-    Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
-    Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---paymentRequest:-:advancePaymentNotesTableId---"
+    Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---progressreport:-:progressNotesTableId---"
+    Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---progressreport:-:progressNotesTableId---"
 
   @236032  @sprint-12-US-234322  @Notes
   Scenario: Verify that  Peer Reviewer<FD> User can add notes in Progress report record in Sent for review states and edit /delete only his own notes.
@@ -406,7 +406,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
 
-  @236042 @VerifythatSPAUsercanaddnotesinProgressreportrecordinSentbacktoSrstatesandeditdeleteonlyhisownnotes @sprint-12-US-234322  @Notes
+  @236042 @VerifythatSPAUsercanaddnotesinProgressreportrecordinSentbacktoSrstatesandeditdeleteonlyhisownnotes @sprint-12-US-234322 @Notes
   Scenario:Verify that <SPA> User can add notes in Progress report record in  Sent back to S/r states and edit /delete only his own notes
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -460,7 +460,6 @@ Feature: Validate scenarios in Progress Report Notes
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
-
     When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
@@ -632,7 +631,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Delete" icon for "Notes Record4" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record4" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
 
-  @236158  @sprint-12-US-234322  @Notes @ProgressFailedScenarios
+  @236158  @sprint-12-US-234322 @Notes
   Scenario:Verify that <Admin> Can not Add Notes In Progress report Record ,when record  is in Force closed state And Can only /Edit /Delete his own notes
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -814,7 +813,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I cannot see row level action button "Edit" against "Notes Record1" in flex table with id "---progressreport:-:progressNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record1" in flex table with id "---progressreport:-:progressNotesTableId---"
 
-  @236045  @sprint-12-US-234322  @Notes
+  @236045  @sprint-12-US-234322 @Notes
   Scenario:Verify that <IND> User Cant Add notes In Progress Report If the record status is in the Submitted to Grantor  And Can Only Edit /Delete Notes Added by him
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1256,7 +1255,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
 
-  @238028 @Verifyindusercanaddnoteinsendbacktosubrecipientstateandcanabletoeditdeletehisownnote @sprint-12-US-234322  @Notes
+  @238028 @Verifyindusercanaddnoteinsendbacktosubrecipientstateandcanabletoeditdeletehisownnote @sprint-12-US-234322 @Notes
   Scenario:Verify <ind> user can add note in send back to subrecipient state and can able to edit/delete his own note
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"

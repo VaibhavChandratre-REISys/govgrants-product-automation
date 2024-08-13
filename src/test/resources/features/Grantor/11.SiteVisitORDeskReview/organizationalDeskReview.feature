@@ -859,12 +859,8 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I close "Upload Template" modal by clicking the top right x button
     Then I see value "Mandatory" for title "Required" against the value "Active" inside table "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
 
-  @bug-429768 @61061 @61995 @61059 @CreatedDateOfRAdisplayedOnOverviewTabAdditionOfAttachment  @buglogged150045 @organizationalDeskReviewSecond
+  @61061 @61995 @61059 @CreatedDateOfRAdisplayedOnOverviewTabAdditionOfAttachment @organizationalDeskReviewSecond
   Scenario: Validate the Created Date of Desk Review display on Overview Tab and Adding Attachments- Organizational Desk Review
-    When I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---orgRiskAssessment:-:orgriskSupportingDocTableId---" by clicking "Add" :
-      | Description | Required  | Status |
-      | Automation  | Mandatory | Active |
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
     And I enter "Award" values from "Organizational_DeskReview_Field_Values.xlsx"
@@ -877,7 +873,18 @@ Feature: Validate all scenarios in Organizational Desk Review
     Then I can see top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" against the value "Supporting Documents" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Other" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
+    Then I softly see value "Other" for title "Classification" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
 
   @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval @organizationalDeskReviewSecond
   Scenario: Validate Record Owner user is able to take Snapshot after Org Desk Review is Submitted for Approval status - Org Desk Review

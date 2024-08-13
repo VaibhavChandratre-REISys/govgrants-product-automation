@@ -1297,14 +1297,22 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     And I click on "Remove" icon for "{SavedValue:SPI3 Username}" inside flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     Then I softly see "No Records Found" inside flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
     When I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "GrantorSiteVisitFiles"
+    And I click on top right button "Add Files" in flex table with id "---sitevisits:-:siteVisitAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Pre-Site Visit Letter" from computer
-    And I pause execution for "5" seconds
-    And I refresh the page
+    And I pause execution for "2" seconds
+    And I click modal button "Close"
     When I navigate to "Files" sub tab
     Then I softly see "Pre-Site Visit Letter" has been added in "Site Visit Files" flex table
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---sitevisits:-:siteVisitAddFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Other" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---sitevisits:-:siteVisitAddFilesTableId---"
+    Then I softly see value "Other" for title "Classification" inside table "---sitevisits:-:siteVisitAddFilesTableId---"
 
   @61407 @61994 @CreatedDateCanNotEditSVDatesUnderOverviewTab
   Scenario: Validate the Created Date of Risk Assessment display on Overview Tab and owner cannot edit the Site Visits Dates under Overview tab

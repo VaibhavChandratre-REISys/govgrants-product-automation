@@ -72,11 +72,12 @@ Feature: Validate all scenarios in the award created from FDM
       | {SavedValue:FO Username} | Step 3 |
     Then I see that "{SavedValue:EXE Username}" has been added in flextable with Id "---subAwardFromFDM:-:awardApproverTableId---"
 
-  @50990 @riskAssessmentActivationAndAwardAcceptanceBySPI @bug-94597
+  @50990 @riskAssessmentActivationAndAwardAcceptanceBySPI
   Scenario Outline: Send an award to sub-recipient before approval
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
       | Title                      | Project Role   | Is Key Personnel |
@@ -145,6 +146,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Name                     | Award  |
       | {SavedValue:FO Username} | Step 3 |
     When I click on "Send to Subrecipient" in the page details
+    Then I see field "Status" as "Sent to Subrecipient"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -1272,11 +1274,9 @@ Feature: Validate all scenarios in the award created from FDM
     When I navigate to "Overview" sub tab
     And I save the field labeled "Internal Organization" as "InternalOrg"
     And I save the field labeled "Program ID" as "ProgramID"
-    And I save the field labeled "KPI's Required?" as "KPI"
-    #@64570 this functionality is disabled now
-    #And I save the field labeled "Work Plan Required?" as "WPR"
+    And I save the field labeled "KPIs Required?" as "KPI"
     And I save the field labeled "Program Income Allowed?" as "PIA"
-    And I save the field labeled "Focus Area Required?" as "FAR"
+    And I save the field labeled "Focus Areas Required?" as "FAR"
     And I save the field labeled "Estimated Project Period Start Date" as "PPSD"
     And I save the field labeled "Estimated Project Period End Date" as "PPED"
     And I save the field labeled "Created By" as "CreatedBy"
@@ -1288,14 +1288,12 @@ Feature: Validate all scenarios in the award created from FDM
     When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Overview" sub tab
-    # @64570 this functionality is disabled now
-    #Then I softly see field "Work Plan Required?" as "{SavedValue:WPR}"
-    Then I softly see field "Focus Area Required?" as "{SavedValue:FAR}"
+    Then I softly see field "Focus Areas Required?" as "{SavedValue:FAR}"
     Then I softly see field "Project Period Start Date" as "{SavedValue:PPSD}"
     Then I softly see field "Program Income Allowed?" as "{SavedValue:PIA}"
     Then I softly see field "Project Period End Date" as "{SavedValue:PPED}"
     Then I softly see field "Created by" as "{SavedValue:PM Username}"
-    Then I softly see field "KPI's Required?" as "{SavedValue:KPI}"
+    Then I softly see field "KPIs Required?" as "{SavedValue:KPI}"
     Then I softly see field "Funding Organization" as "{SavedValue:InternalOrg}"
     Then I softly see field "Objectives Required?" as "{SavedValue:ObjRequired}"
     Then I softly see field "Internal Program" as "{SavedValue:ProgramID}"
@@ -1475,7 +1473,7 @@ Feature: Validate all scenarios in the award created from FDM
       | Grant Name                                       | Award Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @65412 @addFederalProgram @bug-94597
+  @65412 @addFederalProgram
   Scenario Outline: To verify that federal program can be added from the award owner profile in overview tab after the sub award is accepted by the sub recipient
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Award_Field_Values.xlsx"
@@ -1562,7 +1560,9 @@ Feature: Validate all scenarios in the award created from FDM
     And I click on top right button "Associate" in flex table with id "---subAwardFromFDM:-:federalProgramTableId---"
     When I click "Add" after selection of "Federal" in the table "---subAwardFromFDM:-:federalListTableId---"
     And I pause execution for "3" seconds
-    Then I see total records count "Total Records:1" in flex table "---subAwardStandAlone:-:federalProgramTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see total records count "Total Records: 1" in flex table "---subAwardFromFDM:-:federalProgramTableId---"
     Examples:
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
