@@ -1532,19 +1532,17 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @test
+  @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    And I activated standalone subaward "Automation Permanent Ind Closed Award By App Details Budget Yes" with properties "SECOND_BUD_CAT_SECOND_FOCUS_BUILD_UP_IND_ORG" of type "Competitive"
-
-#    Given I login to "As a Grantor" app as "PM" user
-#    And I halt execution
-#    When I navigate to "Overview" sub tab
-#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-#      | Name                       | Project Role             | Is Key Personnel |
-#      | {SavedValue:SPI3 Username} | Project Director/Manager | Unchecked        |
-#    And I halt execution
-#    And I published "Competitive" type announcement having name "Automation Executable Award Test" and properties "default"
-#    And I initiated an application review for application "{SavedValue:Automation Executable Award Test}" on announcement "{SavedValue:Automation Executable Award Test}" with properties "default"
-#    And I created approved FDM on application "{SavedValue:Automation Executable Award Test}"
-#    Given I created award from approved FDM with announcement "{SavedValue:Automation Executable Award Test}"
-#    And I activate award from FDM having application name "{SavedValue:Automation Executable Award Test}"
+    When I login to "As a Grantor" app as "PM" user
+    And I wait for "5" seconds
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                      | Award  |
+      | {SavedValue:PM Username}  | Step 1 |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                      | Award  |
+      | {SavedValue:EXE Username} | Step 2 |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                      | Award  |
+      | {SavedValue:FO Username}  | Step 3 |

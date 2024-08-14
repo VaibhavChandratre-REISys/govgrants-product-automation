@@ -1296,7 +1296,7 @@ Feature: Validate all scenarios for the global search
 
       @389495 @389502 @389505 @sprint-2-US-386939  @GlobalSearch @bug-451476
       Scenario: Verify that the Admin is able to edit the access for terms and condition when terms and condition is in the New and active state state
-      When I login to "As a Grantor" app as "ADMIN" user
+        When I login to "As a Grantor" app as "ADMIN" user
         When I navigate to "Planning" tab
         And I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
         When I click on top right button "New" in flex table with id "---home:-:termsAndConditionsTableId---"

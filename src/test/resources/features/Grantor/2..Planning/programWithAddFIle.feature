@@ -19,16 +19,18 @@ Feature: Validate all scenarios for program with add file
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "5" seconds
-    And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
+    And I upload attachment "AttachmentTesting.pdf" of type "Program Artifacts" from computer
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see "Program Artifacts" has been added in "Program Files" flex table
     #222087
     And I click on "Edit" icon for "Program Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Other Artifacts" at upload file modal
     When I click modal button "Save"
     And I refresh the page
     And I wait for "3" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---program:-:GrantorInternalProgramFilesTableId---"
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---program:-:GrantorInternalProgramFilesTableId---"
     And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---" without waiting for record
     Then I softly do not see value "Program Artifacts" for title "Title" inside table "---program:-:GrantorInternalProgramFilesTableId---"
