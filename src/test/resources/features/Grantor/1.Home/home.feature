@@ -1,7 +1,7 @@
 @home @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in the home tab
 
-  @56710 @56708 @internalOrganizationViewADMINEditPMView @smoke
+  @Add1 @56710 @56708 @internalOrganizationViewADMINEditPMView @smoke
   Scenario: Validate whether all7 users have view access to Internal Organization
     Given I login to "As a Grantor" app as "Admin" user
     When I navigate to "Home" tab
@@ -20,6 +20,21 @@ Feature: Validate all scenarios in the home tab
     #Then I softly can see row level action button "Edit" against "Test Automation Organization" in flex table with id "---home:-:internalOrganizationId---"
     When I click on "View" icon for "Test Automation Organization" inside table without waiting for record
     Then I softly see that "Internal Organization" is in "Active" status
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---home:-:internalOrganizationAddfile---"
+    And I upload attachment without random number "Attachment.pdf" of type "OTHER" from computer
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "OTHER" for title "Title" against the value "Supporting Documents" inside table "---home:-:internalOrganizationAddfile---"
+    And I click on "Edit" icon for "OTHER" inside flex table with id "---home:-:internalOrganizationAddfile---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "AGENCY DETAILS" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---home:-:internalOrganizationAddfile---"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
@@ -568,7 +583,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @73851 @73856 @73850 @57347 @57348 @viewActiveGrantsSubmittedApplicationsOnRelatedLog
+  @Add1 @73851 @73856 @73850 @57347 @57348 @viewActiveGrantsSubmittedApplicationsOnRelatedLog
   Scenario Outline: Verify all profiles users should be able to view the Submitted Applications and Active Grants.
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"

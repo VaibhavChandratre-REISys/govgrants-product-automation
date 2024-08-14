@@ -453,13 +453,6 @@ Feature: Validate all scenarios of grants and award without background
     When I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
-#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:subAwardBudgetTableId---" by clicking "Edit" :
-#      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-#      | Construction    | 1000         | 100        | 100            |
-#    When I navigate to "Overview" sub tab
-#    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
-#      | Name                       | Project Role             | Is Key Personnel |
-#      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Target |
@@ -2351,7 +2344,6 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "<Grant Name>" inside table
     And I navigate to "Budget" sub tab
     And I wait for "2" seconds
-#    And I save the field labeled "Amount Awarded to Date" as "amtAwardToDate"
     Given I delete the record "<Award Name>" from the object "Closeout"
     And I delete the record "<Award Name>" from the object "Payment Request"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal

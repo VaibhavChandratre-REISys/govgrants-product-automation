@@ -3758,7 +3758,6 @@ Feature: Validate scenarios in Progress Report Forms
     #285305
     When I click on "Edit" in the page details
     And I wait for "3" seconds
-#    When I enter value "Checked" into field "RequestTransfertoAward__c"
     And I enter value "11" into field "FederalAwardIdentifier__c"
     When I enter value "Checked" into field "RequestFederalAgency__c"
     When I enter value "Checked" into field "Other__c"

@@ -894,7 +894,7 @@ Feature: Payment Request scenarios without background
     Then I softly see value "Announcement_Field_Values.xlsx" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     Examples:
       | User |
-#      | SPI3 |
+      | SPI3 |
       | SPA  |
 
   @55400 @EditActionNotDisplayedReimbursementPR

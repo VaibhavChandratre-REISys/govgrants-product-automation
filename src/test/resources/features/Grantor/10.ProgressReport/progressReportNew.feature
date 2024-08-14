@@ -1947,7 +1947,6 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
   @60391 @NoCarryForwardApprovedPR
-  @60391 @NoCarryForwardApprovedPR
   Scenario Outline: Validate Progress reports with Approved Status is not carried forward at Performance Tab Subaward Overview at SR user end when Award owner performed periodic renewal Amendment.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
