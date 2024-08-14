@@ -46,6 +46,7 @@ Feature: Validate all scenarios in Progress Report
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
+    And I refresh the page
     And I wait for "8" seconds
     Then I softly see value "100%" for title "Percentage" inside table "---progressReport:-:formTableId---"
     Then I softly see that "100%" has been added in flextable with Id "---progressReport:-:formTableId---"
