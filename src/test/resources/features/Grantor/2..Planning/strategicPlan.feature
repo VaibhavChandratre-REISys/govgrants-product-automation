@@ -243,6 +243,7 @@ Feature: Validate all scenarios in Strategic Plan
     Then I softly see the following messages in the page details :
       | File Automation.pdf deleted successfully. |
     #195290
+    When I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
     When I enter in modal value "Automation Strategic Objective" into field "StrategyTitle__c"
     When I click modal button "Save and Continue"
