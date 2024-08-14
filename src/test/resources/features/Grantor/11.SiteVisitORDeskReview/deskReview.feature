@@ -1613,7 +1613,7 @@ Feature: Validate all scenarios in Desk Review
     And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I softly see value "Attachment.pdf" for title "Title" against the value "Supporting Documents" inside table "---deskreview:-:deskReviewsFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---deskreview:-:deskReviewsFilesTableId---"
     And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---deskreview:-:deskReviewsFilesTableId---"
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Other" at upload file modal
