@@ -10,10 +10,22 @@ Feature: Validate all registration related scenarios
 #    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
+    And I halt execution
     And I navigate to "Files" sub tab
     And I click on top right button "Add" in flex table with id "---user:-:orgRegistrationAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---home:-:internalOrganizationAddfile---"
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---home:-:internalOrganizationAddfile---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "AGENCY DETAILS" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---home:-:internalOrganizationAddfile---"
     And I pause execution for "3" seconds
     When I click on "Download" icon for "Attachment.pdf" inside table
     Then I softly see new tab is opened

@@ -642,20 +642,20 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "{SavedValue:Automation Runtime Award Record}" in "---home:-:RelatedLogGrantsTableId---" panel
     Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime Award Record}" in flex table with id "---home:-:RelatedLogGrantsTableId---"
     When I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---home:-:internalOrganizationAddfile---"
+    And I click on top right button "Add Files" in flex table with id "---home:-:OrganizationAddfile---"
     And I upload attachment without random number "Attachment.pdf" of type "OTHER" from computer
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---home:-:internalOrganizationAddfile---"
-    And I click on "Edit" icon for "OTHER" inside flex table with id "---home:-:internalOrganizationAddfile---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---home:-:OrganizationAddfile---"
+    And I click on "Edit" icon for "OTHER" inside flex table with id "---home:-:OrganizationAddfile---"
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "AGENCY DETAILS" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see value "Automation.pdf" for title "Title" inside table "---home:-:internalOrganizationAddfile---"
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---home:-:OrganizationAddfile---"
     Examples:
       | User  |
       | ADMIN |
