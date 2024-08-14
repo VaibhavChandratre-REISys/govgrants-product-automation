@@ -24,10 +24,19 @@ Feature: Validate all scenarios in Strategic Plan
     Then I softly see that "Execution Strategic Goal" has been added in flextable with Id "---strategicplan:-:strategicGoalObjectivesTableId---"
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---strategicplan:-:strategicGoalObjectivesAttTableId---"
-    And I upload attachment "Attachment.pdf" of type "Strategic Plan" from computer
+    And I upload attachment "AttachmentTesting.pdf" of type "Strategic Plan" from computer
     When I close "Add File" modal by clicking the top right x button
     And I wait for "2" seconds
     Then I softly see "Strategic Plan" has been added in "Strategic Plan Files" flex table
+    And I click on "Edit" icon for "Strategic Plan" inside flex table with id "---strategicplan:-:strategicGoalObjectivesAttTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Other" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---strategicplan:-:strategicGoalObjectivesAttTableId---"
+    Then I softly see value "Other" for title "Classification" inside table "---strategicplan:-:strategicGoalObjectivesAttTableId---"
 
   @105447 @verifyDeletionOfStrategicPlan
   Scenario: Validate user is able to delete strategic plan

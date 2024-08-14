@@ -251,10 +251,18 @@ Feature: Validate all scenarios in the Application Intake
   Scenario: Validate whether user can add attachment checklist and Notes on the Application
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---applicationIntake:-:ApplicationAttachmentTableId---"
-    And I upload attachment "Attachment.pdf" of type "General Assurances" from computer
+    And I upload attachment "AttachmentTesting.pdf" of type "General Assurances" from computer
     When I click modal button "Close"
     And I wait for "3" seconds
     Then I softly see "General Assurances" has been added in "Application Files" flex table
+    And I click on "Edit" icon for "General Assurances" inside flex table with id "---applicationIntake:-:ApplicationAttachmentTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Suspension" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---applicationIntake:-:ApplicationAttachmentTableId---"
+    Then I softly see value "Suspension" for title "Classification" inside table "---applicationIntake:-:ApplicationAttachmentTableId---"
     When I enter the following values into flex table with id "---applicationIntake:-:ApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
