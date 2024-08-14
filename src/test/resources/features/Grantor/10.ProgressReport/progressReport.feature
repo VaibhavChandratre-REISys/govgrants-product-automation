@@ -48,8 +48,7 @@ Feature: Validate all scenarios in Progress Report
     And I close the tab
     And I refresh the page
     And I wait for "8" seconds
-    Then I softly see value "100%" for title "Percentage" inside table "---progressReport:-:formTableId---"
-    Then I softly see that "100%" has been added in flextable with Id "---progressReport:-:formTableId---"
+    Then I see value "100%" for title "Percentage" against the value "Community Initiative Progress Report" inside table "---progressReport:-:formTableId---"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I wait for "5" seconds
