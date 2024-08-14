@@ -47,8 +47,8 @@ Feature: Validate all scenarios in Progress Report
     And I click on "Save" in the page details
     And I close the tab
     And I wait for "8" seconds
-#    Then I softly see value "100%" for title "Percentage" inside table "---progressReport:-:formTableId---"
-#    Then I softly see that "100%" has been added in flextable with Id "---progressReport:-:formTableId---"
+    Then I softly see value "100%" for title "Percentage" inside table "---progressReport:-:formTableId---"
+    Then I softly see that "100%" has been added in flextable with Id "---progressReport:-:formTableId---"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I wait for "5" seconds
