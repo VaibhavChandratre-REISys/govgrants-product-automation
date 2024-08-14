@@ -10820,3 +10820,76 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
     And I navigate to "Budget" sub tab
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+
+  @196080 @ValidateEXEusergrantownercanabletoEditDeletefilesongrantifuserhaseditaccessonmaineditbuttonforgrantisinCreatedstate @addFiles @TBExecution
+  Scenario: Validate EXE user grant owner can able to Edit/Delete files on grant if user has edit access on main edit button for grant is in 'Created' state
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I enter value "Automation" into field "GrantDescription__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Draft"
+    And I navigate to "Files" sub tab
+    Then I softly can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    And I click on top right button "Add Files" in flex table with id "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I click modal button "Close"
+    Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Award Related" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    Then I softly see value "Award Related" for title "Classification" inside table "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---subAwardStandAlone:-:GrantsAttachmentTableId---" without waiting for record
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details :
+      | File Automation.pdf deleted successfully. |
+
+  @189997 @ValidateAdminasawardownercanaddeditanddeletefilesinCreatedstateofaward @addFiles @TBExecution
+  Scenario: Validate Admin as award owner can add edit and delete files in Created state of award
+    When I login to "As a Grantor" app as "ADMIN" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "GrantFields3" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    And I navigate to "Files" sub tab
+    Then I softly can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I click modal button "Close"
+    Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Certification" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---subAwardStandAlone:-:addFilesTableId---"
+    Then I softly see value "Certification" for title "Classification" inside table "---subAwardStandAlone:-:addFilesTableId---"
+    When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---subAwardStandAlone:-:addFilesTableId---" without waiting for record
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details :
+      | File Automation.pdf deleted successfully. |

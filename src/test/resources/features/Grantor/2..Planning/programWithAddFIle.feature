@@ -706,3 +706,38 @@ Feature: Validate all scenarios for program with add file
     Then I cannot see top right button "Edit" in page detail
     And I navigate to "Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
+
+  @195986 @ValidatePMasfileownershouldhaverowleveleditanddeleteaccesscreatedstateofNGOexternalprogram @addFiles @TBExecution
+  Scenario: Validate PM as file owner should have raw level edit and delete access in created state of NGO external program
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I navigate to "Files" sub tab
+    Then I softly can see top right button "Add Files" in flex table with id "---program:-:externalProgramAddFilesYableId---"
+    And I click on top right button "Add Files" in flex table with id "---program:-:externalProgramAddFilesYableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other Artifacts" from computer
+    And I click modal button "Close"
+    Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---program:-:externalProgramAddFilesYableId---"
+    Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---program:-:externalProgramAddFilesYableId---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---program:-:externalProgramAddFilesYableId---"
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---program:-:externalProgramAddFilesYableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Financial Artifacts" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---program:-:externalProgramAddFilesYableId---"
+    Then I softly see value "Financial Artifacts" for title "Classification" inside table "---program:-:externalProgramAddFilesYableId---"
+    When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---program:-:externalProgramAddFilesYableId---" without waiting for record
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details :
+      | File Automation.pdf deleted successfully. |
