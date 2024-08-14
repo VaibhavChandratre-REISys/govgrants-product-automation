@@ -4232,7 +4232,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team
       """
 
-  @pay1 @198602 @ValidatenewPRownershouldbedisplayforhistorytabafterownershiptaskreassigntonewuser @sprint-12-US-226646  @reassignment @FieldHistoryExclude
+   @pay @198602 @ValidatenewPRownershouldbedisplayforhistorytabafterownershiptaskreassigntonewuser @sprint-12-US-226646  @reassignment @FieldHistoryExclude
   Scenario: Validate new PR owner should be display for history  tab after ownership task reassign to new user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -4279,7 +4279,6 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     And I pause execution for "2" seconds
-    And I close the tab
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4920,7 +4919,7 @@ Feature: Payment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @pay1 @229595 @Validatead-hocpaymentrequestownershouldgetchangeinpaidstateafterownershipreassigntootheruser @sprint-12-US-226646  @reassignment @FieldHistoryExclude
+  @229595 @Validatead-hocpaymentrequestownershouldgetchangeinpaidstateafterownershipreassigntootheruser @sprint-12-US-226646  @reassignment @FieldHistoryExclude
   Scenario: Validate ad-hoc payment request owner should get change in paid state after ownership reassign to other user
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -5010,7 +5009,7 @@ Feature: Payment Request scenarios without background
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @pay1 @199093 @ValidatePaymentRequestGrantorNotifyemailshouldtriggerforadvancepaymentrequestfornewownerPM @sprint-12-US-226646  @reassignment
+  @199093 @ValidatePaymentRequestGrantorNotifyemailshouldtriggerforadvancepaymentrequestfornewownerPM @sprint-12-US-226646  @reassignment
   Scenario: Validate Payment Request Grantor Notify' email should trigger for advance payment request for new owner PM
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -5119,7 +5118,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team
       """
 
-  @pay1 @197649 @Validateemailshoulbegeneratedforsystemadminpreviousownerandnewownerofad-hocreimbursementpaymentrequestafterreassignownershiptasktonewuser @sprint-12-US-226646  @reassignment
+   @pay @197649 @Validateemailshoulbegeneratedforsystemadminpreviousownerandnewownerofad-hocreimbursementpaymentrequestafterreassignownershiptasktonewuser @sprint-12-US-226646  @reassignment
   Scenario: Validate email should be generated for system admin, previous owner and new owner of ad-hoc reimbursement payment request after reassign ownership task to new user
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -5163,9 +5162,8 @@ Feature: Payment Request scenarios without background
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+     And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
-    And I reset the table
-    And I reset the table
     Then I do not see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
@@ -5673,7 +5671,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team
       """
 
-  @pay1 @197429 @ValidatePaymentRequestGrantorNotifyemailshouldbegeneratedforadvancepaymentrequestfornewowner @sprint-12-US-226646  @reassignment
+   @pay @197429 @ValidatePaymentRequestGrantorNotifyemailshouldbegeneratedforadvancepaymentrequestfornewowner @sprint-12-US-226646  @reassignment
   Scenario: Validate Payment Request Grantor Notify' email should be generated for advance payment request for new owner
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM1 user" of type "Competitive"
     And I am on "SUBPORTAL" portal
