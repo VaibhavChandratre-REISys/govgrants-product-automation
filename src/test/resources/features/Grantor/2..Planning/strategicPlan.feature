@@ -217,3 +217,67 @@ Feature: Validate all scenarios in Strategic Plan
     When I click on "Activate" in the page details
     Then I see the following messages in the page details contains:
       | Overview Tab - At least one goal should be there for Strategic Plan. |
+
+  @195263 @195290 @ValidatePMuserrecordownercanEdit/DeletefilesonStrategicGoalifuserhaseditaccessonmaineditbuttonforStrategicGoalisinDraftstate @addFiles @TBExecution
+  Scenario: Validate PM user record owner can 'Edit/Delete' files on Strategic Goal if user has edit access on main edit button for Strategic Goal is in 'Draft' state
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
+    And I click on "Save" in the page details
+    And I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalObjectivesTableId---"
+    When I enter in modal value "Execution Strategic Goal" into field "StrategyTitle__c"
+    When I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Strategic Plan Status" as "Draft"
+    When I navigate to "Files" sub tab
+    Then I softly can see top right button "Add Files" in flex table with id "---strategicplan:-:flexGridGrantorStrategicGoalFiles---"
+    And I click on top right button "Add Files" in flex table with id "---strategicplan:-:flexGridGrantorStrategicGoalFiles---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I click modal button "Close"
+    Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---strategicplan:-:flexGridGrantorStrategicGoalFiles---"
+    Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---strategicplan:-:flexGridGrantorStrategicGoalFiles---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---strategicplan:-:flexGridGrantorStrategicGoalFiles---"
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---strategicplan:-:flexGridGrantorStrategicGoalFiles---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Strategic Goal" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---strategicplan:-:flexGridGrantorStrategicGoalFiles---"
+    Then I softly see value "Strategic Goal" for title "Classification" inside table "---strategicplan:-:flexGridGrantorStrategicGoalFiles---"
+    When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---strategicplan:-:flexGridGrantorStrategicGoalFiles---" without waiting for record
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details :
+      | File Automation.pdf deleted successfully. |
+    #195290
+    When I navigate to "Overview" sub tab
+    When I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
+    When I enter in modal value "Automation Strategic Objective" into field "StrategyTitle__c"
+    When I click modal button "Save and Continue"
+    When I enter value "Automation Test Description" into field "StrategyDescription__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Strategic Plan Status" as "Draft"
+    When I navigate to "Files" sub tab
+    Then I softly can see top right button "Add Files" in flex table with id "---strategicplan:-:flexGridGrantorObjectiveFiles---"
+    And I click on top right button "Add Files" in flex table with id "---strategicplan:-:flexGridGrantorObjectiveFiles---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I click modal button "Close"
+    Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---strategicplan:-:flexGridGrantorObjectiveFiles---"
+    Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---strategicplan:-:flexGridGrantorObjectiveFiles---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---strategicplan:-:flexGridGrantorObjectiveFiles---"
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---strategicplan:-:flexGridGrantorObjectiveFiles---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Strategic Objective" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---strategicplan:-:flexGridGrantorObjectiveFiles---"
+    Then I softly see value "Strategic Objective" for title "Classification" inside table "---strategicplan:-:flexGridGrantorObjectiveFiles---"
+    When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---strategicplan:-:flexGridGrantorObjectiveFiles---" without waiting for record
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details :
+      | File Automation.pdf deleted successfully. |
