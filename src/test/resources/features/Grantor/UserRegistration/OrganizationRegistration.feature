@@ -10,7 +10,6 @@ Feature: Validate all registration related scenarios
 #    When I enter value as "LZJHU2FMMQ13" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "1234" into "Vendor ID" on old form
     When I click on "Save" in the page details
-    And I halt execution
     And I navigate to "Files" sub tab
     And I click on top right button "Add" in flex table with id "---user:-:orgRegistrationAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
