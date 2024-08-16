@@ -95,7 +95,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Supporting Documents Checklist" on page "1" of "govgrants" pdf file
 
-  @75616 @74118 @pdfDownloadApprover
+  @Ann @75616 @74118 @pdfDownloadApprover
   Scenario: To verify system allow to download PDF for Peer Reviewers section in Responsibility tab of announcement
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Owner" for title "Responsibility" against the value "{SavedValue:EXE Username}" inside table "---announcement:-:announcementOwner---"
@@ -113,9 +113,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
-    And I navigate to "Setup" sub tab
-    And I click on parallel menu button in flex table title "Approvers"
-    And I select "Download as PDF" from parallel lines dropdown of "Approvers"
+    When I navigate to "Responsibilities" sub tab
+    And I click on parallel menu button in flex table title "Peer Reviewers"
+    And I wait for "2" seconds
+    And I select "Download as PDF" from parallel lines dropdown of "Peer Reviewers"
+    And I wait for "3" seconds
     And I download the file
     Then I see "Approvers" on page "1" of "govgrants" pdf file
 
@@ -132,10 +134,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I navigate to "Setup" sub tab
-    And I click on parallel menu button in flex table title "Peer Reviewers"
-    And I select "Download as PDF" from parallel lines dropdown of "Peer Reviewers"
+    And I click on parallel menu button in flex table title "Review Steps"
+    And I select "Download as PDF" from parallel lines dropdown of "Review Steps"
+    And I wait for "2" seconds
     And I download the file
-    Then I see "Peer Reviewers" on page "1" of "govgrants" pdf file
+    And I wait for "2" seconds
+    Then I see "Review Steps" on page "1" of "govgrants" pdf file
 
   @74124 @pdfDownloadFocusArea  @skipOnJenkins
   Scenario: To verify system allow to download PDF for Related Focus Area section in setup tab of announcement
@@ -487,7 +491,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Remove" icon for "NGO" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
     Then I softly do not see value "NGO" for title "Type" inside table "---announcement:-:relatedAnnouncementTableId---"
 
-  @75617 @70727 @73624 @70723 @73621 @72482 @73536 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA
+ @Ann @75617 @70727 @73624 @70723 @73621 @72482 @73536 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA
   Scenario Outline: Validate that user can not enter application due date as past date | Validate that user should not submit announcement with blank budget period dates|To Verify that user can view contact while creating Announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -629,7 +633,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @75618 @74799 @74801 @74368 @74369 @70894 @71722 @72471 @72324 @72548 @73858 @verifyReviseUnderRevision @smoke
+  @Ann @75618 @74799 @74801 @74368 @74369 @70894 @71722 @72471 @72324 @72548 @73858 @verifyReviseUnderRevision @smoke
   Scenario Outline: To Verify that after clicking on revise button, status changes to created.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -672,6 +676,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
@@ -1420,16 +1425,18 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Owner" on page "1" of "govgrants" pdf file
 
-  @74126 @userAllowToDownloadPDFObjective
+  @Ann @74126 @userAllowToDownloadPDFObjective
   Scenario: To verify system allow to download PDF for objectives section in setup tab of announcement.
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When  I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     When I navigate to "Setup" sub tab
-    And I click on parallel menu button in flex table title "Objectives"
-    And I select "Download as PDF" from parallel lines dropdown of "Objectives"
-    When I download the file
+    And I click on parallel menu button in flex table title "Goals and Objectives"
+    And I select "Download as PDF" from parallel lines dropdown of "Goals and Objectives"
+    And I wait for "3" seconds
+    And I download the file
+    And I wait for "5" seconds
     Then I see "Objectives" on page "1" of "govgrants" pdf file
 
   @74129 @userAllowToDownloadPDFKPI

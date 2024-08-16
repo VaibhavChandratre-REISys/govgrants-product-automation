@@ -192,13 +192,14 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I get the "EGMS ID"
     Then I see that "Sent for Review" has been added in flextable with Id "---announcement:-:reviewersTableId---"
 
-  @52413 @announcementReviewCompleteFA
+  @Ann @52413 @announcementReviewCompleteFA
   Scenario: Validate the review for the Announcement
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
