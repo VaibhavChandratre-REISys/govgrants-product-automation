@@ -679,13 +679,13 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @243807 @243848 @244199 @ValidatePMusershouldnotseebudgetedamountcolumninsubmitforclosestateofawardFAYes @sprint-16-US-237985 @Allocation @TBExecution
+  @243807 @243848 @244199 @ValidatePMusershouldnotseebudgetedamountcolumninsubmitforclosestateofawardFAYes @sprint-16-US-237985 @Allocation
   Scenario: Validate PM user should not see 'budgeted amount' column in submit for close state of award FAYes
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - AByApplicantFocusYesClosedAwardDirectGrantll"
-    When I perform quick search for "{AUTOEnvData:}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
@@ -708,7 +708,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I navigate to "Budget" sub tab
     Then I softly do not see "Budgeted Amount" inside page block detail
 
-  @243861 @244195 @244302 @ValidateAdminusershouldseeCumulativeObligationfieldinclosestateofawardFAYES @sprint-16-US-237985  @Allocation @TBExecution
+  @243861 @244195 @244302 @ValidateAdminusershouldseeCumulativeObligationfieldinclosestateofawardFAYES @sprint-16-US-237985  @Allocation
   Scenario: Validate Admin user should see 'Cumulative Obligation' field in close state of award (FA=YES)
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab
@@ -1687,7 +1687,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #244297
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @244290 @244292 @244196 @ValidateSPISPAusershouldnotseebudgetedamountcolumninsubmitforclosestateofaward @sprint-16-US-238299 @Allocation @TBExecution
+  @244290 @244292 @244196 @ValidateSPISPAusershouldnotseebudgetedamountcolumninsubmitforclosestateofaward @sprint-16-US-238299 @Allocation
   Scenario Outline: Validate SPI/SPA user should not see 'budgeted amount' column in submit for close state of award
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<User>" user
@@ -2364,7 +2364,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
-  @244309 @ValidateINDusershouldseeCumulativeObligationreadonlycolumninclosestateofaward @sprint-16-US-238299 @Allocation @TBExecution
+  @244309 @ValidateINDusershouldseeCumulativeObligationreadonlycolumninclosestateofaward @sprint-16-US-238299 @Allocation
   Scenario: Validate IND user should see 'Cumulative Obligation' read only column in close state of award
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "IND" user
@@ -3037,7 +3037,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
-  @244366 @244367 @ValidateSPIuserseeincaseofdetailbudgetusershouldnotabletoeditdeletesubawardsectiononawardinRejectedandclosestate @sprint-16-US-238299 @Allocation @TBExecution
+  @244366 @244367 @ValidateSPIuserseeincaseofdetailbudgetusershouldnotabletoeditdeletesubawardsectiononawardinRejectedandclosestate @sprint-16-US-238299 @Allocation
   Scenario Outline: Validate SPI user see incase of detail budget user should not able to edit/delete sub-award section on award in Rejected and close state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -5612,7 +5612,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #244198
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @244137 @244170 @ValidateSPIusershouldnotseeBudgetedAmountfieldonawardinclosestate @sprint-16-US-239751 @Allocation @TBExecution
+  @244137 @244170 @ValidateSPIusershouldnotseeBudgetedAmountfieldonawardinclosestate @sprint-16-US-239751 @Allocation
   Scenario: Validate SPI user should not see 'Budgeted Amount' field on award in close state
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user

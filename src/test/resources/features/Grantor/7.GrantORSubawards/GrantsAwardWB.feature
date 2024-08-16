@@ -32,7 +32,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Files" sub tab
     Then I can see top right button "Add" in flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
 
-  @71423 @71439 @71438  @statusOfAllAndDraft @TBExecution
+  @71423 @71439 @71438  @statusOfAllAndDraft
   Scenario:  Verify that all and draft records are getting displayed proper post apply a filter "All and Drafts" on grants by SPI/SPA users.
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -7185,7 +7185,7 @@ Feature: Validate all scenarios of grants and award without background
 
   @225064 @sprint-12-US-226646 @reassignment
   Scenario: Validate Reassignment Task all simultaneous reassignment ownership should reassigned to new owner & Validate mail yopmail
-    And I activated standalone subaward "Automation Runtime Bulks Grants Records" with properties "Automation EXE user" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Bulks Grants Records" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation EXE user" of type "Competitive"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -7194,6 +7194,8 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Bulks Grants Records}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulks Grants Records}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Grant Title" as "Automation First Active Award"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Bulks Grants Records}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
@@ -7265,7 +7267,7 @@ Feature: Validate all scenarios of grants and award without background
     And I save the field labeled "EGMS ID" as "GrantEGMSID1"
     And I enter value "abc" into field "GrantDescription__c"
     And I click on "Save" in the page details
-    And I save the field labeled "Grant Title" as "Automation Runtime Bulks Grants Records Test"
+    And I save the field labeled "Grant Title" as "Automation Runtime Bulks Records"
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I get the "EGMS ID"
@@ -7382,33 +7384,33 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "{SavedValue:GrantEGMSID2}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
     And I logout
-#    And I checkout to yopmail with mailid "govgrantsautomation@yopmail.com"
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Notification: Owner Reassignment Report
-#      """
-#
-#    Then I see the mail text is as follows :
-#      """
-#      Hello,
-#
-#     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-#
-#      EGMS ID Assigned By Module Name
-#      {SavedValue:GrantEGMSID} Automation ADMIN Grant
-#      {SavedValue:GrantEGMSID1} Automation ADMIN Grant
-#      {SavedValue:GrantEGMSID2} Automation ADMIN Grant
-#
-#      Because these records have been reassigned, the original reviewer may have only view access to the record.
-#
-#      Log in to EGMS and click on EGMS IDs to access the assigned record.
-#
-#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-#
-#      Thank you,
-#      The EGMS Team
-#      """
+    And I checkout to yopmail with mailid "govgrantsautomation@yopmail.com"
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Notification: Owner Reassignment Report
+      """
+
+    Then I see the mail text is as follows :
+      """
+      Hello,
+
+     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+
+      EGMS ID Assigned By Module Name
+      {SavedValue:GrantEGMSID} Automation ADMIN Grant
+      {SavedValue:GrantEGMSID1} Automation ADMIN Grant
+      {SavedValue:GrantEGMSID2} Automation ADMIN Grant
+
+      Because these records have been reassigned, the original reviewer may have only view access to the record.
+
+      Log in to EGMS and click on EGMS IDs to access the assigned record.
+
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+
+      Thank you,
+      The EGMS Team
+      """
     Given I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "EXE" user
     And I navigate to "Monitoring" tab
@@ -7420,12 +7422,13 @@ Feature: Validate all scenarios of grants and award without background
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Bulks Grants Records}" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Bulks Grants Records}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    And I click toggle button to select "Grants - Active"
+    And I wait for "5" seconds
+    When I perform quick search for "{SavedValue:Automation First Active Award}" in "---paymentRequest:-:recipientGrantTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation First Active Award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Bulks Grants Records}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+    And I click on "View" icon for "{SavedValue:Automation First Active Award}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
@@ -7433,14 +7436,17 @@ Feature: Validate all scenarios of grants and award without background
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "PayreqId1"
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
       | Budget Category | Advance Requested This Action |
       | Construction    | 10                            |
-    When I navigate to "Files" sub tab
+    When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -9852,7 +9858,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
 
-  @223495  @sprint-11-US-217998  @reassignment
+  @223495  @sprint-11-US-217998  @reassignment @EndToEndFlow
   Scenario: Validate Grant Module after transferring the more than 10 record to new owner then all future task access visible to new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -10383,7 +10389,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:awardApproversTableId---"
     And I navigate to "Files" sub tab
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
-    Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -10405,7 +10411,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:awardApproversTableId---"
     And I navigate to "Files" sub tab
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
-    Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -10427,7 +10433,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:awardApproversTableId---"
     And I navigate to "Files" sub tab
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
-    Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -10449,7 +10455,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:awardApproversTableId---"
     And I navigate to "Files" sub tab
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
-    Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -10471,7 +10477,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:awardApproversTableId---"
     And I navigate to "Files" sub tab
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
-    Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -10836,3 +10842,76 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
     And I navigate to "Budget" sub tab
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+
+  @196080 @ValidateEXEusergrantownercanabletoEditDeletefilesongrantifuserhaseditaccessonmaineditbuttonforgrantisinCreatedstate @addFiles @TBExecution
+  Scenario: Validate EXE user grant owner can able to Edit/Delete files on grant if user has edit access on main edit button for grant is in 'Created' state
+    When I login to "As a Grantor" app as "EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I enter value "Automation" into field "GrantDescription__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Draft"
+    And I navigate to "Files" sub tab
+    Then I softly can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    And I click on top right button "Add Files" in flex table with id "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I click modal button "Close"
+    Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Award Related" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    Then I softly see value "Award Related" for title "Classification" inside table "---subAwardStandAlone:-:GrantsAttachmentTableId---"
+    When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---subAwardStandAlone:-:GrantsAttachmentTableId---" without waiting for record
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details :
+      | File Automation.pdf deleted successfully. |
+
+  @189997 @ValidateAdminasawardownercanaddeditanddeletefilesinCreatedstateofaward @addFiles @TBExecution
+  Scenario: Validate Admin as award owner can add edit and delete files in Created state of award
+    When I login to "As a Grantor" app as "ADMIN" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "GrantFields3" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    And I navigate to "Files" sub tab
+    Then I softly can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I click modal button "Close"
+    Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Certification" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---subAwardStandAlone:-:addFilesTableId---"
+    Then I softly see value "Certification" for title "Classification" inside table "---subAwardStandAlone:-:addFilesTableId---"
+    When I click on "Delete" icon for "Automation.pdf" inside flex table with id "---subAwardStandAlone:-:addFilesTableId---" without waiting for record
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details :
+      | File Automation.pdf deleted successfully. |
