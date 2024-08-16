@@ -1,4 +1,4 @@
-@FormulaWB @grantor-regression @grantor-parallel-regression @announcement @regression
+@FormulaWB @grantor-regression @grantor-parallel-regression @announcement @regression @AnnouncementTemp
 Feature: Validate all scenarios in the Formula Announcement tab
 
   @195853 @ValidateAnnownerAdminusercanseeAddorganizationbuttonintheInvitedApplicantswhenFormulaannouncementisselectedwithallocationlevelisbyApplicant @sprint-8-US-206947  @Allocation
