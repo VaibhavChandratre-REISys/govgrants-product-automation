@@ -1,7 +1,7 @@
 @competitiveAnnouncementsWB @grantor-regression @grantor-parallel-regression @announcement @regression @annExecution
 Feature: Validate all scenarios in the Competitive Announcement tab
 
-   @237875 @238363 @VerifyvalidationmessageisnotdisplayedtoexeuserwhenenteredrecommendedbudgetisequaltotheBudgetedAmountonFDMrecordwhichiscreatedfromCompetitiveannouncement @sprint-14-US-224179 @komal @Allocation
+  @Ann @237875 @238363 @VerifyvalidationmessageisnotdisplayedtoexeuserwhenenteredrecommendedbudgetisequaltotheBudgetedAmountonFDMrecordwhichiscreatedfromCompetitiveannouncement @sprint-14-US-224179 @komal @Allocation
   Scenario Outline: Verify validation message is not displayed to exe user when entered recommended budget is equal to the Budgeted Amount on FDM record which is created from Competitive announcement
   | Verify validation message is not displayed to PM user when entered recommended budget is equal the Budgeted Amount on FDM record which is created from Competitive announcement with Negotiation as Yes |
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "<Filter>"
@@ -91,10 +91,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
@@ -180,7 +180,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | {SavedValue:Automation Runtime Announcement} | NEGOTIATION_NO-Automation EXE user | EXE  |
       | {SavedValue:Automation Runtime Announcement} | default                            | PM   |
 
-  @237868 @VerifyvalidationmessageisdisplayedtoPOuserwhenenteredrecommendedbudgetislessthantheBudgetedAmountonFDMrecordwhichiscreatedfromCompetitiveannouncement @sprint-14-US-224179 @komal @Allocation
+  @Ann @237868 @VerifyvalidationmessageisdisplayedtoPOuserwhenenteredrecommendedbudgetislessthantheBudgetedAmountonFDMrecordwhichiscreatedfromCompetitiveannouncement @sprint-14-US-224179 @komal @Allocation
   Scenario Outline: Verify validation message is displayed to PO user when entered recommended budget is less than the Budgeted Amount on FDM record which is created from Competitive announcement
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "NEGOTIATION_NO-Automation PO user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -268,6 +268,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
@@ -310,6 +311,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
@@ -323,9 +325,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
-    And I click on "Edit" in the page details
     Then I softly see field "Status" as "Created"
     When I click on "Funding Decision Memo" in the page details
+    And I click on "Edit" in the page details
     When I enter value "AuGr" into field "GrantCode__c"
     When I enter value "Automation Test Description" into field "Justification__c"
     And I click on "Save" in the page details
@@ -353,7 +355,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PO   |
 
-   @227554 @227745 @234411 @CompAnnVerifyPMusercanseetheRecommendedBudgetBudgetedAmount&StateAllocationcolumnonRecommendedapplicationsectiononFDMlayout @sprint-13-US-224612 @komal @Allocation
+   @Ann @227554 @227745 @234411 @CompAnnVerifyPMusercanseetheRecommendedBudgetBudgetedAmount&StateAllocationcolumnonRecommendedapplicationsectiononFDMlayout @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: CompAnnPMusercanseethe'RecommendedBudget''BudgetedAmount' 'StateAllocation'columnonRecommendedapplicationsectiononFDMlayout
   | Comp Ann>>Verify PM user can see the Show Subaward floor and Subaward Ceiling under overview section on FDM layout |
   | Comp Ann>>Verify PM user can not see the validation when the budgeted Amount is equal to the Recommended amount when user tried to convert to award on FDM layout |
@@ -419,6 +421,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+     And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -431,6 +434,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+     And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -444,6 +448,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+     And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
@@ -487,6 +492,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+     And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
@@ -544,7 +550,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | Filter  | User |
       | {SavedValue:Automation Runtime Announcement} | default | PM   |
 
-  @234672 @219363 @219366 @CompAnnVerifyPMusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedduringFDMuserwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiationevenwhenbudgetedamountisequaltorecommendedamount @sprint-13-US-224612 @komal @Allocation
+  @Ann @234672 @219363 @219366 @CompAnnVerifyPMusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedduringFDMuserwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiationevenwhenbudgetedamountisequaltorecommendedamount @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Comp Ann PM user should see validation on send to s/r button when negotiation is initiated during FDM user when user select only budget summary by Focus Area section for negotiation even when budgeted amount is equal to recommended amount
   | Competitive Ann_ Verify as PM user I can see Recommended budget field is visible when App status is negotiation completed  |
   | Competitive Ann_ Verify as PM user I can see Recommended budget filed is visible when App status is Convert to award |
@@ -583,6 +589,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I click on "Edit" in the page details
+    And I navigate to "Negotiations" sub tab
     And I enter values into fields
       | Value                              | Field                |
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
@@ -644,7 +651,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            |
       | {SavedValue:Automation Runtime Announcement} |
 
-   @234919 @CompAnnVerifyPMusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedCustomizedreviewstepwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiation @sprint-13-US-224612 @komal @Allocation
+   @Ann @234919 @CompAnnVerifyPMusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedCustomizedreviewstepwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiation @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Comp Ann PM user should see validation on send to sr button when negotiation is initiated Customized review step when user select only budget summary by Focus Area section for negotiation
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -730,7 +737,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I see the sub-header is "SME Review" in the page details
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    And I wait for "4" seconds
+    And I wait for "6" seconds
     And I enter value "7" into field "NagotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
@@ -1000,7 +1007,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PO   |
 
-  @227723 @CompAnnVerifyAdminwhennegotiationisinitiatedduringFDMorfromapplayoutthenusershouldgetvalidationonUIonsendtosubrecipientbuttonwhenthebudgetedAmountisnotequaltotheRecommendedBudget @sprint-13-US-224612 @komal @Allocation
+  @Ann @227723 @CompAnnVerifyAdminwhennegotiationisinitiatedduringFDMorfromapplayoutthenusershouldgetvalidationonUIonsendtosubrecipientbuttonwhenthebudgetedAmountisnotequaltotheRecommendedBudget @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Comp Ann Admin when negotiation is initiated during FDM or from app layout then user should get validation on UI on send to subrecipient button when the budgeted Amount is not equal to the Recommended Budget
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-Automation ADMIN user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1145,8 +1152,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
-    And I click on "Edit" in the page details
     When I click on "Funding Decision Memo" in the page details
+    And I click on "Edit" in the page details
     Then I softly see field "Status" as "Created"
     When I enter value "AuGr" into field "GrantCode__c"
     When I enter value "Automation Test Description" into field "Justification__c"
@@ -1450,7 +1457,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | Application2                     | User |
       | {SavedValue:Automation Runtime Announcement} | Automation Runtime Application_2 | EXE  |
 
-   @227577 @CompAnnVerifyPOusercanseethevalidationwhenthebudgetedAmountisnotequaltotheRecommendedBudgetwhenusertriedtoconverttoawardonFDMlayout @sprint-13-US-224612 @komal @Allocation
+   @Ann @227577 @CompAnnVerifyPOusercanseethevalidationwhenthebudgetedAmountisnotequaltotheRecommendedBudgetwhenusertriedtoconverttoawardonFDMlayout @sprint-13-US-224612 @komal @Allocation
   Scenario Outline:Comp Ann PO user can see the validation when the budgeted Amount is not equal to the Recommended Budget when user tried to convert to award on FDM layout
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-Automation PO user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1616,7 +1623,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | <Application2>    | 1500               | 1500                    | Yes                   | Recommended |
     And I refresh the page
     And I wait for "2" seconds
-    And I click on "Submit For Approval" in the page details
+    And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I "Approve" in the approval decision
@@ -1635,7 +1642,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | Application2                     | User |
       | {SavedValue:Automation Runtime Announcement} | Automation Runtime Application_2 | PO   |
 
-  @113322 @ValidateApplicantscanfillinthedetailedbudgetonapplicationwhenfundingopportunityisextended @Sprint-23-US-273843  @Allocation
+  @Ann @113322 @ValidateApplicantscanfillinthedetailedbudgetonapplicationwhenfundingopportunityisextended @Sprint-23-US-273843  @Allocation
   Scenario: Validate Applicants can fill in the detailed budget on application when funding opportunity is extended
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1650,8 +1657,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | 1     | ProposedApplicationDueDate__c  |
       | 1     | ProposedQSubmissionDeadline__c |
       | 1     | ProposedAResponseDeadline__c   |
-    And I click modal button "Save and Continue"
-    And I click modal button "Confirm"
+    And I click modal button "Save"
+    And I click modal button "Close"
     And I refresh the page
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
@@ -1661,6 +1668,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Financials" sub tab
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "5" seconds
     And I click modal button "Save and Continue"
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -1682,7 +1690,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Extra Salary | The narrative | 500          | 50         | 50             |
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---applicationReview:-:addLineItemsModalTableId---"
 
-  @319874 @VerifyusercannotseebudgetsummarybyfocusareasectiononfundingchangeamendmentrequestFANo @Sprint-9-US-318292
+  @Ann @319874 @VerifyusercannotseebudgetsummarybyfocusareasectiononfundingchangeamendmentrequestFANo @Sprint-9-US-318292
   Scenario:Verify IND user can budgeted amount get updated after remove focus area when budget associated with that focus area & also easily remove FAs having zero dollar budget associated with that FA on Application layout
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "SECOND_FOCUS_AREA_APPLICANT_IND_ORG_PRE_APPLICATION-Automation PM user"
     And I am on "SUBPORTAL" portal
@@ -1694,7 +1702,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"

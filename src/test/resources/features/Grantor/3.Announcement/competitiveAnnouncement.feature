@@ -34,23 +34,23 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I download the file
     Then I see "Contacts" on page "1" of "govgrants" pdf file
 
-  @73958 @pdfDownloadRelatedFederal
+  @Ann @73958 @pdfDownloadRelatedFederal
   Scenario: To verify system allow to download PDF for Related Federal/NGO program in overview tab of announcement
     And I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click "Associate" after selection of "Wildlife Services" in the table "---announcement:-:associateForRelated---"
-    And I close modal by clicking the top right x button
+    When I click modal button "Close"
     And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I navigate to "Overview" sub tab
-    And I click on parallel menu button in flex table title "Related Federal/NGO Program"
-    And I select "Download as PDF" from parallel lines dropdown of "Related Federal/NGO Program"
+    And I click on parallel menu button in flex table title "Federal/NGO Program"
+    And I select "Download as PDF" from parallel lines dropdown of "Federal/NGO Program"
     And I download the file
     And I wait for "10" seconds
-    Then I see "Related Federal/NGO Program" on page "1" of "govgrants" pdf file
+    Then I see "Federal/NGO Program" on page "1" of "govgrants" pdf file
 
   @74105 @pdfDownloadBudgetCategory
   Scenario: To verify system allow to download PDF for Budget Categories section in financial tab of announcement
@@ -368,7 +368,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     Then I softly do not see "Funding Opportunity Announcement" has been added in "---announcement:-:AnnouncementAttachmentTableId---" flex table
 
-  @70483 @userDeleteSupportingDocumentViewHyperlink
+ @Ann @70483 @userDeleteSupportingDocumentViewHyperlink
   Scenario: To Verify that user can view Template Link in supporting document checklist While creating the Announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -378,12 +378,13 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter the following values into flex table with id "---announcement:-:annChecklist---" by clicking "Add" :
       | Description                 | Required  | Applies To | Status |
       | Automation test description | Mandatory | Award      | Active |
-    When I click on "Upload Template" icon for " Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
-    And I choose the file "sample.pdf" to upload for "Checklist" of type "Announcement"
-    When I close "Upload Template" modal by clicking the top right x button
-    And I refresh the page
-    And I click on hyperlink containing value "View"
-    Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
+   When I click on "Upload Template" icon for " Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
+   And I upload attachment without random number "Attachment.pdf" of type "Template for Announcement" from computer
+   When I click modal button "Close"
+   And I refresh the page
+   And I wait for "2" seconds
+   And I click on hyperlink containing value "View"
+   Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
 
   @72323 @71972  @applicationDueDataOfAnnInHistory @FieldHistoryExclude
   Scenario: To verify field history update with respect to modification in Application Due Dates of Announcement|
