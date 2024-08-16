@@ -46,7 +46,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
     Then I do not see value "Record id" for title "Announcement Name" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
 
-  @AnnouncmentRerun @34222 @52400 @70342 @70343 @37029 @52401 @73393 @52402 @52403 @52404 @createdAnnouncementEditionOnlyOwnerFA @annn
+  @Ann2 @34222 @52400 @70342 @70343 @37029 @52401 @73393 @52402 @52403 @52404 @createdAnnouncementEditionOnlyOwnerFA @annn
   Scenario: Validate that only owner can able to edit created status announcement | To verify user able to enter the description in the details field of overview tab while creating the Announcemennt
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - All"
@@ -77,10 +77,10 @@ Feature: Validate all common scenarios in the  Announcement tab
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---announcement:-:contactTableId---"
     And I refresh the page
+    When I navigate to "Overview" sub tab
     Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---announcement:-:contactTableId---"
     When I click on "Remove" icon for "{SavedValue:EXE Username}" inside flex table with id "---announcement:-:contactTableId---" without waiting for record
     Then I softly do not see values "Record Id" and "{SavedValue:EXE Username}" inside table
-    When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
