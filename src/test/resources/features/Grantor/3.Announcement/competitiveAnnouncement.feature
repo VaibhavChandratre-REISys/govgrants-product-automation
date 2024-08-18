@@ -49,7 +49,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Federal/NGO Program"
     And I select "Download as PDF" from parallel lines dropdown of "Federal/NGO Program"
     And I download the file
-    And I wait for "10" seconds
+    And I wait for "5" seconds
     Then I see "Federal/NGO Program" on page "1" of "govgrants" pdf file
 
   @Ann2 @74105 @pdfDownloadBudgetCategory
@@ -63,7 +63,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Budget Categories"
     And I select "Download as PDF" from parallel lines dropdown of "Budget Categories"
     And I download the file
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I see "Budget Categories" on page "1" of "govgrants" pdf file
 
   @Ann2 @74107 @pdfDownloadBusinessForm
@@ -95,7 +95,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Supporting Documents Checklist"
     And I select "Download as PDF" from parallel lines dropdown of "Supporting Documents Checklist"
     And I download the file
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I see "Supporting Documents Checklist" on page "1" of "govgrants" pdf file
 
   @Ann @75616 @74118 @pdfDownloadApprover
@@ -118,10 +118,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     And I click on parallel menu button in flex table title "Peer Reviewers"
-    And I wait for "2" seconds
     And I select "Download as PDF" from parallel lines dropdown of "Peer Reviewers"
     And I wait for "3" seconds
     And I download the file
+    And I wait for "5" seconds
     Then I see "Approvers" on page "1" of "govgrants" pdf file
 
   @74117 @pdfDownloadReviewSteps
@@ -385,6 +385,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
    And I refresh the page
    And I wait for "2" seconds
    And I click on hyperlink containing value "View"
+   And I wait for "5" seconds
    Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
 
   @72323 @71972  @applicationDueDataOfAnnInHistory @FieldHistoryExclude
@@ -1373,7 +1374,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Budget Period Details"
     And I select "Download as PDF" from parallel lines dropdown of "Budget Period Details"
     When I download the file
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I softly see "Budget Period Details" on page "1" of "govgrants" pdf file
 
   @Ann2 @73960 @userAllowToDownloadPDFFundingAccount
@@ -1390,7 +1391,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Funding Accounts"
     And I select "Download as PDF" from parallel lines dropdown of "Funding Accounts"
     When I download the file
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I see "Funding Accounts" on page "1" of "govgrants" pdf file
 
   @Ann2 @74120 @userAllowToDownloadPDFResponsibility
@@ -1413,7 +1414,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Approvers"
     And I select "Download as PDF" from parallel lines dropdown of "Approvers"
     When I download the file
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I see "Approvers" on page "1" of "govgrants" pdf file
 
   @74121 @userAllowToDownloadPDFOwner
@@ -1438,7 +1439,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Setup" sub tab
     And I click on parallel menu button in flex table title "Goals and Objectives"
     And I select "Download as PDF" from parallel lines dropdown of "Goals and Objectives"
-    And I wait for "3" seconds
     And I download the file
     And I wait for "5" seconds
     Then I see "Objectives" on page "1" of "govgrants" pdf file
@@ -1453,7 +1453,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Key Performance Indicators (KPIs)"
     And I select "Download as PDF" from parallel lines dropdown of "Key Performance Indicators (KPIs)"
     When I download the file
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I see "Key Performance Indicators (KPIs)" on page "1" of "govgrants" pdf file
 
   @74131 @userAllowToDownloadPDFHistory  @skipOnJenkins
