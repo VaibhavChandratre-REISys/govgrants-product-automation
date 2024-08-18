@@ -11,7 +11,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
