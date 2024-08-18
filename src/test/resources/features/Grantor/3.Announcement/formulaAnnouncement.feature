@@ -1,4 +1,4 @@
-@formulaAnnouncements @grantor-regression @grantor-parallel-regression @announcement @regression @AnnouncementTemp
+@formulaAnnouncements @grantor-regression @grantor-parallel-regression @announcement @regression @AnnouncementTemp1
 Feature: Validate all scenarios in the Formula Announcement tab
 
   Background: Create Announcement
