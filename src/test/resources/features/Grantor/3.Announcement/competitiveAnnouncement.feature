@@ -77,7 +77,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Business Forms"
     And I select "Download as PDF" from parallel lines dropdown of "Business Forms"
     And I download the file
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I see "Business Forms" on page "1" of "govgrants" pdf file
 
   @Ann2 @74108 @pdfDownloadSuppDocChekLst
