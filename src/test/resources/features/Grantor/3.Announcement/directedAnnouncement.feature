@@ -430,8 +430,7 @@ Feature: Validate all scenarios in the directed Announcement tab
 
   @74132 @userAllowToDownloadPDFInvitedApplication
   Scenario: To verify system allow to download PDF for Invited Applicants section in overview tab of announcement.
-    When I click on "Edit" in the page details
-    And I click on top right button "Add Organization" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
+    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST1" in "---announcement:-:directedAddInviteApplicantTableId---" panel
     When I click "Associate" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
