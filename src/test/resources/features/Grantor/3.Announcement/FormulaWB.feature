@@ -38,7 +38,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
     Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Organization" inside table "---announcement:-:formulaAddInviteApplicantTableId---"
 
-  @219083 @ValidateinfotextshouldbedisplayonapplicantsForFormulaAnnouncementwhenAllocationisbyApplicants @sprint-9-US-208408  @Allocation
+  @219083 @ValidateinfotextshouldbedisplayonapplicantsForFormulaAnnouncementwhenAllocationisbyApplicants @sprint-9-US-208408  @Allocation @TBExecution1
   Scenario: Validate  info text should be display on applicants For Formula Announcement when Allocation is by Applicants.
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -55,7 +55,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I hovering mouse on help text icon inside page block detail "Applicants"
     Then I softly see "Verify that all invited applicants are eligible to submit an application based on the eligibility criteria associated with this announcement" shown as help text
 
-  @204325 @ValidateusershouldabletoseetheinfotextonApplicantsinfoIcon @sprint-8-US-206947  @Allocation
+  @204325 @ValidateusershouldabletoseetheinfotextonApplicantsinfoIcon @sprint-8-US-206947 @Allocation @TBExecution1
   Scenario: Validate user should able to see the info text on Applicants info Icon
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -304,7 +304,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Remove" icon for "Automation Permanent Focus Area2" inside table with table id "---announcement:-:AnnouncementServiceArea1TableId---" without processing
     Then I see confirmation box with body "This Focus area will also get removed from the Applicants table, Are you sure you want to proceed?" is displayed
 
-  @204414 @197148 @ValidatewhenAnnouncementispublishedemailshouldgettriggered @sprint-8-US-206947  @Allocation
+  @204414 @197148 @ValidatewhenAnnouncementispublishedemailshouldgettriggered @sprint-8-US-206947  @Allocation @TBExecution1
   Scenario: Validate when Announcement is published then email should get triggered
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -418,7 +418,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
      The EGMS Team.
       """
 
-  @219086 @ValidateAdminusershouldabletoseethetwocolumnsinpublishedstateforFormulaAnnouncementwhenAllocationisbyApplicants @sprint-8-US-208408  @Allocation
+  @219086 @ValidateAdminusershouldabletoseethetwocolumnsinpublishedstateforFormulaAnnouncementwhenAllocationisbyApplicants @sprint-8-US-208408  @Allocation @TBExecution1
   Scenario: Validate Admin user should able to see the two columns in published state for Formula Announcement when Allocation is by Applicants.
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -455,8 +455,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name              | Announcement |
-      | Automation ADMIN  | Step 1       |
+      | Name             | Announcement |
+      | Automation ADMIN | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -487,7 +487,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---announcement:-:formulaInvitedApplicatsTableId---" :
       | Application EGMS ID | Application Status |
 
-  @219088 @219090 @ValidateAdminusershouldabletoseethetwocolumnsinApprovedstateforFormulaAnnouncementwhenAllocationisbyApplicants @sprint-8-US-208408  @Allocation
+  @219088 @219090 @ValidateAdminusershouldabletoseethetwocolumnsinApprovedstateforFormulaAnnouncementwhenAllocationisbyApplicants @sprint-8-US-208408  @Allocation @TBExecution1
   Scenario: Validate Admin user should able to see the two columns in Approved state for Formula Announcement when Allocation is by Applicants
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -523,7 +523,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name              | Announcement |
+      | Name             | Announcement |
       | Automation ADMIN | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
@@ -744,7 +744,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---applicationIntake:-:budgetSummaryTableId---" :
       | Focus Area | Allocation Amount |
 
-   @219626 @ValidateSPAUserforformulaannouncementAllocationAmountSectionshouldbehide @sprint-9-US-204998  @Allocation @Pre-ScreenOnHoldSPI
+  @219626 @ValidateSPAUserforformulaannouncementAllocationAmountSectionshouldbehide @sprint-9-US-204998  @Allocation @TBExecution1
   Scenario Outline: Validate SPA User_for formula announcement Allocation Amount Section should be hide(Qualified/Not Yet Qualified opportunity page)
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -757,7 +757,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see page block "Budget Summary"
     And I navigate to "Financials" sub tab
     Then I softly can see page block "Budget Summary"
-    Then I softly do not see "Allocation Amount" page block displayed
+    Then I softly cannot see page block "Allocation Amount"
     When I click on "Qualify" in the page details
     And I navigate to "Financials" sub tab
     Then I softly can see page block "Budget Summary"
@@ -769,7 +769,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I pause execution for "3" seconds
     And I navigate to "Financials" sub tab
     Then I softly see "Budget Summary" page block displayed
-    Then I softly do not see "Allocation Amount" page block displayed
+    Then I softly cannot see page block "Allocation Amount"
     Examples:
       | userType |
       | SPA      |
@@ -893,7 +893,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | User |
       | IND  |
 
-  @197144 @196665 @225801 @226417 @226435 @VerifyAnnownerPMuserOnceSRisassociatedtheinvitedapplicantssectiontableshouldupdateandautopopulatealltheassociatedfocusareasonlythosefocusareaswhicharealreadyassociatedwiththeannouncement @sprint-11-US-201040 @komal @Allocation
+  @197144 @196665 @225801 @226417 @226435 @VerifyAnnownerPMuserOnceSRisassociatedtheinvitedapplicantssectiontableshouldupdateandautopopulatealltheassociatedfocusareasonlythosefocusareaswhicharealreadyassociatedwiththeannouncement @sprint-11-US-201040 @komal @Allocation @TBExecution1
   Scenario: Verify Ann owner pM user Once SR is associated, the invited applicant's section table should update and autopopulate all the associated focus areas (only those focus areas which are already associated with the announcement)
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -930,6 +930,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Remove" icon for "Automation Permanent Focus Area" inside flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     And I wait for "2" seconds
     And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | As allocation is "By Applicant and Focus Area", Focus area table must contain at least one focus area if Organizations are associated with the Announcement. |
     #226435
@@ -958,7 +959,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following messages in the page details contains:
       | For a formula announcement, the Allocation Level must be one of the following - By Applicant or By Applicant and Focus Area. |
 
-   @FormulaWBRerun @226440 @226431 @VerifyifUsergetswarningmessageiftriedtoclickonrowlevelremovebuttonwithoutsavingrecordThisactionwilldeletetheOrgandassociatedFAandUnsaveddatawillbelostduetopagerefreshPleasesavetherecordtocontinue @sprint-11-US-201040 @komal @Allocation
+  @226440 @226431 @VerifyifUsergetswarningmessageiftriedtoclickonrowlevelremovebuttonwithoutsavingrecordThisactionwilldeletetheOrgandassociatedFAandUnsaveddatawillbelostduetopagerefreshPleasesavetherecordtocontinue @sprint-11-US-201040 @komal @Allocation @TBExecution1
   Scenario: Verify if User gets warning message if tried to click on row level remove button without saving record "This action will delete the Org and associated FA and Unsaved data will be lost due to page refresh Please save the record to continue".
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -985,7 +986,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #226440
     When I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
-    And I pause execution for "3" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
@@ -1210,7 +1212,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see row level action button "Edit" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly can see row level action button "Remove" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
 
-  @222349 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinsubmittedforreviewstateformulaannouncementswithallocationlevelByApplicant&FocusArea @sprint-11-US-201558 @komal @Allocation
+  @222349 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinsubmittedforreviewstateformulaannouncementswithallocationlevelByApplicant&FocusArea @sprint-11-US-201558 @komal @Allocation @TBExecution1
   Scenario: Verify PM user  can see row level edit action in the applicant section when formula announcement is in submitted for review state(formula announcements with allocationlevel By Applicant & Focus Area)
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1248,7 +1250,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
 
-  @221687 @221700 @221694 @VerifyPMusershouldabletoseetheAddOrganizationbuttonshouldbehiddenonsubmitforapprovalstate @sprint-11-US-201558 @komal @Allocation
+  @221687 @221700 @221694 @VerifyPMusershouldabletoseetheAddOrganizationbuttonshouldbehiddenonsubmitforapprovalstate @sprint-11-US-201558 @komal @Allocation @TBExecution1
   Scenario: Verify PM user should able to see the Add Organization button should be hidden on submit for approval state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2041,7 +2043,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @226436 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisApprovedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @226436 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisApprovedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @TBExecution1
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is Approved then user should see the updated final allocation is reflected in the corresponding application (before award creation).
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_NEGOTIATION_NO"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2061,6 +2063,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -2336,7 +2339,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @FormulaWBRerun @226439 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisApprovedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @226439 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisApprovedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforeawardcreation @sprint-11-US-201558 @komal @Allocation @TBExecution1
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is Approved then user should see the updated final allocation is reflected in the corresponding application (before award creation).
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NEGOTIATION_NO"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2356,6 +2359,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -2584,7 +2588,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @222275 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @222275 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation @TBExecution1
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is published then user should see the updated final allocation is reflected in the corresponding application (before promoting to FDM )
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_NEGOTIATION_NO"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2927,7 +2931,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @222277 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisunderrevisionthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @222277 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisunderrevisionthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation @TBExecution1
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is under revision then user should see the updated final allocation is reflected in the corresponding application (before promoting to FDM )
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_NEGOTIATION_NO"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3128,7 +3132,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @222305 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisunderrevisionthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @222305 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusisunderrevisionthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation @TBExecution1
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is under revision then user should see the updated final allocation is reflected in the corresponding application (before promoting to FDM )
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3329,7 +3333,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @222556 @222555 @222479 @VerifyupdatedvaluesofAllocationAmountshouldgetupdatedinopportunityandQualifiedopportunityaswell @sprint-11-US-201558 @komal @Allocation
+  @222556 @222555 @222479 @VerifyupdatedvaluesofAllocationAmountshouldgetupdatedinopportunityandQualifiedopportunityaswell @sprint-11-US-201558 @komal @Allocation @TBExecution1
   Scenario Outline: Verify updated values of Allocation Amount should get updated in opportunity and Qualified opportunity as well.
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_NEGOTIATION_NO-Automation PM user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3494,7 +3498,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #222010
     Then I softly cannot see top right button "Remove Selected" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
 
-  @FormulaWBRerun @222142 @222278 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinclosedstateformulaannouncementswithallocationlevelByApplicant @sprint-11-US-201558 @komal @Allocation
+  @222142 @222278 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinclosedstateformulaannouncementswithallocationlevelByApplicant @sprint-11-US-201558 @komal @Allocation @TBExecution1
   Scenario: Verify PM user  can see row level edit action in the applicant section when formula announcement is in closed state(formula announcements with allocation level By Applicant)
   | Verify if user wants update the final allocation for a given organization & if the announcement status is closed then user should see the updated final allocation is reflected in the corresponding application (before promoting to FDM ) |
     When I login to "As a Grantor" app as "PM" user
@@ -3510,7 +3514,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 2000             |
     Then I softly see the following messages in the page details contains:
-      | Saved successfully! |
+      | Saved Successfully! |
     And I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -3616,7 +3620,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
 
-  @225549 @225427 @PMUserVerifywhennegotiationisinitiatedduringpromotedtoFDMthenitshouldmustmandatoryforusertoselecttheBudgetBudgetDetailspicklistvalueforNegotiationfieldwhenthebudgetedAmountisnotequaltotheAllocationAmount @sprint-11-US-203558 @komal @Allocation
+  @225549 @225427 @PMUserVerifywhennegotiationisinitiatedduringpromotedtoFDMthenitshouldmustmandatoryforusertoselecttheBudgetBudgetDetailspicklistvalueforNegotiationfieldwhenthebudgetedAmountisnotequaltotheAllocationAmount @sprint-11-US-203558 @komal @Allocation @TBExecution1
   Scenario Outline: PM User when negotiation is initiated during promoted to FDM  then it should must mandatory for user to select the "Budget Budget Details " picklist value  for Negotiation field when the budgeted Amount is not equal to the Allocation Amount
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation <User> user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "BUDGETCATEGORY_NO_FOCUSAREA"
@@ -3654,7 +3658,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
-    When I click modal button "Close" 
+    When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
@@ -3941,7 +3945,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       The EGMS Team.
       """
 
-  @222648 @VerifywhenAllocationamountisupdatedforAllocationinApplicantsthenemailshouldbetriggeredAnnouncementisinPublishedstateForformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-12-US-221459 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @222648 @VerifywhenAllocationamountisupdatedforAllocationinApplicantsthenemailshouldbetriggeredAnnouncementisinPublishedstateForformulaannouncementswithallocationlevelByApplicantFocusArea @sprint-12-US-221459 @komal @Allocation
   Scenario: Verify when Allocation amount is updated for Allocation in Applicants then email should be triggered (Announcement is in Published state)(For formula announcements with allocationlevel By Applicant & Focus Area)
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -3964,8 +3968,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -4062,8 +4066,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     The EGMS Team.
     """
 
-
-  @FormulaWBRerun @227708 @227720 @227708 @227709 @227717 @VerifyPMUserseethetheBudgetedAmountinplaceoftheRecommendedBudgetandAllocationamountinsteadoftheRequestedAmountonlyforformulaannouncementsCheckifwecanusethesameclmforallocationandRecommendamount @sprint-13-US-204132 @komal @Allocation
+  @227708 @227720 @227708 @227709 @227717 @VerifyPMUserseethetheBudgetedAmountinplaceoftheRecommendedBudgetandAllocationamountinsteadoftheRequestedAmountonlyforformulaannouncementsCheckifwecanusethesameclmforallocationandRecommendamount @sprint-13-US-204132 @komal @Allocation @TBExecution1
   Scenario Outline: Verify PM User see the the Budgeted Amount in place of the Recommended  Budget and Allocation amount instead of the Requested Amount only for formula announcements(Check if we can use the same clm for allocation and Recommend amount )
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -4127,12 +4130,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-    And I wait for "3" seconds
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4140,12 +4143,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-    And I wait for "3" seconds
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4153,12 +4156,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-    And I wait for "3" seconds
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -4196,11 +4199,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -4250,7 +4254,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @FormulaWBRerun @227829 @227837 @227839 @VerifyAdminuserseevalidationwhenbudgetedamountinanyfocusareaisnotequaltotheAllocationamountofthatfocusareawhenItrytocreateawardfromFDM @sprint-13-US-204132 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @227829 @227837 @227839 @VerifyAdminuserseevalidationwhenbudgetedamountinanyfocusareaisnotequaltotheAllocationamountofthatfocusareawhenItrytocreateawardfromFDM @sprint-13-US-204132 @komal @Allocation @TBExecution1
   Scenario Outline: Verify Admin user see validation when budgeted amount in any focus area is not equal to the Allocation amount of that focus area & when I try to create award from FDM
   | Verify Admin user see validation when budgeted amount in any focus area is not equal to the Allocation amount of that focus area & when I try Create Award from application |
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA-Automation ADMIN user"
@@ -4431,8 +4435,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see that "Recommended" has been added in flextable with Id "FundingDecisionMemoApplications"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                        | FDM    |
-      | {SavedValue:ADMIN Username} | NA     |
+      | Name                        | FDM |
+      | {SavedValue:ADMIN Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                        | FDM    |
       | {SavedValue:ADMIN Username} | Step 1 |
@@ -4774,7 +4778,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @FormulaWBRerun @227788 @VerifyEXEusershouldseewhennegotiationisinitiatedduringtheFDMitshouldbemandatoryfortoselecttheBudgetBudgetDetailspicklistvalueinApplicationSectionsforNegotiationsectionwhenthebudgetedAmountisnotequaltotheAllo @sprint-13-US-204132 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @227788 @VerifyEXEusershouldseewhennegotiationisinitiatedduringtheFDMitshouldbemandatoryfortoselecttheBudgetBudgetDetailspicklistvalueinApplicationSectionsforNegotiationsectionwhenthebudgetedAmountisnotequaltotheAllo @sprint-13-US-204132 @komal @Allocation @TBExecution1
   Scenario Outline: Verify EXE user should see  when negotiation is initiated during the FDM it should be  mandatory for to select the "Budget Budget Details " picklist value in Application Sections for Negotiation section when the budgeted Amount is not equal to the Allo
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation EXE user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "BUDGETCATEGORY_NO_FOCUSAREA"
@@ -4838,11 +4842,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4850,11 +4855,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4862,11 +4868,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -4903,11 +4910,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -4941,9 +4949,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | fieldJustification__c |
+      | Value                       | Field            |
+      | AuGr                        | GrantCode__c     |
+      | Automation Test Description | Justification__c |
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommend for Funding | Comments    |
@@ -4952,8 +4960,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                         | FDM    |
-      | {SavedValue:<User> Username} | NA     |
+      | Name                         | FDM |
+      | {SavedValue:<User> Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
@@ -4977,7 +4985,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | EXE  |
 
-  @FormulaWBRerun @227740 @VerifyPOuserseethevalidationwhenthebudgetedamountnotequaltotheAllocationamount&UsertrytocreateawardfromFDMorfromtheApplication @sprint-13-US-204132 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @227740 @VerifyPOuserseethevalidationwhenthebudgetedamountnotequaltotheAllocationamount&UsertrytocreateawardfromFDMorfromtheApplication @sprint-13-US-204132 @komal @Allocation @TBExecution1
   Scenario Outline: Verify PO user see the validation when the budgeted amount not equal to  the Allocation amount & User try to create award from FDM or from the Application
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT-Automation PO user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5148,9 +5156,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value                       | Field                 |
-      | AuGr                        | GrantCode__c          |
-      | Automation Test Description | Justification__c      |
+      | Value                       | Field            |
+      | AuGr                        | GrantCode__c     |
+      | Automation Test Description | Justification__c |
     And I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommend for Funding | Comments    |
@@ -5159,11 +5167,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                         | FDM    |
-      | {SavedValue:<User> Username} | NA     |
+      | Name                         | FDM |
+      | {SavedValue:<User> Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
+    And I wait for "2" seconds
     Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "GrantorReviewStepRolesandResponsibilities"
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
@@ -5182,7 +5191,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | PO   |
 
-  @225140 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenSPIresubmittheapplicationafternegotiationinprescreenreviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @225140 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenSPIresubmittheapplicationafternegotiationinprescreenreviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation @TBExecution1
   Scenario Outline: Verify that If Budgeted amount not equal to the Allocation Amount  When SPI resubmit the application after negotiation in pre screen review Then it should through error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5221,11 +5230,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 2000   | 100        | 100            | 100            |
+    And I refresh the page
+    And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     #225140
     Then I softly see the following messages in the page details contains:
@@ -5235,7 +5247,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @226382 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenSPIresubmittheapplicationafternegotiationinManagementReviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation
+  @226382 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenSPIresubmittheapplicationafternegotiationinManagementReviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation @TBExecution1
   Scenario Outline: Verify that If Budgeted amount not equal to the Allocation Amount  When SPI resubmit the application after negotiation in Management Review Then it should through error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5386,7 +5398,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @225143 @VerifythatIfFocusareasbudgetednotequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationcheckthenitshouldthroughErrormessage @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @225143 @VerifythatIfFocusareasbudgetednotequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationcheckthenitshouldthroughErrormessage @sprint-11-US-204300 @komal @Allocation @TBExecution1
   Scenario Outline: Verify that If Focus area's budgeted not equal to Allocation amount for that focus area in budget summary section When SPI resubmit the application after negotiation check then it should through Error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5427,12 +5439,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 2000   | 100        | 100            | 100            |
-    And I wait for "9" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     #225143
     Then I softly see the following messages in the page details contains:
@@ -5442,7 +5456,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @225142 @VerifythatIfFocusareasbudgetedequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationinPreScreenreviewcheckthenitshouldnotthroughErrormessage @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @225142 @VerifythatIfFocusareasbudgetedequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationinPreScreenreviewcheckthenitshouldnotthroughErrormessage @sprint-11-US-204300 @komal @Allocation @TBExecution1
   Scenario Outline: Verify that If Focus area's budgeted equal to Allocation amount for that focus area in budget summary section When SPI resubmit the application after negotiation in Pre Screen review check then it should not through Error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5493,7 +5507,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @226383 @VerifythatIfFocusareasbudgetedequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationinSMEreviewcheckthenitshouldnotthroughErrormessage @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @226383 @VerifythatIfFocusareasbudgetedequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationinSMEreviewcheckthenitshouldnotthroughErrormessage @sprint-11-US-204300 @komal @Allocation @TBExecution1
   Scenario Outline:  Verify that If Focus area's budgeted equal to Allocation amount for that focus area in budget summary section When SPI resubmit the application after negotiation in SME review check then it should not through Error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5551,7 +5565,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @226384  @sprint-11-US-204300 @komal @Allocation
+  @226384  @sprint-11-US-204300 @komal @Allocation @TBExecution1
   Scenario Outline: Verify that If Focus area's budgeted equal to Allocation amount for that focus area in budget summary section When <SPI>resubmit the application after negotiation in Management review check then it should not through Error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5695,7 +5709,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @225141 @VerifyIfBudgetedamountmustbeequaltotheAllocationAmountWhenINDresubmittheapplicationafternegotiationthenitwillnotthrougherrormessage @sprint-11-US-204300 @komal @Allocation
+  @225141 @VerifyIfBudgetedamountmustbeequaltotheAllocationAmountWhenINDresubmittheapplicationafternegotiationthenitwillnotthrougherrormessage @sprint-11-US-204300 @komal @Allocation @TBExecution1
   Scenario Outline: Verify If Budgeted amount must be equal to the Allocation Amount When IND resubmit the application after negotiation then it will not through error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -5746,7 +5760,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | IND  |
 
-  @226381 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenINDresubmittheapplicationafternegotiationinSMEreviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @226381 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenINDresubmittheapplicationafternegotiationinSMEreviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation @TBExecution1
   Scenario Outline: Verify that If Budgeted amount not equal to the Allocation Amount  When IND resubmit the application after negotiation in SME review Then it should through error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -5810,7 +5824,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | IND  |
 
-  @225418 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinManagementReviewwhenallocationamountinannouncementischanged @sprint-11-US-204300 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @225418 @VerifythatINDuserwillabletochangethevalueinbudgetbudgetdetailswhileresubmittingthenegotiationstograntorinManagementReviewwhenallocationamountinannouncementischanged @sprint-11-US-204300 @komal @Allocation @TBExecution1
   Scenario Outline: Verify that IND user will able to change the value in budget budget details while resubmitting the negotiations to grantor in Management Review when allocation amount in announcement is changed
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -6243,7 +6257,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @FormulaWBRerun @326961 @VerifyPMusershouldnotabletoupdatetheallocationamountonAnnifnegotiationisNoonAnnonceapplicationispromotetoFDMrecord @sprint-20-US-320518
+  @326961 @VerifyPMusershouldnotabletoupdatetheallocationamountonAnnifnegotiationisNoonAnnonceapplicationispromotetoFDMrecord @sprint-20-US-320518 @TBExecution1
   Scenario Outline:Verify PM user should not able to update the allocation amount on Ann  if negotiation is No on Ann once application is promote to FDM record
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_NEGOTIATION_NO-Automation PM user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -6308,11 +6322,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
-    And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6320,11 +6335,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
-    And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -6332,11 +6348,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
-    And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -6374,12 +6391,13 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    Then I see that "Status" is in "Review Completed" status
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -6391,9 +6409,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see top right button "Funding Decision Memo" in page detail
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
-    And I pause execution for "2" seconds
+    And I pause execution for "4" seconds
     Then I softly see field "Status" as "Completed"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Formula Announcements"
@@ -6411,7 +6428,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @326929 @ValidateAdminusershouldabletoseethetwocolumnsinApprovedstateforFormulaAnnouncementwhenAllocationisbyApplicants @sprint-10-US-320518  @Pre-ScreenOnHoldSPI
+  @326929 @ValidateAdminusershouldabletoseethetwocolumnsinApprovedstateforFormulaAnnouncementwhenAllocationisbyApplicants @sprint-10-US-320518  @TBExecution1
   Scenario: Verify external user should not see opportunity those external org are added eligible criteria but not invited on formula type of announcement
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -6427,6 +6444,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     When I enter value "Individuals" into field "EligibleApplicantTypes__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
@@ -6452,12 +6470,15 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     And I perform quick search for "Automation IND" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
     When I click "Add" after selection of "Automation IND" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
+    And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicant Organization | Allocated Amount |
       | Automation IND         | 1000             |
@@ -6518,7 +6539,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | In the Formula announcements budgeting can be done only for first budget period. |
 
-  @274200 @ValidateFormulaPMusercanseevalidationonsubmitforApprovaonAnnouncementwhenAnnismodifiedmismatchvaluesisincreatedstateaftersendtoownerfromapprovalFAYESAllocationtypeByApplicantFA @Sprint-23-US-273843  @Allocation
+  @274200 @ValidateFormulaPMusercanseevalidationonsubmitforApprovaonAnnouncementwhenAnnismodifiedmismatchvaluesisincreatedstateaftersendtoownerfromapprovalFAYESAllocationtypeByApplicantFA @Sprint-23-US-273843 @Allocation @TBExecution1
   Scenario: Validate Formula PM user can see validation on submit for Approval on Announcement when Ann is modified & mismatch values is in created state after send to owner from approval FA YES & Allocation Type By Applicant & FA
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -6534,6 +6555,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     When I enter value "Individuals" into field "EligibleApplicantTypes__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
@@ -6562,6 +6584,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
@@ -6569,6 +6592,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
+    And I wait for "2" seconds
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     And I perform quick search for "Automation IND" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
     Then I softly see value "Automation IND" for title "Organization" inside table "---announcement:-:formulaAddInviteApplicantTableId---"
@@ -6619,7 +6643,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Overview Tab - You must invite at least one applicant before submitting this Announcement.                                           |
       | Overview Tab - Select Eligible Applicant Types in the Eligibility Details section.                                                   |
 
-  @274212 @ValidateFormulaPMusercanseealleditaccessofAnnwhenownershipofAnnouncementistransfertoonePMtootherPMuserisincreatedstatenewusercanpublishedAnnFAYESAllocationTypeByApplicantFA @Sprint-23-US-273843  @Allocation
+  @274212 @ValidateFormulaPMusercanseealleditaccessofAnnwhenownershipofAnnouncementistransfertoonePMtootherPMuserisincreatedstatenewusercanpublishedAnnFAYESAllocationTypeByApplicantFA @Sprint-23-US-273843 @Allocation @TBExecution1
   Scenario: Validate Formula PM user can see all edit access of Ann when ownership of Announcement is transfer to one PM to other PM user is in created state & new user can published Ann FA YES & Allocation Type By Applicant & FA
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -6633,6 +6657,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
@@ -6683,6 +6708,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
@@ -6715,7 +6741,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly cannot see top right button "Extend Dates" in page detail
     Then I softly cannot see top right button "Unpublish" in page detail
 
-  @270867 @VerifyAnnownerPMUsershouldseefollowingcolumnnamesinthetableunderinvitedapplicantssectionwhenAnnisinPublishedApprovedClosedandUnderRevisionstatus @sprint-21-US-267479  @Pre-ScreenOnHoldSPI
+  @270867 @VerifyAnnownerPMUsershouldseefollowingcolumnnamesinthetableunderinvitedapplicantssectionwhenAnnisinPublishedApprovedClosedandUnderRevisionstatus @sprint-21-US-267479  @TBExecution1
   Scenario: Verify Ann owner PM User should see following column names in the table under invited applicants section when Ann is in Published Approved Closed and Under Revision status
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation PM user"
     When I login to "As a Grantor" app as "PM" user
@@ -6747,7 +6773,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked       |
+      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -6797,6 +6823,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    And I wait for "8" seconds
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Formula Announcements"
