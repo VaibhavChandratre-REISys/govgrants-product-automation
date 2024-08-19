@@ -225,12 +225,13 @@ public class UsersAndURL implements UsersController {
         username.put("AUDITOR", "automationauditor@yopmail.com.qaorg");
         username.put("SARAH PM", "sarah.pm@ggp.test8.qaorg");
 
-        username.put("SIMON PM", "simon_pm@ggp.test7");
-        username.put("SARAH PO", "sarah_pm@ggp.test7.automation");
-        username.put("ALEX FO", "alex_fo@ggp.test7");
-        username.put("CATHY PM", "cathy_pm@ggp.test7");
-        username.put("OSCAR PM", "oscar_pm@ggp.test7");
-        username.put("Bill PM", "bill_pm@ggp.test7");
+        username.put("GRANTEE ADMIN", "product.qa@ggp.test8.qagrnteatm");
+        username.put("GRANTEE PM", "sarah.pm@ggp.test8.qagrnteatm");
+        username.put("GRANTEE EXE", "victor.exe@ggp.test8.qagrnteatm");
+        username.put("GRANTEE FO", "david.fo@ggp.test8.qagrnteatm");
+        username.put("GRANTEE FD", "danielle.garcia@ggp.test8.qagrnteatm");
+        username.put("GRANTEE PO", "grantee.po@yopmail.com.qagrnteatm");
+        username.put("GRANTEE AUDITOR", "autoauditor.grantee@yopmail.com.qagrnteatm");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());

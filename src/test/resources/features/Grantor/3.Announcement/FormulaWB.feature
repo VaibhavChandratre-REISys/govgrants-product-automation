@@ -351,6 +351,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
@@ -431,6 +432,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
@@ -459,12 +461,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
-    And I refresh the page
+    When I navigate to "Overview" sub tab
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicant Organization              | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
@@ -497,6 +501,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
@@ -524,12 +529,13 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
-    And I refresh the page
+    When I navigate to "Overview" sub tab
     And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicant Organization              | Allocated Amount |
@@ -1245,7 +1251,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Remove" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
 
-  @FormulaWBRerun @221687 @221700 @221694 @VerifyPMusershouldabletoseetheAddOrganizationbuttonshouldbehiddenonsubmitforapprovalstate @sprint-11-US-201558 @komal @Allocation
+  @221687 @221700 @221694 @VerifyPMusershouldabletoseetheAddOrganizationbuttonshouldbehiddenonsubmitforapprovalstate @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify PM user should able to see the Add Organization button should be hidden on submit for approval state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1259,6 +1265,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Overview" sub tab
     And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
@@ -1287,13 +1294,15 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Overview" sub tab
     And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
     Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Organization" inside table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
-    And I refresh the page
+    When I navigate to "Overview" sub tab
+    And I wait for "2" seconds
     And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
@@ -2578,7 +2587,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @FormulaWBRerun  @222275 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
+  @222275 @Verifyifuserwantsupdatethefinalallocationforagivenorganization&iftheannouncementstatusispublishedthenusershouldseetheupdatedfinalallocationisreflectedinthecorrespondingapplicationbeforepromotingtoFDM @sprint-11-US-201558 @komal @Allocation @Pre-ScreenOnHoldSPI
   Scenario Outline: Verify if user wants update the final allocation for a given organization & if the announcement status is published then user should see the updated final allocation is reflected in the corresponding application (before promoting to FDM )
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "BY_APPLICANT_NEGOTIATION_NO"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -2624,10 +2633,10 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 2000   | 100        | 100            |
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Budgeted Amount" as "$2,000.00"
     Then I softly see field "Allocation Amount" as "$2,000"
     When I click on "Submit to Grantor" in the page details
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2636,7 +2645,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:NegoEGMSID}" in "---negotiation:-:internalHomePendingTableId---" panel
     And I click on "Start" icon for "{SavedValue:NegoEGMSID}" inside flex table with id "---negotiation:-:internalHomePendingTableId---"
     When I click on "Complete Negotiation" in the page details
-    And I wait for "10" seconds
+    And I wait for "7" seconds
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -2688,7 +2697,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I refresh the page
     And I pause execution for "5" seconds
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I pause execution for "2" seconds
+    And I pause execution for "3" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2696,11 +2705,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2708,11 +2718,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2720,11 +2731,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -2738,7 +2750,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     #222275
     Then I see the sub-header is "Management Review" in the page details
     And I navigate to "Applications" tab
@@ -2980,6 +2992,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
     When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---applicationReview:-:budgetTableId---"
@@ -2988,6 +3001,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction | The narrative | 2000         | 100        | 100            |
     When I click modal button "Close"
     And I refresh the page
+    And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$2,000.00"
     Then I softly see field "Allocation Amount" as "$2,000"
@@ -3060,9 +3074,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3070,11 +3084,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3082,11 +3097,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "4" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
-    When I click on "Submit" in the page details without processing
-    When I click alert button "OK"
+    When I click on "Submit" in the page details
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
