@@ -428,7 +428,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | Announcement Type |
       | Directed          |
 
-  @74132 @userAllowToDownloadPDFInvitedApplication
+  @74132 @userAllowToDownloadPDFInvitedApplication @TBExecution
   Scenario: To verify system allow to download PDF for Invited Applicants section in overview tab of announcement.
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST1" in "---announcement:-:directedAddInviteApplicantTableId---" panel

@@ -1532,7 +1532,7 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug
+  @tst
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     Given I published "Directed" type announcement having name "Automation Permanent Closed Annoucement" and properties "default-Automation ADMIN user"
     Given I am on "SUBPORTAL" portal

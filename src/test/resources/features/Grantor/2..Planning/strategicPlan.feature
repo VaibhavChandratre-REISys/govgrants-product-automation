@@ -218,7 +218,7 @@ Feature: Validate all scenarios in Strategic Plan
     Then I see the following messages in the page details contains:
       | Overview Tab - At least one goal should be there for Strategic Plan. |
 
-  @195263 @195290 @ValidatePMuserrecordownercanEdit/DeletefilesonStrategicGoalifuserhaseditaccessonmaineditbuttonforStrategicGoalisinDraftstate @addFiles @TBExecution
+  @195263 @195290 @ValidatePMuserrecordownercanEdit/DeletefilesonStrategicGoalifuserhaseditaccessonmaineditbuttonforStrategicGoalisinDraftstate @addFiles
   Scenario: Validate PM user record owner can 'Edit/Delete' files on Strategic Goal if user has edit access on main edit button for Strategic Goal is in 'Draft' state
     When I enter value "Automation Test Description" into field "StrategyDescription__c"
     And I click on "Save" in the page details

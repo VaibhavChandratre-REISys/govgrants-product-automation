@@ -10414,7 +10414,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team
       """
 
-  @204171 @ValidatePMusercanabletoseetopleveleditbuttonandabletoAddfileinCreatedstateofsitevisit @addFiles @TBExecution
+  @204171 @ValidatePMusercanabletoseetopleveleditbuttonandabletoAddfileinCreatedstateofsitevisit @addFiles
   Scenario: Validate PM user can able to see top level edit button and able to 'Add file' in 'Created' state of site visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
