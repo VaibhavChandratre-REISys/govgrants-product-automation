@@ -438,4 +438,4 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on parallel menu button in flex table title "Applicants"
     And I select "Download as PDF" from parallel lines dropdown of "Applicants"
     When I download the file
-    Then I see "Invited Applicants" on page "1" of "govgrants" pdf file
+    Then I see "Applicants" on page "1" of "govgrants" pdf file
