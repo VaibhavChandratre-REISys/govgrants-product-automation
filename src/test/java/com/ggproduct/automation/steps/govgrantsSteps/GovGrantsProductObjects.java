@@ -641,12 +641,14 @@ public final class GovGrantsProductObjects {
     public void sendTheEmailOnCollabTab(List<List<String>> emailDetails) {
         for (int i = 1; i < emailDetails.size(); i++) {
             List<String> ll = emailDetails.get(i);
-            I.amPerforming().textInput().toClear(By.xpath("//*[@id='upload']/div[2]/div/div/div[1]/input|//*[@id='upload']/div[2]/div//input|//input[@data-name='to']"));
-            I.amPerforming().textInput().in(By.xpath("//*[@id='upload']/div[2]/div/div/div[1]/input|//*[@id='upload']/div[2]/div//input|//input[@data-name='to']"), ll.get(0));
-            I.amPerforming().textInput().toClear(By.xpath("//input[@id='inputPassword']|//input[@name='subject']"));
-            I.amPerforming().textInput().in(By.xpath("//input[@id='inputPassword']|//input[@name='subject']"), ll.get(1));
-            I.amPerforming().scroll().onPageToSpecificElement(By.xpath("//button[normalize-space()='Send']"));
-            I.amPerforming().click().on(By.xpath("//lightning-button/button[normalize-space()='Send']"));
+            I.amPerforming().textInput().toClear(By.xpath("//gnt-email-component//input[not(contains(@class,'combobox__input'))]"));
+            I.amPerforming().textInput().in(By.xpath("//gnt-email-component//input[not(contains(@class,'combobox__input'))]"), ll.get(0));
+            I.amPerforming().textInput().toClear(By.xpath("//gnt-email-component//input[@name='subject']"));
+            I.amPerforming().textInput().in(By.xpath("//gnt-email-component//input[@name='subject']"), ll.get(1));
+            I.amPerforming().click().withJavaScript(By.xpath("//gnt-email-component//div[contains(@class,'text-area')]"));
+            I.amPerforming().textInput().toClear(By.xpath("//gnt-email-component//div[contains(@class,'text-area')]"));
+            I.amPerforming().textInput().in(By.xpath("//gnt-email-component//div[contains(@class,'text-area')]"), ll.get(2));
+            I.amPerforming().click().withJavaScript(By.xpath("//gnt-email-component//button[@title='Send']"));
         }
     }
 
