@@ -243,7 +243,7 @@ Feature: Sanity scenarios
     And I click on "Save" in the page details
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
-    When I upload attachment without random number without random number "Attachment.pdf" of type "Other" from computer
+    When I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     And I wait for "2" seconds
     When I click modal button "Close"
     Then I see "AttachmentTesting.pdf" has been added in "Focus Area Files" flex table
