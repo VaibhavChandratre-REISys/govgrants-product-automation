@@ -63,7 +63,9 @@ Feature: Sanity scenarios
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
-    Then I softly see value "Subject test" for title "Subject" inside table "CommunicationHistory"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "sarah.pm.automation1@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     When I click on "Activate" in the page details
@@ -84,6 +86,8 @@ Feature: Sanity scenarios
     And I click modal button "Save and Continue"
     When I enter value "Automation Test Description" into field "StrategyDescription__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Description" as "Automation Test Description" in "Details" pageblock
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
@@ -117,8 +121,10 @@ Feature: Sanity scenarios
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
-    Then I softly see value "Subject test" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.automation1@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
+    Then I softly see value "victor.exegrantee.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
@@ -127,7 +133,7 @@ Feature: Sanity scenarios
     When I enter value "Automation Test Description" into field "StrategyDescription__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I see field "Description" as "Automation Test Description"
+    Then I softly see field "Description" as "Automation Test Description" in "Details" pageblock
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicGoalsFilesTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
@@ -161,8 +167,10 @@ Feature: Sanity scenarios
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
-    Then I softly see value "Subject test" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.automation1@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
+    Then I softly see value "victor.exegrantee.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
@@ -211,8 +219,10 @@ Feature: Sanity scenarios
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
-    Then I softly see value "Subject test" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.automation1@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
+    Then I softly see value "victor.exegrantee.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I save the field labeled "Strategic Plan" as "StrategicPlan"
     And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
@@ -274,8 +284,10 @@ Feature: Sanity scenarios
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
-    Then I softly see value "Subject test" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.automation1@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
+    Then I softly see value "victor.exegrantee.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
