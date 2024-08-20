@@ -38,7 +38,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
     Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Organization" inside table "---announcement:-:formulaAddInviteApplicantTableId---"
 
-  @219083 @ValidateinfotextshouldbedisplayonapplicantsForFormulaAnnouncementwhenAllocationisbyApplicants @sprint-9-US-208408  @Allocation @TBExecution1
+  @219083 @ValidateinfotextshouldbedisplayonapplicantsForFormulaAnnouncementwhenAllocationisbyApplicants @sprint-9-US-208408  @Allocation
   Scenario: Validate  info text should be display on applicants For Formula Announcement when Allocation is by Applicants.
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -55,7 +55,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I hovering mouse on help text icon inside page block detail "Applicants"
     Then I softly see "Verify that all invited applicants are eligible to submit an application based on the eligibility criteria associated with this announcement" shown as help text
 
-  @204325 @ValidateusershouldabletoseetheinfotextonApplicantsinfoIcon @sprint-8-US-206947 @Allocation @TBExecution1
+  @204325 @ValidateusershouldabletoseetheinfotextonApplicantsinfoIcon @sprint-8-US-206947 @Allocation
   Scenario: Validate user should able to see the info text on Applicants info Icon
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -744,7 +744,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---applicationIntake:-:budgetSummaryTableId---" :
       | Focus Area | Allocation Amount |
 
-  @219626 @ValidateSPAUserforformulaannouncementAllocationAmountSectionshouldbehide @sprint-9-US-204998  @Allocation @TBExecution1
+  @219626 @ValidateSPAUserforformulaannouncementAllocationAmountSectionshouldbehide @sprint-9-US-204998  @Allocation
   Scenario Outline: Validate SPA User_for formula announcement Allocation Amount Section should be hide(Qualified/Not Yet Qualified opportunity page)
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -959,7 +959,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following messages in the page details contains:
       | For a formula announcement, the Allocation Level must be one of the following - By Applicant or By Applicant and Focus Area. |
 
-  @226440 @226431 @VerifyifUsergetswarningmessageiftriedtoclickonrowlevelremovebuttonwithoutsavingrecordThisactionwilldeletetheOrgandassociatedFAandUnsaveddatawillbelostduetopagerefreshPleasesavetherecordtocontinue @sprint-11-US-201040 @komal @Allocation @TBExecution1
+  @226440 @226431 @VerifyifUsergetswarningmessageiftriedtoclickonrowlevelremovebuttonwithoutsavingrecordThisactionwilldeletetheOrgandassociatedFAandUnsaveddatawillbelostduetopagerefreshPleasesavetherecordtocontinue @sprint-11-US-201040 @komal @Allocation
   Scenario: Verify if User gets warning message if tried to click on row level remove button without saving record "This action will delete the Org and associated FA and Unsaved data will be lost due to page refresh Please save the record to continue".
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1212,7 +1212,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see row level action button "Edit" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     Then I softly can see row level action button "Remove" against "SAN DIEGO ELECTRICAL TRAINING TRUST" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
 
-  @222349 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinsubmittedforreviewstateformulaannouncementswithallocationlevelByApplicant&FocusArea @sprint-11-US-201558 @komal @Allocation @TBExecution1
+  @222349 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinsubmittedforreviewstateformulaannouncementswithallocationlevelByApplicant&FocusArea @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify PM user  can see row level edit action in the applicant section when formula announcement is in submitted for review state(formula announcements with allocationlevel By Applicant & Focus Area)
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -3498,7 +3498,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #222010
     Then I softly cannot see top right button "Remove Selected" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
 
-  @222142 @222278 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinclosedstateformulaannouncementswithallocationlevelByApplicant @sprint-11-US-201558 @komal @Allocation @TBExecution1
+  @222142 @222278 @VerifyPMusercanseerowleveleditactionintheapplicantsectionwhenformulaannouncementisinclosedstateformulaannouncementswithallocationlevelByApplicant @sprint-11-US-201558 @komal @Allocation
   Scenario: Verify PM user  can see row level edit action in the applicant section when formula announcement is in closed state(formula announcements with allocation level By Applicant)
   | Verify if user wants update the final allocation for a given organization & if the announcement status is closed then user should see the updated final allocation is reflected in the corresponding application (before promoting to FDM ) |
     When I login to "As a Grantor" app as "PM" user
@@ -5191,7 +5191,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | PO   |
 
-  @225140 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenSPIresubmittheapplicationafternegotiationinprescreenreviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation @TBExecution1
+  @225140 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenSPIresubmittheapplicationafternegotiationinprescreenreviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation
   Scenario Outline: Verify that If Budgeted amount not equal to the Allocation Amount  When SPI resubmit the application after negotiation in pre screen review Then it should through error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5398,7 +5398,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @225143 @VerifythatIfFocusareasbudgetednotequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationcheckthenitshouldthroughErrormessage @sprint-11-US-204300 @komal @Allocation @TBExecution1
+  @225143 @VerifythatIfFocusareasbudgetednotequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationcheckthenitshouldthroughErrormessage @sprint-11-US-204300 @komal @Allocation
   Scenario Outline: Verify that If Focus area's budgeted not equal to Allocation amount for that focus area in budget summary section When SPI resubmit the application after negotiation check then it should through Error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5456,7 +5456,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @225142 @VerifythatIfFocusareasbudgetedequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationinPreScreenreviewcheckthenitshouldnotthroughErrormessage @sprint-11-US-204300 @komal @Allocation @TBExecution1
+  @225142 @VerifythatIfFocusareasbudgetedequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationinPreScreenreviewcheckthenitshouldnotthroughErrormessage @sprint-11-US-204300 @komal @Allocation
   Scenario Outline: Verify that If Focus area's budgeted equal to Allocation amount for that focus area in budget summary section When SPI resubmit the application after negotiation in Pre Screen review check then it should not through Error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5507,7 +5507,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @226383 @VerifythatIfFocusareasbudgetedequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationinSMEreviewcheckthenitshouldnotthroughErrormessage @sprint-11-US-204300 @komal @Allocation @TBExecution1
+  @226383 @VerifythatIfFocusareasbudgetedequaltoAllocationamountforthatfocusareainbudgetsummarysectionWhenSPIresubmittheapplicationafternegotiationinSMEreviewcheckthenitshouldnotthroughErrormessage @sprint-11-US-204300 @komal @Allocation
   Scenario Outline:  Verify that If Focus area's budgeted equal to Allocation amount for that focus area in budget summary section When SPI resubmit the application after negotiation in SME review check then it should not through Error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -5709,7 +5709,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | SPI3 |
 
-  @225141 @VerifyIfBudgetedamountmustbeequaltotheAllocationAmountWhenINDresubmittheapplicationafternegotiationthenitwillnotthrougherrormessage @sprint-11-US-204300 @komal @Allocation @TBExecution1
+  @225141 @VerifyIfBudgetedamountmustbeequaltotheAllocationAmountWhenINDresubmittheapplicationafternegotiationthenitwillnotthrougherrormessage @sprint-11-US-204300 @komal @Allocation
   Scenario Outline: Verify If Budgeted amount must be equal to the Allocation Amount When IND resubmit the application after negotiation then it will not through error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT_FOCUS_AREA"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
@@ -5760,7 +5760,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | User |
       | {SavedValue:Automation Runtime Formula Announcement} | IND  |
 
-  @226381 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenINDresubmittheapplicationafternegotiationinSMEreviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation @TBExecution1
+  @226381 @VerifythatIfBudgetedamountnotequaltotheAllocationAmountWhenINDresubmittheapplicationafternegotiationinSMEreviewThenitshouldthrougherrormessage @sprint-11-US-204300 @komal @Allocation
   Scenario Outline: Verify that If Budgeted amount not equal to the Allocation Amount  When IND resubmit the application after negotiation in SME review Then it should through error message
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "INVITED_APPLICANT_IND_ORG_BY_APPLICANT"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default-Automation IND user"
