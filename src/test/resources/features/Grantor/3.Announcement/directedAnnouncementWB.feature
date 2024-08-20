@@ -185,7 +185,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I wait for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @219102 @219104 @sprint-9-US-208408 @komal @Allocation @TBExecution
+  @219102 @219104 @sprint-9-US-208408 @komal @Allocation
   Scenario: Verify when EXE user click on the "Add Organization" button then user see modal with all the active SR names for Directed Announcement.
   | Verify EXE user see the Success message after adding Organization & when Applicants are updated and this modal will stay open to associate more applicants: |
     When I login to "As a Grantor" app as "EXE" user
@@ -377,7 +377,7 @@ Feature: Validate all scenarios in the directed Announcement tab
       | User |
       | IND  |
 
-  @238301 @237744 @VerifyvalidationmessageisdisplayedtoPMuserwhenenteredrecommendedbudgetisGreaterOrlessthantheBudgetedAmountonFDMrecordwhichiscreatedfromDirectedannouncement @sprint-14-US-224179 @komal @Allocation @TBExecution
+  @238301 @237744 @VerifyvalidationmessageisdisplayedtoPMuserwhenenteredrecommendedbudgetisGreaterOrlessthantheBudgetedAmountonFDMrecordwhichiscreatedfromDirectedannouncement @sprint-14-US-224179 @komal @Allocation
   Scenario Outline: Verify validation message is displayed to PM user when entered recommended budget is greater than the Budgeted Amount on FDM record which is created from Directed announcement
   | Verify validation message is displayed to PM user when entered recommended budget is less than the Budgeted Amount on FDM record which is created from Directed announcement  |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "NEGOTIATION_NO"

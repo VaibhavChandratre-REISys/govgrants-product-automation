@@ -435,7 +435,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
-    And I click on parallel menu button in flex table title "Invited Applicants"
-    And I select "Download as PDF" from parallel lines dropdown of "Invited Applicants"
+    And I click on parallel menu button in flex table title "Applicants"
+    And I select "Download as PDF" from parallel lines dropdown of "Applicants"
     When I download the file
     Then I see "Invited Applicants" on page "1" of "govgrants" pdf file
