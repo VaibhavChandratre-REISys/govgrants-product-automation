@@ -14,7 +14,7 @@ Feature: Sanity scenarios
     And I click on "Save" in the page details
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
-    And I upload attachment "AttachmentTesting.pdf" of type "Other" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "AttachmentTesting.pdf" has been added in "KPI Files" flex table
@@ -28,17 +28,17 @@ Feature: Sanity scenarios
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:KPIFilesTableId---"
     Then I softly see value "Supporting Documents" for title "Classification" inside table "---grantee_tableId:-:KPIFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "Attachment.pdf" has been added in "KPI Files" flex table
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
-    And I upload attachment "Attachment1.pdf" of type "Other" from computer
+    And I upload attachment without random number "Attachment1.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "Attachment1.pdf" has been added in "KPI Files" flex table
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
-    And I upload attachment "sample.pdf" of type "Other" from computer
+    And I upload attachment without random number "sample.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "sample.pdf" has been added in "KPI Files" flex table
@@ -86,7 +86,7 @@ Feature: Sanity scenarios
     And I click on "Save" in the page details
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
-    And I upload attachment "AttachmentTesting.pdf" of type "Other" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "AttachmentTesting.pdf" has been added in "Strategic Plan Files" flex table
@@ -100,7 +100,7 @@ Feature: Sanity scenarios
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
     Then I softly see value "Strategic Plan" for title "Classification" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "Attachment.pdf" has been added in "Strategic Plan Files" flex table
@@ -130,7 +130,7 @@ Feature: Sanity scenarios
     Then I see field "Description" as "Automation Test Description"
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicGoalsFilesTableId---"
-    And I upload attachment "AttachmentTesting.pdf" of type "Other" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "AttachmentTesting.pdf" has been added in "Strategic GoaI Files" flex table
@@ -144,7 +144,7 @@ Feature: Sanity scenarios
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
     Then I softly see value "Strategic Goal" for title "Classification" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicGoalsFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "Attachment.pdf" has been added in "Strategic GoaI Files" flex table
@@ -180,7 +180,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Draft"
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:objectivesAddFilesTableId---"
-    And I upload attachment "AttachmentTesting.pdf" of type "Others" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "AttachmentTesting.pdf" has been added in "Objective Files" flex table
@@ -194,7 +194,7 @@ Feature: Sanity scenarios
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
     Then I softly see value "Objective" for title "Classification" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:objectivesAddFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "Attachment.pdf" has been added in "Objective Files" flex table
@@ -243,7 +243,7 @@ Feature: Sanity scenarios
     And I click on "Save" in the page details
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
-    When I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I upload attachment without random number without random number "Attachment.pdf" of type "Other" from computer
     And I wait for "2" seconds
     When I click modal button "Close"
     Then I see "AttachmentTesting.pdf" has been added in "Focus Area Files" flex table
@@ -257,7 +257,7 @@ Feature: Sanity scenarios
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:focusAreaAddFilesTableId---"
     Then I softly see value "supporting documents" for title "Classification" inside table "---grantee_tableId:-:focusAreaAddFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Other" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "Attachment.pdf" has been added in "Focus Area Files" flex table
