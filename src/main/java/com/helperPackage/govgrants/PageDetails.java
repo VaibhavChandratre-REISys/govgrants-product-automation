@@ -660,6 +660,30 @@ public final class PageDetails {
     }
 
     /**
+     * This function is used to get the web element
+     *
+     * @param fieldLabel
+     * @return WebElement
+     * @modifier saranjit.modak
+     */
+    public WebElement getElementFromModalPageBlock(String fieldLabel) {
+        String element = null;
+
+        if (fieldLabel.contains("'"))
+            element = "//div[contains(@class,'modal__container')]//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
+        else
+            element = "//div[contains(@class,'modal__container')]//c-page-block-section//label[" + I.amPerforming().sanityOfXpathTo().equals("text()", fieldLabel) + "]";
+
+        try {
+            I.amPerforming().getElementReference().of(ByUsing.xpath(element));
+        } catch (Exception e) {
+            /* Ignore Exception */
+        }
+        return I.amPerforming().getElementReference().of(ByUsing.xpath(element));
+    }
+
+
+    /**
      * click on button present under send email or library files modal window
      *
      * @param buttonName - on which needs to click
@@ -691,6 +715,21 @@ public final class PageDetails {
     public boolean isElementPresentInsidePageBlock(String fieldLabel) {
         try {
             return getElementFromPageBlock(fieldLabel).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * To verify field is not present inside page block detail for Modal
+     *
+     * @param fieldLabel - field label which needs to verify
+     * @return
+     * @Author - mahadev.hanme
+     */
+    public boolean isElementPresentOnModalInsidePageBlock(String fieldLabel) {
+        try {
+            return getElementFromModalPageBlock(fieldLabel).isDisplayed();
         } catch (Exception e) {
             return false;
         }
