@@ -51,7 +51,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "5" seconds
     Then I see "Federal/NGO Program" on page "1" of "govgrants" pdf file
 
-  @Ann2 @74105 @pdfDownloadBudgetCategory
+  @74105 @pdfDownloadBudgetCategory
   Scenario: To verify system allow to download PDF for Budget Categories section in financial tab of announcement
     And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
