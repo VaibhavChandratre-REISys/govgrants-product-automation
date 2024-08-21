@@ -118,10 +118,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Responsibilities" sub tab
     And I click on parallel menu button in flex table title "Peer Reviewers"
     And I select "Download as PDF" from parallel lines dropdown of "Peer Reviewers"
-    And I wait for "3" seconds
     And I download the file
     And I wait for "5" seconds
-    Then I see "Approvers" on page "1" of "govgrants" pdf file
+    Then I see "Peer Reviewers" on page "1" of "govgrants" pdf file
 
   @74117 @pdfDownloadReviewSteps
   Scenario: To verify system allow to download pdf for Review Steps section in setup tab of announcement
@@ -195,6 +194,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     Then I softly do not see value "BP01" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
     And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
+    And I refresh the page
     And I wait for "2" seconds
     Then I softly do not see value "Construction" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
     And I click on "Edit" in the page details
@@ -378,14 +378,14 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter the following values into flex table with id "---announcement:-:annChecklist---" by clicking "Add" :
       | Description                 | Required  | Applies To | Status |
       | Automation test description | Mandatory | Award      | Active |
-   When I click on "Upload Template" icon for " Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
+   When I click on "Upload Template" icon for "Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
    And I upload attachment without random number "Attachment.pdf" of type "Template for Announcement" from computer
    When I click modal button "Close"
    And I refresh the page
    And I wait for "2" seconds
    And I click on hyperlink containing value "View"
    When I download the file
-   Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
+   Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
 
   @72323 @71972  @applicationDueDataOfAnnInHistory @FieldHistoryExclude
   Scenario: To verify field history update with respect to modification in Application Due Dates of Announcement|
