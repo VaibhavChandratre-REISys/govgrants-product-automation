@@ -292,7 +292,7 @@ public final class GovGrantsObjects {
                 throw e;
             }
         }
-        govgrants.perform().modal().acceptPopUp();
+//        govgrants.perform().modal().acceptPopUp();
     }
 
     /**
