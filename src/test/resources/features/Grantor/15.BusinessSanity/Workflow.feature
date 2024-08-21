@@ -1534,15 +1534,19 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantor" app as "PM" user
+    When I login to "As a Grantor" app as "EXE" user
     And I wait for "5" seconds
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:PM Username}  | Step 1 |
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:FO Username}  | Step 3 |
+    And I click on "Edit" in the page details
+    And I enter value "4000" into field "---announcement:-:subawardfloor---"
+    And I enter value "6000" into field "---announcement:-:subawardceiling---"
+    And I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "$4,000" for title "New Value" inside field history table
+    Then I softly see value "$2,000.00" for title "Original Value" inside field history table
+    Then I softly see value "$6,000.00" for title "New Value" inside field history table
+    Then I softly see value "$3,000.00" for title "Original Value" inside field history table
+    And I click on back arrow
+    And I navigate to "Financials" sub tab

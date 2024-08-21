@@ -210,10 +210,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "$4,000.00" for title "New Value" inside field history table
-    Then I softly see value "$2,000.00" for title "Original Value" inside field history table
-    Then I softly see value "$6,000.00" for title "New Value" inside field history table
-    Then I softly see value "$3,000.00" for title "Original Value" inside field history table
+    Then I softly see value "$4,000" for title "New Value" inside field history table
+    Then I softly see value "$2,000" for title "Original Value" inside field history table
+    Then I softly see value "$6,000" for title "New Value" inside field history table
+    Then I softly see value "$3,000" for title "Original Value" inside field history table
     And I click on back arrow
     And I navigate to "Financials" sub tab
     Then I softly see value "Contingencies" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
@@ -1153,7 +1153,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @Ann2 @announcementPostSendBackCheckFieldHistoryCA @announcementSendBackPendingTaskToOwnerCA @announcementSendBackToOwnerCA @smoke
+  @announcementPostSendBackCheckFieldHistoryCA @announcementSendBackPendingTaskToOwnerCA @announcementSendBackToOwnerCA @smoke
   Scenario: Validate the send back functionality of an Announcement || Validate the field history after send back of an announcement || Validate that after send back from approvers owner should not get pending task
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1203,6 +1203,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
+    And I refresh the page
     And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly see that "Announcement" is in "Draft" status

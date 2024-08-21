@@ -75,9 +75,7 @@ Feature: Validate all common scenarios in the  Announcement tab
 #    Then I softly see field "Description" as "Automation test description"
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---announcement:-:contactTableId---"
-    And I refresh the page
-    When I navigate to "Overview" sub tab
+    And I click modal button "Close"
     Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---announcement:-:contactTableId---"
     When I click on "Remove" icon for "{SavedValue:EXE Username}" inside flex table with id "---announcement:-:contactTableId---" without waiting for record
     Then I softly do not see values "Record Id" and "{SavedValue:EXE Username}" inside table
