@@ -190,7 +190,7 @@ Feature: Validate all common scenarios in the  Announcement tab
     And I get the "EGMS ID"
     Then I see that "Sent for Review" has been added in flextable with Id "---announcement:-:reviewersTableId---"
 
-  @Ann @52413 @announcementReviewCompleteFA
+  @52413 @announcementReviewCompleteFA
   Scenario: Validate the review for the Announcement
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :

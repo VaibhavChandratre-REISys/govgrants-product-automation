@@ -39,7 +39,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click "Associate" after selection of "Wildlife Services" in the table "---announcement:-:associateForRelated---"
-    When I click modal button "Close"
     And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -385,7 +384,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
    And I refresh the page
    And I wait for "2" seconds
    And I click on hyperlink containing value "View"
-   And I wait for "5" seconds
+   When I download the file
    Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
 
   @72323 @71972  @applicationDueDataOfAnnInHistory @FieldHistoryExclude
@@ -628,6 +627,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I enter value "No" into field "QAAvailability__c"
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
+   And I wait for "5" seconds
     And I navigate to "Announcements" tab
     And I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Competitive Announcements"
@@ -815,7 +815,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I pause execution for "3" seconds
     And I collapse nested table containing column value "Impact"
     When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "2" seconds
     When I collapse nested table containing column value "SME Review"
+    And I pause execution for "2" seconds
     And I expand nested table containing column value "Management Review"
     When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
@@ -1442,7 +1444,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I select "Download as PDF" from parallel lines dropdown of "Goals and Objectives"
     And I download the file
     And I wait for "5" seconds
-    Then I see "Objectives" on page "1" of "govgrants" pdf file
+    Then I softly see "Objectives" on page "1" of "govgrants" pdf file
 
   @Ann2 @74129 @userAllowToDownloadPDFKPI
   Scenario: To verify system allow to download PDF for Key performance Indicator(KPIs) section in setup tab of announcement

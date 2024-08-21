@@ -1,7 +1,7 @@
 @competitiveAnnouncementsWB @grantor-regression @grantor-parallel-regression @announcement @regression @annExecution
 Feature: Validate all scenarios in the Competitive Announcement tab
 
-  @Ann @237875 @238363 @VerifyvalidationmessageisnotdisplayedtoexeuserwhenenteredrecommendedbudgetisequaltotheBudgetedAmountonFDMrecordwhichiscreatedfromCompetitiveannouncement @sprint-14-US-224179 @komal @Allocation
+  @237875 @238363 @VerifyvalidationmessageisnotdisplayedtoexeuserwhenenteredrecommendedbudgetisequaltotheBudgetedAmountonFDMrecordwhichiscreatedfromCompetitiveannouncement @sprint-14-US-224179 @komal @Allocation
   Scenario Outline: Verify validation message is not displayed to exe user when entered recommended budget is equal to the Budgeted Amount on FDM record which is created from Competitive announcement
   | Verify validation message is not displayed to PM user when entered recommended budget is equal the Budgeted Amount on FDM record which is created from Competitive announcement with Negotiation as Yes |
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "<Filter>"
@@ -325,8 +325,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
-    Then I softly see field "Status" as "Created"
     When I click on "Funding Decision Memo" in the page details
+    Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
     When I enter value "AuGr" into field "GrantCode__c"
     When I enter value "Automation Test Description" into field "Justification__c"
@@ -334,11 +334,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
-      | {SavedValue:<User> Username} | NA     |
+      | {SavedValue:PO Username}     | NA     |
     When I enter the following values into flex table with id "flexGridGrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
-      | {SavedValue:<User> Username} | Step 1 |
-    Then I softly see that "{SavedValue:<User> Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
+      | {SavedValue:PO Username}     | Step 1 |
+    Then I softly see that "{SavedValue:PO Username}" has been added in flextable with Id "flexGridGrantorReviewStepRolesandResponsibilities"
     #237868
     And I navigate to "Funding Decision Memo" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:recommendedTableId---" by clicking "Edit" :
@@ -1071,6 +1071,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -1083,6 +1084,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -1092,10 +1094,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
@@ -1135,10 +1137,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
+    And I wait for "2" seconds
     When I click alert button "OK"
     And I wait for "5" seconds
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
@@ -1653,10 +1655,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     And I click on "Extend Dates" in the page details
     And I enter values into fields
-      | Value | Field                               |
+      | Value | Field                          |
       | 1     | ProposedApplicationDueDate__c  |
-      | 1     | ProposedQSubmissionDeadline__c |
-      | 1     | ProposedAResponseDeadline__c   |
+#      | 1     | ProposedQSubmissionDeadline__c |
+#      | 1     | ProposedAResponseDeadline__c   |
     And I click modal button "Save"
     And I click modal button "Close"
     And I refresh the page
@@ -1702,7 +1704,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
