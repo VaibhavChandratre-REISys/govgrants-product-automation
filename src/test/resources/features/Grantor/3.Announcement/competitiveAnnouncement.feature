@@ -813,7 +813,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
     And I pause execution for "3" seconds
-    And I collapse nested table containing column value "Impact"
+#    And I collapse nested table containing column value "Impact"
     When I close "Review Form" modal by clicking the top right x button
     And I pause execution for "2" seconds
     When I collapse nested table containing column value "SME Review"
