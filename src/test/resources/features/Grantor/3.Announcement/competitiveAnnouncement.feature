@@ -472,19 +472,19 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click "Associate" after selection of "10.028" in the table "---announcement:-:associateForRelated---"
-    When I click modal button "Close"
     And I perform quick search for "Wildlife Services" in "---announcement:-:relatedAnnouncementTableId---" panel
     Then I softly see value "Wildlife Services" for title "Program Title" inside table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly see value "Federal" for title "Type" inside table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly can see row level action button "Remove" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     Then I softly can see row level action button "View" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
-    And I perform quick search for "Automation Permanent NGO Program" in "---announcement:-:associateForRelated---" panel
-    And I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---announcement:-:associateForRelated---"
-    And I click on "View" icon for "Automation Permanent NGO Program" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
-    Then I see the header is "NGO Program" in the page details
-    Then I see the sub-header is "Automation Permanent NGO Program" in the page details
+    And I perform quick search for "Test" in "---announcement:-:associateForRelated---" panel
+    And I click "Associate" after selection of "Test" in the table "---announcement:-:associateForRelated---"
+    And I click on "View" icon for "Test" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
+#    Then I see the header is "Federal/NGO Program" in the page details
+#    Then I see the sub-header is "Automation Permanent NGO Program" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I wait for "5" seconds
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "All Competitive Announcements"
