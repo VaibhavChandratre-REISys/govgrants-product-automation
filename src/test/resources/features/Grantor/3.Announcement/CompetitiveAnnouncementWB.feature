@@ -180,7 +180,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | {SavedValue:Automation Runtime Announcement} | NEGOTIATION_NO-Automation EXE user | EXE  |
       | {SavedValue:Automation Runtime Announcement} | default                            | PM   |
 
-  @Ann @237868 @VerifyvalidationmessageisdisplayedtoPOuserwhenenteredrecommendedbudgetislessthantheBudgetedAmountonFDMrecordwhichiscreatedfromCompetitiveannouncement @sprint-14-US-224179 @komal @Allocation
+  @237868 @VerifyvalidationmessageisdisplayedtoPOuserwhenenteredrecommendedbudgetislessthantheBudgetedAmountonFDMrecordwhichiscreatedfromCompetitiveannouncement @sprint-14-US-224179 @komal @Allocation
   Scenario Outline: Verify validation message is displayed to PO user when entered recommended budget is less than the Budgeted Amount on FDM record which is created from Competitive announcement
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "NEGOTIATION_NO-Automation PO user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -356,7 +356,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PO   |
 
-   @Ann @227554 @227745 @234411 @CompAnnVerifyPMusercanseetheRecommendedBudgetBudgetedAmount&StateAllocationcolumnonRecommendedapplicationsectiononFDMlayout @sprint-13-US-224612 @komal @Allocation
+   @227554 @227745 @234411 @CompAnnVerifyPMusercanseetheRecommendedBudgetBudgetedAmount&StateAllocationcolumnonRecommendedapplicationsectiononFDMlayout @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: CompAnnPMusercanseethe'RecommendedBudget''BudgetedAmount' 'StateAllocation'columnonRecommendedapplicationsectiononFDMlayout
   | Comp Ann>>Verify PM user can see the Show Subaward floor and Subaward Ceiling under overview section on FDM layout |
   | Comp Ann>>Verify PM user can not see the validation when the budgeted Amount is equal to the Recommended amount when user tried to convert to award on FDM layout |
@@ -551,7 +551,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | Filter  | User |
       | {SavedValue:Automation Runtime Announcement} | default | PM   |
 
-  @Ann @234672 @219363 @219366 @CompAnnVerifyPMusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedduringFDMuserwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiationevenwhenbudgetedamountisequaltorecommendedamount @sprint-13-US-224612 @komal @Allocation
+  @234672 @219363 @219366 @CompAnnVerifyPMusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedduringFDMuserwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiationevenwhenbudgetedamountisequaltorecommendedamount @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Comp Ann PM user should see validation on send to s/r button when negotiation is initiated during FDM user when user select only budget summary by Focus Area section for negotiation even when budgeted amount is equal to recommended amount
   | Competitive Ann_ Verify as PM user I can see Recommended budget field is visible when App status is negotiation completed  |
   | Competitive Ann_ Verify as PM user I can see Recommended budget filed is visible when App status is Convert to award |
@@ -654,7 +654,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            |
       | {SavedValue:Automation Runtime Announcement} |
 
-   @Ann @234919 @CompAnnVerifyPMusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedCustomizedreviewstepwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiation @sprint-13-US-224612 @komal @Allocation
+   @234919 @CompAnnVerifyPMusershouldseevalidationonsendtosrbuttonwhennegotiationisinitiatedCustomizedreviewstepwhenuserselectonlybudgetsummarybyFocusAreasectionfornegotiation @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Comp Ann PM user should see validation on send to sr button when negotiation is initiated Customized review step when user select only budget summary by Focus Area section for negotiation
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1011,7 +1011,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | User |
       | {SavedValue:Automation Runtime Announcement} | PO   |
 
-  @Ann @227723 @CompAnnVerifyAdminwhennegotiationisinitiatedduringFDMorfromapplayoutthenusershouldgetvalidationonUIonsendtosubrecipientbuttonwhenthebudgetedAmountisnotequaltotheRecommendedBudget @sprint-13-US-224612 @komal @Allocation
+  @227723 @CompAnnVerifyAdminwhennegotiationisinitiatedduringFDMorfromapplayoutthenusershouldgetvalidationonUIonsendtosubrecipientbuttonwhenthebudgetedAmountisnotequaltotheRecommendedBudget @sprint-13-US-224612 @komal @Allocation
   Scenario Outline: Comp Ann Admin when negotiation is initiated during FDM or from app layout then user should get validation on UI on send to subrecipient button when the budgeted Amount is not equal to the Recommended Budget
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-Automation ADMIN user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1463,7 +1463,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | Application2                     | User |
       | {SavedValue:Automation Runtime Announcement} | Automation Runtime Application_2 | EXE  |
 
-   @Ann @227577 @CompAnnVerifyPOusercanseethevalidationwhenthebudgetedAmountisnotequaltotheRecommendedBudgetwhenusertriedtoconverttoawardonFDMlayout @sprint-13-US-224612 @komal @Allocation
+   @227577 @CompAnnVerifyPOusercanseethevalidationwhenthebudgetedAmountisnotequaltotheRecommendedBudgetwhenusertriedtoconverttoawardonFDMlayout @sprint-13-US-224612 @komal @Allocation
   Scenario Outline:Comp Ann PO user can see the validation when the budgeted Amount is not equal to the Recommended Budget when user tried to convert to award on FDM layout
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-Automation PO user"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -1652,7 +1652,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Name                            | Application2                     | User |
       | {SavedValue:Automation Runtime Announcement} | Automation Runtime Application_2 | PO   |
 
-  @Ann @113322 @ValidateApplicantscanfillinthedetailedbudgetonapplicationwhenfundingopportunityisextended @Sprint-23-US-273843  @Allocation
+  @113322 @ValidateApplicantscanfillinthedetailedbudgetonapplicationwhenfundingopportunityisextended @Sprint-23-US-273843  @Allocation
   Scenario: Validate Applicants can fill in the detailed budget on application when funding opportunity is extended
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1700,7 +1700,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Extra Salary | The narrative | 500          | 50         | 50             |
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---applicationReview:-:addLineItemsModalTableId---"
 
-  @Ann @319874 @VerifyusercannotseebudgetsummarybyfocusareasectiononfundingchangeamendmentrequestFANo @Sprint-9-US-318292
+  @319874 @VerifyusercannotseebudgetsummarybyfocusareasectiononfundingchangeamendmentrequestFANo @Sprint-9-US-318292
   Scenario:Verify IND user can budgeted amount get updated after remove focus area when budget associated with that focus area & also easily remove FAs having zero dollar budget associated with that FA on Application layout
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "SECOND_FOCUS_AREA_APPLICANT_IND_ORG_PRE_APPLICATION-Automation PM user"
     And I am on "SUBPORTAL" portal
