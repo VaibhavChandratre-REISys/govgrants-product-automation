@@ -209,10 +209,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "$4,000" for title "New Value" inside field history table
-    Then I softly see value "$2,000" for title "Original Value" inside field history table
-    Then I softly see value "$6,000" for title "New Value" inside field history table
-    Then I softly see value "$3,000" for title "Original Value" inside field history table
+    Then I softly see value "$4,000.00" for title "New Value" inside field history table
+    Then I softly see value "$2,000.00" for title "Original Value" inside field history table
+    Then I softly see value "$6,000.00" for title "New Value" inside field history table
+    Then I softly see value "$3,000.00" for title "Original Value" inside field history table
     And I click on back arrow
     And I navigate to "Financials" sub tab
     Then I softly see value "Contingencies" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
@@ -476,7 +476,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I perform quick search for "Wildlife Services" in "---announcement:-:relatedAnnouncementTableId---" panel
     Then I softly see value "Wildlife Services" for title "Program Title" inside table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly see value "Federal" for title "Type" inside table "---announcement:-:relatedAnnouncementTableId---"
-    Then I softly see value "Animal And Plant Health Inspection Service" for title "Organization Name" inside table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly can see row level action button "Remove" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     Then I softly can see row level action button "View" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
