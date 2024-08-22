@@ -1592,6 +1592,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "{SavedValue:App1EgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
+     And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
