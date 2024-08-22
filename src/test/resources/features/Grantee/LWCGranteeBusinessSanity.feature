@@ -495,6 +495,7 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
     And I click modal button "Close"
+    And I refresh the page
     And I wait for "3" seconds
     And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
     And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
