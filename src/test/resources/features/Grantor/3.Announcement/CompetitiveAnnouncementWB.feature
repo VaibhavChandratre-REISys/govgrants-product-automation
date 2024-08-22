@@ -742,7 +742,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
     And I wait for "8" seconds
-    And I enter value "7" into field "NagotiationDueDate__c"
+    And I enter value "7" into field "NegotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
@@ -1665,9 +1665,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I enter values into fields
       | Value | Field                          |
       | 1     | ProposedApplicationDueDate__c  |
-#      | 1     | ProposedQSubmissionDeadline__c |
-#      | 1     | ProposedAResponseDeadline__c   |
     And I click modal button "Save"
+    And I click modal button "Confirm"
     And I click modal button "Close"
     And I refresh the page
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
