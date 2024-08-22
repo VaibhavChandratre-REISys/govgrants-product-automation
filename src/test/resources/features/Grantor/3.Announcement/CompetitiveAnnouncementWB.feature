@@ -597,23 +597,25 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "Save" in the page details
     And I pause execution for "5" seconds
     When I click on "Submit to Grantor" in the page details
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly cannot see top right button "Edit" in page detail
-#    When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
-#    And I navigate to "Applications" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:phasePendingTasksTableId---" panel
-#    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
-#    When I click on "Complete Negotiation" in the page details
-#    When I navigate to "Budget" sub tab
-##    Then I softly see field "Recommended Budget" inside page block
-#    #219366
-#    And I click on "Create Subaward" in the page details
-#    Then I softly see status in Progress-bar is "Created" and is "dark blue"
-#    And I click on back arrow
-#    And I wait for "5" seconds
-#    Then I see status in Progress-bar is "Converted to Award" and is "dark blue"
-#    When I navigate to "Budget" sub tab
+    When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:phasePendingTasksTableId---" panel
+    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:phasePendingTasksTableId---"
+    When I click on "Complete Negotiation" in the page details
+    When I navigate to "Budget" sub tab
 #    Then I softly see field "Recommended Budget" inside page block
+    #219366
+    And I click on "Create Subaward" in the page details
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I click on back arrow
+    And I wait for "5" seconds
+    Then I see status in Progress-bar is "Converted to Award" and is "dark blue"
+    When I navigate to "Budget" sub tab
+    Then I softly see field "Recommended Budget" inside page block
 
     Examples:
       | Announcement Name                            | User |
