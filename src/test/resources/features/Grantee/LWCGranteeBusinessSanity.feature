@@ -304,7 +304,7 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
-  @443756 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg
+  @443756 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @TBE1
   Scenario: Validate Federal user should see all fields and section on federal Org
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
