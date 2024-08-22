@@ -1177,7 +1177,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Approved" and is "dark blue"
