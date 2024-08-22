@@ -741,12 +741,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I see the sub-header is "SME Review" in the page details
     When I click on "Request Negotiation" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:appTableId---"
     And I navigate to "Negotiations" sub tab
-    And I wait for "6" seconds
+    And I wait for "8" seconds
     And I enter value "7" into field "NagotiationDueDate__c"
     And I enter value "Budget Tab: Budget Summary by Focus Area" into field "ApplicationSectionsForRevision__c"
     And I enter value "Negoatiation Initiated" into field "ExplanationOfRevisionsNeeded__c"
     When I click on "Save" in the page details
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     When I click on "Send to Subrecipient" in the page details
     #234919
     And I softly see the following messages in the page details contains:
