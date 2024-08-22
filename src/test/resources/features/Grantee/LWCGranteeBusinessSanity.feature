@@ -456,7 +456,7 @@ Feature: Sanity scenarios
   Scenario: Validate with PM Profile in direct grant keep setting YES then In Approved Active state able to see the access of section
     When I login to "As a Grantor" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
     And I wait for "2" seconds
     And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
@@ -540,7 +540,7 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
@@ -650,7 +650,7 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
