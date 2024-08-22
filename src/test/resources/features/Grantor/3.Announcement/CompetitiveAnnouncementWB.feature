@@ -523,10 +523,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Save" in the page details
     And I wait for "5" seconds
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | NA     |
-    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                         | FDM    |
       | {SavedValue:<User> Username} | Step 1 |
     And I navigate to "Funding Decision Memo" sub tab
