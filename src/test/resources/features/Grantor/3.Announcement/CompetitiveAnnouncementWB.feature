@@ -708,10 +708,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Step Order | Step Name       | Description |
       | 4          | Automation Test | Testing     |
     And I expand nested table containing column value "Automation Test"
-     And I wait for "5" seconds
     When I enter the following values into flex table with id "---announcement:-:annReviewFormsTableId---" by clicking "New" :
       | Form Name       |
       | Automation Test |
+     And I wait for "6" seconds
     And I click on "Review Form" icon for "Automation Test" inside flex table with id "---announcement:-:annReviewFormsTableId---" without waiting for record
     When I enter the following values into flex table with id "---applicationReview:-:reviewPanelCategoriesTableId---" by clicking "New" :
       | Section Order | Section Header  |
