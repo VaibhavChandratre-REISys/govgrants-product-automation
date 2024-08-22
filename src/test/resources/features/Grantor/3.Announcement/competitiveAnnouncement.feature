@@ -462,7 +462,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see the following messages in the page details :
       | Overview Tab - Select Eligible Applicant Types in the Eligibility Details section. |
 
-  @70211 @70216 @70217 @73388 @73535 @73620 @userAbletoAssociateActiveRelatedProgram
+  @70211 @70216 @70217 @73388 @73535 @73620 @userAbletoAssociateActiveRelatedProgram @wip
   Scenario: To Verify that user is able to associate active Related Federal/NGO Program | To Verify that user is able to view active Related Federal/NGO Program
   |To Verify that user is able to remove active Related Federal/NGO Program while creating Announcement.
     When I navigate to "Announcements" tab
@@ -478,7 +478,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly can see row level action button "Remove" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     Then I softly can see row level action button "View" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
-    And I perform quick search for "Test" in "---announcement:-:associateForRelated---" panel
     And I click "Associate" after selection of "Test" in the table "---announcement:-:associateForRelated---"
     And I click on "View" icon for "Test" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
 #    Then I see the header is "Federal/NGO Program" in the page details

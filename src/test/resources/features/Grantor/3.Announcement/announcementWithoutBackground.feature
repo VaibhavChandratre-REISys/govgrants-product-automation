@@ -7811,7 +7811,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
-    And I wait for "220" seconds
+    And I wait for "180" seconds
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}." for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
