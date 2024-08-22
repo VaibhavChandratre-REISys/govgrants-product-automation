@@ -742,7 +742,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Environment    | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Permits        | 40                 |
     And I pause execution for "3" seconds
     And I expand nested table containing column value "Schedule"
@@ -768,7 +772,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Budget         | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Match          | 40                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Program Income | 30                 |
     And I pause execution for "3" seconds
     And I expand nested table containing column value "Budget"
@@ -794,7 +802,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Capability     | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Approach       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Impact         | 40                 |
     And I pause execution for "3" seconds
     And I expand nested table containing column value "Capability"
