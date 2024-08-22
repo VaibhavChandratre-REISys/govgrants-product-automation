@@ -471,7 +471,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
-    And I click "Associate" after selection of "Wildlife Services" in the table "---announcement:-:associateForRelated---"
+    And I click "Associate" after selection of "10.028" in the table "---announcement:-:associateForRelated---"
     When I click modal button "Close"
     And I perform quick search for "Wildlife Services" in "---announcement:-:relatedAnnouncementTableId---" panel
     Then I softly see value "Wildlife Services" for title "Program Title" inside table "---announcement:-:relatedAnnouncementTableId---"
