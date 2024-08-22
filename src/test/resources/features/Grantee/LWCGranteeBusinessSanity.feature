@@ -471,7 +471,7 @@ Feature: Sanity scenarios
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab
-    And I save the field labeled "Subaward Title" as "Automation Runtime award"
+    And I save the field labeled "Award Title" as "Automation Runtime award"
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
