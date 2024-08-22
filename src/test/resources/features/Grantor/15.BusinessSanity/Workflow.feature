@@ -1534,4 +1534,15 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    And I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "DETAILE_BUDGET_YES-Automation PM user"
+    When I login to "As a Grantor" app as "PM" user
+    And I wait for "5" seconds
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
+      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | {SavedValue:PM Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    And I pause execution for "3" seconds
+    And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
+    And I pause execution for "3" seconds
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:reviewersTableId---"
+    Then I softly see field "Status" as "Submitted for Review"

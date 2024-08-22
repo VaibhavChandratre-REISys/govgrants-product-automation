@@ -690,10 +690,8 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:PM Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
-    And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
     And I pause execution for "3" seconds
-    When I navigate to "Responsibilities" sub tab
     Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:reviewersTableId---"
     Then I softly see field "Status" as "Submitted for Review"
     #285570 #285574
