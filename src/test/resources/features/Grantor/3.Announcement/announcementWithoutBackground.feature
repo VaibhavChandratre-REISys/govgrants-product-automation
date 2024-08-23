@@ -1353,7 +1353,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I wait for "2" seconds
     And I click on "Save" in the page details
     And I close the tab
-    And I refresh the page
+    And I wait for "3" seconds
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I pause execution for "2" seconds
     And I switch to tab number "1"
