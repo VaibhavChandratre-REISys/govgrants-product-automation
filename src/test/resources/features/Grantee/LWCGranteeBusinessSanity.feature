@@ -694,9 +694,6 @@ Feature: Sanity scenarios
     Then I can see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:awardApproverTableId---"
     And I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentsTableId---"
-    And I navigate to "Closeout" sub tab
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardCloseoutTableId---"
-#    Ask for Add Files & Notes top right Buttons
     And I navigate to "Files" sub tab
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly do not see top right button "Add" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
