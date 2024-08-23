@@ -7605,8 +7605,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Subject         | From Address               | To Address                | CC Address | Attention To | Email Subject   | Preview |
-      | Automation Test | exe.automation@yopmail.com | pm.automation@yopmail.com |            |              | Automation Test |         |
+      | Actions     | Subject         | From Address               | To Address                | CC Address | Attention To | Email Subject   | Preview       |
+      | Action menu | Automation Test | exe.automation@yopmail.com | pm.automation@yopmail.com |            |              | Automation Test |               |
     And I refresh the page
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
