@@ -990,7 +990,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     And I click "OK" on modal confirmation box
     And I pause execution for "5" seconds
-    Then I softly see the following messages in the page details :
+    Then I see the following messages in the page details contains:
       | You need to select at least one record |
     #194685
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
@@ -1067,7 +1067,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I wait for "5" seconds
-    Then I softly see the following messages in the page details contains:
+    Then I see the following messages in the page details contains:
       | You need to select at least one record |
 
   @194722 @ValidateownershipischangedthenonlyAnnouncementownerischanged @sprint-4  @reassignment
