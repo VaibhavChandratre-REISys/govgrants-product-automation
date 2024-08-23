@@ -1,7 +1,7 @@
 @announcement @commonAnnouncements @grantor-regression @grantor-parallel-regression @regression @announcementWB @AnnouncementTemp
 Feature: Validate all common scenarios in the  Announcement tab (Announcement without background)
 
-  @70878 @70373 @70821 @70978 @validationOverrideProgramSetting
+  @ann2 @70878 @70373 @70821 @70978 @validationOverrideProgramSetting
   Scenario: To Verify that user can override program settings at Announcement level
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -17,7 +17,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     #Bug446474
-    Then I softly see field "Focus Area Required?" as "No"
+    Then I softly see field "Focus Areas Required?" as "No"
     Then I softly cannot see field "Pre-Application Due Date" inside page block
 
   @70369 @validationForSubrecipientMatch @smoke
@@ -568,7 +568,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | FO    |
       | FD    |
 
-  @73630 @73626 @SystemsErrorAfterApplyingWrongFilter
+  @73630 @73626 @SystemsErrorAfterApplyingWrongFilter @wip
   Scenario: To validate system is getting displayed error message while adding invalid values into the filter for Approves section on responsibility tab of announcement
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Announcements" tab
@@ -588,10 +588,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:FO Username} | Step 3       |
-    #And I click on advance filter "#advfGrantorAnnouncementRolesandResponsibilities" of table id "---announcement:-:approversTableId---"
-    #And I enter advance filter values inside id "advfGrantorAnnouncementRolesandResponsibilities"
-    #  | Announcement | equals to | Step 4 |
-#    Then I softly see "No Records Found" inside flex table with id "---announcement:-:approversTableId---"
+#    And I click on advance filter "#advfGrantorAnnouncementRolesandResponsibilities" of table id "---announcement:-:approversTableId---"
+#    And I enter advance filter values inside id "advfGrantorAnnouncementRolesandResponsibilities"
+#      | Announcement | equals to | Step 4 |
+    Then I softly see "No Records Found" inside flex table with id "---announcement:-:approversTableId---"
     And I navigate to "Setup" sub tab
 #    And I click on advance filter "#advfAnnoucementPackagesGrantor" of table id "---announcement:-:businessFormlistTableId---"
 #    And I enter advance filter values inside id "advfAnnoucementPackagesGrantor"
@@ -688,7 +688,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #  | Subject | Contains | jitu |
     Then I softly see "jitu" inside flex table with id "---announcement:-:collabMessages---"
 
-  @75524 @publishedAllowToDownloadPDF
+  @ann2 @75524 @publishedAllowToDownloadPDF
   Scenario: To verify system allow to download PDF for Announcement after publishing it
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for pdf Tests" and properties "default"
     And I login to "As a Grantor" app as "PM" user
@@ -697,11 +697,9 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click toggle button to select "Published Competitive Announcements"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for pdf Tests}" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement for pdf Tests}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
-    And I wait for "3" seconds
     And I click on Menu icon present on top right corner of the page
-    And I wait for "3" seconds
     And I select "Download As PDF" from dropdown
-    And I wait for "10" seconds
+    And I wait for "3" seconds
     And I download the file
     And I wait for "3" seconds
     Then I see "{SavedValue:Automation Announcement for pdf Tests}" on page "1" of "govgrants" pdf file
@@ -1815,7 +1813,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     Then I softly can see top right button "Publish" in page detail
 
-  @PGannouncement @196852 @ValidateuseraddedtheYesNofunctionalitybeforereassignmentownershipthenafterownershipnewownerhavingtheaccessofthisparticularsettings @sprint-4  @reassignment
+  @ann2 @196852 @ValidateuseraddedtheYesNofunctionalitybeforereassignmentownershipthenafterownershipnewownerhavingtheaccessofthisparticularsettings @sprint-4  @reassignment
   Scenario: Validate user added the Yes No functionality before reassignment ownership then after ownership new owner having the access of this particular settings
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1842,6 +1840,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
@@ -1865,7 +1864,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "3" seconds
     Then I softly do not see "No matches found" inside auto search result
 
-  @PGannouncement @197927 @Validateannouncementiscreated&changetheownershipofannouncementthennewbuttonofpeerreviewisdisplaytothenewowner @sprint-4  @reassignment
+  @ann2 @197927 @Validateannouncementiscreated&changetheownershipofannouncementthennewbuttonofpeerreviewisdisplaytothenewowner @sprint-4  @reassignment
   Scenario: Validate announcement is created & change the ownership of announcement then new button of peer review is display to the new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1892,6 +1891,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
+    And I reset the table
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
@@ -2139,7 +2139,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-   @195050 @ValidatePOuserIcanseemyownpendingtasksinMyTasksectionandcanreassignownershiptaskstotargeuser @sprint-4  @reassignment
+   @ann2 @195050 @ValidatePOuserIcanseemyownpendingtasksinMyTasksectionandcanreassignownershiptaskstotargeuser @sprint-4  @reassignment
   Scenario: Validate PO user I can see my own pending tasks in 'My Task' section and can reassign ownership tasks to target user
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -2217,7 +2217,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @195051 @ValidateEXEuserIcanseemyownpendingtasksinMyTasksectionandcanreassignownershiptaskstotargeuser @sprint-4  @reassignment @taskreassign
+  @ann2 @195051 @ValidateEXEuserIcanseemyownpendingtasksinMyTasksectionandcanreassignownershiptaskstotargeuser @sprint-4  @reassignment @taskreassign
   Scenario: Validate EXE user I can see my own pending tasks in 'My Task' section and can reassign ownership tasks to target user
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
