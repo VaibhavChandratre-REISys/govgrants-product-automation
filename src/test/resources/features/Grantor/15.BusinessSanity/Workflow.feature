@@ -1534,9 +1534,6 @@ Feature: Validate all scenarios of every modules flow
 
   @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantor" app as "PO" user
-    And I halt execution
-    And I click on "Create Subaward" icon for "AP-TAO modified-6628" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
-    #227740
-    Then I softly see the following messages in the page details contains:
-      | The Budgeted Amount must be equal to the Allocation Amount in the applications. So please select the "Budget: Budget Details" option in the "Application Sections for Negotiations" field and send the application back for revision to the subrecipient. |
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
