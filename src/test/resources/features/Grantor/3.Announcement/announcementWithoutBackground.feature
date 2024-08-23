@@ -8082,7 +8082,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
 
-  @329980 @329981 @ValidateforAnnouncementPMusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
+  @sym @329980 @329981 @ValidateforAnnouncementPMusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
   Scenario: Validate for Announcement PM user should able to see Attention To Column under messages section in messages tab
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -8110,8 +8110,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Subject         | From Address              | To Address                 | CC Address | Attention To | Email Subject   | Preview |
-      | Automation Test | pm.automation@yopmail.com | exe.automation@yopmail.com |            |              | Automation Test |         |
+      | Actions     | Subject         | From Address              | To Address                 | CC Address | Attention To | Email Subject   | Preview |
+      | Action menu | Automation Test | pm.automation@yopmail.com | exe.automation@yopmail.com |            |              | Automation Test |         |
     #329981
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -8130,10 +8130,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     And I navigate to "Messages" sub tab
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Subject             | From Address             | To Address                 | CC Address | Attention To | Email Subject       | Preview |
-      | Automation Test PM1 | automationpo@yopmail.com | pm1.automation@yopmail.com |            |              | Automation Test PM1 |         |
+      | Actions      | Subject             | From Address             | To Address                 | CC Address | Attention To | Email Subject       | Preview |
+      | Action menu  | Automation Test PM1 | automationpo@yopmail.com | pm1.automation@yopmail.com |            |              | Automation Test PM1 |         |
 
-  @329982 @329983 @ValidateAnnouncementFOusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
+  @sym @329982 @329983 @ValidateAnnouncementFOusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
   Scenario: Validate Announcement FO user should able to see "Attention To" Column under messages section in messages tab
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "default"
     When I login to "As a Grantor" app as "FO" user
@@ -8152,8 +8152,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Subject              | From Address              | To Address                  | CC Address | Attention To | Email Subject        | Preview |
-      | Automation Test EXE1 | fo.automation@yopmail.com | exe1.automation@yopmail.com |            |              | Automation Test EXE1 |         |
+      | Actions     | Subject              | From Address              | To Address                  | CC Address | Attention To | Email Subject        | Preview |
+      | Action menu | Automation Test EXE1 | fo.automation@yopmail.com | exe1.automation@yopmail.com |            |              | Automation Test EXE1 |         |
     #329983
     When I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -8172,8 +8172,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Subject             | From Address             | To Address                 | CC Address | Attention To | Email Subject       | Preview |
-      | Automation Test FO1 | automationfd@yopmail.com | fo1.automation@yopmail.com |            |              | Automation Test FO1 |         |
+      | Actions     | Subject             | From Address             | To Address                 | CC Address | Attention To | Email Subject       | Preview |
+      | Action menu | Automation Test FO1 | automationfd@yopmail.com | fo1.automation@yopmail.com |            |              | Automation Test FO1 |         |
 
   @329984 @ValidateforAnnouncementAdminusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384
   Scenario: Validate for Announcement Admin user should able to see "Attention To" Column under messages section in messages tab
