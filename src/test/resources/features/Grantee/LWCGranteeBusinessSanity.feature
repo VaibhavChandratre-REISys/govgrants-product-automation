@@ -700,8 +700,8 @@ Feature: Sanity scenarios
     Then I can see row level action button "View" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I can see row level action button "Download" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I cannot see row level action button "Edit" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:AwardNotes---"
-    Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:AwardNotes---"
+    Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     And I navigate to "Field Audit" sub tab in split screen
