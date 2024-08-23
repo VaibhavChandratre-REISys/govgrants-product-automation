@@ -1580,6 +1580,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Create Pre-Application" in the page details
     And I pause execution for "5" seconds
     When I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "preAppId"
@@ -7032,37 +7033,38 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
     Then I softly see value "Automation test description" for title "Description" inside table "---announcement:-:annChecklist---"
+    And I refresh the page
     And I click on "Submit For Approval" in the page details
     And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-#    And I navigate to "Announcements" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
-#    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-#    And I "Approve" in the approval decision
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Announcements" tab
-#    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-#    And I click toggle button to select "All Competitive Announcements"
-#    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
-#    And I click on "Publish" in the page details
-#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    And I navigate to "Opportunities" tab
-#    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-#    And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-#    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
-#    When I click on "Qualify" in the page details
-#    When I click on "Create Application" in the page details
-#    And I pause execution for "3" seconds
-#    And I click modal button "Save and Continue"
-#    And I pause execution for "3" seconds
-#    And I enter "Edition" values from "Application_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    And I navigate to "Forms and Files" sub tab
-#    Then I softly see value "Automation test description" for title "Description" inside table "---applicationIntake:-:supportedDocumentsTableId---"
-#    Then I softly see value "Mandatory" for title "Required" inside table "---applicationIntake:-:supportedDocumentsTableId---"
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
+    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    And I click on "Publish" in the page details
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
+    When I click on "Qualify" in the page details
+    When I click on "Create Application" in the page details
+    And I pause execution for "3" seconds
+    And I click modal button "Save and Continue"
+    And I pause execution for "3" seconds
+    And I enter "Edition" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I navigate to "Forms and Files" sub tab
+    Then I softly see value "Automation test description" for title "Description" inside table "---applicationIntake:-:supportedDocumentsTableId---"
+    Then I softly see value "Mandatory" for title "Required" inside table "---applicationIntake:-:supportedDocumentsTableId---"
 
   @336709 @336710 @336711 @336712 @336721 @336723 @336728 @ValidateAnnouncementPMusershouldabletoseeSystemEmailsectioninmessagestab @Sprint-13-US-341529-332637 @SystemEmail @ExcludeSendEmail
   Scenario: Validate Announcement PM user should able to see System Email section in messages tab
@@ -8082,7 +8084,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
 
-  @sym @329980 @329981 @ValidateforAnnouncementPMusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
+  @329980 @329981 @ValidateforAnnouncementPMusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
   Scenario: Validate for Announcement PM user should able to see Attention To Column under messages section in messages tab
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -8133,7 +8135,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Actions      | Subject             | From Address             | To Address                 | CC Address | Attention To | Email Subject       | Preview |
       | Action menu  | Automation Test PM1 | automationpo@yopmail.com | pm1.automation@yopmail.com |            |              | Automation Test PM1 |         |
 
-  @sym @329982 @329983 @ValidateAnnouncementFOusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
+  @329982 @329983 @ValidateAnnouncementFOusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
   Scenario: Validate Announcement FO user should able to see "Attention To" Column under messages section in messages tab
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "default"
     When I login to "As a Grantor" app as "FO" user
