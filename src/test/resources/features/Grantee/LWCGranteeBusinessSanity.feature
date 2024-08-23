@@ -515,7 +515,7 @@ Feature: Sanity scenarios
       | Automation Permanent Focus Area | 1000                         | Automation Test              |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "Edit" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
       | Title | Date From | Date To | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
       | Rate  | 15        | 30      | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
