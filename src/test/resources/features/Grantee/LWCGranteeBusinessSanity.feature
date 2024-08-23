@@ -304,7 +304,7 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
-  @443756 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @TBE1
+  @443756 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg
   Scenario: Validate Federal user should see all fields and section on federal Org
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
@@ -347,7 +347,7 @@ Feature: Sanity scenarios
     Then I softly see field on modal "First Name" inside page block
     Then I softly see field on modal "Last Name" inside page block
     Then I softly see field on modal "Phone" inside page block
-    When I hovering mouse on help text icon inside page block detail "Phone"
+    When I hovering mouse on help text icon inside modal "Phone"
     Then I softly see "Please enter number in this format (xxx)-xxx-xxxx" shown as help text
     Then I softly see field on modal "Mobile Phone" inside page block
     Then I softly see field on modal "Email" inside page block
@@ -355,7 +355,7 @@ Feature: Sanity scenarios
     Then I softly see field on modal "Address Line 2" inside page block
     Then I softly see field on modal "State" inside page block
     Then I softly see field on modal "Congressional District" inside page block
-    When I hovering mouse on help text icon inside page block detail "Congressional District"
+    When I hovering mouse on help text icon inside modal "Congressional District"
     Then I softly see "Enter 3 digit numeric value. For Example if Congressional District is 8 enter 008, if congressional District is 78 enter 078 and if Congressional District is 876 enter 876." shown as help text
     Then I softly see field on modal "City" inside page block
     Then I softly see field on modal "Country" inside page block
@@ -390,7 +390,7 @@ Feature: Sanity scenarios
     And I save the field labeled "Created By" as "CreatedBy"
     Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
     And I save the field labeled "Created Date" as "CreatedDate"
-    Then I softly see field "Created Date" as "{SavedValue:CreatedBy}"
+    Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
     And I save the field labeled "Last Modified By" as "LastModifiedBy"
     Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedBy}"
     And I save the field labeled "Last Modified Date" as "LastModifiedDate"

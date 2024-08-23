@@ -946,7 +946,7 @@ public final class PageDetails {
      * @author komal.mukhekar
      */
     public void getHelpTextAtModalWindow(String modalFieldTitle) {
-        I.amPerforming().scroll().withMouseToElement(By.xpath("//div[contains(@id,'modal')]//span[contains(text(),'" + modalFieldTitle + "')]/..//span[@class='fa fa-info helpIcon']/following-sibling::span"));
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//div[contains(@class,'modal__content')]//label[contains(text(),'" + modalFieldTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')]"));
     }
 
     /**
