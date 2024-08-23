@@ -362,7 +362,7 @@ Feature: Sanity scenarios
     Then I softly see field on modal "County" inside page block
     Then I softly see field on modal "4-Digit Zip Code Extension" inside page block
     Then I softly see field on modal "Zip Code" inside page block
-    When I enter in modal value "Automation Test" into field "Title"
+    When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Automation" into field "FirstName"
     When I enter in modal value "Execution" into field "LastName"
     When I enter in modal value "8967093890" into field "Phone"
@@ -379,12 +379,14 @@ Feature: Sanity scenarios
     When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
     When I enter in modal value "12345" into field "MailingPostalCode"
     When I click modal button "Save"
+    And I wait for "2" seconds
+    And I save the field labeled "Title" as "ContactTitle" on modal
     When I click modal button "Close"
-    When I perform quick search for "Automation Test" in "---grantee_tableId:-:FedOrgRelatedContacts---" panel
-    Then I softly see value "Automation Test" for title "Title" inside table "---grantee_tableId:-:FedOrgRelatedContacts---"
-    Then I can see row level action button "View" against "Automation Test" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
-    Then I can see row level action button "Delete" against "Automation Test" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
-    Then I can see row level action button "Edit" against "Automation Test" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
+    When I perform quick search for "{SavedValue:ContactTitle}" in "---grantee_tableId:-:FedOrgRelatedContacts---" panel
+    Then I softly see value "{SavedValue:ContactTitle}" for title "Title" inside table "---grantee_tableId:-:FedOrgRelatedContacts---"
+    Then I can see row level action button "View" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
+    Then I can see row level action button "Delete" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
+    Then I can see row level action button "Edit" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
     And I save the field labeled "Created By" as "CreatedBy"
     Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
     And I save the field labeled "Created Date" as "CreatedDate"

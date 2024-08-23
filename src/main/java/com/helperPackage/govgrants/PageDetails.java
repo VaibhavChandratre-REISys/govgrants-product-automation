@@ -936,7 +936,7 @@ public final class PageDetails {
      * @modifier saranjit.modak added xpath
      */
     public void getHelpTextAtPageBlockDetail(String pageBlockDetailTitle) {
-        I.amPerforming().scroll().toMoveToElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')] | //span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//lightning-icon[contains(@style,'pointer')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')]"));
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//span[contains(text(),'" + pageBlockDetailTitle + "')]/..//span[contains(@class,'fa-info')] | //a[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span//span[contains(@class,'fa-info')] | //span[text()='" + pageBlockDetailTitle + "']/ancestor::dt//span[@class='fa fa-info helpIcon'] | //span[contains(text(),'" + pageBlockDetailTitle + "')]/../following-sibling::span/following-sibling::div/following-sibling::helpicon//span//span[contains(@class,'fa-info')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//lightning-icon[contains(@style,'pointer')] | //span[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')] | //label[contains(text(),'" + pageBlockDetailTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')]"));
     }
 
     /**
@@ -946,7 +946,7 @@ public final class PageDetails {
      * @author komal.mukhekar
      */
     public void getHelpTextAtModalWindow(String modalFieldTitle) {
-        I.amPerforming().scroll().toMoveToElement(By.xpath("//div[contains(@id,'modal')]//span[contains(text(),'" + modalFieldTitle + "')]/..//span[@class='fa fa-info helpIcon']/following-sibling::span"));
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//div[contains(@id,'modal')]//span[contains(text(),'" + modalFieldTitle + "')]/..//span[@class='fa fa-info helpIcon']/following-sibling::span"));
     }
 
     /**
