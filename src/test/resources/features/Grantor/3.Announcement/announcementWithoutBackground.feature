@@ -989,7 +989,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #194690
     And I click on top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     And I click "OK" on modal confirmation box
-    And I pause execution for "1" seconds
+    And I pause execution for "5" seconds
     Then I softly see the following messages in the page details :
       | You need to select at least one record |
     #194685
@@ -1066,7 +1066,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
       | You need to select at least one record |
 
@@ -7577,7 +7577,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
 
-  @336719 @ValidateAnnouncementEXEusershouldnotabletoseeEmailinSystemEmailssectionwhensendmailthroughmessagessectioninmessagestab @Sprint-13-US-341529-332637 @SystemEmail @ExcludeSendEmail
+  @336719 @ValidateAnnouncementEXEusershouldnotabletoseeEmailinSystemEmailssectionwhensendmailthroughmessagessectioninmessagestab @Sprint-13-US-341529-332637
   Scenario: Validate Announcement EXE user should not able to see Email in System Emails section when send mail through messages section in messages tab
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -8175,7 +8175,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Subject             | From Address             | To Address                 | CC Address | Attention To | Email Subject       | Preview |
       | Automation Test FO1 | automationfd@yopmail.com | fo1.automation@yopmail.com |            |              | Automation Test FO1 |         |
 
-  @329984 @ValidateforAnnouncementAdminusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
+  @329984 @ValidateforAnnouncementAdminusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384
   Scenario: Validate for Announcement Admin user should able to see "Attention To" Column under messages section in messages tab
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -8202,10 +8202,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Subject             | From Address                    | To Address                 | CC Address | Attention To | Email Subject       | Preview |
-      | Automation Test FO1 | govgrantsautomation@yopmail.com | fo1.automation@yopmail.com |            |              | Automation Test FO1 |         |
+    | Actions      | Subject             | From Address                    | To Address                 | CC Address | Attention To | Email Subject       | Preview |
+    | Action menu  | Automation Test FO1 | govgrantsautomation@yopmail.com | fo1.automation@yopmail.com |            |              | Automation Test FO1 |         |
 
-  @329986 @ValidateforAnnouncementEXEusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
+  @329986 @ValidateforAnnouncementEXEusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384
   Scenario: Validate for Announcement EXE user should able to see "Attention To" Column under messages section in messages tab
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -8233,5 +8233,5 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Subject         | From Address               | CC Address | To Address                | Attention To | Email Subject   |
-      | Automation Test | exe.automation@yopmail.com |            | pm.automation@yopmail.com |              | Automation Test |
+      | Actions     | Subject         | From Address               | CC Address | To Address                | Attention To | Email Subject   |
+      | Action menu | Automation Test | exe.automation@yopmail.com |            | pm.automation@yopmail.com |              | Automation Test |
