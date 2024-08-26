@@ -224,7 +224,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Submit" in page detail
 
- @org @62951 @RAinCreatedStatusImpactOnAward
+ @62951 @RAinCreatedStatusImpactOnAward
   Scenario Outline: Validate if SA has requested for revision of initial Risk Assessment  and it is being revised and present in Created sttaus does not make an impact on Award Activation system will always refer the active Risk Assessment.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -592,7 +592,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     Then I see that "{SavedValue:EGMSID}" has been added in flextable with Id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @org @63233 @verifyRiskAssessmemtException  @smoke
+  @63233 @verifyRiskAssessmemtException  @smoke
   Scenario Outline: Validate system generates generates an exception at award activation if Organizational Risk Assessment is Created and not Active
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -628,14 +628,10 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     And I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
-    And I navigate to "Budget" sub tab
+    And I click modal button "Close"
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
-    And I refresh the page
-    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |

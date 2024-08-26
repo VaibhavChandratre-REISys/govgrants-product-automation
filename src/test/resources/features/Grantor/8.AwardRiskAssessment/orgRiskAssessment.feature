@@ -88,7 +88,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I softly cannot see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:OrganizationRiskAssesmentFilesTableId---"
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
-  @org @61983 @61973 @completedTaskOnceOrgRAIsCreated  @OrgRiskSet1
+  @61983 @61973 @completedTaskOnceOrgRAIsCreated  @OrgRiskSet1
   Scenario: Validate whether SPI user is able to view the Completed task once Org Risk Assessment is Created
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I refresh the page
@@ -110,7 +110,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I softly see value "Automation Permanent Organization for Risk Assessment" for title "EGMS ID" inside table "---orgRiskAssessment:-:completedTaskTableId---"
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
-  @org @61980 @addingAnAttachmentToOrgRA  @buglogged112066 @OrgRiskSet1
+  @61980 @addingAnAttachmentToOrgRA  @buglogged112066 @OrgRiskSet1
   Scenario: Validate whether SPI user can Add an attachment to Risk Assessment
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I refresh the page
@@ -139,7 +139,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I softly see value "AGENCY DETAILS" for title "Classification" inside table "---orgRiskAssessment:-:orgRiskAssessmentFileTableId---"
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
-  @org @62197 @62198 @62513 @62515 @62516 @pendingTaskCreatedForGrantor  @OrgRiskSet1
+  @62197 @62198 @62513 @62515 @62516 @pendingTaskCreatedForGrantor  @OrgRiskSet1
   Scenario: Validate whether pending task is created for grantor when Authorized Signatory requested for Revision
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "4" seconds
@@ -189,7 +189,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I softly see field "Status" as "Created"
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
-  @org @62312 @62314 @62514 @64608 @deleteIconfCreatedRiskAssessment  @OrgRiskSet1
+  @62312 @62314 @62514 @64608 @deleteIconfCreatedRiskAssessment  @OrgRiskSet1
   Scenario: Validate whether Authorized Signatory can view the delete button across the created Risk Assessment
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "10" seconds
@@ -234,7 +234,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Record Id" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     Then I see "No Records Found" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
- @org @62315 @snapHistoryOfOrgRA  @skiponjenkins @OrgRiskSet1
+ @62315 @snapHistoryOfOrgRA  @skiponjenkins @OrgRiskSet1
   Scenario: Validate whether Snapshot is captured/(taken) automatically  by the system in the table Snapshot History when Risk Assessment is Activated
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -441,7 +441,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I select "Download as XLS" from parallel lines dropdown of "Organization Risk Assessments"
     Then I verify that "xls" file is downloaded
 
-  @org @65387 @verifyAllInternalUsersCanViewActiveOrgRA  @OrgRiskSet4
+  @65387 @verifyAllInternalUsersCanViewActiveOrgRA  @OrgRiskSet4
   Scenario Outline: Validate whether internal user can see view the Active Risk Assessment from Internal Subrecipient Profile View Page
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
