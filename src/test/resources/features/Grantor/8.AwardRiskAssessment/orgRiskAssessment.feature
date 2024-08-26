@@ -27,7 +27,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
 
- @org @61970 @61971 @61976 @61975 @61977 @61982 @61978 @orgRiskAssessmentCreationAndTaskcreatedForSPI  @OrgRiskSet1
+ @org @61970 @61971 @61976 @61975 @61977 @61982 @61978 @orgRiskAssessmentCreationAndTaskcreatedForSPI
   Scenario: Verify Task is generated for Signing Authority to Create Risk Assessment for an Organization and once the pending is created, the user can create the org risk asssesment
     Then I softly see that "Automation Permanent Organization for Risk Assessment" has been added in flextable with Id "---orgRiskAssessment:-:pendingTaskTableId---"
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
@@ -86,9 +86,8 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I softly cannot see top right button "Edit" in page detail
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:OrganizationRiskAssesmentFilesTableId---"
-    Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
-  @61983 @61973 @completedTaskOnceOrgRAIsCreated  @OrgRiskSet1
+  @61983 @61973 @completedTaskOnceOrgRAIsCreated
   Scenario: Validate whether SPI user is able to view the Completed task once Org Risk Assessment is Created
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I refresh the page
@@ -374,7 +373,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I see that "Active" has been added in flextable with Id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     Then I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
 
-  @org @64610 @spiCannotViewOrgRiskAssessmentInCreatedStatus @OrgRiskSet4
+ @org @64610 @spiCannotViewOrgRiskAssessmentInCreatedStatus @OrgRiskSet4
   Scenario: Validate whether the org Risk Assessment that is in created state is visible to SPI user that are not SA
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
