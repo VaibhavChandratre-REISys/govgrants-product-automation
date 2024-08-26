@@ -27,7 +27,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
 
-  @62517 @validateMessageDisplayedWhenProvideAccess
+  @org @62517 @validateMessageDisplayedWhenProvideAccess
   Scenario: Validate the message is displayed when clicked on Provide Access for new Risk Assessment by Grantor
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -202,7 +202,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     Then I can see top right button "Request New Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @62672 @62671 @validateRequestNewAssessmentButtonAvailbility @validateExpiredRAWhenSecIsActive  @smoke
+  @org @62672 @62671 @validateRequestNewAssessmentButtonAvailbility @validateExpiredRAWhenSecIsActive  @smoke
   Scenario: Validate as soon as user can activate the second Risk Assessment the first Risk Assessment will go in Expired State
     |Validate once Signing Authority user clicks on Request New Assessment Button then the button is hidden from Flex table|
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
