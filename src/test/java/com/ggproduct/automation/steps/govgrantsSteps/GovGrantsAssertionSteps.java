@@ -440,7 +440,7 @@ public final class GovGrantsAssertionSteps {
                     .isEqualToNormalizingWhitespace(headerText);
         } else {
             if ("header".equalsIgnoreCase(isHeader)) {
-                By headerLocator = By.xpath("//div[contains(@class,'page-header__col-title')]//h2[text()= '" + headerText + "']");
+                By headerLocator = By.xpath("//div[contains(@class,'page-header__col-title')]//h2[normalize-space(text())= '" + headerText + "']");
                 Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
             } else {
                 By headerLocator = By.xpath("//div[contains(@class,'page-header__name')]//span[contains(@title,'" + headerText + "') or contains(text(),'" + headerText + "')]");

@@ -773,13 +773,13 @@ public class InternalOrganizationPage extends GranteeProjectManager {
      */
     private boolean isFieldsVisibleAtPAgeDetails(String fieldApiName) {
         By fieldsAtPage = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']");
-        boolean flag = false;
+        boolean flag = true;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(fieldsAtPage)) {
-                flag = true;
+                flag = false;
             }
         } catch (Exception e) {
-            flag = false;
+            flag = true;
         }
         return flag;
     }

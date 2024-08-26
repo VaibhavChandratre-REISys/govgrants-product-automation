@@ -99,21 +99,48 @@ Feature: Validate all registration related scenarios
     Then I see "USA" text enter in field "fieldPrimaryRepCountry__c"
     Then I see "Prince George’s" text enter in field "fieldCounty__c"
 
-  @82797 @verifyVisibilityOfFieldsAtPaymentAddressSection-Individual
+ @debug @82797 @82784 @82780 @verifyVisibilityOfFieldsAtPaymentAddressSection-Individual
   Scenario:Verify user is not able to see any fields after selection of Same as organization fields to yes inside payment details page block
     Given I begin "Individual" registration as "Register As Individual"
+    And I wait for "2" seconds
+    #82780
+    Then I see the header is "Registration" in the page details
+    Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
     When I click on "Agree" in the page details
+    And I wait for "3" seconds
+    Then I see the header is "Registration" in the page details
+    Then I see the sub-header is "Legal Disclaimer 2 of 2" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "123456789" into "Social Security Number (SSN)" on old form
-    When I enter value as "IndividualRegistration@yopmail.com" into "Email" on old form
+    And I wait for "3" seconds
+    Then I see the header is "Registration" in the page details
+    Then I see the sub-header is "Step 1 of 2" in the page details
+    And I generate the random SSN and save as "SSN"
+    When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
-    When I click on "Save and Continue" in the page details
-    And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
-    Then I softly see fields "fieldPaymentAddressLine1__c" is not visible
-    Then I softly see fields "fieldPaymentAddressCity__c" is not visible
-    Then I softly see fields "fieldPaymentAddressState__c" is not visible
-    Then I softly see fields "fieldPaymentAddressZipCode__c" is not visible
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    #82784
+    Then I see the header is "Registration" in the page details
+    Then I see the sub-header is "Step 2 of 2" in the page details
+    #82797
+    And I enter "Individual_PrimaryDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
+    And I wait for "2" seconds
+    Then I softly see fields "PaymentAddressLine1__c" is not visible
+    Then I softly see fields "PaymentAddressCity__c" is not visible
+    Then I softly see fields "PaymentAddressState__c" is not visible
+    Then I softly see fields "PaymentAddressZipCode__c" is not visible
+    Then I softly see fields "PaymentAddressCounty__c" is not visible
+    Then I softly see fields "PaymentAddressCountry__c" is not visible
+    Then I softly see fields "PaymentAddressLine2__c" is not visible
+    Then I softly see fields "PaymentAddressCongressionalDistrict__c" is not visible
+    Then I softly see fields "PaymentAddressSequenceNumber__c" is not visible
+    Then I softly see fields "PaymentAddressSequenceNumber__c" is not visible
+    Then I softly see fields "PaymentAddressZipCode4__c" is not visible
+    Then I softly see fields "PaymentAddressVendorLocation__c" is not visible
+    Then I softly see fields "PaymentAddressVendorLocation__c" is not visible
 
   @82024 @verifyFilledDetailsPopulatedAtAuthorizedDetailsSection-Organization
   Scenario:Verify user should be able to see filled details at organization address id getting populated at Authorized section
@@ -176,18 +203,6 @@ Feature: Validate all registration related scenarios
       """
        {regconfirmationmailbody:mailbody}
       """
-
-  @82784 @VerifyRegistrationPages2of2-Individual
-  Scenario:Verify user should be navigated to Registration step 2 of 2 after clicking on save button on registration step 1 of 2 page
-    Given I begin "Individual" registration as "Register As Individual"
-    When I click on "Agree" in the page details
-    When I click on "Agree" in the page details
-    When I enter value as "123456789" into "Social Security Number (SSN)" on old form
-    When I enter value as "IndividualRegistration@yopmail.com" into "Email" on old form
-    When I enter value as "1234" into "Vendor ID" on old form
-    When I click on "Save and Continue" in the page details
-    Then I see the header is "Registration" in the page details
-    Then I see the sub-header is "Step 2 of 2" in the page details
 
   @82780 @VerifyRegistrationStep1of2-Individual
   Scenario:Verify user should be navigated to Registration step 1 of 2 after clicking on Agree button on registration
