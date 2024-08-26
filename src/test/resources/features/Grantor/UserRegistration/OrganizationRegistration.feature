@@ -99,7 +99,7 @@ Feature: Validate all registration related scenarios
     Then I see "USA" text enter in field "fieldPrimaryRepCountry__c"
     Then I see "Prince George’s" text enter in field "fieldCounty__c"
 
- @debug @82797 @82784 @82780 @verifyVisibilityOfFieldsAtPaymentAddressSection-Individual
+  @82797 @82784 @82780 @verifyVisibilityOfFieldsAtPaymentAddressSection-Individual
   Scenario:Verify user is not able to see any fields after selection of Same as organization fields to yes inside payment details page block
     Given I begin "Individual" registration as "Register As Individual"
     And I wait for "2" seconds
