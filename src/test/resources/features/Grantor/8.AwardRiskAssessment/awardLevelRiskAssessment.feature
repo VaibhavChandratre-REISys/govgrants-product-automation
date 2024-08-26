@@ -2802,48 +2802,48 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
-#    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    When I get the "EGMS ID"
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-#      | Name                     | Risk Assessment |
-#      | {SavedValue:PM Username} | Step 1          |
-#    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-#      | Name                     | Risk Assessment |
-#      | {SavedValue:FO Username} | Step 2          |
-#    When I click on "Submit for Approval" in the page details
-#    Then I softly see field "Status" as "Submitted for Approval"
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-#    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-#    And I "Approve" in the approval decision
-#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-#    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-#    And I "Approve" in the approval decision
-#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
-#    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-#    And I click toggle button to select "Subaward Risk Assessments - All"
-#    And I perform quick search for "{SavedValue:ExpiredID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
-#    Then I see value "{SavedValue:ExpiredID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
-#    And I navigate to "Grants" tab
-#    And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{SavedValue:Automation Runtime Award for Risk Assessment}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:Automation Runtime Award for Risk Assessment}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
-#    When I navigate to "Subawards" sub tab
-#    When I perform quick search for "{SavedValue:Automation Runtime Award for Risk Assessment}" in "---subAwardStandAlone:-:subawardsTableId---" panel
-#    And I click on "View" icon for "{SavedValue:Automation Runtime Award for Risk Assessment}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I navigate to "Management" sub tab
-#    And I perform quick search for "{SavedValue:ExpiredID}" in "---subAwardStandAlone:-:riskAssessmentTableId---" panel
-#    And I click on "View" icon for "{SavedValue:ExpiredID}" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
-#    Then I see status in Progress-bar is "Expired" and is "dark blue"
+    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I get the "EGMS ID"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
+      | {SavedValue:PM Username} | Step 1          |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
+      | {SavedValue:FO Username} | Step 2          |
+    When I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "{SavedValue:ExpiredID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    Then I see value "{SavedValue:ExpiredID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
+    And I navigate to "Grants" tab
+    And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award for Risk Assessment}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award for Risk Assessment}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    When I perform quick search for "{SavedValue:Automation Runtime Award for Risk Assessment}" in "---subAwardStandAlone:-:subawardsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award for Risk Assessment}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Management" sub tab
+    And I perform quick search for "{SavedValue:ExpiredID}" in "---subAwardStandAlone:-:riskAssessmentTableId---" panel
+    And I click on "View" icon for "{SavedValue:ExpiredID}" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
+    Then I see status in Progress-bar is "Expired" and is "dark blue"
 
   @60811 @60817 @viewExpiredRAOnceAwardIsActivatedFromOrganizationProfilePage @TBExecution1
   Scenario:  Validate whether Subrecipients can view the Expired Risk Assessment from the Monitoring Phase level table and  Expired Status should be displayed to SR user from Organizational Profile page.
