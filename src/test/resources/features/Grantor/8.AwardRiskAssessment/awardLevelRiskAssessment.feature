@@ -3537,6 +3537,10 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---subAwardFromFDM:-:associateContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:SPI4 Username}" in the table "---subAwardFromFDM:-:keyContactsTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
       | {SavedValue:SPI4 Username} | Project Director/Manager | Checked          |
