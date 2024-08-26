@@ -173,6 +173,10 @@ public class InternalOrganizationPage extends GranteeProjectManager {
             Assert.assertTrue(isFieldsVisibleAtPAgeDetails(fieldApiName));
         } else if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isFieldsVisibleAtPAgeDetails(fieldApiName)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isFieldsVisibleAtPAgeDetails(fieldApiName)).isFalse();
+        } else {
+            Assert.assertFalse(isFieldsVisibleAtPAgeDetails(fieldApiName));
         }
     }
 
@@ -773,7 +777,7 @@ public class InternalOrganizationPage extends GranteeProjectManager {
      */
     private boolean isFieldsVisibleAtPAgeDetails(String fieldApiName) {
         By fieldsAtPage = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']");
-        boolean flag = true;
+        boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(fieldsAtPage)) {
                 flag = true;

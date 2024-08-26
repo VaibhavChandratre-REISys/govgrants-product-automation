@@ -71,10 +71,10 @@ Feature: Validate all registration related scenarios
     And I navigate to "Organization Profile" sub tab
     And I enter "CreationWithAllDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
-    Then I softly see fields "PaymentAddressLine1__c" is not visible
-    Then I softly see fields "PaymentAddressCity__c" is not visible
-    Then I softly see fields "PaymentAddressState__c" is not visible
-    Then I softly see fields "PaymentAddressZipCode__c" is not visible
+    Then I softly do not see fields "PaymentAddressLine1__c" is visible
+    Then I softly do not see fields "PaymentAddressCity__c" is visible
+    Then I softly do not see fields "PaymentAddressState__c" is visible
+    Then I softly do not see fields "PaymentAddressZipCode__c" is visible
 
   @82787 @82790 @verifyPrimaryRepresentativeDetails-Individual
   Scenario:Verify user is able to see filled details on Primary Representative detail page while individuals registration
@@ -128,19 +128,17 @@ Feature: Validate all registration related scenarios
     And I enter "Individual_PrimaryDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     And I wait for "2" seconds
-    Then I softly see fields "PaymentAddressLine1__c" is not visible
-    Then I softly see fields "PaymentAddressCity__c" is not visible
-    Then I softly see fields "PaymentAddressState__c" is not visible
-    Then I softly see fields "PaymentAddressZipCode__c" is not visible
-    Then I softly see fields "PaymentAddressCounty__c" is not visible
-    Then I softly see fields "PaymentAddressCountry__c" is not visible
-    Then I softly see fields "PaymentAddressLine2__c" is not visible
-    Then I softly see fields "PaymentAddressCongressionalDistrict__c" is not visible
-    Then I softly see fields "PaymentAddressSequenceNumber__c" is not visible
-    Then I softly see fields "PaymentAddressSequenceNumber__c" is not visible
-    Then I softly see fields "PaymentAddressZipCode4__c" is not visible
-    Then I softly see fields "PaymentAddressVendorLocation__c" is not visible
-    Then I softly see fields "PaymentAddressVendorLocation__c" is not visible
+    Then I softly do not see fields "PaymentAddressLine1__c" is visible
+    Then I softly do not see fields "PaymentAddressCity__c" is visible
+    Then I softly do not see fields "PaymentAddressState__c" is visible
+    Then I softly do not see fields "PaymentAddressZipCode__c" is visible
+    Then I softly do not see fields "PaymentAddressCounty__c" is visible
+    Then I softly do not see fields "PaymentAddressCountry__c" is visible
+    Then I softly do not see fields "PaymentAddressLine2__c" is visible
+    Then I softly do not see fields "PaymentAddressCongressionalDistrict__c" is visible
+    Then I softly do not see fields "PaymentAddressSequenceNumber__c" is visible
+    Then I softly do not see fields "PaymentAddressZipCode4__c" is visible
+    Then I softly do not see fields "PaymentAddressVendorLocation__c" is visible
 
   @82024 @verifyFilledDetailsPopulatedAtAuthorizedDetailsSection-Organization
   Scenario:Verify user should be able to see filled details at organization address id getting populated at Authorized section
