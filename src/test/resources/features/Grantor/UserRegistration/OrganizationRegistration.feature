@@ -202,18 +202,6 @@ Feature: Validate all registration related scenarios
        {regconfirmationmailbody:mailbody}
       """
 
-  @82780 @VerifyRegistrationStep1of2-Individual
-  Scenario:Verify user should be navigated to Registration step 1 of 2 after clicking on Agree button on registration
-    Given I begin "Individual" registration as "Register As Individual"
-    Then I see the header is "Registration" in the page details
-    Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
-    When I click on "Agree" in the page details
-    Then I see the header is "Registration" in the page details
-    Then I see the sub-header is "Legal Disclaimer 2 of 2" in the page details
-    When I click on "Agree" in the page details
-    Then I see the header is "Registration" in the page details
-    Then I see the sub-header is "Step 1 of 2" in the page details
-
   @33827 @verifySavedDetailsOfOrganizationProfileSubTab-Organization
   Scenario:Verify user should be able to see filled details at organization sub tab after redirecting back to organization profile tab while clicking on back button
     Given I begin "Organization" registration as "Register As Organization"

@@ -921,7 +921,7 @@ Feature: Risk Assessment scenarios without background
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @62964 @62963 @riskScoreWhenCopiedToTermsAndConditionsAmendment @TBExecution
+  @62964 @62963 @riskScoreWhenCopiedToTermsAndConditionsAmendment
   Scenario Outline: Validate the Risk Score which should remain as is when Award Risk Assessment is copied to new created award when amendment type -Terms and Conditions Amendment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
