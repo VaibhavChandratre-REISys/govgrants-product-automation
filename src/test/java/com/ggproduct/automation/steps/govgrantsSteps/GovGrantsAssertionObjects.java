@@ -268,7 +268,7 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertOptionPresentInList(String usage, String option) {
         boolean checkoption = false;
-        if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//ul[@aria-labelledby='dropdownMenu1']//li//a//span[text()='" + option + "']"))) {
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//c-flex-layout-actions//div//a//span[text()='" + option + "']"))) {
             checkoption = true;
         }
         if (usage.contains("not")) {

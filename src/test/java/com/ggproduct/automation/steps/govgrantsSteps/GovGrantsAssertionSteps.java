@@ -248,6 +248,15 @@ public final class GovGrantsAssertionSteps {
         }
     }
 
+    @Then("^I (softly see|see|cannot see|softly cannot see) field on modal \"([^\"]*)\" inside page block$")
+    public void iSoftlySeeFieldOnModalInsidePageBlock(String shouldBeDisplayed, String fieldLabel) {
+        if (shouldBeDisplayed.contains("softly")) {
+            I.amPerforming().assertionsTo().assertThat("softly see".equalsIgnoreCase(shouldBeDisplayed)).isEqualTo(govgrants.perform().pageDetails().isElementPresentOnModalInsidePageBlock(fieldLabel));
+        } else {
+            Assert.assertEquals("see".equalsIgnoreCase(shouldBeDisplayed), govgrants.perform().pageDetails().isElementPresentOnModalInsidePageBlock(fieldLabel));
+        }
+    }
+
     @Then("^I (softly see|see|cannot see|softly cannot see) \"([^\"]*)\" on page \"([^\"]*)\" of \"([^\"]*)\" pdf file$")
     public void assertTextDisplayed(String shouldBeDisplayed, String text, String pageNumber, String fileName) {
         if (shouldBeDisplayed.contains("softly")) {
