@@ -732,6 +732,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     When I click on top right button "Create Risk Assessment" in flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
     When I click on "Close" in the page details
+    And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
@@ -874,11 +875,10 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Overview" sub tab
     Then I softly see field "Overall Score" as "27.0%"
 
-  @org @64603 @taskIsNotCreatedForSPI
+  @64603 @taskIsNotCreatedForSPI
   Scenario: Verify Task is not generated for SPI to Create Risk Assessment for an Organization
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
-    When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
