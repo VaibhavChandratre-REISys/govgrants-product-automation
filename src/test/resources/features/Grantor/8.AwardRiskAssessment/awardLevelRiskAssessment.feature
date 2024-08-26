@@ -549,7 +549,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Management" sub tab
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-  @58820 @58180 @58937 @61383 @66070 @recipientCanViewActiveRAeditButtonAfterSubmitforApprovalcreationofSecondRA  @smoke @TBExecution1
+  @58820 @58180 @58937 @61383 @66070 @recipientCanViewActiveRAeditButtonAfterSubmitforApprovalcreationofSecondRA @smoke
   Scenario: Validate Subrecipients can view the Active Risk Assessment and Award Owner is not allowed to Edit the Risk Assessment post submitting it for approval and Pending task is created for the Fiscal approver when Program approver approves the RA and completed task
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1989,7 +1989,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "RiskAssessmentApproverRoles"
 
-  @59960 @intialRiskAssessmentMarkedAsExpired  @smoke @TBExecution1
+  @59960 @intialRiskAssessmentMarkedAsExpired @smoke
   Scenario Outline: Validate when the Award is activated whether SR user can view the second Risk Assessment that was in Created Status
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2844,7 +2844,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "View" icon for "{SavedValue:ExpiredID}" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
     Then I see status in Progress-bar is "Expired" and is "dark blue"
 
-  @60811 @60817 @viewExpiredRAOnceAwardIsActivatedFromOrganizationProfilePage @TBExecution1
+  @60811 @60817 @viewExpiredRAOnceAwardIsActivatedFromOrganizationProfilePage
   Scenario:  Validate whether Subrecipients can view the Expired Risk Assessment from the Monitoring Phase level table and  Expired Status should be displayed to SR user from Organizational Profile page.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3682,7 +3682,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @142062 @VerifyUpdationOfInheritedApproverAtRiskAssesmentFromAward-RnRFunctnality @TBExecution1
+  @142062 @VerifyUpdationOfInheritedApproverAtRiskAssesmentFromAward-RnRFunctnality
   Scenario Outline: Validate user can modify the approver entered on award for Risk assessment are copied on the Risk Assessments
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3986,7 +3986,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @142415 @VerifyFourStepApprovalProcessForRiskAssesmentFromAward-RnRFunctnality @TBExecution1
+  @142415 @VerifyFourStepApprovalProcessForRiskAssesmentFromAward-RnRFunctnality
   Scenario Outline: Given the step 4 approver has approved validate Risk Assessment is marked as Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -4276,7 +4276,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @142418 @VerifySelectionOfNAInsideStepsOfCopiedApproverFromAward-RnRFunctnality @TBExecution1
+  @142418 @VerifySelectionOfNAInsideStepsOfCopiedApproverFromAward-RnRFunctnality
   Scenario Outline: Validate user can select NA for a step on already copied approvers from award
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -4521,7 +4521,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @142909 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtRiskAssessment-RnRFunctnality @TBExecution1
+  @142909 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtRiskAssessment-RnRFunctnality
   Scenario Outline: Validate user cannot add the same steps for Risk assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -4763,7 +4763,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @143348 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtRiskAssessment-RnRFunctnality @TBExecution1
+  @143348 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtRiskAssessment-RnRFunctnality
   Scenario Outline: Verify the validation when same user is added for multiple step on approver section for risk assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -5040,7 +5040,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @142086 @142072 @VerifyInheritatedApproverAtRiskAssessmentFromAward-RnRFunctionality @TBExecution1
+  @142086 @142072 @VerifyInheritatedApproverAtRiskAssessmentFromAward-RnRFunctionality
   Scenario Outline: Verify approvers from sub award are inherited to subaward risk assessment
   |Validate the columns and table name in the Risk Assessment approver Section|
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -6346,7 +6346,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
 
-  @201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646  @reassignment @FieldHistoryExclude @TBExecution1
+  @201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646  @reassignment @FieldHistoryExclude
   Scenario: Validate Email Notification is sent to ADMIN old owner & new owner with respect to ownership transfer of a Active Risk Assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab

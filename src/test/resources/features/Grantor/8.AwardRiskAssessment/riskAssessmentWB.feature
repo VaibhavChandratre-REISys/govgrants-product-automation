@@ -42,7 +42,7 @@ Feature: Risk Assessment scenarios without background
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @59955 @59956 @awardIsActiveSecondRiskAssessmentIsInCreatedState @TBExecution1
+  @59955 @59956 @awardIsActiveSecondRiskAssessmentIsInCreatedState
   Scenario Outline: Validate when an award was activated with one active risk assessment and has other risk assessment which in created state should not get submitted for approval
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -255,7 +255,7 @@ Feature: Risk Assessment scenarios without background
     And I perform quick search for "Record Id" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
     Then I do not see value "Record Id" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
-  @61038 @60332 @60335 @riskScoreSameOnAmendmentAwardSRSideforScopeofWorkChange @TBExecution1
+  @61038 @60332 @60335 @riskScoreSameOnAmendmentAwardSRSideforScopeofWorkChange
   Scenario Outline: Validate the Risk Score which should remain as is when Award Risk Assessment is copied to new created award when amendment type and SR user can view the Risk Score - Scope of Work Change
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1180,7 +1180,7 @@ Feature: Risk Assessment scenarios without background
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @61040 @riskscoreSRSideforBudgetPeriodChangeWhenCopiedToamendedAward @smoke @TBExecution1
+  @61040 @riskscoreSRSideforBudgetPeriodChangeWhenCopiedToamendedAward @smoke
   Scenario Outline: Validate whether SR user can view the Risk Score which remained as is when Award Risk Assessment is copied to new created award when amendment type-Budget Period Change
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1385,7 +1385,7 @@ Feature: Risk Assessment scenarios without background
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @58824 @validateRiskScoreAndRiskAssessment @TBExecution1
+  @58824 @validateRiskScoreAndRiskAssessment
   Scenario Outline: Validate Award Risk Assessment is copied to new created award after - BPC Amendment
     Given I activated standalone subaward "Automation Runtime Award Risk Assessment" with properties "YES_RISK_ASSESSMENT" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
