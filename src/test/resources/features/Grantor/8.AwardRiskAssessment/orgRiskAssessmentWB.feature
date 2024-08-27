@@ -147,7 +147,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I enter value "asf" into field "Addressline1__c"
     And I enter value "asf" into field "City__c"
     And I enter value "20171" into field "Zip4__c"
-    And I enter value "LA" into field "State__c"
+    And I enter value "LA: Louisiana" into field "State__c"
     And I enter value "GA" into field "County__c"
     And I enter value "Test" into field "ScopeofWorkChangeDescription__c"
     When I click on "Save" in the page details
