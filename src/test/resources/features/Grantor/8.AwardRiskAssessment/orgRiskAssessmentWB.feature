@@ -277,7 +277,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
       | Name                       | Project Role            | Is Key Personnel |
-      | {SavedValue:SPI4 Username} | Principal Investigator | Checked          |
+      | {SavedValue:SPI3 Username} |Project Director/Manager  | Checked          |
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 2000                 | 200        | 0              |
