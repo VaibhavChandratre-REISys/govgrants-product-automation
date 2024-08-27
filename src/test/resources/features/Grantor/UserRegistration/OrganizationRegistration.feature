@@ -823,11 +823,59 @@ Feature: Validate all registration related scenarios
     Then I softly do not see value "{SavedValue:Automation Runtime Organization}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
     Then I softly do not see value "Review Parent/Child Organization Relationship Request" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"
 
-  @452446 @452447 @ValidateLoginPageabletoseeOranizationandIndividualbuttononexternalregistrationpageusingtheExternalsiteregistrationUrl @Sprint-16-US-416690
+  @452446 @452447 @452448 @452449 @452450 @452451 @452452 @ValidateLoginPageabletoseeOranizationandIndividualbuttononexternalregistrationpageusingtheExternalsiteregistrationUrl @Sprint-16-US-416690 @TBExecution
   Scenario: Validate Login Page able to see Oranization and Individual button on external registration page using the External site registration Url
     When I am on "SUBPORTAL" portal
     Then I softly see button "Organization" on login page
     Then I softly see button "Individual" on login page
+    And I click on button "Organization" inside login page
     #452447
-    Then I softly see "Create Contact" opens in overLay window
-
+    Then I softly see "Register As Organization on EGMS" opens in overLay window
+    Then I softly do not see "Register As Individual on EGMS" opens in overLay window
+    #452448
+    And I close modal by clicking the top right x button
+    And I click on button "Individual" inside login page
+    Then I softly see "Register As Individual on EGMS" opens in overLay window
+    #452449
+    And I close modal by clicking the top right x button
+    Given I begin "Individual" registration as "Register As Individual"
+    And I wait for "2" seconds
+    Then I see the header is "Registration" in the page details
+    Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
+    When I click on "Disagree" in the page details
+    Then I softly see button "Organization" on login page
+    Then I softly see button "Individual" on login page
+    #452450
+    Given I begin "Individual" registration as "Register As Individual"
+    And I wait for "2" seconds
+    Then I see the header is "Registration" in the page details
+    Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
+    Then I see the header is "Registration" in the page details
+    Then I see the sub-header is "Legal Disclaimer 1 of 2" in the page details
+    When I click on "Agree" in the page details
+    And I wait for "3" seconds
+    Then I see the header is "Registration" in the page details
+    Then I see the sub-header is "Legal Disclaimer 2 of 2" in the page details
+    #452451
+    When I click on "Disagree" in the page details
+    Then I softly see button "Organization" on login page
+    Then I softly see button "Individual" on login page
+    #452452
+    Given I begin "Individual" registration as "Register As Individual"
+    And I wait for "2" seconds
+    When I click on "Agree" in the page details
+    When I click on "Agree" in the page details
+    And I wait for "3" seconds
+    Then I see the header is "Registration" in the page details
+    Then I see the sub-header is "Step 1 of 2" in the page details
+    Then I softly see field "Social Security Number (SSN)" inside page block
+    Then I softly see asterisk mark on "Social Security Number (SSN)"
+    Then I softly see field "Email" inside page block
+    Then I softly see asterisk mark on "Email"
+    Then I softly see field "Vendor ID" inside page block
+    Then I softly do not see asterisk mark on "Vendor ID"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details :
+      | Social Security Number (SSN) is required to save. |
+      | Email is required to save.                        |

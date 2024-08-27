@@ -2238,14 +2238,22 @@ public final class GovGrantsAssertionObjects {
             Assert.assertTrue(isSpecificOverlayDisplayed(titleName));
         } else if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isSpecificOverlayDisplayed(titleName)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isSpecificOverlayDisplayed(titleName)).isFalse();
+        } else {
+            Assert.assertFalse(isSpecificOverlayDisplayed(titleName));
         }
     }
 
     private boolean isSpecificOverlayDisplayed(String titleName) {
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         boolean flag = false;
-        if (I.amPerforming().checkToSee().isDisplayed(getOverLayTitle(titleName))) {
-            flag = true;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(getOverLayTitle(titleName))) {
+                flag = true;
+            }
+        } catch(Exception ignored){
+
         }
         return flag;
     }
@@ -2683,7 +2691,7 @@ public final class GovGrantsAssertionObjects {
      * @modifer: keerti.munde
      */
     public boolean isAsteriskMarkDisplayed(String fieldName) {
-        By fieldsAtPageDetails = By.xpath("//*[text()='" + fieldName + "']//span[contains(@class,'requiredField')] | //div[@id='" + fieldName + "']//span[contains(@class,'requiredFieldSubmit fa fa-exclamation-triangle')] | //div[@id='" + fieldName + "']//span[contains(@class,'requiredField')]");
+        By fieldsAtPageDetails = By.xpath("//div[@data-field_api_name='" + fieldName + "']//span[contains(@class,'required-for-save')] | //label[text()='" + fieldName + "']/..//span[contains(@class,'required-for-save')]");
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(fieldsAtPageDetails)) {

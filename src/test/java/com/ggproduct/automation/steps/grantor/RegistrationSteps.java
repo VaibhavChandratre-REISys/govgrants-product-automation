@@ -71,4 +71,8 @@ public class RegistrationSteps {
         registrationPage.iClickOnMailWithSubject(subject);
     }
 
+    @And("I click on button {string} inside login page")
+    public void iClickOnButtonInsideLoginPage(String buttonName) {
+        registrationPage.iClickOnButtonInsideLoginPage(buttonName);
+    }
 }

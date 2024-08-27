@@ -128,4 +128,10 @@ public class RegistrationPage extends ProjectManager {
             }
         }
     }
+
+    public void iClickOnButtonInsideLoginPage(String buttonName) {
+        By loginButtonName = By.xpath("//div[@class='loginWindow1']//button[@type='button' and text()='" + buttonName + "']");
+        I.amPerforming().waitFor().ElementToBePresent(loginButtonName);
+        I.amPerforming().click().on(loginButtonName);
+    }
 }

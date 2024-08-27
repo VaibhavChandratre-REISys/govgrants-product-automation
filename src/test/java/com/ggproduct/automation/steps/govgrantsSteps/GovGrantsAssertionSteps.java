@@ -539,7 +539,7 @@ public final class GovGrantsAssertionSteps {
         ggAssertionObjects.assertFieldsInPageBlock(usage, pageBlockName, fieldLabel);
     }
 
-    @Then("^I (see|softly see) \"([^\"]*)\" opens in overLay window$")
+    @Then("^I (see|softly see|softly do not see|do not see) \"([^\"]*)\" opens in overLay window$")
     public void assertEditOpensInOverLayWindow(String usage, String titleName) {
         ggAssertionObjects.asserTextInOverLayIframe(usage, titleName);
     }
