@@ -291,6 +291,7 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I refresh the page
     And I pause execution for "5" seconds
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
