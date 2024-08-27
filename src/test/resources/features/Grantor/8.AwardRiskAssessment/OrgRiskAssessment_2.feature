@@ -725,7 +725,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
       | Detail | Page Number |
       | Active | 1           |
 
- @org @64128  @63983 @grantorViewOrgRA  @runOrgRisk
+ @64128  @63983 @grantorViewOrgRA  @runOrgRisk
   Scenario: Validate Risk Assessment data/status should be displayed to internal user irrespective of the state of Risk Assessment.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
