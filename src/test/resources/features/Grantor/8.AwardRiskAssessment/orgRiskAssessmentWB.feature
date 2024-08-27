@@ -275,9 +275,9 @@ Feature: Validate all scenarios when the Organizational Risk Assessment is in ex
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I click on "Edit" icon for "{SavedValue:SPI4 Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---" without waiting for record
-    And I enter value "Principal Investigator" into field "ProjectRole__c"
-    And I click on top right button "Save" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role            | Is Key Personnel |
+      | {SavedValue:SPI4 Username} | Principal Investigator | Checked          |
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 2000                 | 200        | 0              |
