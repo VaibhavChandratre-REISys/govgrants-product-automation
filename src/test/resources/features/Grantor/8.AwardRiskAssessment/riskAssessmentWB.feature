@@ -443,7 +443,7 @@ Feature: Risk Assessment scenarios without background
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @60967 @60336 @60334 @60333 @FundingChangeAmendmentRiskScore @TBExecution1
+  @60967 @60336 @60334 @60333 @FundingChangeAmendmentRiskScore
   Scenario Outline: Validate the Risk Score which should remain as is when Award Risk Assessment is copied to new created award when amendment type - Funding Change
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -611,8 +611,8 @@ Feature: Risk Assessment scenarios without background
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
-      | Value | Field               |
-      | 4100  | RvisedCommitment__c |
+      | Value | Field                |
+      | 4100  | RevisedCommitment__c |
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Revised Encumbrance |
@@ -650,7 +650,7 @@ Feature: Risk Assessment scenarios without background
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @62956 @62957 @62958 @awardRACopiedToperiodicRenewalOverallRisk @TBExecution
+  @62956 @62957 @62958 @awardRACopiedToperiodicRenewalOverallRisk
   Scenario Outline: Validate The Risk assessment is not carried forward to new active award and new button to risk assessmnet is avialble for old award owner-  Periodic Renewal Amendment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
