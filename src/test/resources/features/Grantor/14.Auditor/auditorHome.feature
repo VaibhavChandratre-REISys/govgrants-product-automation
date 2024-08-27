@@ -48,28 +48,26 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @69123 @auditorCanViewIndividualOrganization
+  @69123 @auditorCanViewIndividualOrganization @TBExecution
   Scenario Outline: Validate Auditor should have view / read  only access to record for Individual organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "{user:OldfullName}" in "---home:-:indActiveAccountId---" panel
-    And I click on "View" icon for "{user:OldfullName}" inside flex table with id "---home:-:indActiveAccountId---"
-    Then I see that "{user:OldfullName}" is in "Active" status
+    When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
+    And I click on "View" icon for "{user:fullName}" inside flex table with id "---home:-:indActiveAccountId---"
+    Then I see that "{user:fullName}" is in "Active" status
     Examples:
       | User    |
       | AUDITOR |
 
-  @69124 @auditorCannotEditSubrecipientOrganization @smoke
+  @69124 @auditorCannotEditSubrecipientOrganization @smoke @TBExecution
   Scenario Outline:  Auditor should not be  able to  Edit Individual organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Subrecipients" content inside "Organization" subheader on left panel
-    When I perform quick search for "{user:OldfullName}" in "---home:-:indActiveAccountId---" panel
-    Then I can see row level action button "View" against "{user:OldfullName}" in flex table with id "---home:-:indActiveAccountId---"
-#    Then I see the following rows under the following headers in table with id "---home:-:indActiveAccountId---" :
-#      | Full Name       | Actions |
-#      | {user:fullName} | View    |
+    When I perform quick search for "{user:fullName}" in "---home:-:indActiveAccountId---" panel
+    Then I can see row level action button "View" against "{user:fullName}" in flex table with id "---home:-:indActiveAccountId---"
+
     Examples:
       | User    |
       | AUDITOR |
