@@ -621,6 +621,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
