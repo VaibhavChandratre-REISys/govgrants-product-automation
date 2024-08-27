@@ -2252,7 +2252,7 @@ public final class GovGrantsAssertionObjects {
 
     private WebElement getOverLayTitle(String titleName) {
         return I.amPerforming().getElementReference().of(ByUsing.xpath(
-                "//header[contains(@class,'modal-header')]//h2[text()='" + titleName + "'] | //div[contains(@class,'modal-header')]//h1[text()='" + titleName + "']"));
+                "//header[contains(@class,'modal-header')]//h2[text()='" + titleName + "'] | //div[contains(@class,'modal-header')]//h1[text()='" + titleName + "'] | //lightning-modal-header[contains(@class,'modal-header')]//h1[text()='" + titleName + "']"));
     }
 
     /**
@@ -3897,6 +3897,29 @@ public final class GovGrantsAssertionObjects {
         if (I.amPerforming().checkToSee().isEnabled(element) && I.amPerforming().checkToSee().isDisplayed(element)) {
             I.amPerforming().click().on(element);
             flag = true;
+        }
+        return flag;
+    }
+
+    public void assertloginPageButtons(String usage, String buttonName) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isloginPageButtonsDisplay(buttonName)).isTrue();
+        }  else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isloginPageButtonsDisplay(buttonName));
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isloginPageButtonsDisplay(buttonName)).isFalse();
+        } else{
+            Assert.assertFalse(isloginPageButtonsDisplay(buttonName));
+        }
+    }
+
+    private boolean isloginPageButtonsDisplay(String buttonName) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@class='loginWindow1']//button[@type='button' and text()='" + buttonName + "']"))) {
+                flag = true;
+            }
+        } catch (org.openqa.selenium.NoSuchElementException e) {
         }
         return flag;
     }

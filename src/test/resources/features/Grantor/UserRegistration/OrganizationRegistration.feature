@@ -822,3 +822,12 @@ Feature: Validate all registration related scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "{SavedValue:Automation Runtime Organization}" for title "EGMS ID" inside table "---program:-:adminTaskReassignmentTableId---"
     Then I softly do not see value "Review Parent/Child Organization Relationship Request" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"
+
+  @452446 @452447 @ValidateLoginPageabletoseeOranizationandIndividualbuttononexternalregistrationpageusingtheExternalsiteregistrationUrl @Sprint-16-US-416690
+  Scenario: Validate Login Page able to see Oranization and Individual button on external registration page using the External site registration Url
+    When I am on "SUBPORTAL" portal
+    Then I softly see button "Organization" on login page
+    Then I softly see button "Individual" on login page
+    #452447
+    Then I softly see "Create Contact" opens in overLay window
+

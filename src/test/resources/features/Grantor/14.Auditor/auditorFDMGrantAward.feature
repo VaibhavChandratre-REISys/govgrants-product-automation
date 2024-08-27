@@ -52,14 +52,11 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     Given I login to "As a Grantor" app as "AUDITOR" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
     And I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And  I click on Menu icon present on top right corner of the page
-    And I pause execution for "3" seconds
-    And I click on Menu icon present on top right corner of the page
-    And I pause execution for "3" seconds
-    And I select "Download as PDF" from dropdown
-    And I pause execution for "3" seconds
+    And I click on "Download As PDF" in the page details
+    And I wait for "7" seconds
     And I download the file
     Then I see "Active" on page "1" of "govgrants" pdf file
 
@@ -162,7 +159,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I click alert button "OK"
     And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -203,7 +200,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I click alert button "OK"
     And I wait for "5" seconds
     Then I see that "Status" is in "Review Completed" status
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I wait for "1" seconds
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel

@@ -37,7 +37,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     Then I cannot see row level action button "Initiate Negotiation" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---applicationReview:-:recommendedTableId---"
 
-  @69164 @auditorCannotSend/CompleteNegotiations @buglogged151671 @TBExecution
+  @69164 @auditorCannotSend/CompleteNegotiations
   Scenario: Validate Auditor should be able to View the record but shouldn't be able to Complete Negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -248,7 +248,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---preApplication:-:preApplicationsGrantorTableId---" panel
     Then I softly can see row level action button "View" against "{SavedValue:PreappEGMSID}" in flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:PreappEGMSID}" in flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:PreappEGMSID}" in flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I softly cannot see top right button "Reject" in page detail
