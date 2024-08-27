@@ -48,7 +48,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @69123 @auditorCanViewIndividualOrganization @TBExecution
+  @69123 @auditorCanViewIndividualOrganization
   Scenario Outline: Validate Auditor should have view / read  only access to record for Individual organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -60,7 +60,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-  @69124 @auditorCannotEditSubrecipientOrganization @smoke @TBExecution
+  @69124 @auditorCannotEditSubrecipientOrganization @smoke
   Scenario Outline:  Auditor should not be  able to  Edit Individual organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab

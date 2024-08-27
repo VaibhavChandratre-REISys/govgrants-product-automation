@@ -284,7 +284,7 @@ Feature: Validate all scenarios for Auditor Profile in Monitoring module
       | User    |
       | AUDITOR |
 
-  @69986 @69985 @auditorCannotSendBackProgressReportToSubrecipient @TBExecution
+  @69986 @69985 @auditorCannotSendBackProgressReportToSubrecipient
   Scenario: Validate Auditor should not be  able to Send back progress report to S/R | Validate Auditor should have view / read  only access to the progress report record
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"

@@ -46,7 +46,7 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
 
-  @69304 @auditorCandownloadasPDF @TBExecution
+  @69304 @auditorCandownloadasPDF
   Scenario: Validate Verify User with Auditor profile has ability to download PDF files of record.
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I login to "As a Grantor" app as "AUDITOR" user
@@ -242,5 +242,5 @@ Feature: Validate all scenarios for Auditor Profile in Grant/Award
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:pendingTaskTableId---" panel
     Then I see "No Records Found" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     Examples:
-      | Announcement Name                                  | Application Name                                   |
-      | Automation Runtime Announcement Application Review | Automation Runtime Announcement Application Review |
+      | Announcement Name                                               | Application Name                                                |
+      | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
