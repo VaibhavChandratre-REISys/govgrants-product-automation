@@ -132,8 +132,9 @@ public final class FlexTable implements FlexTableComponent {
      * @author john.phillips
      */
     public void clickTableTopRightButton(String flexTableId, String buttonName) {
-        I.amPerforming().waitFor().ElementToBePresent(getTopRightButtonLocatorByTableId(flexTableId, buttonName), 10);
+        I.amPerforming().waitFor().makeThreadSleep(4000);
         try {
+            I.amPerforming().waitFor().ElementToBePresent(getTopRightButtonLocatorByTableId(flexTableId, buttonName), 10);
             I.amPerforming().click().withJavaScript(getTopRightButtonLocatorByTableId(flexTableId, buttonName));
             govgrants.perform().modal().acceptPopUp();
         } catch (StaleElementReferenceException e) {

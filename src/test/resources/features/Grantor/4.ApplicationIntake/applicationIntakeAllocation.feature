@@ -1780,7 +1780,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     #219360
     When I navigate to "Budget" sub tab
-#    Then I softly see field "Recommended Budget" inside page block
+    Then I softly cannot see field "Recommended Budget" inside page block
 
   @219325 @CompetitiveAnnVerifyasPMusershouldnotseeFocusAreasectionunderBudgetsubtabofpreapplicationevenifsettingasAllocationlevelisNAFocusAreaisYES @sprint-09-US-208948 @komal @Allocation
   Scenario: Competitive Ann as PM user should not see 'Focus Area' section under Budget subtab of pre-application even if setting as Allocation level is 'NA' & Focus Area is 'YES'

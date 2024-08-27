@@ -10843,7 +10843,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Budget" sub tab
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @196080 @ValidateEXEusergrantownercanabletoEditDeletefilesongrantifuserhaseditaccessonmaineditbuttonforgrantisinCreatedstate @addFiles @TBExecution
+  @196080 @ValidateEXEusergrantownercanabletoEditDeletefilesongrantifuserhaseditaccessonmaineditbuttonforgrantisinCreatedstate @addFiles
   Scenario: Validate EXE user grant owner can able to Edit/Delete files on grant if user has edit access on main edit button for grant is in 'Created' state
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -10880,7 +10880,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see the following messages in the page details :
       | File Automation.pdf deleted successfully. |
 
-  @189997 @ValidateAdminasawardownercanaddeditanddeletefilesinCreatedstateofaward @addFiles @TBExecution
+  @189997 @ValidateAdminasawardownercanaddeditanddeletefilesinCreatedstateofaward @addFiles
   Scenario: Validate Admin as award owner can add edit and delete files in Created state of award
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Grants" tab

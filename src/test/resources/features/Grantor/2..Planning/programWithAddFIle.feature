@@ -709,7 +709,7 @@ Feature: Validate all scenarios for program with add file
     And I navigate to "Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
 
-  @195986 @ValidatePMasfileownershouldhaverowleveleditanddeleteaccesscreatedstateofNGOexternalprogram @addFiles @TBExecution
+  @195986 @ValidatePMasfileownershouldhaverowleveleditanddeleteaccesscreatedstateofNGOexternalprogram @addFiles
   Scenario: Validate PM as file owner should have raw level edit and delete access in created state of NGO external program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
