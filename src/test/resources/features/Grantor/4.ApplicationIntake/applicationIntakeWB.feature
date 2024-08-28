@@ -903,7 +903,7 @@ Feature: Application Intake scenarios without background
     Then I softly see the following messages in the page details contains:
       | Forms and Files Tab - Complete each mandatory item listed in the checklist before submitting this Application. |
     When I navigate to "Forms and Files" sub tab
-    And I click on "Upload Template" icon for "Automation" inside flex table with id "ApplicationChecklistsFlexGrid" with wait for record
+    And I click on "Attach" icon for "Automation" inside flex table with id "ApplicationChecklistsFlexGrid" with wait for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -1603,7 +1603,7 @@ Feature: Application Intake scenarios without background
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:AppEGMSID}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
 
   @196705  @sprint-4-US-197579 @reassignment
   Scenario: Validate App-Rev New PO owner can initiate app review process if it's related Ann owner will change ownership and assign to new user
@@ -1733,7 +1733,7 @@ Feature: Application Intake scenarios without background
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     Then I softly can see "Related Log" sub tab at view detail page
 
-  @196715  @sprint-4-US-197579  @reassignment @TBExecution
+  @196715  @sprint-4-US-197579 @reassignment
   Scenario: Validate App S\R SPI user of application owner should not change even if app ownership change after Ann owner will get change in created by field
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
