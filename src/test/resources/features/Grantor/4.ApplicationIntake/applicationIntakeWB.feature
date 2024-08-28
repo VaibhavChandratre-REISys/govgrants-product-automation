@@ -874,7 +874,6 @@ Feature: Application Intake scenarios without background
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
-    #When I perform quick search for "Automation Permanent Focus Area" in "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---" panel
     Then I softly see that "Automation Permanent Focus Area" has been added in flextable with Id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
@@ -907,7 +906,8 @@ Feature: Application Intake scenarios without background
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I softly see "Attachment.pdf" has been added in "Supporting Documents Checklist" flex table
+    And I click in table hyperlink containing value "View"
+    Then I softly verify that the file "Attachment.pdf" is downloaded
 
   @73750 @73751 @validateFilterCriteriaForGoalsAndObjectives
   Scenario: Validate the searched functionality for goals and Objectives Associated in section of Performance tab in Application | Validate the filter criteria for Goals and Objectives in Proposal Tab while creating Application
