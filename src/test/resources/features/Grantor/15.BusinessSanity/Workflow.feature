@@ -1534,6 +1534,4 @@ Feature: Validate all scenarios of every modules flow
 
   @tst
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to "Grants" tab
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
