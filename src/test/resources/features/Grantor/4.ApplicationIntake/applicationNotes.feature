@@ -1476,7 +1476,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
 
-  @218779 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonapplicationcreatedbySPIUserwhenitsstatusisconvertedtoaward @Sprint-09-US-204865 @Notes @TBExecution1
+  @218779 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonapplicationcreatedbySPIUserwhenitsstatusisconvertedtoaward @Sprint-09-US-204865 @Notes
   Scenario: Validate SPA user cant add notes but edit delete his notes on application created by SPI user when its status is converted to award
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal

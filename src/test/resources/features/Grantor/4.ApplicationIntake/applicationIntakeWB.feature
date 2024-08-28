@@ -231,7 +231,7 @@ Feature: Application Intake scenarios without background
     And I wait for "4" seconds
     Then I softly can see top right button "Create Application" in page detail
 
-  @71104 @72578 @72624 @77151 @77152 @71107 @71109 @71108 @TBExecution
+  @71104 @72578 @72624 @77151 @77152 @71107 @71109 @71108
   Scenario: Validate once the Announcement is published and Application is in created status, later the announcement is unpublished then the User will not be able to see the Submit Application
   Validate whether the Applicant will be able to view qualify button on the same funding opportunity after republish
   Validate whether the Applicant will be able to create a New Application from the republish announcement and oppurtunity |Validate whether the Applicant will be able to Submit the New Application from the republish announcement and oppurtunity
@@ -463,7 +463,7 @@ Feature: Application Intake scenarios without background
     Then I softly see value "$0.00" for title "Total Match" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
     Then I softly see value "$0.00" for title "Other Leverage" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
 
-  @72305 @72306 @isKeyContactWhileCreatingApplication @TBExecution1
+  @72305 @72306 @isKeyContactWhileCreatingApplication
   Scenario: Validate whether user can see a Sucess message after making the Contact User a Is key Contact and associate the Project Role
   Validate whether user can change the address in Primary place of Performace while creating an Application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
@@ -551,7 +551,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "History" sub tab
     Then I softly cannot see field "Snapshot History" inside page block
 
-  @72308 @77658 @34324 @72309 @TBExecution
+  @72308 @77658 @34324 @72309
   Scenario: Validate whether the User can view the edit icon for the application that is in Created Status and Submiited to Grantor Status
   Validate whether SPI user have delete access to delete the Application that is in Created Sttaus
   Verify SPI & SPA user is not able to Submit Application to Grantor with Requested Amount is less than or equal to the Subaward Floor Amount
@@ -749,7 +749,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:recipientApplications---" panel
     Then I softly see "No Records Found" inside flex table with id "---applicationIntake:-:recipientApplications---"
 
-  @73284 @applicationVisibity @TBExecution1
+  @73284 @applicationVisibity
   Scenario Outline: Validate the Applications are visible for their own organization and for child organizations.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -776,7 +776,7 @@ Feature: Application Intake scenarios without background
       | SPI3 |
       | SPA  |
 
-  @34315 @appDueDatepassed  @needStaticRecordsForThis @TBExecution
+  @34315 @appDueDatepassed  @needStaticRecordsForThis
   Scenario Outline: Validate SPI & SPA user is not able to Create an Application if Application Due Date is passed
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "<User>" user
@@ -793,7 +793,7 @@ Feature: Application Intake scenarios without background
       | SPI3 | Automation SPI3 |
       | SPA  | Automation SPA  |
 
-  @73367 @spiUserCanViewAllocatedAmountOnceSubmittedToGrantor @buglogged129432 @TBExecution
+  @73367 @spiUserCanViewAllocatedAmountOnceSubmittedToGrantor @buglogged129432
   Scenario Outline: Validate whether SPI & SPA user were able to view the allocated amount once the Oppurtunity is Converted to Application when Announcement is of type - Formula
     Given I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT"
     When I am on "SUBPORTAL" portal
@@ -852,7 +852,7 @@ Feature: Application Intake scenarios without background
       | User | userType        |
       | SPI3 | Automation SPI3 |
 
-  @73516 @73517 @supportingDocValidationOnApplication @TBExecution1
+  @73516 @73517 @supportingDocValidationOnApplication @TBExecution
   Scenario: Validate whether User will be able to attach any document if the supporting document details mentioned in the Announcement
   Validate if suppoting document is not uploaded by user while submitting the application then the system should throw an error message on screen
   Validate user will be able to view and add additional focus areas while creating an application only when the published announcemnt has additional focus areas
@@ -900,15 +900,14 @@ Feature: Application Intake scenarios without background
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
     When I click on "Submit Application" in the page details
-    #IssueisResolveNeedtocheckforthisscenario #checktagabove
     Then I softly see the following messages in the page details contains:
-      | Attachments Tab - Each mandatory item listed in the checklist must be completed before submitting this Application. |
+      | Forms and Files Tab - Complete each mandatory item listed in the checklist before submitting this Application. |
     When I navigate to "Forms and Files" sub tab
-    And I click on "Upload Template" icon for "Application" inside flex table with id "ApplicationChecklistsFlexGrid" with wait for record
-    And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
+    And I click on "Upload Template" icon for "Automation" inside flex table with id "ApplicationChecklistsFlexGrid" with wait for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I softly see "Supporting Documents" has been added in "Supporting Documents Checklist" flex table
+    Then I softly see "Attachment.pdf" has been added in "Supporting Documents Checklist" flex table
 
   @73750 @73751 @validateFilterCriteriaForGoalsAndObjectives
   Scenario: Validate the searched functionality for goals and Objectives Associated in section of Performance tab in Application | Validate the filter criteria for Goals and Objectives in Proposal Tab while creating Application
@@ -1109,7 +1108,7 @@ Feature: Application Intake scenarios without background
 #    Then I softly see the following messages in the page details contains:
 #      | Application is successfully qualified |
 
-  @75501 @75502 @otherOrgUserCanAlsoQualifyAndCreateApplication @TBExecution1
+  @75501 @75502 @otherOrgUserCanAlsoQualifyAndCreateApplication
   Scenario: Validate Opportunities created from 'Competitive Announcements' are available for all External users under Oppurtunities
   Validate Opportunities created from 'Competitive Announcements' are available for all external users and can qualify and create the Applications
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
@@ -1350,7 +1349,7 @@ Feature: Application Intake scenarios without background
     When I click on "Submit Application" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @77585 @expiredApplicationErrorMessage @TBExecution
+  @77585 @expiredApplicationErrorMessage
   Scenario: Validate user should not be able to Qualify on the Closed opportunity and an error message is displayed as "Funding Opportunity Cannot be Qualified after Deadline"
     When I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -1391,7 +1390,7 @@ Feature: Application Intake scenarios without background
     When I download the file
     Then I see "Created" on page "1" of "govgrants" pdf file
 
-  @195250 @sprint-12-US-226646 @reassignment @TBExecution
+  @195250 @sprint-12-US-226646 @reassignment
   Scenario: Validate application related pending task should generated for new Ann owner if application created from old owner even if Ann ownership task reassign to other user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1502,9 +1501,9 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---applicationReview:-:announcementListTableId---"
 
-  @196695  @sprint-4-US-197579 @reassignment @TBExecution1
+  @196695  @sprint-4-US-197579 @reassignment @TBExecution
   Scenario: Validate App Application is transfer to new user after Ann ownership will get change with setting pre-app as 'Yes'
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation EXE user"
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -1578,10 +1577,6 @@ Feature: Application Intake scenarios without background
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000   | 100        | 100            |
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1610,7 +1605,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @196705  @sprint-4-US-197579 @reassignment @TBExecution
+  @196705  @sprint-4-US-197579 @reassignment
   Scenario: Validate App-Rev New PO owner can initiate app review process if it's related Ann owner will change ownership and assign to new user
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -1810,7 +1805,7 @@ Feature: Application Intake scenarios without background
     And I wait for "3" seconds
     Then I softly see field "Created by" as "Automation SPI3"
 
-  @196713 @ValidateAppoldownercanonlyviewtheapplicationoncetheAnnownerchangehisownershipfromEXEtonewEXEuser @sprint-4-US-197579  @reassignment @TBExecution1
+  @196713 @ValidateAppoldownercanonlyviewtheapplicationoncetheAnnownerchangehisownershipfromEXEtonewEXEuser @sprint-4-US-197579 @reassignment
   Scenario: Validate App old owner can only view the application once the Ann owner change his ownership from EXE to new EXE user
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1946,7 +1941,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Proposal" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---applicationReview:-:kpiTableId---"
 
-  @Bug-402305-Hold  @196756 @196759  @sprint-4-US-197579  @reassignment @TBExecution1
+  @Bug-402305-Hold  @196756 @196759  @sprint-4-US-197579 @reassignment
   Scenario: Validate App-Rev New EXE owner can initiate app review process if it's related Ann owner will change ownership and assign to new user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -2024,7 +2019,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Related Log" sub tab
     Then I softly can see top right button "Validate" in flex table with id "---applicationReview:-:reviewStepsTableId---"
 
-  @196855  @sprint-4-US-197579  @reassignment @TBExecution
+  @196855  @sprint-4-US-197579  @reassignment
   Scenario: Validate App-Rev new App owner can see 'related log' tab after Ann ownership will get change
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation PM1 user"
     When I am on "SUBPORTAL" portal
@@ -2093,7 +2088,7 @@ Feature: Application Intake scenarios without background
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     Then I softly can see "Related Log" sub tab at view detail page
 
-  @197064 @sprint-4-US-197579 @reassignment @TBExecution1
+  @197064 @sprint-4-US-197579 @reassignment
   Scenario: Validate App email should be generated for new owner for App if it's related Ann ownership assign to other user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     When I am on "SUBPORTAL" portal

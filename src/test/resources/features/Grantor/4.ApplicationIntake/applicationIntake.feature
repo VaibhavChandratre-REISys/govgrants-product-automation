@@ -51,7 +51,7 @@ Feature: Validate all scenarios in the Application Intake
     Then I see value "$100.00" for title "Non-Cash Match" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
     Then I see value "$100.00" for title "Other Leverage" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
 
-  @50967 @addTargetToKPIInApplication @TBExecution
+  @50967 @addTargetToKPIInApplication
   Scenario: Addition of KPI target to an application
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
@@ -60,7 +60,7 @@ Feature: Validate all scenarios in the Application Intake
     Then I see the following messages in the page details contains:
       | Saved Successfully! |
 
-  @70333 @69367 @50969 @formFillingApplication @smoke @TBExecution1
+  @70333 @69367 @50969 @formFillingApplication @smoke
   Scenario: To fill and complete the form in Application | Validate whether user is allowed to proceed without filling Mandatory forms
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -102,7 +102,7 @@ Feature: Validate all scenarios in the Application Intake
     Then I softly see value "100.00%" for title "Percentage" against the value "Program Application Form" inside table "---applicationIntake:-:allFormsTableId---"
     Then I softly see value "100.00%" for title "Percentage" against the value "Standard Assurances Form" inside table "---applicationIntake:-:allFormsTableId---"
 
-  @34346 @73602 @34334 @70459 @viewSubmitedApplication @smoke @TBExecution
+  @34346 @73602 @34334 @70459 @viewSubmitedApplication @smoke
   Scenario Outline: Validate Viewing the application submitted by sub-recipient as Internal user | Validate whether user can view the edit button once application has been submitted to Grantor
   Verify whether PM, FO,EXE internal user is able to view Submitted Application | Verify when SPI (Record owner of Application) submit the Application to Grantor then it is displayed in the list of Submitted Applications
     When I click on "Edit" in the page details
@@ -199,7 +199,7 @@ Feature: Validate all scenarios in the Application Intake
     Then I see the following messages in the page details :
       | Overview Tab - Enter an Acknowledgement for project cost before submitting this Application. |
 
-  @70455 @kpiValuesAreMandatoryToSubmitApplication @TBExecution1
+  @70455 @kpiValuesAreMandatoryToSubmitApplication
   Scenario:  To verify that if KPI value is unfilled while creating and application and upon clicking on the Submit Application on the top right corner of the page validation error must be thrown.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -266,7 +266,7 @@ Feature: Validate all scenarios in the Application Intake
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---applicationIntake:-:ApplicationNotesTableId---"
 
-  @73521 @70526 @snapshotAfterApplicationIsSubmitted @TBExecution
+  @73521 @70526 @snapshotAfterApplicationIsSubmitted
   Scenario Outline: Validate SR user is able to view the Snapshot after Application is Submitted to Grantor status| Validate once the Application is submitted to Grantor then the field Submitted by on Overview Tab will get updated by the User Name.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -325,7 +325,7 @@ Feature: Validate all scenarios in the Application Intake
     #When I perform quick search for "Automation SPA" in "---applicationReview:-:flexGridAppContactTableId---" panel
     Then I softly see value "Automation SPA" for title "Name" inside table "---applicationReview:-:flexGridAppContactTableId---"
 
-  @73944 @73945 @71409 @73947 @73950 @73948 @73949 @TBExecution1
+  @73944 @73945 @71409 @73947 @73950 @73948 @73949
   Scenario: Validate whether User  will be able to view the following error message "Reached the Maximum number of Applications" when the limit has been reached.
   To verify Converted Opportunities should reflect under Opportunities "Converted to Application - Open" list view to External user
   | To verify ,search functionality for Opportunities Converted to Application - All section in opportunities tab
