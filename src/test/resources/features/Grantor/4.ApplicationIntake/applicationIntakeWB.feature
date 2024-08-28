@@ -852,7 +852,7 @@ Feature: Application Intake scenarios without background
       | User | userType        |
       | SPI3 | Automation SPI3 |
 
-  @73516 @73517 @supportingDocValidationOnApplication @TBExecution
+  @73516 @73517 @supportingDocValidationOnApplication
   Scenario: Validate whether User will be able to attach any document if the supporting document details mentioned in the Announcement
   Validate if suppoting document is not uploaded by user while submitting the application then the system should throw an error message on screen
   Validate user will be able to view and add additional focus areas while creating an application only when the published announcemnt has additional focus areas
@@ -1501,7 +1501,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---applicationReview:-:announcementListTableId---"
 
-  @196695  @sprint-4-US-197579 @reassignment @TBExecution
+  @196695  @sprint-4-US-197579 @reassignment
   Scenario: Validate App Application is transfer to new user after Ann ownership will get change with setting pre-app as 'Yes'
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation EXE user"
     When I login to "As a Grantor" app as "ADMIN" user
