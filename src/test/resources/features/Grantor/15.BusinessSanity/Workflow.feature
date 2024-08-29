@@ -1532,17 +1532,15 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug
+  @debug11
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantor" app as "PM" user
-    And I wait for "5" seconds
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:PM Username}  | Step 1 |
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 2 |
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:FO Username}  | Step 3 |
+    And I login to "As a Grantor" app as "dynamicUser" user
+    When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
+    When I perform quick search for " Automation Runtime764166687 User" in "{grantor_tableId:SubrecipientIndRegistration}" panel
+    And I save the value from row "1" for column name "Full Name" as "UserFullName" from flex table "{grantor_tableId:SubrecipientIndRegistration}"
+    And I wait for "2" seconds
+    And I navigate to "Home" tab
+    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+    When I reassign task to "Automation PM1"
+    When I perform quick search for "{SavedValue:UserFullName}" in "---program:-:grantorTaskReassignTableId---" panel
+    Then I softly do not see value "Review Individual User Registration" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
