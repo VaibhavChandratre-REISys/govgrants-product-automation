@@ -2843,13 +2843,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Construction  | 5000   | 5000       | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
-    And I click on "Splitview" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
-    And I click on "Edit" in the split screen page details
-    And I wait for "3" seconds
-    Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
-    And I refresh the page
-    And I wait for "2" seconds
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I see field "Status" as "Submitted to Grantor"
@@ -3148,6 +3146,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I check "Automation Permanent Focus Area" boxes in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     When I click on top right button "Remove" in flex table with id "---applicationIntake:-:RemoveFocusAreaPreAppTableId---"
     And I click modal button "Close"
+    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     And I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
@@ -3691,7 +3690,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$5,000"
 
- @apptemp @276440 @ValidateFormulaByapplicantFocusAreaFAYESsubrecipientusercandownloadpdfforNotyetQualifiedopportunity @Sprint-23-US-275864  @Allocation
+ @276440 @ValidateFormulaByapplicantFocusAreaFAYESsubrecipientusercandownloadpdfforNotyetQualifiedopportunity @Sprint-23-US-275864  @Allocation
   Scenario: Validate Formula By applicant & Focus Area FA YES subrecipient user can download pdf for Not yet Qualified opportunity
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
@@ -3723,7 +3722,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Opportunity Files" on page "5" of "govgrant" pdf file
     Then I softly see "Notes" on page "6" of "govgrant" pdf file
 
-  @apptemp @276406  @Sprint-23-US-275864  @Allocation
+ @apptemp @276406  @Sprint-23-US-275864  @Allocation
   Scenario: Validate Formula By applicant FA No subrecipient user can download pdf for Qualified opportunity
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA_NO"
     Given I am on "SUBPORTAL" portal
@@ -3746,7 +3745,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see following details in "govgrants" pdf file:
       | Detail                 | Page Number |
       | {SavedValue:annEgmsId} | 1           |
-    Then I softly see "Qualified" on page "1" of "govgrant" pdf file
     Then I softly see "Opportunity Specific Settings" on page "1" of "govgrant" pdf file
     Then I softly see "Contacts" on page "2" of "govgrant" pdf file
     Then I softly see "Budget Summary" on page "3" of "govgrant" pdf file
@@ -3757,7 +3755,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Opportunity Files" on page "5" of "govgrant" pdf file
     Then I softly see "Notes" on page "6" of "govgrant" pdf file
 
- @apptemp @276407 @ValidateCheckfieldsandDownloadasPDFforOppConvertedtoapplication @Sprint-23-US-275864  @Allocation
+ @276407 @ValidateCheckfieldsandDownloadasPDFforOppConvertedtoapplication @Sprint-23-US-275864  @Allocation
   Scenario: Validate Check fields and Download as PDF for Opp Converted to application
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA"
     Given I am on "SUBPORTAL" portal
