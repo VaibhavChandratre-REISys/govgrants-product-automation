@@ -2884,7 +2884,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     When I check "Automation Permanent Focus Area2" boxes in flex table with id "---applicationIntake:-:focusAreaAssociateTableId---"
     When I click on top right button "Add" in flex table with id "---applicationIntake:-:focusAreaAssociateTableId---"
-    And I close modal by clicking the top right x button
+    And I click modal button "Close"
     Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area" inside table "---applicationIntake:-:focusAreaTableAppId---"
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
