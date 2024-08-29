@@ -273,7 +273,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "Edit" against "Notes Record Of ADMIN User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record Of ADMIN User" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
 
-  @225107 @225109 @ValidatePMPOEXEADMINusercannotAddnotesbutEditDeletetheirownnotesonpreapplicationsinRejectedstate @Sprint-11-US-224418 @Notes @TBExecution1
+  @225107 @225109 @ValidatePMPOEXEADMINusercannotAddnotesbutEditDeletetheirownnotesonpreapplicationsinRejectedstate @Sprint-11-US-224418 @Notes
   Scenario Outline: Validate PM PO EXE ADMIN user can not 'Add' notes but 'Edit/Delete' their own notes on pre-application is in 'Rejected' state
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-<filter>"
     When I am on "SUBPORTAL" portal

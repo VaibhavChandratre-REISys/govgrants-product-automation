@@ -206,10 +206,6 @@ Feature: Validate all scenarios in the Pre-Application
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
     And I close the tab
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
-      | Name                       |  Is Key Contact |
-      | {SavedValue:SPI3 Username} |  Checked        |
     When I click on "Submit Application" in the page details
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
     Given I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
