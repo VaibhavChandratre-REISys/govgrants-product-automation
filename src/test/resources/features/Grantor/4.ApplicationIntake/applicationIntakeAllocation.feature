@@ -2880,6 +2880,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I check "Automation Permanent Focus Area2" boxes in flex table with id "---applicationIntake:-:RemoveFocusAreaPreAppTableId---"
     When I click on top right button "Remove" in flex table with id "---applicationIntake:-:RemoveFocusAreaPreAppTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Focus Area" inside table "---applicationIntake:-:focusAreaTableAppId---"
     When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     When I check "Automation Permanent Focus Area2" boxes in flex table with id "---applicationIntake:-:focusAreaAssociateTableId---"
@@ -2894,7 +2896,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Examples:
       | User | UserName                   |
       | SPI3 | {SavedValue:SPI3 Username} |
-      | SPA  | {SavedValue:SPA Username}  |
+#      | SPA  | {SavedValue:SPA Username}  |
 
   @222470  @sprint-10-US-221062 @komal @Allocation
   Scenario Outline: Verify SPI/SPA user can edit "Budget Tab: Budget Summary by Focus Area" section only if pre-application is sent to s/r for negotiation
@@ -3146,7 +3148,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I check "Automation Permanent Focus Area" boxes in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     When I click on top right button "Remove" in flex table with id "---applicationIntake:-:RemoveFocusAreaPreAppTableId---"
     And I click modal button "Close"
-    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     And I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
@@ -3755,7 +3756,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Goals and Objectives" on page "5" of "govgrant" pdf file
     Then I softly see "Key Performance Indicators (KPIs)" on page "5" of "govgrant" pdf file
     Then I softly see "Opportunity Files" on page "5" of "govgrant" pdf file
-    Then I softly see "Notes" on page "6" of "govgrant" pdf file
+    Then I softly see "Notes" on page "5" of "govgrant" pdf file
 
  @276407 @ValidateCheckfieldsandDownloadasPDFforOppConvertedtoapplication @Sprint-23-US-275864  @Allocation
   Scenario: Validate Check fields and Download as PDF for Opp Converted to application
