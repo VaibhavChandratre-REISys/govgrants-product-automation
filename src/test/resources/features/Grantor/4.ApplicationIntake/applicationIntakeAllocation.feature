@@ -2533,7 +2533,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
-    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3023,7 +3022,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Save" in the page details
     And I navigate to "Negotiations" sub tab
     And I wait for "2" seconds
-    Then I softly see field "Pre-Application Sections for Negotiation" as "Budget Tab: Budget Summary by Focus Area Budget Tab: Budget Details"
+    Then I softly see field "Pre-Application Sections for Negotiation" as "Budget Tab: Budget Summary by Focus Area"
+    Then I softly see field "Pre-Application Sections for Negotiation" as "Budget Tab: Budget Details"
     And I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
     And I navigate to "Negotiations" sub tab
@@ -3376,7 +3376,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     When I navigate to "Overview" sub tab
-#    And I expand nested table containing column value "Automation IND"
+    And I expand nested table containing column value "Automation IND"
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 2000              |
@@ -3553,7 +3553,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
-    Then I softly see field "Allocation Amount" as "$1,000.00"
+    Then I softly see field "Allocation Amount" as "$1,000"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -3561,7 +3561,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     When I navigate to "Overview" sub tab
-#    And I expand nested table containing column value "Automation IND"
+    And I expand nested table containing column value "Automation IND"
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 2000              |
