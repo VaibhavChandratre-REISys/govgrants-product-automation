@@ -3314,7 +3314,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @apptemp @274170 @ValidateFormulaPMusercanupdateallocationonparticularFAonApplicantunderApplicantsectiononAnnouncementbeforesubmittingapplication&seeupdatedAllocationAmountonsameApplication&seevalidationFAYES&AllocationTypeByApplicant @Sprint-23-US-273843  @Allocation
+  @274170 @ValidateFormulaPMusercanupdateallocationonparticularFAonApplicantunderApplicantsectiononAnnouncementbeforesubmittingapplication&seeupdatedAllocationAmountonsameApplication&seevalidationFAYES&AllocationTypeByApplicant @Sprint-23-US-273843  @Allocation
   Scenario: Validate Formula PM user can update allocation on particular FA on Applicant under Applicant section on Announcement before submitting application & see updated Allocation Amount on same Application & see validation FA YES Allocation Type By Applicant
     Given I published "Formula" type announcement having name "AnnEGMSID" and properties "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO-Automation PM user"
     When I am on "SUBPORTAL" portal
@@ -3450,7 +3450,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Budget Tab - The Subrecipient Match should not be less than the given value.                   |
       | Budget Tab - Enter budget details before submitting an Application to the Grantor.             |
 
-  @apptemp @274172 @ValidatePMusercanupdateallocationonparticularApplicantacrossFAunderApplicantsectiononAnnouncementaftersubmittingapplicationseeupdatedAllocationAmountonsameApplicationFAYES&AllocationTypeByApplicant @Sprint-23-US-273843  @Allocation
+  @274172 @ValidatePMusercanupdateallocationonparticularApplicantacrossFAunderApplicantsectiononAnnouncementaftersubmittingapplicationseeupdatedAllocationAmountonsameApplicationFAYES&AllocationTypeByApplicant @Sprint-23-US-273843  @Allocation
   Scenario: Validate PM user can update allocation on particular Applicant across FA under Applicant section on Announcement after submitting application & see updated Allocation Amount on same Application FA YES & Allocation TypeBy Applicant
     Given I published "Formula" type announcement having name "AnnEGMSID" and properties "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO-Automation PM user"
     Given I am on "SUBPORTAL" portal
