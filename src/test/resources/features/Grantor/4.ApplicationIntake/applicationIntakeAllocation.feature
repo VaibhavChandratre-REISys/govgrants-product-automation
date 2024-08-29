@@ -2521,7 +2521,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I switch to tab number "1"
     And I wait for "3" seconds
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    And I click on "Save" in the split screen page details
+    And I click on "Save" in the page details
     And I switch to parent tab
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
@@ -3341,7 +3341,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    Given I published "Formula" type announcement having name "AnnEGMSID1" and properties "Automation PM user"
+    Given I published "Formula" type announcement having name "AnnEGMSID1" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:AnnEGMSID1}" in "---applicationReview:-:reviewsTableId---" panel
@@ -3502,7 +3502,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
     Then I softly see field "Allocation Amount" as "$1,000.00"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    Given I published "Formula" type announcement having name "AnnEGMSID1" and properties "Automation PM user"
+    Given I published "Formula" type announcement having name "AnnEGMSID1" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation PM user"
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:AnnEGMSID1}" in "---applicationReview:-:reviewsTableId---" panel
