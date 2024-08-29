@@ -2623,7 +2623,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
 
     Examples:
       | User | UserName                   |
-#      | SPI3 | {SavedValue:SPI3 Username} |
+      | SPI3 | {SavedValue:SPI3 Username} |
       | SPA  | {SavedValue:SPA Username}  |
 
   @222481 @VerifySPISPAusercanaddremovefocusareaintheBudgetTabBudgetSummarybyFocusAreasectiononlyifpreapplicationissenttosrfornegotiation @sprint-10-US-221062 @komal @Allocation
@@ -2752,7 +2752,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SPI3 | {SavedValue:SPI3 Username} |
       | SPA  | {SavedValue:SPA Username}  |
 
-  @222470 @sprint-10-US-221062 @komal @Allocation @TBExecution
+  @222470 @sprint-10-US-221062 @komal @Allocation
   Scenario Outline: Verify SPI/SPA user can edit "Budget Tab: Budget Summary by Focus Area" section only if pre-application is sent to s/r for negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2821,7 +2821,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see top right button "Remove Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     Examples:
       | User | UserName                   |
-#      | SPI3 | {SavedValue:SPI3 Username} |
+      | SPI3 | {SavedValue:SPI3 Username} |
       | SPA  | {SavedValue:SPA Username}  |
 
   @222695 @VerifyBudgetsummarybyfocusareasectionshouldbehiddenonpreappiffocusareasetasNoonAnnbutstilltheoptionBudgetsummarybyfocusareaonpreappnegotiation @sprint-10-US-221062 @komal @Allocation

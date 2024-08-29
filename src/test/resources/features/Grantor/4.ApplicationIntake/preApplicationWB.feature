@@ -1916,7 +1916,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Negotiations" sub tab
     Then I softly see "Applicant Response" page block displayed
 
-  @174700 @Theeditbuttonisdisplayedonpre-applicationsonsubrecipientside @Sprint-8 @Vrishali @TBExecution2
+  @174700 @Theeditbuttonisdisplayedonpre-applicationsonsubrecipientside @Sprint-8 @Vrishali
   Scenario: Verify the edit button is displayed on pre-applications on subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2558,11 +2558,12 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
+    When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     Then I softly see fields "Title__c" is in edit mode
-    Then I softly see fields "ProjectAbstract__c" is in edit mode
-    Then I softly see fields "ProjectGoal__c" is in edit mode
-    Then I softly see fields "ProjectBeneficiaries__c" is in edit mode
+    Then I see textarea field "ProjectAbstract__c" is editable
+    Then I see textarea field "ProjectGoal__c" is editable
+    Then I see textarea field "ProjectBeneficiaries__c" is editable
     And I navigate to "Forms and Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
 
@@ -2795,7 +2796,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     Then I can see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
 
-  @180691 @ValidateuserselecttheFilesandFormsFormsandhavenotselectedanyformfornegotiationToShowErrorMessage @sprint-10 @TBExecution2
+  @180691 @ValidateuserselecttheFilesandFormsFormsandhavenotselectedanyformfornegotiationToShowErrorMessage @sprint-10
   Scenario: Validate user select the Forms and Files Forms and have not selected any form for negotiation To Show Error Message
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2923,7 +2924,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I navigate to "Forms and Files" sub tab
     And I wait for "2" seconds
-    And I navigate to "Form" sub tab
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "View" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I wait for "2" seconds
     And I switch to tab number "1"
@@ -2932,7 +2933,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see field "1a. Organizational capacity. (10 points)" as "9"
     Then I softly see field "1b. Experience Level. (10 points)" as "0-5 years"
 
-  @180659 @180658 @ValidateannouncementownershouldabletoseetheFilesandFormsFormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10 @TBExecution2
+  @180659 @180658 @ValidateannouncementownershouldabletoseetheFilesandFormsFormsoptioninthepreapplicationsectionforNegotiationtabatgrantorside @sprint-10
   Scenario: Validate announcement owner should able to see the Forms and Files Forms option in the pre application section for Negotiation tab at grantor side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -3018,7 +3019,7 @@ Feature: Pre-Application scenarios without background
       | Directed          | ---announcement:-:annoucementTableId---             | Creation Second Modal        |
       | Formula           | ---announcement:-:formulaAnnouncementTableId---     | Creation_Formula_ByApplicant |
 
-  @180699 @VerifyIfFormselectedforedit&usernotadded"Files&Forms:Forms"inApplicationsection,usershouldgeterroronsenttos/rclickatgrantorside. @Sprint-10 @Vrishali @TBExecution2
+  @180699 @VerifyIfFormselectedforedit&usernotadded"Files&Forms:Forms"inApplicationsection,usershouldgeterroronsenttos/rclickatgrantorside. @Sprint-10 @Vrishali
   Scenario: Verify If the Form is selected for edit, and user have not added the "Forms and Files: Forms" in the Application section, then user should get error on sent to s/r click at grantor side.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -3183,6 +3184,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Negotiations" sub tab
     When I enter "Nego_Edit1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "Due Date" as "DueDate1"
     Then I softly can see top right button "Send to Subrecipient" in page detail
     And I click on "Send to Subrecipient" in the page details
