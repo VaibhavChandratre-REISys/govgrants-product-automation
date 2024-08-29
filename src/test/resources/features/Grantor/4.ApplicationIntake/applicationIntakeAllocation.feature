@@ -2289,7 +2289,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     Then I softly can see top right button "Remove Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
 
-  @apptemp @222478 @VerifyINDusercannoteditBudgetTabBudgetSummarybyFocusAreasectioninnegotiationacceptstateforpreapp @sprint-10-US-221062 @komal @Allocation
+  @222478 @VerifyINDusercannoteditBudgetTabBudgetSummarybyFocusAreasectioninnegotiationacceptstateforpreapp @sprint-10-US-221062 @komal @Allocation
   Scenario: Verify IND user can not edit "Budget Tab: Budget Summary by Focus Area" section in negotiation accept state for pre-app
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2518,9 +2518,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I pause execution for "3" seconds
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
     And I wait for "3" seconds
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
+    And I switch to parent tab
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "5" seconds
@@ -2846,6 +2848,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "3" seconds
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
+    And I refresh the page
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
@@ -2879,7 +2882,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on top right button "Remove Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     When I check "Automation Permanent Focus Area2" boxes in flex table with id "---applicationIntake:-:RemoveFocusAreaPreAppTableId---"
     When I click on top right button "Remove" in flex table with id "---applicationIntake:-:RemoveFocusAreaPreAppTableId---"
-    And I close modal by clicking the top right x button
+    And I click modal button "Close"
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Focus Area" inside table "---applicationIntake:-:focusAreaTableAppId---"
     When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     When I check "Automation Permanent Focus Area2" boxes in flex table with id "---applicationIntake:-:focusAreaAssociateTableId---"
@@ -3022,7 +3025,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on "Save" in the page details
     And I navigate to "Negotiations" sub tab
     And I wait for "2" seconds
-    Then I softly see field "Pre-Application Sections for Negotiation" as "Budget Tab: Budget Summary by Focus Area;Budget Tab: Budget Details"
+    Then I softly see field "Pre-Application Sections for Negotiation" as "Budget Tab: Budget Summary by Focus Area Budget Tab: Budget Details"
     And I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
     And I navigate to "Negotiations" sub tab
@@ -3144,7 +3147,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click on top right button "Remove Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     When I check "Automation Permanent Focus Area" boxes in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     When I click on top right button "Remove" in flex table with id "---applicationIntake:-:RemoveFocusAreaPreAppTableId---"
-    And I close modal by clicking the top right x button
+    And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     And I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
@@ -3449,7 +3452,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
 
   @apptemp @274172 @ValidatePMusercanupdateallocationonparticularApplicantacrossFAunderApplicantsectiononAnnouncementaftersubmittingapplicationseeupdatedAllocationAmountonsameApplicationFAYES&AllocationTypeByApplicant @Sprint-23-US-273843  @Allocation
   Scenario: Validate PM user can update allocation on particular Applicant across FA under Applicant section on Announcement after submitting application & see updated Allocation Amount on same Application FA YES & Allocation TypeBy Applicant
-    Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO-Automation PM user"
+    Given I published "Formula" type announcement having name "AnnEGMSID" and properties "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO-Automation PM user"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "IND" user
     And I navigate to "Opportunities" tab
@@ -3716,7 +3719,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Goals and Objectives" on page "5" of "govgrant" pdf file
     Then I softly see "Key Performance Indicators (KPIs)" on page "5" of "govgrant" pdf file
     Then I softly see "Opportunity Files" on page "5" of "govgrant" pdf file
-    Then I softly see "Notes" on page "5" of "govgrant" pdf file
+    Then I softly see "Notes" on page "6" of "govgrant" pdf file
 
   @apptemp @276406  @Sprint-23-US-275864  @Allocation
   Scenario: Validate Formula By applicant FA No subrecipient user can download pdf for Qualified opportunity
@@ -3750,7 +3753,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Goals and Objectives" on page "5" of "govgrant" pdf file
     Then I softly see "Key Performance Indicators (KPIs)" on page "5" of "govgrant" pdf file
     Then I softly see "Opportunity Files" on page "5" of "govgrant" pdf file
-    Then I softly see "Notes" on page "5" of "govgrant" pdf file
+    Then I softly see "Notes" on page "6" of "govgrant" pdf file
 
  @apptemp @276407 @ValidateCheckfieldsandDownloadasPDFforOppConvertedtoapplication @Sprint-23-US-275864  @Allocation
   Scenario: Validate Check fields and Download as PDF for Opp Converted to application
@@ -3796,7 +3799,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see "Goals and Objectives" on page "5" of "govgrant" pdf file
     Then I softly see "Key Performance Indicators (KPIs)" on page "5" of "govgrant" pdf file
     Then I softly see "Opportunity Files" on page "5" of "govgrant" pdf file
-    Then I softly see "Notes" on page "5" of "govgrant" pdf file
+    Then I softly see "Notes" on page "6" of "govgrant" pdf file
 
   @274151 @VerifywhenSPIuserresubmittheapplicationafternegotiationfromFDMcheckFocusareasbudgetedtotalmustbeequaltoAllocationamountforthatfocusareainbudgetsummarysection @Sprint-23-US-273843  @Allocation
   Scenario Outline: Verify when SPI user  resubmit the application after negotiation(from FDM) check Focus area's budgeted total, must be equal to Allocation amount for that focus area in budget summary section
