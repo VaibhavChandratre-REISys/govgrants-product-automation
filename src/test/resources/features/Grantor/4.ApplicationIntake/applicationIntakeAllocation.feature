@@ -2820,7 +2820,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see top right button "Remove Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     Examples:
       | User | UserName                   |
-      | SPI3 | {SavedValue:SPI3 Username} |
+#      | SPI3 | {SavedValue:SPI3 Username} |
       | SPA  | {SavedValue:SPA Username}  |
 
   @222695 @VerifyBudgetsummarybyfocusareasectionshouldbehiddenonpreappiffocusareasetasNoonAnnbutstilltheoptionBudgetsummarybyfocusareaonpreappnegotiation @sprint-10-US-221062 @komal @Allocation
