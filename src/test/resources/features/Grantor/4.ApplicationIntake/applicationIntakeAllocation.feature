@@ -2557,11 +2557,15 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I check "Automation Permanent Focus Area2" boxes in flex table with id "---applicationIntake:-:RemoveFocusAreaPreAppTableId---"
     When I click on top right button "Remove" in flex table with id "---applicationIntake:-:RemoveFocusAreaPreAppTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Focus Area" inside table "---applicationIntake:-:focusAreaTableAppId---"
     When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     When I check "Automation Permanent Focus Area2" boxes in flex table with id "---applicationIntake:-:focusAreaAssociateTableId---"
     When I click on top right button "Add" in flex table with id "---applicationIntake:-:focusAreaAssociateTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area" inside table "---applicationIntake:-:focusAreaTableAppId---"
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Negotiations" sub tab
@@ -2889,6 +2893,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I check "Automation Permanent Focus Area2" boxes in flex table with id "---applicationIntake:-:focusAreaAssociateTableId---"
     When I click on top right button "Add" in flex table with id "---applicationIntake:-:focusAreaAssociateTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area" inside table "---applicationIntake:-:focusAreaTableAppId---"
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
@@ -2973,7 +2979,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SPI3 | {SavedValue:SPI3 Username} |
       | SPA  | {SavedValue:SPA Username}  |
 
- @apptemp @222695 @VerifyBudgetsummarybyfocusareasectionshouldbehiddenonpreappiffocusareasetasNoonAnnbutstilltheoptionBudgetsummarybyfocusareaonpreappnegotiation @sprint-10-US-221062 @komal @Allocation
+ @222695 @VerifyBudgetsummarybyfocusareasectionshouldbehiddenonpreappiffocusareasetasNoonAnnbutstilltheoptionBudgetsummarybyfocusareaonpreappnegotiation @sprint-10-US-221062 @komal @Allocation
   Scenario: Verify 'Budget summary by focus area' section should be hidden on pre-app if focus area set as 'No' on Ann but still the option 'Budget summary by focus area' on pre-app negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APP_YES_NEGO_YES_FOCUS_AREA_NO"
     When I am on "SUBPORTAL" portal
