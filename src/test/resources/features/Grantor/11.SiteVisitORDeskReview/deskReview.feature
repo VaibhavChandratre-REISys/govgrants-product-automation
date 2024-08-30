@@ -1545,7 +1545,7 @@ Feature: Validate all scenarios in Desk Review
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @Add1 @204188 @DeskReviewVerifyPOusercanabletoseetopleveleditbuttonandabletoAddfileinCreatedstateofDeskReview
+  @@204188 @DeskReviewVerifyPOusercanabletoseetopleveleditbuttonandabletoAddfileinCreatedstateofDeskReview
   Scenario: DDesk Review>>Verify PO user can able to see top level edit button and able to 'Add file' in 'Created' state of Desk Review
     And I pause execution for "4" seconds
     When I navigate to "Files" sub tab
