@@ -2238,21 +2238,29 @@ public final class GovGrantsAssertionObjects {
             Assert.assertTrue(isSpecificOverlayDisplayed(titleName));
         } else if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isSpecificOverlayDisplayed(titleName)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isSpecificOverlayDisplayed(titleName)).isFalse();
+        } else {
+            Assert.assertFalse(isSpecificOverlayDisplayed(titleName));
         }
     }
 
     private boolean isSpecificOverlayDisplayed(String titleName) {
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         boolean flag = false;
-        if (I.amPerforming().checkToSee().isDisplayed(getOverLayTitle(titleName))) {
-            flag = true;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(getOverLayTitle(titleName))) {
+                flag = true;
+            }
+        } catch(Exception ignored){
+
         }
         return flag;
     }
 
     private WebElement getOverLayTitle(String titleName) {
         return I.amPerforming().getElementReference().of(ByUsing.xpath(
-                "//header[contains(@class,'modal-header')]//h2[text()='" + titleName + "'] | //div[contains(@class,'modal-header')]//h1[text()='" + titleName + "']"));
+                "//header[contains(@class,'modal-header')]//h2[text()='" + titleName + "'] | //div[contains(@class,'modal-header')]//h1[text()='" + titleName + "'] | //lightning-modal-header[contains(@class,'modal-header')]//h1[text()='" + titleName + "']"));
     }
 
     /**
@@ -2683,7 +2691,7 @@ public final class GovGrantsAssertionObjects {
      * @modifer: keerti.munde
      */
     public boolean isAsteriskMarkDisplayed(String fieldName) {
-        By fieldsAtPageDetails = By.xpath("//*[text()='" + fieldName + "']//span[contains(@class,'requiredField')] | //div[@id='" + fieldName + "']//span[contains(@class,'requiredFieldSubmit fa fa-exclamation-triangle')] | //div[@id='" + fieldName + "']//span[contains(@class,'requiredField')]");
+        By fieldsAtPageDetails = By.xpath("//div[@data-field_api_name='" + fieldName + "']//span[contains(@class,'required-for-save')] | //label[text()='" + fieldName + "']/..//span[contains(@class,'required-for-save')]");
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(fieldsAtPageDetails)) {
@@ -3897,6 +3905,29 @@ public final class GovGrantsAssertionObjects {
         if (I.amPerforming().checkToSee().isEnabled(element) && I.amPerforming().checkToSee().isDisplayed(element)) {
             I.amPerforming().click().on(element);
             flag = true;
+        }
+        return flag;
+    }
+
+    public void assertloginPageButtons(String usage, String buttonName) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isloginPageButtonsDisplay(buttonName)).isTrue();
+        }  else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isloginPageButtonsDisplay(buttonName));
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isloginPageButtonsDisplay(buttonName)).isFalse();
+        } else{
+            Assert.assertFalse(isloginPageButtonsDisplay(buttonName));
+        }
+    }
+
+    private boolean isloginPageButtonsDisplay(String buttonName) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@class='loginWindow1']//button[@type='button' and text()='" + buttonName + "']"))) {
+                flag = true;
+            }
+        } catch (org.openqa.selenium.NoSuchElementException e) {
         }
         return flag;
     }

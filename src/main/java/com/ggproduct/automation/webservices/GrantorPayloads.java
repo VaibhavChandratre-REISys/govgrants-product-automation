@@ -598,6 +598,8 @@ public class GrantorPayloads {
                 return updateAnnouncementWithThreeFocusAreaByappDetailsYesRiskNo(json);
             case "PROGRAM_FOR_PREAPP_SUPP_DOC_YES":
                 return updateAnnouncementWithProgramSuppDocYes(json);
+            case "PROGRAM_FOR_APP_SUPP_DOC_YES":
+                return updateApplicationWithProgramSuppDocYes(json);
             case "BY_APPLICANT_DETAILS_BUDGET_YES_RISK_NO":
                 return updateAnnouncementWithByAppDetailBudgetYes(json);
             default:
@@ -675,6 +677,15 @@ public class GrantorPayloads {
         JsonArray pre = new JsonArray();
         jsonObject.addProperty("Program", ProjectWebServices.getIdOf("Program__c", "Automation Permanent PreApp Supp Doc Yes"));
         jsonObject.addProperty("PreApplicationNeeded", "Yes");
+        pre.add(jsonObject);
+        json.add("Announcement",pre);
+        return json;
+    }
+
+    private JsonObject updateApplicationWithProgramSuppDocYes(JsonObject json) {
+        JsonObject jsonObject = json.getAsJsonArray("Announcement").get(0).getAsJsonObject();
+        JsonArray pre = new JsonArray();
+        jsonObject.addProperty("Program", ProjectWebServices.getIdOf("Program__c", "Automation Permanent App Supp Doc Yes"));
         pre.add(jsonObject);
         json.add("Announcement",pre);
         return json;

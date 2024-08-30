@@ -1760,8 +1760,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
-#    When I click modal button "Close"
-#    And I click on "Edit" icon for "Created" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
     And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details

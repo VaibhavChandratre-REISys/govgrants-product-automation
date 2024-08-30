@@ -45,8 +45,7 @@ public final class Modal {
      * @author daniel.hilla
      */
     public void closeModalByClickingTopRightCloseButton() {
-        By closeButton = By.xpath("//iframe[contains(@ng-src, '/') or contains(@src,'/')]//ancestor::div[contains(@class,'modal-content')][1]"
-                + "//div[contains(@class, 'modal-header')]//button[contains(@class, 'close')]");
+        By closeButton = By.xpath("//div[contains(@class, 'modal__container')]//button[@title='Cancel and close']");
         I.amPerforming().click().on(closeButton);
     }
 

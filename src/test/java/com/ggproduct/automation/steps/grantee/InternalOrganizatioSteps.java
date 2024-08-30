@@ -137,7 +137,7 @@ public class InternalOrganizatioSteps {
         internalOrganizationPage.assertCurrentDate(savedValue);
     }
 
-    @Then("^I (see|softly see) fields \"([^\"]*)\" is not visible$")
+    @Then("^I (see|do not see|softly see|softly do not see) fields \"([^\"]*)\" is visible$")
     public void assertVisibilityOfFields(String usage, String text) {
         internalOrganizationPage.assertVisibilityOfPageDetailsFields(usage, text);
     }

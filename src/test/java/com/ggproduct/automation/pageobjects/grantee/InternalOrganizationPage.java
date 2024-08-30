@@ -173,6 +173,10 @@ public class InternalOrganizationPage extends GranteeProjectManager {
             Assert.assertTrue(isFieldsVisibleAtPAgeDetails(fieldApiName));
         } else if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isFieldsVisibleAtPAgeDetails(fieldApiName)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isFieldsVisibleAtPAgeDetails(fieldApiName)).isFalse();
+        } else {
+            Assert.assertFalse(isFieldsVisibleAtPAgeDetails(fieldApiName));
         }
     }
 
