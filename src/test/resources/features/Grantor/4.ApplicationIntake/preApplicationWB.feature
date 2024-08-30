@@ -264,8 +264,8 @@ Feature: Pre-Application scenarios without background
    When I navigate to "Overview" sub tab
    And I wait for "2" seconds
     And I enter value "Checked" into field "Agreement5__c"
-#    And I click on "Save" in the page details
-#    When I click on "Submit to Grantor" in the page details
+    And I click on "Save" in the page details
+    When I click on "Submit to Grantor" in the page details
 #    And I pause execution for "2" seconds
 #    Then I softly see the following messages in the page details contains:
 #      | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
