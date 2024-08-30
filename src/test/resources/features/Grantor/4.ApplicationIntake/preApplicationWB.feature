@@ -1059,7 +1059,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see field "Due Date" inside page block
     Then I softly see field "Pre-Application Sections for Negotiation" inside page block
      #174883
-#    Then I softly see field "Details" as "Negotiation Initiated"
+   Then I softly see field "Details" as "Negotiation Initiated" in "Explanation of Negotiations Needed" pageblock
     And I click on "Send to Subrecipient" in the page details
     And I wait for "2" seconds
      #174860
@@ -5548,7 +5548,7 @@ Feature: Pre-Application scenarios without background
     And I wait for "3" seconds
     Then I softly see field "Status" as "Created" in "Negotiation Request Details" pageblock
     Then I softly see field "Pre-Application Sections for Negotiation" as "Files and Forms: Forms"
-    Then I softly see field "Details" as "Negotiation Initiated" in "Negotiation Request Details" pageblock
+    Then I softly see field "Details" as "Negotiation Initiated" in "Explanation of Negotiations Needed" pageblock
     And I click on "Send to Subrecipient" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Negotiation Initiated"

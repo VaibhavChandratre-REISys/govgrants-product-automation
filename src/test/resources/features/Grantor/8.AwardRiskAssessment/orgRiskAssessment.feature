@@ -295,7 +295,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I see the following messages in the page details contains:
       | A request to create new assessment has been sent to the Grantor.  Once the request has been approved, you will receive an email and can proceed with an assessment revision. |
 
-  @org @64606 @65549 @64607 @64611 @64612 @64613 @65386 @reviseAssessmentTaskNotddedtoTheTable @OrgRiskSet4
+  @64606 @65549 @64607 @64611 @64612 @64613 @65386 @reviseAssessmentTaskNotddedtoTheTable @OrgRiskSet4
   Scenario: Validate when internal user provide access for Risk assessmnet then task shouldn't be created for SPI of Sub Recipient Organization.
     Given I delete the record "Automation Desk Review Org level" from the object "Desk Review"
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
