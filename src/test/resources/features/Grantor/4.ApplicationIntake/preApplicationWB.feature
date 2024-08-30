@@ -235,7 +235,7 @@ Feature: Pre-Application scenarios without background
     And I get the "EGMS ID"
     And I enter "Edition1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I navigate to "Budget" sub tab
     And I save the field labeled "Subaward Floor" as "subawardfloor1"
     And I save the field labeled "Subaward Ceiling" as "subawardcieling1"
