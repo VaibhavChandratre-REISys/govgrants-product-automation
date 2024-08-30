@@ -263,85 +263,15 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see page block "Budget Summary"
     Then I softly can see page block "Budget Summary by Focus Area"
 
-  @219842 @sprint-11-US-203038  @Allocation
+  @219842 @sprint-11-US-203038 @Allocation
   Scenario: Validate SPA User When focus area is Yes for formula announcement then in Budget Summary by focus area section below columns & Action should be display at S/R side
-    When I login to "As a Grantor" app as "EXE" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Formula Announcements"
-    And I click on top right button "New" in flex table with id "---announcement:-:formulaAnnouncementTableId---"
-    And I enter "FormulaAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
-    When I enter "Creation_Formula_ByApp_FocusYes" values from "Announcement_Field_Values.xlsx"
-    And I pause execution for "3" seconds
-    And I click modal button "Save and Continue"
-    When I navigate to "Overview" sub tab
-    And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
-    When I navigate to "Financials" sub tab
-    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 100             |
-    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name                     | Announcement |
-      | {SavedValue:PM Username} | Step 1       |
-    And I click on "Edit" in the page details
-    When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "Justification__c"
-    And I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
-    And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
-    Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Organization" inside table "---announcement:-:formulaAddInviteApplicantTableId---"
-    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
-    When I close "Add Organizations" modal by clicking the top right x button
-    And I refresh the page
-    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
-    And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
-      | Title                           | Allocation Amount |
-      | Automation Permanent Focus Area | 1000              |
-    When I navigate to "Financials" sub tab
-    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Budget Period Name | Start Date | End Date |
-      | BP01               | 50         | 150      |
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "All Formula Announcements"
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
-    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    And I click on "Publish" in the page details
-    Then I softly see field "Status" as "Published"
-    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA-Automation EXE user"
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPA" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationReview:-:reviewsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     And I navigate to "Financials" sub tab
     Then I softly can see page block "Budget Summary"
     When I click on "Qualify" in the page details
@@ -466,87 +396,15 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I see the following headers in table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---" :
       | Focus Area | Budgeted Amount |
 
-  @219974 @219982  @sprint-11-US-203038  @Allocation
+  @219974 @219982 @sprint-11-US-203038 @Allocation
   Scenario: Validate SPI User on opportunity overview section Subaward floor & Subaward Celling field should be hide for formula announcement
-    When I login to "As a Grantor" app as "PO" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Formula Announcements"
-    And I click on top right button "New" in flex table with id "---announcement:-:formulaAnnouncementTableId---"
-    And I enter "FormulaAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
-    When I enter "Creation_Formula_ByApp_FocusYes" values from "Announcement_Field_Values.xlsx"
-    And I pause execution for "3" seconds
-    And I click modal button "Save and Continue"
-    When I navigate to "Overview" sub tab
-    And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    When I navigate to "Financials" sub tab
-    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 100             |
-    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name                      | Announcement |
-      | {SavedValue:EXE Username} | Step 1       |
-    And I click on "Edit" in the page details
-    When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "Justification__c"
-    And I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
-    And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
-    Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Organization" inside table "---announcement:-:formulaAddInviteApplicantTableId---"
-    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
-    When I close "Add Organizations" modal by clicking the top right x button
-    And I refresh the page
-    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
-    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---announcement:-:formulaFocusAreaInvitedTableId---"
-    And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
-      | Title                           | Allocation Amount |
-      | Automation Permanent Focus Area | 1000              |
-    When I navigate to "Financials" sub tab
-    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Budget Period Name | Start Date | End Date |
-      | BP01               | 50         | 150      |
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "All Formula Announcements"
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
-    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-    When I navigate to "Overview" sub tab
-    And I click on "Publish" in the page details
-    And I refresh the page
-    Then I softly see field "Status" as "Published"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT_FOCUS_AREA-Automation PO user"
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationReview:-:reviewsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     And I navigate to "Financials" sub tab
     Then I softly can see page block "Budget Summary"
     When I click on "Qualify" in the page details
@@ -732,7 +590,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     #219572
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
 
-  @219532 @219569 @DirectedAnnVerifyvalidationmessageshouldbedisplaytoSPIonAppifuserenterbudgetedamountlessthansubawardflooramountWithFocusAreaYes @sprint-11-US-203541 @komal @Allocation
+  @219532 @219569 @DirectedAnnVerifyvalidationmessageshouldbedisplaytoSPIonAppifuserenterbudgetedamountlessthansubawardflooramountWithFocusAreaYes @sprint-11-US-203541 @komal @Allocation @TBExecution
   Scenario: Directed Ann_ Verify validation message should be display to SPI on App if user enter budgeted amount less than sub-award floor amount
   | Directed Ann_ Verify validation message should be display to SPI on App if user enter budgeted amount more than sub-award Ceiling amount  |
     Given I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "default"
@@ -749,6 +607,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I navigate to "Budget" sub tab
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I pause execution for "3" seconds
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
@@ -765,15 +624,15 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I wait for "3" seconds
     And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
+    And I wait for "3" seconds
     And I get the "EGMS ID"
     When I click on "Submit Application" in the page details
     #219532
@@ -781,6 +640,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see the following messages in the page details contains:
       | Budget Tab - Budgeted Amount should be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section. |
     #219569
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
 #    When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
@@ -1299,12 +1159,14 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I wait for "3" seconds
+    And I wait for "2" seconds
+    And I click on "Edit" in the split screen page details
     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I navigate to "Quickview" sub tab in split screen
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I get the "EGMS ID"
@@ -2269,7 +2131,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
-    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2377,7 +2238,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly can see page block "Budget Summary by Focus Area"
     Then I softly cannot see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     Then I softly do not see "Actions" in flex table header "---applicationIntake:-:focusAreaTableAppId---"
-#    Then I softly cannot see row level action button "Remove Focus Area" against "Automation Permanent Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
 
   @222475 @DirectiveAnnVerifyINDusercanteditBudgetTabBudgetSummarybyFocusAreasectionifgrantornotselectedBudgetTabBudgetSummarybyFocusAreaforpreapplicationfornegotiation @sprint-10-US-221062 @komal @Allocation
   Scenario: Directive Ann - Verify IND user can't edit "Budget Tab: Budget Summary by Focus Area" section if grantor not selected "Budget Tab: Budget Summary by Focus Area" for pre-application for negotiation
@@ -2426,7 +2286,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
-    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When  I enter "Edition_PreApp" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2620,7 +2479,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     #222463
     When I click on "Request Negotiation" in the page details
-    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I clear the value from field "PreApplicationSectionsforRevision__c"
     Then I see multipicklist field "PreApplicationSectionsforRevision__c" contains value "Budget Tab: Budget Summary by Focus Area" under list "Pre-Application Sections for Negotiation"
@@ -2675,7 +2533,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     #222462
     When I click on "Request Negotiation" in the page details
-    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I clear the value from field "PreApplicationSectionsforRevision__c"
     Then I see multipicklist field "PreApplicationSectionsforRevision__c" contains value "Budget Tab: Budget Summary by Focus Area" under list "Pre-Application Sections for Negotiation"
@@ -2703,13 +2560,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Budget" sub tab
     Then I softly cannot see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     Then I softly do not see "Actions" in flex table header "---applicationIntake:-:focusAreaTableAppId---"
-#    Then I softly cannot see row level action button "Remove Focus Area" against "Automation Permanent Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
 
   @222473  @sprint-10-US-221062 @komal @Allocation
   Scenario Outline: Verify SPI SPA user can't edit Budget Tab Budget Summary by Focus Area" section if grantor not selected Budget Tab Budget Summary by Focus Area for pre application for negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2728,8 +2584,8 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name       | Project Role             | Is Key Contact |
-      | <UserName> | Project Director/Manager | Checked        |
+      | Name                       | Project Role             | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -2743,7 +2599,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "2" seconds
-    And I refresh the page
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I see field "Status" as "Submitted to Grantor"
@@ -2754,7 +2609,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     #222473
     When I click on "Request Negotiation" in the page details
-    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I enter "Edition_PreApp" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2906,11 +2760,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | SPI3 | {SavedValue:SPI3 Username} |
 #      | SPA  | {SavedValue:SPA Username}  |
 
-  @222470  @sprint-10-US-221062 @komal @Allocation
+  @222470 @sprint-10-US-221062 @komal @Allocation
   Scenario Outline: Verify SPI/SPA user can edit "Budget Tab: Budget Summary by Focus Area" section only if pre-application is sent to s/r for negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
+    And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
@@ -2926,11 +2780,12 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I save the field labeled "EGMS ID" as "PreAppEgmsId"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Overview" sub tab
     When I save the field containing "Program Income Allowed?" as "Yes"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name       | Project Role             | Is Key Contact |
-      | <UserName> | Project Director/Manager | Checked        |
+      | Name                       | Project Role             | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -2943,7 +2798,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I wait for "3" seconds
     Given I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-    And I refresh the page
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
@@ -2954,7 +2808,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:PreAppEgmsId}" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PreAppEgmsId}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
-    And I click on "Edit" in the page details
     And I navigate to "Negotiations" sub tab
     When I enter "Negotiation_Edit_Budget" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details

@@ -1476,7 +1476,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of SPI User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
 
-  @218779 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonapplicationcreatedbySPIUserwhenitsstatusisconvertedtoaward @Sprint-09-US-204865 @Notes 
+  @218779 @ValidateSPAusercantaddnotesbuteditdeletehisnotesonapplicationcreatedbySPIUserwhenitsstatusisconvertedtoaward @Sprint-09-US-204865 @Notes
   Scenario: Validate SPA user cant add notes but edit delete his notes on application created by SPI user when its status is converted to award
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1487,6 +1487,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details

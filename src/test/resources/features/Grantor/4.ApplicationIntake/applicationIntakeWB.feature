@@ -1,4 +1,4 @@
-@applicationIntakeWB @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
+@applicationIntakeWB @grantor-regression @grantor-parallel-regression @app @regression @ApplicationExecution-reg
 Feature: Application Intake scenarios without background
 
   @76373 @69366 @65078 @VerifyCreateApplicationButton  @smoke
@@ -245,8 +245,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement for App Intake and PreApp}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     When I get the "EGMS ID"
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Opportunities" tab
     And I wait for "3" seconds
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
@@ -463,8 +462,6 @@ Feature: Application Intake scenarios without background
     When I expand nested table containing column value "BP01"
     Then I softly see value "$0.00" for title "Total Match" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
     Then I softly see value "$0.00" for title "Other Leverage" against the value "Construction" inside table "---applicationIntake:-:budgetPeriodTableId---"
-#    Then I softly see all values "$0.00" under column "Total Match" inside flextable with id "---applicationIntake:-:budgetPeriodTableId---"
-#    And I softly see all values "$0.00" under column "Other Leverage" inside flextable with id "---applicationIntake:-:budgetPeriodTableId---"
 
   @72305 @72306 @isKeyContactWhileCreatingApplication
   Scenario: Validate whether user can see a Sucess message after making the Contact User a Is key Contact and associate the Project Role
@@ -479,9 +476,9 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:NotYetQualifiedTableId---" without waiting for record
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
-    And I click modal button "Save and Continue"
     And I wait for "5" seconds
+    And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I navigate to "Overview" sub tab
     And I clear the value from field "Addressline1__c"
@@ -493,9 +490,8 @@ Feature: Application Intake scenarios without background
     Then I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
-    #MessageDisapper Immediatlly
-#    Then I softly see the following messages in the page details contains:
-#      | Saved Successfully! |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
 
   @72307 @34330 @newApplicationOncetheOppurtunitySubmittedToGrantor
   Scenario: Validate whether user is able to create a new/multiple applications from same Oppurtunity once it is Converted to an Application | Verify snapshot is not added to the Snapshot History after Application is submitted to Grantor
@@ -570,11 +566,11 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---announcement:-:NotYetQualifiedTableId---" without waiting for record
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     And I click modal button "Save and Continue"
-    And I wait for "5" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -765,8 +761,11 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
@@ -794,7 +793,7 @@ Feature: Application Intake scenarios without background
       | SPI3 | Automation SPI3 |
       | SPA  | Automation SPA  |
 
-  @73367 @spiUserCanViewAllocatedAmountOnceSubmittedToGrantor  @buglogged129432 @ApplicationRerun
+  @73367 @spiUserCanViewAllocatedAmountOnceSubmittedToGrantor @buglogged129432
   Scenario Outline: Validate whether SPI & SPA user were able to view the allocated amount once the Oppurtunity is Converted to Application when Announcement is of type - Formula
     Given I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT"
     When I am on "SUBPORTAL" portal
@@ -840,13 +839,13 @@ Feature: Application Intake scenarios without background
     And I click on "Save" in the page details
     And I close the tab
     When I click on "Submit Application" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Opportunities" tab
     And I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Converted to Application - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:convertedToApplicationTableID---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside table without waiting for record
     And I navigate to "Overview" sub tab
-#    And I save the field containing "Type" as "Formula"
     And I navigate to "Financials" sub tab
     Then I see value "$1000" for title "Allocation Amount" inside table "---applicationIntake:-:formulaAllocatedAmountTableId---"
     Examples:
@@ -857,15 +856,15 @@ Feature: Application Intake scenarios without background
   Scenario: Validate whether User will be able to attach any document if the supporting document details mentioned in the Announcement
   Validate if suppoting document is not uploaded by user while submitting the application then the system should throw an error message on screen
   Validate user will be able to view and add additional focus areas while creating an application only when the published announcemnt has additional focus areas
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "PROGRAM_FOR_APP_SUPP_DOC_YES"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
     And I wait for "3" seconds
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-Application}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Application}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     And I wait for "3" seconds
     When I click on "Create Application" in the page details
@@ -875,8 +874,7 @@ Feature: Application Intake scenarios without background
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
-    #When I perform quick search for "Automation Permanent Focus Area" in "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---" panel
-#    Then I softly see that "Automation Permanent Focus Area" has been added in flextable with Id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see that "Automation Permanent Focus Area" has been added in flextable with Id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
@@ -901,12 +899,15 @@ Feature: Application Intake scenarios without background
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
     When I click on "Submit Application" in the page details
-    #IssueisResolveNeedtocheckforthisscenario #checktagabove
     Then I softly see the following messages in the page details contains:
-      | Attachments Tab - Each mandatory item listed in the checklist must be completed before submitting this Application. |
+      | Forms and Files Tab - Complete each mandatory item listed in the checklist before submitting this Application. |
     When I navigate to "Forms and Files" sub tab
-    When I upload attachment "Announcement_Field_Values.xlsx" of type "Supporting Documents"
-    Then I softly see "Supporting Documents" has been added in "Attachments" flex table
+    And I click on "Attach" icon for "Automation" inside flex table with id "ApplicationChecklistsFlexGrid" with wait for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click in table hyperlink containing value "View"
+    Then I softly verify that the file "Attachment.pdf" is downloaded
 
   @73750 @73751 @validateFilterCriteriaForGoalsAndObjectives
   Scenario: Validate the searched functionality for goals and Objectives Associated in section of Performance tab in Application | Validate the filter criteria for Goals and Objectives in Proposal Tab while creating Application
@@ -1120,6 +1121,8 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
     Then I softly see "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
+    When I click on "Qualify" in the page details
+    Then I softly see that "{SavedValue:Automation Runtime Announcement Application Review}" is in "Qualified" status
     And I wait for "3" seconds
     Then I softly can see top right button "Create Application" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -1353,8 +1356,8 @@ Feature: Application Intake scenarios without background
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - Expired"
-    And I perform quick search for "Automation Runtime Announcement Application123013" in "---applicationIntake:-:recipientApplications---" panel
-    When I click on "View" icon for "Automation Runtime Announcement Application123013" inside flex table with id "---applicationIntake:-:recipientApplications---" without waiting for record
+    And I perform quick search for "{SavedValue:AutomationExpiredApplication}" in "---applicationIntake:-:recipientApplications---" panel
+    When I click on "View" icon for "{SavedValue:AutomationExpiredApplication}" inside flex table with id "---applicationIntake:-:recipientApplications---" without waiting for record
     When I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
       | An Application cannot be submitted after the Application Due Date. |
@@ -1387,7 +1390,7 @@ Feature: Application Intake scenarios without background
     When I download the file
     Then I see "Created" on page "1" of "govgrants" pdf file
 
-   @195250  @sprint-12-US-226646  @reassignment @ApplicationRerun
+  @195250 @sprint-12-US-226646 @reassignment
   Scenario: Validate application related pending task should generated for new Ann owner if application created from old owner even if Ann ownership task reassign to other user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
     Given I am on "SUBPORTAL" portal
@@ -1418,6 +1421,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                      | Announcement |
@@ -1497,76 +1501,24 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---applicationReview:-:announcementListTableId---"
 
-  @196695  @sprint-4-US-197579  @reassignment @ApplicationRerun
+  @196695  @sprint-4-US-197579 @reassignment
   Scenario: Validate App Application is transfer to new user after Ann ownership will get change with setting pre-app as 'Yes'
-    When I login to "As a Grantor" app as "EXE" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Competitive Announcements"
-    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
-    When I enter "Creation Second Modal1" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement for Pre-App"
-    When I click on "Edit" in the page details
-    And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
-    When I navigate to "Financials" sub tab
-    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
-    When I navigate to "Setup" sub tab
-    When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name                      | Announcement |
-      | {SavedValue:EXE Username} | Step 1       |
-    And I click on "Edit" in the page details
-    When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "Justification__c"
-    When I get the "EGMS ID"
-    When I navigate to "Financials" sub tab
-    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Budget Period Name | Start Date | End Date |
-      | BP01               | 50         | 150      |
-    And I click on "Save" in the page details
-    And I click on "Submit For Approval" in the page details
-    And I wait for "2" seconds
-    And I "Approve" in the approval decision
-    And I wait for "2" seconds
-    Then I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "dark blue"
-    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation EXE user"
+    When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation EXE" into field "input-1"
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Announcement" from reassign ownership dropdown
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
-    When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
+    When I check "{SavedValue:Automation Runtime Announcement for Pre-App}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
-    Then I see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
+    Then I see value "{SavedValue:Automation Runtime Announcement for Pre-App}" for title "Announcement Name" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Opportunities" tab
@@ -1576,6 +1528,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
+    And I wait for "3" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -1588,7 +1541,6 @@ Feature: Application Intake scenarios without background
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
-    Then I softly see field "Other Leverage" inside page block
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
@@ -1625,10 +1577,6 @@ Feature: Application Intake scenarios without background
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000   | 100        | 100            |
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Checked        |
     When I navigate to "Proposal" sub tab
     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1655,9 +1603,9 @@ Feature: Application Intake scenarios without background
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:AppEGMSID}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
 
-   @196705  @sprint-4-US-197579  @reassignment
+  @196705  @sprint-4-US-197579 @reassignment
   Scenario: Validate App-Rev New PO owner can initiate app review process if it's related Ann owner will change ownership and assign to new user
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -1770,7 +1718,7 @@ Feature: Application Intake scenarios without background
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
     When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
@@ -1785,7 +1733,7 @@ Feature: Application Intake scenarios without background
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     Then I softly can see "Related Log" sub tab at view detail page
 
-  @196715  @sprint-4-US-197579  @reassignment
+  @196715  @sprint-4-US-197579 @reassignment
   Scenario: Validate App S\R SPI user of application owner should not change even if app ownership change after Ann owner will get change in created by field
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1842,7 +1790,7 @@ Feature: Application Intake scenarios without background
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
     When I check "{SavedValue:Automation Runtime Announcement Application Review}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
@@ -1857,7 +1805,7 @@ Feature: Application Intake scenarios without background
     And I wait for "3" seconds
     Then I softly see field "Created by" as "Automation SPI3"
 
-  @196713 @ValidateAppoldownercanonlyviewtheapplicationoncetheAnnownerchangehisownershipfromEXEtonewEXEuser @sprint-4-US-197579  @reassignment
+  @196713 @ValidateAppoldownercanonlyviewtheapplicationoncetheAnnownerchangehisownershipfromEXEtonewEXEuser @sprint-4-US-197579 @reassignment
   Scenario: Validate App old owner can only view the application once the Ann owner change his ownership from EXE to new EXE user
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1976,7 +1924,7 @@ Feature: Application Intake scenarios without background
     When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
@@ -1993,74 +1941,11 @@ Feature: Application Intake scenarios without background
     When I navigate to "Proposal" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---applicationReview:-:kpiTableId---"
 
-  @Bug-402305-Hold  @196756 @196759  @sprint-4-US-197579  @reassignment
+  @Bug-402305-Hold  @196756 @196759  @sprint-4-US-197579 @reassignment
   Scenario: Validate App-Rev New EXE owner can initiate app review process if it's related Ann owner will change ownership and assign to new user
-    When I login to "As a Grantor" app as "EXE" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Competitive Announcements"
-    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
-    When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement Application Review"
-    When I click on "Edit" in the page details
-    And I wait for "5" seconds
-    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
-    When I navigate to "Financials" sub tab
-    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
-    When I navigate to "Setup" sub tab
-    When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name          | Announcement |
-      | Automation PM | Step 1       |
-    And I click on "Edit" in the page details
-    When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "Justification__c"
-    When I get the "EGMS ID"
-    When I navigate to "Financials" sub tab
-    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Budget Period Name | Start Date | End Date |
-      | BP01               | 50         | 150      |
-    And I click on "Save" in the page details
-    And I click on "Submit For Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    Then I softly can see top right button "Publish" in page detail
-    And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "dark blue"
-
-
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation EXE user"
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
@@ -2108,15 +1993,15 @@ Feature: Application Intake scenarios without background
     And I select value "Automation EXE" into field "input-1"
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Announcement" from reassign ownership dropdown
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
-    When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
+    When I check "{SavedValue:Automation Runtime Announcement Application Review}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
-    Then I see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
+    Then I see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Announcement Name" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     When I navigate to "Applications" tab
@@ -2136,69 +2021,9 @@ Feature: Application Intake scenarios without background
 
   @196855  @sprint-4-US-197579  @reassignment
   Scenario: Validate App-Rev new App owner can see 'related log' tab after Ann ownership will get change
-    When I login to "As a Grantor" app as "PM1" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Competitive Announcements"
-    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
-    When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement Application Review"
-    When I click on "Edit" in the page details
-    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
-    When I navigate to "Financials" sub tab
-    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name          | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
-      | Automation PM | Step 1       | Step 1 | Step 1 | Step 1            | Step 1               | Step 1          | Step 1     | Step 1   |
-    And I click on "Edit" in the page details
-    When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "Justification__c"
-    When I get the "EGMS ID"
-    When I navigate to "Financials" sub tab
-    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Budget Period Name | Start Date | End Date |
-      | BP01               | 50         | 150      |
-    And I click on "Save" in the page details
-    And I click on "Submit For Approval" in the page details
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    Then I softly can see top right button "Publish" in page detail
-    And I click on "Publish" in the page details
-    Then I see status in Progress-bar is "Published" and is "dark blue"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation PM1 user"
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:reviewsTableId---" panel
@@ -2244,15 +2069,15 @@ Feature: Application Intake scenarios without background
     And I select value "Automation PM1" into field "input-1"
     And I select value "Automation PM" into field "input-2"
     And I select module "Announcement" from reassign ownership dropdown
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
-    When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
+    When I check "{SavedValue:Automation Runtime Announcement Application Review}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
-    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
-    Then I see value "{SavedValue:AnnEGMSID}" for title "Announcement ID" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
+    Then I see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Announcement Name" inside table "---announcement:-:annAdminTargetOwnerReplaceTableId---"
     And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
@@ -2263,9 +2088,9 @@ Feature: Application Intake scenarios without background
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     Then I softly can see "Related Log" sub tab at view detail page
 
-  @197064  @sprint-4-US-197579  @reassignment
+  @197064 @sprint-4-US-197579 @reassignment
   Scenario: Validate App email should be generated for new owner for App if it's related Ann ownership assign to other user
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     When I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
@@ -2318,7 +2143,7 @@ Feature: Application Intake scenarios without background
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---announcement:-:annAdminOwnerReplaceTableId---" panel
     When I check "{SavedValue:Automation Runtime Announcement Application Review}" boxes in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
-    And I click "Yes" on modal confirmation box
+    And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---announcement:-:annAdminTargetOwnerReplaceTableId---" panel
@@ -2334,15 +2159,14 @@ Feature: Application Intake scenarios without background
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "3" seconds
-#    Then I softly can see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
+    Then I softly can see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
-    When I save the field labeled "EGMS ID" as "EGMSID"
     And I navigate to "Negotiations" sub tab
     When I save the field labeled "EGMS ID" as "EGMSID"
-    And I navigate to "Negotiations" sub tab
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal

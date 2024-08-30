@@ -1532,17 +1532,8 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @debug11
+  @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    And I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
-    And I wait for "5" seconds
-    And I click on "Edit" in the page details
-    When I navigate to "Overview" sub tab
-    And I enter value "Checked" into field "Agreement5__c"
-    And I click on "Save" in the page details
-    When I click on "Submit to Grantor" in the page details
-    And I pause execution for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
-      | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                                 |
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal

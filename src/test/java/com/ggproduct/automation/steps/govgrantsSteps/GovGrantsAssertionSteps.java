@@ -440,7 +440,7 @@ public final class GovGrantsAssertionSteps {
                     .isEqualToNormalizingWhitespace(headerText);
         } else {
             if ("header".equalsIgnoreCase(isHeader)) {
-                By headerLocator = By.xpath("//div[contains(@class,'page-header__col-title')]//h2[text()= '" + headerText + "']");
+                By headerLocator = By.xpath("//div[contains(@class,'page-header__col-title')]//h2[normalize-space(text())= '" + headerText + "']");
                 Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
             } else {
                 By headerLocator = By.xpath("//div[contains(@class,'page-header__name')]//span[contains(@title,'" + headerText + "') or contains(text(),'" + headerText + "')]");
@@ -539,7 +539,7 @@ public final class GovGrantsAssertionSteps {
         ggAssertionObjects.assertFieldsInPageBlock(usage, pageBlockName, fieldLabel);
     }
 
-    @Then("^I (see|softly see) \"([^\"]*)\" opens in overLay window$")
+    @Then("^I (see|softly see|softly do not see|do not see) \"([^\"]*)\" opens in overLay window$")
     public void assertEditOpensInOverLayWindow(String usage, String titleName) {
         ggAssertionObjects.asserTextInOverLayIframe(usage, titleName);
     }
@@ -836,5 +836,10 @@ public final class GovGrantsAssertionSteps {
     @Then("^I (softly see|see) click on module \"([^\"]*)\" on left navigation for global search$")
     public void iSoftlySeeClickOnModuleOnLeftNavigationForGlobalSearch(String usage, String names) {
         ggAssertionObjects.assertClickOnModuleOnLeftNavigationForGlobalSearch(usage, names);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) button \"([^\"]*)\" on login page$")
+    public void iSoftlySeeButtonOnLoginPage(String usage, String buttonName) {
+        ggAssertionObjects.assertloginPageButtons(usage,buttonName);
     }
 }

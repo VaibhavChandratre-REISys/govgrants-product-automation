@@ -13,10 +13,9 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
     When I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    Given I click on "Edit" in the page details
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     Given I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Applications" tab
@@ -38,7 +37,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     Then I cannot see row level action button "Initiate Negotiation" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---applicationReview:-:recommendedTableId---"
 
-  @69164 @auditorCannotSend/CompleteNegotiations @buglogged151671
+  @69164 @auditorCannotSend/CompleteNegotiations
   Scenario: Validate Auditor should be able to View the record but shouldn't be able to Complete Negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -64,6 +63,8 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I navigate to "Negotiations" sub tab
+    And I click on "Edit" in the page details
     And I enter values into fields
       | Value                              | Field                |
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
@@ -86,9 +87,6 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---subAwardFromFDM:-:fdmTableId---"
-#    Then I see the following rows under the following headers in table with id "---subAwardFromFDM:-:fdmTableId---" :
-#      | Announcement Title                               | Actions |
-#      | {SavedValue:Automation Runtime FDM Announcement} | View    |
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---"
     Then I see status in Progress-bar is "Approved" and is "dark blue"
 
@@ -103,6 +101,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -225,6 +224,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I pause execution for "3" seconds
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
@@ -238,66 +238,19 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
-#    And I click on "Back" in the page details
     And I close the tab
-#    And I click on top right button "Add Files" in flex table with id "---auditor:-:PreApplicationTableId---"
-#    When I upload attachment "Attachment.pdf" of type "Other" from computer
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record id" in "---preApplication:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record id" inside table
-    When I click on "Accept" in the page details
-    When I navigate to "Applications" tab
-    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Pre-Applications - Submitted"
-    And I perform quick search for "<Announcement Name>" in "RecipientPreApplications" panel
-    When I click on "View" icon for "<Announcement Name>" inside table
-    When I click on "Create Application" in the page details
-    And I click modal button "Save and Continue"
-    And I enter "Edition" values from "Application_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    And I pause execution for "3" seconds
-    And I edit the following rows inline in flex table with id "AppContactFlexGrid" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
-    And I navigate to "Budget" sub tab
-    Given I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-      | Construction  | 1000   | 100        | 100            | 100            |
-    When I navigate to "Proposal" sub tab
-    When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                  | Target |
-      | Automation Permanent KPI | 10     |
-    And I get the "EGMS ID"
-    When I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    And I switch to tab number "1"
-    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I close the tab
-    And I refresh the page
-#    Given I click on "Back" in the page details
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationIntake:-:allFormsTableId---"
-    And I switch to tab number "1"
-    Given I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I close the tab
-    And I refresh the page
-#    Given I click on "Back" in the page details
-    When I click on "Submit Application" in the page details
-    Then I softly see field "Status" as "Submitted to Grantor"
+    And I wait for "5" seconds
     Given I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Applications" tab
-    And I navigate to "Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Applications - All"
-    And I perform quick search for "Record Id" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
-    Then I softly see status in Progress-bar is "Submitted" and is "Green"
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---preApplication:-:preApplicationsGrantorTableId---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:PreappEGMSID}" in flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:PreappEGMSID}" in flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
+    When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted to Grantor"
     Then I softly cannot see top right button "Reject" in page detail
     Then I softly cannot see top right button "Accept" in page detail
     Examples:

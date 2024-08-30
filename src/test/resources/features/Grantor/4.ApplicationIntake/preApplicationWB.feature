@@ -1,4 +1,4 @@
-@preApplicationExecution @preAplicationWB @grantor-regression @grantor-parallel-regression @app @ApplicationAndPre-App
+@preApplicationExecution1 @preAplicationWB @grantor-regression @grantor-parallel-regression @app @ApplicationAndPre-App
 Feature: Pre-Application scenarios without background
 
   @53155 @PreApplicationAttachmentChecklistCA
@@ -1470,10 +1470,10 @@ Feature: Pre-Application scenarios without background
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Negotiations" sub tab
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
 
-  @174890 @ValidateDueDatefieldshouldbeRequiredtosubmitunderNegotiationRequestdetailssectiononGrantorSide @sprint-8
+  @174890 @ValidateDueDatefieldshouldbeRequiredtosubmitunderNegotiationRequestdetailssectiononGrantorSide @sprint-8 @TBExecution1
   Scenario: Due Date field should be Required to submit under Negotiation Request details section on Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1487,7 +1487,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-   And I wait for "2" seconds
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1505,6 +1505,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I wait for "2" seconds
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -1936,7 +1937,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-   And I wait for "2" seconds
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -2509,7 +2510,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the page details
     Then I softly see field "Explanation of Negotiations Needed" is not editable
 
- @174697 @Theusercaneditonlythosesectionwhichareselectedbygrantorwhileinitiatingthenegotiationrequestonpre-applicationonSubrecipientside @Sprint-8 @Vrishali
+ @174697 @Theusercaneditonlythosesectionwhichareselectedbygrantorwhileinitiatingthenegotiationrequestonpre-applicationonSubrecipientside @Sprint-8 @Vrishali 
   Scenario: the user can edit only those section which are selected by grantor while initiating the negotiation request on pre-application on Subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2524,7 +2525,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-   And I wait for "2" seconds
+    And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -2564,11 +2565,12 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
+    When I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
     Then I softly see fields "Title__c" is in edit mode
-    Then I softly see fields "ProjectAbstract__c" is in edit mode
-    Then I softly see fields "ProjectGoal__c" is in edit mode
-    Then I softly see fields "ProjectBeneficiaries__c" is in edit mode
+    Then I see textarea field "ProjectAbstract__c" is editable
+    Then I see textarea field "ProjectGoal__c" is editable
+    Then I see textarea field "ProjectBeneficiaries__c" is editable
     And I navigate to "Forms and Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
 
@@ -2843,15 +2845,13 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
-#   Added below extra steps due to bug once resolved remove the step
-    And I click on "Edit" in the page details
     When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Send to Subrecipient" in the page details
     Then I softly see the following messages in the page details contains:
       | Negotiations Tab - Select at least one form to allow edits on, because Form section is added for negotiation. |
 
-  @181545 @Validateusershouldabletoseethechangesafterfeelingtheformatgrantor&Subrecipientside @sprint-10
+  @181545 @Validateusershouldabletoseethechangesafterfeelingtheformatgrantor&Subrecipientside @sprint-10 
   Scenario: Validate user should able to see the changes after feeling the format grantor & Subrecipient side
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -2888,7 +2888,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -2897,8 +2896,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
-#   Added below extra steps due to bug once resolved remove the step
-    And I click on "Edit" in the page details
     When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
@@ -2922,7 +2919,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit1" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     And I refresh the page
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
@@ -2933,12 +2929,12 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I navigate to "Forms and Files" sub tab
     And I wait for "2" seconds
-    And I navigate to "Form" sub tab
+    And I navigate to "Quickview" sub tab in split screen
     And I click on "View" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
-    And I wait for "2" seconds
     And I switch to tab number "1"
-    Then I softly see field "1a. Describe the activities and/or services to be provided. (10 points)" as "Automation Test"
-    Then I softly see field "1b. Describe how the project will be completed within the required 24-month timeline. (10 points)" as "Automation Test"
+    And I wait for "3" seconds
+    Then I softly see field "1a. Describe the activities and/or services to be provided. (10 points)" as "Automation Test" in "Project Characteristics" pageblock
+    Then I softly see field "1b. Describe how the project will be completed within the required 24-month timeline. (10 points)" as "Automation Test" in "Project Characteristics" pageblock
     Then I softly see field "1a. Organizational capacity. (10 points)" as "9"
     Then I softly see field "1b. Experience Level. (10 points)" as "0-5 years"
 
@@ -2988,8 +2984,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
-#   Added below extra steps due to bug once resolved remove the step
-    And I click on "Edit" in the page details
     When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
     Then I softly see multiple selected options in "multiSelectPicklistCell":
       | Files and Forms: Forms |
@@ -3075,8 +3069,6 @@ Feature: Pre-Application scenarios without background
     When I click on "Request Negotiation" in the page details
     Then I softly can see "Negotiations" sub tab at view detail page
     And I navigate to "Negotiations" sub tab
-#   Added below extra steps due to bug once resolved remove the step
-    And I click on "Edit" in the page details
     And I enter value "43707" into field "RevisionDueDate__c"
     And I enter value "Negotiation Explanation" into field "ExplanationOfRevisionsNeeded__c"
     And I enter value "Overview Tab: Project Information" into field "PreApplicationSectionsforRevision__c"
@@ -3089,7 +3081,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see the following messages in the page details contains:
       | Negotiations Tab - Select Form section for negotiation, because at least one form is selected for allowing edits. |
 
-  @180703 @Verifyuser(pre-applicationrecordownershouldeditsectionsformswhichinternaluserselectedwhilerequestingnegotiationforpre-application. @Sprint-10 @Vrishali
+  @180703 @Verifyuser(pre-applicationrecordownershouldeditsectionsformswhichinternaluserselectedwhilerequestingnegotiationforpre-application. @Sprint-10
   Scenario: Verify spi user (pre-application record owner)should edit only sections and the forms which internal user selected while requesting negotiation for the pre-application.
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -3134,8 +3126,6 @@ Feature: Pre-Application scenarios without background
     When I click on "Request Negotiation" in the page details
     Then I softly can see "Negotiations" sub tab at view detail page
     And I navigate to "Negotiations" sub tab
-#   Added below extra steps due to bug once resolved remove the step
-    And I click on "Edit" in the page details
     When I enter "Negotiation_Edit" values from "PreApplication_Field_Values.xlsx"
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
       | Form Name                     | Needs Negotiation |
@@ -3151,7 +3141,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
 
- @174731 @Validatethependingtaskiscreatedforthegrantoronsubmittograntornegotiationrequest @sprint-8
+ @174731 @Validatethependingtaskiscreatedforthegrantoronsubmittograntornegotiationrequest @sprint-8 
   Scenario: Validate the pending task is created for the grantor on submit to grantor  negotiation request
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -3197,10 +3187,9 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
-#   Added below extra steps due to bug once resolved remove the step
-    And I click on "Edit" in the page details
     When I enter "Nego_Edit1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "Due Date" as "DueDate1"
     Then I softly can see top right button "Send to Subrecipient" in page detail
     And I click on "Send to Subrecipient" in the page details
@@ -3814,7 +3803,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I softly see that "Sent for Review" has been added in flextable with Id "---preApplication:-:preAppPeerReviewTableId---"
 
-  @196940 @Validateoldownerofpre-appshouldnotgetpre-appnegotiationpendingtaskwhenonceAnnownerischangeandassigntonewownerbefores/rusersubmitthepre-apptograntor @sprint-12-US-226646  @reassignment
+  @196940 @Validateoldownerofpre-appshouldnotgetpre-appnegotiationpendingtaskwhenonceAnnownerischangeandassigntonewownerbefores/rusersubmitthepre-apptograntor @sprint-12-US-226646 @reassignment
   Scenario: Validate old owner of pre-app should not get pre-app negotiation pending task when once Ann owner is change and assign to new owner before s/r user submit the pre-app to grantor
     And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -3883,8 +3872,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
-#   Added below extra steps due to bug once resolved remove the step
-    And I click on "Edit" in the page details
     When I enter "Nego_Edit1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly can see top right button "Send to Subrecipient" in page detail
@@ -3931,7 +3918,7 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
     Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @196941 @Validatenewownerofpre-appshouldgetpre-appnegotiationpendingtaskwhenAnnownerischangeandassigntonewownerbefores/rusersubmitthepre-apptograntor @sprint-12-US-226646  @reassignment
+  @196941 @Validatenewownerofpre-appshouldgetpre-appnegotiationpendingtaskwhenAnnownerischangeandassigntonewownerbefores/rusersubmitthepre-apptograntor @sprint-12-US-226646 @reassignment
   Scenario: Validate new owner of pre-app should get pre-app negotiation pending task when Ann owner is change and assign to new owner before s/r user submit the pre-app to grantor
     And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -3999,8 +3986,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Request Negotiation" in the page details
     And I navigate to "Negotiations" sub tab
-#   Added below extra steps due to bug once resolved remove the step
-    And I click on "Edit" in the page details
     When I enter "Nego_Edit1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly can see top right button "Send to Subrecipient" in page detail
