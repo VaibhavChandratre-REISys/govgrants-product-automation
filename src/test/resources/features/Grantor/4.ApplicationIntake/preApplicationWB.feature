@@ -262,6 +262,7 @@ Feature: Pre-Application scenarios without background
       | {SavedValue:SPI3 Username} |  Checked        |
 #    And I click on "Edit" in the page details
    When I navigate to "Overview" sub tab
+   And I wait for "2" seconds
     And I enter value "Checked" into field "Agreement5__c"
     And I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details

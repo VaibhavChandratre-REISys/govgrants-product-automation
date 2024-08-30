@@ -1534,13 +1534,15 @@ Feature: Validate all scenarios of every modules flow
 
   @debug11
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    And I login to "As a Grantor" app as "dynamicUser" user
-    When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
-    When I perform quick search for " Automation Runtime764166687 User" in "{grantor_tableId:SubrecipientIndRegistration}" panel
-    And I save the value from row "1" for column name "Full Name" as "UserFullName" from flex table "{grantor_tableId:SubrecipientIndRegistration}"
-    And I wait for "2" seconds
-    And I navigate to "Home" tab
-    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
-    When I reassign task to "Automation PM1"
-    When I perform quick search for "{SavedValue:UserFullName}" in "---program:-:grantorTaskReassignTableId---" panel
-    Then I softly do not see value "Review Individual User Registration" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I wait for "5" seconds
+    And I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    And I enter value "Checked" into field "Agreement5__c"
+    And I click on "Save" in the page details
+    When I click on "Submit to Grantor" in the page details
+    And I pause execution for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
+      | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                                 |
