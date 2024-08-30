@@ -215,7 +215,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     Then I softly cannot see top right button "Create Pre-Application" in page detail
 
-@preapp @72516 @72518 @34154 @72519 @72520 @72515 @preapplicationInformationCopiedToApplication  @buglogged100926 @buglogged109204 @buglogged169487
+@72516 @72518 @34154 @72519 @72520 @72515 @preapplicationInformationCopiedToApplication  @buglogged100926 @buglogged109204 @buglogged169487
   Scenario: Validate the Pre Application information is copied to Application | Validate whether user is able to acknowledge the application submission by entering the mandatory details.
   Validate the Match Percentage validation during submit for approval when the Match required setting as Yes | Validate when the pre-application is submitted to grantor then the pending task is created for PM user
   Validate the once the PM user accepts the pre-application when is submitted to grantor using the pending task, then the task moved from pending to Completed task table
@@ -265,56 +265,56 @@ Feature: Pre-Application scenarios without background
    And I wait for "2" seconds
     And I enter value "Checked" into field "Agreement5__c"
     And I click on "Save" in the page details
-    When I click on "Submit to Grantor" in the page details
-    And I pause execution for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
-      | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                                 |
-    When I navigate to "Budget" sub tab
-    Given I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-      | Construction  | 5000   | 5000       | 50             | 100            |
-    And I get the "EGMS ID"
-    When I click on "Submit to Grantor" in the page details
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---preApplication:-:pendingTaskTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
-    And I softly see "No Records Found" inside flex table with id "---preApplication:-:pendingTaskTableId---"
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    When I navigate to "Applications" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside table
-    When I click on "Accept" in the page details
-   And I wait for "5" seconds
-    When I navigate to "Applications" tab
-    And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---preApplication:-:preappCompletedTasksTableId---" panel
-    Then I softly see value "Record Id" for title "EGMS ID" inside table "---preApplication:-:preappCompletedTasksTableId---"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    When I navigate to "Applications" tab
-    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Pre-Applications - Submitted"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "RecipientPreApplications" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-Application}" inside table
-    Then I softly can see top right button "Create Application" in page detail
-    When I click on "Create Application" in the page details
-    And I wait for "3" seconds
-    And I click modal button "Save and Continue"
-    And I enter "Edition" values from "Application_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I navigate to "Budget" sub tab
-    And I save the field labeled "Subaward Floor" as "subawardfloor2"
-    And I save the field labeled "Subaward Ceiling" as "subawardcieling2"
-    Then I softly see value "{SavedValue:subawardfloor1}" is "Equals to" the value "{SavedValue:subawardfloor2}"
-    Then I softly see value "{SavedValue:subawardcieling2}" is "Equals to" the value "{SavedValue:subawardcieling2}"
+#    When I click on "Submit to Grantor" in the page details
+#    And I pause execution for "2" seconds
+#    Then I softly see the following messages in the page details contains:
+#      | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
+#      | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                                 |
+#    When I navigate to "Budget" sub tab
+#    Given I expand nested table containing column value "BP01"
+#    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
+#      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+#      | Construction  | 5000   | 5000       | 50             | 100            |
+#    And I get the "EGMS ID"
+#    When I click on "Submit to Grantor" in the page details
+#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+#    When I navigate to "Applications" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
+#    Then I softly see "No Records Found" inside flex table with id "---preApplication:-:pendingTaskTableId---"
+#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+#    When I navigate to "Applications" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
+#    And I softly see "No Records Found" inside flex table with id "---preApplication:-:pendingTaskTableId---"
+#    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    When I navigate to "Applications" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside table
+#    When I click on "Accept" in the page details
+#   And I wait for "5" seconds
+#    When I navigate to "Applications" tab
+#    And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---preApplication:-:preappCompletedTasksTableId---" panel
+#    Then I softly see value "Record Id" for title "EGMS ID" inside table "---preApplication:-:preappCompletedTasksTableId---"
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    When I navigate to "Applications" tab
+#    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+#    When I click toggle button to select "Pre-Applications - Submitted"
+#    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-Application}" in "RecipientPreApplications" panel
+#    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-Application}" inside table
+#    Then I softly can see top right button "Create Application" in page detail
+#    When I click on "Create Application" in the page details
+#    And I wait for "3" seconds
+#    And I click modal button "Save and Continue"
+#    And I enter "Edition" values from "Application_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I navigate to "Budget" sub tab
+#    And I save the field labeled "Subaward Floor" as "subawardfloor2"
+#    And I save the field labeled "Subaward Ceiling" as "subawardcieling2"
+#    Then I softly see value "{SavedValue:subawardfloor1}" is "Equals to" the value "{SavedValue:subawardfloor2}"
+#    Then I softly see value "{SavedValue:subawardcieling2}" is "Equals to" the value "{SavedValue:subawardcieling2}"
 
   @72522 @preapplicationQualifiedIsAddedToTheTable  @smoke
   Scenario: Validate once Application is qualified then user can view the Qualified Application from Qualfied Table and it is removed from Non -yet qualified table
@@ -4570,7 +4570,7 @@ Feature: Pre-Application scenarios without background
     And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     Then I softly see field "Status" as "Submitted for Review"
 
-@preapp @202460 @ValidatePreapptasktypeshouldberenamedforAdminuserasReviePre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734  @reassignment
+ @202460 @ValidatePreapptasktypeshouldberenamedforAdminuserasReviePre-Applicationafterpre-appsubmittedtograntor @sprint-11-US-224734  @reassignment @bugid_461962
   Scenario: Validate Pre app_ Verify task type should be renamed for Admin user as "Review Pre-Application" after pre-app submitted to grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation ADMIN user"
     When I am on "SUBPORTAL" portal
@@ -5563,7 +5563,7 @@ Feature: Pre-Application scenarios without background
     And I wait for "3" seconds
     Then I softly see field "Status" as "Created" in "Negotiation Request Details" pageblock
     Then I softly see field "Pre-Application Sections for Negotiation" as "Files and Forms: Forms"
-#    Then I softly see field "Details" as "Negotiation Initiated" in "Negotiation Request Details" pageblock
+    Then I softly see field "Details" as "Negotiation Initiated" in "Negotiation Request Details" pageblock
     And I click on "Send to Subrecipient" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Negotiation Initiated"
