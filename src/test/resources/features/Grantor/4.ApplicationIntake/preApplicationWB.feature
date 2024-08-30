@@ -260,7 +260,8 @@ Feature: Pre-Application scenarios without background
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       |  Is Key Contact |
       | {SavedValue:SPI3 Username} |  Checked        |
-    And I click on "Edit" in the page details
+#    And I click on "Edit" in the page details
+   When I navigate to "Overview" sub tab
     And I enter value "Checked" into field "Agreement5__c"
     And I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
@@ -5561,7 +5562,7 @@ Feature: Pre-Application scenarios without background
     And I wait for "3" seconds
     Then I softly see field "Status" as "Created" in "Negotiation Request Details" pageblock
     Then I softly see field "Pre-Application Sections for Negotiation" as "Files and Forms: Forms"
-    Then I softly see field "Details" as "Negotiation Initiated"
+   Then I softly see field "Details" as "Negotiation Initiated" in "Negotiation Request Details" pageblock
     And I click on "Send to Subrecipient" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Negotiation Initiated"
