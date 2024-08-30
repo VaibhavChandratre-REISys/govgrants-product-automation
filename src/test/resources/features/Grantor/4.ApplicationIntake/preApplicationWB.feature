@@ -155,7 +155,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     Then I softly cannot see top right button "Create Pre-Application" in page detail
 
- @preapp @71115 @71114 @preappDueDateValidation
+ @71115 @71114 @preappDueDateValidation
   Scenario: Validate whether User will be able to submit the pre- application on the last date for submission.
   Validate once the Announcement is published and Pre-Application is in created status, later the announcement is unpublished then the User will not be able to see the Submit to Grantor on pre-application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for PreApp and App" and properties "TODAY_PREAPP_DUE_DATE"
@@ -197,7 +197,8 @@ Feature: Pre-Application scenarios without background
     When I click toggle button to select "Pre-Applications - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement for PreApp and App}" in "---preApplication:-:recipientPreApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for PreApp and App}" inside flex table with id "---preApplication:-:recipientPreApplicationsTableId---"
-    And I wait for "2" seconds
+
+   And I wait for "2" seconds
    Then I softly can see top right button "Submit to Grantor" in page detail
 
   @71413 @userCannotCreatePreAppWhenSettingIsNo
@@ -214,7 +215,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Qualify" in the page details
     Then I softly cannot see top right button "Create Pre-Application" in page detail
 
- @preapp @72516 @72518 @34154 @72519 @72520 @72515 @preapplicationInformationCopiedToApplication  @buglogged100926 @buglogged109204 @buglogged169487
+@preapp @72516 @72518 @34154 @72519 @72520 @72515 @preapplicationInformationCopiedToApplication  @buglogged100926 @buglogged109204 @buglogged169487
   Scenario: Validate the Pre Application information is copied to Application | Validate whether user is able to acknowledge the application submission by entering the mandatory details.
   Validate the Match Percentage validation during submit for approval when the Match required setting as Yes | Validate when the pre-application is submitted to grantor then the pending task is created for PM user
   Validate the once the PM user accepts the pre-application when is submitted to grantor using the pending task, then the task moved from pending to Completed task table
@@ -247,7 +248,7 @@ Feature: Pre-Application scenarios without background
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
 #    And I click on "Back" in the page details
-    And I switch to parent tab
+     And I close the tab
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "2" seconds
     Then I softly see the following messages in the page details contains:
@@ -614,7 +615,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Budget" sub tab
    Then I softly do not see "Focus Area" page block displayed
 
- @preapp @35054 @34353 @33998 @validateListOfSubmittedApplication   @buglogged169487
+ @35054 @34353 @33998 @validateListOfSubmittedApplication   @buglogged169487
   Scenario: Verify when SPI (Record owner of Pre-Application) submit the Pre-Application to Grantor then it is displayed in the list of Submitted Pre-Applications and disappeared from the list of Not yet qualified Opputunities
   Verify if the opportunity has only one focus area, then the application budget periods are automatically associated to that focus area |
   Validate whether SPI user can edit the pre-application once it is submitted to grantor.
@@ -745,7 +746,7 @@ Feature: Pre-Application scenarios without background
     When I download the file
     Then I softly see "Submitted to Grantor" on page "1" of "govgrants" pdf file
 
- @preapp @34146 @preAppCannotBeSubmittedWithZeroAmount
+ @34146 @preAppCannotBeSubmittedWithZeroAmount
   Scenario: Verify SPI user is not able to Submit Pre-Application to Grantor with zero budget/requested amount
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-Application" and properties "PRE_APPLICATION_YES"
     Given I am on "SUBPORTAL" portal
@@ -987,7 +988,7 @@ Feature: Pre-Application scenarios without background
     When I save the field containing "Program Income Allowed?" as "No"
     Then I softly cannot see field "Estimated Program Income For Project Period" inside page block
 
- @preapp @174845 @174846 @174858 @174860 @174876 @174879 @174883 @174885 @ValidatesubmittedpreapplicationsendbacktonegotiationfromgrantorsideafterselectingtheRequesNegotiation @sprint-8
+ @174845 @174846 @174858 @174860 @174876 @174879 @174883 @174885 @ValidatesubmittedpreapplicationsendbacktonegotiationfromgrantorsideafterselectingtheRequesNegotiation @sprint-8
   Scenario: Validate submitted pre application send back to negotiation from grantor side after selecting the Request Negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -3349,7 +3350,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
- @preapp @197942 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforadminuseronreassignmytaskpage  @sprint-7-US-197384  @reassignment
+ @197942 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforadminuseronreassignmytaskpage  @sprint-7-US-197384  @reassignment
   Scenario: Validate Pre-Application Review Negotiation task should not generate for admin user on reassign my task page
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation ADMIN user"
     Given I am on "SUBPORTAL" portal
@@ -3416,7 +3417,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
- @preapp @197949 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforPMuseronreassignmytaskpage @sprint-7-US-197384  @reassignment
+ @197949 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforPMuseronreassignmytaskpage @sprint-7-US-197384  @reassignment
   Scenario: Validate Pre-Application Review Negotiation' task should not generate for PM user on reassign my task page
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -3482,7 +3483,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
- @preapp @197951 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforEXEuseronreassignmytaskpage @sprint-7-US-197384  @reassignment
+ @197951 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforEXEuseronreassignmytaskpage @sprint-7-US-197384  @reassignment
   Scenario: Validate Pre-Application Review Negotiation task should not generate for PO user on reassign my task page
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -3549,7 +3550,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PreappEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
- @preapp @197954 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforPOuseronreassignmytaskpage @sprint-7-US-197384  @reassignment
+ @197954 @ValidatePre-ApplicationReviewNegotiationtaskshouldnotgenerateforPOuseronreassignmytaskpage @sprint-7-US-197384  @reassignment
   Scenario: Validate Pre-Application Review Negotiation' task should not generate for PO user on reassign my task page
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation PO user"
     When I am on "SUBPORTAL" portal
@@ -4614,7 +4615,7 @@ Feature: Pre-Application scenarios without background
       | Reviewer Name            | Responsibility  | Description                 | Due Date |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---preApplication:-:preAppPeerReviewTableId---" without waiting for record
-    When I navigate to "Responsibilities" sub tab
+    And I wait for "2" seconds
     Then I softly see that "Sent for Review" has been added in flextable with Id "---preApplication:-:preAppPeerReviewTableId---"
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -4641,11 +4642,12 @@ Feature: Pre-Application scenarios without background
     Then I softly see field "Status" as "Submitted for Review"
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "Automation FO1" inside flex table with id "---progressReport:-:peerReviewersTableId---" without waiting for record
-    And I pause execution for "7" seconds
+    And I pause execution for "5" seconds
     When I enter in modal value "Cannot Rate" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "5" seconds 
     And I navigate to "Home" tab
     And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---home:-:completedAssignedToMe---" panel
@@ -4817,7 +4819,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see row level action button "View" against "{SavedValue:PreappEGMSID}" in flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PreappEGMSID}" in flex table with id "---preApplication:-:preApplicationsGrantorTableId---"
 
-  @preapp @196963 @ValidatePre-appnewownerofpre-appshouldseethebelowbuttonswhennewownerclickoninitiatenegotiationbutton&enterrequireddetails @sprint-4-US-197579  @reassignment
+  @196963 @ValidatePre-appnewownerofpre-appshouldseethebelowbuttonswhennewownerclickoninitiatenegotiationbutton&enterrequireddetails @sprint-4-US-197579  @reassignment
   Scenario: Validate Pre-app new owner of pre-app should see the below buttons when new owner click on 'initiate negotiation' button & enter required details
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -4895,7 +4897,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Accept" in page detail
     Then I softly can see top right button "Reject" in page detail
 
- @preapp @196968 @ValidatePre-apponlyS\Rusernameshouldbedisplayunderownersectionofresponsibilitytabofpre-appevenifAnnownershipwillgetchangeforrelatedpre-app @sprint-4-US-197579  @reassignment
+ @196968 @ValidatePre-apponlyS\Rusernameshouldbedisplayunderownersectionofresponsibilitytabofpre-appevenifAnnownershipwillgetchangeforrelatedpre-app @sprint-4-US-197579  @reassignment
   Scenario: Validate Pre-app only S\R user name should be display under owner section of responsibility tab of pre-app even if Ann ownership will get change for related pre-app
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_YES-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -5008,7 +5010,7 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Responsibilities" sub tab
     Then I see value "Automation SPI3" for title "Name" inside table "---preApplication:-:preApplicationOwnerTableId---"
 
- @preapp @196980 @ValidatePre-appVenewownershouldseethebelowbuttonswhens/rusersubmitthepre-applicationnegotiationtograntorafterit'srelatedAnnownerwillchangeitsownershipandassigntonewuser @sprint-4-US-197579  @reassignment
+ @196980 @ValidatePre-appVenewownershouldseethebelowbuttonswhens/rusersubmitthepre-applicationnegotiationtograntorafterit'srelatedAnnownerwillchangeitsownershipandassigntonewuser @sprint-4-US-197579  @reassignment
   Scenario: Validate Pre-app new owner should see the below buttons when s/r user submit the pre-application negotiation to grantor after it's related Ann owner will change its ownership and assign to new user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -5122,7 +5124,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Accept" in page detail
     Then I softly can see top right button "Reject" in page detail
 
- @preapp @197235 @ValidatePre-appemailshouldbegeneratedfornewownerforpre-appifit'srelatedAnnownershipassigntonewAnnuser @sprint-4-US-197579  @reassignment
+ @197235 @ValidatePre-appemailshouldbegeneratedfornewownerforpre-appifit'srelatedAnnownershipassigntonewAnnuser @sprint-4-US-197579  @reassignment
   Scenario: Validate Pre-app email should be generated for new owner for pre-app if it's related Ann ownership assign to new Ann user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -5502,7 +5504,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "{SavedValue:AwardFloor}" is "Equals to" the value "{SavedValue:AwardFloor1}"
     Then I softly see value "{SavedValue:BudgetedAmount}" is "Equals to" the value "{SavedValue:BudgetedAmount1}"
 
- @preapp @274164 @DirectiveAnnVerifyINDusercanteditBudgetTabBudgetSummarybyFocusAreasectionifgrantornotselectedBudgetTabBudgetSummarybyFocusAreaforapplicationfornegotiation @Sprint-23-US-273843
+ @274164 @DirectiveAnnVerifyINDusercanteditBudgetTabBudgetSummarybyFocusAreasectionifgrantornotselectedBudgetTabBudgetSummarybyFocusAreaforapplicationfornegotiation @Sprint-23-US-273843
   Scenario: Directive Ann Verify IND user can't edit "Budget Tab: Budget Summary by Focus Area" section if grantor not selected "Budget Tab: Budget Summary by Focus Area" for application for negotiation
     Given I published "Directed" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "INVITED_APPLICANT_IND_ORGPRE_PRE_APPLICATION_NEGOTIATION-Automation EXE user"
     When I am on "SUBPORTAL" portal
@@ -5632,7 +5634,7 @@ Feature: Pre-Application scenarios without background
     Then I softly can see page block "Budget Summary by Focus Area"
     Then I cannot see page block "Focus Area"
 
- @preapp @274243 @ValidatePreApptheeffectsofpreApprejectioncreatedonCompAnn @Sprint-23-US-273843  @Allocation
+ @274243 @ValidatePreApptheeffectsofpreApprejectioncreatedonCompAnn @Sprint-23-US-273843  @Allocation
   Scenario: Validate Pre App the effects of pre App rejection created on Comp Ann
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
