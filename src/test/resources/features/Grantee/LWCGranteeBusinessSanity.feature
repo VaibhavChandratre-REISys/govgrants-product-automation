@@ -1037,11 +1037,11 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I select radio button "Forward" in the approval decision
-    And I select user "{SavedValue:EXE1 Username}" in the approval decision
+    And I select user "{SavedValue:PM Username}" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE1" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
