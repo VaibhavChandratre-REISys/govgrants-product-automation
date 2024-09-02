@@ -687,14 +687,13 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:PM Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    And I wait for "3" seconds
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
     And I pause execution for "3" seconds
-    And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
-    And I pause execution for "3" seconds
-    When I navigate to "Responsibilities" sub tab
-    Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
+    Then I softly see value "Sent for Review" for title "Status" inside table "---announcement:-:reviewersTableId---"
     Then I softly see field "Status" as "Submitted for Review"
     #285570 #285574
     Then I cannot see top right button "Undo" in page detail
@@ -704,13 +703,13 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
+    When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
     And I pause execution for "7" seconds
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
-    Then I softly see value "Submitted" for title "Status" inside table "---announcement:-:flexGridApproverRolesTableId---"
+    Then I softly see value "Submitted" for title "Status" inside table "---announcement:-:reviewersTableId---"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -824,7 +823,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:PM Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     And I click on "Send for Review" icon for "{SavedValue:PM Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
     And I pause execution for "3" seconds
     When I navigate to "Responsibilities" sub tab

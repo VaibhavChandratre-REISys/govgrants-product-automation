@@ -108,6 +108,11 @@ public class CommonSteps {
     public void iClickOnIconForInsideFlexTableWithIdWithQuotes(String actionIcon, String anyUniqueColumnValues, String flexTableId) {
             govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues);
     }
+
+    @When("I {string} page block contaninig value {string}")
+    public void iPageBlockContaninigValue(String actionIcon, String pageBlockTitle) {
+        govgrants.perform().pageDetails().pageBlockExpandedOrCollapse(pageBlockTitle,actionIcon);
+    }
 }
 
 

@@ -1532,46 +1532,8 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @tst
+  @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
-    And I navigate to "Opportunities" tab
-    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    When I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationIntake:-:activeOpportunitiesTableId---"
-    When I click on "Qualify" in the page details
-    When I click on "Create Application" in the page details
-    And I wait for "6" seconds
-    And I click modal button "Save and Continue"
-    And I wait for "5" seconds
-    And I enter "Edition" values from "Application_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I navigate to "Overview" sub tab
-    And I save the field containing "Match Required?" as "Yes"
-    When I navigate to "Proposal" sub tab
-    When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                  | Target |
-      | Automation Permanent KPI | 10     |
-    And I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I switch to tab number "1"
-    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I close the tab
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I switch to tab number "1"
-    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I close the tab
-    When I click on "Submit Application" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Budget Tab - Enter budget details before submitting an Application to the Grantor.                                                                  |
-      | Budget Tab - Provide the match (Cash Match/Non-Cash Match) details to submit this application.                                                      |
-      | Overview Tab - Specify at least one contact as Key Personnel for Application.                                                                       |
-      | Budget Tab - Budgeted Amount should be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section. |
-      | Budget Tab - The Subrecipient Match should not be less than the given value.                                                                        |
-    When I navigate to "Overview" sub tab
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal

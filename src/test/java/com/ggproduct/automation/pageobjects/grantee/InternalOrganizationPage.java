@@ -168,6 +168,9 @@ public class InternalOrganizationPage extends GranteeProjectManager {
     /**
      * assert true/false if fields displayed/not displayed
      */
+    /**
+     * assert true/false if fields displayed/not displayed
+     */
     public void assertVisibilityOfPageDetailsFields(String usage, String fieldApiName) {
         if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isFieldsVisibleAtPAgeDetails(fieldApiName));
@@ -775,6 +778,9 @@ public class InternalOrganizationPage extends GranteeProjectManager {
     /**
      * validate if fields is not visible at page details
      */
+    /**
+     * validate if fields is not visible at page details
+     */
     private boolean isFieldsVisibleAtPAgeDetails(String fieldApiName) {
         By fieldsAtPage = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']");
         boolean flag = false;
@@ -787,6 +793,7 @@ public class InternalOrganizationPage extends GranteeProjectManager {
         }
         return flag;
     }
+
 
     /**
      * @return false if expected element is not displayed on look modal

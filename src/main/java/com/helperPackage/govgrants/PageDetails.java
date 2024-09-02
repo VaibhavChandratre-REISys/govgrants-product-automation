@@ -774,6 +774,17 @@ public final class PageDetails {
         }
     }
 
+    public void pageBlockExpandedOrCollapse(String pageBlockTitle,String actionIcon) {
+        if(actionIcon.contains("Collapse")) {
+            By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//span[text()='Expanded']");
+            I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
+        }
+        else {
+            By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//span[text()='Collapse']");
+            I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
+        }
+    }
+
     /**
      * @param usage    - softly or not
      * @param cellName - MultiCell value

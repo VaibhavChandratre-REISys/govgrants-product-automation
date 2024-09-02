@@ -14,6 +14,17 @@ Feature: Validate all registration related scenarios
     And I click on top right button "Add" in flex table with id "---user:-:orgRegistrationAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---home:-:internalOrganizationAddfile---"
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---home:-:internalOrganizationAddfile---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "AGENCY DETAILS" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---home:-:internalOrganizationAddfile---"
     And I pause execution for "3" seconds
     When I click on "Download" icon for "Attachment.pdf" inside table
     Then I softly see new tab is opened
@@ -303,21 +314,23 @@ Feature: Validate all registration related scenarios
     Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "123456789" into "Social Security Number (SSN)" on old form
-    When I enter value as "IndividualRegistration@yopmail.com" into "Email" on old form
+    And I generate the random SSN and save as "SSN"
+    When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
-    When I click on "Save and Continue" in the page details
+    When I click on "Save" in the page details
     Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter "CreationWithOnlyPaymentDetail" values from "UserRegistration_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I see "No" text enter in field "fieldSameAsOrganizationAddress__c"
-    Then I see "1000 Defense Pentagon" text enter in field "fieldPaymentAddressLine1__c"
-    Then I see "Washington" text enter in field "fieldPaymentAddressCity__c"
-    Then I see "DC" text enter in field "fieldPaymentAddressState__c"
-    Then I see "20301" text enter in field "fieldPaymentAddressZipCode__c"
-    Then I see "(918) 908-9089" text enter in field "fieldPaymentAddressVendorLocation__c"
-    Then I see "1234" text enter in field "fieldPaymentAddressZipCode4__c"
+    Then I see "No" text enter in field "SameAsOrganizationAddress__c"
+    Then I see "1000 Defense Pentagon" text enter in field "PaymentAddressLine1__c"
+    Then I see "Washington" text enter in field "PaymentAddressCity__c"
+    Then I see "DC" text enter in field "PaymentAddressState__c"
+    Then I see "20301" text enter in field "PaymentAddressZipCode__c"
+    Then I see "(918) 908-9089" text enter in field "PaymentAddressVendorLocation__c"
+    Then I see "1234" text enter in field "PaymentAddressZipCode4__c"
     When I click on "Submit" in the page details
     Then I see the following messages in the page details contains:
       | Confirmation Message                                                                                                                                                                |
@@ -429,10 +442,12 @@ Feature: Validate all registration related scenarios
     Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
-    When I enter value as "123456789" into "Social Security Number (SSN)" on old form
-    When I enter value as "IndividualRegistration@yopmail.com" into "Email" on old form
+    And I generate the random SSN and save as "SSN"
+    When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
-    When I click on "Save and Continue" in the page details
+    When I click on "Save" in the page details
     Then I softly see field "Primary Email" as "individualregistration@yopmail.com"
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -444,7 +459,7 @@ Feature: Validate all registration related scenarios
     When I click on "Start" icon for "Automation User" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    Then I softly see status in Progress-bar is "Approved" and is "Green"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     #85790
     And I checkout to yopmail with mailid "IndividualRegistration@yopmail.com"
     And I pause execution for "1" seconds
@@ -717,9 +732,9 @@ Feature: Validate all registration related scenarios
     And I generate the random EmailID and save as "uniqueEmailID"
     When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
-    When I click on "Save and Continue" in the page details
+    When I click on "Save" in the page details
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
@@ -730,10 +745,11 @@ Feature: Validate all registration related scenarios
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:uniqueEmailID}" in "{grantor_tableId:SubrecipientIndRegistration}" panel
     And I save the value from row "1" for column name "Full Name" as "UserFullName" from flex table "{grantor_tableId:SubrecipientIndRegistration}"
+    And I wait for "2" seconds
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation PM1"
-    When I perform quick search for "{SavedValue:OldfullName}" in "---program:-:grantorTaskReassignTableId---" panel
+    When I perform quick search for "{SavedValue:UserFullName}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "Review Individual User Registration" for title "Task Type" inside table "---program:-:grantorTaskReassignTableId---"
 
   @223616 @ValidateAdminusershouldnotabletoseethereassigntaskofIndividualRegistrationApprovalfromAllTasksAsaAdmin @sprint-12-US-226646  @reassignment
@@ -746,9 +762,10 @@ Feature: Validate all registration related scenarios
     And I generate the random EmailID and save as "uniqueEmailID"
     When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
     When I enter value as "1234" into "Vendor ID" on old form
-    When I click on "Save and Continue" in the page details
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
-    And I enter value "Yes" into field "fieldSameAsOrganizationAddress__c"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
@@ -762,9 +779,9 @@ Feature: Validate all registration related scenarios
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
-    And I select value "Automation EXE" into field "s2id_autogen1"
-    And I select value "Automation EXE1" into field "s2id_autogen3"
-    When I perform quick search for "{SavedValue:OldfullName}" in "---program:-:adminTaskReassignmentTableId---" panel
+    And I select value "Automation EXE" into field "input-source"
+    And I select value "Automation EXE1" into field "input-target"
+    When I perform quick search for "{SavedValue:UserFullName}" in "---program:-:adminTaskReassignmentTableId---" panel
     Then I softly do not see value "Review Individual User Registration" for title "Task Type" inside table "---program:-:adminTaskReassignmentTableId---"
 
   @222975 @223047 @ValidateAdminusershouldnotabletoseethereassigntaskofParent/ChildrelationshipApprovalfromAlltasksAsaAdmin @sprint-12-US-226646  @reassignment @wip @invalidScenario
@@ -879,3 +896,158 @@ Feature: Validate all registration related scenarios
     Then I softly see the following messages in the page details :
       | Social Security Number (SSN) is required to save. |
       | Email is required to save.                        |
+
+  @452453 @INDRegVerifyfromorganizationpagewithvaliddataonclicksavebuttonredirecttoregistrationpage @sprint-16-US-416690
+  Scenario: IND Reg : Verify from organization page with valid data   on click save button redirect  to registration page
+    Given I begin "Individual" registration as "Register As Individual"
+    When I click on "Agree" in the page details
+    When I click on "Agree" in the page details
+    And I generate the random SSN and save as "SSN"
+    When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    When I enter value as "1234" into "Vendor ID" on old form
+    When I click on "Save" in the page details
+    Then I softly see fields "PrimaryRepFirstName__c" is visible
+    Then I softly see fields "PrimaryRepLastName__c" is visible
+    Then I softly see fields "PrimaryRepAddress1__c" is visible
+    Then I softly see fields " PrimaryRepCity__c" is visible
+    Then I softly see fields "PrimaryRepState__c" is visible
+    Then I softly see fields "PrimaryRepZipCode__c" is visible
+    Then I softly see fields " PrimaryRepCountry__c" is visible
+    Then I softly see fields "PrimaryRepPhone__c" is visible
+    Then I softly see fields "SameAsOrganizationAddress__c" is visible
+    Then I softly see fields "PaymentAddressLine1__c" is visible
+    Then I softly see fields "PaymentAddressCity__c" is visible
+    Then I softly see fields "PaymentAddressState__c" is visible
+    Then I softly see fields "PaymentAddressZipCode__c" is visible
+    Then I softly see fields "PaymentAddressCounty__c" is visible
+    When I "Collapse" page block contaninig value "Primary Representative Information"
+    Then I softly do not see fields "PrimaryRepFirstName__c" is visible
+    When I "Expanded" page block contaninig value "Primary Representative Information"
+    Then I softly see fields "PrimaryRepFirstName__c" is visible
+    When I "Collapse" page block contaninig value "Profile Description"
+    Then I softly do not see fields "ExternalReviewerProfileDescription__c" is visible
+    When I "Expanded" page block contaninig value "Profile Description"
+    Then I softly see fields "ExternalReviewerProfileDescription__c" is visible
+    When I "Collapse" page block contaninig value "Payment Address"
+    Then I softly do not see fields "SameAsOrganizationAddress__c" is visible
+    When I "Expanded" page block contaninig value "Payment Address"
+    Then I softly see fields "SameAsOrganizationAddress__c" is visible
+
+  @452454 @INDRegVerifyinpaymentaddrresssectioninSameasPrimaryRepresentativeInformationDropdownselectYesthenfieldsunabletosee @sprint-16-US-416690
+  Scenario: IND Reg : Verify in payment addrress section ,in Same as Primary Representative Information?  Drop down select Yes then fields unable to see.
+    Given I begin "Individual" registration as "Register As Individual"
+    When I click on "Agree" in the page details
+    When I click on "Agree" in the page details
+    And I generate the random SSN and save as "SSN"
+    When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    When I enter value as "1234" into "Vendor ID" on old form
+    When I click on "Save" in the page details
+    And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
+    Then I softly do not see fields "PaymentAddressLine1__c" is visible
+    Then I softly do not see fields "PaymentAddressCity__c" is visible
+    Then I softly do not see fields "PaymentAddressState__c" is visible
+    Then I softly do not see fields "PaymentAddressZipCode__c" is visible
+    Then I softly do not see fields "PaymentAddressCounty__c" is visible
+
+  @452455 @INDRegVerifyinpaymentaddrresssectioninSameasPrimaryRepresentativeInformationDropdownselectNothenfieldsunabletosee @sprint-16-US-416690
+  Scenario: IND Reg : Verify in payment addrress section ,in Same as Primary Representative Information? Drop down select No then fields unable to see.
+    Given I begin "Individual" registration as "Register As Individual"
+    When I click on "Agree" in the page details
+    When I click on "Agree" in the page details
+    And I generate the random SSN and save as "SSN"
+    When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    When I enter value as "1234" into "Vendor ID" on old form
+    When I click on "Save" in the page details
+    And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "No" into field "SameAsOrganizationAddress__c"
+    And I wait for "3" seconds
+    Then I softly see fields "PaymentAddressLine1__c" is visible
+    Then I softly see fields "PaymentAddressCity__c" is visible
+    Then I softly see fields "PaymentAddressState__c" is visible
+    Then I softly see fields "PaymentAddressZipCode__c" is visible
+    Then I softly see fields "PaymentAddressCounty__c" is visible
+
+  @452457 @INDRegVerifyonclicksavefromregistration2of2pagethenitredirecttocaptchapage @sprint-16-US-416690
+  Scenario: IND Reg : Verify on click save from  registration 2 of 2 page then it redirect to captcha page.
+    Given I begin "Individual" registration as "Register As Individual"
+    When I click on "Agree" in the page details
+    When I click on "Agree" in the page details
+    And I generate the random SSN and save as "SSN"
+    When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    When I enter value as "1234" into "Vendor ID" on old form
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I can see top right button "Back" in page detail
+    Then I can see top right button "Submit" in page detail
+
+ @452464 @INDRegVerifyINDorgabletoseeinpendingIndividualsubrecipientregistration @sprint-16-US-416690
+  Scenario: IND Reg : Verify IND org able  to see in pending Individual subrecipient registration.
+    Given I begin "Individual" registration as "Register As Individual"
+    When I click on "Agree" in the page details
+    When I click on "Agree" in the page details
+    And I generate the random SSN and save as "SSN"
+    When I enter value as "{SavedValue:SSN}" into "Social Security Number (SSN)" on old form
+    And I generate the random EmailID and save as "uniqueEmailID"
+    When I enter value as "{SavedValue:uniqueEmailID}" into "Email" on old form
+    When I enter value as "1234" into "Vendor ID" on old form
+    When I click on "Save" in the page details
+    And I enter "PrimaryRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
+    And I enter value "Yes" into field "SameAsOrganizationAddress__c"
+    When I click on "Save" in the page details
+    When I click on "Submit" in the page details
+    And I pause execution for "5" seconds
+    Then I see the following messages in the page details contains:
+      | Your registration request for access to EGMS has been completed and sent for government approval.Once approved, you will be sent another email from salesforce.com (technology platform provider) with your Username and Password shortly to log into the system. |
+   And I am on "INTERNAL" portal
+   And I login to "As a Grantor" app as "SARAH PM" user
+    When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
+    When I perform quick search for "{SavedValue:uniqueEmailID}" in "{grantor_tableId:SubrecipientIndRegistration}" panel
+   And I save the value from row "1" for column name "Full Name" as "UserFullName" from flex table "{grantor_tableId:SubrecipientIndRegistration}"
+    And I wait for "2" seconds
+    When I click on "Start" icon for "{SavedValue:UserFullName}" inside flex table with id "{grantor_tableId:SubrecipientIndRegistration}"
+    Then I see only the following ordered radio buttons in the approval decision :
+      | Approve | Reject |
+
+  @453423 @verifyonceloginwithINDprofilealltabsandsection @sprint-16-US-416690
+  Scenario:verify once login with IND profile all tabs and section.
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "IND" user
+    And I navigate to "Home" tab
+    When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Related Log" sub tab at view detail page
+    Then I softly can see "Risk Assessment" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    Then I softly see "Description" page block displayed
+    Then I softly see "Additional Information" page block displayed
+    Then I softly see "Additional Address" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "System Information" page block displayed
+    When I "Collapse" page block contaninig value "Description"
+    Then I softly do not see fields "BillingCity" is visible
+    When I "Expanded" page block contaninig value "Description"
+    Then I softly see fields "BillingCity" is visible
+    When I "Collapse" page block contaninig value "Additional Information"
+    Then I softly do not see fields "PointOfContactUser__c" is visible
+    When I "Expanded" page block contaninig value "Additional Information"
+    Then I softly see fields "PointOfContactUser__c" is visible
+    When I "Collapse" page block contaninig value "Additional Address"
+    Then I softly do not see fields "Name" is visible
+
+
+
+
