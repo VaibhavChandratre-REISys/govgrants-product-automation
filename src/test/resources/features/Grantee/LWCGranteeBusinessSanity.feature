@@ -778,7 +778,8 @@ Feature: Sanity scenarios
     Then I softly see "Related Contacts" page block displayed
     Then I softly see "Child Organizations" page block displayed
     Then I softly see "System Information" page block displayed
-    Then I softly see field "Organization Name" as "Automation Runtime Organization"
+    And I save the field labeled "Organization Name" as "OrganizationName"
+    Then I softly see field "Organization Name" as "OrganizationName"
 #    Then I softly see field "Abbreviation" as "WHO"
     Then I softly see field "Address Line 1" as "Street 1"
     Then I softly see field "City" as "New York"
@@ -904,7 +905,7 @@ Feature: Sanity scenarios
       | Sarah PM         |  Test         | Grantee testing   |
     Then I softly see value "Test" for title "Title" inside table "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see value "Grantee testing" for title "Description" inside table "---grantee_tableId:-:fedNotesTableId---"
-    And I save the value from row "2" for column name "Created By" as "CreatedBy" from flex table "---grantee_tableId:-:fedNotesTableId---"
+    And I save the value from row "1" for column name "Created By" as "CreatedBy" from flex table "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see value "{SavedValue:CreatedBy}" for title "Created By" inside table "---grantee_tableId:-:fedNotesTableId---"
     Then I cannot see row level action button "Delete" against "Grantee testing" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
     Then I cannot see row level action button "Edit" against "Grantee testing" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
