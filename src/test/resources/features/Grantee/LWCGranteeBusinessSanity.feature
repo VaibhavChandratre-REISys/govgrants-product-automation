@@ -741,7 +741,6 @@ Feature: Sanity scenarios
     Then I softly see field on modal "County" inside page block
     Then I softly see field on modal "4-Digit Zip Code Extension" inside page block
     Then I softly see field on modal "Zip Code" inside page block
-#    When I enter in modal value "WHO" into field "Code__c"
     When I enter in modal value "123" into field "CongressionalDistrict__c"
     When I enter in modal value "www.google.com" into field "Website"
     When I enter in modal value "erer" into field "AddressLine2__c"
@@ -779,8 +778,7 @@ Feature: Sanity scenarios
     Then I softly see "Child Organizations" page block displayed
     Then I softly see "System Information" page block displayed
     And I save the field labeled "Organization Name" as "OrganizationName"
-    Then I softly see field "Organization Name" as "OrganizationName"
-#    Then I softly see field "Abbreviation" as "WHO"
+    Then I softly see field "Organization Name" as "{SavedValue:OrganizationName}"
     Then I softly see field "Address Line 1" as "Street 1"
     Then I softly see field "City" as "New York"
     Then I softly see field "State" as "AL"
@@ -1037,7 +1035,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I select radio button "Forward" in the approval decision
-    And I select user "{SavedValue:PM Username}" in the approval decision
+    And I select user "GRANTEE PM" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
