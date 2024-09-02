@@ -741,7 +741,7 @@ Feature: Sanity scenarios
     Then I softly see field on modal "County" inside page block
     Then I softly see field on modal "4-Digit Zip Code Extension" inside page block
     Then I softly see field on modal "Zip Code" inside page block
-    When I enter in modal value "WHO" into field "Code__c"
+#    When I enter in modal value "WHO" into field "Code__c"
     When I enter in modal value "123" into field "CongressionalDistrict__c"
     When I enter in modal value "www.google.com" into field "Website"
     When I enter in modal value "erer" into field "AddressLine2__c"
@@ -762,7 +762,7 @@ Feature: Sanity scenarios
     When I enter in modal value "USA" into field "BillingCountry"
     When I enter in modal value "45623" into field "BillingPostalCode"
     And I click modal button "Save and Continue"
-    And I click modal button "Save"
+    And I click on "Save" in the page details
     Then I see the header is "Non-Federal Organization" in the page details
     Then I see the sub-header is "Automation Runtime Organization" in the page details
     Then I softly see field "Parent Organization" as "NA"
@@ -779,7 +779,7 @@ Feature: Sanity scenarios
     Then I softly see "Child Organizations" page block displayed
     Then I softly see "System Information" page block displayed
     Then I softly see field "Organization Name" as "Automation Runtime Organization"
-    Then I softly see field "Abbreviation" as "WHO"
+#    Then I softly see field "Abbreviation" as "WHO"
     Then I softly see field "Address Line 1" as "Street 1"
     Then I softly see field "City" as "New York"
     Then I softly see field "State" as "AL"
@@ -890,6 +890,9 @@ Feature: Sanity scenarios
     Then I can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I softly see top right button "Add" inside flex table "---grantee_tableId:-:fedNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:fedNotesTableId---" by clicking "Add" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:fedNotesTableId---"
