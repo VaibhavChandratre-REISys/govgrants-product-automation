@@ -1535,14 +1535,17 @@ Feature: Validate all scenarios of every modules flow
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "CR-AD-GA-2665-00" in "---grantee_tableId:-:AmendmentTableId---" panel
-    And I click on "View" icon for "CR-AD-GA-2665-00" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-    When I click on "Submit to Grantor" in the page details
-    When I enter values into fields
-      | Value                       | Field                |
-      |   0                        | SubmittedToGrantor__c |
-    And I click modal button "Save"
-    And I click modal button "Close"
+    And I wait for "10" seconds
+    When I navigate to "Amendments" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+#    When I enter values into fields
+#      | Value                       | Field                 |
+#      | Grantee                     | InitiatedByGrantee__c |
+    When I enter in modal value "Grantee" into field "InitiatedByGrantee__c"
+#    And I click modal button "Save and Continue"
+#    And I wait for "3" seconds
+#    When I enter values into fields
+#      | Value                       | Field                         |
+#      | 2000                        | RequestedChangeInBudget__c    |
+#    And I click on "Save" in the page details
