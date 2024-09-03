@@ -1272,17 +1272,20 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly can see "Actuals" sub tab at view detail page
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    When I navigate to "Closeout" tab
+    When I navigate to "Closeout" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
+    When I enter values into fields
+      | Value                        | Field             |
+      |  {SavedValue:AwardIssueDate} | CloseoutDate__c   |
     And I click modal button "Save and Continue"
-    And I enter "Edition" values from "Closeout_Field_Values.xlsx"
+    And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:closeoutApproverTableId---" by clicking "New" :
-      | Name        | Closeout |
-      | Sarah PM    | Step 1   |
+      | Name         | Closeout |
+      | Victor EXE   | Step 1   |
     When I click on "Override" in the page details
     Then I softly see field "Status" as "Overridden"
     When I click on "Submit for Approval" in the page details
