@@ -1216,9 +1216,6 @@ public final class InputForms {
                 }catch (Exception ee) {
                     I.amPerforming().click().on(dropDownSelector);
                     I.amPerforming().click().on(By.xpath("//span[@title='" + value + "']"));
-                }finally {
-                I.amPerforming().click().withJavaScript(dropDownSelector);
-                I.amPerforming().click().withJavaScript(By.xpath("//span[@title='" + value + "']"));
             }}
         } else {
             By dropDownSelector = By.xpath(".//select");
