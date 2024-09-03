@@ -1230,3 +1230,6 @@ Feature: Sanity scenarios
     Then I see "Project Details" page block displayed
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
+
+  @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
+    Scenario: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
