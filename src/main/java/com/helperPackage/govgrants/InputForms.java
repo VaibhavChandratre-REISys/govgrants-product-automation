@@ -1212,10 +1212,10 @@ public final class InputForms {
                 By dropDownSelector = By.xpath("//div[@data-field_api_name='" + table + "']//button[@aria-haspopup='listbox']");
                 try {
                     I.amPerforming().click().on(dropDownSelector);
-                    I.amPerforming().click().on(By.xpath("//lightning-base-combobox-item[@role='option']//span[@title='" + value + "']"));
+                    I.amPerforming().click().on(By.xpath("//div[@data-id='modalcontent1']//lightning-base-combobox-item[@role='option']//span[@title='" + value + "']"));
                 } catch (Exception e) {
                     I.amPerforming().click().withJavaScript(dropDownSelector);
-                    I.amPerforming().click().withJavaScript(By.xpath("//lightning-base-combobox-item[@role='option']//span[@title='" + value + "'] | //span[@title='" + value + "']"));
+                    I.amPerforming().click().withJavaScript(By.xpath("//div[@data-id='modalcontent1']//lightning-base-combobox-item[@role='option']//span[@title='" + value + "'] | //span[@title='" + value + "']"));
                 }
             }
         } else {
