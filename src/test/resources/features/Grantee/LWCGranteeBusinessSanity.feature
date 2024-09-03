@@ -799,6 +799,11 @@ Feature: Sanity scenarios
     When I enter in modal value "1" into field "Sequence__c"
     And I click modal button "Save"
     And I wait for "3" seconds
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
     When I click on "Validate" in the page details
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
