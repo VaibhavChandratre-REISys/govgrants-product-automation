@@ -1222,7 +1222,7 @@ Feature: Sanity scenarios
     And I click on "Save" in the page details
     When I click on "Add Line Items" icon for "Equipment" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
+      | Title        | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Equipment    | The narrative | 2000         | 200        | 200            |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
