@@ -2185,7 +2185,7 @@ Feature: Sanity scenarios
     Then I softly see "Grant Overview" page block displayed
     Then I softly see "Closeout Request Details" page block displayed
     Then I softly see "System Information" page block displayed
-    When I navigate to "Open Items" sub tab
+    When I navigate to "Open  Items" sub tab
     Then I softly see "Pending Amendment Requests" page block displayed
     Then I softly see "Pending Progress Reports" page block displayed
     Then I softly see "Pending Financial Reports" page block displayed
@@ -2256,7 +2256,7 @@ Feature: Sanity scenarios
     When I click on "Override" in the page details
     Then I softly see field "Status" as "Overridden"
     Then I softly see status in Progress-bar is "Overridden" and is "dark blue"
-    When I navigate to "Open Items" sub tab
+    When I navigate to "Open  Items" sub tab
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:amendmentEGMSID}" inside table "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
