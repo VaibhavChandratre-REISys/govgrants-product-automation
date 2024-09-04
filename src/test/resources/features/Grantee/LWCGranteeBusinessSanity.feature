@@ -1493,6 +1493,7 @@ Feature: Sanity scenarios
     And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
+    And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "BDRAMENDID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
