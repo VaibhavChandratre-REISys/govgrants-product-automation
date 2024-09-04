@@ -933,8 +933,7 @@ Feature: Sanity scenarios
     Then I softly see confirmation box with body "Do you want to delete? Once it is deleted it cannot be restored." is displayed
     When I click modal button "OK"
     And I wait for "3" seconds
-    Then I softly see the following messages in the page details contains:
-      | Record deleted successfully. |
+    Then I softly do not see value "Sarah PM" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     And I click on "Send for Review" icon for "Grantee PO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     And I pause execution for "3" seconds
