@@ -996,7 +996,7 @@ Feature: Sanity scenarios
     Then I softly see "Actions" in flex table header "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly see "cross" symbol against the value "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I save the value from row "1" for column name "Last Modified By" as "LastModifiedBy" from flex table "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly see link "{SavedValue:ownerName}" inside Page block
+    Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
     And I click on back arrow
@@ -1005,6 +1005,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Edit" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     When I click on "Edit" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    And I wait for "3" seconds
     Then I softly see new tab is opened
     And I switch to tab number "1"
     Then I softly can see top right button "Save" in page detail
@@ -1016,10 +1017,11 @@ Feature: Sanity scenarios
     And I enter value "Automation for Execution" into field "Remark__c"
     And I click on "Cancel" in the page details
     And I wait for "2" seconds
-    Then I softly see field "Remarks" as "Test"
+    Then I softly see field "Remarks" as "Automation test"
     Then I softly can see top right button "Edit" in page detail
     And I close the tab
     When I click on "View" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    And I wait for "3" seconds
     Then I softly see new tab is opened
     And I switch to tab number "1"
     Then I softly can see top right button "Edit" in page detail
@@ -1054,6 +1056,10 @@ Feature: Sanity scenarios
     Then I see "Upload" button is disabled at modal under library
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "4" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportFormFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I refresh the page
@@ -2126,15 +2132,17 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     Then I softly see field "Status" as "Active"
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Project Period Start Date" as "PPST"
     When I navigate to "Closeout" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
     When I enter values into fields
-      | Value                       | Field           |
-      | {SavedValue:AwardIssueDate} | CloseoutDate__c |
+      | Value             | Field           |
+      | {SavedValue:PPST} | CloseoutDate__c |
     And I click modal button "Save and Continue"
-    And I wait for "4" seconds
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2154,8 +2162,8 @@ Feature: Sanity scenarios
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
     When I enter values into fields
-      | Value                       | Field           |
-      | {SavedValue:AwardIssueDate} | CloseoutDate__c |
+      | Value             | Field           |
+      | {SavedValue:PPST} | CloseoutDate__c |
     And I click modal button "Save and Continue"
     And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
