@@ -1202,14 +1202,14 @@ Feature: Sanity scenarios
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    Then I softly see field "Status" as "Activated"
-    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Project Period Start Date" as "PPST"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-    And I navigate to "Overview" sub tab
-    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     Then I softly can see "Actuals" sub tab at view detail page
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -1277,7 +1277,7 @@ Feature: Sanity scenarios
     When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
     When I enter values into fields
       | Value                        | Field             |
-      |  {SavedValue:AwardIssueDate} | CloseoutDate__c   |
+      |  {SavedValue:PPST}           | CloseoutDate__c   |
     And I click modal button "Save and Continue"
     And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
