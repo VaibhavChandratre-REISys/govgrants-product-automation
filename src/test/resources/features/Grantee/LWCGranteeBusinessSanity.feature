@@ -1527,9 +1527,9 @@ Feature: Sanity scenarios
     When I enter values into fields
       | Value                        | Field             |
       |   Not Accepted               | Decision__c       |
+    And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | Additional Details is required to save. |
-    And I click modal button "Save"
     When I enter values into fields
       | Value                        | Field             |
       |   Test                       | Comments__c       |
@@ -1538,9 +1538,14 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Not Accepted"
     Then I softly see status in Progress-bar is "Not Accepted" and is "Red"
     Then I softly cannot see top right button "Edit" in page detail
-    When I navigate to "Overview" sub tab
     And I wait for "5" seconds
-    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     When I navigate to "Amendments" sub tab
     And I softly can see row level action button "{SavedValue:BDRAMENDID}" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly can see top right button "New" in page detail
