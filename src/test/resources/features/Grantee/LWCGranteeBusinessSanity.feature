@@ -1057,7 +1057,6 @@ Feature: Sanity scenarios
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
     When I click modal button "Close"
-    And I refresh the page
     And I wait for "4" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportFormFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
