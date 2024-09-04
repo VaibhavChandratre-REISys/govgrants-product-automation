@@ -944,7 +944,7 @@ Feature: Sanity scenarios
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I navigate to "Responsibilities" sub tab
     Then I softly can see top right button "Edit" in page detail
-    When I click on "Enter Review" icon for "GRANTEE PO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
+    When I click on "Enter Review" icon for "Grantee PO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
@@ -954,8 +954,8 @@ Feature: Sanity scenarios
     When I click modal button "Save"
     And I click on submit review
     And I wait for "3" seconds
-    Then I softly see value "Submitted" for title "Status" against the value "GRANTEE PO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    Then I softly cannot see row level action button "Enter Review" against "GRANTEE PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly see value "Submitted" for title "Status" against the value "Grantee PO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Enter Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
@@ -965,14 +965,14 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Complete Review" in page detail
     When I navigate to "Responsibilities" sub tab
-    Then I softly can see row level action button "Resend for Review" against "GRANTEE PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly can see row level action button "Resend for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    Then I softly cannot see row level action button "Edit" against "GRANTEE PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    Then I softly cannot see row level action button "Delete" against "GRANTEE PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    Then I softly cannot see row level action button "Send for Review" against "GRANTEE PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Delete" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Send for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
       | Name     | Award  |
@@ -1231,4 +1231,4 @@ Feature: Sanity scenarios
     Then I softly see the text containing "Post"
 
   @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
-    Scenario: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
+  Scenario: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
