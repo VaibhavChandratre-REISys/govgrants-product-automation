@@ -1539,6 +1539,7 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Not Accepted" and is "Red"
     Then I softly cannot see top right button "Edit" in page detail
     When I navigate to "Overview" sub tab
+    And I wait for "5" seconds
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     When I navigate to "Amendments" sub tab
     And I softly can see row level action button "{SavedValue:BDRAMENDID}" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
