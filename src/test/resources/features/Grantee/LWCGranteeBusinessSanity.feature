@@ -1120,7 +1120,7 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exegrantee.automation1@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exegrantee.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
@@ -1139,6 +1139,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "{SavedValue:financialEGMSID}" in flex table with id "---grantee_tableId:-:FinancialReportsOnMonitoring---"
     Then I softly cannot see row level action button "Delete" against "{SavedValue:financialEGMSID}" in flex table with id "---grantee_tableId:-:FinancialReportsOnMonitoring---"
     When I click on "View" icon for "{SavedValue:financialEGMSID}" inside table
+    When I navigate to "Overview" sub tab
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
@@ -2304,9 +2305,8 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Approved"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PhasePendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PhasePendingTask---" without waiting for record
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
     Then I softly see "Submit to Grantor" opens in overLay window
