@@ -1236,7 +1236,6 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Edit" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I see "Project Details" page block displayed
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 

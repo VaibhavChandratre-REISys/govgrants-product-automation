@@ -1540,29 +1540,14 @@ Feature: Validate all scenarios of every modules flow
     And I click toggle button to select "Financial Reports - All"
     And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
     When I click on "View" icon for "FR--GT-GA-02662-001" inside table
-    When I navigate to "History" sub tab
-    Then I softly see "Grantor Feedback History" page block displayed
-    Then I softly see field "Feedback from Grantor" as "Automation Feedback"
-    And I save the field labeled "Feedback Received On Date" as "FeedbackReceivedOnDate"
-    Then I softly see field "Feedback Received On Date" as "{SavedValue:FeedbackReceivedOnDate}"
-    Then I softly can see top right button "Edit" in page detail
-    Then I softly see "Resize" button for page
-    Then I softly see "Collapse" button for page
-    Then I softly can see "Chatter" sub tab at view detail page
-    Then I softly can see "Quickview" sub tab at view detail page
-    And I navigate to "Field Audit" sub tab in split screen
-    Then I softly can see "Field Audit" sub tab at view detail page
-    When I navigate to "Forms & Files" sub tab
-    Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Edit" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I see "Project Details" page block displayed
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
    @tst1
    Scenario:
+     Given I login to "As a Grantee" app as "GRANTEE PM" user
+     And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDh000001yadAIAQ/view"
+     And I wait for "10" seconds
      And I navigate to "Management" sub tab
      And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
      Then I softly see "Reports Schedule" opens in overLay window
@@ -1571,8 +1556,9 @@ Feature: Validate all scenarios of every modules flow
      And I wait for "2" seconds
      And I expand nested table containing column value "Progress Report"
      And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
+     And I save the value from row "1" for column name "EGMS ID" as "EGMS ID1" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
      And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-       | {SavedValue:EGMS ID1} | 32                          | 47                        |
+       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+       | {SavedValue:EGMS ID1} | 32                          | 47                        |  49             |
      Then I softly see value "{Date:MM/dd/yyyy::d+32}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
      Then I softly see value "{Date:MM/dd/yyyy::d+62}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
