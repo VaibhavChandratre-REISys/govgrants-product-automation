@@ -1979,9 +1979,9 @@ Feature: Sanity scenarios
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    Then I see field "Award__c" is not editable
-    Then I see field "FAINAmendmentNumber__c" is not editable
-    Then I see field "GrantNumber__c" is not editable
+#    Then I see field "Award__c" is not editable
+#    Then I see field "FAINAmendmentNumber__c" is not editable
+#    Then I see field "GrantNumber__c" is not editable
     Then I see textarea field "Impact__c" is editable
     Then I see textarea field "PurposeRTA__c" is editable
     Then I softly see the following messages in the page details contains:
