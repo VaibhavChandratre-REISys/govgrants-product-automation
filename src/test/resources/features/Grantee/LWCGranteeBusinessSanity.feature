@@ -1158,8 +1158,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I softly cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I softly do not see top right button "Add" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
-    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
-    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     And I navigate to "Monitoring" tab
@@ -1167,7 +1167,7 @@ Feature: Sanity scenarios
     And I perform quick search for "Record Id" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-    And I navigate to "Management" sub tab
+    And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record

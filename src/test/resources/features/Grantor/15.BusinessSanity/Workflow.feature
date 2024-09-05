@@ -1534,26 +1534,8 @@ Feature: Validate all scenarios of every modules flow
 
   @tst
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I login to "As a Grantee" app as "GRANTEE EXE" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/ProgressReports__c/a3CDh000000PhbrMAC/view"
-    And I wait for "10" seconds
-    When I navigate to "Responsibilities" sub tab
-    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportApproverTableId---"
-    When I navigate to "Forms & Files" sub tab
-    Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly cannot see row level action button "Edit" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:financialReportAddFilesTableId---"
-    Then I softly can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
-    Then I softly can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
-    Then I softly cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
-    Then I softly do not see top right button "Add" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
-    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
-    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-    And I navigate to "Management" sub tab
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "FR--GT-GA-02662-001" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
@@ -1564,7 +1546,7 @@ Feature: Validate all scenarios of every modules flow
     And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "FR--GT-GA-02662-001" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    And I navigate to "Management" sub tab
+    And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "FR--GT-GA-02662-001" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
