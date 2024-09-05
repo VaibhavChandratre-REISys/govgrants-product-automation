@@ -1704,7 +1704,6 @@ Feature: Sanity scenarios
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Title" as "AwardTitle"
     And I wait for "2" seconds
-#    And I save the field labeled "Scope / Award Description" as "AwardDescription"
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I enter "Grantee_ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
@@ -1757,7 +1756,7 @@ Feature: Sanity scenarios
     When I "Collapse" page block contaninig value "Details"
     Then I softly do not see fields "{SavedValue:GrantEGMSID}" is visible
     When I "Expanded" page block contaninig value "Details"
-    Then I softly see fields "{SavedValue:GrantEGMSID}" is visible
+    Then I softly see field "Status" as "{SavedValue:GrantEGMSID}"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     And I wait for "3" seconds
     When I hovering mouse on help text icon inside page block detail "Grant Number"
@@ -1783,6 +1782,7 @@ Feature: Sanity scenarios
     Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
     Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
     Then I softly see field "Previous Award Title" as "{SavedValue:AwardTitle}"
+    When I save the field labeled "Previous Award Description" as "PreviousAwardDescription"
     Then I softly see field "Previous Award Description" as "{SavedValue:AwardDescription}"
     Then I softly see fields "GrantAwardName__c" is in edit mode
     Then I softly see fields "AwardDescription__c" is in edit mode
