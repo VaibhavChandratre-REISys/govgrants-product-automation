@@ -2189,7 +2189,7 @@ Feature: Sanity scenarios
     Then I softly see "Pending Progress Reports" page block displayed
     Then I softly see "Pending Financial Reports" page block displayed
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:amendmentEGMSID}" inside table "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
-    When I navigate to "Checklist" sub tab
+    When I navigate to "Check List" sub tab
     Then I softly see "Expenses" page block displayed
     Then I softly see "Record Changes" page block displayed
     Then I softly see "Report/Finance" page block displayed
