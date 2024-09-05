@@ -1143,8 +1143,8 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
-    Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "View" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     When I navigate to "Responsibilities" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportApproverTableId---"
@@ -1263,6 +1263,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     And I navigate to "Projections" sub tab
     And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
     When I navigate to "Management" sub tab
     Then I softly see "Reports Schedule" page block displayed
     Then I softly see value "Progress Report" for title "Report Type" inside table "---grantee_tableId:-:awardReportSchedulesTableId---"
@@ -1290,10 +1291,10 @@ Feature: Sanity scenarios
     Then I softly see field "Report Type" as "Progress Report"
     Then I softly see field "Report Title" as "{SavedValue:Automation Runtime award}"
     Then I softly see field "Reporting Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
-    Then I softly see field "Reporting Period End Date" as " "
+    Then I softly see field "Reporting Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
     Then I softly see field "Frequency" as "Not Applicable"
-    Then I softly see field "Schedule Base" as " "
-    Then I softly see field "Description" as " "
+    Then I softly see field "Schedule Base" as ""
+    Then I softly see field "Description" as ""
     Then I softly see field "Lead time (in days) for report task creation" as "15"
     Then I softly see field "# of days for report submission" as "15"
     When I click modal button "Close"
@@ -1353,8 +1354,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID12}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID13}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---" by clicking "Edit" :
-      | Reporting Period Start Date | Reporting Period End Date |
-      | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Overview" sub tab
@@ -1441,8 +1442,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID12}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID13}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---" by clicking "Edit" :
-      | Reporting Period Start Date | Reporting Period End Date |
-      | 20                          | 50                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
+      | {SavedValue:EGMS ID1} | 20                          | 50                        |
     Then I softly see value "{Date:MM/dd/yyyy::d+20}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+50}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
@@ -1504,8 +1505,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID12}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID13}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---" by clicking "Edit" :
-      | Reporting Period Start Date | Reporting Period End Date |
-      | 23                          | 53                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
+      | {SavedValue:EGMS ID1} | 23                          | 53                        |
     Then I softly see value "{Date:MM/dd/yyyy::d+23}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+53}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Management" sub tab
@@ -1621,8 +1622,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID12}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID13}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---" by clicking "Edit" :
-      | Reporting Period Start Date | Reporting Period End Date |
-      | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
@@ -2345,7 +2346,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Closed/Completed"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Completed"
+    Then I softly see field "Status" as "Closed"
 
   @455422 @ValidateProgressReportPMusershouldseefooternavigatorafteropentheProgressReport
   Scenario: Validate Progress Report PM user should see footer navigator after open the Progress Report
@@ -2355,10 +2356,9 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     And I click toggle button to select "Progress Reports - All"
     And I wait for "3" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "progID" from flex table "---grantee_tableId:-:ProgressReports---"
-    And I perform quick search for "{SavedValue:progID}" in "---grantee_tableId:-:ProgressReports---" panel
-    When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---grantee_tableId:-:ProgressReports---" without waiting for record
-    Then I softly see field "EGMS ID" as "{SavedValue:progID}"
+    And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
+    When I click on "View" icon for "{grantee_testData:progressReportStaticData}" inside flex table with id "---grantee_tableId:-:ProgressReports---" without waiting for record
+    Then I see the sub-header is "{grantee_testData:progressReportStaticData}" in the page details
     Then I softly see "Navigator" button display on footer
     And I click on bottom button "Navigator" in page detail
     Then I see "Pending Tasks" inside "My Tasks" is displayed
@@ -2369,8 +2369,8 @@ Feature: Sanity scenarios
     Then I see "Awards Special Conditions" inside "Monitoring" is displayed
     And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - All"
-    And I perform quick search for "{SavedValue:progID}" in "---grantee_tableId:-:ProgressReports---" panel
-    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---grantee_tableId:-:ProgressReports---"
+    And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
+    Then I softly see value "{grantee_testData:progressReportStaticData}" for title "Award Title" inside table "---grantee_tableId:-:ProgressReports---"
     Then I see "Pending Tasks" inside "My Tasks" is displayed
     Then I see "Completed Tasks" inside "My Tasks" is displayed
     Then I see "Schedules" inside "Monitoring" is displayed
