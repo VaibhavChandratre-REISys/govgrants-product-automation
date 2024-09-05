@@ -1534,28 +1534,11 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantee" app as "GRANTEE PM" user
-    When I navigate to "Closeout" tab
-    And I perform quick search for "CL--00044" in "---grantee_tableId:-:closeoutTableId---" panel
-    When I click on "View" icon for "CL--00044" inside flex table with id "---grantee_tableId:-:closeoutTableId---" without waiting for record
-    When I click on "Submit to Grantor" in the page details
-    When I enter values into fields
-      | Value                       | Field                |
-      |   0                        | SubmittedToGrantor__c |
-    And I click modal button "Save"
-    And I click modal button "Close"
-    And I wait for "2" seconds
-    Then I softly see field "Status" as "Submitted to Grantor"
-    When I click on "Complete Closeout" in the page details
-    When I enter values into fields
-      | Value                       | Field                |
-      |   0                         | FederalCloseoutDate__c |
-    And I click modal button "Save"
-    And I click modal button "Close"
-    Then I softly see field "Status" as "Completed"
-    When I navigate to "Overview" sub tab
-    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Completed"
-    Then I softly can see "Actuals" sub tab at view detail page
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Awards - All"
+    When I perform quick search for "AD-44505-01" in "---grantee_tableId:-:awardTableId---" panel
+    And I click on "View" icon for "AD-44505-01" inside flex table with id "---grantee_tableId:-:awardTableId---" without waiting for record
+    And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
