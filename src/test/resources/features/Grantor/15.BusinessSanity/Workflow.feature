@@ -1534,9 +1534,102 @@ Feature: Validate all scenarios of every modules flow
 
   @tst
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
-    And I halt execution
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportFormFilesTableId---"
+    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/ProgressReports__c/a3CDh000000PhbrMAC/view"
+    And I wait for "10" seconds
+    When I navigate to "Responsibilities" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportApproverTableId---"
+    When I navigate to "Forms & Files" sub tab
+    Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly cannot see row level action button "Edit" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:financialReportAddFilesTableId---"
+    Then I softly can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
+    Then I softly can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
+    Then I softly do not see top right button "Add" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Management" sub tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "FR--GT-GA-02662-001" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
     And I wait for "3" seconds
-    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
+    Then I softly see value "FR--GT-GA-02662-001" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Management" sub tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "FR--GT-GA-02662-001" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    And I wait for "3" seconds
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
+    Then I softly see value "FR--GT-GA-02662-001" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Financial Reports - Draft"
+    And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
+    When I click on "View" icon for "FR--GT-GA-02662-001" inside table
+    Then I softly can see top right button "Mark as Submitted" in page detail
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Name" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
+    Then I softly see "Responsibility" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
+    And I save the value from row "1" for column name "Name" as "ownerName" from flex table "---grantee_tableId:-:financialReportOwnerTableId---"
+    Then I softly see link "{SavedValue:ownerName}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:ownerName}"
+    Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
+    And I click on back arrow
+    And I click on "Mark as Submitted" in the page details
+    And I wait for "2" seconds
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Submitted to Grantor On is required to save. |
+    And I enter in modal "Submit Details" values from "Financial_Report_Field_Values.xlsx"
+    When I click modal button "Save"
     When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Submitted By" as "SubmittedBy"
+    Then I softly see field "Submitted By" as "{SavedValue:SubmittedBy}"
+    And I save the field labeled "Submitted On" as "SubmittedOn"
+    Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
+    When I click on "Revise" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to revise the report? The report will require an approval again after being revised." is displayed
+    And I click "OK" on modal confirmation box
+    When I enter in modal value "Automation Feedback" into field "ReviseComments__c"
+    And I enter in modal value "0" into field "RevisedDate__c"
+    When I click modal button "Save"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Created"
+    Then I softly see "Grantor Feedback History" page block displayed
+    When I navigate to "History" sub tab
+    Then I softly see field "Feedback from Grantor" as "Automation Feedback"
+    And I save the field labeled "Feedback Received On Date" as "FeedbackReceivedOnDate"
+    Then I softly see field "Feedback from Grantor" as "{SavedValue:FeedbackReceivedOnDate}"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly see "Resize" button for page
+    Then I softly see "Collapse" button for page
+    Then I softly can see "Chatter" sub tab at view detail page
+    Then I softly can see "Quickview" sub tab at view detail page
+    And I navigate to "Field Audit" sub tab in split screen
+    Then I softly can see "Field Audit" sub tab at view detail page
+    When I navigate to "Forms and Files" sub tab
+    Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Edit" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I see "Project Details" page block displayed
+    And I navigate to "Chatter" sub tab in split screen
+    Then I softly see the text containing "Post"

@@ -975,13 +975,13 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Send for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
-      | Name     | Financial Report |
-      | Sarah PM | Step 1           |
+      | Name       | Financial Report |
+      | Victor EXE | Step 1           |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
-      | Name       | Financial Report |
-      | Victor EXE | Step 2           |
+      | Name     | Financial Report |
+      | Sarah PM | Step 2           |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I navigate to "Forms & Files" sub tab
@@ -1146,27 +1146,27 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "View" against "Sarah PM" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     When I navigate to "Responsibilities" sub tab
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportApproverTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportApproverTableId---"
     When I navigate to "Forms & Files" sub tab
     Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:financialReportAddFilesTableId---"
+    Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I softly can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I softly can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I softly cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
-    Then I softly see top right button "Add" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
-    Then I softly cannot see row level action button "Delete" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
-    Then I softly cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly do not see top right button "Add" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Management" sub tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -1190,7 +1190,7 @@ Feature: Sanity scenarios
     And I save the value from row "1" for column name "Name" as "ownerName" from flex table "---grantee_tableId:-:financialReportOwnerTableId---"
     Then I softly see link "{SavedValue:ownerName}" inside Page block
     And I click on hyperlink containing value "{SavedValue:ownerName}"
-    Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
+    Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
     And I click on back arrow
     And I click on "Mark as Submitted" in the page details
     And I wait for "2" seconds
@@ -1519,7 +1519,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
+      | Name     | Award  |
       | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
