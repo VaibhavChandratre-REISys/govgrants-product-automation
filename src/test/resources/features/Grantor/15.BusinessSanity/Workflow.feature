@@ -1540,20 +1540,11 @@ Feature: Validate all scenarios of every modules flow
     And I click toggle button to select "Financial Reports - All"
     And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
     When I click on "View" icon for "FR--GT-GA-02662-001" inside table
-    When I click on "Revise" in the page details without processing
-    Then I softly see confirmation box with body "Are you sure you want to revise the report? The report will require an approval again after being revised." is displayed
-    And I click "OK" on modal confirmation box
-    When I enter in modal value "Automation Feedback" into field "ReviseComments__c"
-    And I enter in modal value "0" into field "RevisedDate__c"
-    When I click modal button "Save"
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I softly see field "Status" as "Created"
-    Then I softly see "Grantor Feedback History" page block displayed
     When I navigate to "History" sub tab
+    Then I softly see "Grantor Feedback History" page block displayed
     Then I softly see field "Feedback from Grantor" as "Automation Feedback"
     And I save the field labeled "Feedback Received On Date" as "FeedbackReceivedOnDate"
-    Then I softly see field "Feedback from Grantor" as "{SavedValue:FeedbackReceivedOnDate}"
+    Then I softly see field "Feedback Received On Date" as "{SavedValue:FeedbackReceivedOnDate}"
     Then I softly can see top right button "Edit" in page detail
     Then I softly see "Resize" button for page
     Then I softly see "Collapse" button for page
@@ -1561,7 +1552,7 @@ Feature: Validate all scenarios of every modules flow
     Then I softly can see "Quickview" sub tab at view detail page
     And I navigate to "Field Audit" sub tab in split screen
     Then I softly can see "Field Audit" sub tab at view detail page
-    When I navigate to "Forms and Files" sub tab
+    When I navigate to "Forms & Files" sub tab
     Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -1569,3 +1560,19 @@ Feature: Validate all scenarios of every modules flow
     Then I see "Project Details" page block displayed
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
+
+   @tst1
+   Scenario:
+     And I navigate to "Management" sub tab
+     And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+     Then I softly see "Reports Schedule" opens in overLay window
+     When I enter in modal "Grantee_Progress_Schedules" values from "Award_Field_Values.xlsx"
+     And I click modal button "Save"
+     And I wait for "2" seconds
+     And I expand nested table containing column value "Progress Report"
+     And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
+     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
+       | {SavedValue:EGMS ID1} | 32                          | 47                        |
+     Then I softly see value "{Date:MM/dd/yyyy::d+32}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+     Then I softly see value "{Date:MM/dd/yyyy::d+62}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"

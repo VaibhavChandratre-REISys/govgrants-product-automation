@@ -1214,14 +1214,16 @@ Feature: Sanity scenarios
     When I enter in modal value "Automation Feedback" into field "ReviseComments__c"
     And I enter in modal value "0" into field "RevisedDate__c"
     When I click modal button "Save"
+    And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
-    Then I softly see "Grantor Feedback History" page block displayed
+    And I wait for "3" seconds
     When I navigate to "History" sub tab
+    Then I softly see "Grantor Feedback History" page block displayed
     Then I softly see field "Feedback from Grantor" as "Automation Feedback"
     And I save the field labeled "Feedback Received On Date" as "FeedbackReceivedOnDate"
-    Then I softly see field "Feedback from Grantor" as "{SavedValue:FeedbackReceivedOnDate}"
+    Then I softly see field "Feedback Received On Date" as "{SavedValue:FeedbackReceivedOnDate}"
     Then I softly can see top right button "Edit" in page detail
     Then I softly see "Resize" button for page
     Then I softly see "Collapse" button for page
@@ -1229,7 +1231,7 @@ Feature: Sanity scenarios
     Then I softly can see "Quickview" sub tab at view detail page
     And I navigate to "Field Audit" sub tab in split screen
     Then I softly can see "Field Audit" sub tab at view detail page
-    When I navigate to "Forms and Files" sub tab
+    When I navigate to "Forms & Files" sub tab
     Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
