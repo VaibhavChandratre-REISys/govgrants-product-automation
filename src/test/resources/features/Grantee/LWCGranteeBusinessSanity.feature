@@ -1832,14 +1832,12 @@ Feature: Sanity scenarios
     When I enter value "123456789123" into field "DUNS__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
-    And I save the field labeled "Grant Number" as "GrantNumber"
     And I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Title" as "Automation Runtime award"
-    And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
     And I click on "Edit" in the page details
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -1882,12 +1880,13 @@ Feature: Sanity scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
       | Construction | The narrative | 5000         | 500        | 200            |
+    When I close "Add Line Items" modal by clicking the top right x button
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
       | Construction | The narrative | 5000         | 500        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    And I wait for "3" seconds
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
       | Focus Area Name                 | Projected Program Income ($) | Program Income Justification |
@@ -1916,7 +1915,6 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Goals/Objectives associated successfully. |
     And I click modal button "Close"
-    And I save the value from row "1" for column name "Title" as "ObjectiveTitle" from flex table "---grantee_tableId:-:awardObjectiveTableId---"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
@@ -1971,14 +1969,13 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     Then I softly see field "Status" as "Active"
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
-    And I navigate to "Overview" sub tab
-    And I save the field labeled "Project Period Start Date" as "PPST"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
-    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    Then I softly can see "Actuals" sub tab at view detail page
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
