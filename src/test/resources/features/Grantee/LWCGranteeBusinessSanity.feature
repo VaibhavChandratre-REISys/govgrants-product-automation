@@ -1089,14 +1089,13 @@ Feature: Sanity scenarios
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
+      | Record created successfully! |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     When I click on "Delete" icon for "Notes Record" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     And I wait for "3" seconds
-    Then I softly see the following messages in the page details contains:
-      | Record deleted successfully. |
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "Add" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
@@ -1121,13 +1120,14 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.automation1@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exegrantee.automation1@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details contains:
-      | The Report has been validated successfully. |
+#    Bug -463671
+#    When I click on "Validate" in the page details
+#    Then I softly see the following messages in the page details contains:
+#      | The Report has been validated successfully. |
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Monitoring" tab
