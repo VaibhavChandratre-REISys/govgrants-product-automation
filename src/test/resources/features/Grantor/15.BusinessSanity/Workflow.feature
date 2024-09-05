@@ -1536,9 +1536,7 @@ Feature: Validate all scenarios of every modules flow
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I halt execution
-    And I navigate to "Management" sub tab
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportFormFilesTableId---"
     And I wait for "3" seconds
-    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I click on "Save" in the page details
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"

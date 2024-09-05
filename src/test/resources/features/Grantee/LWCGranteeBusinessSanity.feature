@@ -1052,13 +1052,14 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Download As PDF" in the split screen page details
     Then I softly can see top right button "Take Snapshot" in the split screen page details
     When I navigate to "Forms & Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportFormFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I see "Upload" button is disabled at modal under library
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
     When I click modal button "Close"
-    And I wait for "4" seconds
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportFormFilesTableId---"
+    And I wait for "3" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
+    And I wait for "3" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I refresh the page
@@ -1075,8 +1076,8 @@ Feature: Sanity scenarios
     And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly see value "Financial Report" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:financialReportAddFilesTableId---"
+    Then I softly see value "Financial Report" for title "Classification" inside table "---grantee_tableId:-:financialReportAddFilesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "Add" :
       | Description      |
       | Automation Notes |
@@ -2216,7 +2217,7 @@ Feature: Sanity scenarios
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---" by clicking "New" :
-      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
       | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
