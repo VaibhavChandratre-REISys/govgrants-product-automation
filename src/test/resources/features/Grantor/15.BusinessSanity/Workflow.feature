@@ -1540,30 +1540,6 @@ Feature: Validate all scenarios of every modules flow
     And I click toggle button to select "Financial Reports - All"
     And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
     When I click on "View" icon for "FR--GT-GA-02662-001" inside table
-    Then I softly can see top right button "Mark as Submitted" in page detail
-    When I navigate to "Responsibilities" sub tab
-    Then I softly see "Name" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
-    Then I softly see "Responsibility" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
-    And I save the value from row "1" for column name "Name" as "ownerName" from flex table "---grantee_tableId:-:financialReportOwnerTableId---"
-    Then I softly see link "{SavedValue:ownerName}" inside Page block
-    And I click on hyperlink containing value "{SavedValue:ownerName}"
-    Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
-    And I click on back arrow
-    And I click on "Mark as Submitted" in the page details
-    And I wait for "2" seconds
-    And I click modal button "Save"
-    Then I softly see the following messages in the page details contains:
-      | Submitted to Grantor On is required to save. |
-    And I enter in modal "Submit Details" values from "Financial_Report_Field_Values.xlsx"
-    When I click modal button "Save"
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I softly see field "Status" as "Submitted to Grantor"
-    When I navigate to "Overview" sub tab
-    And I save the field labeled "Submitted By" as "SubmittedBy"
-    Then I softly see field "Submitted By" as "{SavedValue:SubmittedBy}"
-    And I save the field labeled "Submitted On" as "SubmittedOn"
-    Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
     When I click on "Revise" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to revise the report? The report will require an approval again after being revised." is displayed
     And I click "OK" on modal confirmation box

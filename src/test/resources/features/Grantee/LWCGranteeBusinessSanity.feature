@@ -1199,6 +1199,7 @@ Feature: Sanity scenarios
       | Submitted to Grantor On is required to save. |
     And I enter in modal "Submit Details" values from "Financial_Report_Field_Values.xlsx"
     When I click modal button "Save"
+    And I wait for "3" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
