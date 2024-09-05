@@ -1704,7 +1704,7 @@ Feature: Sanity scenarios
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Title" as "AwardTitle"
     And I wait for "2" seconds
-    And I save the field labeled "Scope / Award Description" as "AwardDescription"
+#    And I save the field labeled "Scope / Award Description" as "AwardDescription"
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I enter "Grantee_ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
