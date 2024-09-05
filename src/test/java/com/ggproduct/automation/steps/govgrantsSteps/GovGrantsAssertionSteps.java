@@ -856,4 +856,9 @@ public final class GovGrantsAssertionSteps {
     public void iSoftlySeeButtonForHeader(String usage, String headerButtonName, String headerOrPage) {
         ggAssertionObjects.assertExpandAndCollapseButtonForHeader(usage,headerButtonName, headerOrPage);
     }
+
+    @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" button display on footer$")
+    public void iSoftlySeeButtonDisplayOnFooter(String usage,String buttonName) {
+        ggAssertionObjects.assertButtonDisplayOnFooter(usage,buttonName);
+    }
 }

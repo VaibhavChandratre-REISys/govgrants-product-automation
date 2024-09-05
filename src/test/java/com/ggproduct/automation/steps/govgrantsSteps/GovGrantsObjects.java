@@ -699,4 +699,8 @@ public final class GovGrantsObjects {
        I.amPerforming().textInput().toClear(title);
        I.amPerforming().textInput().in(title,titleName);
     }
+
+    public void toClickOnNavigatorButtonInBottom(String buttonName) {
+        I.amPerforming().click().on(By.xpath("//div[@data-component-id='GNT_sideBarLwc']//span[text()='" + buttonName + "']/parent::button[@type='button']"));
+    }
 }

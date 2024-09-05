@@ -3995,4 +3995,27 @@ public final class GovGrantsAssertionObjects {
         return flag;
 
     }
+
+    public void assertButtonDisplayOnFooter(String usage, String buttonName) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isButtonDisplayOnFooter(buttonName));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isButtonDisplayOnFooter(buttonName));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isButtonDisplayOnFooter(buttonName)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isButtonDisplayOnFooter(buttonName)).isFalse();
+        }
+    }
+
+    private Boolean isButtonDisplayOnFooter(String buttonName) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-component-id='GNT_sideBarLwc']//button//span[text()='" + buttonName + "']"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
 }

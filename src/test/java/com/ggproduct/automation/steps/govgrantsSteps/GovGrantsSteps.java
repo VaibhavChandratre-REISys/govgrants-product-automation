@@ -1196,4 +1196,9 @@ public final class GovGrantsSteps {
     public void iUpdateTitleAsOnUploadFileModal(String titleName) {
         ggObjects.toUpdateTitleAsOnUploadFileModal(titleName);
     }
+
+    @And("I click on bottom button {string} in page detail")
+    public void iClickOnbottomNavigatorInpageDetail(String buttonName) {
+        ggObjects.toClickOnNavigatorButtonInBottom(buttonName);
+    }
 }

@@ -2317,6 +2317,7 @@ Feature: Sanity scenarios
       | Value | Field                 |
       | 0     | SubmittedToGrantor__c |
     And I click modal button "Save"
+    And I wait for "2" seconds
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -2330,6 +2331,7 @@ Feature: Sanity scenarios
       | Value | Field                  |
       | 0     | FederalCloseoutDate__c |
     And I click modal button "Save"
+    And I wait for "2" seconds
     And I click modal button "Close"
     Then I softly see field "Status" as "Completed"
     Then I softly see status in Progress-bar is "Completed" and is "dark blue"
@@ -2344,3 +2346,34 @@ Feature: Sanity scenarios
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Completed"
+
+  @455422 @ValidateProgressReportPMusershouldseefooternavigatorafteropentheProgressReport
+  Scenario: Validate Progress Report PM user should see footer navigator after open the Progress Report
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Monitoring" tab
+    And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I wait for "3" seconds
+    And I click toggle button to select "Progress Reports - All"
+    And I wait for "3" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "progID" from flex table "---grantee_tableId:-:ProgressReports---"
+    And I perform quick search for "{SavedValue:progID}" in "---grantee_tableId:-:ProgressReports---" panel
+    When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---grantee_tableId:-:ProgressReports---" without waiting for record
+    Then I softly see field "EGMS ID" as "{SavedValue:progID}"
+    Then I softly see "Navigator" button display on footer
+    And I click on bottom button "Navigator" in page detail
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Schedules" inside "Monitoring" is displayed
+    Then I see "Progress Reports" inside "Monitoring" is displayed
+    Then I see "Financial Reports" inside "Monitoring" is displayed
+    Then I see "Awards Special Conditions" inside "Monitoring" is displayed
+    And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    And I perform quick search for "{SavedValue:progID}" in "---grantee_tableId:-:ProgressReports---" panel
+    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Schedules" inside "Monitoring" is displayed
+    Then I see "Progress Reports" inside "Monitoring" is displayed
+    Then I see "Financial Reports" inside "Monitoring" is displayed
+    Then I see "Awards Special Conditions" inside "Monitoring" is displayed
