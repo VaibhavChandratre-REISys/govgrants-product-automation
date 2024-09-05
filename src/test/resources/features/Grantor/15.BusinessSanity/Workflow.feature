@@ -1535,91 +1535,20 @@ Feature: Validate all scenarios of every modules flow
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I login to "As a Grantee" app as "GRANTEE PM" user
-#    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-#    And I click toggle button to select "Amendment Requests - All"
-#    When I perform quick search for "CR-AD-GA-2675-00" in "---grantee_tableId:-:AmendmentTableId---" panel
-#    And I click on "View" icon for "CR-AD-GA-2675-00" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-#    And I wait for "5" seconds
-#    And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
-#    When I click on "Submit to Grantor" in the page details
-#    When I enter values into fields
-#      | Value                       | Field                |
-#      |   0                        | SubmittedToGrantor__c |
-#    And I click modal button "Save"
-#    And I click modal button "Close"
-#    Then I softly see field "Status" as "Submitted to Grantor"
-#    Then I can see top right button "Record Decision" in page detail
-#    Then I can see top right button "Revise Amendment" in page detail
-#    When I click on "Record Decision" in the page details
-#    When I enter values into fields
-#      | Value                        | Field             |
-#      |   Accepted                   | Decision__c       |
-#      |  {SavedValue:AwardIssueDate} | AwardIssueDate__c |
-#      |   Test                       | Comments__c       |
-#    And I click modal button "Save"
-#    And I click modal button "Close"
-#    Then I softly see field "Status" as "Accepted"
-#    And I click on "Amend Award" in the page details
-#    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
-#    When I click on "Activate Award" in the page details
-#    Then I see status in Progress-bar is "Active" and is "dark blue"
-    And I wait for "5" seconds
-#    And I navigate to "Overview" sub tab
-#    And I save the field labeled "Award EGMS ID" as "AwardEGMSID1"
-#    And I save the field labeled "Grant EGMS ID" as "GrantEGMSID"
-#    And I wait for "2" seconds
-#    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-#    When I navigate to "Awards" sub tab
-#    And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-#    Then I softly can see "Actuals" sub tab at view detail page
-#    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-#    When I navigate to "Closeout" sub tab
-#    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
-#    When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
-#    And I click modal button "Save and Continue"
-#    And I click on "Edit" in the page details
-#    And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
-#    When I click on "Save" in the page details
-#    And I wait for "2" seconds
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---grantee_tableId:-:closeoutApproverTableId---" by clicking "New" :
-#      | Name        | Closeout |
-#      | Sarah PM    | Step 1   |
-#    When I click on "Override" in the page details
-#    Then I softly see field "Status" as "Overridden"
-#    When I click on "Submit for Approval" in the page details
-#    Then I see field "Status" as "Submitted for Approval"
-#    When I re-login to "As a Grantee" app as "GRANTEE " user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "CL--00033" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "CL--00033" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    Then I softly see field "Status" as "Approved"
+    When I navigate to "Closeout" tab
+    And I perform quick search for "CL--00044" in "---grantee_tableId:-:closeoutTableId---" panel
+    When I click on "View" icon for "CL--00044" inside flex table with id "---grantee_tableId:-:closeoutTableId---" without waiting for record
     When I click on "Submit to Grantor" in the page details
     When I enter values into fields
       | Value                       | Field                |
-      |   0                         | SubmittedToGrantor__c |
+      |   0                        | SubmittedToGrantor__c |
     And I click modal button "Save"
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I navigate to "Overview" sub tab
-    And I click on hyperlink containing value "GT-GA-02606"
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Pending Closeout"
-    Then I softly can see "Actuals" sub tab at view detail page
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I click on "Complete Closeout" in the page details
     When I enter values into fields
-      | Value                       | Field                  |
+      | Value                       | Field                |
       |   0                         | FederalCloseoutDate__c |
     And I click modal button "Save"
     And I click modal button "Close"

@@ -1294,12 +1294,22 @@ Feature: Sanity scenarios
     When I click on "Submit for Approval" in the page details
     Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
+    When I navigate to "Closeout" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
+    When I navigate to "Overview" sub tab
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Pending Closeout"
+    Then I softly can see "Actuals" sub tab at view detail page
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Closeout" tab
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:closeoutTableId---" panel
+    When I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:closeoutTableId---" without waiting for record
     When I click on "Submit to Grantor" in the page details
     When I enter values into fields
       | Value                       | Field                |
@@ -1308,17 +1318,6 @@ Feature: Sanity scenarios
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I navigate to "Overview" sub tab
-    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Pending Closeout"
-    Then I softly can see "Actuals" sub tab at view detail page
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I click on "Complete Closeout" in the page details
     When I enter values into fields
       | Value                       | Field                |
@@ -1637,6 +1636,7 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Goals/Objectives associated successfully. |
     And I click modal button "Close"
+    And I save the value from row "1" for column name "Title" as "ObjectiveTitle" from flex table "---grantee_tableId:-:awardObjectiveTableId---"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
@@ -1698,6 +1698,9 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     Then I softly can see "Actuals" sub tab at view detail page
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Title" as "AwardTitle"
+    And I save the field labeled "Scope / Award Description" as "AwardDescription"
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I enter "Grantee_ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
@@ -1735,19 +1738,11 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Delete" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
     And I click on "Delete" in the page details without processing
-    Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
+    Then I softly see confirmation box with body "Are you sure, you want to delete this amendment request?" is displayed
     And I click "OK" on modal confirmation box
     Then I softly see field "EGMS ID" as "{SavedValue:AwardEGMSID}"
     Then I softly can see "Amendments" sub tab at view detail page
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    And I wait for "3" seconds
-    When I hovering mouse on help text icon inside page block detail "Grant Number"
-    Then I softly see "Grant Identification Number given by the Awarding Agency. Field should allow only numbers upto 25 digits" shown as help text
-    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
-
-
-
     And I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
     Then I softly see "Description" page block displayed
@@ -1755,4 +1750,68 @@ Feature: Sanity scenarios
     Then I softly see "Contacts" page block displayed
     Then I softly see "Primary Place of Performance" page block displayed
     Then I softly see "System Information" page block displayed
+    When I "Collapse" page block contaninig value "Details"
+    Then I softly do not see fields "{SavedValue:GrantEGMSID}" is visible
+    When I "Expanded" page block contaninig value "Details"
+    Then I softly see fields "{SavedValue:GrantEGMSID}" is visible
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I wait for "3" seconds
+    When I hovering mouse on help text icon inside page block detail "Grant Number"
+    Then I softly see "Grant Identification Number given by the Awarding Agency. Field should allow only numbers upto 25 digits" shown as help text
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    When I navigate to "Amendments" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    Then I see textarea field "Impact__c" is editable
+    Then I see textarea field "PurposeRTA__c" is editable
+    When I enter values into fields
+      | Value                  | Field                   |
+      |   Test                 |  Impact__c              |
+      |   Grantor              |  InitiatedByGrantee__c  |
+      |   Scope of Work Change |  GranteeAmendmentType__c|
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | Justification is required to save. |
+    When I enter values into fields
+      |   Value    | Field           |
+      |   Test     |  PurposeRTA__c  |
+    And I click modal button "Save and Continue"
+    Then I softly see "Award Description" page block displayed
+    Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
+    Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
+    Then I softly see field "Previous Award Title" as "{SavedValue:AwardTitle}"
+    Then I softly see field "Previous Award Description" as "{SavedValue:AwardDescription}"
+    Then I softly see fields "GrantAwardName__c" is in edit mode
+    Then I softly see fields "AwardDescription__c" is in edit mode
+    Then I softly see "Place of Performance" page block displayed
+    Then I softly see fields "Addressline1__c" is in edit mode
+    Then I softly see fields "Addressline2__c" is in edit mode
+    Then I softly see fields "City__c" is in edit mode
+    Then I softly see fields "County__c" is in edit mode
+    Then I softly see fields "State__c" is in edit mode
+    Then I softly see fields "CongressionalDistrict__c" is in edit mode
+    Then I softly see fields "Zip4__c" is in edit mode
+    Then I softly see fields "Country__c" is in edit mode
+    Then I softly see fields "ZipCode4Extension__c" is in edit mode
+    Then I softly see "Objectives" page block displayed
+    Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    When I click "Associate" after selection of "ETE objectives 2" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
+    Then I softly see the following messages in the page details contains:
+      | Goals/Objectives associated successfully. |
+    And I click modal button "Close"
+    Then I softly see value "ETE objectives 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download As PDF" present in parallel dropdown
+    Then I can see row level action button "Remove" against "ETE objectives 2" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I cannot see row level action button "Remove" against "ETE objectives 1" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    And I click on "Remove" icon for "ETE objectives 2" inside flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly do not see value "ETE objectives 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly see "Month-Year Created" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    And I click modal button "Close"
+
 
