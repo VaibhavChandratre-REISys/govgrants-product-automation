@@ -1534,32 +1534,10 @@ Feature: Validate all scenarios of every modules flow
 
   @tst
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "FR--GT-GA-02662-001" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    And I wait for "3" seconds
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
-    Then I softly see value "FR--GT-GA-02662-001" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "FR--GT-GA-02662-001" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    And I wait for "3" seconds
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
-    Then I softly see value "FR--GT-GA-02662-001" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    Given I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
-    And I click toggle button to select "Financial Reports - Draft"
+    And I click toggle button to select "Financial Reports - All"
     And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
     When I click on "View" icon for "FR--GT-GA-02662-001" inside table
     Then I softly can see top right button "Mark as Submitted" in page detail

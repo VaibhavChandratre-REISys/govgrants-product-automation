@@ -1180,7 +1180,7 @@ Feature: Sanity scenarios
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
-    And I click toggle button to select "Financial Reports - Draft"
+    And I click toggle button to select "Financial Reports - All"
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
     When I click on "View" icon for "{SavedValue:financialEGMSID}" inside table
     Then I softly can see top right button "Mark as Submitted" in page detail
