@@ -1534,11 +1534,26 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
-    And I navigate to "Grants" tab
-    When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Awards - All"
-    When I perform quick search for "AD-44505-01" in "---grantee_tableId:-:awardTableId---" panel
-    And I click on "View" icon for "AD-44505-01" inside flex table with id "---grantee_tableId:-:awardTableId---" without waiting for record
-    And I click on "Submit For Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I wait for "5" seconds
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+#    When I click "Associate" after selection of "ETE objective 2" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
+#    Then I softly see the following messages in the page details contains:
+#      | Goals/Objectives associated successfully. |
+#    And I click modal button "Close"
+#    Then I softly see value "ETE objective 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    When I click on parallel lines menu bar with data target value "Objectives"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I can see row level action button "Remove" against "ETE objective 2" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I cannot see row level action button "Remove" against "ETE objectives 1" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    And I click on "Remove" icon for "ETE objective 2" inside flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly do not see value "ETE objective 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly see "Month-Year Created" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    And I click modal button "Close"

@@ -1756,7 +1756,7 @@ Feature: Sanity scenarios
     When I "Collapse" page block contaninig value "Details"
     Then I softly do not see fields "{SavedValue:GrantEGMSID}" is visible
     When I "Expanded" page block contaninig value "Details"
-    Then I softly see field "Status" as "{SavedValue:GrantEGMSID}"
+    Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     And I wait for "3" seconds
     When I hovering mouse on help text icon inside page block detail "Grant Number"
@@ -1783,9 +1783,9 @@ Feature: Sanity scenarios
     Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
     Then I softly see field "Previous Award Title" as "{SavedValue:AwardTitle}"
     When I save the field labeled "Previous Award Description" as "PreviousAwardDescription"
-    Then I softly see field "Previous Award Description" as "{SavedValue:AwardDescription}"
+    Then I softly see field "Previous Award Description" as "{SavedValue:PreviousAwardDescription}"
     Then I softly see fields "GrantAwardName__c" is in edit mode
-    Then I softly see fields "AwardDescription__c" is in edit mode
+    Then I see textarea field "AwardDescription__c" is editable
     Then I softly see "Place of Performance" page block displayed
     Then I softly see fields "Addressline1__c" is in edit mode
     Then I softly see fields "Addressline2__c" is in edit mode
@@ -1805,18 +1805,18 @@ Feature: Sanity scenarios
     And I click modal button "Close"
     Then I softly see value "ETE objectives 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     And I click on Menu icon present on top right corner of the page
+    And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download As PDF" present in parallel dropdown
-    Then I can see row level action button "Remove" against "ETE objectives 2" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I can see row level action button "Remove" against "ETE objective 2" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I cannot see row level action button "Remove" against "ETE objectives 1" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-    And I click on "Remove" icon for "ETE objectives 2" inside flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-    Then I softly do not see value "ETE objectives 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    And I click on "Remove" icon for "ETE objective 2" inside flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly do not see value "ETE objective 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly see "Month-Year Created" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-    And I click modal button "Close"
 
   @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR
   Scenario: Verify PM user as (AR Owner same as Award Owner) can able to create budget Redirection AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant (Flow AR)
