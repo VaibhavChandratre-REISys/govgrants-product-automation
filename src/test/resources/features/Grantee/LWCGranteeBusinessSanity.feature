@@ -1667,6 +1667,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     And I navigate to "Projections" sub tab
     And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
     When I navigate to "Management" sub tab
     Then I softly see "Reports Schedule" page block displayed
     Then I softly see value "Progress Report" for title "Report Type" inside table "---grantee_tableId:-:awardReportSchedulesTableId---"
@@ -1694,10 +1695,10 @@ Feature: Sanity scenarios
     Then I softly see field "Report Type" as "Financial Report"
     Then I softly see field "Report Title" as "{SavedValue:Automation Runtime award}"
     Then I softly see field "Reporting Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
-    Then I softly see field "Reporting Period End Date" as " "
+    Then I softly see field "Reporting Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
     Then I softly see field "Frequency" as "Not Applicable"
-    Then I softly see field "Schedule Base" as " "
-    Then I softly see field "Description" as " "
+    Then I softly see field "Schedule Base" as ""
+    Then I softly see field "Description" as ""
     Then I softly see field "Lead time (in days) for report task creation" as "15"
     Then I softly see field "# of days for report submission" as "15"
     When I click modal button "Close"
