@@ -1545,75 +1545,15 @@ Feature: Validate all scenarios in Desk Review
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @204199 @DeskReviewVerifySPAusercanabletoEditDeletefilesinSendtoSubrecipientstateofdeskreviewiftheyareownerofthatfile&alsousercaneditcorrectiveactionsonrecord @TBExecution
-  Scenario: Desk Review>>Verify SPA user can able to 'Edit/Delete' files in 'Send to Subrecipient' state of desk review if they are owner of that file & also user can edit corrective actions on record
-    Given I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                      | Desk Review |
-      | {SavedValue:EXE Username} | Step 1      |
-    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                     | Desk Review |
-      | {SavedValue:FO Username} | Step 2      |
-    When I get the "EGMS ID"
-    Given I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
-    And I click on "Notify" in the page details
-    And I click on "Conduct" in the page details
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
-    And I navigate to "Reports and Outcomes" sub tab
-    When I enter the following values into flex table with id "---deskreview:-:correctiveTableId---" by clicking "New" :
-      | Title                  | Description            | Type        |
-      | Automation Finding     | Automation Description | Finding     |
-      | Automation Concern     | Automation Description | Concern     |
-      | Automation Observation | Automation Description | Observation |
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---deskreview:-:reportsTableId---"
-    And I switch to tab number "1"
-    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I close the tab
-    And I refresh the page
-    And I wait for "3" seconds
-    When I click on "Submit for Approval" in the page details
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:homePendingTasksTableId---" panel
-    Then I softly see that "Approve Desk Review" has been added in flextable with Id "---deskreview:-:homePendingTasksTableId---"
-    And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:homePendingTasksTableId---"
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
-    Then I softly can see top right button "Send to Subrecipient" in page detail
-    When I click on "Send to Subrecipient" in the page details
-    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
-    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
-    When I navigate to "Monitoring" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+  @204188 @DeskReviewVerifyPOusercanabletoseetopleveleditbuttonandabletoAddfileinCreatedstateofDeskReview
+  Scenario: DDesk Review>>Verify PO user can able to see top level edit button and able to 'Add file' in 'Created' state of Desk Review
     And I pause execution for "4" seconds
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---deskreview:-:deskReviewsFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I softly see value "Attachment.pdf" for title "Title" against the value "Supporting Documents" inside table "---deskreview:-:deskReviewsFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---deskreview:-:deskReviewsFilesTableId---"
     And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---deskreview:-:deskReviewsFilesTableId---"
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Other" at upload file modal

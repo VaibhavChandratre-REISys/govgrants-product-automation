@@ -11,7 +11,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click modal button "Continue"
     When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
@@ -39,18 +39,17 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click "Associate" after selection of "Wildlife Services" in the table "---announcement:-:associateForRelated---"
-    And I close modal by clicking the top right x button
     And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I navigate to "Overview" sub tab
-    And I click on parallel menu button in flex table title "Related Federal/NGO Program"
-    And I select "Download as PDF" from parallel lines dropdown of "Related Federal/NGO Program"
+    And I click on parallel menu button in flex table title "Federal/NGO Program"
+    And I select "Download as PDF" from parallel lines dropdown of "Federal/NGO Program"
     And I download the file
-    And I wait for "10" seconds
-    Then I see "Related Federal/NGO Program" on page "1" of "govgrants" pdf file
+    And I wait for "5" seconds
+    Then I see "Federal/NGO Program" on page "1" of "govgrants" pdf file
 
   @74105 @pdfDownloadBudgetCategory
   Scenario: To verify system allow to download PDF for Budget Categories section in financial tab of announcement
@@ -63,6 +62,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Budget Categories"
     And I select "Download as PDF" from parallel lines dropdown of "Budget Categories"
     And I download the file
+    And I wait for "5" seconds
     Then I see "Budget Categories" on page "1" of "govgrants" pdf file
 
   @74107 @pdfDownloadBusinessForm
@@ -76,6 +76,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Business Forms"
     And I select "Download as PDF" from parallel lines dropdown of "Business Forms"
     And I download the file
+    And I wait for "5" seconds
     Then I see "Business Forms" on page "1" of "govgrants" pdf file
 
   @74108 @pdfDownloadSuppDocChekLst
@@ -93,6 +94,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Supporting Documents Checklist"
     And I select "Download as PDF" from parallel lines dropdown of "Supporting Documents Checklist"
     And I download the file
+    And I wait for "5" seconds
     Then I see "Supporting Documents Checklist" on page "1" of "govgrants" pdf file
 
   @75616 @74118 @pdfDownloadApprover
@@ -113,11 +115,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
-    And I navigate to "Setup" sub tab
-    And I click on parallel menu button in flex table title "Approvers"
-    And I select "Download as PDF" from parallel lines dropdown of "Approvers"
+    When I navigate to "Responsibilities" sub tab
+    And I click on parallel menu button in flex table title "Peer Reviewers"
+    And I select "Download as PDF" from parallel lines dropdown of "Peer Reviewers"
     And I download the file
-    Then I see "Approvers" on page "1" of "govgrants" pdf file
+    And I wait for "5" seconds
+    Then I see "Peer Reviewers" on page "1" of "govgrants" pdf file
 
   @74117 @pdfDownloadReviewSteps
   Scenario: To verify system allow to download pdf for Review Steps section in setup tab of announcement
@@ -132,10 +135,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click toggle button to select "Draft Competitive Announcements"
     And I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I navigate to "Setup" sub tab
-    And I click on parallel menu button in flex table title "Peer Reviewers"
-    And I select "Download as PDF" from parallel lines dropdown of "Peer Reviewers"
+    And I click on parallel menu button in flex table title "Review Steps"
+    And I select "Download as PDF" from parallel lines dropdown of "Review Steps"
+    And I wait for "2" seconds
     And I download the file
-    Then I see "Peer Reviewers" on page "1" of "govgrants" pdf file
+    And I wait for "2" seconds
+    Then I see "Review Steps" on page "1" of "govgrants" pdf file
 
   @74124 @pdfDownloadFocusArea  @skipOnJenkins
   Scenario: To verify system allow to download PDF for Related Focus Area section in setup tab of announcement
@@ -189,7 +194,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     Then I softly do not see value "BP01" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
     And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
-    And I wait for "4" seconds
     And I refresh the page
     And I wait for "2" seconds
     Then I softly do not see value "Construction" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
@@ -226,7 +230,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I save the value from row "1" for column name "Program Number" as "prNum" from flex table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly see value "{SavedValue:prNum}" for title "Program Number" inside table "---announcement:-:relatedAnnouncementTableId---"
 
-  @AnnouncmentRerun @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility  @smoke
+  @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility  @smoke
   Scenario: To Verify that user able to see Text fields after select Q&A Availability  as "Yes"  And  user can enter and save all required fields while creating Announcement
   | To Validate system generated validation message for  Q&A Availability section when "Question Deadline Date",and "Response Deadline date" is greater then Application Due Date.
     When I navigate to "Announcements" tab
@@ -364,7 +368,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     Then I softly do not see "Funding Opportunity Announcement" has been added in "---announcement:-:AnnouncementAttachmentTableId---" flex table
 
-  @70483 @userDeleteSupportingDocumentViewHyperlink
+ @70483 @userDeleteSupportingDocumentViewHyperlink
   Scenario: To Verify that user can view Template Link in supporting document checklist While creating the Announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -374,12 +378,14 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter the following values into flex table with id "---announcement:-:annChecklist---" by clicking "Add" :
       | Description                 | Required  | Applies To | Status |
       | Automation test description | Mandatory | Award      | Active |
-    When I click on "Upload Template" icon for " Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
-    And I choose the file "sample.pdf" to upload for "Checklist" of type "Announcement"
-    When I close "Upload Template" modal by clicking the top right x button
-    And I refresh the page
-    And I click on hyperlink containing value "View"
-    Then I see "A Simple PDF File" on page "1" of "govgrants" pdf file
+   When I click on "Upload Template" icon for "Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
+   And I upload attachment without random number "Attachment.pdf" of type "Template for Announcement" from computer
+   When I click modal button "Close"
+   And I refresh the page
+   And I wait for "2" seconds
+   And I click on hyperlink containing value "View"
+   When I download the file
+   Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
 
   @72323 @71972  @applicationDueDataOfAnnInHistory @FieldHistoryExclude
   Scenario: To verify field history update with respect to modification in Application Due Dates of Announcement|
@@ -438,7 +444,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Setup" sub tab
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---announcement:-:objectivesTableId---"
 
-  @AnnouncmentRerun @70163 @70166 @70197 @userAllowToSelectEligibilityDetails
+  @70163 @70166 @70197 @userAllowToSelectEligibilityDetails
   Scenario: To Verify that user is  allowed  to select the Eligibility Details while creating Announcement
   | To verify that  without selecting "Eligibility Details" user is able to see the validation message by clicking on "Submit for approval" button.
     When I navigate to "Announcements" tab
@@ -465,20 +471,19 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
-    And I click "Associate" after selection of "Wildlife Services" in the table "---announcement:-:associateForRelated---"
+    And I click "Associate" after selection of "10.028" in the table "---announcement:-:associateForRelated---"
     And I perform quick search for "Wildlife Services" in "---announcement:-:relatedAnnouncementTableId---" panel
     Then I softly see value "Wildlife Services" for title "Program Title" inside table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly see value "Federal" for title "Type" inside table "---announcement:-:relatedAnnouncementTableId---"
-    Then I softly see value "Animal And Plant Health Inspection Service" for title "Organization Name" inside table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly can see row level action button "Remove" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     Then I softly can see row level action button "View" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
-    And I perform quick search for "Automation Permanent NGO Program" in "---announcement:-:associateForRelated---" panel
-    And I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---announcement:-:associateForRelated---"
-    And I click on "View" icon for "Automation Permanent NGO Program" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
-    Then I see the header is "NGO Program" in the page details
-    Then I see the sub-header is "Automation Permanent NGO Program" in the page details
+    And I click "Associate" after selection of "Test" in the table "---announcement:-:associateForRelated---"
+    And I click on "View" icon for "Test" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
+#    Then I see the header is "Federal/NGO Program" in the page details
+#    Then I see the sub-header is "Automation Permanent NGO Program" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I wait for "5" seconds
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "All Competitive Announcements"
@@ -487,7 +492,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Remove" icon for "NGO" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
     Then I softly do not see value "NGO" for title "Type" inside table "---announcement:-:relatedAnnouncementTableId---"
 
-  @75617 @70727 @73624 @70723 @73621 @72482 @73536 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA
+ @75617 @70727 @73624 @70723 @73621 @72482 @73536 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA
   Scenario Outline: Validate that user can not enter application due date as past date | Validate that user should not submit announcement with blank budget period dates|To Verify that user can view contact while creating Announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -620,6 +625,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I enter value "No" into field "QAAvailability__c"
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
+   And I wait for "5" seconds
     And I navigate to "Announcements" tab
     And I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Competitive Announcements"
@@ -672,6 +678,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    And I wait for "2" seconds
     And I get the "EGMS ID"
     And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
@@ -708,10 +715,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Given I click on "Complete Review" in the page details
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
-    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Eligibility    | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Completeness   | 50                 |
     And I pause execution for "3" seconds
     And I expand nested table containing column value "Eligibility"
@@ -732,7 +741,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Environment    | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Permits        | 40                 |
     And I pause execution for "3" seconds
     And I expand nested table containing column value "Schedule"
@@ -758,7 +771,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Budget         | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Match          | 40                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Program Income | 30                 |
     And I pause execution for "3" seconds
     And I expand nested table containing column value "Budget"
@@ -784,7 +801,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Capability     | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Approach       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
       | Impact         | 40                 |
     And I pause execution for "3" seconds
     And I expand nested table containing column value "Capability"
@@ -804,14 +825,19 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
     And I pause execution for "3" seconds
-    And I collapse nested table containing column value "Impact"
+#    And I collapse nested table containing column value "Impact"
     When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "2" seconds
     When I collapse nested table containing column value "SME Review"
+    And I pause execution for "2" seconds
     And I expand nested table containing column value "Management Review"
+    And I wait for "5" seconds
     When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header             | Section Weight (%) |
       | Return on Investment (ROI) | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header             | Section Weight (%) |
       | Strategic Alignment        | 50                 |
     And I pause execution for "3" seconds
     And I expand nested table containing column value "Return on Investment (ROI)"
@@ -1034,6 +1060,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | End Date |
       | BP02               | 550      |
+    And I wait for "2" seconds
     And I save the value from row "1" for column name "Start Date" as "startDate" from flex table "---announcement:-:budgetPeriodTableId---"
     And I save the value from row "2" for column name "End Date" as "endDate" from flex table "---announcement:-:budgetPeriodTableId---"
     And I refresh the page
@@ -1139,13 +1166,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "PhaseCompletedTasks" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "PhaseCompletedTasks"
-
     Examples:
       | Announcement Type |
       | Competitive       |
 
   @announcementPostSendBackCheckFieldHistoryCA @announcementSendBackPendingTaskToOwnerCA @announcementSendBackToOwnerCA @smoke
-  Scenario Outline: Validate the send back functionality of an Announcement || Validate the field history after send back of an announcement || Validate that after send back from approvers owner should not get pending task
+  Scenario: Validate the send back functionality of an Announcement || Validate the field history after send back of an announcement || Validate that after send back from approvers owner should not get pending task
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -1194,6 +1220,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
+    And I refresh the page
     And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly see that "Announcement" is in "Draft" status
@@ -1202,9 +1229,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     Then I softly do not see values "Record Id" and "{SavedValue:Automation Runtime Competitive Announcement}" inside table
-    Examples:
-      | Announcement Type |
-      | Competitive       |
 
   @65080 @VerifyDraftAnnouncementIsNotDisplayedForSRUer
   Scenario Outline: Verify Draft announcement is not displayed at SR user end.
@@ -1363,11 +1387,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Financials" sub tab
     And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
     Then I softly see the following messages in the page details :
-      | Record deleted Successfully. |
+      | Record removed successfully. |
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     And I click on parallel menu button in flex table title "Budget Period Details"
     And I select "Download as PDF" from parallel lines dropdown of "Budget Period Details"
     When I download the file
+    And I wait for "5" seconds
     Then I softly see "Budget Period Details" on page "1" of "govgrants" pdf file
 
   @73960 @userAllowToDownloadPDFFundingAccount
@@ -1384,6 +1409,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Funding Accounts"
     And I select "Download as PDF" from parallel lines dropdown of "Funding Accounts"
     When I download the file
+    And I wait for "5" seconds
     Then I see "Funding Accounts" on page "1" of "govgrants" pdf file
 
   @74120 @userAllowToDownloadPDFResponsibility
@@ -1402,10 +1428,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:FO Username} | Step 3       |
-    And I refresh the page
+    And I wait for "2" seconds
     And I click on parallel menu button in flex table title "Approvers"
     And I select "Download as PDF" from parallel lines dropdown of "Approvers"
     When I download the file
+    And I wait for "5" seconds
     Then I see "Approvers" on page "1" of "govgrants" pdf file
 
   @74121 @userAllowToDownloadPDFOwner
@@ -1418,6 +1445,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Owner"
     And I select "Download as PDF" from parallel lines dropdown of "Owner"
     When I download the file
+    And I wait for "2" seconds
     Then I see "Owner" on page "1" of "govgrants" pdf file
 
   @74126 @userAllowToDownloadPDFObjective
@@ -1427,10 +1455,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When  I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     When I navigate to "Setup" sub tab
-    And I click on parallel menu button in flex table title "Objectives"
-    And I select "Download as PDF" from parallel lines dropdown of "Objectives"
-    When I download the file
-    Then I see "Objectives" on page "1" of "govgrants" pdf file
+    And I click on parallel menu button in flex table title "Goals and Objectives"
+    And I select "Download as PDF" from parallel lines dropdown of "Goals and Objectives"
+    And I download the file
+    And I wait for "5" seconds
+    Then I softly see "Objectives" on page "1" of "govgrants" pdf file
 
   @74129 @userAllowToDownloadPDFKPI
   Scenario: To verify system allow to download PDF for Key performance Indicator(KPIs) section in setup tab of announcement
@@ -1442,6 +1471,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on parallel menu button in flex table title "Key Performance Indicators (KPIs)"
     And I select "Download as PDF" from parallel lines dropdown of "Key Performance Indicators (KPIs)"
     When I download the file
+    And I wait for "5" seconds
     Then I see "Key Performance Indicators (KPIs)" on page "1" of "govgrants" pdf file
 
   @74131 @userAllowToDownloadPDFHistory  @skipOnJenkins

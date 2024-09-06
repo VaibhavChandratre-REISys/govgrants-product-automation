@@ -2461,7 +2461,7 @@ public class GrantorPayloads {
 
             JsonObject grant = json.getAsJsonArray("Grant").get(0).getAsJsonObject();
             JsonArray newA = new JsonArray();
-            grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "Product Sub Recipient Test Organization"));
+            grant.addProperty("InternalOrganization", ProjectWebServices.getIdOf("Account", "Framework Defect Retest"));
             newA.add(grant);
             json.add("Grant", newA);
         return json;
