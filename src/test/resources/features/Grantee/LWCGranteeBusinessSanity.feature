@@ -2042,7 +2042,7 @@ Feature: Sanity scenarios
     And I click on "Edit" icon for "{SavedValue:BDRAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I softly see "Overview" page block displayed
     Then I softly see "Responsibilities" page block displayed
     Then I softly see "Files" page block displayed
@@ -2071,9 +2071,9 @@ Feature: Sanity scenarios
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see "Start Date" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see "End Date" in flex table header "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly see "Start Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly see "End Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     When I click on parallel lines menu bar with data target value "Focus Areas"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -2100,7 +2100,6 @@ Feature: Sanity scenarios
       | Action menu |   Rate   | 10                             | Final                   |
     Then I softly can see row level action button "Edit" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly can see row level action button "Delete" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    And I click on "Edit" in the page details
     Then I softly see fields "GeneralConditionChanged__c" is in edit mode
     And I enter value "checked" into field "Aggreement__c"
     Then I softly see fields "AreTCspartofNGAAttachments__c" is visible
