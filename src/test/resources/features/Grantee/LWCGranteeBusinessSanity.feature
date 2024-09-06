@@ -1832,6 +1832,7 @@ Feature: Sanity scenarios
     When I enter value "123456789123" into field "DUNS__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
+    And I save the field labeled "Grant Number" as "GrantNumber"
     And I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
@@ -1841,6 +1842,7 @@ Feature: Sanity scenarios
     And I click on "Edit" in the page details
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
@@ -1886,7 +1888,6 @@ Feature: Sanity scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
       | Construction | The narrative | 5000         | 500        | 200            |
-    And I wait for "3" seconds
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
       | Focus Area Name                 | Projected Program Income ($) | Program Income Justification |
@@ -1984,13 +1985,13 @@ Feature: Sanity scenarios
 #    Then I see field "GrantNumber__c" is not editable
     Then I see textarea field "Impact__c" is editable
     Then I see textarea field "PurposeRTA__c" is editable
+    And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | Please select Amendment Request Type is required to save. |
     Then I softly see the following messages in the page details contains:
       | Initiated By is required to save. |
     Then I softly see the following messages in the page details contains:
       | Justification is required to save. |
-    And I click modal button "Save and Continue"
     And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "3" seconds
@@ -2063,7 +2064,7 @@ Feature: Sanity scenarios
     Then I see textarea field "PurposeRTA__c" is editable
     Then I softly see fields "ApprovedIndirectCostRate__c" is in edit mode
     Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
-    Then I softly see field "Grant Numberr" as "{SavedValue:GrantNumber}"
+    Then I softly see field "Grant Number" as "{SavedValue:GrantNumber}"
     Then I softly see field "Grant Award Number" as "{SavedValue:GrantAwardNumber}"
     Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
@@ -2074,6 +2075,7 @@ Feature: Sanity scenarios
     Then I softly see "Start Date" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     Then I softly see "End Date" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     When I click on parallel lines menu bar with data target value "Focus Areas"
+    And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download As PDF" present in parallel dropdown
     Then I softly see "Budget Category" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
@@ -2085,8 +2087,9 @@ Feature: Sanity scenarios
     Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
-    Then I softly see value "$5000.00" for title "Award Budget" against the value "Construction" inside table "---amendment:-:AmendmentBudgetTableId---"
-    Then I softly see value "$5000.00" for title "Award Budget" against the value "Construction" inside table "---amendment:-:AmendmentBudgetTableId---"
+    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
+    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Date From" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Date To" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
