@@ -2045,7 +2045,7 @@ Feature: Sanity scenarios
 
     Examples:
       | userType    | userName   |
-#      | GRANTEE PM  | Sarah PM   |
+      | GRANTEE PM  | Sarah PM   |
       | GRANTEE EXE | Victor EXE |
 
   @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout
