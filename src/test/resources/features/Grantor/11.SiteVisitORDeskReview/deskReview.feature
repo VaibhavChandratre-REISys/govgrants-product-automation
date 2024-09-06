@@ -1545,7 +1545,7 @@ Feature: Validate all scenarios in Desk Review
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @Add1 @204199 @DeskReviewVerifySPAusercanabletoEditDeletefilesinSendtoSubrecipientstateofdeskreviewiftheyareownerofthatfile&alsousercaneditcorrectiveactionsonrecord
+  @204199 @DeskReviewVerifySPAusercanabletoEditDeletefilesinSendtoSubrecipientstateofdeskreviewiftheyareownerofthatfile&alsousercaneditcorrectiveactionsonrecord @TBExecution
   Scenario: Desk Review>>Verify SPA user can able to 'Edit/Delete' files in 'Send to Subrecipient' state of desk review if they are owner of that file & also user can edit corrective actions on record
     Given I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
