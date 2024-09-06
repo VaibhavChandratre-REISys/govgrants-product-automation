@@ -1785,7 +1785,7 @@ Feature: Sanity scenarios
     When I save the field labeled "Previous Award Description" as "PreviousAwardDescription"
     Then I softly see field "Previous Award Description" as "{SavedValue:PreviousAwardDescription}"
     Then I softly see fields "GrantAwardName__c" is in edit mode
-    Then I see textarea field "AwardDescription__c" is editable
+    Then I softly see fields "GrantAwardDescription__c" is in edit mode
     Then I softly see "Place of Performance" page block displayed
     Then I softly see fields "Addressline1__c" is in edit mode
     Then I softly see fields "Addressline2__c" is in edit mode
