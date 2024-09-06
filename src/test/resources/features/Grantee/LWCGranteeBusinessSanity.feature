@@ -1799,11 +1799,11 @@ Feature: Sanity scenarios
     Then I softly see "Objectives" page block displayed
     Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 2" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "ETE objective 2" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
     Then I softly see the following messages in the page details contains:
       | Goals/Objectives associated successfully. |
     And I click modal button "Close"
-    Then I softly see value "ETE objectives 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly see value "ETE objective 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     And I click on Menu icon present on top right corner of the page
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -2293,3 +2293,27 @@ Feature: Sanity scenarios
     And I click on "View" icon for "AwardEGMSID1" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Amended"
 
+  @455427 @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
+  Scenario: Funding Change AR_ Verify PM user should see footer navigator after open the Funding Change AR
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "{grantee_testData:AutomationPermanentAmendmentRequest}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    And I click on "View" icon for "{grantee_testData:AutomationPermanentAmendmentRequest}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+    Then I softly see "Navigator" button display on footer
+    And I click on bottom button "Navigator" in page detail
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Grants" inside "Grants, Awards & Amendment Requests" is displayed
+    Then I see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
+    Then I see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
+    And I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{grantee_testData:AutomationPermanentAmendmentRequest}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    Then I softly see value "{grantee_testData:AutomationPermanentAmendmentRequest}" for title "Award Title" inside table "---grantee_tableId:-:AmendmentTableId---"
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Grants" inside "Grants, Awards & Amendment Requests" is displayed
+    Then I see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
+    Then I see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
