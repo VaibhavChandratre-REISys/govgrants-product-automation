@@ -55,7 +55,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
 
-  @59010 @51079 @orgSiteVisitCreationEdition
+  @59010 @51079 @orgSiteVisitCreationEdition @TBExecution
   Scenario: Validate the Created and Edition of Site Visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -519,7 +519,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission
+  @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission @TBExecution
   Scenario: Validate User will be able to view the SnapshotSite Visit Accept button after review the submission by Recipients
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -977,7 +977,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I see the following messages in the page details :
       | Reports and Outcomes Tab - Complete all data in the form. |
 
-  @56005 @uploadsupportingDocumentChecklistFromWorkSpace
+  @56005 @uploadsupportingDocumentChecklistFromWorkSpace @TBExecution
   Scenario: User will be able to review the supporting document checklist submitted by the subrecipient
     When I navigate to "Files" sub tab
     And I click on "Upload Template" icon for "Automation" inside flex table with id "---orgRiskAssessment:-:orgriskSupportingDocTableId---" with wait for record
@@ -1121,7 +1121,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on hyperlink containing value "View All"
     Then I see value "In Progress" for title "New Value" inside field history table
 
-  @61400 @61401 @ViewSnapshotandApproversTableIsNotEditableAfterSiteVisitsIsSubmittedToApproval
+  @61400 @61401 @ViewSnapshotandApproversTableIsNotEditableAfterSiteVisitsIsSubmittedToApproval @TBExecution
   Scenario: Validate Record Owner user is able to view the Snapshot and Approvers Table is not editable for record owner and award owner end when the status of Org Level Site Visits is Submitted to Approval
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1230,7 +1230,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 #    When I close "Site Visit Reviewers" modal by clicking the top right x button
     Then I cannot see top right button "Edit" in page detail
 
-  @56007 @PeerReviewAfterSVIsAcceptedAndClosed
+  @56007 @PeerReviewAfterSVIsAcceptedAndClosed @TBExecution
   Scenario: Validate peer review  process and also system does not allow the peer reviewer to edit/Enter review comments if the Org Level Site Visits marked as complete review by the Record owner
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1339,7 +1339,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Overview" sub tab
     Then I softly see field "StartDate__c" is not editable
 
-  @61993 @RecordOwnerCanViewSnapshotAfterOSVIsSubmittedForApproval
+  @61993 @RecordOwnerCanViewSnapshotAfterOSVIsSubmittedForApproval @TBExecution
   Scenario: Validate Record Owner user is able to view the Snapshot after Site Visit is Submitted for Approval status - Org Site Visits
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"

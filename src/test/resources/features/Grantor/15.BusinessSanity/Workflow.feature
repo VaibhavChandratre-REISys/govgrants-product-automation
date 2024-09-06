@@ -1546,7 +1546,7 @@ Feature: Validate all scenarios of every modules flow
    @tst1
    Scenario:
      Given I login to "As a Grantee" app as "GRANTEE PM" user
-     And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDh000001yadAIAQ/view"
+     And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDh000001yajwIAA/view"
      And I wait for "10" seconds
      And I navigate to "Management" sub tab
      And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
@@ -1558,7 +1558,12 @@ Feature: Validate all scenarios of every modules flow
      And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
      And I save the value from row "1" for column name "EGMS ID" as "EGMS ID1" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
      And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
-       | {SavedValue:EGMS ID1} | 32                          | 47                        |  49             |
-     Then I softly see value "{Date:MM/dd/yyyy::d+32}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-     Then I softly see value "{Date:MM/dd/yyyy::d+62}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
+       | {SavedValue:EGMS ID1} | 17                          | 27                        |
+     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+     Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
+       | {SavedValue:EGMS ID1} | 15                          | 25                        |
+     Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+     Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
