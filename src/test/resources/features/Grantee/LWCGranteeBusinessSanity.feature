@@ -1804,7 +1804,7 @@ Feature: Sanity scenarios
       | Goals/Objectives associated successfully. |
     And I click modal button "Close"
     Then I softly see value "ETE objective 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
-    And I click on Menu icon present on top right corner of the page
+    When I click on parallel lines menu bar with data target value "Objectives"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download As PDF" present in parallel dropdown
