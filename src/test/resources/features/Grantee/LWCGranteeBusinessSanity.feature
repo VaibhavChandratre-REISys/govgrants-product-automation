@@ -2104,6 +2104,7 @@ Feature: Sanity scenarios
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I see the following messages in the page details contains:
       | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.|
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero.|
@@ -2121,6 +2122,7 @@ Feature: Sanity scenarios
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I cannot see the following messages in the page details contains:
       | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.|
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero.|
