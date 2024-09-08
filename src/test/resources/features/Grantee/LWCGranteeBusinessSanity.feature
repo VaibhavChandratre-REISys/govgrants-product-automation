@@ -2105,7 +2105,7 @@ Feature: Sanity scenarios
     And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
-    Then I see the following messages in the page details contains:
+    Then I softly see the following messages in the page details contains:
       | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.|
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero.|
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
@@ -2123,7 +2123,7 @@ Feature: Sanity scenarios
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
-    Then I cannot see the following messages in the page details contains:
+    Then I softly cannot see the following messages in the page details contains:
       | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.|
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero.|
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
