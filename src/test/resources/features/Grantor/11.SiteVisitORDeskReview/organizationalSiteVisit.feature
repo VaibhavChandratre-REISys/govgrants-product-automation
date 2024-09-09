@@ -638,7 +638,9 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I select "Take Snapshot" from dropdown
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Site Visit - Accept And Close"
+    And I wait for "5" seconds
     When I download the file
+    And I wait for "5" seconds
     Then I see "Closed" on page "1" of "govgrants" pdf file
 
   @59011 @56004 @sendBacktoOwnerReceivePendingTaskSVOrgLevel
@@ -1192,6 +1194,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I softly can see row level action button "Edit" against "{SavedValue:FO Username}" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
     And I click on "Menu" in the page details
     And I select "Take Snapshot" from dropdown
+    And I refresh the page
     When I navigate to "History" sub tab
     Then I see snapshot with name containing "Sitevisit_submit_for_approval" as name
 

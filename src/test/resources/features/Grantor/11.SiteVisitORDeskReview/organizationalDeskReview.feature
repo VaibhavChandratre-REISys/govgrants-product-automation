@@ -66,7 +66,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click modal button "Save and Continue"
     Then I see field "Desk Review Type" as "Award"
 
- @hit @54425 @addParticipantsT0OrgDeskReviewInternalUser  @organizationalDeskReviewFirst
+ @hit1 @54425 @addParticipantsT0OrgDeskReviewInternalUser  @organizationalDeskReviewFirst
   Scenario Outline: User will be able to add contacts or users from both internal and subrecipient organizations.
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -194,7 +194,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I wait for "3" seconds
     Then I see that "100.00%" has been added in flextable with Id "---orgLevelDeskReview:-:reportsTableId---"
 
- @hit @54886 @54571 @66270 @submittingForAprovalOfDeskReviewOrgLevel   @buglogged150042 @organizationalDeskReviewFirst
+ @hit1 @54886 @54571 @66270 @submittingForAprovalOfDeskReviewOrgLevel   @buglogged150042 @organizationalDeskReviewFirst
   Scenario: Validate the org level Desk Review Submitting for Approval | Validate Approvers Table is not editable for record owner and award owner end when the status of Org Level Desk Review is Submitted to Approval
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -677,7 +677,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I "Approve" in the approval decision
     Then I see status in Progress-bar is "Approved" and is "dark blue"
 
- @hit @55793 @internalUserParticipantOrganizationalDeskReview @smoke  @organizationalDeskReviewFirstRerun
+ @hit1 @55793 @internalUserParticipantOrganizationalDeskReview @smoke  @organizationalDeskReviewFirstRerun
   Scenario Outline: Internal User participant Association of Organizational Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -810,7 +810,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     Then I see the following messages in the page details :
       | Reports and Outcomes Tab - Complete all data in the form. |
 
- @hit @55999 @peerReviewDeskReviewOrgLevel  @organizationalDeskReviewFirst
+ @hit1 @55999 @peerReviewDeskReviewOrgLevel  @organizationalDeskReviewFirst
   Scenario: Validate the peer review on their Org Level Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -898,7 +898,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     Then I softly see value "Automation.pdf" for title "Title" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I softly see value "Other" for title "Classification" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
 
- @hit @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval @organizationalDeskReviewSecond
+ @hit1 @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval @organizationalDeskReviewSecond
   Scenario: Validate Record Owner user is able to take Snapshot after Org Desk Review is Submitted for Approval status - Org Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
