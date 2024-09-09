@@ -1414,7 +1414,7 @@ Feature: Validate all scenarios in Organizational Site Visit
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
-    And I click on "Menu" in the page details
+   And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Sitevisit_submit_for_approval"
