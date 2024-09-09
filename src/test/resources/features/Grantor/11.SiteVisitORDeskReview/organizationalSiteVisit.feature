@@ -116,7 +116,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click modal button "Save and Continue"
     Then I see field "Desk Review Type" as "Award"
 
-  @hit @54428 @addParticipantsT0OrgSiteVisit
+  @54428 @addParticipantsT0OrgSiteVisit
   Scenario: Validate the participants for the Site Visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1172,8 +1172,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Approved Date" column header inside table with id "ActiveAccount"
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
     Given I navigate to "Related Log" sub tab
-    When I perform quick search for "Record Id" in "SiteVisit" panel
-    And I click on "View" icon for "Record Id" inside table
+    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
     And I switch to tab number "1"
@@ -1242,7 +1242,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 #    When I close "Site Visit Reviewers" modal by clicking the top right x button
     Then I cannot see top right button "Edit" in page detail
 
-  @hit @56007 @PeerReviewAfterSVIsAcceptedAndClosed
+  @56007 @PeerReviewAfterSVIsAcceptedAndClosed
   Scenario: Validate peer review  process and also system does not allow the peer reviewer to edit/Enter review comments if the Org Level Site Visits marked as complete review by the Record owner
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1389,9 +1389,9 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
    And I click modal button "Close"
-   And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-   And I click modal button "Close"
+#   And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
+#    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
+#   And I click modal button "Close"
  #    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
 #    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
 #    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"

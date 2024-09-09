@@ -247,7 +247,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
-#    Then I softly cannot see row level action button "Edit" against "{SavedValue:PM Username}" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:PM Username}" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
