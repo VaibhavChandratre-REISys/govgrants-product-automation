@@ -1217,7 +1217,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "Remove" icon for "{SavedValue:Automation Runtime Award Record}" inside flex table with id "---orgLevelDeskReview:-:associateAwardId---"
     Then I softly see "No Records Found" inside flex table with id "---orgLevelDeskReview:-:associateAwardId---"
 
-  @65150 @reviewerCanNotEditAfterSubmittingTheReviewOrgLevel @organizationalDeskReviewSecond @TBExecution
+  @65150 @reviewerCanNotEditAfterSubmittingTheReviewOrgLevel @organizationalDeskReviewSecond
   Scenario: Validate after submitting the review comments for Org Level Desk Review, the Edit button should will be unavailable for the reviewer
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"

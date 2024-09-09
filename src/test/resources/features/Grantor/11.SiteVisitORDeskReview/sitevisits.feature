@@ -773,7 +773,8 @@ Feature: Validate all scenarios in the Site Visit
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
     When I click "Associate" after selection of "<Internal>" in the table "---sitevisits:-:siteVisitContactsTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "4" seconds
     Then I softly see that "<Internal>" has been added in flextable with Id "---sitevisits:-:participantsTableId---"
     When I click on "Remove" icon for "<Internal>" inside flex table with id "---sitevisits:-:participantsTableId---"
     And I wait for "3" seconds
@@ -1724,7 +1725,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
     And I wait for "2" seconds
-    Then I softly see value "{SavedValue:Automation Runtime Award Site Visit}" for title "Title" inside table "---sitevisits:-:InitiateSiteVisitTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Site Visit}" for title "Title" inside table "---sitevisits:-:InitiateSiteVisitTableId---"
 
   @66392 @66384 @66561 @validateSendBackToSubRecipientButton 
   Scenario: To verify that Send back to subrecipient button appear on the top right corner of the page of award owner(PM) in site visit page when status is submitted to grantor

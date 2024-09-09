@@ -827,7 +827,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see value "Step 2" for title "Site Visit" against the value "Automation EXE" inside table "---sitevisits:-:approverSiteVisitTableId---"
     Then I softly see value "Step 3" for title "Site Visit" against the value "Automation FO" inside table "---sitevisits:-:approverSiteVisitTableId---"
 
-  @281056 @VerifyEXEuserstep2asLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoSendbackapprovaldecisionafterclickonUNDO&abletoaddstep3approvalinSiteVisit @sprint-5-US-295139 @Undo @TBExecution
+  @281056 @VerifyEXEuserstep2asLaststepapprovercanseeUNDObuttonwhenApprovedtheSiteVisit&abletoSendbackapprovaldecisionafterclickonUNDO&abletoaddstep3approvalinSiteVisit @sprint-5-US-295139 @Undo
   Scenario: Verify FO user(step 3) as Last step approver can see UNDO button when Approved the Site Visit & able to Approved approval decision after click on UNDO & try to closed the Site Visit after approved it
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"

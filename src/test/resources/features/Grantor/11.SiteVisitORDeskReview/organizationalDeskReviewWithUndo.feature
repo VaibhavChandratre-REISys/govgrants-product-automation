@@ -54,7 +54,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
     Given I navigate to "Related Log" sub tab
-    When I perform quick search for "SavedValue:DeskReviewID}" in "---orgLevelDeskReview:-:deskreviewPanelId---" panel
+    When I perform quick search for "{SavedValue:DeskReviewID}" in "---orgLevelDeskReview:-:deskreviewPanelId---" panel
     Then I softly cannot see row level action button "Undo" against "{SavedValue:DeskReviewID}" in flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
 
   @308898 @ODRVerifythatapproverundobuttonvisibilitywillchangeasperpositionofapproverofOrgdeskreviewlastormiddle @sprint-7-US-306815  @Undo
@@ -1055,7 +1055,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
      The EGMS Team.
       """
 
-  @296153 @296154 @VerifythatwhenExeapproverForwardtheOrganizationalDeskReviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-288692 @Undo @TBExecution
+  @296153 @296154 @VerifythatwhenExeapproverForwardtheOrganizationalDeskReviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-288692 @Undo
   Scenario:Verify that when Exe approver Forward the Organizational Desk Review Approval task , Forwarded Approver will see UNDO button and not previous One
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab

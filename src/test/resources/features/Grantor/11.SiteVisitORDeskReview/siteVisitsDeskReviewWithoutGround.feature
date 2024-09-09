@@ -5467,7 +5467,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:DeskReview}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @198021 @ValidatePMusershouldabletoreassignthetaskofDeskreviewfromMyTasksunderReassignsectiononleft-handnavigationbar @sprint-4-US-192997 @reassignment @TBExecution
+  @198021 @ValidatePMusershouldabletoreassignthetaskofDeskreviewfromMyTasksunderReassignsectiononleft-handnavigationbar @sprint-4-US-192997 @reassignment
   Scenario: Validate PM user should able to reassign the task of Desk review from My Tasks under Reassign section on left-hand navigation bar
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"

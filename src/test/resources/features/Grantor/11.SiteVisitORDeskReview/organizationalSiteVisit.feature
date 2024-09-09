@@ -122,12 +122,14 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    And I enter "Edition" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "5" seconds
     Then I see that "{SavedValue:EXE Username}" has been added in flextable with Id "---orgLevelSiteVisits:-:associateContactsId---"
 
   @54452 @approverSelectionSiteVisitOrglevel
@@ -641,7 +643,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I download the file
     Then I see "Closed" on page "1" of "govgrants" pdf file
 
-  @59011 @56004 @sendBacktoOwnerReceivePendingTaskSVOrgLevel @TBExecution
+  @59011 @56004 @sendBacktoOwnerReceivePendingTaskSVOrgLevel
   Scenario:  Validate when Site Visit record sent back to Recipients when outcomes are not properly addressed and recipients will be able to receive a pending task
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -882,12 +884,14 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
     And I enter "Creation" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    And I enter "Edition" values from "Organizational_SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "<Internal>" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "4" seconds
     Then I see that "<Internal>" has been added in flextable with Id "---orgLevelSiteVisits:-:associateContactsId---"
     Examples:
       | Internal                  |
