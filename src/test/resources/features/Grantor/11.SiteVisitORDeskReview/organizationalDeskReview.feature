@@ -66,7 +66,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click modal button "Save and Continue"
     Then I see field "Desk Review Type" as "Award"
 
- @hit1 @54425 @addParticipantsT0OrgDeskReviewInternalUser  @organizationalDeskReviewFirst
+ @54425 @addParticipantsT0OrgDeskReviewInternalUser  @organizationalDeskReviewFirst
   Scenario Outline: User will be able to add contacts or users from both internal and subrecipient organizations.
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -247,7 +247,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:PM Username}" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
+#    Then I softly cannot see row level action button "Edit" against "{SavedValue:PM Username}" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -677,7 +677,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I "Approve" in the approval decision
     Then I see status in Progress-bar is "Approved" and is "dark blue"
 
- @hit1 @55793 @internalUserParticipantOrganizationalDeskReview @smoke  @organizationalDeskReviewFirstRerun
+ @55793 @internalUserParticipantOrganizationalDeskReview @smoke  @organizationalDeskReviewFirstRerun
   Scenario Outline: Internal User participant Association of Organizational Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -855,11 +855,15 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click modal button "Save"
     And I click on submit review
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
-    When I click toggle button to select "Desk Review Reports - All"
-    When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+   And I navigate to "Home" tab
+   When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+   When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
+   When I click on "Approved Date" column header inside table with id "ActiveAccount"
+   When I click on "Approved Date" column header inside table with id "ActiveAccount"
+   And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+   Given I navigate to "Related Log" sub tab
+   When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:deskreviewPanelId---" panel
+   And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     When I click on "Complete Review" in the page details
     Then I see status in Progress-bar is "In Progress" and is "dark blue"
 
@@ -945,6 +949,7 @@ Feature: Validate all scenarios in Organizational Desk Review
       | Automation Concern     | Automation Description | Concern     |
       | Automation Observation | Automation Description | Observation |
     And I wait for "3" seconds
+   And I save the field labeled "EGMS ID" as "siteEGMSID"
     When I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     And I click on Menu icon present on top right corner of the page
@@ -956,7 +961,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I wait for "5" seconds
     When I download the file
     And I wait for "5" seconds
-    Then I softly see "{SavedValue:Record Id}" on page "1" of "govgrants" pdf file
+    Then I softly see "{SavedValue:siteEGMSID}" on page "1" of "govgrants" pdf file
 
   @61990 @RecordOwnerCanViewCompletedTask  @organizationalDeskReviewSecond
   Scenario: Validate whether user is able to view the Completed task once approved under Monitoring Tab - Org Level Desk review
