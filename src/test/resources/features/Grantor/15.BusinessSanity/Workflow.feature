@@ -1532,8 +1532,38 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @tst @debug
+  @tst
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to "Grants" tab
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Financial Reports - All"
+    And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
+    When I click on "View" icon for "FR--GT-GA-02662-001" inside table
+    And I navigate to "Chatter" sub tab in split screen
+    Then I softly see the text containing "Post"
+
+   @tst1
+   Scenario:
+     Given I login to "As a Grantee" app as "GRANTEE PM" user
+     And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDh000001yajwIAA/view"
+     And I wait for "10" seconds
+     And I navigate to "Management" sub tab
+     And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+     Then I softly see "Reports Schedule" opens in overLay window
+     When I enter in modal "Grantee_Progress_Schedules" values from "Award_Field_Values.xlsx"
+     And I click modal button "Save"
+     And I wait for "2" seconds
+     And I expand nested table containing column value "Progress Report"
+     And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
+     And I save the value from row "1" for column name "EGMS ID" as "EGMS ID1" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
+       | {SavedValue:EGMS ID1} | 17                          | 27                        |
+     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+     Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
+       | {SavedValue:EGMS ID1} | 15                          | 25                        |
+     Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+     Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"

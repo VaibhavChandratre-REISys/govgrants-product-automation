@@ -293,7 +293,7 @@ Feature: Pre-Application scenarios without background
     When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside table
     When I click on "Accept" in the page details
-   And I wait for "5" seconds
+    And I wait for "5" seconds
     When I navigate to "Applications" tab
     And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---preApplication:-:preappCompletedTasksTableId---" panel
@@ -1473,7 +1473,7 @@ Feature: Pre-Application scenarios without background
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor" in "Negotiation Request Details" pageblock
 
-  @174890 @ValidateDueDatefieldshouldbeRequiredtosubmitunderNegotiationRequestdetailssectiononGrantorSide @sprint-8 @TBExecution1
+  @174890 @ValidateDueDatefieldshouldbeRequiredtosubmitunderNegotiationRequestdetailssectiononGrantorSide @sprint-8
   Scenario: Due Date field should be Required to submit under Negotiation Request details section on Grantor
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal

@@ -1,7 +1,7 @@
 @preApplicationExecution @preAplicationNotes @grantor-regression @grantor-parallel-regression @app @ApplicationAndPre-App
 Feature: Pre-Application scenarios without background
 
-  @225095 @225099 @ValidatePMPOEXEFOAdminsenotabletoEditDeletenoteswhichisaddedbySPIUserwhichisinnegotiationinitiatedstate @Sprint-11-US-224418 @Notes @TBExecution1
+  @225095 @225099 @ValidatePMPOEXEFOAdminsenotabletoEditDeletenoteswhichisaddedbySPIUserwhichisinnegotiationinitiatedstate @Sprint-11-US-224418 @Notes
   Scenario: Validate PM PO EXE FO Admin user is not able to Edit Delete notes which is added by SPI User which is in negotiation initiated state
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -643,7 +643,7 @@ Feature: Pre-Application scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:grantorPreApplicationNotesTableId---"
 
-  @226083 @226084 @ValidateFDusercannotAddnotesbutEditDeletetheirownnotesonpreapplicationisinNegotiationInitiatedstate @Sprint-11-US-224418 @Notes @TBExecution1
+  @226083 @226084 @ValidateFDusercannotAddnotesbutEditDeletetheirownnotesonpreapplicationisinNegotiationInitiatedstate @Sprint-11-US-224418 @Notes
   Scenario: Validate FD user cannot Add notes but Edit Delete their own notes on pre-application is in Negotiation Initiated state
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
