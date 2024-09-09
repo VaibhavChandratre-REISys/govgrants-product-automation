@@ -174,7 +174,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     And I wait for "3" seconds
     Then I can see top right button "Undo" in page detail
 
-  @295875 @295879 @296044 @296049 @ODRVerifythatapproverundobuttonvisibilitywillchangeasperpositionofapproverofOrgdeskreviewlastormiddle @sprint-4-US-288692  @Undo
+  @hit @295875 @295879 @296044 @296049 @ODRVerifythatapproverundobuttonvisibilitywillchangeasperpositionofapproverofOrgdeskreviewlastormiddle @sprint-4-US-288692  @Undo
   Scenario:Verify when 4 Approvers are added to approve Organizational Desk Review , only last approver will see UNDO button
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -714,7 +714,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
       | Status                 | Page Number |
       | Submitted for Approval | 1           |
 
-  @296072 @VerifyAuditorusercannotseeundobuttoninApprovedstateofOrganizationalDeskReview @sprint-4-US-288692  @Undo
+  @hit @296072 @VerifyAuditorusercannotseeundobuttoninApprovedstateofOrganizationalDeskReview @sprint-4-US-288692  @Undo
   Scenario:Verify Auditor user can not see undo button in Approved  state of Organizational Desk Review
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -904,8 +904,8 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @296097 @296098 @VerifythatwhenPMuserReassignsubmitforapprovaltasktonewuserthennewownerwillseeundobuttonafterapprovingtheOrganizationalDeskReview @sprint-4-US-288692  @Undo
-  Scenario:Verify that when PM user Reassign submit for approval task  to new user,then new owner will see undo button after approving the Organizational Desk Review
+ @hit @296097 @296098 @VerifythatwhenPMuserReassignsubmitforapprovaltasktonewuserthennewownerwillseeundobuttonafterapprovingtheOrganizationalDeskReview @sprint-4-US-288692  @Undo
+  Scenario:Verify that when PM user Reassign submit for approval task  to new user,then new owner will see undo button after apprving the Organizational Desk Review
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
@@ -1052,7 +1052,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
      The EGMS Team.
       """
 
-  @296153 @296154 @VerifythatwhenExeapproverForwardtheOrganizationalDeskReviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-288692  @Undo
+  @hit @296153 @296154 @VerifythatwhenExeapproverForwardtheOrganizationalDeskReviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-288692  @Undo
   Scenario:Verify that when Exe approver Forward the Organizational Desk Review Approval task , Forwarded Approver will see UNDO button and not previous One
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab

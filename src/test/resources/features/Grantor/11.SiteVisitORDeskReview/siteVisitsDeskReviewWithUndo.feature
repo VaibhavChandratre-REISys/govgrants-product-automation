@@ -142,7 +142,7 @@ Feature: Validate all scenarios in the Site Visit with Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @284405 @284428 @299565 @Verify2stepapproveronSiteVisit&camefromAwardrecord&changedstep2approvertostep3aslastapprover&addstep2approveronsamesitevisit&checkUNDObuttonshouldvisibletostep3approvernottostep2approver @sprint-5-US-295139  @Undo @FieldHistoryExclude
+  @hit @284405 @284428 @299565 @Verify2stepapproveronSiteVisit&camefromAwardrecord&changedstep2approvertostep3aslastapprover&addstep2approveronsamesitevisit&checkUNDObuttonshouldvisibletostep3approvernottostep2approver @sprint-5-US-295139  @Undo @FieldHistoryExclude
   Scenario: Verify 2 step approver on Site Visit & came from Award record & changed step 2 approver to step3 as last approver & add step 2 approver on same site visit & check UNDO button should visible to step 3 approver not to step 2 approver
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"

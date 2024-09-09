@@ -116,7 +116,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click modal button "Save and Continue"
     Then I see field "Desk Review Type" as "Award"
 
-  @54428 @addParticipantsT0OrgSiteVisit
+  @hit @54428 @addParticipantsT0OrgSiteVisit
   Scenario: Validate the participants for the Site Visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -125,6 +125,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Save" in the page details
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I click modal button "Close"
     Then I see that "{SavedValue:EXE Username}" has been added in flextable with Id "---orgLevelSiteVisits:-:associateContactsId---"
 
   @54452 @approverSelectionSiteVisitOrglevel
@@ -522,7 +523,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission
+  @hit @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission
   Scenario: Validate User will be able to view the SnapshotSite Visit Accept button after review the submission by Recipients
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -544,6 +545,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
     When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
+    And I click modal button "Close"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -1124,7 +1126,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on hyperlink containing value "View All"
     Then I see value "In Progress" for title "New Value" inside field history table
 
-  @61400 @61401 @ViewSnapshotandApproversTableIsNotEditableAfterSiteVisitsIsSubmittedToApproval
+  @hit @61400 @61401 @ViewSnapshotandApproversTableIsNotEditableAfterSiteVisitsIsSubmittedToApproval
   Scenario: Validate Record Owner user is able to view the Snapshot and Approvers Table is not editable for record owner and award owner end when the status of Org Level Site Visits is Submitted to Approval
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1143,9 +1145,11 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
+    And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
+    And I click modal button "Close"
+  #    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
 #    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
 #    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
 #    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
@@ -1233,7 +1237,7 @@ Feature: Validate all scenarios in Organizational Site Visit
 #    When I close "Site Visit Reviewers" modal by clicking the top right x button
     Then I cannot see top right button "Edit" in page detail
 
-  @56007 @PeerReviewAfterSVIsAcceptedAndClosed
+  @hit @56007 @PeerReviewAfterSVIsAcceptedAndClosed
   Scenario: Validate peer review  process and also system does not allow the peer reviewer to edit/Enter review comments if the Org Level Site Visits marked as complete review by the Record owner
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1342,7 +1346,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Overview" sub tab
     Then I softly see field "StartDate__c" is not editable
 
-  @61993 @RecordOwnerCanViewSnapshotAfterOSVIsSubmittedForApproval
+ @hit @61993 @RecordOwnerCanViewSnapshotAfterOSVIsSubmittedForApproval
   Scenario: Validate Record Owner user is able to view the Snapshot after Site Visit is Submitted for Approval status - Org Site Visits
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1360,9 +1364,11 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
+   And I click modal button "Close"
+   And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
+   And I click modal button "Close"
+ #    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
 #    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
 #    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
 #    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"

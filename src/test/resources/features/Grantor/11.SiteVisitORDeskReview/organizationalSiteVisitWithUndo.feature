@@ -894,7 +894,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @342521 @342527 @342529 @342544 @VerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinCreatedState @sprint-2-US-288691  @Undo @366345
+  @hit @342521 @342527 @342529 @342544 @VerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisinCreatedState @sprint-2-US-288691  @Undo @366345
   Scenario: Verify that Undo Button will not visible to any user when Organization Site visit is in Created State
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -912,7 +912,6 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    And I pause execution for "3" seconds
     And I click modal button "Close"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
@@ -1148,7 +1147,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
      Then I softly see field "Status" as " Submitted for Review"
     Then I cannot see top right button "Undo" in page detail
 
-  @342571 @342575 @342584 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisininSendtoSrState @sprint-13-US-331643  @Undo @366345
+  @hit @342571 @342575 @342584 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisininSendtoSrState @sprint-13-US-331643  @Undo @366345
   Scenario:OSV->Verify that Undo Button will not visible to any user when Organization Site visit is in in Send to S/r State
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
