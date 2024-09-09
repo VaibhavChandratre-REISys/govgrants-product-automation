@@ -177,6 +177,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "Notify" in the page details
     Then I softly see that "{SavedValue:Automation Runtime Site Visit Org level}" is in "Notified" status
     And I logout
+    And I wait for "2" seconds
     And I checkout to yopmail with mailid "automationspi31@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
