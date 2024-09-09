@@ -1534,43 +1534,9 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantee" app as "GRANTEE PM" user
-
-    And I wait for "10" seconds
-    When I navigate to "Overview" sub tab
-    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Awarded Budget | Cash Match |
-      | Construction | The narrative | 4500           | 450        |
-    When I close "Add Line Items" modal by clicking the top right x button
-    Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
-    And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
-    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
-    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Awarded Budget | Cash Match |
-      | Site work    | The narrative | 500            |  50        |
-    When I close "Add Line Items" modal by clicking the top right x button
-    Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
-    And I click on "Submit for Approval" in the page details
-    Then I see the following messages in the page details contains:
-      | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.|
-      | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero.|
-    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative        | Awarded Budget | Cash Match |
-      | Site work    | The narrative    |  500           |  50        |
-    When I close "Add Line Items" modal by clicking the top right x button
-    Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
-    And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Awarded Budget | Cash Match |
-      | Construction | The narrative | 4500           | 450        |
-    When I close "Add Line Items" modal by clicking the top right x button
-    Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
-    And I click on "Submit for Approval" in the page details
-    Then I cannot see the following messages in the page details contains:
-      | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.|
-      | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero.|
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Desk Review Reports - All"
+    When I perform quick search for "SV-4829" in "---deskreview:-:deskReviewGridViewTableId---" panel
+    And I click on "View" icon for "SV-4829" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"

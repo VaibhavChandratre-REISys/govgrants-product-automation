@@ -281,7 +281,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
       | Title                           | Description            | Status      | Due Date | Assigned To                |
       | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
-    And I collapse nested table containing column value "Automation Finding"
+#    And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     #296049
@@ -714,7 +714,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
       | Status                 | Page Number |
       | Submitted for Approval | 1           |
 
-  @hit @296072 @VerifyAuditorusercannotseeundobuttoninApprovedstateofOrganizationalDeskReview @sprint-4-US-288692  @Undo
+  @296072 @VerifyAuditorusercannotseeundobuttoninApprovedstateofOrganizationalDeskReview @sprint-4-US-288692  @Undo
   Scenario:Verify Auditor user can not see undo button in Approved  state of Organizational Desk Review
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1014,6 +1014,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Desk Review Reports - All"
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     #296098
@@ -1052,7 +1053,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
      The EGMS Team.
       """
 
-  @hit @296153 @296154 @VerifythatwhenExeapproverForwardtheOrganizationalDeskReviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-288692  @Undo
+  @296153 @296154 @VerifythatwhenExeapproverForwardtheOrganizationalDeskReviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-288692  @Undo
   Scenario:Verify that when Exe approver Forward the Organizational Desk Review Approval task , Forwarded Approver will see UNDO button and not previous One
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab

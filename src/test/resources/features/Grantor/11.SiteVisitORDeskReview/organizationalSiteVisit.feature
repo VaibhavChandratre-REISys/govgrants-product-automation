@@ -126,6 +126,8 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     Then I see that "{SavedValue:EXE Username}" has been added in flextable with Id "---orgLevelSiteVisits:-:associateContactsId---"
 
   @54452 @approverSelectionSiteVisitOrglevel
@@ -543,9 +545,9 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     And I pause execution for "3" seconds
     And I click modal button "Close"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
-    And I click modal button "Close"
+#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
+#    When I click "Add" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" in the table "---orgLevelSiteVisits:-:selectApplicationId---"
+#    And I click modal button "Close"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -1146,9 +1148,9 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     And I click modal button "Close"
-    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
-    And I click modal button "Close"
+#    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
+#    When I click "Associate" after selection of "{SavedValue:Automation Runtime Announcement for Site Visit}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
+#    And I click modal button "Close"
   #    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
 #    When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
 #    And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateApplicationId---"
@@ -1278,16 +1280,35 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click modal button "Save"
     And I click on "Submit Review" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
+    When I click on "Approved Date" column header inside table with id "ActiveAccount"
+    When I click on "Approved Date" column header inside table with id "ActiveAccount"
+    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    Given I navigate to "Related Log" sub tab
+    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
+      #   When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    And I select "Site Visits" from dropdown for Global search
+#    And I perform quick search inside global search "Record Id"
+#    And I click on hyperlink containing value "Record Id"
     When I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-    And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
-    When I navigate to "Responsibilities" sub tab
+#    And I select "Site Visits" from dropdown for Global search
+#    And I perform quick search inside global search "Record Id"
+#    And I click on hyperlink containing value "Record Id"
+#    When I navigate to "Responsibilities" sub tab
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
+    When I click on "Approved Date" column header inside table with id "ActiveAccount"
+    When I click on "Approved Date" column header inside table with id "ActiveAccount"
+    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    Given I navigate to "Related Log" sub tab
+    When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:PO Username}" in flex table with id "SiteVisitReviewerRoles"
 
   @61406 @61405 @66273 @CreatedDatedisplayedOnOverviewTabAddAttchments
