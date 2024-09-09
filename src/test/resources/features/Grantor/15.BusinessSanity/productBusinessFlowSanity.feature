@@ -1620,7 +1620,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @72348 @awardHappyPathStandAlone @ProdSan1
+  @72348 @awardHappyPathStandAlone @ProdSan1 @Rerun
   Scenario: Validate the activation of subaward Happy path stand alone and status changes to Activated | Validate subaward Happy path stand alone
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1890,7 +1890,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "Active" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
     Then I softly see field "State" as "Active"
 
-  @72349 @adhocReimbursementHappyPath @ProdSan1
+  @72349 @adhocReimbursementHappyPath @ProdSan1 @Rerun
   Scenario: Validate the Reimbursement Payment Request happy path and the status changes to 'Paid'
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1952,7 +1952,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
-  @72350 @adhocAdvanceHappyPath @ProdSan1
+  @72350 @adhocAdvanceHappyPath @ProdSan1 @Rerun
   Scenario: Validate the Advance Payment Request happy path and the status changes to 'Paid'
     Given I activated standalone subaward "Automation Runtime award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -2085,7 +2085,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #   To Do:- Remove the refresh step once bug resolve for refresh behavior
     Then I softly see field "Status" as "Paid"
 
-  @72351 @scheduledReimbursementPaymentRequestHappyPath @ProdSan1
+  @72351 @scheduledReimbursementPaymentRequestHappyPath @ProdSan1 @Rerun
   Scenario Outline: Validate the Scheduled Payment Request happy path and the status changes to 'Paid' and is green
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -2148,7 +2148,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime award} | {SavedValue:Automation Runtime award} |
 
-  @72352 @progressReportHappyPath @ProdSan1
+  @72352 @progressReportHappyPath @ProdSan1 @Rerun
   Scenario: Validate once the Progress Report approval process is completed then the status changes to approved
     Given I activated standalone subaward "Automation Runtime award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
@@ -2650,7 +2650,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see field "Status" as "Amended"
     Then I see status in Progress-bar is "Amended" and is "dark blue"
 
-  @72359 @completeCloseout @ProdSan1
+  @72359 @completeCloseout @ProdSan1 @Rerun
   Scenario: Validate the Closeout is submitted for approval and the status changes to Submitted for Approval
     And I activated standalone subaward "Automation Runtime Award for closeout" with properties "Automation PO user" of type "Competitive"
     When I login to "As a Grantor" app as "PO" user
