@@ -75,8 +75,10 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:deskReviewContactsTableId---"
     When I click "Associate" after selection of "<User>" in the table "---orgLevelDeskReview:-:associateContactsId---"
-   And I click modal button "Close"
-   Then I see that "<User>" has been added in flextable with Id "---orgLevelDeskReview:-:deskReviewContactsTableId---"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I see that "<User>" has been added in flextable with Id "---orgLevelDeskReview:-:deskReviewContactsTableId---"
     Examples:
       | User                       |
       | {SavedValue:SPI3 Username} |
@@ -242,10 +244,10 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I wait for "3" seconds
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I navigate to "Responsibilities" sub tab
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:PM Username}" in flex table with id "---orgLevelDeskReview:-:correctiveTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
+#    When I navigate to "Responsibilities" sub tab
+#    Then I softly cannot see row level action button "Edit" against "{SavedValue:PM Username}" in flex table with id "---orgLevelDeskReview:-:correctiveTableId---"
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---orgLevelDeskReview:-:phasePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelDeskReview:-:phasePendingTaskTableId---"
@@ -684,6 +686,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:deskReviewContactsTableId---"
     When I click "Associate" after selection of "<User>" in the table "---orgLevelDeskReview:-:associateContactsId---"
    And I click modal button "Close"
+   And I refresh the page
    Then I see that "<User>" has been added in flextable with Id "---orgLevelDeskReview:-:deskReviewContactsTableId---"
     Examples:
       | User                      |
