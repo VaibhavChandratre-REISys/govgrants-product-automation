@@ -525,7 +525,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @hit @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission
+  @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission
   Scenario: Validate User will be able to view the SnapshotSite Visit Accept button after review the submission by Recipients
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -1132,7 +1132,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on hyperlink containing value "View All"
     Then I see value "In Progress" for title "New Value" inside field history table
 
-  @hit @61400 @61401 @ViewSnapshotandApproversTableIsNotEditableAfterSiteVisitsIsSubmittedToApproval
+  @61400 @61401 @ViewSnapshotandApproversTableIsNotEditableAfterSiteVisitsIsSubmittedToApproval
   Scenario: Validate Record Owner user is able to view the Snapshot and Approvers Table is not editable for record owner and award owner end when the status of Org Level Site Visits is Submitted to Approval
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
