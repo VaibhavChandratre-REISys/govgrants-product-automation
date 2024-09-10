@@ -843,6 +843,20 @@ public final class GovGrantsAssertionSteps {
         ggAssertionObjects.assertloginPageButtons(usage,buttonName);
     }
 
+    @Then("^I (softly can see|softly cannot see|can see|cannot see) top right button \"([^\"]*)\" in the split screen page details$")
+    public void iSoftlyCanSeeTopRightButtonInTheSplitScreenPageDetails(String usage, String buttonName) {
+        ggAssertionObjects.assertTopRightButtonInSpltScreen(
+                buttonName,
+                ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
+                usage.contains("softly")
+        );
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" button for (header|page)")
+    public void iSoftlySeeButtonForHeader(String usage, String headerButtonName, String headerOrPage) {
+        ggAssertionObjects.assertExpandAndCollapseButtonForHeader(usage,headerButtonName, headerOrPage);
+    }
+
     @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" button display on footer$")
     public void iSoftlySeeButtonDisplayOnFooter(String usage,String buttonName) {
         ggAssertionObjects.assertButtonDisplayOnFooter(usage,buttonName);

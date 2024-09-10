@@ -119,7 +119,7 @@ Feature: Validate all scenarios in the Pre-Application
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
     Then I softly cannot see top right button "Edit" in page detail
 
-  @34150 @70524 @70250 @70249 @75584 @70247 @70251 @53162 @34023 @preApplicationToApplication @TBExecution1
+  @34150 @70524 @70250 @70249 @75584 @70247 @70251 @53162 @34023 @preApplicationToApplication
   Scenario Outline: Validate Grantor accept the submitted pre-application and converted it to application | Validate the subrecipient users able to create application from the approved Pre Application
   Validate Announcement owner will be able to view the Accept and Reject button |Validate the subrecipient users able to create application from the approved Pre Application
   Validate Announcement Owner will be able to view the pending task under announcement tab after every pre application submission happens. |Validate pre-application is converted to Application |Verify whether PM, FO,EXE internal user is able to view Accepted Pre Application

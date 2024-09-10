@@ -262,7 +262,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @54888 @55203 @deskReviewCorrectiveActionsSubmitToGrantoBySubrecipientOrgLevel  @organizationalDeskReviewFirstRerun
+  @54888 @55203 @deskReviewCorrectiveActionsSubmitToGrantoBySubrecipientOrgLevel
   Scenario: Validate Org Level Desk Review Submit to Grantor and Corrective Actions By Subrecipient
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -902,7 +902,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     Then I softly see value "Automation.pdf" for title "Title" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
     Then I softly see value "Other" for title "Classification" inside table "---orgLevelDeskReview:-:orgDeskReviewFilesTableId---"
 
- @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval @organizationalDeskReviewSecond
+  @61992 @RecordOwnerCanViewSnapshotAfterODRIsSubmittedForApproval
   Scenario: Validate Record Owner user is able to take Snapshot after Org Desk Review is Submitted for Approval status - Org Desk Review
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -1236,7 +1236,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "Remove" icon for "{SavedValue:Automation Runtime Award Record}" inside flex table with id "---orgLevelDeskReview:-:associateAwardId---"
     Then I softly see "No Records Found" inside flex table with id "---orgLevelDeskReview:-:associateAwardId---"
 
-  @65150 @reviewerCanNotEditAfterSubmittingTheReviewOrgLevel  @organizationalDeskReviewSecond
+  @65150 @reviewerCanNotEditAfterSubmittingTheReviewOrgLevel @organizationalDeskReviewSecond @TBExecution
   Scenario: Validate after submitting the review comments for Org Level Desk Review, the Edit button should will be unavailable for the reviewer
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
@@ -1254,8 +1254,6 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:participateassociateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelDeskReview:-:associateContactsId---"
-#    And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:associateAwardId---"
-#    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---orgLevelDeskReview:-:selectAwardId---"
     When I get the "EGMS ID"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
@@ -1278,7 +1276,7 @@ Feature: Validate all scenarios in Organizational Desk Review
       | Passed | ReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
-    When I close "Site Visit Reviewers" modal by clicking the top right x button
+    And I wait for "4" seconds
     Then I cannot see top right button "Edit" in page detail
 
   @148330 @VerifyErrorMessageAtApproverSectionWhileSkippingForDeskReviewOrgLevel-RnRFunctnality  @organizationalDeskReviewSecond

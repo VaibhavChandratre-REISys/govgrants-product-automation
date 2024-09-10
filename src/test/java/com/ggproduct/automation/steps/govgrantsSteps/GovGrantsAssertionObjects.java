@@ -642,6 +642,40 @@ public final class GovGrantsAssertionObjects {
     }
 
     /**
+     * Asserts that a button on the top right of a page is or is not present
+     *
+     * @param buttonName
+     * @param assertCan
+     * @author vaibhav.chandratre
+     */
+    public void assertTopRightButtonInSpltScreen(String buttonName, boolean assertCan, boolean isSoftly) {
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+        try {
+            I.amPerforming().waitFor().ElementListToBePresent(By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "'] | //lightning-button-menu[contains(@class,'" + buttonName + "')]"));
+        } catch (Exception e) {
+            try {
+                I.amPerforming().click().on(By.xpath("//c-flex-layout-quick-view//lightning-button-menu//button[contains(@class,'slds-button_last')]"));
+                I.amPerforming().waitFor().ElementListToBePresent(By.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+            } catch (Exception e1) {
+            }
+        }
+        List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "'] | //lightning-button-menu[contains(@class,'" + buttonName + "')] | //div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"), false);
+        if (assertCan) {
+            if (isSoftly) {
+                I.amPerforming().assertionsTo().assertThat(0).isNotEqualTo(elements.size());
+            } else {
+                Assert.assertNotEquals(elements.size(), 0);
+            }
+        } else {
+            if (isSoftly) {
+                I.amPerforming().assertionsTo().assertThat(0).isEqualTo(elements.size());
+            } else {
+                Assert.assertEquals(elements.size(), 0);
+            }
+        }
+    }
+
+    /**
      * Asserts that a button on the bottom of a page is or is not present
      *
      * @param buttonName
@@ -911,7 +945,7 @@ public final class GovGrantsAssertionObjects {
      * @modifier pooja.gundle -- added xpath
      */
     public void getSubTabsInsideMainDetailPage(String desiredSubTab, boolean assertCan, boolean isSoftly) {
-        By allSubTabsLocator = By.xpath("//div[@id='myTabs']//ul//li//a[@name] | //div[@class='layout']//ul//li//a[@data-label]");
+        By allSubTabsLocator = By.xpath("//div[@id='myTabs']//ul//li//a[@name] | //div[@class='layout']//ul//li//a[@data-label] | //div[@class='slds-tabs_default']//ul//li//a[@data-label]");
 
         List<String> allSubTabNames;
         try {
@@ -3932,6 +3966,36 @@ public final class GovGrantsAssertionObjects {
         return flag;
     }
 
+    public void assertExpandAndCollapseButtonForHeader(String usage, String headerButtonName, String headerOrPage) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isExpandCollapseButtonDisplay(headerButtonName,headerOrPage)).isTrue();
+        }  else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isExpandCollapseButtonDisplay(headerButtonName,headerOrPage));
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isExpandCollapseButtonDisplay(headerButtonName,headerOrPage)).isFalse();
+        } else{
+            Assert.assertFalse(isExpandCollapseButtonDisplay(headerButtonName,headerOrPage));
+        }
+    }
+
+    private boolean isExpandCollapseButtonDisplay(String headerButtonName, String headerOrPage) {
+        boolean flag = false;
+        try {
+            if(headerOrPage.equals("header")) {
+                if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//button[@title='" + headerButtonName + "' and contains(@class,'btn-collapse-header')]"))) {
+                    flag = true;
+                }
+            } else{
+                if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//button[@title='" + headerButtonName + "' and contains(@class,'resizebtn')] |//button[@title='" + headerButtonName + "' and contains(@class,'btn-collapse')] "))) {
+                    flag = true;
+                }
+            }
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+        }
+        return flag;
+
+    }
+
     public void assertButtonDisplayOnFooter(String usage, String buttonName) {
         if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isButtonDisplayOnFooter(buttonName));
@@ -3954,5 +4018,4 @@ public final class GovGrantsAssertionObjects {
         }
         return flag;
     }
-
 }
