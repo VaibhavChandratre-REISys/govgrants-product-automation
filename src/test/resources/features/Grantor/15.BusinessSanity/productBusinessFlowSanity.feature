@@ -2512,9 +2512,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                     | Desk Review |
-      | {SavedValue:PM Username} | NA           |
-    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
-      | Name                     | Desk Review |
       | {SavedValue:PM Username} | Step 1      |
     And I navigate to "Reports and Outcomes" sub tab
     When I enter the following values into flex table with id "---orgLevelDeskReview:-:correctiveTableId---" by clicking "New" :
