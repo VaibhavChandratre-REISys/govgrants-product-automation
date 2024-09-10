@@ -569,7 +569,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
     And I wait for "2" seconds
-    And I switch to tab number "1"
+    And I switch to tab number "2"
     And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
@@ -1178,7 +1178,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
     And I wait for "3" seconds
-    And I switch to tab number "1"
+    And I switch to tab number "2"
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I close the tab
@@ -1371,7 +1371,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Overview" sub tab
     Then I softly see field "StartDate__c" is not editable
 
- @hit @61993 @RecordOwnerCanViewSnapshotAfterOSVIsSubmittedForApproval
+ @61993 @RecordOwnerCanViewSnapshotAfterOSVIsSubmittedForApproval
   Scenario: Validate Record Owner user is able to view the Snapshot after Site Visit is Submitted for Approval status - Org Site Visits
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
