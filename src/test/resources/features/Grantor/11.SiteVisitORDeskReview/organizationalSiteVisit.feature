@@ -1191,7 +1191,7 @@ Feature: Validate all scenarios in Organizational Site Visit
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
     When I navigate to "Responsibilities" sub tab
-    Then I softly can see row level action button "Edit" against "{SavedValue:FO Username}" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:FO Username}" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
     And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
     And I refresh the page
