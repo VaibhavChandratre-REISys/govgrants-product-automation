@@ -1259,6 +1259,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" by showing entries "All" in flex table with id "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
     When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
     And I navigate to "Responsibilities" sub tab
@@ -1290,17 +1291,9 @@ Feature: Validate all scenarios in Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
-      #   When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
-#    And I select "Site Visits" from dropdown for Global search
-#    And I perform quick search inside global search "Record Id"
-#    And I click on hyperlink containing value "Record Id"
     When I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
-#    And I select "Site Visits" from dropdown for Global search
-#    And I perform quick search inside global search "Record Id"
-#    And I click on hyperlink containing value "Record Id"
-#    When I navigate to "Responsibilities" sub tab
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
