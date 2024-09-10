@@ -924,44 +924,44 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see field "Status" as "Notified"
     #342527
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see field "Status" as "Notified"
     #342527
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     And I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     #342529
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     #342529
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     #342529
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                     | Site Visit |
@@ -986,29 +986,29 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #342544
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #342544
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #342544
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #342544
     Then I cannot see top right button "Undo" in page detail
@@ -1033,22 +1033,22 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I can see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see field "Status" as "Approved"
     #342548
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see field "Status" as "Approved"
     #342548
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I select "Site Visits" from dropdown for Global search
-    And I perform quick search inside global search "Record Id"
-    And I click on hyperlink containing value "Record Id"
+    And I perform quick search inside global search "{SavedValue:SitevVisitId}"
+    And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see field "Status" as "Approved"
     #342548
     Then I cannot see top right button "Undo" in page detail
