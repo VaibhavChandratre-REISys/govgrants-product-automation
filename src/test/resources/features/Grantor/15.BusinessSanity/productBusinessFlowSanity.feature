@@ -1422,7 +1422,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record Id" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-
     Examples:
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
@@ -2319,7 +2318,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept and Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72354 @deskReviewAcceptAndClose @ProdSan2
+  @72354 @deskReviewAcceptAndClose @ProdSan2 @DilipRerun
   Scenario: Validate once the Award level Desk Review is clicked on Accept and Close butted then status changes to closed
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -2408,7 +2407,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72355 @siteVisitAcceptAndCloseOrgLevel @ProdSan2 @sanTest
+  @72355 @siteVisitAcceptAndCloseOrgLevel @ProdSan2 @sanTest @DilipRerun
   Scenario: Validate once the Org Level Site Visit is clicked on Accept and Close butted then status changes to closed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -2431,6 +2430,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Conduct" in the page details
     And I wait for "3" seconds
     Given I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
+      | Name                     | Site Visit |
+      | {SavedValue:PM Username} | NA         |
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                     | Site Visit |
       | {SavedValue:PM Username} | Step 1     |
@@ -2485,7 +2487,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept and Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan2
+  @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan2 @DilipRerun
   Scenario: Validate once the Org level Desk Review is clicked on Accept and Close butted then status changes to closed
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -2508,6 +2510,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
     And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | NA           |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                     | Desk Review |
       | {SavedValue:PM Username} | Step 1      |
