@@ -568,6 +568,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
     When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
+    And I wait for "2" seconds
     And I switch to tab number "1"
     And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
@@ -1175,12 +1176,11 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:siteVisitsPanelId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:siteVisitsPanelId---"
     And I navigate to "Reports and Outcomes" sub tab
-    When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelSiteVisits:-:reportsTableId---"
+    When I click on "Edit" icon for "General Review Form" inside flex table with id "---orgLevelDeskReview:-:reportsTableId---"
+    And I wait for "3" seconds
     And I switch to tab number "1"
-    And I pause execution for "3" seconds
     And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I pause execution for "3" seconds
     And I close the tab
     And I refresh the page
     And I navigate to "Reports and Outcomes" sub tab
@@ -1192,9 +1192,10 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Submit for Approval" in the page details
     When I navigate to "Responsibilities" sub tab
     Then I softly can see row level action button "Edit" against "{SavedValue:FO Username}" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
-    And I click on "Menu" in the page details
+    And I click on Menu icon present on top right corner of the page
     And I select "Take Snapshot" from dropdown
     And I refresh the page
+    And I wait for "2" seconds
     When I navigate to "History" sub tab
     Then I see snapshot with name containing "Sitevisit_submit_for_approval" as name
 
@@ -1415,12 +1416,15 @@ Feature: Validate all scenarios in Organizational Site Visit
       | Automation Observation | Automation Description | Observation |
     When I click on "Submit for Approval" in the page details
    And I click on Menu icon present on top right corner of the page
-    And I select "Take Snapshot" from dropdown
-    When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Sitevisit_submit_for_approval"
-    And I click on hyperlink which contains todays date with text "SnapShot on"
-    When I download the file
-    Then I see "Submitted for Approval" on page "1" of "govgrants" pdf file
+   And I select "Take Snapshot" from dropdown
+   And I wait for "5" seconds
+   And I refresh the page
+   When I navigate to "History" sub tab
+   And I click on hyperlink which contains todays date with text "SnapShot on"
+   And I wait for "5" seconds
+   When I download the file
+   And I wait for "5" seconds
+   Then I see "Submitted for Approval" on page "1" of "govgrants" pdf file
 
   @61988 @RecordOwnerCanViewSnapshotAfterRAIsSubmittedForApproval
   Scenario: Validate whether user is able to view the Completed task once approved under Monitoring Tab
