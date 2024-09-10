@@ -1294,6 +1294,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     When I click on "Override" in the page details
     And I refresh the page
     When I navigate to "Open Items" sub tab
+    And I wait for "2" seconds
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
