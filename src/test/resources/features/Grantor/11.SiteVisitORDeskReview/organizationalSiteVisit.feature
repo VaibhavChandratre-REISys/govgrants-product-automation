@@ -613,6 +613,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
     When I navigate to "Reports and Outcomes" sub tab
     And I expand nested table containing column value "Automation Observation"
+    And I wait for "2" seconds
     When I enter the following values into flex table with id "---orgLevelSiteVisits:-:receipientTableId---" by clicking "New" :
       | Title                               | Description            | Status      | Due Date | Assigned To                |
       | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
