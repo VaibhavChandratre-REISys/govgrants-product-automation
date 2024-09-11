@@ -98,7 +98,7 @@ Feature: Validate all scenarios in Funding Source
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "4650" into field "EndDate__c"
+    When I enter value "5000" into field "EndDate__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
     When I click on "Activate" in the page details

@@ -7489,10 +7489,9 @@ Feature: Validate all scenarios for program
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     And I wait for "2" seconds
-    Then I softly see options "Template for Planning" inside "Classification" dropdown
-    Then I softly see options "Others" inside "Classification" dropdown
     Then I see only the following ordered options in dropdown field "Classification" :
       | Template for Planning | Others |
+
 
   @program1 @330560 @330580 @330611 @330615 @ValidatePMusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectccaddresscolumnsonMessagessectionundercollabtabofInternalProgram @SystemEmail
   Scenario: Validate PM user should see value populates in " Subject, From Address, To Address, Attention to, Email subject,cc address" columns on Messages section under collab tab of Internal Program
