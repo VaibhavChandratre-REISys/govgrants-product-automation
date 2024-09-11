@@ -3796,7 +3796,7 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.|
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero.|
-    And I refresh the page
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative        | Awarded Budget | Cash Match |
