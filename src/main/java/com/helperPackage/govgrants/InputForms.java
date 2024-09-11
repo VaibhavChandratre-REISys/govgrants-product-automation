@@ -1203,20 +1203,21 @@ public final class InputForms {
                 try {
                     I.amPerforming().waitFor().ElementListToBePresent(dropDownSelector1);
                     I.amPerforming().click().on(dropDownSelector1);
-                    I.amPerforming().click().on(By.xpath("//lightning-base-combobox-item[@role='option']//span[@title='" + value + "'] | //span[@title='" + value + "']]"));
+                    I.amPerforming().click().on(By.xpath("//span[@title='" + value + "']"));
                 } catch (Exception e) {
                     I.amPerforming().click().withJavaScript(dropDownSelector1);
-                    I.amPerforming().click().withJavaScript(By.xpath("//lightning-base-combobox-item[@role='option']//span[@title='" + value + "'] | //span[@title='" + value + "']"));
+                    I.amPerforming().click().withJavaScript(By.xpath("//span[@title='" + value + "']"));
                 }
             } else {
                 By dropDownSelector = By.xpath("//div[@data-field_api_name='" + table + "']//button[@aria-haspopup='listbox']");
                 try {
                     I.amPerforming().click().on(dropDownSelector);
                     I.amPerforming().click().on(By.xpath("//span[@title='" + value + "']"));
-                }catch (Exception ee) {
-                    I.amPerforming().click().on(dropDownSelector);
+                } catch (Exception e) {
+                    I.amPerforming().click().withJavaScript(dropDownSelector);
                     I.amPerforming().click().withJavaScript(By.xpath("//span[@title='" + value + "']"));
-            }}
+                }
+            }
         } else {
             By dropDownSelector = By.xpath(".//select");
             I.amPerforming().getElementReference().of(dropDownSelector);
