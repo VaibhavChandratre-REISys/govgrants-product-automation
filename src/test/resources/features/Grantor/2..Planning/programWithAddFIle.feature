@@ -279,7 +279,7 @@ Feature: Validate all scenarios for program with add file
     And I pause execution for "3" seconds
     Then I softly see "Other Artifacts" has been added in "Program Files" flex table
 
-  @222081 @223555 @VVerifyifpeerreviewercanaddfilewhenthepeerreviewrecordisinsentforreviewinprogressstatusprovidedallowrecordeditingisyes @sprint-25-US-295138  @addFiles @ExcludeAddFile
+  @program2 @222081 @223555 @VVerifyifpeerreviewercanaddfilewhenthepeerreviewrecordisinsentforreviewinprogressstatusprovidedallowrecordeditingisyes @sprint-25-US-295138  @addFiles @ExcludeAddFile
   Scenario: Verify if peer reviewer can add file when the peer review record is in sent for review/ in progress status provided  allow record editing is yes
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -320,9 +320,9 @@ Feature: Validate all scenarios for program with add file
     And I pause execution for "3" seconds
     Then I softly see "Program Artifacts" has been added in "Program Files" flex table
     And I click on "Edit" icon for "Program Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    And I switch to iframe with id "---program:-:addFilesIframeId---"
     And I select Classification as "Other Artifacts" at upload file modal
     When I click modal button "Save"
+    When I click modal button "Close"
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---program:-:GrantorInternalProgramFilesTableId---"
     And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---" without waiting for record
     Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---program:-:GrantorInternalProgramFilesTableId---"
@@ -514,7 +514,7 @@ Feature: Validate all scenarios for program with add file
     Then I cannot see row level action button "Edit" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then I cannot see row level action button "Delete" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
 
-  @222090 @VerifyifpeerreviewercaneditDeletefilewhenthepeerreviewrecordisinsentforreviewinprogressstatusprovidedallowrecordeditingisyes @sprint-25-US-295138  @addFiles @ExcludeAddFile
+  @program2 @222090 @VerifyifpeerreviewercaneditDeletefilewhenthepeerreviewrecordisinsentforreviewinprogressstatusprovidedallowrecordeditingisyes @sprint-25-US-295138  @addFiles @ExcludeAddFile
   Scenario: Verify if peer reviewer can edit/Delete file when the peer review record is in sent for review/ in progress status provided  allow record editing is yes
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -560,9 +560,9 @@ Feature: Validate all scenarios for program with add file
     And I wait for "2" seconds
     Then I softly see "Program Artifacts" has been added in "Program Files" flex table
     And I click on "Edit" icon for "Program Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    And I switch to iframe with id "---program:-:addFilesIframeId---"
     And I select Classification as "Other Artifacts" at upload file modal
     When I click modal button "Save"
+    And I click modal button "Close"
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---program:-:GrantorInternalProgramFilesTableId---"
     And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---" without waiting for record
     Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---program:-:GrantorInternalProgramFilesTableId---"
