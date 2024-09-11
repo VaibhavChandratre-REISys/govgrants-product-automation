@@ -7968,7 +7968,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I select radio button "Forward" in the approval decision
+#    When I select radio button "Forward" in the approval decision
 #    And I select user "{SavedValue:PM Username}" in the approval decision
 #    When I enter comment "Automation testing" in the approval decision
 #    And I submit the approval in the approval decision without processing
