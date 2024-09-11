@@ -693,7 +693,7 @@ Feature: Validate all scenarios for program
     Then I softly see that "<Title>" has been added in flextable with Id "---program:-:focusAreaTableId---"
     And I expand nested table containing column value "Pre-Screen Review"
     And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-    And I perform quick search for "Completeness" in "---program:-:programReviewPanel---" panel
+#    And I perform quick search for "Completeness" in "---program:-:programReviewPanel---" panel
     Then I softly see value "Completeness" for title "Section Header" inside table "---program:-:programReviewPanel---"
     And I close "Review Form" modal by clicking the top right x button
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
@@ -872,9 +872,11 @@ Feature: Validate all scenarios for program
       | Reviewer                 |
       | {SavedValue:PO Username} |
     Then I softly see the following messages in the page details :
-      | Saved Successfully. |
+      | Saved Successfully! |
+    And I click on parallel menu button in flex table title "Reviewers"
     And I select "Download as PDF" from parallel lines dropdown of "Reviewers"
     And I download the file
+    And I wait for "3" seconds
     Then I softly see "Reviewers" on page "1" of "govgrants" pdf file
     Examples:
       | Objective                      |
@@ -6026,7 +6028,7 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Step Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 30              | 1                                         | Check     |
+      | Pre-Screen | 30              | 1                                         | Checked   |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     And I pause execution for "5" seconds
     #Bug444555

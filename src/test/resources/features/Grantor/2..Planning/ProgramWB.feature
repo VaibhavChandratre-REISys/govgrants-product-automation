@@ -7470,7 +7470,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly do not see value "Notes Record1" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
 
-  @program1 @204035 @ValidatethatuserEXEshouldhavetwooptionsifIclickonClassificationinUploadFilefromcomputerATemplateforPlanningBOthers @sprint-7-US-202724
+  @204035 @ValidatethatuserEXEshouldhavetwooptionsifIclickonClassificationinUploadFilefromcomputerATemplateforPlanningBOthers @sprint-7-US-202724
   Scenario: Validate that user EXE should have two options if I click on Classification in Upload File from computer A.Template for Planning B. Others
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab

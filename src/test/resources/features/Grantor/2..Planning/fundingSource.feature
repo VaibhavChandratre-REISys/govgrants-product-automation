@@ -84,7 +84,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "Save" in the page details
     Then I see status in Progress-bar is "Created" and is "dark blue"
 
-  @program1 @105223 @ValidateErrorMessageForFundingAccountEndDate @smoke
+  @105223 @ValidateErrorMessageForFundingAccountEndDate @smoke
   Scenario: Verify user is able to see error message for end date while entering end date greater than funding source end date
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
