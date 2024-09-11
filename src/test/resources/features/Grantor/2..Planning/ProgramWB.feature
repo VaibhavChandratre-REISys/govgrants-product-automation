@@ -7488,6 +7488,7 @@ Feature: Validate all scenarios for program
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I see only the following ordered options in dropdown field "Classification" :
       | Template for Planning | Others |
 
