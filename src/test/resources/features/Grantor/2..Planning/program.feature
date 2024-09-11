@@ -278,7 +278,7 @@ Feature: Validate all scenarios for program
    #   | Record deleted successfully. |
     Then I softly do not see value "Environment Test" for title "Section Header" inside table "---program:-:programReviewPanel---"
 
-  @76294 @76295 @76296 @76297 @76298 @76486 @76497 @76498 @76566 @76567 @76570 @76571 @76572 @76573 @76574 @76496
+  @program2 @76294 @76295 @76296 @76297 @76298 @76486 @76497 @76498 @76566 @76567 @76570 @76571 @76572 @76573 @76574 @76496
   Scenario: To validate the filters of program review panel
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
@@ -684,7 +684,7 @@ Feature: Validate all scenarios for program
       | {SavedValue:EXE Username} | Step 2  |
     Then I see that "{SavedValue:EXE Username}" has been added in flextable with Id "---program:-:approverTableId---"
 
-  @program1 @34616 @76118 @75992 @75821 @75830 @75831 @75836 @75832 @75840 @75841 @programFocusAreaAssociation
+  @34616 @76118 @75992 @75821 @75830 @75831 @75836 @75832 @75840 @75841 @programFocusAreaAssociation
   Scenario Outline: Validate the association of Focus Area for the Internal Program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -2070,7 +2070,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @38246 @77115 @77106 @ValidatingPre-ScreenReviewFormAndComplianceReviewAdditionDeletion  @needToCheckErrorMessage
+  @program2 @38246 @77115 @77106 @ValidatingPre-ScreenReviewFormAndComplianceReviewAdditionDeletion  @needToCheckErrorMessage
   Scenario: To validate system generated error message ,When Total section Weight is 0% for all Review Panel Categories in prescreening review form for prescreening review step in planning phase
   | To verify user able to modify review question  in Environment of Review Panel Categories in compliance review form for SME review step in planning phase
   | To verify user able to add new review question with success message in Permits of Review Panel Categories in compliance review form for SME review step in planning phase
@@ -2130,7 +2130,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type | Max Score |
       | 4              | Test 4   | Date | 0         |
-    And I pause execution for "2" seconds
+    And I pause execution for "5" seconds
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I collapse nested table containing column value "Environment"
@@ -2274,7 +2274,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77172 @ValidatingAdditionInMatchFiscalReviewForm
+ @program2 @77172 @ValidatingAdditionInMatchFiscalReviewForm
   Scenario: To verify user able to add new review question with success message in Match of Review Panel Categories in Fiscal review form for SME review step in planning phase
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -2304,12 +2304,12 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 4              | Test 4   | Yes/No | 0         |
-    And I wait for "2" seconds
+    And I wait for "5" seconds
+   Then I softly see the following messages in the page details contains:
+     | Saved Successfully! |
     And I collapse nested table containing column value "Match"
     And I wait for "2" seconds
     And I expand nested table containing column value "Match"
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 4" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2381,7 +2381,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77189 @ValidatingAdditionInProgramIncomeFiscalReviewForm
+ @program2 @77189 @ValidatingAdditionInProgramIncomeFiscalReviewForm
   Scenario Outline: To verify user able to add new review question with success message in Program Income of Review Panel Categories in Fiscal review form for SME review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -2405,12 +2405,12 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type | Max Score |
       | 3              | Test 3   | Date | 0         |
-    And I wait for "2" seconds
+    And I wait for "5" seconds
+   Then I softly see the following messages in the page details contains:
+     | Saved Successfully! |
     And I collapse nested table containing column value "Program Income"
     And I wait for "2" seconds
     And I expand nested table containing column value "Program Income"
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
     Then I softly see value "3" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 3" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Written" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2797,7 +2797,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77423 @ValidatingErrorMessageInPreScreenReviewForm
+ @program2  @77423 @ValidatingErrorMessageInPreScreenReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :100% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for prescreening Review form in prescreening Review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -6017,7 +6017,7 @@ Feature: Validate all scenarios for program
       Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
       """
 
- @program1 @109790 @VerifyValidationMessageForReviewFormWeightLessThan100%
+  @109790 @VerifyValidationMessageForReviewFormWeightLessThan100%
   Scenario: validate user is able to see validation message when review form weight is les than 100%
     And I navigate to "Setup" sub tab
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :

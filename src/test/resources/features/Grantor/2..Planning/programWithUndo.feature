@@ -796,7 +796,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
 
-  @279438 @Verifyuserseevalidationmessageifuserclickonsubmitbuttonwithoutselectingdecisionandwithoutenteringcommentsonapprovaldecisionsection @sprint-25-US-295138  @Undo
+  @program2 @279438 @Verifyuserseevalidationmessageifuserclickonsubmitbuttonwithoutselectingdecisionandwithoutenteringcommentsonapprovaldecisionsection @sprint-25-US-295138  @Undo
   Scenario: Verify user see validation message if user click on submit button without selecting decision and without entering comments on approval decision section
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -843,7 +843,8 @@ Feature: Validate all scenarios for program
     And I pause execution for "5" seconds
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
-    Then I can see the message "Comments are Required." in the approval decision
+    Then I see the following messages in the page details contains:
+      | Comments are Required. |
 
   @279442 @VerifyusershouldnotseeactiveprogramtaskinpendingtaskfterpproverclickonUndobutton @sprint-25-US-295138  @Undo
   Scenario: Verify user should not see active program task in pending task after approver click on Undo button
@@ -2269,7 +2270,7 @@ Feature: Validate all scenarios for program
      """
 
 
-   @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914  @Undo
+   @program2 @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914  @Undo
   Scenario: Verify step 2 approver can Reject the program after click on Undo button and active program task should cancel and display under completed task table
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
