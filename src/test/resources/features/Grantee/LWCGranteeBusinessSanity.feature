@@ -3763,7 +3763,7 @@ Feature: Sanity scenarios
     Then I softly see "Start Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "End Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     When I click on parallel lines menu bar with data target value "Focus Areas"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download As PDF" present in parallel dropdown
     Then I softly see "Budget Category" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
@@ -3943,7 +3943,7 @@ Feature: Sanity scenarios
     And I switch to parent tab
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I wait for "5" seconds
-    Then I softly see new tab is opened
+    Then I softly see "Add Files" opens in overLay window
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
@@ -3952,6 +3952,7 @@ Feature: Sanity scenarios
     When I click modal button "Save"
     And I click modal button "Close"
     And I wait for "3" seconds
+    And I refresh the page
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
     Then I softly do not see value "Notice of Award" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
