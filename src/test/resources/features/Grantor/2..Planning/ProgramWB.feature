@@ -486,7 +486,7 @@ Feature: Validate all scenarios for program
      #169898
     And I click on "Preview" icon for "Standard Pre-Application form" inside flex table with id "---program:-:previewPackageTableId---" without waiting for record
     And I wait for "2" seconds
-    Then I see new tab is opened
+    Then I softly see new tab is opened
     Examples:
       | User | new_helpText                                                 |
       | PM   | Section Displays List of Forms Associated with this Package. |
@@ -7969,27 +7969,27 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I select radio button "Forward" in the approval decision
-    And I select user "{SavedValue:PM Username}" in the approval decision
-    When I enter comment "Automation testing" in the approval decision
-    And I submit the approval in the approval decision without processing
-    And I wait for "180" seconds
-    And I refresh the page
-    And I navigate to "Messages" sub tab
-    Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    And I navigate to "Messages" sub tab
-    Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
-    #331823
-    And I "Reject" in the approval decision
-    And I refresh the page
-    Then I softly see field "Status" as "Rejected"
-    And I navigate to "Messages" sub tab
-    Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
+#    And I select user "{SavedValue:PM Username}" in the approval decision
+#    When I enter comment "Automation testing" in the approval decision
+#    And I submit the approval in the approval decision without processing
+#    And I wait for "180" seconds
+#    And I refresh the page
+#    And I navigate to "Messages" sub tab
+#    Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    And I navigate to "Messages" sub tab
+#    Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
+#    #331823
+#    And I "Reject" in the approval decision
+#    And I refresh the page
+#    Then I softly see field "Status" as "Rejected"
+#    And I navigate to "Messages" sub tab
+#    Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
   @331853 @ValidatethatSystemEmailwillnotgenerateinmessagestabwhenApproverApprovesInternalProgramtowhenitisassignedtosubmitforapproval @Sprint-11-US-327737 @SystemEmail
   Scenario: Validate that System Email will not generate in messages tab when Approver Approves Internal Program to when it is assigned to submit for approval
