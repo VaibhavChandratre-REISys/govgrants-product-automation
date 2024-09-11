@@ -7911,7 +7911,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @program1 @331820 @331821 @331823 @ValidatethatAfterApproverclicksonSendbackbuttonforInternalProgramthenSystemEmaildonotgenerateinmessagestab @Sprint-11-US-327737 @SystemEmail
+  @331820 @331821 @331823 @ValidatethatAfterApproverclicksonSendbackbuttonforInternalProgramthenSystemEmaildonotgenerateinmessagestab @Sprint-11-US-327737 @SystemEmail
   Scenario: Validate that After Approver clicks on Send back button for Internal Program then System Email do not generate in messages tab
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7970,28 +7970,28 @@ Feature: Validate all scenarios for program
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-#    When I select radio button "Forward" in the approval decision
-#    And I select user "{SavedValue:PM Username}" in the approval decision
-#    When I enter comment "Automation testing" in the approval decision
-#    And I submit the approval in the approval decision without processing
-#    And I wait for "180" seconds
-#    And I refresh the page
-#    And I navigate to "Messages" sub tab
-#    Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
-#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-#    And I navigate to "Planning" tab
-#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
-#    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-#    And I navigate to "Messages" sub tab
-#    Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
-#    #331823
-#    And I "Reject" in the approval decision
-#    And I refresh the page
-#    Then I softly see field "Status" as "Rejected"
-#    And I navigate to "Messages" sub tab
-#    Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
+    When I select radio button "Forward" in the approval decision
+    And I select user "{SavedValue:PM Username}" in the approval decision
+    When I enter comment "Automation testing" in the approval decision
+    And I submit the approval in the approval decision without processing
+    And I wait for "180" seconds
+    And I refresh the page
+    And I navigate to "Messages" sub tab
+    Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I navigate to "Messages" sub tab
+    Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
+    #331823
+    And I "Reject" in the approval decision
+    And I refresh the page
+    Then I softly see field "Status" as "Rejected"
+    And I navigate to "Messages" sub tab
+    Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
   @331853 @ValidatethatSystemEmailwillnotgenerateinmessagestabwhenApproverApprovesInternalProgramtowhenitisassignedtosubmitforapproval @Sprint-11-US-327737 @SystemEmail
   Scenario: Validate that System Email will not generate in messages tab when Approver Approves Internal Program to when it is assigned to submit for approval
