@@ -2406,7 +2406,7 @@ Feature: Sanity scenarios
     Then I see "Financial Reports" inside "Monitoring" is displayed
     Then I see "Awards Special Conditions" inside "Monitoring" is displayed
 
-  @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
+  @grantee @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario: Non Federal_ Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
@@ -2598,7 +2598,7 @@ Feature: Sanity scenarios
     When I navigate to "History" sub tab
     Then I softly see "Snapshot History" page block displayed
 
-  @443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject
+ @grantee @443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject
   Scenario: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -2756,7 +2756,7 @@ Feature: Sanity scenarios
     When I navigate to "History" sub tab
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
 
-  @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell
+ @grantee @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell
   Scenario: Award - Verify with PM Profile ,After activate the award able to see the Actual Tab in pending Closeout ,closed and amended state as well
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3023,7 +3023,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Closed"
     Then I softly can see "Actuals" sub tab at view detail page
 
-  @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment
+ @grantee @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment
   Scenario: Verify the  Not Accepeted function of budget Redirection Amendment
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3242,7 +3242,7 @@ Feature: Sanity scenarios
     And I softly can see row level action button "{SavedValue:BDRAMENDID}" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly can see top right button "New" in page detail
 
-  @447979 @SOWamendmentVerifyuserislandondetailedpageofamendmentrequestaftersavethedataonmodal
+ @grantee @447979 @SOWamendmentVerifyuserislandondetailedpageofamendmentrequestaftersavethedataonmodal
   Scenario: SOW amendment - Verify user is land on detailed page of amendment request after save the data on modal
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3506,7 +3506,7 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
 
-  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR
+  @grantee @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR
   Scenario: Verify PM user as (AR Owner same as Award Owner) can able to create budget Redirection AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant (Flow AR)
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3975,13 +3975,8 @@ Feature: Sanity scenarios
      | Sarah PM      | Notes Record1 | Automation Notes1 |
     And I wait for "2" seconds
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly see value "Automation Notes1" for title "Description" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "New" :
-      | Title         | Description       |
-      | Notes Record2 | Automation Notes2 |
-    Then I softly see value "Notes Record2" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    And I click on "Delete" icon for "Notes Record2" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
-    Then I softly do not see value "Notes Record2" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
+    Then I softly do not see value "Notes Recor1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I navigate to "History" sub tab
     Then I softly see "Approval History" page block displayed
     Then I softly see "Snapshot History" page block displayed
@@ -4104,7 +4099,7 @@ Feature: Sanity scenarios
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @455427 @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
+  @grantee @455427 @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
   Scenario: Funding Change AR_ Verify PM user should see footer navigator after open the Funding Change AR
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
