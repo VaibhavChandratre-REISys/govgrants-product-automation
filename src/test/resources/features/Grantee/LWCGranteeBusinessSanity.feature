@@ -3810,6 +3810,7 @@ Feature: Sanity scenarios
       | Construction | The narrative | 4500           | 450        |
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    And I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly cannot see the following messages in the page details contains:
