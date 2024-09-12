@@ -3851,7 +3851,7 @@ Feature: Validate all scenarios for program
       The EGMS Team.
       """
 
-  @224662 @ValidateInternalProgramfailureemailshouldgeneratedforapproversandsuccessemailgeneratedforpeerreviewers @sprint-12-US-226646  @reassignment
+  @224662 @ValidateInternalProgramfailureemailshouldgeneratedforapproversandsuccessemailgeneratedforpeerreviewers @sprint-12-US-226646  @reassignment @TBExecution1
   Scenario: Validate Internal Program failure email should generated for approvers and success email generated for peer reviewers
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
