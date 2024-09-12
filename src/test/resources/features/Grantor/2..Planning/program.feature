@@ -725,9 +725,9 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details :
       | Record deleted Successfully. |
-    When I enter the following values into flex table with id "---program:-:reviewFormPanelId---" by clicking "New" :
+    When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "New" :
       | Form Name         | Minimum Number of Reviews per Application | Required? |
-      | Automation Review | 1                                         | Check   |
+      | Automation Review | 1                                         | Check     |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
