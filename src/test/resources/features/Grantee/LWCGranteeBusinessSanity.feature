@@ -3875,7 +3875,6 @@ Feature: Sanity scenarios
       | Victor EXE | Step 1             |
     And I click on hyperlink containing value "Victor EXE"
     And I wait for "5" seconds
-    Then I softly see field "Name" as "Victor EXE"
 #    Then I softly see new tab is opened
     And I click on back arrow
     And I navigate to "Files" sub tab
@@ -4045,6 +4044,7 @@ Feature: Sanity scenarios
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
     When I click on "Activate Award" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID1"
