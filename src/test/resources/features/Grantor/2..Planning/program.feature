@@ -739,8 +739,11 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details :
       | Record deleted Successfully. |
+    When I click on parallel lines menu bar with data target value "Review Forms"
     And I select "Download as PDF" from parallel lines dropdown of "Review Forms"
+   And I wait for "3" seconds
     And I download the file
+   And I wait for "3" seconds
     Then I softly see "Review Forms" on page "1" of "govgrants" pdf file
     Examples:
       | Title                           |
