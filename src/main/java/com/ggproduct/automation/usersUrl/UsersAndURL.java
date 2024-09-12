@@ -115,20 +115,17 @@ public class UsersAndURL implements UsersController {
     private String getQAEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
-            case "SIMON PM":
-                password = "Salesforce@2034";
-                break;
-            case "SPI3":
-                password = "Salesforce@2034";
-                break;
             case "SARAH PM":
-                password = "Grants@2026";
+                password = "Salesforce@2034";
                 break;
-            default:
-                password = "Salesforce2040";
-        }
+                case "PM":
+                password = "VaDev@2026";
+                break;
+                default:
+                password = "VaDev@2024";
+            }
         return password;
-    }
+       }
 
     private String getTest8EnvironmentPassword(String userLevel) {
         String password;
@@ -212,37 +209,33 @@ public class UsersAndURL implements UsersController {
     }
     private String getQAEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsautomation@yopmail.com.qaorg");
-        username.put("ADMIN1", "admin1@yopmail.com.qaorg");
-        username.put("EXE", "test@gmaildemo.com.qaorg");
-        username.put("PM", "donald_pm@ggp.test7.atm.qaorg");
-        username.put("FO", "auto.fm@auto.com.atm.qaorg");
-        username.put("PO", "automationpo@yopmail.com.qaorg");
-        username.put("FD", "automationfd@yopmail.com.qaorg");
-        username.put("PM1", "pm1.automation@yopmail.com.qaorg");
+        username.put("ADMIN", "govgrantsautomation@yopmail.com.vaqaorg");
+        username.put("ADMIN1", "manu.admin@ggp.test8.vaqaorg");
+        username.put("EXE", "test@gmaildemo.com.vaqaorg");
+        username.put("PM", "donald_pm@ggp.test7.atm.vaqaorg");
+        username.put("FO", "auto.fm@auto.com.vaqaorg");
+        username.put("PO", "automationpo@yopmail.com.vaqaorg");
+        username.put("FD", "automationfd@yopmail.com.vaqaorg");
+        username.put("PM1", "pm1.automation@yopmail.com.vaqaorg");
         username.put("EXE1", "exe1.automation@yopmail.com.qaorg");
         username.put("PO1", "automationpo1@yopmail.com.qaorg");
         username.put("FO1", "fo1.automation@yopmail.com.qaorg");
         username.put("FD1", "automationfd1@yopmail.com.qaorg");
-        username.put("SPI3", "automationspi30@yopmail.com.qaorg");
-        username.put("SPA", "spa.automation@yopmail.com");
-        username.put("SA", "automationspi2@yopmail.com");
+        username.put("SPI3", "automationspi31@yopmail.com.vaqaorg");
+        username.put("SPA", "spa.automation@yopmail.com.vaqaorg");
+        username.put("SA", "sa.automationvaorg@yopmail.com.vaqaorg");
         username.put("IND", "ind2029.automation@yopmail.com");
         username.put("AUDITOR", "automationauditor@yopmail.com.qaorg");
         username.put("SARAH PM", "sarah.pm@ggp.test8.qaorg");
-
-        username.put("GRANTEE ADMIN", "product.qa@ggp.test8.qagrnteatm");
-        username.put("GRANTEE PM", "sarah.pm@ggp.test8.qagrnteatm");
-        username.put("GRANTEE EXE", "victor.exe@ggp.test8.qagrnteatm");
-        username.put("GRANTEE FO", "david.fo@ggp.test8.qagrnteatm");
-        username.put("GRANTEE FD", "danielle.garcia@ggp.test8.qagrnteatm");
-        username.put("GRANTEE PO", "grantee.po@yopmail.com.qagrnteatm");
-        username.put("GRANTEE AUDITOR", "autoauditor.grantee@yopmail.com.qagrnteatm");
-
+        username.put("SIMON PM", "simon_pm@ggp.test7");
+        username.put("SARAH PO", "sarah_pm@ggp.test7.automation");
+        username.put("ALEX FO", "alex_fo@ggp.test7");
+        username.put("CATHY PM", "cathy_pm@ggp.test7");
+        username.put("OSCAR PM", "oscar_pm@ggp.test7");
+        username.put("Bill PM", "bill_pm@ggp.test7");
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());
-        } else {
-            return username.get("ADMIN");
+        } else {        return username.get("ADMIN");
         }
     }
 

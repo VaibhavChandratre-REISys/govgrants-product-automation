@@ -1,17 +1,17 @@
-@riskAssessment @awardRiskAsses @grantor-regression @grantor-parallel-regression @regression @RiskExecution
+@riskAssessment @awardRiskAsses @grantor-regression @grantor-parallel-regression @regression @RiskExecution1
 Feature: Validate all scenarios in the Risk Assessment
 
 @addAttachmentForRecordOnwerInTable
 Scenario: Validate attachment is added to the flex table after submiting the risk assessment for approval.
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I click on "Edit" in the page details
 When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -25,19 +25,19 @@ When I navigate to "Files" sub tab
 And I click on top right button "Add Files" in flex table with id "---orgRiskAssessment:-:awardRiskAssessmentTableId---"
 And I upload attachment "Attachment.pdf" of type "Financial Artifacts" from computer
 And I click modal button "Close"
-Then I softly see "Financial Artifacts" has been added in "Subaward Risk Assessment Files" flex table
+Then I softly see "Financial Artifacts" has been added in "Award Risk Assessment Files" flex table
 
 @58825 @monitoringTabListViewsOfRiskAssessment
 Scenario: Monitoring Tab List Views for all Award level risk assessments in the internal portal
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I click on "Edit" in the page details
 When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -52,7 +52,7 @@ When I click on "Save" in the page details
 When I get the "EGMS ID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 Then I see that "{SavedValue:Automation Runtime Award for Risk Assessment}" has been added in flextable with Id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 
@@ -60,13 +60,13 @@ Then I see that "{SavedValue:Automation Runtime Award for Risk Assessment}" has 
 Scenario: Validate for the Risk Assessment that is in created state the Risk Level is shown as NA inside table
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I click on "Edit" in the page details
 When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -81,7 +81,7 @@ When I click on "Save" in the page details
 When I save the field labeled "EGMS ID" as "EGMSID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 Then I see value "NA" for title "Risk Level" against the value "{SavedValue:EGMSID}" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 
@@ -90,8 +90,8 @@ Scenario: Validate whether user can Download the Active Risk Assessment in XLS f
 Given I login to "As a Grantor" app as "dynamicUser" user
 When I navigate to "Monitoring" tab
 And I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-And I click toggle button to select "Subaward Risk Assessments - All"
-And I click on parallel menu button in flex table title "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
+And I click on parallel menu button in flex table title "Award Risk Assessments - All"
 And I select "Download as CSV" from dropdown
 And I wait for "3" seconds
 Then I softly see that file name contains ".xls" is downloaded
@@ -102,8 +102,8 @@ Scenario: Validate whether user can Download the Active Risk Assessment in PDF f
 Given I login to "As a Grantor" app as "dynamicUser" user
 When I navigate to "Monitoring" tab
 And I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-And I click toggle button to select "Subaward Risk Assessments - All"
-And I click on parallel menu button in flex table title "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
+And I click on parallel menu button in flex table title "Award Risk Assessments - All"
 And I select "Download as PDF" from dropdown
 And I wait for "3" seconds
 And I download the file
@@ -115,13 +115,13 @@ Then I delete file contains name ".pdf"
 Scenario: Validate when the risk assessment is intiated for draft award then only one risk assessment must be available in the table
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I click on "Edit" in the page details
 When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -135,11 +135,11 @@ And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
 When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "EGMSID"
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "{SavedValue:Automation Runtime Award for Risk Assessment}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "{SavedValue:Automation Runtime Award for Risk Assessment}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 When I perform quick search for "{SavedValue:Automation Runtime Award for Risk Assessment}" in "---subAwardStandAlone:-:subawardsTableId---" panel
 And I click on "View" icon for "{SavedValue:Automation Runtime Award for Risk Assessment}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -149,13 +149,13 @@ Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "
 Scenario: Validate Risk Level field on Overview Tab is not availbale for Risk Assessment that is in Created Status
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I click on "Edit" in the page details
 When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -174,13 +174,13 @@ Then I cannot see field "Risk Level" inside page block
 Scenario: Validate Award owner can add Multiple Peer reviewer for Risk Assessment whose status is Submitted to grantor | Validate whether the record owner recieve an email notfication when risk assessment is created
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -222,13 +222,13 @@ Then I softly see value "Record Id" for title "EGMS ID" inside table "---subAwar
 Scenario: Verify that users can see new button to create Risk Assessment on Management Tab list view |Validate whether record owner and SPI user can view the RA that is in Created state under Monitoring Tab
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I click on "Edit" in the page details
 When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -244,13 +244,13 @@ When I click on "Save" in the page details
 And I get the "EGMS ID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 Then I softly see that "Created" has been added in flextable with Id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessment - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "Created" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
 Then I softly do not see value "Created" for title "Status" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
@@ -259,11 +259,11 @@ Scenario: Verify whether New button on Management is not available for active aw
 Given I activated standalone subaward "Automation Runtime Award" with properties "YES_RISK_ASSESSMENT" of type "Competitive"
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
-And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+And I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - Active"
 When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
 And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
 And I navigate to "Management" sub tab
@@ -273,13 +273,13 @@ Then I cannot see top right button "New" in flex table with id "---subAwardStand
 Scenario Outline: Validate when Organization Risk Assessment is not active and Award Risk Assessment Required is selected as No then System should throw an exception when user activates the award.
 When I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation5" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I click on "Edit" in the page details
 When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
@@ -329,7 +329,7 @@ When I enter the following values into flex table with id "---subAwardStandAlone
 | Name                     | Award  |
 | {SavedValue:FO Username} | Step 3 |
 When I get the "EGMS ID"
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 And I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
 When I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -338,11 +338,11 @@ When I click on "Start" icon for "Record Id" inside flex table with id "---subAw
 When I click on "Accept" in the page details
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Terms" sub tab
 When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -368,13 +368,13 @@ And I click on "Start" icon for "Record Id" inside flex table with id "---subAwa
 And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 When I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
 And I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -391,13 +391,13 @@ Examples:
 Scenario: Validate whether user is able to Add Approvers to Risk Assessment
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I save the field labeled "EGMS ID" as "RiskId"
@@ -426,13 +426,13 @@ Then I softly see that "Automation PM" has been added in flextable with Id "---s
 Scenario: Validate system enforces the user to atleast enter step 1 approval for award risk assessment
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I save the field labeled "EGMS ID" as "RiskId"
@@ -460,13 +460,13 @@ Then I see the following messages in the page details contains:
 Scenario Outline: Validate user can modify the approver entered on award for Risk assessment are copied on the Risk Assessments
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -513,7 +513,7 @@ When I enter the following values into flex table with id "---subAwardStandAlone
 | Name                     | Award  |
 | {SavedValue:FO Username} | Step 1 |
 When I get the "EGMS ID"
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 When I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -522,11 +522,11 @@ When I click on "Start" icon for "Record Id" inside flex table with id "---subAw
 When I click on "Accept" in the page details
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Terms" sub tab
 When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -540,8 +540,8 @@ And I click on "Start" icon for "Record Id" inside flex table with id "---subAwa
 And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -553,7 +553,7 @@ When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "RiskID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RiskID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I navigate to "Responsibilities" sub tab
@@ -570,13 +570,13 @@ Examples:
 Scenario: Validate user can defined one step approval for Risk Assessment on Award
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I save the field labeled "EGMS ID" as "RiskId"
@@ -593,7 +593,7 @@ When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "RiskID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RiskID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I navigate to "Responsibilities" sub tab
@@ -606,13 +606,13 @@ Then I softly see "Saved Successfully!" inside flex table with id "---subAwardSt
 Scenario: Verify user cannot skip the approver step on subaward risk assessment
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I save the field labeled "EGMS ID" as "RiskId"
@@ -629,7 +629,7 @@ When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "RiskID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RiskID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I navigate to "Responsibilities" sub tab
@@ -648,13 +648,13 @@ Then I softly see the following messages in the page details contains:
 Scenario Outline: Validate user can add additional approvers on risk assesment if step1 was configured on award
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -689,11 +689,11 @@ And I click on "Edit" icon for "Progress Report" inside flex table with id "---s
 And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Overview" sub tab
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
@@ -707,7 +707,7 @@ When I enter the following values into flex table with id "---subAwardStandAlone
 | Name                     | Award  |
 | {SavedValue:FO Username} | Step 1 |
 When I get the "EGMS ID"
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 When I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -716,11 +716,11 @@ When I click on "Start" icon for "Record Id" inside flex table with id "---subAw
 When I click on "Accept" in the page details
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Terms" sub tab
 When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -734,8 +734,8 @@ And I click on "Start" icon for "Record Id" inside flex table with id "---subAwa
 And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -747,7 +747,7 @@ When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "RiskID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RiskID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I navigate to "Responsibilities" sub tab
@@ -764,13 +764,13 @@ Examples:
 Scenario Outline: Given the step 4 approver has approved validate Risk Assessment is marked as Active
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -806,11 +806,11 @@ When I enter in modal "Progress Report Schedule" values from "Award_Field_Values
 And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Overview" sub tab
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
@@ -821,7 +821,7 @@ When I enter the following values into flex table with id "---subAwardStandAlone
 | Name                     | Award  |
 | {SavedValue:FO Username} | Step 1 |
 When I get the "EGMS ID"
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 When I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -830,11 +830,11 @@ When I click on "Start" icon for "Record Id" inside flex table with id "---subAw
 When I click on "Accept" in the page details
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Terms" sub tab
 When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -848,8 +848,8 @@ And I click on "Start" icon for "Record Id" inside flex table with id "---subAwa
 And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -861,7 +861,7 @@ When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "RiskID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RiskID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I navigate to "Responsibilities" sub tab
@@ -913,13 +913,13 @@ Examples:
 Scenario Outline:  Validate risk assessment status is Rejected In a 3 step approval set up if step 3 approver has rejected it
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -955,11 +955,11 @@ When I enter in modal "Progress Report Schedule" values from "Award_Field_Values
 And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Overview" sub tab
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
@@ -970,7 +970,7 @@ When I enter the following values into flex table with id "---subAwardStandAlone
 | Name                     | Award  |
 | {SavedValue:FO Username} | Step 1 |
 When I get the "EGMS ID"
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 When I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -979,11 +979,11 @@ When I click on "Start" icon for "Record Id" inside flex table with id "---subAw
 When I click on "Accept" in the page details
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Terms" sub tab
 When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -998,8 +998,8 @@ And I click on "Start" icon for "Record Id" inside flex table with id "---subAwa
 And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -1011,7 +1011,7 @@ When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "RiskID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RiskID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I navigate to "Responsibilities" sub tab
@@ -1054,13 +1054,13 @@ Examples:
 Scenario Outline: Validate user can select NA for a step on already copied approvers from award
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -1097,11 +1097,11 @@ And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
 And I wait for "3" seconds
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Overview" sub tab
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
@@ -1115,7 +1115,7 @@ When I enter the following values into flex table with id "---subAwardStandAlone
 | Name                     | Award  |
 | {SavedValue:FO Username} | Step 1 |
 When I get the "EGMS ID"
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 When I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1124,11 +1124,11 @@ When I click on "Start" icon for "Record Id" inside flex table with id "---subAw
 When I click on "Accept" in the page details
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Terms" sub tab
 When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -1142,8 +1142,8 @@ And I click on "Start" icon for "Record Id" inside flex table with id "---subAwa
 And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+When I navigate to"Awards"content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -1155,7 +1155,7 @@ When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "RiskID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RiskID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I navigate to "Responsibilities" sub tab
@@ -1176,13 +1176,13 @@ Examples:
 Scenario Outline: Validate user can change the user and step 2 on approver for risk assessment defined on award
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -1218,11 +1218,11 @@ When I enter in modal "Progress Report Schedule" values from "Award_Field_Values
 And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Overview" sub tab
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
@@ -1239,7 +1239,7 @@ When I enter the following values into flex table with id "---subAwardStandAlone
 | Name                     | Award  |
 | {SavedValue:FO Username} | Step 1 |
 When I get the "EGMS ID"
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 When I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1248,11 +1248,11 @@ When I click on "Start" icon for "Record Id" inside flex table with id "---subAw
 When I click on "Accept" in the page details
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Terms" sub tab
 When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -1266,8 +1266,8 @@ And I click on "Start" icon for "Record Id" inside flex table with id "---subAwa
 And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -1279,7 +1279,7 @@ When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "RiskID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RiskID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I navigate to "Responsibilities" sub tab
@@ -1299,13 +1299,13 @@ Examples:
 Scenario Outline: Validate user cannot add the same steps for Risk assessment
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -1341,11 +1341,11 @@ When I enter in modal "Progress Report Schedule" values from "Award_Field_Values
 And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Overview" sub tab
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
@@ -1362,7 +1362,7 @@ When I enter the following values into flex table with id "---subAwardStandAlone
 | Name                     | Award  |
 | {SavedValue:FO Username} | Step 1 |
 When I get the "EGMS ID"
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 When I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1371,11 +1371,11 @@ When I click on "Start" icon for "Record Id" inside flex table with id "---subAw
 When I click on "Accept" in the page details
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Terms" sub tab
 When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -1389,8 +1389,8 @@ And I click on "Start" icon for "Record Id" inside flex table with id "---subAwa
 And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -1402,7 +1402,7 @@ When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "RiskID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RiskID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I navigate to "Responsibilities" sub tab
@@ -1419,13 +1419,13 @@ Examples:
 Scenario Outline: Verify risk assessment becomes active when approved by one step approver
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -1461,11 +1461,11 @@ When I enter in modal "Progress Report Schedule" values from "Award_Field_Values
 And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Overview" sub tab
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
@@ -1476,7 +1476,7 @@ When I enter the following values into flex table with id "---subAwardStandAlone
 | Name                     | Award  |
 | {SavedValue:FO Username} | Step 1 |
 When I get the "EGMS ID"
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 When I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1485,11 +1485,11 @@ When I click on "Start" icon for "Record Id" inside flex table with id "---subAw
 When I click on "Accept" in the page details
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Terms" sub tab
 When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -1503,8 +1503,8 @@ And I click on "Start" icon for "Record Id" inside flex table with id "---subAwa
 And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -1516,7 +1516,7 @@ When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "RiskID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RiskID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I navigate to "Responsibilities" sub tab
@@ -1541,13 +1541,13 @@ Examples:
 Scenario Outline: Verify the validation when same user is added for multiple step on approver section for risk assessment
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -1582,11 +1582,11 @@ When I enter in modal "Progress Report Schedule" values from "Award_Field_Values
 And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Overview" sub tab
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
@@ -1603,7 +1603,7 @@ When I enter the following values into flex table with id "---subAwardStandAlone
 | Name                     | Award  |
 | {SavedValue:FO Username} | Step 1 |
 When I get the "EGMS ID"
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 When I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1612,11 +1612,11 @@ When I click on "Start" icon for "Record Id" inside flex table with id "---subAw
 When I click on "Accept" in the page details
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Terms" sub tab
 When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -1630,8 +1630,8 @@ And I click on "Start" icon for "Record Id" inside flex table with id "---subAwa
 And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -1643,7 +1643,7 @@ When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "RiskID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RiskID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I navigate to "Responsibilities" sub tab
@@ -1660,13 +1660,13 @@ Examples:
 Scenario: Verify the remove record action is displayed for new record is added on risk assessment
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I save the field labeled "EGMS ID" as "RiskId"
@@ -1683,7 +1683,7 @@ When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "RiskID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RiskID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I navigate to "Responsibilities" sub tab
@@ -1695,13 +1695,13 @@ Then I softly see row level action button "Remove record" inside "---subAwardSta
 Scenario Outline: Verify when risk assessment is active then user cannot add approver
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -1737,11 +1737,11 @@ When I enter in modal "Progress Report Schedule" values from "Award_Field_Values
 And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Overview" sub tab
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
@@ -1752,7 +1752,7 @@ When I enter the following values into flex table with id "---subAwardStandAlone
 | Name                     | Award  |
 | {SavedValue:FO Username} | Step 1 |
 When I get the "EGMS ID"
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 When I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1761,11 +1761,11 @@ When I click on "Start" icon for "Record Id" inside flex table with id "---subAw
 When I click on "Accept" in the page details
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Terms" sub tab
 When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -1779,8 +1779,8 @@ And I click on "Start" icon for "Record Id" inside flex table with id "---subAwa
 And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -1792,7 +1792,7 @@ When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "RiskID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RiskID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I navigate to "Responsibilities" sub tab
@@ -1819,13 +1819,13 @@ Scenario Outline: Verify approvers from sub award are inherited to subaward risk
 |Validate the columns and table name in the Risk Assessment approver Section|
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -1869,7 +1869,7 @@ When I enter the following values into flex table with id "---subAwardStandAlone
 | Name                     | Award  | Risk Assessment |
 | {SavedValue:PM Username} | Step 1 | Step 1          |
 When I get the "EGMS ID"
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 When I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1878,11 +1878,11 @@ When I click on "Start" icon for "Record Id" inside flex table with id "---subAw
 When I click on "Accept" in the page details
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Terms" sub tab
 When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -1915,13 +1915,13 @@ Examples:
 Scenario Outline: Validate user can defined 2 step approval for Risk Assessment on Award
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -1958,11 +1958,11 @@ And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
 And I wait for "5" seconds
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I navigate to "Management" sub tab
 When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
@@ -1973,7 +1973,7 @@ When I click on "Save" in the page details
 And I save the field labeled "EGMS ID" as "RiskID"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RiskID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RiskID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 When I navigate to "Responsibilities" sub tab
@@ -1993,13 +1993,13 @@ Examples:
 Scenario: Validate EXE user can do the needful on a award risk assessment and submit it for peer review to another user after ownership is transferred
 Given I login to "As a Grantor" app as "EXE" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -2036,7 +2036,7 @@ Then I see value "{SavedValue:RAEGMSID}" for title "Risk Assessment ID" inside t
 When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 And I click on "Edit" in the page details
@@ -2088,7 +2088,7 @@ And I click on submit review
 When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 And I click on "Complete Review" in the page details
@@ -2099,13 +2099,13 @@ Then I softly can see top right button "Submit for Approval" in page detail
 Scenario: Validate PO user can submit the award risk assessment for approval post reviewer add comments when ownership is transferred for a RA which is in Submitted for Review status
 Given I login to "As a Grantor" app as "PO" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -2191,7 +2191,7 @@ And I am on "INTERNAL" portal
 When I login to "As a Grantor" app as "PO1" user
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 When I navigate to "Responsibilities" sub tab
@@ -2207,13 +2207,13 @@ Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 Scenario: Validate FD profile user can reject the award risk assessment for step 1 approvals when ownership is transferred for a RA which is in Submitted for approval status
 Given I login to "As a Grantor" app as "EXE" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -2257,7 +2257,7 @@ Then I see value "{SavedValue:RAEGMSID}" for title "Risk Assessment ID" inside t
 When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 When I navigate to "Responsibilities" sub tab
@@ -2298,14 +2298,14 @@ Then I see the mail text is as follows :
 Scenario: Validate ADMIN has an option to change ownership of Award Risk Assessment, transfer its ownership when it has status as created and owner is PM
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
 And I save the field labeled "EGMS ID" as "GrantEGMSID"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -2344,7 +2344,7 @@ Then I softly see value "{SavedValue:RAEGMSID}" for title "Risk Assessment ID" i
 When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
@@ -2367,11 +2367,11 @@ Then I softly cannot see row level action button "Edit" against "Automation Find
 Then I softly cannot see row level action button "Delete" against "Automation Finding" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+And I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:subawardsTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Management" sub tab
@@ -2389,14 +2389,14 @@ Then I softly do not see value "Create Risk Assessment for Subaward" for title "
 Scenario: Validate EXE profile user can approve the award risk assessment for step 2 approvals when ownership is transferred for a RA which is in Submitted for approval status
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
 And I save the field labeled "EGMS ID" as "GrantEGMSID"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -2446,7 +2446,7 @@ Then I softly see value "{SavedValue:RAEGMSID}" for title "Risk Assessment ID" i
 When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 When I navigate to "Responsibilities" sub tab
@@ -2487,14 +2487,14 @@ Then I see the mail text is as follows :
 Scenario: Validate EXE profile user as RA1 owner should not get affected when ownership of Grant is transferred from EXE1 to EXE2 which is in 'Created' status after creating the RA on that award
 Given I login to "As a Grantor" app as "EXE" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
 And I save the field labeled "EGMS ID" as "GrantEGMSID"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -2551,17 +2551,17 @@ When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandA
 Then I softly see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
 When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Responsibilities" sub tab
 Then I softly see value "Automation EXE1" for title "Name" inside table "---subAwardStandAlone:-:subawardOwnerTableId---"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 When I navigate to "Responsibilities" sub tab
@@ -2571,14 +2571,14 @@ Then I softly see value "Automation EXE" for title "Name" inside table "---riska
 Scenario: Validate Field History with Respect to Risk Assessment is updated for corresponding award with respect to owner ship transfer of a Active Risk Assessment
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
 And I save the field labeled "EGMS ID" as "GrantEGMSID"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -2630,7 +2630,7 @@ And I pause execution for "2" seconds
 When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
@@ -2643,14 +2643,14 @@ Then I softly see value "Automation PM" for title "Old Value" inside table "---s
 Scenario: Validate PM profile user can send back the award risk assessment for step 2 approvals when ownership is transferred for a RA which is in Submitted for approval status
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
 And I save the field labeled "EGMS ID" as "GrantEGMSID"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -2702,7 +2702,7 @@ And I pause execution for "2" seconds
 When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 And I navigate to "History" sub tab
@@ -2747,14 +2747,14 @@ Then I see the mail text is as follows :
 Scenario: Validate PO profile user can activate the award risk assessment after its approved the RA when ownership is transferred for a RA which is in 'Submit for Approval' status
 Given I login to "As a Grantor" app as "PO" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
 And I save the field labeled "EGMS ID" as "GrantEGMSID"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -2825,14 +2825,14 @@ Then I softly see value "Automation PO1" for title "Name" inside table "---riska
 Scenario: Validate EXE profile user as RA owner should remain same as grant owner if ownership of Grant is transferred from EXE1 to EXE2 which is in 'Created' status before creating the RA on that award
 Given I login to "As a Grantor" app as "EXE" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
 And I save the field labeled "EGMS ID" as "GrantEGMSID"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -2874,18 +2874,18 @@ And I save the field labeled "EGMS ID" as "RAEGMSID"
 And I wait for "3" seconds
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 Then I softly see status in Progress-bar is "Created" and is "dark blue"
 When I navigate to "Responsibilities" sub tab
 Then I softly see value "Automation EXE1" for title "Name" inside table "---riskassessment:-:riskAssOwnerTableId---"
 And I navigate to "Grants" tab
-And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+And I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:subawardsTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Management" sub tab
@@ -2897,11 +2897,11 @@ And I perform quick search for "{SavedValue:AwardEGMSID}" in "---home:-:internal
 Then I softly do not see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
 Then I softly do not see value "Create Risk Assessment for Subaward" for title "Task Type" inside table "---home:-:internalHomePendingTaskTableId---"
 And I navigate to "Grants" tab
-And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+And I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:subawardsTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Management" sub tab
@@ -2911,14 +2911,14 @@ Then  I cannot see top right button "New" in flex table with id "---subAwardStan
 Scenario: Validate PM profile user can transfer ownership  of the expired award risk assessment
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
 And I save the field labeled "EGMS ID" as "GrantEGMSID"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -2951,11 +2951,11 @@ And I wait for "2" seconds
 Then I softly see field "Status" as "Active"
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+And I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:subawardsTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -3001,7 +3001,7 @@ And I pause execution for "2" seconds
 When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 Then I see status in Progress-bar is "Expired" and is "dark blue"
@@ -3015,13 +3015,13 @@ Then I softly see value "Automation PM" for title "Original Value" inside field 
 Scenario: Validate Risk Assessment If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (Fiscal reviewer)validate reassignment fails
 Given I login to "As a Grantor" app as "PO" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3104,7 +3104,7 @@ And I click on submit review
 When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 And I click on "Complete Review" in the page details
@@ -3124,14 +3124,14 @@ Then I softly see field "Status" as "Active"
 Scenario: Validate Email Notification is sent to ADMIN old owner & new owner with respect to ownership transfer of a Active Risk Assessment
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
 And I save the field labeled "EGMS ID" as "GrantEGMSID"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3182,7 +3182,7 @@ And I pause execution for "2" seconds
 When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 And I navigate to "History" sub tab
@@ -3270,14 +3270,14 @@ Then I see the mail text is as follows :
 Scenario: Validate permissions on Files of Award Risk Assessment, when it has status as created & transfer of ownership is performed
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
 And I save the field labeled "EGMS ID" as "GrantEGMSID"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3316,7 +3316,7 @@ Then I softly see value "{SavedValue:RAEGMSID}" for title "Risk Assessment ID" i
 When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
@@ -3339,11 +3339,11 @@ Then I softly cannot see row level action button "Edit" against "Automation Find
 Then I softly cannot see row level action button "Delete" against "Automation Finding" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+And I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:subawardsTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Management" sub tab
@@ -3359,14 +3359,14 @@ Then I softly cannot see row level action button "Delete" against "Other Artifac
 Scenario: Validate PM profile user can transfer ownership of the rejected award risk assessment
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
 And I save the field labeled "EGMS ID" as "GrantEGMSID"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3416,7 +3416,7 @@ And I pause execution for "2" seconds
 When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 And I navigate to "History" sub tab
@@ -3429,7 +3429,7 @@ Then I softly see value "Automation PM" for title "Original Value" inside field 
 Scenario: Validate Risk Assessment approver table should not get update on award after approver reassignment get done on it's related Risk assessment
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
@@ -3438,7 +3438,7 @@ When I enter value "No" into field "FocusAreaRequired__c"
 When I enter value "Yes" into field "IsAdvancePermitted__c"
 When I click modal button "Save and Continue"
 And I save the field labeled "EGMS ID" as "GrantEGMSID"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3504,11 +3504,11 @@ Then I softly see value "NA" for title "Risk Assessment" against the value "Auto
 Then I softly see value "Step 3" for title "Risk Assessment" against the value "Automation FD1" inside table "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I navigate to "Responsibilities" sub tab
 Then I softly see value "Step 1" for title "Risk Assessment" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
@@ -3519,13 +3519,13 @@ Then I softly see value "Step 1" for title "Advance" against the value "Automati
 Scenario: Validate Risk Ass failure email should generated for RA owner if user try to reassign review task to already assign reviewer
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3601,13 +3601,13 @@ Then I see the mail text is as follows :
 Scenario: Validate Risk Assessment Module user should able to reassign the task to new user of more than 10 records & 1 email should be triggered for all records
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "GrantsBulksRecords" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3616,7 +3616,7 @@ And I click on "Save" in the page details
 And I wait for "3" seconds
 And I save the field labeled "EGMS ID" as "AwardEGMSID"
 And I navigate to "Overview" sub tab
-And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
+And I save the field labeled "Award Title" as "Automation Runtime Bulks Grants Records"
 And I navigate to "Management" sub tab
 When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3627,13 +3627,13 @@ When I get the "EGMS ID"
 And I save the field labeled "EGMS ID" as "RAEGMSID1"
     #Risk Assessment 2
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "GrantsBulksRecords" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3642,7 +3642,7 @@ And I click on "Save" in the page details
 And I wait for "3" seconds
 And I save the field labeled "EGMS ID" as "AwardEGMSID"
 And I navigate to "Overview" sub tab
-And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
+And I save the field labeled "Award Title" as "Automation Runtime Bulks Grants Records"
 And I navigate to "Management" sub tab
 When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3653,13 +3653,13 @@ When I get the "EGMS ID"
 And I save the field labeled "EGMS ID" as "RAEGMSID2"
     #Risk Assessment 3
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "GrantsBulksRecords" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3668,7 +3668,7 @@ And I click on "Save" in the page details
 And I wait for "3" seconds
 And I save the field labeled "EGMS ID" as "AwardEGMSID"
 And I navigate to "Overview" sub tab
-And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
+And I save the field labeled "Award Title" as "Automation Runtime Bulks Grants Records"
 And I navigate to "Management" sub tab
 When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3679,13 +3679,13 @@ When I get the "EGMS ID"
 And I save the field labeled "EGMS ID" as "RAEGMSID3"
     #Risk Assessment 4
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "GrantsBulksRecords" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3694,7 +3694,7 @@ And I click on "Save" in the page details
 And I wait for "3" seconds
 And I save the field labeled "EGMS ID" as "AwardEGMSID"
 And I navigate to "Overview" sub tab
-And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
+And I save the field labeled "Award Title" as "Automation Runtime Bulks Grants Records"
 And I navigate to "Management" sub tab
 When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3705,13 +3705,13 @@ When I get the "EGMS ID"
 And I save the field labeled "EGMS ID" as "RAEGMSID4"
     #Risk Assessment 5
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "GrantsBulksRecords" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3720,7 +3720,7 @@ And I click on "Save" in the page details
 And I wait for "3" seconds
 And I save the field labeled "EGMS ID" as "AwardEGMSID"
 And I navigate to "Overview" sub tab
-And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
+And I save the field labeled "Award Title" as "Automation Runtime Bulks Grants Records"
 And I navigate to "Management" sub tab
 When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3731,13 +3731,13 @@ When I get the "EGMS ID"
 And I save the field labeled "EGMS ID" as "RAEGMSID5"
     #Risk Assessment 6
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "GrantsBulksRecords" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3746,7 +3746,7 @@ And I click on "Save" in the page details
 And I wait for "3" seconds
 And I save the field labeled "EGMS ID" as "AwardEGMSID"
 And I navigate to "Overview" sub tab
-And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
+And I save the field labeled "Award Title" as "Automation Runtime Bulks Grants Records"
 And I navigate to "Management" sub tab
 When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3757,13 +3757,13 @@ When I get the "EGMS ID"
 And I save the field labeled "EGMS ID" as "RAEGMSID6"
     #Risk Assessment 7 Submitted for approval
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "GrantsBulksRecords" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3772,7 +3772,7 @@ And I click on "Save" in the page details
 And I wait for "3" seconds
 And I save the field labeled "EGMS ID" as "AwardEGMSID"
 And I navigate to "Overview" sub tab
-And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
+And I save the field labeled "Award Title" as "Automation Runtime Bulks Grants Records"
 And I navigate to "Management" sub tab
 When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3789,13 +3789,13 @@ And I click on "Submit for Approval" in the page details
 Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #Risk Assessment 8 Submitted for approval
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "GrantsBulksRecords" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3804,7 +3804,7 @@ And I click on "Save" in the page details
 And I wait for "3" seconds
 And I save the field labeled "EGMS ID" as "AwardEGMSID"
 And I navigate to "Overview" sub tab
-And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
+And I save the field labeled "Award Title" as "Automation Runtime Bulks Grants Records"
 And I navigate to "Management" sub tab
 When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3821,13 +3821,13 @@ And I click on "Submit for Approval" in the page details
 Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #Risk Assessment 9 Submitted for approval
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "GrantsBulksRecords" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3836,7 +3836,7 @@ And I click on "Save" in the page details
 And I wait for "3" seconds
 And I save the field labeled "EGMS ID" as "AwardEGMSID"
 And I navigate to "Overview" sub tab
-And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
+And I save the field labeled "Award Title" as "Automation Runtime Bulks Grants Records"
 And I navigate to "Management" sub tab
 When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3853,13 +3853,13 @@ And I click on "Submit for Approval" in the page details
 Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #Risk Assessment 10 Submitted for approval
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "GrantsBulksRecords" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3868,7 +3868,7 @@ And I click on "Save" in the page details
 And I wait for "3" seconds
 And I save the field labeled "EGMS ID" as "AwardEGMSID"
 And I navigate to "Overview" sub tab
-And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
+And I save the field labeled "Award Title" as "Automation Runtime Bulks Grants Records"
 And I navigate to "Management" sub tab
 When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3885,13 +3885,13 @@ And I click on "Submit for Approval" in the page details
 Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     #Risk Assessment 11 Submitted for approval
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "GrantsBulksRecords" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -3900,7 +3900,7 @@ And I click on "Save" in the page details
 And I wait for "3" seconds
 And I save the field labeled "EGMS ID" as "AwardEGMSID"
 And I navigate to "Overview" sub tab
-And I save the field labeled "Subaward Title" as "Automation Runtime Bulks Grants Records"
+And I save the field labeled "Award Title" as "Automation Runtime Bulks Grants Records"
 And I navigate to "Management" sub tab
 When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
@@ -3955,7 +3955,7 @@ Then I softly see value "{SavedValue:RAEGMSID11}" for title "Risk Assessment ID"
 When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID1}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID1}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 Then I softly can see top right button "Edit" in page detail
@@ -3968,7 +3968,7 @@ Then I softly can see top right button "Add Files" in flex table with id "---org
 Then I softly can see top right button "New" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID2}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID2}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 Then I softly can see top right button "Edit" in page detail
@@ -3981,7 +3981,7 @@ Then I softly can see top right button "Add Files" in flex table with id "---org
 Then I softly can see top right button "New" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID3}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID3}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 Then I softly can see top right button "Edit" in page detail
@@ -3994,7 +3994,7 @@ Then I softly can see top right button "Add Files" in flex table with id "---org
 Then I softly can see top right button "New" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID4}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID4}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 Then I softly can see top right button "Edit" in page detail
@@ -4007,7 +4007,7 @@ Then I softly can see top right button "Add Files" in flex table with id "---org
 Then I softly can see top right button "New" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID5}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID5}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 Then I softly can see top right button "Edit" in page detail
@@ -4020,7 +4020,7 @@ Then I softly can see top right button "Add Files" in flex table with id "---org
 Then I softly can see top right button "New" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID6}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID6}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 Then I softly can see top right button "Edit" in page detail
@@ -4106,13 +4106,13 @@ Then I see the mail text is as follows :
 Scenario: Validate Risk Assessments are read only for SR User
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "GrantFieldsIndUser" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -4148,7 +4148,7 @@ When I navigate to "Overview" sub tab
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
 | Name                      | Project Role             | Is Key Personnel |
 | {SavedValue:IND Username} | Project Director/Manager | Checked          |
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 Then I softly see field "Status" as "Sent to Subrecipient"
 When I navigate to "Management" sub tab
 Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
@@ -4169,7 +4169,7 @@ Then I softly can see row level action button "Delete" against "{SavedValue:RAEG
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "5" seconds
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
@@ -4212,7 +4212,7 @@ When I login to "Grants Portal" app as "IND" user
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "4" seconds
-When I click toggle button to select "Subaward Risk Assessment - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
 Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 And I navigate to "Home" tab
@@ -4225,7 +4225,7 @@ When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "5" seconds
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
@@ -4242,7 +4242,7 @@ Then I softly see value "Submitted for Approval" for title "Status" against the 
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "5" seconds
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
@@ -4261,7 +4261,7 @@ When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "4" seconds
-When I click toggle button to select "Subaward Risk Assessment - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
 Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 And I navigate to "Home" tab
@@ -4303,7 +4303,7 @@ When I login to "Grants Portal" app as "IND" user
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "5" seconds
-When I click toggle button to select "Subaward Risk Assessment - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
 Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 And I navigate to "Home" tab
@@ -4314,8 +4314,8 @@ And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:o
 Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+And I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 When I navigate to "Management" sub tab
@@ -4334,7 +4334,7 @@ Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table
 Then I softly see value "Created" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:organizationprofileviewTableId---"
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 Then I softly see value "Created" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
@@ -4377,8 +4377,8 @@ And I wait for "2" seconds
 Given I am on "INTERNAL" portal
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
-And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+And I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 When I navigate to "Management" sub tab
@@ -4390,7 +4390,7 @@ Then I softly see value "Submitted for Approval" for title "Status" against the 
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "3" seconds
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
@@ -4408,7 +4408,7 @@ When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "3" seconds
-When I click toggle button to select "Subaward Risk Assessment - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
 Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 And I navigate to "Home" tab
@@ -4426,8 +4426,8 @@ And I wait for "2" seconds
 Then I softly see field "Status" as "Active"
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+And I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 When I navigate to "Management" sub tab
@@ -4439,7 +4439,7 @@ Then I softly see value "Active" for title "Status" against the value "{SavedVal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "3" seconds
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
@@ -4457,7 +4457,7 @@ Then I softly see value "Active" for title "Status" against the value "{SavedVal
 When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessment - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
 Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
@@ -4469,8 +4469,8 @@ Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table
 Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+And I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -4495,8 +4495,8 @@ When I click on "Start" icon for "{SavedValue:RAEGMSID1}" inside flex table with
 And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-And I click toggle button to select "Subawards  - All"
+And I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+And I click toggle button to select "Awards - All"
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -4507,7 +4507,7 @@ Then I softly see value "Active" for title "Status" against the value "{SavedVal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "3" seconds
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 Then I softly see value "Expired" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
@@ -4529,7 +4529,7 @@ When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "3" seconds
-When I click toggle button to select "Subaward Risk Assessment - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
 Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 Then I softly see value "Expired" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
@@ -4550,13 +4550,13 @@ Then I softly see value "Active" for title "Status" against the value "{SavedVal
 Scenario Outline: Validate Award Owner has the permission to revise the award Risk Assessment until award activation
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Ed_Directed_Risk_Yes" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -4615,14 +4615,14 @@ And I "Approve" in the approval decision
 And I wait for "2" seconds
 Then I softly see field "Status" as "Active"
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I wait for "2" seconds
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 And I wait for "8" seconds
 Then I softly see field "Status" as "Sent to Subrecipient"
 And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -4633,11 +4633,11 @@ When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table wi
 When I click on "Accept" in the page details
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 When I get the "EGMS ID"
 When I navigate to "Terms" sub tab
@@ -4647,7 +4647,7 @@ Then I softly see field "Status" as "Submitted for Approval"
 And I pause execution for "5" seconds
 And I "Approve" in the approval decision
 And I pause execution for "5" seconds
-And I click on "Send to Subrecipient" in the page details
+When I click on "Send to Grantee" in the page details
 When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 And I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4656,11 +4656,11 @@ And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table wit
 And I click on "Accept after Approval" in the page details
 When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
 When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
 And I click on "View" icon for "<Grant Name>" inside table
-When I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I navigate to "Management" sub tab
 When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
@@ -4684,13 +4684,13 @@ Examples:
 Scenario: Validate Field history Snapshot update post Approval of Risk Assessment
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Ed_Directed_Risk_Yes" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -4723,7 +4723,7 @@ And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 And I wait for "2" seconds
@@ -4745,13 +4745,13 @@ Then I softly see snapshot with user containing "{SavedValue:FD Username}" again
 Scenario: Validate the risk assessment is approved step4 set up activated post all the approval are complete when peer review was performed on it
 Given I login to "As a Grantor" app as "PO" user
 And I navigate to "Grants" tab
-When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
 And I click modal button "Continue"
 And I enter "Grant_Ed_Directed_Risk_Yes" values from "Award_Field_Values.xlsx"
 When I click modal button "Save and Continue"
-And I navigate to "Subawards" sub tab
+When I navigate to "Awards" sub tab
 And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
 And I get the "EGMS ID"
 And I click on "Edit" in the page details
@@ -4799,7 +4799,7 @@ And I click on submit review
 When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Subaward Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 Then I softly can see top right button "Complete Review" in page detail
@@ -4835,7 +4835,7 @@ And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-And I click toggle button to select "Subaward Risk Assessments - All"
+And I click toggle button to select "Award Risk Assessments - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
 And I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
 And I wait for "2" seconds
