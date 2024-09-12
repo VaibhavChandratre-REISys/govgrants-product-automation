@@ -880,7 +880,7 @@ Feature: Validate all scenarios for program
     And I select "Download as PDF" from parallel lines dropdown of "Reviewers"
     And I wait for "3" seconds
     And I download the file
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     Then I softly see "Review Steps" on page "1" of "govgrants" pdf file
     Examples:
       | Objective                      |
