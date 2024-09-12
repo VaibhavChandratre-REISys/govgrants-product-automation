@@ -1745,10 +1745,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I navigate to "Awards" sub tab
-    And I click on "Edit" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I get the "EGMS ID"
-#   Bug - 464700
-#    And I click on "Edit" in the page details
+    And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I wait for "2" seconds
     And I click on "Save" in the page details
