@@ -725,9 +725,9 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details :
       | Record deleted Successfully. |
-    When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "New" :
-      | Form Name         | Minimum Number of Reviews per Application | Required? |
-      | Automation Review | 1                                         | Check     |
+   And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "New" :
+     | Form Name          | Minimum Number of Reviews per Application | Required? |
+     | Automation Review  | 1                                         | Check     |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
@@ -6032,7 +6032,7 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Step Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 30              | 1                                         | Check     f|
+      | Pre-Screen | 30              | 1                                         | Check     |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     And I pause execution for "5" seconds
     #Bug444555
