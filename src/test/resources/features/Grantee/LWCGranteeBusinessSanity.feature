@@ -3789,7 +3789,6 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly can see row level action button "Edit" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly can see row level action button "Delete" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-#    And I click on "Edit" in the page details
     Then I softly see fields "GeneralConditionChanged__c" is in edit mode
     And I enter value "Checked" into field "GeneralConditionChanged__c"
     Then I softly see fields "AreTCspartofNGAAttachments__c" is in edit mode
@@ -3876,7 +3875,8 @@ Feature: Sanity scenarios
       | Victor EXE | Step 1             |
     And I click on hyperlink containing value "Victor EXE"
     And I wait for "5" seconds
-    Then I softly see new tab is opened
+    Then I softly see field "Name" as "Victor EXE"
+#    Then I softly see new tab is opened
     And I click on back arrow
     And I navigate to "Files" sub tab
     Then I softly see "Amendment Files" page block displayed
@@ -4052,9 +4052,9 @@ Feature: Sanity scenarios
     And I navigate to "Grants" tab
     And I select "Awards" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:AwardEGMSID1}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:AwardEGMSID1}" in global search with id "Awards"
     Then I softly cannot see row level action button "Change Owner" against "{SavedValue:AwardEGMSID1}" in global search with id "Awards"
     Then I softly cannot see row level action button "Delete" against "{SavedValue:AwardEGMSID1}" in global search with id "Awards"
-    Then I softly can see row level action button "Edit" against "{SavedValue:AwardEGMSID1}" in global search with id "Awards"
     And I click on row level action button "Edit" against "{SavedValue:AwardEGMSID1}" in global search with id "Awards"
     Then I softly see field "Status" as "Activated"
     Then I cannot see top right button "Save" in page detail

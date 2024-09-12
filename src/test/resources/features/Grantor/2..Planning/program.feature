@@ -6023,7 +6023,7 @@ Feature: Validate all scenarios for program
       Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
       """
 
- @program2 @109790 @VerifyValidationMessageForReviewFormWeightLessThan100%
+ @program2 @VerifyValidationMessageForReviewFormWeightLessThan100%
   Scenario: validate user is able to see validation message when review form weight is les than 100%
     And I navigate to "Setup" sub tab
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
