@@ -670,7 +670,7 @@ Feature: Validate all scenarios for program
       | Contact                   |
       | {SavedValue:EXE Username} |
 
-  @passed @34740 @programApproverSelection
+  @34740 @programApproverSelection
   Scenario: Validate the assignment of Approvers for the Internal Program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
@@ -725,7 +725,7 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details :
       | Record deleted Successfully. |
-    When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "---program:-:reviewFormPanelId---" by clicking "New" :
       | Form Name         | Minimum Number of Reviews per Application | Required? |
       | Automation Review | 1                                         | Checked   |
     Then I softly see the following messages in the page details :
@@ -875,6 +875,7 @@ Feature: Validate all scenarios for program
       | Saved Successfully! |
     And I click on parallel menu button in flex table title "Reviewers"
     And I select "Download as PDF" from parallel lines dropdown of "Reviewers"
+    And I wait for "3" seconds
     And I download the file
     And I wait for "3" seconds
     Then I softly see "Reviewers" on page "1" of "govgrants" pdf file

@@ -70,7 +70,7 @@ Feature: Validate all scenarios for program with add file
     Then I cannot see row level action button "Edit" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then I cannot see row level action button "Delete" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
 
-  @program2 @222078 @VerifyadmnusershouldnotabletoaddfileifuserdonothavetheeditaccesstoInternalPrograminsubmitforapprovalstatus @sprint-10-US-199430 @addFiles
+  @222078 @VerifyadmnusershouldnotabletoaddfileifuserdonothavetheeditaccesstoInternalPrograminsubmitforapprovalstatus @sprint-10-US-199430 @addFiles
   Scenario: Verify admn user should not able to add file if user do not have the edit access to Internal Program in submit for approval status
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Planning" tab
@@ -280,7 +280,7 @@ Feature: Validate all scenarios for program with add file
     And I pause execution for "3" seconds
     Then I softly see "Other Artifacts" has been added in "Program Files" flex table
 
-  @program2 @222081 @223555 @VVerifyifpeerreviewercanaddfilewhenthepeerreviewrecordisinsentforreviewinprogressstatusprovidedallowrecordeditingisyes @sprint-25-US-295138  @addFiles @ExcludeAddFile
+  @222081 @223555 @VVerifyifpeerreviewercanaddfilewhenthepeerreviewrecordisinsentforreviewinprogressstatusprovidedallowrecordeditingisyes @sprint-25-US-295138  @addFiles @ExcludeAddFile
   Scenario: Verify if peer reviewer can add file when the peer review record is in sent for review/ in progress status provided  allow record editing is yes
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -387,6 +387,8 @@ Feature: Validate all scenarios for program with add file
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
+    And I click modal button "Close"
+    And I refresh the page
     Then I cannot see top right button "Edit" in page detail
     And I navigate to "Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
@@ -468,7 +470,7 @@ Feature: Validate all scenarios for program with add file
     Then I cannot see row level action button "Edit" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then I cannot see row level action button "Delete" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
 
- @program2 @222088 @VerifyUsercannotEditdeletefileiftheyareowneroffilewhenprogramisinsubmitforapprovalstatus @sprint-10-US-199430 @addFiles
+ @222088 @VerifyUsercannotEditdeletefileiftheyareowneroffilewhenprogramisinsubmitforapprovalstatus @sprint-10-US-199430 @addFiles
   Scenario: Verify User can not  Edit/delete file if they are owner of file when program  is in submit for approval status
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -518,7 +520,7 @@ Feature: Validate all scenarios for program with add file
     Then I cannot see row level action button "Edit" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then I cannot see row level action button "Delete" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
 
-  @program2 @222090 @VerifyifpeerreviewercaneditDeletefilewhenthepeerreviewrecordisinsentforreviewinprogressstatusprovidedallowrecordeditingisyes @sprint-25-US-295138  @addFiles @ExcludeAddFile
+  @222090 @VerifyifpeerreviewercaneditDeletefilewhenthepeerreviewrecordisinsentforreviewinprogressstatusprovidedallowrecordeditingisyes @sprint-25-US-295138  @addFiles @ExcludeAddFile
   Scenario: Verify if peer reviewer can edit/Delete file when the peer review record is in sent for review/ in progress status provided  allow record editing is yes
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -573,7 +575,7 @@ Feature: Validate all scenarios for program with add file
     And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---" without waiting for record
     Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---program:-:GrantorInternalProgramFilesTableId---"
 
-  @program2 @222092 @222093 @222096 @Verifyifpeerreviewersubmitsthereviewafterthatwetakeawaytheeditaccesssoreviewerwillnotbeabletoeditdeletefileafterthat @sprint-25-US-295138  @addFiles
+  @222092 @222093 @222096 @Verifyifpeerreviewersubmitsthereviewafterthatwetakeawaytheeditaccesssoreviewerwillnotbeabletoeditdeletefileafterthat @sprint-25-US-295138  @addFiles
   Scenario: Verify if peer reviewer submits the review after that we take away the edit access so reviewer will not be able to edit/delete file after that
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
