@@ -6029,7 +6029,7 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Step Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 30              | 1                                         | Check   |
+      | Pre-Screen | 30              | 1                                         | Check     f|
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     And I pause execution for "5" seconds
     #Bug444555
