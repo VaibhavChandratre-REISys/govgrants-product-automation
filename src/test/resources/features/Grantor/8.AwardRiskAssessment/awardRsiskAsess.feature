@@ -294,7 +294,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Automation Permanent Focus Area | 0          | 3650     |
 And I refresh the page
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account              | Encumbrance |
+| Funding Account              | Obligation |
 | {SavedValue:fundingAccount1} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -483,7 +483,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Automation Permanent Focus Area | 0          | 3650     |
 And I refresh the page
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account             | Encumbrance |
+| Funding Account             | Obligation |
 | {SavedValue:fundingAccount} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -671,7 +671,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Automation Permanent Focus Area | 0          | 3650     |
 And I refresh the page
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account             | Encumbrance |
+| Funding Account             | Obligation |
 | {SavedValue:fundingAccount} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -787,7 +787,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Automation Permanent Focus Area | 0          | 3650     |
 And I refresh the page
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account             | Encumbrance |
+| Funding Account             | Obligation |
 | {SavedValue:fundingAccount} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -936,7 +936,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Automation Permanent Focus Area | 0          | 3650     |
 And I refresh the page
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account             | Encumbrance |
+| Funding Account             | Obligation |
 | {SavedValue:fundingAccount} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -1077,7 +1077,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Automation Permanent Focus Area | 0          | 3650     |
 And I refresh the page
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account             | Encumbrance |
+| Funding Account             | Obligation |
 | {SavedValue:fundingAccount} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -1199,7 +1199,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Automation Permanent Focus Area | 0          | 3650     |
 And I refresh the page
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account             | Encumbrance |
+| Funding Account             | Obligation |
 | {SavedValue:fundingAccount} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -1322,7 +1322,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Automation Permanent Focus Area | 0          | 3650     |
 And I refresh the page
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account             | Encumbrance |
+| Funding Account             | Obligation |
 | {SavedValue:fundingAccount} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -1442,7 +1442,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Automation Permanent Focus Area | 0          | 3650     |
 And I refresh the page
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account             | Encumbrance |
+| Funding Account             | Obligation |
 | {SavedValue:fundingAccount} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -1563,7 +1563,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Automation Permanent Focus Area | 0          | 3650     |
 And I refresh the page
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account             | Encumbrance |
+| Funding Account             | Obligation |
 | {SavedValue:fundingAccount} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -1718,7 +1718,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Automation Permanent Focus Area | 0          | 3650     |
 And I refresh the page
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account             | Encumbrance |
+| Funding Account             | Obligation |
 | {SavedValue:fundingAccount} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -1842,7 +1842,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Automation Permanent Focus Area | 0          | 3650     |
 And I refresh the page
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account             | Encumbrance |
+| Funding Account             | Obligation |
 | {SavedValue:fundingAccount} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -1938,7 +1938,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Automation Permanent Focus Area | 0          | 3650     |
 And I refresh the page
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account             | Encumbrance |
+| Funding Account             | Obligation |
 | {SavedValue:fundingAccount} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -4128,7 +4128,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Title                           | Start Date | End Date |
 | Automation Permanent Focus Area | 0          | 3650     |
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account             | Encumbrance |
+| Funding Account             | Obligation |
 | {SavedValue:fundingAccount} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -4568,7 +4568,7 @@ When I click on top right button "Associate" in flex table with id "---subAwardS
 When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
 When I close "Associate Funding Accounts" modal by clicking the top right x button
 When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-| Funding Account             | Encumbrance |
+| Funding Account             | Obligation |
 | {SavedValue:fundingAccount} | 1000        |
 And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
 | Budget Category | Award Amount | Cash Match | Non-Cash Match |
