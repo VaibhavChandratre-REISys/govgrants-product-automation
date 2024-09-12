@@ -17,7 +17,7 @@ public final class Modal {
         By modalButton = getModalContentSpecificButton(buttonName);
         try {
             govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
-            I.amPerforming().click().withJavaScript(modalButton, false);
+            I.amPerforming().click().on(modalButton, false);
             govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         } catch (Exception ee) {
             try {

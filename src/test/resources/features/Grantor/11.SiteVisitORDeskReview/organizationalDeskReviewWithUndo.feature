@@ -1,7 +1,7 @@
 @organizationalDeskReviewUndo @grantor-regression @grantor-parallel-regression @siteVisit @regression
 Feature: Validate all scenarios in Organizational Desk Review Without Undo
 
-  @308889 @ODR-VerifythatUNDOiconorbuttonisnotavailableontheactionbuttonsofOrganizationDeskreviewrecordontablethatispresentonsidebarorphaselevelorthatonOrganization @sprint-7-US-306815 @Undo @TBExecution
+  @308889 @ODR-VerifythatUNDOiconorbuttonisnotavailableontheactionbuttonsofOrganizationDeskreviewrecordontablethatispresentonsidebarorphaselevelorthatonOrganization @sprint-7-US-306815 @Undo
   Scenario:ODR-Verify that UNDO icon or button is not  available on the action buttons of Organization Desk review record on table that is present on side bar or phase level or that on Organization
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab

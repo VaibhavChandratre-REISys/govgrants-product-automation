@@ -767,7 +767,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "Notify" in the page details
     Then I softly can see top right button "Conduct" in page detail
 
-  @55792 @internalParticipantAssociationSiteVisit @TBExecution
+  @55792 @internalParticipantAssociationSiteVisit
   Scenario Outline: Internal Participant Association of Site Visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
