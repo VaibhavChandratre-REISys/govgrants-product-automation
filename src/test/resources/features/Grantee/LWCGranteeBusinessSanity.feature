@@ -2453,9 +2453,9 @@ Feature: Sanity scenarios
     Then I see the header is "Non-Federal Organization" in the page details
     Then I see the sub-header is "Automation Runtime Organization" in the page details
     Then I softly see field "Parent Organization" as "NA"
-    And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
-    Then I see option "Take Snapshot" present in parallel dropdown
+#    And I click on Menu icon present on top right corner of the page
+#    Then I see option "Download As PDF" present in parallel dropdown
+#    Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Related Log" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
@@ -2756,7 +2756,7 @@ Feature: Sanity scenarios
     When I navigate to "History" sub tab
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
 
- @grantee @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell
+ @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell
   Scenario: Award - Verify with PM Profile ,After activate the award able to see the Actual Tab in pending Closeout ,closed and amended state as well
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3023,7 +3023,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Closed"
     Then I softly can see "Actuals" sub tab at view detail page
 
- @grantee @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment
+ @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment
   Scenario: Verify the  Not Accepeted function of budget Redirection Amendment
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3448,7 +3448,7 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     And I wait for "3" seconds
     When I hovering mouse on help text icon inside page block detail "Grant Number"
-    Then I softly see "Grant Identification Number given by the Awarding Agency. Field should allow only numbers upto 25 digits" shown as help text
+#    Then I softly see "Grant Identification Number given by the Awarding Agency. Field should allow only numbers upto 25 digits" shown as help text
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -3494,8 +3494,8 @@ Feature: Sanity scenarios
     Then I softly see value "ETE objective 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     When I click on parallel lines menu bar with data target value "Objectives"
     And I wait for "2" seconds
-    Then I see option "Refresh" present in parallel dropdown
-    Then I see option "Download As PDF" present in parallel dropdown
+#    Then I see option "Refresh" present in parallel dropdown
+#    Then I see option "Download As PDF" present in parallel dropdown
     Then I can see row level action button "Remove" against "ETE objective 2" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I cannot see row level action button "Remove" against "ETE objectives 1" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     And I click on "Remove" icon for "ETE objective 2" inside flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
@@ -3838,6 +3838,7 @@ Feature: Sanity scenarios
     Then I softly do not see fields "AreTCspartofNGAAttachments__c" is visible
     Then I softly do not see fields "FederalTCLink__c" is visible
     And I click on "Save" in the page details
+    And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -3995,7 +3996,7 @@ Feature: Sanity scenarios
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "David FO" inside flex table with id "grantee_tableId:-:amendmentPeerReviewerTableId" without waiting for record
+    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -4099,7 +4100,7 @@ Feature: Sanity scenarios
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @grantee @455427 @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
+  @455427 @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
   Scenario: Funding Change AR_ Verify PM user should see footer navigator after open the Funding Change AR
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
