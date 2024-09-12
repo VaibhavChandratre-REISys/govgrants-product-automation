@@ -4736,8 +4736,8 @@ Then I softly see value "Created" for title "Original Value" inside field histor
 Then I softly see value "Active" for title "New Value" inside field history table
 Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
 And I click on back arrow
-Then I softly see snapshot with name containing "Subaward Risk Assessment.pdf" as name
-Then I softly see snapshot with user containing "{SavedValue:PM Username}" against the value "Subaward Risk Assessment.pdf"
+Then I softly see snapshot with name containing "Award Risk Assessment.pdf" as name
+Then I softly see snapshot with user containing "{SavedValue:PM Username}" against the value "Award Risk Assessment.pdf"
 Then I softly see snapshot with name containing "Risk Assessment Activation/Rejection.pdf" as name
 Then I softly see snapshot with user containing "{SavedValue:FD Username}" against the value "Risk Assessment Activation/Rejection.pdf"
 
