@@ -4054,6 +4054,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Approach       | 30                 |
     And I expand nested table containing column value "Approach"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
@@ -4066,6 +4067,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Impact         | 30                 |
     And I expand nested table containing column value "Impact"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
