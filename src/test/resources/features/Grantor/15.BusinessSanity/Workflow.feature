@@ -1543,14 +1543,14 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-   @tst1
-   Scenario:
-     When I login to "As a Grantor" app as "PM" user
-     And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fJr2YAE/view"
-     And I wait for "10" seconds
-     When I navigate to "Setup" sub tab
-     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-     When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-     When I click modal button "Close"
-     And I wait for "3" seconds
-     And I halt execution
+  @tst1
+  Scenario:
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fJycYAE/view"
+    And I wait for "10" seconds
+    And I navigate to "Setup" sub tab
+    And I expand nested table containing column value "Pre-Screen Review"
+    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
+      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required?|
+      | Pre-Screen | 100             | 1                                         | Check     |
+    And I halt execution

@@ -3851,7 +3851,7 @@ Feature: Validate all scenarios for program
       The EGMS Team.
       """
 
-  @224662 @ValidateInternalProgramfailureemailshouldgeneratedforapproversandsuccessemailgeneratedforpeerreviewers @sprint-12-US-226646  @reassignment @TBExecution1
+  @224662 @ValidateInternalProgramfailureemailshouldgeneratedforapproversandsuccessemailgeneratedforpeerreviewers @sprint-12-US-226646  @reassignment
   Scenario: Validate Internal Program failure email should generated for approvers and success email generated for peer reviewers
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -3942,72 +3942,72 @@ Feature: Validate all scenarios for program
     Then I softly do not see value "{SavedValue:ProgramEGMSID1}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
-#    And I pause execution for "120" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Task Reassignment Report
-#      """
-#
-#    Then I see the mail text is as follows :
-#      """
-#      Hello,
-#
-#      The task(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
-#
-#      EGMS ID Type Status Subject Assigned By Due Date
-#
-#
-#      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-#      Login in to EGMS and click on EGMS IDs to access the assigned record.
-#
-#
-#      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
-#
-#      EGMS ID Type Status Subject Assigned By Reason of Failure
-#      {SavedValue:ProgramEGMSID} Approve Program Not Started Approve Program {SavedValue:ProgramEGMSID} Automation PM You cannot specify the same user for multiple steps for Program
-#
-#
-#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-#
-#      Thank you,
-#
-#      The EGMS Team.
-#      """
-#    Given I am on "INTERNAL" portal
-#    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
-#    And I pause execution for "180" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Task Reassignment Report
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#      Hello,
-#
-#      The task(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
-#
-#      EGMS ID Type Status Subject Assigned By Due Date
-#      {SavedValue:ProgramEGMSID1} Review Grantor Program Not Started Review Program {SavedValue:ProgramEGMSID1} Automation PM {Date:yyyy-MM-dd 00:00:00::d+10}
-#
-#
-#      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-#      Login in to EGMS and click on EGMS IDs to access the assigned record.
-#
-#
-#      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
-#
-#      EGMS ID Type Status Subject Assigned By Reason of Failure
-#
-#
-#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-#
-#      Thank you,
-#
-#      The EGMS Team.
-#      """
+    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I pause execution for "120" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Task Reassignment Report
+      """
+
+    Then I see the mail text is as follows :
+      """
+      Hello,
+
+      The task(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
+
+      EGMS ID Type Status Subject Assigned By Due Date
+
+
+      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
+      Login in to EGMS and click on EGMS IDs to access the assigned record.
+
+
+      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
+
+      EGMS ID Type Status Subject Assigned By Reason of Failure
+      {SavedValue:ProgramEGMSID} Approve Program Not Started Approve Program {SavedValue:ProgramEGMSID} Automation PM You cannot specify the same user for multiple steps for Program
+
+
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+      Thank you,
+
+      The EGMS Team.
+      """
+    Given I am on "INTERNAL" portal
+    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I pause execution for "180" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Task Reassignment Report
+      """
+    Then I see the mail text is as follows :
+      """
+      Hello,
+
+      The task(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
+
+      EGMS ID Type Status Subject Assigned By Due Date
+      {SavedValue:ProgramEGMSID1} Review Grantor Program Not Started Review Program {SavedValue:ProgramEGMSID1} Automation PM {Date:yyyy-MM-dd 00:00:00::d+10}
+
+
+      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
+      Login in to EGMS and click on EGMS IDs to access the assigned record.
+
+
+      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
+
+      EGMS ID Type Status Subject Assigned By Reason of Failure
+
+
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+      Thank you,
+
+      The EGMS Team.
+      """
     Given I am on "INTERNAL" portal
     Given I login to "As a Grantor" app as "PM1" user
     And I navigate to "Home" tab
