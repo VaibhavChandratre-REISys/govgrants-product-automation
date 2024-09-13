@@ -42,7 +42,8 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
-    Then I cannot see top right button "New" for "---program:-:programsTableId---" flex table
+    Then I softly do not see top right button "New" inside flex table "---program:-:programsTableId--"
+#    Then I cannot see top right button "New" for "---program:-:programsTableId---" flex table
     Examples:
       | User    |
       | AUDITOR |
@@ -53,7 +54,8 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
-    Then I can see top right button "New" in flex table with id "---program:-:programsTableId---"
+    Then I softly see top right button "New" inside flex table "---program:-:programsTableId--"
+#    Then I can see top right button "New" in flex table with id "---program:-:programsTableId---"
     Examples:
       | User  |
       | PM    |
