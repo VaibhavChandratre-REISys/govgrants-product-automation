@@ -2286,7 +2286,7 @@ Feature: Validate all scenarios for program
     Then I softly can see row level action button "Edit" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Delete" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
 
-  @77173 @77176 @77174 @ValidatingPDFModificationDeletionInMatchFiscalReviewForm @TBExecution
+  @77173 @77176 @77174 @ValidatingPDFModificationDeletionInMatchFiscalReviewForm
   Scenario Outline:  To verify user allow to download PDF for review question in match of Review Panel Categories in Fiscal review form for SME review step in planning phase
   | To verify user able to modify review question in Match of Review Panel Categories in fiscal review form for SME review step in planning phase
   | To verify user able to delete review question with success message in Match of Review Panel Categories in fiscal review form for SME review step in planning phase
@@ -2617,8 +2617,10 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I expand nested table containing column value "Approach"
+    And I click on parallel menu button in flex table title "Review Questions"
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
     And I download the file
+    And I wait for "5" seconds
     Then I softly see "Capability" on page "1" of "govgrants" pdf file
     Then I softly see "Approach" on page "1" of "govgrants" pdf file
     Then I softly see "Impact" on page "2" of "govgrants" pdf file
@@ -2659,7 +2661,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77293 @77294 @77343 @AdditionPDFModificationInImpact @TBExecution
+  @77293 @77294 @77343 @AdditionPDFModificationInImpact
   Scenario Outline: To verify user able to add new review question with success message in Impact of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user allow to download PDF for review question in Impact of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user able to modify review question in Impact of Review Panel Categories in Program review form for SME review step in planning phase
@@ -2696,7 +2698,7 @@ Feature: Validate all scenarios for program
     And I click on parallel menu button in flex table title "Review Questions"
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
     And I download the file
-    And I wait for "5" seconds
+    And I wait for "8" seconds
     Then I softly see "Capability" on page "1" of "govgrants" pdf file
     Then I softly see "Approach" on page "1" of "govgrants" pdf file
     Then I softly see "Impact" on page "2" of "govgrants" pdf file
@@ -2821,10 +2823,11 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Reviewers are not required for optional panels |
     And I refresh the page
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Form Name     | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
       | Fiscal Review | 30              | Unchecked | 1                                         |
-    And I wait for "4" seconds
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Reviewers are not required for optional panels |
     And I refresh the page
