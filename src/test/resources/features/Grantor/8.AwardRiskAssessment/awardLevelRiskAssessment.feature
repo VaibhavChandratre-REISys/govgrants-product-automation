@@ -395,7 +395,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @58817 @59253 @activeRiskAssesmentRequiredToIssueAward
+  @58817 @59253 @activeRiskAssesmentRequiredToIssueAward @TBExecution3
   Scenario Outline: Validate system generates a message to enforce the user to activate risk assessment before issuing an award or the system generates an error message when Risk Assessment Required =Yes.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -424,8 +424,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Obligation |
       | {SavedValue:fundingAccount} | 1000       |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-      | Construction    | 1000         | 100        | 100            |
+      | Budget Category      | Award Amount | Cash Match | Non-Cash Match |
+      | Administrative Costs | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -549,7 +549,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Management" sub tab
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-  @58820 @58180 @58937 @61383 @66070 @recipientCanViewActiveRAeditButtonAfterSubmitforApprovalcreationofSecondRA @smoke
+  @58820 @58180 @58937 @61383 @66070 @recipientCanViewActiveRAeditButtonAfterSubmitforApprovalcreationofSecondRA @smoke @TBExecution3
   Scenario: Validate Subrecipients can view the Active Risk Assessment and Award Owner is not allowed to Edit the Risk Assessment post submitting it for approval and Pending task is created for the Fiscal approver when Program approver approves the RA and completed task
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -578,8 +578,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Obligation |
       | {SavedValue:fundingAccount} | 1000       |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-      | Construction    | 1000         | 100        | 100            |
+      | Budget Category      | Award Amount | Cash Match | Non-Cash Match |
+      | Administrative Costs | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -759,7 +759,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     Then I can see row level action button "Edit" against "Record Id" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 
-  @58822 @riskAssessmentRevisionBeforeAwardActivation
+  @58822 @riskAssessmentRevisionBeforeAwardActivation @TBExecution3
   Scenario Outline: Validate the 'New' Button  availability to create  a new Risk Assessment is not available to Award Owner after award activation
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -788,8 +788,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Obligation |
       | {SavedValue:fundingAccount} | 1000       |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-      | Construction    | 1000         | 100        | 100            |
+      | Budget Category      | Award Amount | Cash Match | Non-Cash Match |
+      | Administrative Costs | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1268,7 +1268,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     Then I can see top right button "Edit" in page detail
 
-  @59806 @riskAssessmentFieldColorChangestoGreen
+  @59806 @riskAssessmentFieldColorChangestoGreen @TBExecution3
   Scenario: Validate the moderate level of Risk Assessment, that changes to Green color as per the provided Assessment.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1288,6 +1288,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
+    And I navigate to "Assessment" sub tab
     And I enter "RiskAssessmentValues" values from "RiskAssessment_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -1463,7 +1464,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on hyperlink containing value "View All"
     Then I see value "Created" for title "New Value" inside field history table
 
-  @59810 @newbuttonHiddenWhenSubmittedforApproval  @smoke
+  @59810 @newbuttonHiddenWhenSubmittedforApproval  @smoke @TBExecution3
   Scenario: Validate whether the record owner is not allowed to creating new risk assessment when only the Program approval is complete and risk assessment is in submit for approval status
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1516,7 +1517,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "Save and Continue" in the page details
     And I wait for "3" seconds
     Then I see the following messages in the page details contains:
-      | Management Tab - Subaward risk assessment has already been created or is in progress. Another risk assessment can only be created once the current assessment expires or if a revision to an active risk assessment is required. |
+      | Management Tab - award risk assessment has already been created or is in progress. Another risk assessment can only be created once the current assessment expires or if a revision to an active risk assessment is required. |
 
   @59811 @userApprovesForwardedRiskAssessment
   Scenario: Verify whether user is able to approve the forwarded Risk Assessment
@@ -1681,7 +1682,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
 
-  @63985 @recordOwnerCannotCreateNewRAWhenInSubmittedForApproval
+  @63985 @recordOwnerCannotCreateNewRAWhenInSubmittedForApproval @TBExecution3
   Scenario Outline: Validate when an award was activated with one active risk assessment and has other risk assessment which in created state should not get submitted for approval
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1711,8 +1712,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Obligation |
       | {SavedValue:fundingAccount} | 1000       |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-      | Construction    | 1000         | 100        | 100            |
+      | Budget Category      | Award Amount | Cash Match | Non-Cash Match |
+      | Administrative Costs | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1869,7 +1870,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @59876 @reviewerCanEditAssessmentFormWhenAllowRecordEditingIsSetAsYes  @smoke
+  @59876 @reviewerCanEditAssessmentFormWhenAllowRecordEditingIsSetAsYes  @smoke @TBExecution3
   Scenario: Validate when Allow Record Editing is set to 'Yes' then reviewer can Edit the Risk Assessment form
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1988,7 +1989,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "RiskAssessmentApproverRoles"
 
-  @59960 @intialRiskAssessmentMarkedAsExpired @smoke
+  @59960 @intialRiskAssessmentMarkedAsExpired @smoke @TBExecution3
   Scenario Outline: Validate when the Award is activated whether SR user can view the second Risk Assessment that was in Created Status
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2054,8 +2055,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Obligation |
       | {SavedValue:fundingAccount} | 1000       |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-      | Construction    | 1000         | 100        | 100            |
+      | Budget Category      | Award Amount | Cash Match | Non-Cash Match |
+      | Administrative Costs | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -2630,7 +2631,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 
-  @60566 @ViewActiveRAFromOrganizationProfilePage  @smoke
+  @60566 @ViewActiveRAFromOrganizationProfilePage  @smoke @TBExecution3
   Scenario Outline: Validate Risk Assessment Active Status should be displayed to SR user from Organizational Profile page.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2659,8 +2660,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Obligation |
       | {SavedValue:fundingAccount} | 1000       |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-      | Construction    | 1000         | 100        | 100            |
+      | Budget Category      | Award Amount | Cash Match | Non-Cash Match |
+      | Administrative Costs | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -2843,7 +2844,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "View" icon for "{SavedValue:ExpiredID}" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
     Then I see status in Progress-bar is "Expired" and is "dark blue"
 
-  @60811 @60817 @viewExpiredRAOnceAwardIsActivatedFromOrganizationProfilePage
+  @60811 @60817 @viewExpiredRAOnceAwardIsActivatedFromOrganizationProfilePage @TBExecution3
   Scenario:  Validate whether Subrecipients can view the Expired Risk Assessment from the Monitoring Phase level table and  Expired Status should be displayed to SR user from Organizational Profile page.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2872,8 +2873,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Funding Account             | Obligation |
       | {SavedValue:fundingAccount} | 1000       |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-      | Construction    | 1000         | 100        | 100            |
+      | Budget Category      | Award Amount | Cash Match | Non-Cash Match |
+      | Administrative Costs | 1000         | 100        | 100            |
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -3174,7 +3175,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Overview" sub tab
     Then I see "Risk Level" image as "b-ylw.png"
 
-  @62093 @59255 @overallRiskFieldAvailabilityToSRProfileUserk
+  @62093 @59255 @overallRiskFieldAvailabilityToSRProfileUserk @TBExecution3
   Scenario:  Verify whether SPI profile User can view the section Overview for Overall Risk Calculation for a Sub Recipient Organization
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
