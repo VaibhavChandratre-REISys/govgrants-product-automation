@@ -217,10 +217,10 @@ public class UsersAndURL implements UsersController {
         username.put("PO", "automationpo@yopmail.com.vaqaorg");
         username.put("FD", "automationfd@yopmail.com.vaqaorg");
         username.put("PM1", "pm1.automation@yopmail.com.vaqaorg");
-        username.put("EXE1", "exe1.automation@yopmail.com.qaorg");
-        username.put("PO1", "automationpo1@yopmail.com.qaorg");
-        username.put("FO1", "fo1.automation@yopmail.com.qaorg");
-        username.put("FD1", "automationfd1@yopmail.com.qaorg");
+        username.put("EXE1", "exe1.automation@yopmail.com.vaqaorg");
+        username.put("PO1", "automationpo1@yopmail.com.vaqaorg");
+        username.put("FO1", "fo1.automation@yopmail.com.vaqaorg");
+        username.put("FD1", "automationfd1@yopmail.com.vaqaorg");
         username.put("SPI3", "automationspi31@yopmail.com.vaqaorg");
         username.put("SPA", "spa.automation@yopmail.com.vaqaorg");
         username.put("SA", "sa.automationvaorg@yopmail.com.vaqaorg");
