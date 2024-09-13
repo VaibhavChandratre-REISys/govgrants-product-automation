@@ -3285,7 +3285,7 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
-      | Pre-Screen | Unchecked | 0               | 0                                         |
+      | Pre-Screen | checked   | 0               | 1                                         |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
