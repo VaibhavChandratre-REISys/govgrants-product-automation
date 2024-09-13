@@ -43,7 +43,7 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
     And I wait for "2" seconds
-    Then I softly see top right button "New" inside flex table "---program:-:programsTableId--"
+    Then I softly see top right button "New" inside flex table "---program:-:programsTableId---"
 #    Then I cannot see top right button "New" for "---program:-:programsTableId---" flex table
     Examples:
       | User    |
