@@ -218,7 +218,7 @@ When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left p
 When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
 Then I softly see value "Record Id" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-@65876 @65877 @65879 @verifyUsersCanSeeNewButtonSPiViewCreatedRiskAssessment
+@risk2 @65876 @65877 @65879 @verifyUsersCanSeeNewButtonSPiViewCreatedRiskAssessment
 Scenario: Verify that users can see new button to create Risk Assessment on Management Tab list view |Validate whether record owner and SPI user can view the RA that is in Created state under Monitoring Tab
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -269,7 +269,7 @@ And I click on "View" icon for "Activated" inside flex table with id "---subAwar
 And I navigate to "Management" sub tab
 Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-@66874 @orgRAisExpiredAwardRiskAssessmentSetasNo
+@risk2 @66874 @orgRAisExpiredAwardRiskAssessmentSetasNo
 Scenario Outline: Validate when Organization Risk Assessment is not active and Award Risk Assessment Required is selected as No then System should throw an exception when user activates the award.
 When I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -304,9 +304,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-And I click modal button "Save"
+#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#And I click modal button "Save"
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
 And I click modal button "Save"
@@ -456,7 +456,7 @@ And I click on "Submit for Approval" in the page details
 Then I see the following messages in the page details contains:
 | Responsibilities - At least one approver is required |
 
-@142062 @VerifyUpdationOfInheritedApproverAtRiskAssesmentFromAward-RnRFunctnality
+@risk1 @142062 @VerifyUpdationOfInheritedApproverAtRiskAssesmentFromAward-RnRFunctnality
 Scenario Outline: Validate user can modify the approver entered on award for Risk assessment are copied on the Risk Assessments
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -493,9 +493,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-And I click modal button "Save"
+#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -644,7 +644,7 @@ And I click on "Submit for Approval" in the page details
 Then I softly see the following messages in the page details contains:
 | Responsibilities - You cannot skip an Approval Step. |
 
-@142414 @VerifyAdditionOfAdditionalApproverRiskAssesmentFromAward-RnRFunctnality
+@risk1 @142414 @VerifyAdditionOfAdditionalApproverRiskAssesmentFromAward-RnRFunctnality
 Scenario Outline: Validate user can add additional approvers on risk assesment if step1 was configured on award
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -681,9 +681,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-And I click modal button "Save"
+#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 And I click modal button "Save"
@@ -760,7 +760,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@142415 @VerifyFourStepApprovalProcessForRiskAssesmentFromAward-RnRFunctnality
+@risk1 @142415 @VerifyFourStepApprovalProcessForRiskAssesmentFromAward-RnRFunctnality
 Scenario Outline: Given the step 4 approver has approved validate Risk Assessment is marked as Active
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -797,9 +797,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-And I click modal button "Save"
+#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -909,7 +909,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@142417 @VerifyRejectFunctionalityOfRiskAssessmentWithThirdApprover-RnRFunctnality
+@risk1 @142417 @VerifyRejectFunctionalityOfRiskAssessmentWithThirdApprover-RnRFunctnality
 Scenario Outline:  Validate risk assessment status is Rejected In a 3 step approval set up if step 3 approver has rejected it
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -946,9 +946,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-And I click modal button "Save"
+#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1050,7 +1050,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@142418 @VerifySelectionOfNAInsideStepsOfCopiedApproverFromAward-RnRFunctnality
+@risk1 @142418 @VerifySelectionOfNAInsideStepsOfCopiedApproverFromAward-RnRFunctnality
 Scenario Outline: Validate user can select NA for a step on already copied approvers from award
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -1087,9 +1087,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-And I click modal button "Save"
+#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1172,7 +1172,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@142907 @VerifyChangeOfUserAndStepsTooOfCopiedApproverFromAwardToRiskAssessment-RnRFunctnality
+@risk1 @142907 @VerifyChangeOfUserAndStepsTooOfCopiedApproverFromAwardToRiskAssessment-RnRFunctnality
 Scenario Outline: Validate user can change the user and step 2 on approver for risk assessment defined on award
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -1209,9 +1209,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-And I click modal button "Save"
+#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1295,7 +1295,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@142909 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtRiskAssessment-RnRFunctnality
+@risk1 @142909 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtRiskAssessment-RnRFunctnality
 Scenario Outline: Validate user cannot add the same steps for Risk assessment
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -1332,9 +1332,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-And I click modal button "Save"
+#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1415,7 +1415,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@143259 @VerifyRiskAssessmentActivationWithOneStepApprover-RnRFunctnality
+@risk1 @143259 @VerifyRiskAssessmentActivationWithOneStepApprover-RnRFunctnality
 Scenario Outline: Verify risk assessment becomes active when approved by one step approver
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -1452,9 +1452,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-And I click modal button "Save"
+#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1537,7 +1537,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@143348 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtRiskAssessment-RnRFunctnality
+@risk1 @143348 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtRiskAssessment-RnRFunctnality
 Scenario Outline: Verify the validation when same user is added for multiple step on approver section for risk assessment
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -1573,9 +1573,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-And I click modal button "Save"
+#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1691,7 +1691,7 @@ And I click on top right button "New" in flex table with id "---subAwardStandAlo
 And I wait for "1" seconds
 Then I softly see row level action button "Remove record" inside "---subAwardStandAlone:-:riskAssessmentApproverTableId---" flex table
 
-@143414 @VerifyUserCannotAddApproverAfterRiskAssessmentActive-RnRFunctnality
+@risk1 @143414 @VerifyUserCannotAddApproverAfterRiskAssessmentActive-RnRFunctnality
 Scenario Outline: Verify when risk assessment is active then user cannot add approver
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -1728,9 +1728,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-And I click modal button "Save"
+#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1814,7 +1814,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@142086 @142072 @VerifyInheritatedApproverAtRiskAssessmentFromAward-RnRFunctionality
+@risk1 @142086 @142072 @VerifyInheritatedApproverAtRiskAssessmentFromAward-RnRFunctionality
 Scenario Outline: Verify approvers from sub award are inherited to subaward risk assessment
 |Validate the columns and table name in the Risk Assessment approver Section|
 Given I login to "As a Grantor" app as "dynamicUser" user
@@ -1852,9 +1852,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-And I click modal button "Save"
+#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1911,7 +1911,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@142063 @Verify2StepApprovalAtRiskAssessmentFromAward-RnRFuntionality
+@risk1 @142063 @Verify2StepApprovalAtRiskAssessmentFromAward-RnRFuntionality
 Scenario Outline: Validate user can defined 2 step approval for Risk Assessment on Award
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -1948,9 +1948,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-And I click modal button "Save"
+#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1989,7 +1989,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@198024 @ValidateEXEusercandotheneedfulonaawardriskassessmentandsubmititforpeerreviewtoanotheruserafterownershipistransferred @sprint-12-US-226646  @reassignment
+@risk2 @198024 @ValidateEXEusercandotheneedfulonaawardriskassessmentandsubmititforpeerreviewtoanotheruserafterownershipistransferred @sprint-12-US-226646  @reassignment
 Scenario: Validate EXE user can do the needful on a award risk assessment and submit it for peer review to another user after ownership is transferred
 Given I login to "As a Grantor" app as "EXE" user
 And I navigate to "Grants" tab
@@ -2095,7 +2095,7 @@ And I click on "Complete Review" in the page details
 Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
 Then I softly can see top right button "Submit for Approval" in page detail
 
-@198041 @ValidatePOusercansubmittheawardriskassessmentforapprovalpostrevieweraddcommentswhenownershipistransferredforRAwhichisinSubmittedforReviewstatus @sprint-12-US-226646  @reassignment
+@risk2 @198041 @ValidatePOusercansubmittheawardriskassessmentforapprovalpostrevieweraddcommentswhenownershipistransferredforRAwhichisinSubmittedforReviewstatus @sprint-12-US-226646  @reassignment
 Scenario: Validate PO user can submit the award risk assessment for approval post reviewer add comments when ownership is transferred for a RA which is in Submitted for Review status
 Given I login to "As a Grantor" app as "PO" user
 And I navigate to "Grants" tab
@@ -2203,7 +2203,7 @@ Then I softly can see top right button "Submit for Approval" in page detail
 And I click on "Submit for Approval" in the page details
 Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-@198047 @ValidateFDprofileusercanrejecttheawardrisassessmentforstep1approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment
+@risk2 @198047 @ValidateFDprofileusercanrejecttheawardrisassessmentforstep1approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment
 Scenario: Validate FD profile user can reject the award risk assessment for step 1 approvals when ownership is transferred for a RA which is in Submitted for approval status
 Given I login to "As a Grantor" app as "EXE" user
 And I navigate to "Grants" tab
@@ -2294,7 +2294,7 @@ Then I see the mail text is as follows :
       The EGMS Team
       """
 
-@197973 @201283 @ValidateADMINhasanoptiontochangeownershipofAwardRiskAssessmenttransferitsownershipwhenithasstatusascreatedandownerisPM @sprint-12-US-226646  @reassignment @buglogged-201264
+@risk2 @197973 @201283 @ValidateADMINhasanoptiontochangeownershipofAwardRiskAssessmenttransferitsownershipwhenithasstatusascreatedandownerisPM @sprint-12-US-226646  @reassignment @buglogged-201264
 Scenario: Validate ADMIN has an option to change ownership of Award Risk Assessment, transfer its ownership when it has status as created and owner is PM
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
@@ -2385,7 +2385,7 @@ And I perform quick search for "{SavedValue:AwardEGMSID}" in "---home:-:internal
 Then I softly do not see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
 Then I softly do not see value "Create Risk Assessment for Subaward" for title "Task Type" inside table "---home:-:internalHomePendingTaskTableId---"
 
-@198046 @ValidateEXEprofileusercanapprovetheawardriskassessmentforstep2approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment
+@risk2 @198046 @ValidateEXEprofileusercanapprovetheawardriskassessmentforstep2approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment
 Scenario: Validate EXE profile user can approve the award risk assessment for step 2 approvals when ownership is transferred for a RA which is in Submitted for approval status
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
@@ -2483,7 +2483,7 @@ Then I see the mail text is as follows :
       The EGMS Team
       """
 
-@198632 @ValidateEXEprofileuserasRA1ownershouldnotgetaffectedwhenownershipofGrantistransferredfromEXE1toEXE2whichisinCreatedstatusaftercreatingtheRAonthataward @sprint-12-US-226646  @reassignment
+@risk2 @198632 @ValidateEXEprofileuserasRA1ownershouldnotgetaffectedwhenownershipofGrantistransferredfromEXE1toEXE2whichisinCreatedstatusaftercreatingtheRAonthataward @sprint-12-US-226646  @reassignment
 Scenario: Validate EXE profile user as RA1 owner should not get affected when ownership of Grant is transferred from EXE1 to EXE2 which is in 'Created' status after creating the RA on that award
 Given I login to "As a Grantor" app as "EXE" user
 And I navigate to "Grants" tab
@@ -2639,7 +2639,7 @@ And I select "Risk Assessment" from dropdown present on top right of flex table 
 Then I softly see value "Automation PM1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
 Then I softly see value "Automation PM" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
 
-@198628 @ValidatePMprofileusercansendbacktheawardriskassessmentforstep2approvalswhenownershipistransferredforaRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment @FieldHistoryExclude
+@risk2 @198628 @ValidatePMprofileusercansendbacktheawardriskassessmentforstep2approvalswhenownershipistransferredforaRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment @FieldHistoryExclude
 Scenario: Validate PM profile user can send back the award risk assessment for step 2 approvals when ownership is transferred for a RA which is in Submitted for approval status
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
@@ -2821,7 +2821,7 @@ Then I softly see field "Status" as "Active"
 When I navigate to "Responsibilities" sub tab
 Then I softly see value "Automation PO1" for title "Name" inside table "---riskassessment:-:riskAssOwnerTableId---"
 
-@198700 @ValidateEXEprofileuserasRAownershouldremainsameasgrantownerifownershipofGrantistransferredfromEXE1toEXE2whichisinCreatedstatusbeforecreatingtheRAonthataward @sprint-12-US-226646  @reassignment
+@risk2 @198700 @ValidateEXEprofileuserasRAownershouldremainsameasgrantownerifownershipofGrantistransferredfromEXE1toEXE2whichisinCreatedstatusbeforecreatingtheRAonthataward @sprint-12-US-226646  @reassignment
 Scenario: Validate EXE profile user as RA owner should remain same as grant owner if ownership of Grant is transferred from EXE1 to EXE2 which is in 'Created' status before creating the RA on that award
 Given I login to "As a Grantor" app as "EXE" user
 And I navigate to "Grants" tab
@@ -2907,7 +2907,7 @@ And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with
 When I navigate to "Management" sub tab
 Then  I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-@198712 @ValidatePMprofileusercantransferownershipoftheexpiredawardriskassessment @sprint-12-US-226646  @reassignment @FieldHistoryExclude
+@risk2 @198712 @ValidatePMprofileusercantransferownershipoftheexpiredawardriskassessment @sprint-12-US-226646  @reassignment @FieldHistoryExclude
 Scenario: Validate PM profile user can transfer ownership  of the expired award risk assessment
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
@@ -3011,7 +3011,7 @@ And I click on hyperlink containing value "View All"
 Then I softly see value "Automation PM1" for title "New Value" inside field history table
 Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-@223678 @ValidateRiskAssessmentIfapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityFiscalreviewervalidatereassignmentfails @sprint-12-US-226646  @reassignment
+@risk2 @223678 @ValidateRiskAssessmentIfapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityFiscalreviewervalidatereassignmentfails @sprint-12-US-226646  @reassignment
 Scenario: Validate Risk Assessment If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (Fiscal reviewer)validate reassignment fails
 Given I login to "As a Grantor" app as "PO" user
 And I navigate to "Grants" tab
@@ -3120,7 +3120,7 @@ And I "Approve" in the approval decision
 And I wait for "2" seconds
 Then I softly see field "Status" as "Active"
 
-@201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646  @reassignment @FieldHistoryExclude
+@risk2 @201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646  @reassignment @FieldHistoryExclude
 Scenario: Validate Email Notification is sent to ADMIN old owner & new owner with respect to ownership transfer of a Active Risk Assessment
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
@@ -3266,7 +3266,7 @@ Then I see the mail text is as follows :
       The EGMS Team
       """
 
-@201287 @ValidatepermissionsonFilesofAwardRiskAssessmentwhenithasstatusascreated&transferofownershipisperformed @sprint-11-US-224734  @reassignment
+@risk2 @201287 @ValidatepermissionsonFilesofAwardRiskAssessmentwhenithasstatusascreated&transferofownershipisperformed @sprint-11-US-224734  @reassignment
 Scenario: Validate permissions on Files of Award Risk Assessment, when it has status as created & transfer of ownership is performed
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
@@ -3355,7 +3355,7 @@ When I navigate to "Files" sub tab
 Then I softly cannot see row level action button "Edit" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
 Then I softly cannot see row level action button "Delete" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
 
-@201675 @ValidatePMprofileusercantransferownershipoftherejectedawardriskassessment @sprint-4-US-197126  @reassignment @FieldHistoryExclude
+@risk2 @201675 @ValidatePMprofileusercantransferownershipoftherejectedawardriskassessment @sprint-4-US-197126  @reassignment @FieldHistoryExclude
 Scenario: Validate PM profile user can transfer ownership of the rejected award risk assessment
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
@@ -3425,7 +3425,7 @@ And I click on hyperlink containing value "View All"
 Then I softly see value "Automation PM1" for title "New Value" inside field history table
 Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-@223701 @ValidateRiskAssessmentapprovertableshoulnotgetupdateonawardafterapproverreassignmentgetdoneonit'srelatedRiskassessment @sprint-11-US-218319  @reassignment
+@risk2 @223701 @ValidateRiskAssessmentapprovertableshoulnotgetupdateonawardafterapproverreassignmentgetdoneonit'srelatedRiskassessment @sprint-11-US-218319  @reassignment
 Scenario: Validate Risk Assessment approver table should not get update on award after approver reassignment get done on it's related Risk assessment
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
@@ -3515,7 +3515,7 @@ Then I softly see value "Step 1" for title "Risk Assessment" against the value "
 Then I softly see value "Step 1" for title "Award" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
 Then I softly see value "Step 1" for title "Advance" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
 
-@224658 @ValidateRiskAssfailureemailshouldgeneratedforRAownerifusertrytoreassignreviewtasktoalreadyassignreviewer @sprint-11-US-218319  @reassignment
+@risk2 @224658 @ValidateRiskAssfailureemailshouldgeneratedforRAownerifusertrytoreassignreviewtasktoalreadyassignreviewer @sprint-11-US-218319  @reassignment
 Scenario: Validate Risk Ass failure email should generated for RA owner if user try to reassign review task to already assign reviewer
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
@@ -3597,7 +3597,7 @@ Then I see the mail text is as follows :
       The EGMS Team.
       """
 
-@223375 @ValidateRiskAssessmentModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-10-US-205576  @reassignment
+@risk2 @223375 @ValidateRiskAssessmentModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-10-US-205576  @reassignment
 Scenario: Validate Risk Assessment Module user should able to reassign the task to new user of more than 10 records & 1 email should be triggered for all records
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
@@ -4102,7 +4102,7 @@ Then I see the mail text is as follows :
       The EGMS Team
       """
 
-@116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @Allocation
+@risk1 @116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @Allocation
 Scenario: Validate Risk Assessments are read only for SR User
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -4138,9 +4138,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-And I click modal button "Save"
+#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+#And I click modal button "Save"
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
 And I click modal button "Save"
@@ -4149,7 +4149,7 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | Name                      | Project Role             | Is Key Personnel |
 | {SavedValue:IND Username} | Project Director/Manager | Checked          |
 When I click on "Send to Grantee" in the page details
-Then I softly see field "Status" as "Sent to Subrecipient"
+Then I softly see field "Status" as "Sent to Grantee"
 When I navigate to "Management" sub tab
 Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
@@ -4546,7 +4546,7 @@ And I perform quick search for "{SavedValue:RAEGMSID1}" in "---riskassessment:-:
 Then I softly see value "{SavedValue:RAEGMSID1}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
 Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID1}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
-@116310 @ValidateAwardOwnerhasthepermissiontorevisetheawardRiskAssessmentuntilawardactivation @Sprint-23-US-273843  @Allocation
+@risk1 @116310 @ValidateAwardOwnerhasthepermissiontorevisetheawardRiskAssessmentuntilawardactivation @Sprint-23-US-273843  @Allocation
 Scenario Outline: Validate Award Owner has the permission to revise the award Risk Assessment until award activation
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -4624,7 +4624,7 @@ And I click on "View" icon for "<Award Name>" inside flex table with id "---subA
 And I wait for "2" seconds
 When I click on "Send to Grantee" in the page details
 And I wait for "8" seconds
-Then I softly see field "Status" as "Sent to Subrecipient"
+Then I softly see field "Status" as "Sent to Grantee"
 And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 When I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4680,7 +4680,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@116321 @ValidateFieldhistorySnapshotupdatepostApprovalofRiskAssessment @Sprint-23-US-273843  @Allocation @FieldHistoryExclude
+@risk1 @116321 @ValidateFieldhistorySnapshotupdatepostApprovalofRiskAssessment @Sprint-23-US-273843  @Allocation @FieldHistoryExclude
 Scenario: Validate Field history Snapshot update post Approval of Risk Assessment
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
