@@ -284,7 +284,7 @@ Feature: Validate all scenarios for program
    #   | Record deleted successfully. |
     Then I softly do not see value "Environment Test" for title "Section Header" inside table "---program:-:programReviewPanel---"
 
-  @76294 @76295 @76296 @76297 @76298 @76486 @76497 @76498 @76566 @76567 @76570 @76571 @76572 @76573 @76574 @76496
+  @76294 @76295 @76296 @76297 @76298 @76486 @76497 @76498 @76566 @76567 @76570 @76571 @76572 @76573 @76574 @76496 @TBExecution1
   Scenario: To validate the filters of program review panel
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
@@ -303,8 +303,8 @@ Feature: Validate all scenarios for program
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 100             | 1                                         | Checked   |
+      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | Checked   | 100             | 1                                         |
     And I pause execution for "5" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
@@ -2620,7 +2620,7 @@ Feature: Validate all scenarios for program
     And I click on parallel menu button in flex table title "Review Questions"
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
     And I download the file
-    And I wait for "5" seconds
+    And I wait for "8" seconds
     Then I softly see "Capability" on page "1" of "govgrants" pdf file
     Then I softly see "Approach" on page "1" of "govgrants" pdf file
     Then I softly see "Impact" on page "2" of "govgrants" pdf file
@@ -2818,22 +2818,22 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 25              |
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
-      | Form Name         | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Compliance Review | 30              | Unchecked | 1                                         |
+      | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Compliance Review | Unchecked | 30              | 1                                         |
     Then I softly see the following messages in the page details contains:
       | Reviewers are not required for optional panels |
     And I refresh the page
-    And I wait for "2" seconds
+    And I wait for "1" seconds
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
-      | Form Name     | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Fiscal Review | 30              | Unchecked | 1                                         |
+      | Form Name     | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Fiscal Review | Unchecked | 30              | 1                                         |
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Reviewers are not required for optional panels |
     And I refresh the page
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
-      | Form Name      | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Program Review | 50              | Unchecked | 1                                         |
+      | Form Name      | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Program Review | Unchecked | 50              | 1                                         |
     Then I softly see the following messages in the page details contains:
       | Reviewers are not required for optional panels |
     Examples:
@@ -3274,8 +3274,8 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 100             | 1                                         | Checked   |
+      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | Checked   | 100             | 1                                         |
     Then I softly see the following messages in the page details contains:
       | Reviewers are not required for optional panels |
     And I refresh the page
@@ -3284,8 +3284,8 @@ Feature: Validate all scenarios for program
     And I wait for "1" seconds
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 0               | 0                                         | Unchecked |
+      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | Unchecked | 0               | 0                                         |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
@@ -3298,8 +3298,8 @@ Feature: Validate all scenarios for program
     And I wait for "1" seconds
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 0               | 1                                         | Checked   |
+      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | Checked   | 0               | 1                                         |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
@@ -4839,8 +4839,8 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 25              |
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 100             | 1                                         | Checked   |
+      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | Checked   | 100             | 1                                         |
     When I collapse nested table containing column value "Pre-Screen Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "Pre-Screen Review"

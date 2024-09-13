@@ -1543,14 +1543,14 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-  @tst1
+  @tst1 @debug
   Scenario:
     When I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fJycYAE/view"
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fJgOYAU/view"
     And I wait for "10" seconds
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required?|
-      | Pre-Screen | 100             | 1                                         | Check     |
+      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | Checked   | 100             | 1                                         |
     And I halt execution
