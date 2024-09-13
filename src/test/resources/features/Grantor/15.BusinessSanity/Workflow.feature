@@ -1573,4 +1573,6 @@ Feature: Validate all scenarios of every modules flow
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-    And I click toggle button to select "Awards - All"
+    And I click toggle button to select "Awards  - All"
+
+
