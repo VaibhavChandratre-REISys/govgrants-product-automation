@@ -284,7 +284,7 @@ Feature: Validate all scenarios for program
    #   | Record deleted successfully. |
     Then I softly do not see value "Environment Test" for title "Section Header" inside table "---program:-:programReviewPanel---"
 
-  @76294 @76295 @76296 @76297 @76298 @76486 @76497 @76498 @76566 @76567 @76570 @76571 @76572 @76573 @76574 @76496 @TBExecution1
+  @76294 @76295 @76296 @76297 @76298 @76486 @76497 @76498 @76566 @76567 @76570 @76571 @76572 @76573 @76574 @76496
   Scenario: To validate the filters of program review panel
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
@@ -2593,7 +2593,7 @@ Feature: Validate all scenarios for program
       | Setup Tab - Management Review - Management Review: A score cannot be associated to a question in the Strategic Alignment section because it does not have a weight.        |
       | Setup Tab - Management Review - Management Review: A weighted form must contain weighted sections.                                                                         |
 
-  @77290 @77289 @77292 @77291  @PDFAdditionModificationDeletionInApproach @TBExecution1
+  @77290 @77289 @77292 @77291  @PDFAdditionModificationDeletionInApproach
   Scenario Outline: To verify user allow to download PDF for review question in Approach of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user able to add new review question with success message in Approach of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user able to modify review question in Approach of Review Panel Categories in Program review form for SME review step in planning phase
@@ -2796,7 +2796,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77484 @77483 @77482 @ValidatingReviewrsAreNotRequiredForOptionalPanelsInSMEReview @TBExecution1
+  @77484 @77483 @77482 @ValidatingReviewrsAreNotRequiredForOptionalPanelsInSMEReview @TBExecution
   Scenario Outline: To validate system generated error message, if Form Weight (%) :30% ,Minimum Number of Reviews per Application : 1 , Required? : Unchecked ,for compliance Review Review form in SME Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :30% ,Minimum Number of Reviews per Application : 1 , Required? : Unchecked ,for fiscal Review Review form in SME Review step in planning phase
   | To validate system generated error message, if Form Weight (%) : 50% ,Minimum Number of Reviews per Application : 1 , Required? : unchecked ,for Program Review Review form in SME Review step in planning phase
@@ -3227,7 +3227,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77485 @77609 @77616 @validatingErrorMsgPrescreeningReviewForm  @needToCheckErrorMessage @TBExecution1
+  @77485 @77609 @77616 @validatingErrorMsgPrescreeningReviewForm  @needToCheckErrorMessage
   Scenario Outline: To validate system generated validation message, When Max score:0, for all review questions under the Completeness review panel categories and  Weight is present, in prescreening Review form of prescreening review steps in planning phase
   | To validate system generated error message, if Form Weight (%) :0% ,Minimum Number of Reviews per Application : 0 , Required? :Unchecked ,for prescreening Review Review form in prescreening Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :0% ,Minimum Number of Reviews per Application : 1 , Required? :Checked ,for prescreening Review Review form in prescreening Review step in planning phase
@@ -3274,8 +3274,8 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
-      | Pre-Screen | Checked   | 100             | 1                                         |
+      | Form Name  |  Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen |  100             | 1                                         |
     Then I softly see the following messages in the page details contains:
       | Reviewers are not required for optional panels |
     And I refresh the page
@@ -3298,8 +3298,8 @@ Feature: Validate all scenarios for program
     And I wait for "1" seconds
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
-      | Pre-Screen | Checked   | 0               | 1                                         |
+      | Form Name  |  Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen |  0               | 1                                         |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
@@ -4817,7 +4817,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @78047 @78085 @validatingSuccessMessagePreScreenReviewForm @TBExecution1
+  @78047 @78085 @validatingSuccessMessagePreScreenReviewForm
   Scenario Outline: To validate system generated success message, Max score set as 100 for any 1 questions and weight as 60% on Review Panel Categories of "Eligibility" under prescreening review form of the prescreening reviews steps of setup tab of planning phase.
     And I wait for "5" seconds
     And I click on "Edit" in the page details
