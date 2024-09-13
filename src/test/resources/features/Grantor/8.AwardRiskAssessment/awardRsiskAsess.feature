@@ -4626,7 +4626,7 @@ When I click on "Send to Grantee" in the page details
 And I wait for "8" seconds
 Then I softly see field "Status" as "Sent to Grantee"
 And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-When I navigate to "Grants" tab
+  And I navigate to "Grants" tab
 When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
 And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
 When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
