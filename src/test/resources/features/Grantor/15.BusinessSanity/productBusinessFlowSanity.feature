@@ -1210,7 +1210,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @72346 @applicationReviewHappyPath @ProdSan2
+  @72346 @applicationReviewHappyPath @ProdSan2 @Run13
   Scenario Outline: Validate the complete review process for an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -1413,6 +1413,9 @@ Feature: Validate sanity testing of Complete Business Flow
       | <Announcement Name> | 500                | Yes                   | Recommended | 500                     |
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                     | FDM |
+      | {SavedValue:FO Username} | NA   |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                     | FDM    |
       | {SavedValue:FO Username} | Step 1 |
@@ -2494,7 +2497,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept and Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan2 @DilipRerun
+  @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan2 @Run13
   Scenario: Validate once the Org level Desk Review is clicked on Accept and Close butted then status changes to closed
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -2517,6 +2520,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
     And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | NA           |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                     | Desk Review |
       | {SavedValue:PM Username} | Step 1      |
@@ -3446,7 +3452,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @CarryForwardAmendmentRequest @ProdSan2 @DRerun1
+  @CarryForwardAmendmentRequest @ProdSan2 @DRerun1 @Run13
   Scenario: Validate Carry Forward Amendment Request End to End flow
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
