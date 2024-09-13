@@ -3940,6 +3940,8 @@ Feature: Validate all scenarios for program
     And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID1}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID1}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    And I logout
+    And I wait for "2" seconds
 #    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
 #    And I pause execution for "120" seconds
 #    Then I refresh the page
