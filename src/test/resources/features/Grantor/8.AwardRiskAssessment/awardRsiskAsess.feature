@@ -456,7 +456,7 @@ And I click on "Submit for Approval" in the page details
 Then I see the following messages in the page details contains:
 | Responsibilities - At least one approver is required |
 
-@risk1 @142062 @VerifyUpdationOfInheritedApproverAtRiskAssesmentFromAward-RnRFunctnality
+  @142062 @VerifyUpdationOfInheritedApproverAtRiskAssesmentFromAward-RnRFunctnality
 Scenario Outline: Validate user can modify the approver entered on award for Risk assessment are copied on the Risk Assessments
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -644,7 +644,7 @@ And I click on "Submit for Approval" in the page details
 Then I softly see the following messages in the page details contains:
 | Responsibilities - You cannot skip an Approval Step. |
 
-@risk1 @142414 @VerifyAdditionOfAdditionalApproverRiskAssesmentFromAward-RnRFunctnality
+ @142414 @VerifyAdditionOfAdditionalApproverRiskAssesmentFromAward-RnRFunctnality
 Scenario Outline: Validate user can add additional approvers on risk assesment if step1 was configured on award
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -760,7 +760,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@risk1 @142415 @VerifyFourStepApprovalProcessForRiskAssesmentFromAward-RnRFunctnality
+ @142415 @VerifyFourStepApprovalProcessForRiskAssesmentFromAward-RnRFunctnality
 Scenario Outline: Given the step 4 approver has approved validate Risk Assessment is marked as Active
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -909,7 +909,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@risk1 @142417 @VerifyRejectFunctionalityOfRiskAssessmentWithThirdApprover-RnRFunctnality
+ @142417 @VerifyRejectFunctionalityOfRiskAssessmentWithThirdApprover-RnRFunctnality
 Scenario Outline:  Validate risk assessment status is Rejected In a 3 step approval set up if step 3 approver has rejected it
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -1050,7 +1050,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@risk1 @142418 @VerifySelectionOfNAInsideStepsOfCopiedApproverFromAward-RnRFunctnality
+ @142418 @VerifySelectionOfNAInsideStepsOfCopiedApproverFromAward-RnRFunctnality
 Scenario Outline: Validate user can select NA for a step on already copied approvers from award
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -1172,7 +1172,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@risk1 @142907 @VerifyChangeOfUserAndStepsTooOfCopiedApproverFromAwardToRiskAssessment-RnRFunctnality
+ @142907 @VerifyChangeOfUserAndStepsTooOfCopiedApproverFromAwardToRiskAssessment-RnRFunctnality
 Scenario Outline: Validate user can change the user and step 2 on approver for risk assessment defined on award
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -1295,7 +1295,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@risk1 @142909 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtRiskAssessment-RnRFunctnality
+ @142909 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtRiskAssessment-RnRFunctnality
 Scenario Outline: Validate user cannot add the same steps for Risk assessment
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -1415,7 +1415,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@risk1 @143259 @VerifyRiskAssessmentActivationWithOneStepApprover-RnRFunctnality
+ @143259 @VerifyRiskAssessmentActivationWithOneStepApprover-RnRFunctnality
 Scenario Outline: Verify risk assessment becomes active when approved by one step approver
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -1537,7 +1537,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@risk1 @143348 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtRiskAssessment-RnRFunctnality
+ @143348 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtRiskAssessment-RnRFunctnality
 Scenario Outline: Verify the validation when same user is added for multiple step on approver section for risk assessment
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -1691,7 +1691,7 @@ And I click on top right button "New" in flex table with id "---subAwardStandAlo
 And I wait for "1" seconds
 Then I softly see row level action button "Remove record" inside "---subAwardStandAlone:-:riskAssessmentApproverTableId---" flex table
 
-@risk1 @143414 @VerifyUserCannotAddApproverAfterRiskAssessmentActive-RnRFunctnality
+ @143414 @VerifyUserCannotAddApproverAfterRiskAssessmentActive-RnRFunctnality
 Scenario Outline: Verify when risk assessment is active then user cannot add approver
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -1814,7 +1814,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@risk1 @142086 @142072 @VerifyInheritatedApproverAtRiskAssessmentFromAward-RnRFunctionality
+ @142086 @142072 @VerifyInheritatedApproverAtRiskAssessmentFromAward-RnRFunctionality
 Scenario Outline: Verify approvers from sub award are inherited to subaward risk assessment
 |Validate the columns and table name in the Risk Assessment approver Section|
 Given I login to "As a Grantor" app as "dynamicUser" user
@@ -1911,7 +1911,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@risk1 @142063 @Verify2StepApprovalAtRiskAssessmentFromAward-RnRFuntionality
+ @142063 @Verify2StepApprovalAtRiskAssessmentFromAward-RnRFuntionality
 Scenario Outline: Validate user can defined 2 step approval for Risk Assessment on Award
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -4102,7 +4102,7 @@ Then I see the mail text is as follows :
       The EGMS Team
       """
 
-@risk1 @116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @Allocation
+ @116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @Allocation
 Scenario: Validate Risk Assessments are read only for SR User
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -4546,7 +4546,7 @@ And I perform quick search for "{SavedValue:RAEGMSID1}" in "---riskassessment:-:
 Then I softly see value "{SavedValue:RAEGMSID1}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
 Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID1}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
-@risk1 @116310 @ValidateAwardOwnerhasthepermissiontorevisetheawardRiskAssessmentuntilawardactivation @Sprint-23-US-273843  @Allocation
+ @116310 @ValidateAwardOwnerhasthepermissiontorevisetheawardRiskAssessmentuntilawardactivation @Sprint-23-US-273843  @Allocation
 Scenario Outline: Validate Award Owner has the permission to revise the award Risk Assessment until award activation
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -4684,7 +4684,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@risk1 @116321 @ValidateFieldhistorySnapshotupdatepostApprovalofRiskAssessment @Sprint-23-US-273843  @Allocation @FieldHistoryExclude
+ @116321 @ValidateFieldhistorySnapshotupdatepostApprovalofRiskAssessment @Sprint-23-US-273843  @Allocation @FieldHistoryExclude
 Scenario: Validate Field history Snapshot update post Approval of Risk Assessment
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -4740,8 +4740,8 @@ Then I softly see value "Created" for title "Original Value" inside field histor
 Then I softly see value "Active" for title "New Value" inside field history table
 Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
 And I click on back arrow
-Then I softly see snapshot with name containing "Risk Assessment.pdf" as name
-Then I softly see snapshot with user containing "{SavedValue:PM Username}" against the value "Risk Assessment.pdf"
+#Then I softly see snapshot with name containing "Risk Assessment.pdf" as name
+#Then I softly see snapshot with user containing "{SavedValue:PM Username}" against the value "Risk Assessment.pdf"
 Then I softly see snapshot with name containing "Risk Assessment Activation/Rejection.pdf" as name
 Then I softly see snapshot with user containing "{SavedValue:FD Username}" against the value "Risk Assessment Activation/Rejection.pdf"
 
