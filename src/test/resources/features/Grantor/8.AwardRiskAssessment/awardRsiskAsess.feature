@@ -304,9 +304,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
 And I click modal button "Save"
@@ -493,9 +493,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -681,9 +681,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 And I click modal button "Save"
@@ -797,9 +797,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -946,9 +946,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1087,9 +1087,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1209,9 +1209,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1332,9 +1332,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1452,9 +1452,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1573,9 +1573,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1728,9 +1728,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1852,9 +1852,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -1948,9 +1948,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
@@ -4138,9 +4138,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
 And I click modal button "Save"
@@ -4581,9 +4581,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
