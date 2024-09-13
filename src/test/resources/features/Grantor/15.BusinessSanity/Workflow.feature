@@ -1570,9 +1570,7 @@ Feature: Validate all scenarios of every modules flow
 
   @p125 @ValidateFullProgramFlow
   Scenario: Validate Full Program Flow
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
+    Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "CL-RG-001298-01077" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "CL-RG-001298-01077" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
+    And I click toggle button to select "Awards - All"

@@ -541,7 +541,7 @@ And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
 When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -681,9 +681,9 @@ And I edit the following rows inline in flex table with id "---subAwardStandAlon
 | EGMS ID                  | Target |
 | Automation Permanent KPI | 10     |
 And I navigate to "Terms" sub tab
-#And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-#When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-#And I click modal button "Save"
+And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
 And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
 And I click modal button "Save"
@@ -735,7 +735,7 @@ And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
 When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -849,7 +849,7 @@ And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
 When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -999,7 +999,7 @@ And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
 When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -1143,7 +1143,7 @@ And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
 When I navigate to"Awards"content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -1267,7 +1267,7 @@ And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
 When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -1390,7 +1390,7 @@ And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
 When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -1504,7 +1504,7 @@ And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
 When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -1631,7 +1631,7 @@ And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
 When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -1780,7 +1780,7 @@ And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
 When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -4315,7 +4315,7 @@ Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" insid
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
 And I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 When I navigate to "Management" sub tab
@@ -4378,7 +4378,7 @@ Given I am on "INTERNAL" portal
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
 And I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 When I navigate to "Management" sub tab
@@ -4427,7 +4427,7 @@ Then I softly see field "Status" as "Active"
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
 And I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 When I navigate to "Management" sub tab
@@ -4470,7 +4470,7 @@ Then I softly see value "Active" for title "Status" against the value "{SavedVal
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
 And I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
@@ -4496,7 +4496,7 @@ And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
 And I navigate to "Grants" tab
 And I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
-And I click toggle button to select "Awards - All"
+And I click toggle button to select "Awards  - All"
 When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
 And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
 And I navigate to "Management" sub tab
