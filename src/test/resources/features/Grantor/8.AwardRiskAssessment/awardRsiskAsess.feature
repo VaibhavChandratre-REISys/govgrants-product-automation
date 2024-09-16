@@ -1050,7 +1050,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
- @142418 @VerifySelectionOfNAInsideStepsOfCopiedApproverFromAward-RnRFunctnality
+  @142418 @VerifySelectionOfNAInsideStepsOfCopiedApproverFromAward-RnRFunctnality
 Scenario Outline: Validate user can select NA for a step on already copied approvers from award
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
