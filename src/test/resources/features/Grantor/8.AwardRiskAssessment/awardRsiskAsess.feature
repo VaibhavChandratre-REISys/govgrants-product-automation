@@ -1,4 +1,4 @@
-@riskAssessment @awardRiskAsses @grantor-regression @grantor-parallel-regression @regression @RiskExecution1
+@riskAssessment @awardRiskAsses @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in the Risk Assessment
 
 @addAttachmentForRecordOnwerInTable
@@ -218,7 +218,7 @@ When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left p
 When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
 Then I softly see value "Record Id" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-@risk2 @65876 @65877 @65879 @verifyUsersCanSeeNewButtonSPiViewCreatedRiskAssessment
+@risk @65876 @65877 @65879 @verifyUsersCanSeeNewButtonSPiViewCreatedRiskAssessment
 Scenario: Verify that users can see new button to create Risk Assessment on Management Tab list view |Validate whether record owner and SPI user can view the RA that is in Created state under Monitoring Tab
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -269,7 +269,7 @@ And I click on "View" icon for "Activated" inside flex table with id "---subAwar
 And I navigate to "Management" sub tab
 Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-@risk2 @66874 @orgRAisExpiredAwardRiskAssessmentSetasNo
+@66874 @orgRAisExpiredAwardRiskAssessmentSetasNo
 Scenario Outline: Validate when Organization Risk Assessment is not active and Award Risk Assessment Required is selected as No then System should throw an exception when user activates the award.
 When I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -909,7 +909,7 @@ Examples:
 | Award Name                                                | Grant Name                                                |
 | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
- @142417 @VerifyRejectFunctionalityOfRiskAssessmentWithThirdApprover-RnRFunctnality
+ @risk @142417 @VerifyRejectFunctionalityOfRiskAssessmentWithThirdApprover-RnRFunctnality
 Scenario Outline:  Validate risk assessment status is Rejected In a 3 step approval set up if step 3 approver has rejected it
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -2483,7 +2483,7 @@ Then I see the mail text is as follows :
       The EGMS Team
       """
 
-@risk2 @198632 @ValidateEXEprofileuserasRA1ownershouldnotgetaffectedwhenownershipofGrantistransferredfromEXE1toEXE2whichisinCreatedstatusaftercreatingtheRAonthataward @sprint-12-US-226646  @reassignment
+ @risk @198632 @ValidateEXEprofileuserasRA1ownershouldnotgetaffectedwhenownershipofGrantistransferredfromEXE1toEXE2whichisinCreatedstatusaftercreatingtheRAonthataward @sprint-12-US-226646  @reassignment
 Scenario: Validate EXE profile user as RA1 owner should not get affected when ownership of Grant is transferred from EXE1 to EXE2 which is in 'Created' status after creating the RA on that award
 Given I login to "As a Grantor" app as "EXE" user
 And I navigate to "Grants" tab
@@ -3515,7 +3515,7 @@ Then I softly see value "Step 1" for title "Risk Assessment" against the value "
 Then I softly see value "Step 1" for title "Award" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
 Then I softly see value "Step 1" for title "Advance" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
 
-@risk2 @224658 @ValidateRiskAssfailureemailshouldgeneratedforRAownerifusertrytoreassignreviewtasktoalreadyassignreviewer @sprint-11-US-218319  @reassignment
+@risk @224658 @ValidateRiskAssfailureemailshouldgeneratedforRAownerifusertrytoreassignreviewtasktoalreadyassignreviewer @sprint-11-US-218319  @reassignment
 Scenario: Validate Risk Ass failure email should generated for RA owner if user try to reassign review task to already assign reviewer
 Given I login to "As a Grantor" app as "PM" user
 And I navigate to "Grants" tab
@@ -4102,7 +4102,7 @@ Then I see the mail text is as follows :
       The EGMS Team
       """
 
- @116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @Allocation
+ @risk @116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @Allocation
 Scenario: Validate Risk Assessments are read only for SR User
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -4546,7 +4546,7 @@ And I perform quick search for "{SavedValue:RAEGMSID1}" in "---riskassessment:-:
 Then I softly see value "{SavedValue:RAEGMSID1}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
 Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID1}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
- @116310 @ValidateAwardOwnerhasthepermissiontorevisetheawardRiskAssessmentuntilawardactivation @Sprint-23-US-273843  @Allocation
+ @risk @116310 @ValidateAwardOwnerhasthepermissiontorevisetheawardRiskAssessmentuntilawardactivation @Sprint-23-US-273843  @Allocation
 Scenario Outline: Validate Award Owner has the permission to revise the award Risk Assessment until award activation
 Given I login to "As a Grantor" app as "dynamicUser" user
 And I navigate to "Grants" tab
@@ -4615,8 +4615,9 @@ When I enter the following values into flex table with id "---subAwardStandAlone
 And I click on "Submit for Approval" in the page details
 Then I softly see field "Status" as "Submitted for Approval"
 And I "Approve" in the approval decision
-And I wait for "2" seconds
+And I wait for "5" seconds
 Then I softly see field "Status" as "Active"
+And I wait for "5" seconds
 And I navigate to "Grants" tab
 When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
 And I click toggle button to select "Grants - All"
@@ -4646,10 +4647,11 @@ When I get the "EGMS ID"
 When I navigate to "Terms" sub tab
 When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
 And I click on "Submit for Approval" in the page details
+   And I pause execution for "5" seconds
 Then I softly see field "Status" as "Submitted for Approval"
 And I pause execution for "5" seconds
 And I "Approve" in the approval decision
-And I pause execution for "5" seconds
+   And I pause execution for "2" seconds
 When I click on "Send to Grantee" in the page details
   Then I softly see field "Status" as "Sent to Grantee after Approval"
 When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
