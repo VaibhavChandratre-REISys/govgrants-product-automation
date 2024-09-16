@@ -250,7 +250,7 @@ Then I softly see that "Created" has been added in flextable with Id "---riskass
 When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Award Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessment - All"
 And I perform quick search for "Created" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
 Then I softly do not see value "Created" for title "Status" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
@@ -4212,7 +4212,7 @@ When I login to "Grants Portal" app as "IND" user
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "4" seconds
-When I click toggle button to select "Award Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessment - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
 Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 And I navigate to "Home" tab
@@ -4261,7 +4261,7 @@ When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "4" seconds
-When I click toggle button to select "Award Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessment - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
 Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 And I navigate to "Home" tab
@@ -4303,7 +4303,7 @@ When I login to "Grants Portal" app as "IND" user
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "5" seconds
-When I click toggle button to select "Award Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessment - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
 Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 And I navigate to "Home" tab
@@ -4408,7 +4408,7 @@ When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "3" seconds
-When I click toggle button to select "Award Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessment - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
 Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 And I navigate to "Home" tab
@@ -4457,7 +4457,7 @@ Then I softly see value "Active" for title "Status" against the value "{SavedVal
 When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-When I click toggle button to select "Award Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessment - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
 Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
@@ -4529,7 +4529,7 @@ When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
 And I navigate to "Monitoring" tab
 When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
 And I wait for "3" seconds
-When I click toggle button to select "Award Risk Assessments - All"
+When I click toggle button to select "Award Risk Assessment - All"
 And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
 Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 Then I softly see value "Expired" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
