@@ -2406,7 +2406,7 @@ Feature: Sanity scenarios
     Then I see "Financial Reports" inside "Monitoring" is displayed
     Then I see "Awards Special Conditions" inside "Monitoring" is displayed
 
-  @grantee @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
+  @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario: Non Federal_ Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
@@ -2453,9 +2453,9 @@ Feature: Sanity scenarios
     Then I see the header is "Non-Federal Organization" in the page details
     Then I see the sub-header is "Automation Runtime Organization" in the page details
     Then I softly see field "Parent Organization" as "NA"
-#    And I click on Menu icon present on top right corner of the page
-#    Then I see option "Download As PDF" present in parallel dropdown
-#    Then I see option "Take Snapshot" present in parallel dropdown
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Related Log" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
@@ -2600,7 +2600,7 @@ Feature: Sanity scenarios
 
  @grantee @443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject
   Scenario: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
@@ -2724,20 +2724,20 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I select radio button "Forward" in the approval decision
-    And I select user "Victor EXE" in the approval decision
+    And I select user "Sarah PM" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
     Then I softly see the following messages in the page details contains:
       | Successfully Re-Assigned |
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Awards - All"
@@ -3243,7 +3243,7 @@ Feature: Sanity scenarios
     And I softly can see row level action button "{SavedValue:BDRAMENDID}" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly can see top right button "New" in page detail
 
- @grantee @447979 @SOWamendmentVerifyuserislandondetailedpageofamendmentrequestaftersavethedataonmodal
+ @447979 @SOWamendmentVerifyuserislandondetailedpageofamendmentrequestaftersavethedataonmodal
   Scenario: SOW amendment - Verify user is land on detailed page of amendment request after save the data on modal
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3495,8 +3495,8 @@ Feature: Sanity scenarios
     Then I softly see value "ETE objective 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     When I click on parallel lines menu bar with data target value "Objectives"
     And I wait for "2" seconds
-#    Then I see option "Refresh" present in parallel dropdown
-#    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I can see row level action button "Remove" against "ETE objective 2" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I cannot see row level action button "Remove" against "ETE objectives 1" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     And I click on "Remove" icon for "ETE objective 2" inside flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
@@ -3763,10 +3763,10 @@ Feature: Sanity scenarios
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "Start Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "End Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
-#    When I click on parallel lines menu bar with data target value "Focus Areas"
-#    And I wait for "3" seconds
-#    Then I see option "Refresh" present in parallel dropdown
-#    Then I see option "Download As PDF" present in parallel dropdown
+    When I click on parallel lines menu bar with data target value "Focus Areas"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I softly see "Budget Category" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see "Spent" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
@@ -3873,9 +3873,9 @@ Feature: Sanity scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request  |
       | Victor EXE | Step 1             |
+    Then I softly see link "Victor EXE" inside Page block
     And I click on hyperlink containing value "Victor EXE"
-    And I wait for "5" seconds
-#    Then I softly see new tab is opened
+    Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
     And I click on back arrow
     And I navigate to "Files" sub tab
     Then I softly see "Amendment Files" page block displayed
@@ -3916,11 +3916,10 @@ Feature: Sanity scenarios
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
     Then I softly do not see value "Notice of Award" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
-#    When I click on parallel lines menu bar with data target value "Amendment Files"
-#    And I wait for "2" seconds
-#    Then I see option "Refresh" present in parallel dropdown
-#    And I wait for "2" seconds
-#    Then I see option "Download As PDF" present in parallel dropdown
+    When I click on parallel lines menu bar with data target value "Amendment Files"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I softly see top right button "Add" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "Add" :
       | Title        | Description      |
@@ -4085,3 +4084,213 @@ Feature: Sanity scenarios
     Then I see "Grants" inside "Grants, Awards & Amendment Requests" is displayed
     Then I see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
     Then I see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
+
+  @455420 @KPIVerifyEXEusershouldseefooternavigatorafteropentheKPI
+  Scenario: KPI Verify EXE user should see footer navigator after open the KPI
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Planning" tab
+    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Key Performance Indicators (KPI) - All"
+    When I perform quick search for "{grantee_testData:AutomationPermanentKPI}" in "---grantee_tableId:-:KPITable---" panel
+    And I click on "View" icon for "{grantee_testData:AutomationPermanentKPI}" inside flex table with id "---grantee_tableId:-:KPITable---" without waiting for record
+    Then I softly see "Navigator" button display on footer
+    And I click on bottom button "Navigator" in page detail
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Strategic Plans" inside "Setup" is displayed
+    Then I see "Key Performance Indicators (KPI)" inside "Setup" is displayed
+    Then I see "Focus Areas" inside "Setup" is displayed
+    Then I see "External" inside "Programs" is displayed
+    And I wait for "5" seconds
+    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Key Performance Indicators (KPI) - All"
+    When I perform quick search for "{grantee_testData:AutomationPermanentKPI}" in "---grantee_tableId:-:KPITable---" panel
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Strategic Plans" inside "Setup" is displayed
+    Then I see "Key Performance Indicators (KPI)" inside "Setup" is displayed
+    Then I see "Focus Areas" inside "Setup" is displayed
+
+  @443719 @VerifytheinternalOrganizationallsectionandfields
+  Scenario: Verify the internal Organization all section and fields
+    When I login to "As a Grantor" app as "GRANTEE PM" user
+    When I navigate to "Home" tab
+    And I navigate to "Internal" content inside "Organizations" subheader on left panel
+    And I click on "View" icon for "Test Automation Organization" inside flex table with id "---grantee_tableId:-:InternalOrganizations---" without waiting for record
+    Then I see the header is "Internal Organization" in the page details
+    Then I see the sub-header is "Test Automation Organization" in the page details
+    Then I softly see field "Parent Organization" as "GMS Administrator"
+    Then I softly see field "Organization Type" as "Agency"
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Related Log" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    And I navigate to "Overview" sub tab
+    Then I softly see "Address" page block displayed
+    Then I softly see "Related Contacts" page block displayed
+    Then I softly see "Child Organizations" page block displayed
+    Then I softly see "Indirect Rates" page block displayed
+    Then I softly see "UEI Numbers" page block displayed
+    Then I softly see "System Information" page block displayed
+    When I save the field labeled "Organization Code" as "OrganizationCode"
+    Then I softly see field "Organization Code" as "{SavedValue:OrganizationCode}"
+    When I save the field labeled "Abbreviation" as "Abbreviation"
+    Then I softly see field "Abbreviation" as "{SavedValue:Abbreviation}"
+    When I save the field labeled "EIN" as "EIN"
+    Then I softly see field "EIN" as "{SavedValue:EIN}"
+    When I save the field labeled "UEI" as "UEI"
+    Then I softly see field "UEI" as "{SavedValue:UEI}"
+    Then I softly see "Address" page block displayed
+    When I save the field labeled "Street" as "Street"
+    Then I softly see field "Street" as "{SavedValue:Street}"
+    When I save the field labeled "City" as "City"
+    Then I softly see field "City" as "{SavedValue:City}"
+    When I save the field labeled "State" as "State"
+    Then I softly see field "State" as "{SavedValue:State}"
+    When I save the field labeled "Country" as "Country"
+    Then I softly see field "Country" as "{SavedValue:Country}"
+    Then I save the field labeled "Zip Code" as "ZipCode"
+    Then I softly see field "Zip Code" as "{SavedValue:ZipCode}"
+    When I save the field labeled "Website" as "Website"
+    Then I softly see field "Website" as "{SavedValue:Website}"
+    When I save the field labeled "County" as "County"
+    Then I softly see field "County" as "{SavedValue:County}"
+    When I click on parallel lines menu bar with data target value "Related Contacts"
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Download as CSV" present in parallel dropdown
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:RelatedContacts---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see "Create Contact" opens in overLay window
+    Then I softly see field on modal "Organization" inside page block
+    Then I softly see field on modal "Title" inside page block
+    Then I softly see field on modal "First Name" inside page block
+    Then I softly see field on modal "Last Name" inside page block
+    Then I softly see field on modal "Phone" inside page block
+    Then I softly see field on modal "Mobile Phone" inside page block
+    Then I softly see field on modal "Email" inside page block
+    Then I softly see field on modal "Address Line 1" inside page block
+    Then I softly see field on modal "Address Line 2" inside page block
+    Then I softly see field on modal "State" inside page block
+    Then I softly see field on modal "City" inside page block
+    Then I softly see field on modal "Country" inside page block
+    Then I softly see field on modal "County" inside page block
+    Then I softly see field on modal "4-Digit Zip Code Extension" inside page block
+    Then I softly see field on modal "Zip Code" inside page block
+    When I enter in modal value "Automation Runtime" into field "Title"
+    When I enter in modal value "Automation" into field "FirstName"
+    When I enter in modal value "Execution" into field "LastName"
+    When I enter in modal value "8967093890" into field "Phone"
+    When I enter in modal value "8967093440" into field "MobilePhone"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+    When I enter in modal value "Mail Street" into field "MailingStreet"
+    When I enter in modal value "Howard Lane" into field "Address2__c"
+    When I enter in modal value "AK: Alaska" into field "State__c"
+    When I enter in modal value "VA" into field "MailingCity"
+    When I enter in modal value "123" into field "CongressionalDistrict__c"
+    When I enter in modal value "USA" into field "MailingCountry"
+    When I enter in modal value "United" into field "County__c"
+    When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
+    When I enter in modal value "12345" into field "MailingPostalCode"
+    When I click modal button "Save"
+    And I wait for "2" seconds
+    And I save the field labeled "Title" as "ContactTitle" on modal
+    When I click modal button "Close"
+    When I perform quick search for "{SavedValue:ContactTitle}" in "---grantee_tableId:-:RelatedContacts---" panel
+    Then I softly see value "{SavedValue:ContactTitle}" for title "Title" inside table "---grantee_tableId:-:RelatedContacts---"
+    Then I can see row level action button "View" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I can see row level action button "Delete" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I can see row level action button "Edit" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see "Child Organizations" page block displayed
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:childOrganizationTableId---"
+    Then I softly see "Organization" in flex table header "---grantee_tableId:-:childOrganizationTableId---"
+    Then I softly see "Organization Level" in flex table header "---grantee_tableId:-:childOrganizationTableId---"
+    Then I softly see "Agency Abbreviation" in flex table header "---grantee_tableId:-:childOrganizationTableId---"
+    Then I softly see "Indirect Rates" page block displayed
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see "Effective from" in flex table header "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see "Effective Until" in flex table header "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see "Budget Categories" in flex table header "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see "UEI Numbers" page block displayed
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:uieNumberTableId---"
+    Then I softly see "UEI Number" in flex table header "---grantee_tableId:-:uieNumberTableId---"
+    Then I softly see "Registered Entity Name" in flex table header "---grantee_tableId:-:uieNumberTableId---"
+    Then I softly see "Location" in flex table header "---grantee_tableId:-:uieNumberTableId---"
+    Then I softly see "Child Organizations" page block displayed
+    And I save the field labeled "Created By" as "CreatedBy"
+    Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
+    And I save the field labeled "Created Date" as "CreatedDate"
+    Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
+    And I save the field labeled "Last Modified By" as "LastModifiedBy"
+    Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedBy}"
+    Then I softly see link "Last Modified Date" inside Page block
+    And I save the field labeled "Last Modified Date" as "LastModifiedDate"
+    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
+    And I navigate to "Related Log" sub tab
+    Then I softly see "Qualified Leads" page block displayed
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
+    Then I softly see "Opportunity Number" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
+    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
+    Then I softly see "Qualifying Organization" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
+    Then I softly see "Application Due Date" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
+    And I navigate to "Files" sub tab
+    Then I softly see "Organization Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:internalOrgTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:internalOrgTableId---"
+    Then I see only the following ordered options in dropdown field "Classification" :
+      | Select file classification | Indirect Cost Rate Letter |Supporting Documents | Others |
+    And I upload attachment without random number "Attachment.pdf" of type "Indirect Cost Rate Letter" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Attachment.pdf" has been added in "Organization Files" flex table
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgTableId---"
+    Then I can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgTableId---"
+    Then I can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgTableId---"
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:internalOrgTableId---"
+    Then I softly see value "Indirect Cost Rate Letter" for title "Classification" inside table "---grantee_tableId:-:internalOrgTableId---"
+    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgTableId---"
+    Then I softly see "Created By" in flex table header "---grantee_tableId:-:internalOrgTableId---"
+    When I click on parallel lines menu bar with data target value "Organization Files"
+    Then I see option "Refresh" present in parallel dropdown
+    Then I softly see top right button "Add" inside flex table "---grantee_tableId:-:internalOrgNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:internalOrgNotesTableId---" by clicking "Add" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I softly see link "Created By" inside Page block
+    Then I softly see "Created By" in flex table header "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---" by clicking "Edit" :
+      | Created By    | Title         | Description       |
+      | Sarah PM      | Notes Record1 | Automation Notes1 |
+    And I wait for "2" seconds
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I softly see value "Automation Notes1" for title "Description" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
+    And I save the value from row "2" for column name "Created By" as "CreatedBy" from flex table "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I softly see value "{SavedValue:CreatedBy}" for title "Created By" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I cannot see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I cannot see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
+    And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:internalOrgNotesTableId---" without waiting for record
+    Then I softly do not see value "Notes Recor1" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
+    When I click on parallel lines menu bar with data target value "Notes"
+    Then I see option "Refresh" present in parallel dropdown
+    When I navigate to "History" sub tab
+    Then I softly see "Snapshot History" page block displayed
+    Then I see snapshot with name containing "SnapShot" as name
+    Then I softly can see "Field Audit" sub tab at view detail page
+    Then I softly can see "Chatter" sub tab at view detail page
+
+
