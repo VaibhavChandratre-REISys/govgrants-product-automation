@@ -2203,7 +2203,7 @@ Then I softly can see top right button "Submit for Approval" in page detail
 And I click on "Submit for Approval" in the page details
 Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-@risk2 @198047 @ValidateFDprofileusercanrejecttheawardrisassessmentforstep1approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment
+@risk @198047 @ValidateFDprofileusercanrejecttheawardrisassessmentforstep1approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment
 Scenario: Validate FD profile user can reject the award risk assessment for step 1 approvals when ownership is transferred for a RA which is in Submitted for approval status
 Given I login to "As a Grantor" app as "EXE" user
 And I navigate to "Grants" tab
