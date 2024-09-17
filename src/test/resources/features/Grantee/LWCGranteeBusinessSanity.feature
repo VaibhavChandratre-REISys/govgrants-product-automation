@@ -4395,12 +4395,12 @@ Feature: Sanity scenarios
 
   @446228 @VerifyEXEusercanseeProgressreportschedulesfromawardinMonitoringschedules
   Scenario: Verify EXE user  can see Progress report schedules from award in Monitoring schedules
-    When I login to "As a Grantor" app as "GRANTEE EXE" user
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
     And I wait for "2" seconds
-    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
+    And I enter "Grantee_Creation_Schedules" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Overview" sub tab
@@ -4411,15 +4411,74 @@ Feature: Sanity scenarios
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    Then I see status in Progress-bar is "Created" and is "dark blue"
-    And I navigate to "Management" sub tab
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Title" as "Automation Runtime award"
+    And I click on "Edit" in the page details
+    When I enter "Grantee_Award_Edit_Schedules" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Projections" sub tab
+    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    When I navigate to "Management" sub tab
+    Then I softly see "Reports Schedule" page block displayed
+    Then I softly see value "Progress Report" for title "Report Type" inside table "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see value "Financial Report" for title "Report Type" inside table "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Report Title" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Report Type" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Frequency" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Reporting Period" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
     Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
     Then I softly can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    And I click on "View" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+    Then I softly see "Reports Schedule" opens in overLay window
+    Then I softly see "Scheduled Report" page block displayed on modal
+    Then I softly see field "Report Type" inside page block
+    Then I softly see field "Report Title" inside page block
+    Then I softly see field "Reporting Period Start Date" inside page block
+    Then I softly see field "Reporting Period End Date" inside page block
+    Then I softly see field "Frequency" inside page block
+    Then I softly see field "Schedule Base" inside page block
+    Then I softly see field "Description" inside page block
+    Then I softly see field "Lead time (in days) for report task creation" inside page block
+    Then I softly see field "# of days for report submission" inside page block
+    Then I softly see field "Report Type" as "Progress Report"
+    Then I softly see field "Report Title" as "{SavedValue:Automation Runtime award}"
+    Then I softly see field "Reporting Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
+    Then I softly see field "Reporting Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
+    Then I softly see field "Frequency" as "Not Applicable"
+    Then I softly see field "Schedule Base" as ""
+    Then I softly see field "Description" as ""
+    Then I softly see field "Lead time (in days) for report task creation" as "15"
+    Then I softly see field "# of days for report submission" as "15"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     Then I softly see "Reports Schedule" opens in overLay window
+    Then I softly see "Scheduled Report" page block displayed on modal
+    Then I softly see field "Report Type" inside page block
+    Then I softly see field "Report Title" inside page block
+    Then I softly see field "Reporting Period Start Date" inside page block
+    Then I softly see field "Reporting Period End Date" inside page block
+    Then I softly see field "Frequency" inside page block
+    Then I softly see field "Schedule Base" inside page block
+    Then I softly see field "Description" inside page block
+    Then I softly see field "Lead time (in days) for report task creation" inside page block
+    Then I softly see field "# of days for report submission" inside page block
+    Then I softly see field "Report Type" as "Progress Report"
+    Then I softly see fields "SubmissionTitle__c" is in edit mode
+    Then I softly see fields "CalReportingStartDate__c" is in edit mode
+    Then I softly see fields "CalReportingEndDate__c" is in edit mode
+    Then I softly see fields "Frequency__c" is in edit mode
+    Then I softly see fields "ScheduleBase__c" is in edit mode
+    Then I softly see fields "Description__c" is in edit mode
+    Then I softly see fields "DaysBeforeEndDate__c" is in edit mode
+    Then I softly see fields "DaysAfterEndDate__c" is in edit mode
     When I enter in modal "Grantee_Progress_Schedules" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I expand nested table containing column value "Progress Report"
     And I save the total records from the flex table id "---grantee_tableId:-:financialReportProgressReportSchedules---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
@@ -4455,6 +4514,11 @@ Feature: Sanity scenarios
       | {SavedValue:EGMS ID1} | 17                          | 27                        |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
+      | {SavedValue:EGMS ID1} | 15                          | 25                        |
+    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
@@ -4543,6 +4607,11 @@ Feature: Sanity scenarios
       | {SavedValue:EGMS ID1} | 17                          | 27                        |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
+      | {SavedValue:EGMS ID1} | 15                          | 25                        |
+    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4606,10 +4675,15 @@ Feature: Sanity scenarios
       | {SavedValue:EGMS ID1} | 17                          | 27                        |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
+      | {SavedValue:EGMS ID1} | 15                          | 25                        |
+    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Victor EXE | Step 1 |
+      | Name        | Award  |
+      | Victor Exe  | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -4715,6 +4789,71 @@ Feature: Sanity scenarios
       | {SavedValue:EGMS ID1} | 17                          | 27                        |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
+      | {SavedValue:EGMS ID1} | 15                          | 25                        |
+    Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+
+  @455424 @ProgressReportVerifyEXEusershouldseefooternavigatorafteropentheProgressReport
+  Scenario: Progress Report_ Verify EXE user should see footer navigator after open the Progress Report
+    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Monitoring" tab
+    And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I wait for "3" seconds
+    And I click toggle button to select "Progress Reports - All"
+    And I wait for "3" seconds
+    And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
+    When I click on "View" icon for "{grantee_testData:progressReportStaticData}" inside flex table with id "---grantee_tableId:-:ProgressReports---" without waiting for record
+    Then I see the sub-header is "{grantee_testData:progressReportStaticData}" in the page details
+    Then I softly see "Navigator" button display on footer
+    And I click on bottom button "Navigator" in page detail
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Schedules" inside "Monitoring" is displayed
+    Then I see "Progress Reports" inside "Monitoring" is displayed
+    Then I see "Financial Reports" inside "Monitoring" is displayed
+    Then I see "Awards Special Conditions" inside "Monitoring" is displayed
+    And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
+    Then I softly see value "{grantee_testData:progressReportStaticData}" for title "Award Title" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Schedules" inside "Monitoring" is displayed
+    Then I see "Progress Reports" inside "Monitoring" is displayed
+    Then I see "Financial Reports" inside "Monitoring" is displayed
+    Then I see "Awards Special Conditions" inside "Monitoring" is displayed
+
+  @455425 @ProgressReportVerifyFOusershouldseefooternavigatorafterpentheProgressReport
+  Scenario: Progress Report_ Verify FO user should see footer navigator after open the Progress Report
+    Given I login to "As a Grantee" app as "GRANTEE FO" user
+    And I navigate to "Monitoring" tab
+    And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I wait for "3" seconds
+    And I click toggle button to select "Progress Reports - All"
+    And I wait for "3" seconds
+    And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
+    When I click on "View" icon for "{grantee_testData:progressReportStaticData}" inside flex table with id "---grantee_tableId:-:ProgressReports---" without waiting for record
+    Then I see the sub-header is "{grantee_testData:progressReportStaticData}" in the page details
+    Then I softly see "Navigator" button display on footer
+    And I click on bottom button "Navigator" in page detail
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Schedules" inside "Monitoring" is displayed
+    Then I see "Progress Reports" inside "Monitoring" is displayed
+    Then I see "Financial Reports" inside "Monitoring" is displayed
+    Then I see "Awards Special Conditions" inside "Monitoring" is displayed
+    And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
+    Then I softly see value "{grantee_testData:progressReportStaticData}" for title "Award Title" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I see "Pending Tasks" inside "My Tasks" is displayed
+    Then I see "Completed Tasks" inside "My Tasks" is displayed
+    Then I see "Schedules" inside "Monitoring" is displayed
+    Then I see "Progress Reports" inside "Monitoring" is displayed
+    Then I see "Financial Reports" inside "Monitoring" is displayed
+    Then I see "Awards Special Conditions" inside "Monitoring" is displayed
 
 
 
