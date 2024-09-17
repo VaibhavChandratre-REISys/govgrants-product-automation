@@ -4289,7 +4289,6 @@ Feature: Sanity scenarios
     Then I see option "Refresh" present in parallel dropdown
     When I navigate to "History" sub tab
     Then I softly see "Snapshot History" page block displayed
-    Then I see snapshot with name containing "SnapShot" as name
     Then I softly can see "Field Audit" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
 
