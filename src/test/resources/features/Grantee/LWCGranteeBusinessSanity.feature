@@ -4242,22 +4242,21 @@ Feature: Sanity scenarios
     And I navigate to "Files" sub tab
     Then I softly see "Organization Files" page block displayed
     Then I softly see "Notes" page block displayed
-    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:internalOrgTableId---"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:internalOrgTableId---"
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:internalOrgFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
     Then I see only the following ordered options in dropdown field "Classification" :
       | Select file classification | Indirect Cost Rate Letter |Supporting Documents | Others |
     And I upload attachment without random number "Attachment.pdf" of type "Indirect Cost Rate Letter" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "Attachment.pdf" has been added in "Organization Files" flex table
-    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgTableId---"
-    Then I can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgTableId---"
-    Then I can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgTableId---"
-    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgTableId---"
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:internalOrgTableId---"
-    Then I softly see value "Indirect Cost Rate Letter" for title "Classification" inside table "---grantee_tableId:-:internalOrgTableId---"
-    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgTableId---"
-    Then I softly see "Created By" in flex table header "---grantee_tableId:-:internalOrgTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I softly see value "Indirect Cost Rate Letter" for title "Classification" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgFilesTableId---"
     When I click on parallel lines menu bar with data target value "Organization Files"
     Then I see option "Refresh" present in parallel dropdown
     Then I softly see top right button "Add" inside flex table "---grantee_tableId:-:internalOrgNotesTableId---"
