@@ -2518,12 +2518,9 @@ When I enter the following values into flex table with id "---subAwardStandAlone
 | Name           | Risk Assessment |
 | Automation PM1 | Step 2          |
 And I click on "Submit for Approval" in the page details
+   And I wait for "2" seconds
 Then I softly see field "Status" as "Submitted for Approval"
-When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-And I navigate to "Monitoring" tab
-When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+   And I wait for "2" seconds
 And I "Approve" in the approval decision
 When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
 And I navigate to "Monitoring" tab

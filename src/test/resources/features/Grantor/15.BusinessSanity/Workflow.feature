@@ -1571,7 +1571,7 @@ Feature: Validate all scenarios of every modules flow
   @p125 @ValidateFullProgramFlow
   Scenario: Validate Full Program Flow
     And I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
+    When I login to "Grants Portal" app as "SPI4" user
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Award Risk Assessments - All"
