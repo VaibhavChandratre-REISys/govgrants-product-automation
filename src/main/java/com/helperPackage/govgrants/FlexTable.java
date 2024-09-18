@@ -525,7 +525,7 @@ public final class FlexTable implements FlexTableComponent {
                 }
                 WebElement rowCell = I.amPerforming().getElementReference().ofNested(newRow,
                         By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + mapColumnHeaderToColumnPosition.get(value) + "]"));
-               I.amPerforming().waitFor().makeThreadSleep(2000);
+               I.amPerforming().waitFor().makeThreadSleep(1000);
                 this.handleFlexTableDataInputs(rowCell, values);
             }
         }
@@ -1031,12 +1031,11 @@ public final class FlexTable implements FlexTableComponent {
     private void handleFlexTableLookupInputForLWC(WebElement fieldWrapper, String fieldValue) {
         if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             By lookupInputBoxSelector = By.xpath(".//input[@type='search']");
-            I.amPerforming().scroll().toMoveToElement(I.amPerforming().getElementReference().ofNested(fieldWrapper, lookupInputBoxSelector));
-            I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(fieldWrapper, lookupInputBoxSelector));
+            I.amPerforming().click().withJavaScript(I.amPerforming().getElementReference().ofNested(fieldWrapper, lookupInputBoxSelector));
             I.amPerforming().textInput().toClear(lookupInputBoxSelector);
-            I.amPerforming().textInput().in(lookupInputBoxSelector, fieldValue);
+            I.amPerforming().textInput().withJavaScript(lookupInputBoxSelector, fieldValue);
             By selectButtonLocator = By.xpath("//div[@title='" + fieldValue + "']");
-            I.amPerforming().click().on(selectButtonLocator);
+            I.amPerforming().click().withJavaScript(selectButtonLocator);
         }
     }
 

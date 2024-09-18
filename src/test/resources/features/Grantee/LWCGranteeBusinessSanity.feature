@@ -187,6 +187,8 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:strategicObjectivesKPITableId---"
     When I click "Add" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
     When I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see that "Automation Runtime KPI" has been added in flextable with Id "---grantee_tableId:-:strategicObjectivesKPITableId---"
     Then I softly see field "Status" as "Draft"
     When I navigate to "Files" sub tab
@@ -301,6 +303,8 @@ Feature: Sanity scenarios
     And I click on "Deactivate" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
     Then I see field "Status" as "Inactive"
+    And I refresh the page
+    And I wait for "5" seconds
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
@@ -1239,7 +1243,7 @@ Feature: Sanity scenarios
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-  @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @TBEGrantee
+  @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
   Scenario: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -2394,7 +2398,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @455422 @ValidateProgressReportPMusershouldseefooternavigatorafteropentheProgressReport @TBEGrantee
+  @455422 @ValidateProgressReportPMusershouldseefooternavigatorafteropentheProgressReport
   Scenario: Validate Progress Report PM user should see footer navigator after open the Progress Report
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Monitoring" tab
