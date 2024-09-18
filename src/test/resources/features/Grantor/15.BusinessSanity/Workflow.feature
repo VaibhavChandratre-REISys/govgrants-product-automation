@@ -1534,12 +1534,14 @@ Feature: Validate all scenarios of every modules flow
 
   @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I login to "As a Grantor" app as "PM" user
+    Given I login to "As a Grantor" app as "EXE" user
     And I wait for "6" seconds
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | Step 1  |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 2  |
+    When I select radio button "Reject" in the approval decision
+    When I enter comment "Automation testing" in the approval decision
+    And I submit the approval in the approval decision without processing
+    And I wait for "2" seconds
+    Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
+    And I click "Cancel" on modal confirmation box
+    And I wait for "3" seconds
+    Then I see only the following ordered radio buttons in the approval decision :
+      | Approve | Reject | Forward  | Send back |
