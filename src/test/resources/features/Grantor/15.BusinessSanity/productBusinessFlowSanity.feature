@@ -184,7 +184,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @ExternalProgramActivation @ProdSan2
+  @ExternalProgramActivation @ProdSan2 @TBExecution
   Scenario: Validate External Program Activation
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1038,7 +1038,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I softly see field "Status" as "Published"
 
-  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 @sanTest
+  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 @TBExecution1
   Scenario: Validate the activation of Formula By Applicant Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -1069,6 +1069,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "Automation ADMIN1" in the table "---announcement:-:annoucementContactTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name              | Announcement |
+      | Automation ADMIN1 | NA           |
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name              | Announcement |
       | Automation ADMIN1 | Step 1       |
@@ -1111,7 +1114,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I softly see field "Status" as "Published"
 
-  @72344 @preApplicationSubmittedToGrantor @ProdSan2
+  @72344 @preApplicationSubmittedToGrantor @ProdSan2 @TBExecution
   Scenario: Validate once the Grantor accepts the submitted pre-application then the changes status to Accepted
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1123,7 +1126,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
@@ -1212,7 +1215,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @72346 @applicationReviewHappyPath @ProdSan2
+  @72346 @applicationReviewHappyPath @ProdSan2 @TBExecution1
   Scenario Outline: Validate the complete review process for an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -1415,6 +1418,9 @@ Feature: Validate sanity testing of Complete Business Flow
       | <Announcement Name> | 500                | Yes                   | Recommended | 500                     |
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
+      | Name                     | FDM |
+      | {SavedValue:FO Username} | NA  |
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
       | Name                     | FDM    |
       | {SavedValue:FO Username} | Step 1 |
@@ -1743,7 +1749,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
-  @72360 @activeRiskAssessment @ProdSan2
+  @72360 @activeRiskAssessment @ProdSan2 @TBExecution
   Scenario: Validate the Activation of Risk Assessment and the status changes to Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2412,7 +2418,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72355 @siteVisitAcceptAndCloseOrgLevel @ProdSan2 @sanTest
+  @72355 @siteVisitAcceptAndCloseOrgLevel @ProdSan2 @TBExecution1
   Scenario: Validate once the Org Level Site Visit is clicked on Accept and Close butted then status changes to closed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -2435,6 +2441,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Conduct" in the page details
     And I wait for "3" seconds
     Given I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
+      | Name                     | Site Visit |
+      | {SavedValue:PM Username} | NA         |
     When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
       | Name                     | Site Visit |
       | {SavedValue:PM Username} | Step 1     |
@@ -2489,7 +2498,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept and Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan2
+  @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan2 @TBExecution
   Scenario: Validate once the Org level Desk Review is clicked on Accept and Close butted then status changes to closed
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -2512,6 +2521,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
     And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
+      | Name                     | Desk Review |
+      | {SavedValue:PM Username} | NA          |
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                     | Desk Review |
       | {SavedValue:PM Username} | Step 1      |
@@ -2709,7 +2721,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     Then I softly see field "Status" as "Completed"
 
-  @CompletedSchedulesCloseout @ProdSan2
+  @CompletedSchedulesCloseout @ProdSan2 @TBExecution1
   Scenario: Validate Complete Scheduled Closeout End to End flow
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -2723,6 +2735,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Requests" sub tab
     When I click on "View" icon for "Scheduled" inside flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                     | Closeout |
+      | {SavedValue:FO Username} | NA       |
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                     | Closeout |
       | {SavedValue:FO Username} | Step 1   |
@@ -2851,7 +2866,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | User | Properties                            |
       | SPI3 | ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO |
 
-  @PeriodicRenewalAmendmentRequests @ProdSan2
+  @PeriodicRenewalAmendmentRequests @ProdSan2 @TBExecution
   Scenario: validate the end to end flow for Periodic Renewal Amendment Request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2882,6 +2897,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name          | Amendment Request |
+      | Automation PM | NA                |
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name          | Amendment Request |
       | Automation PM | Step 1            |
     And I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
@@ -2909,7 +2927,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
 
-  @ScopeOfWorkChangeAmendmentRequest @ProdSan2
+  @ScopeOfWorkChangeAmendmentRequest @ProdSan2 @TBExecution1
   Scenario Outline: Validate end to end flow for scope of work change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     And I login to "As a Grantor" app as "PM" user
@@ -2930,6 +2948,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I save the field labeled "EGMS ID" as "scopeWorkId"
     Then I see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PM Username} | NA                |
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
