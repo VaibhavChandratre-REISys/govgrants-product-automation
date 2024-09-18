@@ -4900,7 +4900,7 @@ Feature: Sanity scenarios
     When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Automation" into field "FirstName"
     When I enter in modal value "Execution" into field "LastName"
-    When I enter in modal value "89670938" into field "Phone"
+    When I enter in modal value "8967093844" into field "Phone"
     When I enter in modal value "8967093440" into field "MobilePhone"
     And I enter in modal value "123" into field "Email"
     When I enter in modal value "Mail Street" into field "MailingStreet"
@@ -4913,7 +4913,22 @@ Feature: Sanity scenarios
     When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
     When I enter in modal value "12345" into field "MailingPostalCode"
     When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Email: invalid email address: 123   |
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+    When I enter in modal value "123" into field "MailingPostalCode"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Please Enter 5 Digit Zip Code   |
+    When I enter in modal value "12345" into field "MailingPostalCode"
+    When I enter in modal value "896" into field "Phone"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Please enter valid Mobile Phone Number.   |
+    When I enter in modal value "8967093844" into field "Phone"
     And I wait for "2" seconds
+    When I click modal button "Save"
     And I save the field labeled "Title" as "ContactTitle" on modal
     When I click modal button "Close"
     When I perform quick search for "{SavedValue:ContactTitle}" in "---grantee_tableId:-:RelatedContacts---" panel
