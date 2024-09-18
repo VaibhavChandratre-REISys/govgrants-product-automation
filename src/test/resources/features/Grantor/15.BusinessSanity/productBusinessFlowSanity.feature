@@ -139,6 +139,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
+   When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+     | Name                     | Program |
+     | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
@@ -2673,6 +2676,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                      | Closeout |
+      | {SavedValue:EXE Username} | NA       |
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                      | Closeout |
       | {SavedValue:EXE Username} | Step 1   |
     And I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -2786,6 +2792,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PM Username} | NA                |
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
@@ -3052,6 +3061,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PO Username} | NA                |
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:PO Username} | Step 1            |
