@@ -2395,6 +2395,7 @@ Feature: Sanity scenarios
     Then I see "Progress Reports" inside "Monitoring" is displayed
     Then I see "Financial Reports" inside "Monitoring" is displayed
     Then I see "Awards Special Conditions" inside "Monitoring" is displayed
+    And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - All"
     And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
