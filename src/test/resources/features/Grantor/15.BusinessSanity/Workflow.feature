@@ -1546,12 +1546,12 @@ Feature: Validate all scenarios of every modules flow
   @tst1 @debug
   Scenario:
     When I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fK3XYAU/view"
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fK3cYAE/view"
     And I wait for "10" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 1  |
+      | Program | Name                      |
+      | Step 1  | {SavedValue:EXE Username} |
 #    And I edit the following rows inline in flex table with id "---program:-:extapproverTableId---" by clicking "Edit" :
 #      | Name                      | Program |
 #      | {SavedValue:EXE Username} | Step 1  |
