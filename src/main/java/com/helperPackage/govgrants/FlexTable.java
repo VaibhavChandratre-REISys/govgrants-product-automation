@@ -1030,9 +1030,10 @@ public final class FlexTable implements FlexTableComponent {
     private void handleFlexTableLookupInputForLWC(WebElement fieldWrapper, String fieldValue) {
         if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
             By lookupInputBoxSelector = By.xpath(".//input[@type='search']");
-            I.amPerforming().click().withJavaScript(I.amPerforming().getElementReference().ofNested(fieldWrapper, lookupInputBoxSelector));
+            I.amPerforming().scroll().toMoveToElement(I.amPerforming().getElementReference().ofNested(fieldWrapper, lookupInputBoxSelector));
+            I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(fieldWrapper, lookupInputBoxSelector));
             I.amPerforming().textInput().toClear(lookupInputBoxSelector);
-            I.amPerforming().textInput().withJavaScript(lookupInputBoxSelector, fieldValue, false);
+            I.amPerforming().textInput().in(lookupInputBoxSelector, fieldValue);
             By selectButtonLocator = By.xpath("//div[@title='" + fieldValue + "']");
             I.amPerforming().click().on(selectButtonLocator);
         }
