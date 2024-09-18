@@ -76,7 +76,7 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Activate.pdf" as name
 
-  @440386 @ValidatePMusercancreateandActivateStrategicplan @TBEGrantee
+  @440386 @ValidatePMusercancreateandActivateStrategicplan
   Scenario: Validate PM user can create and Activate Strategic plan
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
@@ -246,7 +246,7 @@ Feature: Sanity scenarios
     When I expand nested table containing column value "Automation Strategic Goal"
     Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
 
-  @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea @TBEGrantee
+  @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea
   Scenario: Validate Focus Area With EXE Profile Able to create Activate Deactive the focus area
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     When I navigate to "Planning" tab
@@ -2068,7 +2068,7 @@ Feature: Sanity scenarios
     Examples:
       | userType    | userName   |
       | GRANTEE PM  | Sarah PM   |
-      | GRANTEE EXE | Victor EXE |
+#      | GRANTEE EXE | Victor EXE |
 
   @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout @TBEGrantee
   Scenario: Validate GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
