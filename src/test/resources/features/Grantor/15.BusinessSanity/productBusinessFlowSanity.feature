@@ -3928,10 +3928,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I submit the approval in the approval decision without processing
    And I wait for "2" seconds
    Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
-
-
-   Then I softly see the following messages in the page details contains:
-     | This action cannot be undone. Do you really want to Reject? |
     And I click "Cancel" on modal confirmation box
     And I wait for "3" seconds
     Then I see only the following ordered radio buttons in the approval decision :
