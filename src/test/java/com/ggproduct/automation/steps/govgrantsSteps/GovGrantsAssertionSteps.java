@@ -766,7 +766,7 @@ public final class GovGrantsAssertionSteps {
     public void iSoftlyDoNotSeeTopRightButtonInsideFlexTable(String usage, String buttonName, String tableId) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(topRightButtonVisibleOrNot(buttonName, tableId)).isTrue();
-        } else if (usage.equalsIgnoreCase("do not see")) {
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
             I.amPerforming().assertionsTo().assertThat(topRightButtonVisibleOrNot(buttonName, tableId)).isFalse();
         }
     }
