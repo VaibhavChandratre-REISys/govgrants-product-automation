@@ -1213,7 +1213,7 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I see status in Progress-bar is "Approved" and is "dark blue"
 
-  @106336 @programRejection @smoke
+  @106336 @programRejection1 @smoke
   Scenario: Validate user should be able to reject program
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
