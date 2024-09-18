@@ -4060,7 +4060,7 @@ Feature: Sanity scenarios
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @455427 @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
+  @hit1 @455427 @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
   Scenario: Funding Change AR_ Verify PM user should see footer navigator after open the Funding Change AR
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -4085,7 +4085,7 @@ Feature: Sanity scenarios
     Then I see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
     Then I see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
 
-  @455428 @FundingChangeARVerifyEXEusershouldseefooternavigatorafteropentheFundingChangeAR
+  @hit1 @455428 @FundingChangeARVerifyEXEusershouldseefooternavigatorafteropentheFundingChangeAR
   Scenario: Funding Change AR_ Verify EXE user should see footer navigator after open the Funding Change AR
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -4110,7 +4110,7 @@ Feature: Sanity scenarios
     Then I see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
     Then I see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
 
-  @455429 @FundingChangeARVerifyFOusershouldseefooternavigatorafteropentheFundingChangeAR
+  @hit1 @455429 @FundingChangeARVerifyFOusershouldseefooternavigatorafteropentheFundingChangeAR
   Scenario: Funding Change AR_ Verify FO user should see footer navigator after open the Funding Change AR
     When I login to "As a Grantee" app as "GRANTEE FO" user
     And I navigate to "Grants" tab
@@ -4135,7 +4135,7 @@ Feature: Sanity scenarios
     Then I see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
     Then I see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
 
-  @455419 @KPIVerifyPMusershouldseefooternavigatorafteropentheKPI
+  @hit1 @455419 @KPIVerifyPMusershouldseefooternavigatorafteropentheKPI
   Scenario:KPI_ Verify PM user should see footer navigator after open the KPI
     When I login to "As a Grantee" app as "GRANTEE FD" user
     And I navigate to "Planning" tab
@@ -4161,7 +4161,7 @@ Feature: Sanity scenarios
     Then I see "Key Performance Indicators (KPI)" inside "Setup" is displayed
     Then I see "Focus Areas" inside "Setup" is displayed
 
-  @455420 @KPIVerifyEXEusershouldseefooternavigatorafteropentheKPI
+  @hit1 @455420 @KPIVerifyEXEusershouldseefooternavigatorafteropentheKPI
   Scenario: KPI Verify EXE user should see footer navigator after open the KPI
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
@@ -4187,7 +4187,7 @@ Feature: Sanity scenarios
     Then I see "Key Performance Indicators (KPI)" inside "Setup" is displayed
     Then I see "Focus Areas" inside "Setup" is displayed
 
-  @455421 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
+  @hit1 @455421 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
   Scenario:KPI_ Verify FD user should see footer navigator after open the KPI
     When I login to "As a Grantee" app as "GRANTEE FD" user
     And I navigate to "Planning" tab
@@ -4213,7 +4213,7 @@ Feature: Sanity scenarios
     Then I see "Key Performance Indicators (KPI)" inside "Setup" is displayed
     Then I see "Focus Areas" inside "Setup" is displayed
 
-  @443719 @VerifytheinternalOrganizationallsectionandfields
+  @hit1 @443719 @VerifytheinternalOrganizationallsectionandfields
   Scenario: Verify the internal Organization all section and fields
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
@@ -4807,7 +4807,7 @@ Feature: Sanity scenarios
     Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
-  @455424 @ProgressReportVerifyEXEusershouldseefooternavigatorafteropentheProgressReport
+  @hit1 @455424 @ProgressReportVerifyEXEusershouldseefooternavigatorafteropentheProgressReport
   Scenario: Progress Report_ Verify EXE user should see footer navigator after open the Progress Report
     Given I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Monitoring" tab
@@ -4838,7 +4838,7 @@ Feature: Sanity scenarios
     Then I see "Financial Reports" inside "Monitoring" is displayed
     Then I see "Awards Special Conditions" inside "Monitoring" is displayed
 
-  @455425 @ProgressReportVerifyFOusershouldseefooternavigatorafterpentheProgressReport
+  @hit1 @455425 @ProgressReportVerifyFOusershouldseefooternavigatorafterpentheProgressReport
   Scenario: Progress Report_ Verify FO user should see footer navigator after open the Progress Report
     Given I login to "As a Grantee" app as "GRANTEE FO" user
     And I navigate to "Monitoring" tab
@@ -4890,6 +4890,7 @@ Feature: Sanity scenarios
     Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
     Then I softly see "Create Contact" opens in overLay window
     Then I softly see field on modal "Organization" inside page block
     Then I softly see field on modal "Title" inside page block
@@ -4942,97 +4943,30 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     And I save the field labeled "Title" as "ContactTitle" on modal
-    When I click modal button "Close"
-    When I perform quick search for "{SavedValue:ContactTitle}" in "---grantee_tableId:-:RelatedContacts---" panel
-    Then I softly see value "{SavedValue:ContactTitle}" for title "Title" inside table "---grantee_tableId:-:RelatedContacts---"
-    Then I can see row level action button "View" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:RelatedContacts---"
-    Then I can see row level action button "Delete" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:RelatedContacts---"
-    Then I can see row level action button "Edit" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:RelatedContacts---"
-    Then I softly see "Child Organizations" page block displayed
-    Then I softly see "Actions" in flex table header "---grantee_tableId:-:childOrganizationTableId---"
-    Then I softly see "Organization" in flex table header "---grantee_tableId:-:childOrganizationTableId---"
-    Then I softly see "Organization Level" in flex table header "---grantee_tableId:-:childOrganizationTableId---"
-    Then I softly see "Agency Abbreviation" in flex table header "---grantee_tableId:-:childOrganizationTableId---"
-    Then I softly see "Indirect Rates" page block displayed
-    Then I softly see "Actions" in flex table header "---grantee_tableId:-:indirectRateTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:indirectRateTableId---"
-    Then I softly see "Effective from" in flex table header "---grantee_tableId:-:indirectRateTableId---"
-    Then I softly see "Effective Until" in flex table header "---grantee_tableId:-:indirectRateTableId---"
-    Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:indirectRateTableId---"
-    Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:indirectRateTableId---"
-    Then I softly see "Budget Categories" in flex table header "---grantee_tableId:-:indirectRateTableId---"
-    Then I softly see "UEI Numbers" page block displayed
-    Then I softly see "Actions" in flex table header "---grantee_tableId:-:uieNumberTableId---"
-    Then I softly see "UEI Number" in flex table header "---grantee_tableId:-:uieNumberTableId---"
-    Then I softly see "Registered Entity Name" in flex table header "---grantee_tableId:-:uieNumberTableId---"
-    Then I softly see "Location" in flex table header "---grantee_tableId:-:uieNumberTableId---"
-    Then I softly see "Child Organizations" page block displayed
-    And I save the field labeled "Created By" as "CreatedBy"
-    Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
-    And I save the field labeled "Created Date" as "CreatedDate"
-    Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
-    And I save the field labeled "Last Modified By" as "LastModifiedBy"
-    Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedBy}"
-    Then I softly see link "Last Modified Date" inside Page block
-    And I save the field labeled "Last Modified Date" as "LastModifiedDate"
-    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
-    And I navigate to "Related Log" sub tab
-    Then I softly see "Qualified Leads" page block displayed
-    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
-    Then I softly see "Opportunity Number" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
-    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
-    Then I softly see "Qualifying Organization" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
-    Then I softly see "Application Due Date" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
-    Then I softly see "Status" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
-    And I navigate to "Files" sub tab
-    Then I softly see "Organization Files" page block displayed
-    Then I softly see "Notes" page block displayed
-    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:internalOrgFilesTableId---"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
-    Then I see only the following ordered options in dropdown field "Classification" :
-      | Select file classification | Indirect Cost Rate Letter |Supporting Documents | Others |
-    And I upload attachment without random number "Attachment.pdf" of type "Indirect Cost Rate Letter" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I see "Attachment.pdf" has been added in "Organization Files" flex table
-    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
-    Then I can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
-    Then I can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
-    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
-    Then I softly see value "Indirect Cost Rate Letter" for title "Classification" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
-    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgFilesTableId---"
-    When I click on parallel lines menu bar with data target value "Organization Files"
-    Then I see option "Refresh" present in parallel dropdown
-    Then I softly see top right button "Add" inside flex table "---grantee_tableId:-:internalOrgNotesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:internalOrgNotesTableId---" by clicking "Add" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I softly see link "Created By" inside Page block
-    Then I softly see "Created By" in flex table header "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---" by clicking "Edit" :
-      | Created By    | Title         | Description       |
-      | Sarah PM      | Notes Record1 | Automation Notes1 |
-    And I wait for "2" seconds
-    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I softly see value "Automation Notes1" for title "Description" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
-    And I save the value from row "1" for column name "Created By" as "CreatedBy" from flex table "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I softly see value "{SavedValue:CreatedBy}" for title "Created By" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
-    And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:internalOrgNotesTableId---" without waiting for record
-    Then I softly do not see value "Notes Recor1" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
-    When I click on parallel lines menu bar with data target value "Notes"
-    Then I see option "Refresh" present in parallel dropdown
-    When I navigate to "History" sub tab
-    Then I softly see "Snapshot History" page block displayed
-    Then I softly can see "Field Audit" sub tab at view detail page
-    Then I softly can see "Chatter" sub tab at view detail page
+    Then I softly see field "Title" as "Automation Runtime"
+    Then I softly see field "FirstName" as "Automation"
+    Then I softly see field "LastName" as "Execution"
+    Then I softly see field "Phone" as "8967093844"
+    Then I softly see field "MobilePhone" as "8967093440"
+    Then I softly see field "Email" as "{SavedValue:uniqueEmailID}"
+    And I click on top right button "Edit" in flex table with id "---grantee_tableId:-:fedContactTableId---"
+    When I enter in modal value "Automation Runtime Test" into field "Title"
+    When I enter in modal value "Automation1" into field "FirstName"
+    When I enter in modal value "Execution1" into field "LastName"
+    When I enter in modal value "8967093855" into field "Phone"
+    When I enter in modal value "8967093455" into field "MobilePhone"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+    When I click modal button "Save"
+    Then I softly see field "Title" as "Automation Runtime Test"
+    And I save the field labeled "Title" as "Title"
+    Then I softly see field "FirstName" as "Automation1"
+    Then I softly see field "LastName" as "Execution1"
+    Then I softly see field "Phone" as "8967093855"
+    Then I softly see field "MobilePhone" as "8967093455"
+    Then I softly see field "Email" as "{SavedValue:uniqueEmailID}"
+    And I click on hyperlink containing value "Organization"
+    Then I softly see new tab is opened
+    And I switch to parent tab
+    And I click modal button "Close"
+    Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:fedContactTableId---"

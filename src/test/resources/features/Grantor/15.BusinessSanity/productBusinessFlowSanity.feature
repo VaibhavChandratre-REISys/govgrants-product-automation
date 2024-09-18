@@ -2913,7 +2913,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
 
-@hit @ScopeOfWorkChangeAmendmentRequest @ProdSan2
+@ScopeOfWorkChangeAmendmentRequest @ProdSan2
   Scenario Outline: Validate end to end flow for scope of work change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     And I login to "As a Grantor" app as "PM" user
@@ -3454,7 +3454,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @hit @CarryForwardAmendmentRequest @ProdSan2
+  @CarryForwardAmendmentRequest @ProdSan2
   Scenario: Validate Carry Forward Amendment Request End to End flow
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
