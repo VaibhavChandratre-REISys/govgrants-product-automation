@@ -1534,10 +1534,12 @@ Feature: Validate all scenarios of every modules flow
 
   @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
-    And I wait for "10" seconds
-    When I navigate to "Overview" sub tab
-    When I click on parallel lines menu bar with data target value "Focus Areas"
-    And I wait for "3" seconds
-    Then I see option "Refresh" present in parallel dropdown
-    Then I see option "Download as PDF" present in parallel dropdown
+    Given I login to "As a Grantor" app as "PM" user
+    And I wait for "6" seconds
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | Step 1  |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:EXE Username} | Step 2  |
