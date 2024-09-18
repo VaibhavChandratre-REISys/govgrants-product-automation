@@ -3925,8 +3925,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I select radio button "Reject" in the approval decision
     When I enter comment "Automation testing" in the approval decision
-   And I wait for "2" seconds
     And I submit the approval in the approval decision without processing
+   And I wait for "2" seconds
    Then I softly see the following messages in the page details contains:
      | This action cannot be undone. Do you really want to Reject? |
     And I click "Cancel" on modal confirmation box
