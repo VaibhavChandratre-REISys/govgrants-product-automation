@@ -1546,11 +1546,10 @@ Feature: Validate all scenarios of every modules flow
   @tst1 @debug
   Scenario:
     When I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fJgOYAU/view"
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fK1bYAE/view"
     And I wait for "10" seconds
-    And I navigate to "Setup" sub tab
-    And I expand nested table containing column value "Pre-Screen Review"
-    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
-      | Pre-Screen | Checked   | 100             | 1                                         |
+    When I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---program:-:extapproverTableId---" by clicking "Edit" :
+      | Name                      | Program |
+      | {SavedValue:EXE Username} | Step 1  |
     And I halt execution

@@ -1053,8 +1053,8 @@ public final class FlexTable implements FlexTableComponent {
                 for (int i = 0; i < 50; i++) {
                     try {
                         By selectText = By.xpath("//ul/li//span[text()='" + fieldValue + "']");
-                        I.amPerforming().textInput().toClear(inputBox);
-                        I.amPerforming().textInput().in(inputBox, fieldValue);
+//                        I.amPerforming().textInput().toClear(inputBox);
+//                        I.amPerforming().textInput().in(inputBox, fieldValue);
 //                            I.amPerforming().scroll().withMouseToElement(inputBox);
                         I.amPerforming().click().on(inputBox);
                         if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
