@@ -3926,8 +3926,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I select radio button "Reject" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
-   And I wait for "2" seconds
-   Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
+    And I wait for "2" seconds
+    Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
     And I click "Cancel" on modal confirmation box
     And I wait for "3" seconds
     Then I see only the following ordered radio buttons in the approval decision :
