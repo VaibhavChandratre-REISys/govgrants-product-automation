@@ -1552,4 +1552,4 @@ Feature: Validate all scenarios of every modules flow
     And I edit the following rows inline in flex table with id "---program:-:extapproverTableId---" by clicking "Edit" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
-    And I halt execution
+    Then I softly see value "Step 1" for title "Program" against the value "Automation EXE" inside table "---program:-:extapproverTableId---"

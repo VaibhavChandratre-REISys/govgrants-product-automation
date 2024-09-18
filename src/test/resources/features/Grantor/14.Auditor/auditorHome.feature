@@ -1,7 +1,7 @@
 @auditorHome @auditor @parallel-regression @regression
 Feature: Validate all scenarios for Auditor Profile in Home Module
 
-   @68181 @auditorCannotCreateEditInternalOrganizations @smoke
+  @68181 @auditorCannotCreateEditInternalOrganizations @smoke
   Scenario Outline: Validate Auditor should not be  able to Create/Edit internal organization.
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -13,7 +13,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-   @69119 @auditorCanViewInternalOrganizations
+  @69119 @auditorCanViewInternalOrganizations
   Scenario Outline: Validate Auditor should have view / read  only access to record.
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -25,7 +25,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
       | User    |
       | AUDITOR |
 
-   @69121 @auditorCanViewSubrecipientOrganization
+  @69121 @auditorCanViewSubrecipientOrganization
   Scenario Outline: Validate Auditor should have view / read  only access to record for subrecipient organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -33,11 +33,17 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---home:-:subrecipientActiveAccountId---" panel
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---home:-:subrecipientActiveAccountId---"
     Then I see that "Subrecipient Organization" is in "Active" status
+#   Adding new scenario fr additional address & supporing doc
+    When I navigate to "Overview" sub tab
+    Then I softly do not see top right button "New" inside flex table "AdditionalAddress"
+    And I navigate to "Files" sub tab
+    Then I softly do not see top right button "Add" inside flex table "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
+
     Examples:
       | User    |
       | AUDITOR |
 
-   @69122 @auditorCannotEditSubrecipientOrganization
+  @69122 @auditorCannotEditSubrecipientOrganization
   Scenario Outline:  Auditor should not be  able to  Edit subrecipient organization
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -121,6 +127,13 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     And I pause execution for "5" seconds
     Then I softly can see row level action button "View" against "Automation SME" in flex table with id "ActiveAccountReviewer"
     Then I softly cannot see row level action button "Send Invitation" against "Automation SME" in flex table with id "ActiveAccountReviewer"
+#   Added scenario for to check potential reviewer table top right button
+    Then I softly do not see top right button "New" inside flex table "Reviewers"
+    When I perform quick search for "Automation Runtime" in "Reviewers" panel
+    And I save the value from row "1" for column name "Full Name" as "FullName" from flex table "Reviewers"
+    When I click on "View" icon for "{SavedValue:FullName}" inside flex table with id "Reviewers"
+    Then I softly see "View Potential Reviewer" opens in overLay window
+    Then I softly cannot see top right button "Edit" in page detail
     Examples:
       | User    |
       | AUDITOR |
@@ -141,7 +154,7 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
 #    When I navigate to "Home" tab
 #    Then I softly see task count for "Planning" phase with the total records of flex table id "PhasePendingTasks"
 
-   @69131 @auditorCompletedTask
+  @69131 @auditorCompletedTask
   Scenario: Verify Auditor does not have any completed tasks
     Given I login to "As a Grantor" app as "AUDITOR" user
     And I navigate to "Home" tab
@@ -179,11 +192,14 @@ Feature: Validate all scenarios for Auditor Profile in Home Module
     And I click modal button "Save"
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
-    #Bug434186
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     And I check button "New" is not present in table with id "SubrecipientContacts"
     When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "SubrecipientContacts" panel
     Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "SubrecipientContacts"
+   # Added scenario to check modal top right button
+    When I click on "View" icon for "{SavedValue:Automation Runtime Contact} Contact" inside table
+    Then I softly see "View Subrecipient Contact" opens in overLay window
+    Then I softly cannot see top right button "Edit" in page detail
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
   @69143 @auditorViewSubrecipientContacts
