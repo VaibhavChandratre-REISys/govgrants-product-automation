@@ -1567,3 +1567,15 @@ Feature: Validate all scenarios of every modules flow
        | {SavedValue:EGMS ID1} | 15                          | 25                        |
      Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
      Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+
+  @p125 @ValidateFullProgramFlow
+  Scenario: Validate Full Program Flow
+    And I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI4" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    When I click toggle button to select "Award Risk Assessments - All"
+    And I perform quick search for "Created" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
+    Then I softly do not see value "Created" for title "Status" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+
+
