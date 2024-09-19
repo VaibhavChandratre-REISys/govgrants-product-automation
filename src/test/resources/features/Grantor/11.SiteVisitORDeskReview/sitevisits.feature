@@ -767,7 +767,7 @@ Feature: Validate all scenarios in the Site Visit
     And I click on "Notify" in the page details
     Then I softly can see top right button "Conduct" in page detail
 
-  @55792 @internalParticipantAssociationSiteVisit @TBExecution
+  @55792 @internalParticipantAssociationSiteVisit
   Scenario Outline: Internal Participant Association of Site Visit
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
@@ -1712,7 +1712,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I see the following messages in the page details contains:
       | Due date must be future date |
 
-  @65242 @foUserCannotDeleteCreatedSiteVisit @TBExecution
+  @65242 @foUserCannotDeleteCreatedSiteVisit
   Scenario: Validate whether other than record owner can Fo user view the created Site Visit by Pm
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
