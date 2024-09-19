@@ -12,7 +12,8 @@ Feature: Validate all scenarios for program
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
+     And I enter value "11.123" into field "FederalProgramCFDA__c"
+     And I click on "Save" in the page details
     And I pause execution for "3" seconds
     When I navigate to "Planning" tab
     And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
@@ -462,6 +463,7 @@ Feature: Validate all scenarios for program
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I enter value "11.123" into field "FederalProgramCFDA__c"
     And I click on "Save" in the page details
     When I re-login to "As a Grantor" app as "<User>" user on "INTERNAL" portal
     When I navigate to "Planning" tab

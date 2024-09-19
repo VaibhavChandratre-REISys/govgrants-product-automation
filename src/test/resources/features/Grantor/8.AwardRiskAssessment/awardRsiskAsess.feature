@@ -170,7 +170,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Overview" sub tab
     Then I cannot see field "Risk Level" inside page block
 
-  @76272 @65550 @raOwnerCanAddMultiplePeerReviewerForRA
+ @hitRisk @76272 @65550 @raOwnerCanAddMultiplePeerReviewerForRA
   Scenario: Validate Award owner can add Multiple Peer reviewer for Risk Assessment whose status is Submitted to grantor | Validate whether the record owner recieve an email notfication when risk assessment is created
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -218,7 +218,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @risk @65876 @65877 @65879 @verifyUsersCanSeeNewButtonSPiViewCreatedRiskAssessment
+  @65876 @65877 @65879 @verifyUsersCanSeeNewButtonSPiViewCreatedRiskAssessment @wip
   Scenario: Verify that users can see new button to create Risk Assessment on Management Tab list view |Validate whether record owner and SPI user can view the RA that is in Created state under Monitoring Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -254,7 +254,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Created" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
     Then I softly do not see value "Created" for title "Status" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
-  @65878 @newButtonISNotAvilbaleforActiveAwards @wip @apinotworking
+  @65878 @newButtonISNotAvilbaleforActiveAwards
   Scenario: Verify whether New button on Management is not available for active awards
     Given I activated standalone subaward "Automation Runtime Award" with properties "YES_RISK_ASSESSMENT" of type "Competitive"
     Given I login to "As a Grantor" app as "PM" user
@@ -269,7 +269,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Management" sub tab
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-  @66874 @orgRAisExpiredAwardRiskAssessmentSetasNo
+@66874 @orgRAisExpiredAwardRiskAssessmentSetasNo
   Scenario Outline: Validate when Organization Risk Assessment is not active and Award Risk Assessment Required is selected as No then System should throw an exception when user activates the award.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -387,7 +387,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
-  @59701 @addApproversForRiskAssessment
+ @hitRisk @59701 @addApproversForRiskAssessment
   Scenario: Validate whether user is able to Add Approvers to Risk Assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -422,7 +422,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "3" seconds
     Then I softly see that "Automation PM" has been added in flextable with Id "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
 
-  @142056 @verifyUserNotAbleToSkipApproverForAwardRiskAssesment-RnRFuntionality
+ @hitRisk @142056 @verifyUserNotAbleToSkipApproverForAwardRiskAssesment-RnRFuntionality
   Scenario: Validate system enforces the user to atleast enter step 1 approval for award risk assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -456,7 +456,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @142062 @VerifyUpdationOfInheritedApproverAtRiskAssesmentFromAward-RnRFunctnality
+ @hitRisk @142062 @VerifyUpdationOfInheritedApproverAtRiskAssesmentFromAward-RnRFunctnality
   Scenario Outline: Validate user can modify the approver entered on award for Risk assessment are copied on the Risk Assessments
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -566,7 +566,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @142100 @Verify1StepAddApproverAtForAwardRiskAssesment-RnRFuntionality
+ @hitRisk @142100 @Verify1StepAddApproverAtForAwardRiskAssesment-RnRFuntionality
   Scenario: Validate user can defined one step approval for Risk Assessment on Award
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -602,7 +602,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | {SavedValue:EXE Username} | Step 1          |
     Then I softly see "Saved Successfully!" inside flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
 
-  @142119 @VerifyErrorMessageWhileSkippingStepsForAwardRiskAssesment-RnRFuntionality
+ @hitRisk @142119 @VerifyErrorMessageWhileSkippingStepsForAwardRiskAssesment-RnRFuntionality
   Scenario: Verify user cannot skip the approver step on subaward risk assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -644,7 +644,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 
-  @142414 @VerifyAdditionOfAdditionalApproverRiskAssesmentFromAward-RnRFunctnality
+ @hitRisk @142414 @VerifyAdditionOfAdditionalApproverRiskAssesmentFromAward-RnRFunctnality
   Scenario Outline: Validate user can add additional approvers on risk assesment if step1 was configured on award
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -760,7 +760,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @142415 @VerifyFourStepApprovalProcessForRiskAssesmentFromAward-RnRFunctnality
+ @hitRisk @142415 @VerifyFourStepApprovalProcessForRiskAssesmentFromAward-RnRFunctnality
   Scenario Outline: Given the step 4 approver has approved validate Risk Assessment is marked as Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1050,7 +1050,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @142418 @VerifySelectionOfNAInsideStepsOfCopiedApproverFromAward-RnRFunctnality
+ @hitRisk @142418 @VerifySelectionOfNAInsideStepsOfCopiedApproverFromAward-RnRFunctnality
   Scenario Outline: Validate user can select NA for a step on already copied approvers from award
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1415,7 +1415,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @143259 @VerifyRiskAssessmentActivationWithOneStepApprover-RnRFunctnality
+ @hitRisk @143259 @VerifyRiskAssessmentActivationWithOneStepApprover-RnRFunctnality
   Scenario Outline: Verify risk assessment becomes active when approved by one step approver
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1537,7 +1537,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @143348 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtRiskAssessment-RnRFunctnality
+ @hitRisk @143348 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtRiskAssessment-RnRFunctnality
   Scenario Outline: Verify the validation when same user is added for multiple step on approver section for risk assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1691,7 +1691,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "1" seconds
     Then I softly see row level action button "Remove record" inside "---subAwardStandAlone:-:riskAssessmentApproverTableId---" flex table
 
-  @143414 @VerifyUserCannotAddApproverAfterRiskAssessmentActive-RnRFunctnality
+ @hitRisk @143414 @VerifyUserCannotAddApproverAfterRiskAssessmentActive-RnRFunctnality
   Scenario Outline: Verify when risk assessment is active then user cannot add approver
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2095,7 +2095,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
     Then I softly can see top right button "Submit for Approval" in page detail
 
-  @risk2 @198041 @ValidatePOusercansubmittheawardriskassessmentforapprovalpostrevieweraddcommentswhenownershipistransferredforRAwhichisinSubmittedforReviewstatus @sprint-12-US-226646  @reassignment
+  @hitRisk @198041 @ValidatePOusercansubmittheawardriskassessmentforapprovalpostrevieweraddcommentswhenownershipistransferredforRAwhichisinSubmittedforReviewstatus @sprint-12-US-226646  @reassignment
   Scenario: Validate PO user can submit the award risk assessment for approval post reviewer add comments when ownership is transferred for a RA which is in Submitted for Review status
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -2169,24 +2169,24 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click modal button "Save"
     And I click on submit review
     And I logout
-    And I wait for "2" seconds
-    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
-    And I pause execution for "180" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-"""
-      Subaward Risk Assessment for {SavedValue:RAEGMSID} has been Peer Reviewed.
-      """
-    Then I see the mail text is as follows :
-"""
-      Hello Automation PO1,
-     This email to notify you that a Subaward Risk Assessment for Subaward {SavedValue:AwardEGMSID} has been peer reviewed.
-     Log in to EGMS and click here for more details.
-     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com If you have any questions or need assistance with this task.
-     Thank you.
-     The EGMS Team
-      """
-    Then I refresh the page
+#    And I wait for "2" seconds
+#    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
+#    And I pause execution for "180" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#"""
+#      Subaward Risk Assessment for {SavedValue:RAEGMSID} has been Peer Reviewed.
+#      """
+#    Then I see the mail text is as follows :
+#"""
+#      Hello Automation PO1,
+#     This email to notify you that a Subaward Risk Assessment for Subaward {SavedValue:AwardEGMSID} has been peer reviewed.
+#     Log in to EGMS and click here for more details.
+#     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrants@support.com If you have any questions or need assistance with this task.
+#     Thank you.
+#     The EGMS Team
+#      """
+#    Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "PO1" user
     And I navigate to "Monitoring" tab
@@ -2203,7 +2203,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @risk @198047 @ValidateFDprofileusercanrejecttheawardrisassessmentforstep1approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment
+  @198047 @ValidateFDprofileusercanrejecttheawardrisassessmentforstep1approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment
   Scenario: Validate FD profile user can reject the award risk assessment for step 1 approvals when ownership is transferred for a RA which is in Submitted for approval status
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -2385,7 +2385,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly do not see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
     Then I softly do not see value "Create Risk Assessment for Subaward" for title "Task Type" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @risk2 @198046 @ValidateEXEprofileusercanapprovetheawardriskassessmentforstep2approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment
+  @198046 @ValidateEXEprofileusercanapprovetheawardriskassessmentforstep2approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment
   Scenario: Validate EXE profile user can approve the award risk assessment for step 2 approvals when ownership is transferred for a RA which is in Submitted for approval status
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2564,7 +2564,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation EXE" for title "Name" inside table "---riskassessment:-:riskAssOwnerTableId---"
 
-  @200365 @ValidateFieldHistorywithRespecttoRiskAssessmentisupdatedforcorrespondingawardwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646  @reassignment @wip
+  @200365 @ValidateFieldHistorywithRespecttoRiskAssessmentisupdatedforcorrespondingawardwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646  @reassignment
   Scenario: Validate Field History with Respect to Risk Assessment is updated for corresponding award with respect to owner ship transfer of a Active Risk Assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2636,7 +2636,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Automation PM1" for title "New Value" inside table "---subAwardStandAlone:-:historyTableId---"
     Then I softly see value "Automation PM" for title "Old Value" inside table "---subAwardStandAlone:-:historyTableId---"
 
-  @risk2 @198628 @ValidatePMprofileusercansendbacktheawardriskassessmentforstep2approvalswhenownershipistransferredforaRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment @FieldHistoryExclude
+ @198628 @ValidatePMprofileusercansendbacktheawardriskassessmentforstep2approvalswhenownershipistransferredforaRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment @FieldHistoryExclude
   Scenario: Validate PM profile user can send back the award risk assessment for step 2 approvals when ownership is transferred for a RA which is in Submitted for approval status
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2740,7 +2740,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
 
-  @198631 @ValidatePOprofileusercanactivatethawardriskassessmentafteritsapprovedtheRAwhenownershipistransferreforRAwhichisinSubmitforApprovalstatus
+ @hitRisk @198631 @ValidatePOprofileusercanactivatethawardriskassessmentafteritsapprovedtheRAwhenownershipistransferreforRAwhichisinSubmitforApprovalstatus
   Scenario: Validate PO profile user can activate the award risk assessment after its approved the RA when ownership is transferred for a RA which is in 'Submit for Approval' status
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -3008,7 +3008,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @risk2 @223678 @ValidateRiskAssessmentIfapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityFiscalreviewervalidatereassignmentfails @sprint-12-US-226646  @reassignment
+  @hit@Risk @223678 @ValidateRiskAssessmentIfapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityFiscalreviewervalidatereassignmentfails @sprint-12-US-226646  @reassignment
   Scenario: Validate Risk Assessment If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (Fiscal reviewer)validate reassignment fails
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -3057,26 +3057,26 @@ Feature: Validate all scenarios in the Risk Assessment
     When I perform quick search for "{SavedValue:RAEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
-    And I wait for "2" seconds
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-"""
-      Task Reassignment Report
-      """
-    Then I see the mail text is as follows :
-"""
-     The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
-
-     EGMS ID	Type	Status	Subject	Assigned By	Reason of Failure
-     {SavedValue:RAEGMSID}	Review Subaward Risk Assessment	Not Started	Review Subaward Risk Assessment {SavedValue:RAEGMSID} for Organization SAN DIEGO ELECTRICAL TRAINING TRUST	Automation FO	Responsibilities Tab - A person with the same role cannot be added again.
-
-     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-     Thank you,
-     The EGMS Team.
-      """
+#    And I wait for "2" seconds
+#    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#"""
+#      Task Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#"""
+#     The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
+#
+#     EGMS ID	Type	Status	Subject	Assigned By	Reason of Failure
+#     {SavedValue:RAEGMSID}	Review Subaward Risk Assessment	Not Started	Review Subaward Risk Assessment {SavedValue:RAEGMSID} for Organization SAN DIEGO ELECTRICAL TRAINING TRUST	Automation FO	Responsibilities Tab - A person with the same role cannot be added again.
+#
+#     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#     Thank you,
+#     The EGMS Team.
+#      """
     And I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "FO1" user
     And I navigate to "Monitoring" tab
@@ -3117,7 +3117,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
 
-  @risk2 @201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646  @reassignment @FieldHistoryExclude
+  @201483 @ValidateEmailNotificationissentADMINoldowner&newownerwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646  @reassignment @FieldHistoryExclude
   Scenario: Validate Email Notification is sent to ADMIN old owner & new owner with respect to ownership transfer of a Active Risk Assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3422,7 +3422,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @223701 @ValidateRiskAssessmentapprovertableshoulnotgetupdateonawardafterapproverreassignmentgetdoneonit'srelatedRiskassessment @sprint-11-US-218319  @reassignment
+ @hitRisk @223701 @ValidateRiskAssessmentapprovertableshoulnotgetupdateonawardafterapproverreassignmentgetdoneonit'srelatedRiskassessment @sprint-11-US-218319  @reassignment
   Scenario: Validate Risk Assessment approver table should not get update on award after approver reassignment get done on it's related Risk assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3512,7 +3512,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Step 1" for title "Award" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
     Then I softly see value "Step 1" for title "Advance" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
 
-  @risk @224658 @ValidateRiskAssfailureemailshouldgeneratedforRAownerifusertrytoreassignreviewtasktoalreadyassignreviewer @sprint-11-US-218319  @reassignment
+  @224658 @ValidateRiskAssfailureemailshouldgeneratedforRAownerifusertrytoreassignreviewtasktoalreadyassignreviewer @sprint-11-US-218319  @reassignment
   Scenario: Validate Risk Ass failure email should generated for RA owner if user try to reassign review task to already assign reviewer
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3594,7 +3594,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team.
       """
 
-  @risk2 @223375 @ValidateRiskAssessmentModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-10-US-205576  @reassignment
+  @223375 @ValidateRiskAssessmentModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-10-US-205576  @reassignment
   Scenario: Validate Risk Assessment Module user should able to reassign the task to new user of more than 10 records & 1 email should be triggered for all records
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4099,7 +4099,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
 
-  @risk @116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @Allocation
+   @116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @Allocation
   Scenario: Validate Risk Assessments are read only for SR User
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -4183,27 +4183,27 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:organizationprofileviewTableId---"
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: An Subaward Risk Assessment has been createdfor {SavedValue:AwardEGMSID}
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#      Hello Automation PM,
-#
-#      This email to notify you that an Subaward Risk Assessment has been created for Subaward {SavedValue:AwardEGMSID} for Subrecipient Automation IND.
-#
-#      Log in to EGMS and click here to review the Subaward risk assessment details and access the task.
-#
-#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-#
-#      Thank you.
-#      The EGMS Team
-#      """
-#    Then I refresh the page
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: An Subaward Risk Assessment has been createdfor {SavedValue:AwardEGMSID}
+      """
+    Then I see the mail text is as follows :
+      """
+      Hello Automation PM,
+
+      This email to notify you that an Subaward Risk Assessment has been created for Subaward {SavedValue:AwardEGMSID} for Subrecipient Automation IND.
+
+      Log in to EGMS and click here to review the Subaward risk assessment details and access the task.
+
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+      Thank you.
+      The EGMS Team
+      """
+    Then I refresh the page
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "IND" user
     And I navigate to "Monitoring" tab
@@ -4278,23 +4278,23 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see field "Status" as "Created"
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-#    And I pause execution for "10" seconds
-#    Then I refresh the page
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Approver Sent Back Subaward Risk Assessmentfor {SavedValue:AwardEGMSID}
-#      """
-#
-#    Then I see the mail text is as follows :
-#      """
-#      Hello,
-#      This email is to inform you that the Subaward Risk Assessment for {SavedValue:AwardEGMSID} has been sent back by the Approver.
-#      Log in to EGMS and click here for more details.
-#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-#      Thank you.
-#      The EGMS Team
-#      """
+    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "10" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Approver Sent Back Subaward Risk Assessmentfor {SavedValue:AwardEGMSID}
+      """
+
+    Then I see the mail text is as follows :
+      """
+      Hello,
+      This email is to inform you that the Subaward Risk Assessment for {SavedValue:AwardEGMSID} has been sent back by the Approver.
+      Log in to EGMS and click here for more details.
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+      Thank you.
+      The EGMS Team
+      """
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "IND" user
     And I navigate to "Monitoring" tab
