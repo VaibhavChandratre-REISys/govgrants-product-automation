@@ -270,7 +270,7 @@ public final class PhasePanel {
      * click on right header bars with data Target value
      */
     public void clickParallelMenuBarsWithDataTargetValue(String dataTargetValue) {
-        By parallelMenuBarswithDataTarget = By.xpath("//a[@data-target='" + dataTargetValue + "']/ancestor::div[contains(@class,'panel-heading')]//a[@title='Menu']");
+        By parallelMenuBarswithDataTarget = By.xpath("//a[@data-target='" + dataTargetValue + "']/ancestor::div[contains(@class,'panel-heading')]//a[@title='Menu'] |//span[@title='" + dataTargetValue + "']//ancestor::div[@class='header']//button[@title='Menu']");
         I.amPerforming().click().on(parallelMenuBarswithDataTarget);
     }
 

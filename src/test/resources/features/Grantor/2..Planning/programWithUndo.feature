@@ -843,7 +843,8 @@ Feature: Validate all scenarios for program
     And I pause execution for "5" seconds
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
-    Then I can see the message "Comments are Required." in the approval decision
+    Then I see the following messages in the page details contains:
+      | Comments are Required. |
 
   @279442 @VerifyusershouldnotseeactiveprogramtaskinpendingtaskfterpproverclickonUndobutton @sprint-25-US-295138  @Undo
   Scenario: Verify user should not see active program task in pending task after approver click on Undo button
@@ -1645,6 +1646,7 @@ Feature: Validate all scenarios for program
     Then I softly see snapshot with name containing "Internal Program - Undo Approval.pdf" as name
     And I click on hyperlink containing value "Internal Program - Undo Approval.pdf"
     When I download the file
+     And I wait for "3" seconds
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
     Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
     Then I softly see "Test Automation Organization" on page "1" of "govgrants" pdf file
@@ -2269,7 +2271,7 @@ Feature: Validate all scenarios for program
      """
 
 
-   @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914  @Undo
+    @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914  @Undo
   Scenario: Verify step 2 approver can Reject the program after click on Undo button and active program task should cancel and display under completed task table
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2316,7 +2318,8 @@ Feature: Validate all scenarios for program
     When I select radio button "Reject" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
-    Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
+      Then I softly see the following messages in the page details contains:
+        | This action cannot be undone. Do you really want to Reject? |
     And I click "Continue" on modal confirmation box
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -2892,6 +2895,7 @@ Feature: Validate all scenarios for program
     And I click on hyperlink containing value "External NGO Program - Undo Approval.pdf"
     When I download the file
 #   And I switch to tab number "1"
+    And I wait for "5" seconds
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
     Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
     Then I softly see "Test With Automation PM" on page "1" of "govgrants" pdf file
@@ -3140,21 +3144,21 @@ Feature: Validate all scenarios for program
     Then  I can see top right button "New" in flex table with id "---program:-:approverTableId---"
     When I navigate to "Files" sub tab
     Then  I can see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    Then  I can see top right button "Add" in flex table with id "---program:-:internalProgramNotesTableId---"
+    Then  I can see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
     When I navigate to "Responsibilities" sub tab
     And I edit the following rows inline in flex table with id "---program:-:approverTableId---" by clicking "Edit" :
       | Name                      | Program |
-      | {SavedValue:EXE Username} | NA      |
+      | {SavedValue:EXE Username} | Step 1  |
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I refresh the page
     And I wait for "10" seconds
     And I refresh the page
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Internal Program - submit for approval.pdf" as name
 
-  @281733 @InternalProgramVerifyuserseealltablesdisplaycorrectlyindownloadedPDFforprogramafterUndo @sprint-25-US-280680  @Undo
+  @program2 @281733 @InternalProgramVerifyuserseealltablesdisplaycorrectlyindownloadedPDFforprogramafterUndo @sprint-25-US-280680  @Undo
   Scenario: Validate Internal Prog I see I can edit and update the filed when undo is in progress
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3223,7 +3227,9 @@ Feature: Validate all scenarios for program
     Then I cannot see top right button "Undo" in page detail
     And I click on Menu icon present on top right corner of the page
     And I select "Download As PDF" from dropdown
+    And I wait for "3" seconds
     And I download the file
+    And I wait for "3" seconds
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
     Then I softly see following details in "govgrants" pdf file:
       | Detail   | Page Number |

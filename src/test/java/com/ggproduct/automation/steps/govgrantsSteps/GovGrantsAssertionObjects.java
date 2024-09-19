@@ -268,7 +268,7 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertOptionPresentInList(String usage, String option) {
         boolean checkoption = false;
-        if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//c-flex-layout-actions//div//a//span[text()='" + option + "']"))) {
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//c-flex-layout-actions//div//a//span[text()='" + option + "'] | //lightning-menu-item[@title='" + option + "']"))) {
             checkoption = true;
         }
         if (usage.contains("not")) {
@@ -1118,8 +1118,8 @@ public final class GovGrantsAssertionObjects {
      */
     public void checkForDropdownOptions(boolean exactMatch, boolean checkOrder, String fieldApiName, List<String> expectedOptions) {
         if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox'] | //label[text()='" + fieldApiName + "']"));
-            By Options = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//lightning-base-combobox-item//span[@title] | //label[text()='" + fieldApiName + "']/parent::div//lightning-base-combobox-item");
+            I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox'] | //label[text()='" + fieldApiName + "'] |//select[@name='" + fieldApiName + "']"));
+            By Options = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//lightning-base-combobox-item//span[@title] | //label[text()='" + fieldApiName + "']/parent::div//lightning-base-combobox-item |//select[@name='" + fieldApiName + "']/option");
             List<String> actualOptions = I.amPerforming().getElementReference().forListOfElements().of(Options)
                     .stream().map(Elements::getText).collect(Collectors.toList());
 
@@ -3058,7 +3058,7 @@ public final class GovGrantsAssertionObjects {
     private boolean quickSearchLocator(String tableIdName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.cssSelector("div#" + tableIdName + "div>div>input"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableIdName + "']//div//div//input"))) {
                 flag = true;
             }
         } catch (Exception e) {

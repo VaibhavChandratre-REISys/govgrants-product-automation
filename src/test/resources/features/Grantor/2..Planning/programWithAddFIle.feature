@@ -105,6 +105,7 @@ Feature: Validate all scenarios for program with add file
       | {SavedValue:ADMIN Username} | Step 1  |
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
+    And I pause execution for "5" seconds
     Then I cannot see top right button "Edit" in page detail
     And I navigate to "Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
@@ -320,9 +321,11 @@ Feature: Validate all scenarios for program with add file
     And I pause execution for "3" seconds
     Then I softly see "Program Artifacts" has been added in "Program Files" flex table
     And I click on "Edit" icon for "Program Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    And I switch to iframe with id "---program:-:addFilesIframeId---"
     And I select Classification as "Other Artifacts" at upload file modal
     When I click modal button "Save"
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---program:-:GrantorInternalProgramFilesTableId---"
     And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---" without waiting for record
     Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---program:-:GrantorInternalProgramFilesTableId---"
@@ -384,6 +387,8 @@ Feature: Validate all scenarios for program with add file
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
+    And I click modal button "Close"
+    And I refresh the page
     Then I cannot see top right button "Edit" in page detail
     And I navigate to "Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
@@ -465,7 +470,7 @@ Feature: Validate all scenarios for program with add file
     Then I cannot see row level action button "Edit" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then I cannot see row level action button "Delete" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
 
-  @222088 @VerifyUsercannotEditdeletefileiftheyareowneroffilewhenprogramisinsubmitforapprovalstatus @sprint-10-US-199430 @addFiles
+ @222088 @VerifyUsercannotEditdeletefileiftheyareowneroffilewhenprogramisinsubmitforapprovalstatus @sprint-10-US-199430 @addFiles
   Scenario: Verify User can not  Edit/delete file if they are owner of file when program  is in submit for approval status
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -508,6 +513,7 @@ Feature: Validate all scenarios for program with add file
       | {SavedValue:PM Username} | Step 1  |
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
+   And I pause execution for "5" seconds
     Then I cannot see top right button "Edit" in page detail
     And I navigate to "Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
@@ -560,9 +566,11 @@ Feature: Validate all scenarios for program with add file
     And I wait for "2" seconds
     Then I softly see "Program Artifacts" has been added in "Program Files" flex table
     And I click on "Edit" icon for "Program Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    And I switch to iframe with id "---program:-:addFilesIframeId---"
     And I select Classification as "Other Artifacts" at upload file modal
     When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---program:-:GrantorInternalProgramFilesTableId---"
     And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---" without waiting for record
     Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---program:-:GrantorInternalProgramFilesTableId---"
@@ -627,7 +635,7 @@ Feature: Validate all scenarios for program with add file
     And I click on submit review
     And I wait for "3" seconds
     #222092
-    Then I can see top right button "Edit" in page detail
+    Then I cannot see top right button "Edit" in page detail
     And I navigate to "Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then I cannot see row level action button "Edit" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"

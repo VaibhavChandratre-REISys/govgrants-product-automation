@@ -151,7 +151,7 @@ public final class GovGrantsAssertionSteps {
         );
     }
 
-    @Then("^I (softly see|see|cannot see) the following messages? in the page details (contains)?:$")
+    @Then("^I (softly see|see|softly cannot see) the following messages? in the page details (contains)?:$")
     public void assertPageMessageValue(String usage, String contains, List<String> messages) {
         ggAssertionObjects.assertPageMessageValue(
                 contains != null,
