@@ -95,7 +95,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
     And I wait for "2" seconds
-    And I halt execution
     And I close "Create Grantee Contact" modal by clicking the top right x button
     And I save the contact name as "Automation Runtime Contact"
     And I navigate to "Grantee" content inside "Contacts" subheader on left panel
