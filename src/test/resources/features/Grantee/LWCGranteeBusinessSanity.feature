@@ -4859,6 +4859,7 @@ Feature: Sanity scenarios
     Then I see "Awards Special Conditions" inside "Monitoring" is displayed
     And I wait for "5" seconds
     And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I wait for "2" seconds
     And I click toggle button to select "Progress Reports - All"
     And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
     Then I softly see value "{grantee_testData:progressReportStaticData}" for title "Award Title" inside table "---grantee_tableId:-:ProgressReports---"
