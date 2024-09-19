@@ -157,7 +157,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on hyperlink containing value "View All"
     Then I softly see value "Rejected" for title "New Value" inside field history table
 
-  @58170 @58171 @forwardToOtherUsersendtoOwnerRiskAssesment @TBExecution
+  @58170 @58171 @forwardToOtherUsersendtoOwnerRiskAssesment
   Scenario: Validate whether user is to able to forward Risk Assessment for Approval and Send to Owner
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
