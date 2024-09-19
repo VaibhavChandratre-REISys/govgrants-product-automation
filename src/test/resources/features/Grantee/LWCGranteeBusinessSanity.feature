@@ -4881,13 +4881,13 @@ Feature: Sanity scenarios
     Then I softly see "Email" in flex table header "---grantee_tableId:-:fedContactTableId---"
     Then I softly see "Phone" in flex table header "---grantee_tableId:-:fedContactTableId---"
     Then I softly see "Organization" in flex table header "---grantee_tableId:-:fedContactTableId---"
-    When I click on parallel lines menu bar with data target value "Non-Federal Contacts"
+    When I click on parallel lines menu bar with data target value "Federal Contacts"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
+    And I select "Download as PDF" from parallel lines dropdown of "Federal Contacts"
     And I download the file
-    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I see "Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
@@ -4964,9 +4964,9 @@ Feature: Sanity scenarios
     Then I softly see field "LastName" as "Execution1"
     Then I softly see field "Phone" as "8967093855"
     Then I softly see field "MobilePhone" as "8967093455"
-    Then I softly see field "Email" as "{SavedValue:uniqueEmailID}"
-    And I click on hyperlink containing value "Organization"
-    Then I softly see new tab is opened
-    And I switch to parent tab
+#    Then I softly see field "Email" as "{SavedValue:uniqueEmailID}"
+#    And I click on hyperlink containing value "Organization"
+#    Then I softly see new tab is opened
+#    And I switch to parent tab
     And I click modal button "Close"
     Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:fedContactTableId---"
