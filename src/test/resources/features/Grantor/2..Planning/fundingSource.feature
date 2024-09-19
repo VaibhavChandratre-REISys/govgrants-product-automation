@@ -98,11 +98,11 @@ Feature: Validate all scenarios in Funding Source
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
-    When I enter value "4650" into field "EndDate__c"
+    When I enter value "5000" into field "EndDate__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
     When I click on "Activate" in the page details
-    And I wait for "4" seconds
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Funding account dates should be within funding source dates. |
 
@@ -597,7 +597,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:externalFundingSourceTableId---" without waiting for record
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
-  @196559 @196561 @ValidatefilerelatedpermissionsforADMINprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048
+ @196559 @196561 @ValidatefilerelatedpermissionsforADMINprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048
   Scenario: Validate file related permissions for ADMIN profile during the workflow Status (Created, Activated, Closed) when External Funding Source is created by ADMIN
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Planning" tab

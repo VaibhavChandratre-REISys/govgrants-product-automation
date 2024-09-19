@@ -273,9 +273,10 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Disapprove" in the approval decision
-    Then I can see the message "Successfully Disapproved" in the approval decision
-    Then I refresh the page
+    Then I softly see the following messages in the page details contains:
+      | Successfully Disapproved
     And I wait for "3" seconds
+    Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
   @111514 @VerifyForwardOfNGOProgram
@@ -484,7 +485,8 @@ Feature: Validate all scenarios for program
     Then I softly see "<new_helpText>" shown as help text
      #169898
     And I click on "Preview" icon for "Standard Pre-Application form" inside flex table with id "---program:-:previewPackageTableId---" without waiting for record
-    Then I see new tab is opened
+    And I wait for "2" seconds
+    Then I softly see new tab is opened
     Examples:
       | User | new_helpText                                                 |
       | PM   | Section Displays List of Forms Associated with this Package. |
@@ -2628,7 +2630,7 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "SYSTEM" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I perform quick search for "Automation ADMIN" in "---program:-:associateKPITableId---" panel
+    When I perform quick search for "Automation Permanent KPI For Admin" in "---program:-:associateKPITableId---" panel
     When I click "Associate" after selection of "Automation Permanent KPI For Admin" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I click modal button "Close"
     And I navigate to "Responsibilities" sub tab
@@ -2970,6 +2972,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
       | Reviewer Name  | Responsibility  | Description                 | Due Date |
       | Automation EXE | Fiscal Reviewer | Automation Test Description | 10       |
+    And I wait for "2" seconds
     Then I softly can see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
     Then I softly can see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
     Then I softly can see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
@@ -4279,7 +4282,7 @@ Feature: Validate all scenarios for program
       """
 
 
-  @191032 @ValidatePlanningPMasrecordownercanseenewlyreassignApprovernameinapproversection @sprint-11-US-224734  @reassignment
+   @191032 @ValidatePlanningPMasrecordownercanseenewlyreassignApprovernameinapproversection @sprint-11-US-224734  @reassignment
   Scenario: Validate Planning PM as record owner can see newly reassign Approver name in approver section
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -7485,8 +7488,9 @@ Feature: Validate all scenarios for program
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I see only the following ordered options in dropdown field "Classification" :
-      | Template for Planning | Others |
+      | Select file classification | Template for Planning | Others |
 
   @330560 @330580 @330611 @330615 @ValidatePMusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectccaddresscolumnsonMessagessectionundercollabtabofInternalProgram @SystemEmail
   Scenario: Validate PM user should see value populates in " Subject, From Address, To Address, Attention to, Email subject,cc address" columns on Messages section under collab tab of Internal Program
@@ -7506,8 +7510,7 @@ Feature: Validate all scenarios for program
     And I send the email under collab tab with following details:
       | To                        | Subject         | Body                       |
       | fo.automation@yopmail.com | Automation Test | Automation Test Email Body |
-    Then I softly see the following messages in the page details contains:
-      | Email Sent Successfully. |
+    Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---program:-:programCollabMessagesTableId---"
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
@@ -7518,9 +7521,8 @@ Feature: Validate all scenarios for program
     And I send the email under collab tab with following details:
       | To                        | Subject              | Body                          |
       | fo.automation@yopmail.com | RE: Automation Test1 | Automation Re-Test Email Body |
-    Then I softly see the following messages in the page details contains:
-      | Email Sent Successfully. |
-    And I close "Reply" modal by clicking the top right x button
+    Then I see the text "Email Sent Successfully." in modal
+    And I close "Send Email" modal by clicking the top right x button
     Then I see value "" for title "Attention To" against the value "RE: Automation Test1" inside table "---program:-:programCollabMessagesTableId---"
     #330611
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -7538,9 +7540,8 @@ Feature: Validate all scenarios for program
     And I send the email under collab tab with following details:
       | To                        | Subject              | Body                                |
       | fo.automation@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
-    Then I softly see the following messages in the page details contains:
-      | Email Sent Successfully. |
-    And I close "Reply" modal by clicking the top right x button
+    Then I see the text "Email Sent Successfully." in modal
+    And I close "Send Email" modal by clicking the top right x button
     Then I see value "" for title "Attention To" against the value "RE: Automation Test2" inside table "---program:-:programCollabMessagesTableId---"
 
   @331481 @331482 @331479 @331477 @331478 @ValidatethatSarahPMAndPeerReviewerVictorEXEwillseesystemEmailafterSarahPmsendsInternalProgramforPeerreview @Sprint-11-US-327737 @SystemEmail
@@ -7842,8 +7843,7 @@ Feature: Validate all scenarios for program
     And I send the email under collab tab with following details:
       | To                        | Subject         | Body                       |
       | pm.automation@yopmail.com | Automation Test | Automation Test Email Body |
-    Then I softly see the following messages in the page details contains:
-      | Email Sent Successfully. |
+    Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---program:-:programCollabMessagesTableId---"
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
@@ -8125,8 +8125,7 @@ Feature: Validate all scenarios for program
     And I send the email under collab tab with following details:
       | To                        | Subject         | Body                       |
       | fo.automation@yopmail.com | Automation Test | Automation Test Email Body |
-    Then I softly see the following messages in the page details contains:
-      | Email Sent Successfully. |
+    Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---program:-:programCollabMessagesTableId---"
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
@@ -8144,9 +8143,8 @@ Feature: Validate all scenarios for program
     And I send the email under collab tab with following details:
       | To                        | Subject              | Body                                |
       | fo.automation@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
-    Then I softly see the following messages in the page details contains:
-      | Email Sent Successfully. |
-    And I close "Reply" modal by clicking the top right x button
+    Then I see the text "Email Sent Successfully." in modal
+    And I close "Send Email" modal by clicking the top right x button
     Then I see value "" for title "Attention To" against the value "RE: Automation Test2" inside table "---program:-:programCollabMessagesTableId---"
 
   @330625 @330629 @330617 @330598 @ValidatethatFDusercanSeeSendEmailbuttononmessagessectionofmessagestabinAnystateofInternalProgram @Sprint-11-US-326332 @SystemEmail

@@ -670,7 +670,7 @@ Feature: Validate all scenarios for program
       | Contact                   |
       | {SavedValue:EXE Username} |
 
-  @passed @34740 @programApproverSelection
+  @34740 @programApproverSelection
   Scenario: Validate the assignment of Approvers for the Internal Program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
@@ -684,15 +684,16 @@ Feature: Validate all scenarios for program
       | {SavedValue:EXE Username} | Step 2  |
     Then I see that "{SavedValue:EXE Username}" has been added in flextable with Id "---program:-:approverTableId---"
 
-  @34616 @76118 @75992 @75821 @75830 @75831 @75836 @75832 @75840 @75841 @programFocusAreaAssociation
+ @program2 @34616 @76118 @75992 @75821 @75830 @75831 @75836 @75832 @75840 @75841 @programFocusAreaAssociation
   Scenario Outline: Validate the association of Focus Area for the Internal Program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "<Title>" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+    And I click modal button "Close"
     Then I softly see that "<Title>" has been added in flextable with Id "---program:-:focusAreaTableId---"
     And I expand nested table containing column value "Pre-Screen Review"
     And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-    And I perform quick search for "Completeness" in "---program:-:programReviewPanel---" panel
+#    And I perform quick search for "Completeness" in "---program:-:programReviewPanel---" panel
     Then I softly see value "Completeness" for title "Section Header" inside table "---program:-:programReviewPanel---"
     And I close "Review Form" modal by clicking the top right x button
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
@@ -724,9 +725,9 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details :
       | Record deleted Successfully. |
-    When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "New" :
-      | Form Name         | Minimum Number of Reviews per Application | Required? |
-      | Automation Review | 1                                         | Checked   |
+   And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "New" :
+     | Form Name          | Minimum Number of Reviews per Application | Required? |
+     | Automation Review  | 1                                         | Check     |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
@@ -738,8 +739,11 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details :
       | Record deleted Successfully. |
+    When I click on parallel lines menu bar with data target value "Review Forms"
     And I select "Download as PDF" from parallel lines dropdown of "Review Forms"
+   And I wait for "3" seconds
     And I download the file
+   And I wait for "3" seconds
     Then I softly see "Review Forms" on page "1" of "govgrants" pdf file
     Examples:
       | Title                           |
@@ -808,14 +812,14 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details :
       | Setup Tab - Remove all the Focus Areas associated with this program if the Focus Area Required is "No". |
 
-  @34737 @76116 @76117 @76113 @76115 @75894 @75888 @75891 @programObjectiveAssociation
+  @program2 @34737 @76116 @76117 @76113 @76115 @75894 @75888 @75891 @programObjectiveAssociation
   Scenario Outline: Validate the Association of Objective to the Internal Program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    When I click modal button "Close"
     Then I softly see that "<Objective>" has been added in flextable with Id "---program:-:objectivesTableId---"
     And I wait for "3" seconds
-    When I click modal button "Close"
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Form Weight (%) |
@@ -871,10 +875,13 @@ Feature: Validate all scenarios for program
       | Reviewer                 |
       | {SavedValue:PO Username} |
     Then I softly see the following messages in the page details :
-      | Saved Successfully. |
+      | Saved Successfully! |
+    And I click on parallel menu button in flex table title "Reviewers"
     And I select "Download as PDF" from parallel lines dropdown of "Reviewers"
+    And I wait for "3" seconds
     And I download the file
-    Then I softly see "Reviewers" on page "1" of "govgrants" pdf file
+    And I wait for "5" seconds
+    Then I softly see "Review Steps" on page "1" of "govgrants" pdf file
     Examples:
       | Objective                      |
       | Automation Permanent Objective |
@@ -1206,7 +1213,7 @@ Feature: Validate all scenarios for program
     When I "Approve" in the approval decision
     Then I see status in Progress-bar is "Approved" and is "dark blue"
 
-  @106336 @programRejection @smoke
+  @106336 @programRejection1 @smoke
   Scenario: Validate user should be able to reject program
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -2129,7 +2136,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type | Max Score |
       | 4              | Test 4   | Date | 0         |
-    And I pause execution for "2" seconds
+    And I pause execution for "5" seconds
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I collapse nested table containing column value "Environment"
@@ -2273,7 +2280,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77172 @ValidatingAdditionInMatchFiscalReviewForm
+ @77172 @ValidatingAdditionInMatchFiscalReviewForm
   Scenario: To verify user able to add new review question with success message in Match of Review Panel Categories in Fiscal review form for SME review step in planning phase
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -2303,12 +2310,12 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 4              | Test 4   | Yes/No | 0         |
-    And I wait for "2" seconds
+    And I wait for "5" seconds
+   Then I softly see the following messages in the page details contains:
+     | Saved Successfully! |
     And I collapse nested table containing column value "Match"
     And I wait for "2" seconds
     And I expand nested table containing column value "Match"
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 4" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2380,7 +2387,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77189 @ValidatingAdditionInProgramIncomeFiscalReviewForm
+ @77189 @ValidatingAdditionInProgramIncomeFiscalReviewForm
   Scenario Outline: To verify user able to add new review question with success message in Program Income of Review Panel Categories in Fiscal review form for SME review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -2404,12 +2411,12 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type | Max Score |
       | 3              | Test 3   | Date | 0         |
-    And I wait for "2" seconds
+    And I wait for "5" seconds
+   Then I softly see the following messages in the page details contains:
+     | Saved Successfully! |
     And I collapse nested table containing column value "Program Income"
     And I wait for "2" seconds
     And I expand nested table containing column value "Program Income"
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
     Then I softly see value "3" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 3" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Written" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2796,7 +2803,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77423 @ValidatingErrorMessageInPreScreenReviewForm
+ @77423 @ValidatingErrorMessageInPreScreenReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :100% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for prescreening Review form in prescreening Review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -6016,7 +6023,7 @@ Feature: Validate all scenarios for program
       Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
       """
 
-  @109790 @VerifyValidationMessageForReviewFormWeightLessThan100%
+ @program2 @VerifyValidationMessageForReviewFormWeightLessThan100%
   Scenario: validate user is able to see validation message when review form weight is les than 100%
     And I navigate to "Setup" sub tab
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
@@ -6025,7 +6032,7 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Step Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 30              | 1                                         | Check     |
+      | Pre-Screen | 30              | 1                                         | Checked   |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     And I pause execution for "5" seconds
     #Bug444555
