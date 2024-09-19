@@ -2376,36 +2376,6 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @455422 @ValidateProgressReportPMusershouldseefooternavigatorafteropentheProgressReport
-  Scenario: Validate Progress Report PM user should see footer navigator after open the Progress Report
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to "Monitoring" tab
-    And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
-    And I wait for "3" seconds
-    And I click toggle button to select "Progress Reports - All"
-    And I wait for "3" seconds
-    And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
-    When I click on "View" icon for "{grantee_testData:progressReportStaticData}" inside flex table with id "---grantee_tableId:-:ProgressReports---" without waiting for record
-    Then I see the sub-header is "{grantee_testData:progressReportStaticData}" in the page details
-    Then I softly see "Navigator" button display on footer
-    And I click on bottom button "Navigator" in page detail
-    Then I see "Pending Tasks" inside "My Tasks" is displayed
-    Then I see "Completed Tasks" inside "My Tasks" is displayed
-    Then I see "Schedules" inside "Monitoring" is displayed
-    Then I see "Progress Reports" inside "Monitoring" is displayed
-    Then I see "Financial Reports" inside "Monitoring" is displayed
-    Then I see "Awards Special Conditions" inside "Monitoring" is displayed
-    And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
-    And I click toggle button to select "Progress Reports - All"
-    And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
-    Then I softly see value "{grantee_testData:progressReportStaticData}" for title "Award Title" inside table "---grantee_tableId:-:ProgressReports---"
-    Then I see "Pending Tasks" inside "My Tasks" is displayed
-    Then I see "Completed Tasks" inside "My Tasks" is displayed
-    Then I see "Schedules" inside "Monitoring" is displayed
-    Then I see "Progress Reports" inside "Monitoring" is displayed
-    Then I see "Financial Reports" inside "Monitoring" is displayed
-    Then I see "Awards Special Conditions" inside "Monitoring" is displayed
-
   @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario: Non Federal_ Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "GRANTEE PM" user
@@ -2598,7 +2568,7 @@ Feature: Sanity scenarios
     When I navigate to "History" sub tab
     Then I softly see "Snapshot History" page block displayed
 
- @grantee @443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject
+@443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject
   Scenario: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -4060,9 +4030,9 @@ Feature: Sanity scenarios
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @hit1 @455427 @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
-  Scenario: Funding Change AR_ Verify PM user should see footer navigator after open the Funding Change AR
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+@455427 @455428 @455429  @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
+Scenario Outline: Funding Change AR_ Verify PM user should see footer navigator after open the Funding Change AR
+    When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -4075,31 +4045,8 @@ Feature: Sanity scenarios
     Then I see "Grants" inside "Grants, Awards & Amendment Requests" is displayed
     Then I see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
     Then I see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
-    And I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    And I perform quick search for "{grantee_testData:AutomationPermanentAmendmentRequest}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "{grantee_testData:AutomationPermanentAmendmentRequest}" for title "Award Title" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I see "Pending Tasks" inside "My Tasks" is displayed
-    Then I see "Completed Tasks" inside "My Tasks" is displayed
-    Then I see "Grants" inside "Grants, Awards & Amendment Requests" is displayed
-    Then I see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
-    Then I see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
-
-  @hit1 @455428 @FundingChangeARVerifyEXEusershouldseefooternavigatorafteropentheFundingChangeAR
-  Scenario: Funding Change AR_ Verify EXE user should see footer navigator after open the Funding Change AR
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "{grantee_testData:AutomationPermanentAmendmentRequest}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    And I click on "View" icon for "{grantee_testData:AutomationPermanentAmendmentRequest}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-    Then I softly see "Navigator" button display on footer
-    And I click on bottom button "Navigator" in page detail
-    Then I see "Pending Tasks" inside "My Tasks" is displayed
-    Then I see "Completed Tasks" inside "My Tasks" is displayed
-    Then I see "Grants" inside "Grants, Awards & Amendment Requests" is displayed
-    Then I see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
-    Then I see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
     And I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
     And I perform quick search for "{grantee_testData:AutomationPermanentAmendmentRequest}" in "---grantee_tableId:-:AmendmentTableId---" panel
@@ -4109,35 +4056,15 @@ Feature: Sanity scenarios
     Then I see "Grants" inside "Grants, Awards & Amendment Requests" is displayed
     Then I see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
     Then I see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
+  Examples:
+    | userType    |
+    | GRANTEE PM  |
+    | GRANTEE EXE |
+    | GRANTEE FO  |
 
-  @hit1 @455429 @FundingChangeARVerifyFOusershouldseefooternavigatorafteropentheFundingChangeAR
-  Scenario: Funding Change AR_ Verify FO user should see footer navigator after open the Funding Change AR
-    When I login to "As a Grantee" app as "GRANTEE FO" user
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "{grantee_testData:AutomationPermanentAmendmentRequest}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    And I click on "View" icon for "{grantee_testData:AutomationPermanentAmendmentRequest}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-    Then I softly see "Navigator" button display on footer
-    And I click on bottom button "Navigator" in page detail
-    Then I see "Pending Tasks" inside "My Tasks" is displayed
-    Then I see "Completed Tasks" inside "My Tasks" is displayed
-    Then I see "Grants" inside "Grants, Awards & Amendment Requests" is displayed
-    Then I see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
-    Then I see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
-    And I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    And I perform quick search for "{grantee_testData:AutomationPermanentAmendmentRequest}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "{grantee_testData:AutomationPermanentAmendmentRequest}" for title "Award Title" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I see "Pending Tasks" inside "My Tasks" is displayed
-    Then I see "Completed Tasks" inside "My Tasks" is displayed
-    Then I see "Grants" inside "Grants, Awards & Amendment Requests" is displayed
-    Then I see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
-    Then I see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
-
-  @hit1 @455419 @KPIVerifyPMusershouldseefooternavigatorafteropentheKPI
-  Scenario:KPI_ Verify PM user should see footer navigator after open the KPI
-    When I login to "As a Grantee" app as "GRANTEE FD" user
+@455419 @455420 @455421 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
+Scenario Outline:KPI_ Verify FD user should see footer navigator after open the KPI
+    When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - All"
@@ -4152,68 +4079,22 @@ Feature: Sanity scenarios
     Then I see "Focus Areas" inside "Setup" is displayed
     Then I see "External" inside "Programs" is displayed
     And I wait for "5" seconds
-    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Key Performance Indicators (KPI) - All"
-    When I perform quick search for "{grantee_testData:AutomationPermanentKPI}" in "---grantee_tableId:-:KPITable---" panel
-    Then I see "Pending Tasks" inside "My Tasks" is displayed
-    Then I see "Completed Tasks" inside "My Tasks" is displayed
-    Then I see "Strategic Plans" inside "Setup" is displayed
-    Then I see "Key Performance Indicators (KPI)" inside "Setup" is displayed
-    Then I see "Focus Areas" inside "Setup" is displayed
-
-  @hit1 @455420 @KPIVerifyEXEusershouldseefooternavigatorafteropentheKPI
-  Scenario: KPI Verify EXE user should see footer navigator after open the KPI
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - All"
     When I perform quick search for "{grantee_testData:AutomationPermanentKPI}" in "---grantee_tableId:-:KPITable---" panel
-    And I click on "View" icon for "{grantee_testData:AutomationPermanentKPI}" inside flex table with id "---grantee_tableId:-:KPITable---" without waiting for record
-    Then I softly see "Navigator" button display on footer
-    And I click on bottom button "Navigator" in page detail
     Then I see "Pending Tasks" inside "My Tasks" is displayed
     Then I see "Completed Tasks" inside "My Tasks" is displayed
     Then I see "Strategic Plans" inside "Setup" is displayed
     Then I see "Key Performance Indicators (KPI)" inside "Setup" is displayed
     Then I see "Focus Areas" inside "Setup" is displayed
-    Then I see "External" inside "Programs" is displayed
-    And I wait for "5" seconds
-    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Key Performance Indicators (KPI) - All"
-    When I perform quick search for "{grantee_testData:AutomationPermanentKPI}" in "---grantee_tableId:-:KPITable---" panel
-    Then I see "Pending Tasks" inside "My Tasks" is displayed
-    Then I see "Completed Tasks" inside "My Tasks" is displayed
-    Then I see "Strategic Plans" inside "Setup" is displayed
-    Then I see "Key Performance Indicators (KPI)" inside "Setup" is displayed
-    Then I see "Focus Areas" inside "Setup" is displayed
+    Examples:
+      | User       |
+      | GRANTEE FD |
+      | GRANTEE EXE|
+      | GRANTEE PM |
 
-  @hit1 @455421 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
-  Scenario:KPI_ Verify FD user should see footer navigator after open the KPI
-    When I login to "As a Grantee" app as "GRANTEE FD" user
-    And I navigate to "Planning" tab
-    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Key Performance Indicators (KPI) - All"
-    When I perform quick search for "{grantee_testData:AutomationPermanentKPI}" in "---grantee_tableId:-:KPITable---" panel
-    And I click on "View" icon for "{grantee_testData:AutomationPermanentKPI}" inside flex table with id "---grantee_tableId:-:KPITable---" without waiting for record
-    Then I softly see "Navigator" button display on footer
-    And I click on bottom button "Navigator" in page detail
-    Then I see "Pending Tasks" inside "My Tasks" is displayed
-    Then I see "Completed Tasks" inside "My Tasks" is displayed
-    Then I see "Strategic Plans" inside "Setup" is displayed
-    Then I see "Key Performance Indicators (KPI)" inside "Setup" is displayed
-    Then I see "Focus Areas" inside "Setup" is displayed
-    Then I see "External" inside "Programs" is displayed
-    And I wait for "5" seconds
-    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Key Performance Indicators (KPI) - All"
-    When I perform quick search for "{grantee_testData:AutomationPermanentKPI}" in "---grantee_tableId:-:KPITable---" panel
-    Then I see "Pending Tasks" inside "My Tasks" is displayed
-    Then I see "Completed Tasks" inside "My Tasks" is displayed
-    Then I see "Strategic Plans" inside "Setup" is displayed
-    Then I see "Key Performance Indicators (KPI)" inside "Setup" is displayed
-    Then I see "Focus Areas" inside "Setup" is displayed
-
-  @hit1 @443719 @VerifytheinternalOrganizationallsectionandfields
+  @443719 @VerifytheinternalOrganizationallsectionandfields
   Scenario: Verify the internal Organization all section and fields
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
@@ -4807,9 +4688,9 @@ Feature: Sanity scenarios
     Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
-  @hit1 @455424 @ProgressReportVerifyEXEusershouldseefooternavigatorafteropentheProgressReport
-  Scenario: Progress Report_ Verify EXE user should see footer navigator after open the Progress Report
-    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+  @455424 @455425 @455422 @ProgressReportVerifyEXEusershouldseefooternavigatorafteropentheProgressReport
+  Scenario Outline: Progress Report_ Verify EXE user should see footer navigator after open the Progress Report
+    Given I login to "As a Grantee" app as "<User>" user
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I wait for "3" seconds
@@ -4827,40 +4708,9 @@ Feature: Sanity scenarios
     Then I see "Financial Reports" inside "Monitoring" is displayed
     Then I see "Awards Special Conditions" inside "Monitoring" is displayed
     And I wait for "5" seconds
-    And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
-    And I click toggle button to select "Progress Reports - All"
-    And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
-    Then I softly see value "{grantee_testData:progressReportStaticData}" for title "Award Title" inside table "---grantee_tableId:-:ProgressReports---"
-    Then I see "Pending Tasks" inside "My Tasks" is displayed
-    Then I see "Completed Tasks" inside "My Tasks" is displayed
-    Then I see "Schedules" inside "Monitoring" is displayed
-    Then I see "Progress Reports" inside "Monitoring" is displayed
-    Then I see "Financial Reports" inside "Monitoring" is displayed
-    Then I see "Awards Special Conditions" inside "Monitoring" is displayed
-
-  @hit1 @455425 @ProgressReportVerifyFOusershouldseefooternavigatorafterpentheProgressReport
-  Scenario: Progress Report_ Verify FO user should see footer navigator after open the Progress Report
-    Given I login to "As a Grantee" app as "GRANTEE FO" user
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
-    And I wait for "3" seconds
     And I click toggle button to select "Progress Reports - All"
-    And I wait for "3" seconds
-    And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
-    When I click on "View" icon for "{grantee_testData:progressReportStaticData}" inside flex table with id "---grantee_tableId:-:ProgressReports---" without waiting for record
-    Then I see the sub-header is "{grantee_testData:progressReportStaticData}" in the page details
-    Then I softly see "Navigator" button display on footer
-    And I click on bottom button "Navigator" in page detail
-    Then I see "Pending Tasks" inside "My Tasks" is displayed
-    Then I see "Completed Tasks" inside "My Tasks" is displayed
-    Then I see "Schedules" inside "Monitoring" is displayed
-    Then I see "Progress Reports" inside "Monitoring" is displayed
-    Then I see "Financial Reports" inside "Monitoring" is displayed
-    Then I see "Awards Special Conditions" inside "Monitoring" is displayed
-    And I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
-    And I wait for "3" seconds
-    And I click toggle button to select "Progress Reports - All"
-    And I wait for "3" seconds
     And I perform quick search for "{grantee_testData:progressReportStaticData}" in "---grantee_tableId:-:ProgressReports---" panel
     Then I softly see value "{grantee_testData:progressReportStaticData}" for title "Award Title" inside table "---grantee_tableId:-:ProgressReports---"
     Then I see "Pending Tasks" inside "My Tasks" is displayed
@@ -4869,8 +4719,13 @@ Feature: Sanity scenarios
     Then I see "Progress Reports" inside "Monitoring" is displayed
     Then I see "Financial Reports" inside "Monitoring" is displayed
     Then I see "Awards Special Conditions" inside "Monitoring" is displayed
+    Examples:
+      | User          |
+      | GRANTEE EXE   |
+      | GRANTEE FO    |
+      | GRANTEE PM    |
 
-  @443676 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's
+  @443676 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's @bug_456489
   Scenario: federal_ Verify user should see all fields and section for federal contact's
     When I login to "As a Grantor" app as "GRANTEE ADMIN" user
     When I navigate to "Home" tab
