@@ -2276,7 +2276,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on hyperlink containing value "Risk Assessment Activation/Rejection.pdf"
     And I wait for "3" seconds
     When I download the file
-    And I wait for "5" seconds
+    And I wait for "7" seconds
     Then I see "Active" on page "1" of "govgrants" pdf file
 
   @60210 @60220 @recordOwnerCannotEditEffectiveDateAndCreatedDateOfRA
