@@ -46,7 +46,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly cannot see top right button "New" in flex table with id "---riskassessment:-:raPeerReviewFlexTableId---"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @77659 @58167 @59625 @66378 @PendingTaskCreationAndapprovalProcessofRiskAssessment @skipOnJenkins @FieldHistoryExclude
+  @77659 @58167 @59625 @66378 @PendingTaskCreationAndapprovalProcessofRiskAssessment @FieldHistoryExclude @TBExecution
   Scenario: Validate the Approval process of Risk Assessment and whether the pending task is created for Program approver under Home Tab when the award owner submits the Risk Assessment for approval |Validate the System should capture field history post activation.
   Validate whether record onwer is able to take snapshot when the risk assessment is in created status
     Given I login to "As a Grantor" app as "dynamicUser" user
@@ -549,7 +549,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Management" sub tab
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-  @58820 @58180 @58937 @61383 @66070 @recipientCanViewActiveRAeditButtonAfterSubmitforApprovalcreationofSecondRA @smoke @TBExecution
+  @58820 @58180 @58937 @61383 @66070 @recipientCanViewActiveRAeditButtonAfterSubmitforApprovalcreationofSecondRA @smoke
   Scenario: Validate Subrecipients can view the Active Risk Assessment and Award Owner is not allowed to Edit the Risk Assessment post submitting it for approval and Pending task is created for the Fiscal approver when Program approver approves the RA and completed task
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -759,7 +759,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     Then I can see row level action button "Edit" against "Record Id" in flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 
-  @58822 @riskAssessmentRevisionBeforeAwardActivation @TBExecution
+  @58822 @riskAssessmentRevisionBeforeAwardActivation
   Scenario Outline: Validate the 'New' Button  availability to create  a new Risk Assessment is not available to Award Owner after award activation
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1682,7 +1682,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
 
-  @63985 @recordOwnerCannotCreateNewRAWhenInSubmittedForApproval @TBExecution
+  @63985 @recordOwnerCannotCreateNewRAWhenInSubmittedForApproval
   Scenario Outline: Validate when an award was activated with one active risk assessment and has other risk assessment which in created state should not get submitted for approval
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1923,7 +1923,7 @@ Feature: Validate all scenarios in the Risk Assessment
   #  When I close "Review" modal by clicking the top right x button
     Then I see status in Progress-bar is "Submitted for Review" and is "dark blue"
 
-  @59618 @59872 @editButtonIsHiddensubmittedReviewCompleteFoCannotResubmitComemnts @TBExecution
+  @59618 @59872 @editButtonIsHiddensubmittedReviewCompleteFoCannotResubmitComemnts
   Scenario: Validate after submitting the review comments, the Edit button Hidden for reviewer and once RA owner Complete Review then the progress bar changes from Submitted for Review to Reviewed and reviewer cannot submit review activities if the record marked as complete review by the  owner.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1989,7 +1989,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "RiskAssessmentApproverRoles"
 
-  @59960 @intialRiskAssessmentMarkedAsExpired @smoke @TBExecution
+  @59960 @intialRiskAssessmentMarkedAsExpired @smoke
   Scenario Outline: Validate when the Award is activated whether SR user can view the second Risk Assessment that was in Created Status
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2172,7 +2172,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Grant Name                                                | Award Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @60208 @validateRecordOwnerISAbleToViewRASnapshot  @skipOnJenkins
+  @60208 @validateRecordOwnerISAbleToViewRASnapshot @TBExecution
   Scenario: Validate Record Owner user is able to view the Snapshot after Risk Assessment is Submitted for Approval status
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2212,7 +2212,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I download the file
     Then I see "Submitted for Approval" on page "1" of "govgrants" pdf file
 
-  @60209 @validateRecordOwnerISAbleToViewActiveRASnapshot  @skipOnJenkins
+  @60209 @validateRecordOwnerISAbleToViewActiveRASnapshot @TBExecution
   Scenario: Validate whether Snapshot is captured/(taken) automatically  by the system in the table Snapshot History when Risk Assessment is Activated
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2388,7 +2388,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     Then I see "No Records Found" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @60224 @60221 @EditButtonAvailabilityforRecordOwnerAndOverAllRiskOfAwardRA @TBExecution
+  @60224 @60221 @EditButtonAvailabilityforRecordOwnerAndOverAllRiskOfAwardRA
   Scenario: Validate Approvers Table is not editable for record owner and award owner end when the status of risk assesment is Submitted to Approval and Overall Risk Assessment of Award Risk Assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2631,7 +2631,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---"
 
-  @60566 @ViewActiveRAFromOrganizationProfilePage  @smoke @TBExecution
+  @60566 @ViewActiveRAFromOrganizationProfilePage  @smoke
   Scenario Outline: Validate Risk Assessment Active Status should be displayed to SR user from Organizational Profile page.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2738,7 +2738,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @60787 @60785  @intialRiskAssessmentToExpiredRAViewedFromMonitoringTable @TBExecution
+  @60787 @60785  @intialRiskAssessmentToExpiredRAViewedFromMonitoringTable
   Scenario:  Validate when the succeeding Risk Assessments are made active then the  Initial Risk Assessment should be marked as Expired and can be viewed from Risk Asessment table and from the Monitoring table
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2844,7 +2844,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "View" icon for "{SavedValue:ExpiredID}" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
     Then I see status in Progress-bar is "Expired" and is "dark blue"
 
-  @60811 @60817 @viewExpiredRAOnceAwardIsActivatedFromOrganizationProfilePage @TBExecution
+  @60811 @60817 @viewExpiredRAOnceAwardIsActivatedFromOrganizationProfilePage
   Scenario:  Validate whether Subrecipients can view the Expired Risk Assessment from the Monitoring Phase level table and  Expired Status should be displayed to SR user from Organizational Profile page.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3122,7 +3122,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
 
-  @66869 @RAChangedtoYellowAfterRAisApproved @TBExecution
+  @66869 @RAChangedtoYellowAfterRAisApproved
   Scenario: Validate the moderate level of Risk Assessment, that changes to yellow color as per the provided Assessment once Risk Assessment is approved
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
