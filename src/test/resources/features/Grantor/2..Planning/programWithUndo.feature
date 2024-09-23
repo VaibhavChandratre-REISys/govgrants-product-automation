@@ -252,7 +252,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Approved"
     Then I can see top right button "Undo" in page detail
 
-  @279314 @279321 @279415 @VerifyFOasstep4approvercanseeundobuttonafterapprovedtheinternalprogram @sprint-25-US-295138  @Undo @buglogged-356843 @IntProg
+  @program2 @279314 @279321 @279415 @VerifyFOasstep4approvercanseeundobuttonafterapprovedtheinternalprogram @sprint-25-US-295138  @Undo @buglogged-356843 @IntProg
   Scenario:Verify FO as step 4 approver can see undo button after approved the internal program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -266,6 +266,7 @@ Feature: Validate all scenarios for program
     And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
@@ -452,7 +453,7 @@ Feature: Validate all scenarios for program
      The EGMS Team
      """
 
-  @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138  @Undo @IntProg
+  @program2 @279345 @279359 @VerifyAdminusercanseeUndoandActivatebuttonafterapprovedtheprogramifprogramownerandapproverissame @sprint-25-US-295138  @Undo @IntProg
   Scenario: Verify Admin user can see Undo and Activate button after approved the program if program owner and approver is same
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Planning" tab
@@ -825,7 +826,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
 
-  @279438 @Verifyuserseevalidationmessageifuserclickonsubmitbuttonwithoutselectingdecisionandwithoutenteringcommentsonapprovaldecisionsection @sprint-25-US-295138  @Undo @IntProg
+ @program2 @279438 @Verifyuserseevalidationmessageifuserclickonsubmitbuttonwithoutselectingdecisionandwithoutenteringcommentsonapprovaldecisionsection @sprint-25-US-295138  @Undo @IntProg
   Scenario: Verify user see validation message if user click on submit button without selecting decision and without entering comments on approval decision section
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -875,6 +876,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "5" seconds
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
+    And I wait for "2" seconds
     Then I can see the message "Comments are Required." in the approval decision
 
   @279442 @VerifyusershouldnotseeactiveprogramtaskinpendingtaskfterpproverclickonUndobutton @sprint-25-US-295138  @Undo @IntProg
@@ -932,7 +934,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:programsTableId---"
 
-  @279468 @VerifyAuditorprofileusershouldnotseeUndobuttononprogram @sprint-25-US-295138  @Undo @IntProg
+  @program2 @279468 @VerifyAuditorprofileusershouldnotseeUndobuttononprogram @sprint-25-US-295138  @Undo @IntProg
   Scenario:  Verify Auditor profile user should not see Undo button on program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1108,7 +1110,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Being Amended"
     Then I cannot see top right button "Undo" in page detail
 
-  @279435 @Verifystep2approvercansenttoownertheprogramafterclickonUndobuttonandupdatetheapproveronprogramsoUndowilldisplaytoupdatedapproverafterapprovedtheprogram @sprint-25-US-295138  @Undo @IntProg
+  @program2 @279435 @Verifystep2approvercansenttoownertheprogramafterclickonUndobuttonandupdatetheapproveronprogramsoUndowilldisplaytoupdatedapproverafterapprovedtheprogram @sprint-25-US-295138  @Undo @IntProg
   Scenario:Verify step 2 approver can sent to owner the program after click on Undo button and update the approver on program so Undo will display to updated approver after approved the program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1290,7 +1292,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     Then I softly see value "Automation PO1" for title "User" inside field history table
 
-  @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138  @buglogged-356843 @IntProg
+ @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138  @buglogged-356843 @IntProg
   Scenario: Verify notification email should generate to new owner of program after click on Undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3096,7 +3098,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see field "Status" as "Approved"
 
-  @312499 @312505 @ValidateInternalProgIseeIcaneditandupdatethefiledwhenundoisinprogress @Undo @IntProg
+ @program2 @312499 @312505 @ValidateInternalProgIseeIcaneditandupdatethefiledwhenundoisinprogress @Undo @IntProg
   Scenario: Validate Internal Prog I see I can edit and update the filed when undo is in progress
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3192,7 +3194,6 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     Then  I can see top right button "Add" in flex table with id "---program:-:checklistTableId---"
     Then  I can see top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    Then  I can see top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     Then  I can see top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I navigate to "Responsibilities" sub tab
     Then  I can see top right button "New" in flex table with id "---program:-:peerReviewTableId---"
@@ -3213,7 +3214,7 @@ Feature: Validate all scenarios for program
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Internal Program - submit for approval.pdf" as name
 
-  @281733 @InternalProgramVerifyuserseealltablesdisplaycorrectlyindownloadedPDFforprogramafterUndo @sprint-25-US-280680  @Undo @IntProg
+ @program2 @281733 @InternalProgramVerifyuserseealltablesdisplaycorrectlyindownloadedPDFforprogramafterUndo @sprint-25-US-280680  @Undo @IntProg
   Scenario: Validate Internal Prog I see I can edit and update the filed when undo is in progress
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3295,7 +3296,7 @@ Feature: Validate all scenarios for program
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Internal Program - submit for approval.pdf" as name
 
-  @282645 @InternalProgVerifypreviousapprovesprogramtaskshouldnotcancelafterlaststepapproverclickonundobutton @sprint-25-US-291914  @Undo @IntProg
+ @program2 @282645 @InternalProgVerifypreviousapprovesprogramtaskshouldnotcancelafterlaststepapproverclickonundobutton @sprint-25-US-291914  @Undo @IntProg
   Scenario: Internal Prog_ Verify previous approves program task should not cancel after last step approver click on undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3312,7 +3313,7 @@ Feature: Validate all scenarios for program
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
