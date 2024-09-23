@@ -600,6 +600,7 @@ Feature: Validate all scenarios for program
     And I click on parallel menu button in flex table title "Review Questions"
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
     And I download the file
+    And I wait for "3" seconds
       #76985 following 5 assertion belongs to this
     Then I softly see "Completeness" on page "1" of "govgrants" pdf file
     And I switch to parent tab
@@ -671,10 +672,12 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "<Title>" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see that "<Title>" has been added in flextable with Id "---program:-:focusAreaTableId---"
     And I expand nested table containing column value "Pre-Screen Review"
     And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-    And I perform quick search for "Completeness" in "---program:-:programReviewPanel---" panel
+#    And I perform quick search for "Completeness" in "---program:-:programReviewPanel---" panel
     Then I softly see value "Completeness" for title "Section Header" inside table "---program:-:programReviewPanel---"
     And I close "Review Form" modal by clicking the top right x button
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
@@ -853,7 +856,8 @@ Feature: Validate all scenarios for program
       | Reviewer                 |
       | {SavedValue:PO Username} |
     Then I softly see the following messages in the page details :
-      | Saved Successfully. |
+      | Saved Successfully! |
+    And I click on parallel lines menu bar with data target value "Reviewers"
     And I select "Download as PDF" from parallel lines dropdown of "Reviewers"
     And I download the file
     Then I softly see "Reviewers" on page "1" of "govgrants" pdf file
@@ -906,6 +910,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PO Username} |
+    And I wait for "2" seconds
     #Bug445183
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
