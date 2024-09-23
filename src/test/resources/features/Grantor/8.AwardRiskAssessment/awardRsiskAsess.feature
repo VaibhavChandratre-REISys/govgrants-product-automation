@@ -170,7 +170,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Overview" sub tab
     Then I cannot see field "Risk Level" inside page block
 
- @risk @76272 @65550 @raOwnerCanAddMultiplePeerReviewerForRA
+ @76272 @65550 @raOwnerCanAddMultiplePeerReviewerForRA
   Scenario: Validate Award owner can add Multiple Peer reviewer for Risk Assessment whose status is Submitted to grantor | Validate whether the record owner recieve an email notfication when risk assessment is created
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -602,7 +602,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | {SavedValue:EXE Username} | Step 1          |
     Then I softly see "Saved Successfully!" inside flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
 
- @risk @142119 @VerifyErrorMessageWhileSkippingStepsForAwardRiskAssesment-RnRFuntionality
+ @142119 @VerifyErrorMessageWhileSkippingStepsForAwardRiskAssesment-RnRFuntionality
   Scenario: Verify user cannot skip the approver step on subaward risk assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -763,7 +763,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-@risk @142415 @VerifyFourStepApprovalProcessForRiskAssesmentFromAward-RnRFunctnality
+@142415 @VerifyFourStepApprovalProcessForRiskAssesmentFromAward-RnRFunctnality
   Scenario Outline: Given the step 4 approver has approved validate Risk Assessment is marked as Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1059,7 +1059,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
- @risk @142418 @VerifySelectionOfNAInsideStepsOfCopiedApproverFromAward-RnRFunctnality
+ @142418 @VerifySelectionOfNAInsideStepsOfCopiedApproverFromAward-RnRFunctnality
   Scenario Outline: Validate user can select NA for a step on already copied approvers from award
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1424,7 +1424,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
- @risk @143259 @VerifyRiskAssessmentActivationWithOneStepApprover-RnRFunctnality
+ @143259 @VerifyRiskAssessmentActivationWithOneStepApprover-RnRFunctnality
   Scenario Outline: Verify risk assessment becomes active when approved by one step approver
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2104,7 +2104,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
     Then I softly can see top right button "Submit for Approval" in page detail
 
-  @risk @198041 @ValidatePOusercansubmittheawardriskassessmentforapprovalpostrevieweraddcommentswhenownershipistransferredforRAwhichisinSubmittedforReviewstatus @sprint-12-US-226646  @reassignment
+  @198041 @ValidatePOusercansubmittheawardriskassessmentforapprovalpostrevieweraddcommentswhenownershipistransferredforRAwhichisinSubmittedforReviewstatus @sprint-12-US-226646  @reassignment
   Scenario: Validate PO user can submit the award risk assessment for approval post reviewer add comments when ownership is transferred for a RA which is in Submitted for Review status
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -2749,7 +2749,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
 
- @risk @198631 @ValidatePOprofileusercanactivatethawardriskassessmentafteritsapprovedtheRAwhenownershipistransferreforRAwhichisinSubmitforApprovalstatus
+  @198631 @ValidatePOprofileusercanactivatethawardriskassessmentafteritsapprovedtheRAwhenownershipistransferreforRAwhichisinSubmitforApprovalstatus
   Scenario: Validate PO profile user can activate the award risk assessment after its approved the RA when ownership is transferred for a RA which is in 'Submit for Approval' status
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
