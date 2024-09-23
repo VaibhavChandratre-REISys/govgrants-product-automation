@@ -264,6 +264,7 @@ Feature: Validate all scenarios for program
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I enter value "11.123" into field "FederalProgramCFDA__c"
     And I click on "Save" in the page details
     And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -876,7 +877,8 @@ Feature: Validate all scenarios for program
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
     And I wait for "2" seconds
-    Then I can see the message "Comments are Required." in the approval decision
+   Then I softly see the following messages in the page details contains:
+     | Comments are Required. |
 
   @279442 @VerifyusershouldnotseeactiveprogramtaskinpendingtaskfterpproverclickonUndobutton @sprint-25-US-295138  @Undo @IntProg
   Scenario: Verify user should not see active program task in pending task after approver click on Undo button
@@ -942,8 +944,8 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I enter value "11.123" into field "FederalProgramCFDA__c"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
@@ -3097,7 +3099,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see field "Status" as "Approved"
 
- @program2 @312499 @312505 @ValidateInternalProgIseeIcaneditandupdatethefiledwhenundoisinprogress @Undo @IntProg
+ @312499 @312505 @ValidateInternalProgIseeIcaneditandupdatethefiledwhenundoisinprogress @Undo @IntProg
   Scenario: Validate Internal Prog I see I can edit and update the filed when undo is in progress
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3169,7 +3171,9 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I navigate to "History" sub tab
     And I click on hyperlink containing value "Internal Program - Undo Approval.pdf"
+    And I wait for "5" seconds
     When I download the file
+   And I wait for "5" seconds
     #312505
     Then I softly see following details in "govgrants" pdf file:
       | Status                 | Page Number |
@@ -3206,7 +3210,7 @@ Feature: Validate all scenarios for program
       | {SavedValue:EXE Username} | NA      |
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "green"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I refresh the page
     And I wait for "10" seconds
     And I refresh the page
@@ -3284,8 +3288,11 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Rejected"
     Then I cannot see top right button "Undo" in page detail
     And I click on Menu icon present on top right corner of the page
+    And I wait for "2" seconds
     And I select "Download As PDF" from dropdown
+   And I wait for "5" seconds
     And I download the file
+   And I wait for "5" seconds
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
     Then I softly see following details in "govgrants" pdf file:
       | Detail   | Page Number |
