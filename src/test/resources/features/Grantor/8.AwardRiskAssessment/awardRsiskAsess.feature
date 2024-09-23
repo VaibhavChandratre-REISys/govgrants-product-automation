@@ -1,4 +1,4 @@
-@riskAssessment @awardRiskAsses @grantor-regression @grantor-parallel-regression @regression @riskassessment
+@riskAssessment @awardRiskAsses @grantor-regression @grantor-parallel-regression @regression @awardRisk
 Feature: Validate all scenarios in the Risk Assessment
 
   @addAttachmentForRecordOnwerInTable
