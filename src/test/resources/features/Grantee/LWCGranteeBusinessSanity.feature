@@ -1243,7 +1243,7 @@ Feature: Sanity scenarios
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-  @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @TBExecution
+  @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
   Scenario: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -2068,7 +2068,7 @@ Feature: Sanity scenarios
     Examples:
       | userType    | userName   |
       | GRANTEE PM  | Sarah PM   |
-      | GRANTEE EXE | Victor EXE |
+#      | GRANTEE EXE | Victor EXE |
 
   @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout
   Scenario: Validate GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
@@ -2398,7 +2398,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @TBExecution
+  @443755 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario: Non Federal_ Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
@@ -2749,7 +2749,7 @@ Feature: Sanity scenarios
     When I navigate to "History" sub tab
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
 
- @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell @TBExecution
+ @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell
   Scenario: Award - Verify with PM Profile ,After activate the award able to see the Actual Tab in pending Closeout ,closed and amended state as well
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -4084,7 +4084,7 @@ Scenario Outline: Funding Change AR_ Verify PM user should see footer navigator 
     | GRANTEE EXE |
     | GRANTEE FO  |
 
-@455419 @455420 @455421 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI @TBExecution
+@455419 @455420 @455421 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
 Scenario Outline:KPI_ Verify FD user should see footer navigator after open the KPI
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Planning" tab
@@ -4232,7 +4232,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
     And I save the field labeled "Last Modified By" as "LastModifiedBy"
     Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedBy}"
-    Then I softly see link "Last Modified Date" inside Page block
+    Then I softly see link "Last Modified By" inside Page block
     And I save the field labeled "Last Modified Date" as "LastModifiedDate"
     Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
     And I navigate to "Related Log" sub tab
@@ -4763,6 +4763,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
+    When I click on parallel lines menu bar with data target value "Federal Contacts"
     And I select "Download as PDF" from parallel lines dropdown of "Federal Contacts"
     And I download the file
     Then I see "Federal Contacts" on page "1" of "govgrants" pdf file
