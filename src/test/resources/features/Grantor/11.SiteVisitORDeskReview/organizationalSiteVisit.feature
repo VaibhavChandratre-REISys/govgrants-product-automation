@@ -116,7 +116,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click modal button "Save and Continue"
     Then I see field "Desk Review Type" as "Award"
 
-  @54428 @addParticipantsT0OrgSiteVisit @TBExecution
+  @54428 @addParticipantsT0OrgSiteVisit
   Scenario: Validate the participants for the Site Visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -640,7 +640,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I download the file
     Then I see "Closed" on page "1" of "govgrants" pdf file
 
-  @59011 @56004 @sendBacktoOwnerReceivePendingTaskSVOrgLevel @TBExecution
+  @59011 @56004 @sendBacktoOwnerReceivePendingTaskSVOrgLevel
   Scenario:  Validate when Site Visit record sent back to Recipients when outcomes are not properly addressed and recipients will be able to receive a pending task
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
@@ -875,7 +875,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
     Then I see that "Approve Site Visit Org" has been added in flextable with Id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
 
-  @142789 @internalParticipantAssociationOrganizationalSiteVisit @smoke @TBExecution
+  @142789 @internalParticipantAssociationOrganizationalSiteVisit @smoke
   Scenario Outline: Internal User participant Association of Organizational Site Visit
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"

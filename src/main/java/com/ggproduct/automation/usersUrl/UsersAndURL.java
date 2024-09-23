@@ -118,15 +118,15 @@ public class UsersAndURL implements UsersController {
             case "SARAH PM":
                 password = "Salesforce@2034";
                 break;
-                case "PM":
+            case "PM":
                 password = "VaDev@2026";
                 break;
-                case "SPI3":
+            case "SPI3":
                 password = "VaDev@2026";
                 break;
-                default:
+            default:
                 password = "VaDev@2024";
-            }
+        }
         return password;
        }
 
@@ -220,25 +220,28 @@ public class UsersAndURL implements UsersController {
         username.put("PO", "automationpo@yopmail.com.vaqaorg");
         username.put("FD", "automationfd@yopmail.com.vaqaorg");
         username.put("PM1", "pm1.automation@yopmail.com.vaqaorg");
-        username.put("EXE1", "exe1.automation@yopmail.com.vaqaorg");
-        username.put("PO1", "automationpo1@yopmail.com.vaqaorg");
-        username.put("FO1", "fo1.automation@yopmail.com.vaqaorg");
-        username.put("FD1", "automationfd1@yopmail.com.vaqaorg");
+        username.put("EXE1", "exe1.automation@yopmail.com.qaorg");
+        username.put("PO1", "automationpo1@yopmail.com.qaorg");
+        username.put("FO1", "fo1.automation@yopmail.com.qaorg");
+        username.put("FD1", "automationfd1@yopmail.com.qaorg");
         username.put("SPI3", "automationspi31@yopmail.com.vaqaorg");
         username.put("SPA", "spa.automation@yopmail.com.vaqaorg");
         username.put("SA", "sa.automationvaorg@yopmail.com.vaqaorg");
         username.put("IND", "ind2029.automation@yopmail.com");
         username.put("AUDITOR", "automationauditor@yopmail.com.qaorg");
         username.put("SARAH PM", "sarah.pm@ggp.test8.qaorg");
+
         username.put("SIMON PM", "simon_pm@ggp.test7");
         username.put("SARAH PO", "sarah_pm@ggp.test7.automation");
         username.put("ALEX FO", "alex_fo@ggp.test7");
         username.put("CATHY PM", "cathy_pm@ggp.test7");
         username.put("OSCAR PM", "oscar_pm@ggp.test7");
         username.put("Bill PM", "bill_pm@ggp.test7");
+
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());
-        } else {        return username.get("ADMIN");
+        } else {
+            return username.get("ADMIN");
         }
     }
 

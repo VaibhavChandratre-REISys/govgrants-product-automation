@@ -525,6 +525,7 @@ public final class FlexTable implements FlexTableComponent {
                 }
                 WebElement rowCell = I.amPerforming().getElementReference().ofNested(newRow,
                         By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + mapColumnHeaderToColumnPosition.get(value) + "]"));
+               I.amPerforming().waitFor().makeThreadSleep(1000);
                 this.handleFlexTableDataInputs(rowCell, values);
             }
         }

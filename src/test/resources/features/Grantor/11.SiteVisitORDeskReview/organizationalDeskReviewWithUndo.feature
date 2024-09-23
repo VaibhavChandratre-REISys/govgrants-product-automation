@@ -1,7 +1,7 @@
 @organizationalDeskReviewUndo @grantor-regression @grantor-parallel-regression @siteVisit @regression
 Feature: Validate all scenarios in Organizational Desk Review Without Undo
 
-  @308889 @ODR-VerifythatUNDOiconorbuttonisnotavailableontheactionbuttonsofOrganizationDeskreviewrecordontablethatispresentonsidebarorphaselevelorthatonOrganization @sprint-7-US-306815 @Undo @TBExecution
+  @308889 @ODR-VerifythatUNDOiconorbuttonisnotavailableontheactionbuttonsofOrganizationDeskreviewrecordontablethatispresentonsidebarorphaselevelorthatonOrganization @sprint-7-US-306815 @Undo
   Scenario:ODR-Verify that UNDO icon or button is not  available on the action buttons of Organization Desk review record on table that is present on side bar or phase level or that on Organization
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1055,7 +1055,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
      The EGMS Team.
       """
 
-  @296153 @296154 @VerifythatwhenExeapproverForwardtheOrganizationalDeskReviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-288692 @Undo @TBExecution
+  @296153 @296154 @VerifythatwhenExeapproverForwardtheOrganizationalDeskReviewApprovaltaskForwardedApproverwillseeUNDObuttonandnotpreviousOne @sprint-4-US-288692 @Undo
   Scenario:Verify that when Exe approver Forward the Organizational Desk Review Approval task , Forwarded Approver will see UNDO button and not previous One
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
