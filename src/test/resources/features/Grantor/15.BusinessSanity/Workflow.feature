@@ -1545,14 +1545,19 @@ Feature: Validate all scenarios of every modules flow
 
   @tst1 @debug
   Scenario:
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fK41YAE/view"
-    And I wait for "10" seconds
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 1  |
-#    And I edit the following rows inline in flex table with id "---program:-:extapproverTableId---" by clicking "Edit" :
-#      | Name                      | Program |
-#      | {SavedValue:EXE Username} | Step 1  |
-    Then I softly see value "Step 1" for title "Program" against the value "Automation EXE" inside table "---program:-:extapproverTableId---"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    When I navigate to "Home" tab
+    Then I see "External" inside "Contacts" is displayed
+    Then I see "Internal" inside "Contacts" is displayed
+    And I navigate to "Internal" content inside "Contacts" subheader on left panel
+    And I click toggle button to select "My Organization’s Contact"
+#    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fK41YAE/view"
+    Then I softly see toggle option "All Contacts" inside flex table id "---grantee_tableId:-:InternalContacts---"
+    Then I softly see toggle option "My Organization’s Contact" inside flex table id "---grantee_tableId:-:InternalContacts---"
+    When I click on parallel lines menu bar with data target value "My Organization’s Contact"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I click on page navigation arrow "---grantee_tableId:-:InternalContacts---" for table id "Next"
+    Then I see table "---grantee_tableId:-:InternalContacts---" shows "Page 2 of 7"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:InternalContacts---"

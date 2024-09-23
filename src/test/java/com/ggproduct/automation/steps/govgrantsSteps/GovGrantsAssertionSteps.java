@@ -743,7 +743,7 @@ public final class GovGrantsAssertionSteps {
         ggAssertionObjects.isRecordDisplayedInExpectedColorAtCalendar(record, colorName);
     }
 
-    @Then("^I (see|do not see) toggle option \"([^\"]*)\" inside flex table id \"([^\"]*)\"$")
+    @Then("^I (softly see|see|do not see|softly do not see) toggle option \"([^\"]*)\" inside flex table id \"([^\"]*)\"$")
     public void iCannotSeeToggleOptionInsideFlexTableId(String usage, String toggleOptions, String flexTableId) {
         ggAssertionObjects.assertToggleOptionDisplayed(toggleOptions, flexTableId, usage);
     }
@@ -860,5 +860,10 @@ public final class GovGrantsAssertionSteps {
     @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" button display on footer$")
     public void iSoftlySeeButtonDisplayOnFooter(String usage,String buttonName) {
         ggAssertionObjects.assertButtonDisplayOnFooter(usage,buttonName);
+    }
+
+    @Then("I (softly see|see|do not see|softly do not see) button \"([^\"]*)\" inside flextable \"([^\"]*)\"$")
+    public void iSoftlySeeButtonInsideFlextable(String usage,String buttonName, String tableId) {
+        ggAssertionObjects.assertResetButtonInsideFlextable(usage, buttonName, tableId);
     }
 }
