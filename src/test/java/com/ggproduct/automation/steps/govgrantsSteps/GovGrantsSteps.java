@@ -407,7 +407,7 @@ public final class GovGrantsSteps {
     @When("^I enter the following values into flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void enterFlexTableRows(String flexTableId, String buttonName, List<Map<String, String>> rowValues) {
         I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -800);
-        I.amPerforming().waitFor().makeThreadSleep(1000);
+        I.amPerforming().waitFor().makeThreadSleep(2000);
         govgrants.perform().flexTable().enterFlexTableRows(
                 flexTableId,
                 buttonName,
