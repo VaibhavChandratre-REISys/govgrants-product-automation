@@ -5011,8 +5011,8 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
       | Name       | Amendment Request |
       | Sarah PM   |  NA               |
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
-      | Name         | Amendment Request |
-      | Victor EXE   |  NA               |
+      | Name       | Amendment Request |
+      | Victor EXE |  NA               |
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
