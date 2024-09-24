@@ -4828,7 +4828,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:fedContactTableId---"
 
   @447987 @VerifyPMusershouldabletosubmitandapprovedsenttoownerforwardApprovedtheSOWchangeamendmentrequest
-  Scenario: federal_ Verify user should see all fields and section for federal contact's
+  Scenario: Verify PM user should able to submit and approved/sent to owner/forward/Approved the SOW change amendment request
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
