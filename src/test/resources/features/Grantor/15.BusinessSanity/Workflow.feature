@@ -1545,7 +1545,7 @@ Feature: Validate all scenarios of every modules flow
 
    @tst1
    Scenario:
-     Given I login to "As a Grantor" app as "AUDITOR" user
+     Given I login to "As a Grantor" app as "EXE" user
      And I navigate to url "https://test8-internal--vaqaorg.sandbox.lightning.force.com/lightning/r/Award__c/a1oDf000001BtB6IAK/view?c__Mode=ZWRpdA%3D%3D"
      And I wait for "10" seconds
      Then I see status in Progress-bar is "Created" and is "dark blue"
