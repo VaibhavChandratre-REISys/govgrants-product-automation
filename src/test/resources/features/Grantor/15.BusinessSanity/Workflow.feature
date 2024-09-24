@@ -1534,14 +1534,46 @@ Feature: Validate all scenarios of every modules flow
 
   @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I login to "As a Grantor" app as "EXE" user
-    And I wait for "6" seconds
-    When I select radio button "Reject" in the approval decision
-    When I enter comment "Automation testing" in the approval decision
-    And I submit the approval in the approval decision without processing
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I wait for "5" seconds
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Amendment Request" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I softly see "Name" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I softly see value "Step 1" for title "Amendment Request" against the value "Sarah PM" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I softly see value "Step 2" for title "Amendment Request" against the value "Victor EXE" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+      | Name       | Amendment Request |
+      | David FO   |  NA               |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+      | Amendment Request  |
+      | Step 3             |
+    Then I softly see the following messages in the page details contains:
+      | Required Fields Missing |
+    And I refresh the page
     And I wait for "2" seconds
-    Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
-    And I click "Cancel" on modal confirmation box
-    And I wait for "3" seconds
-    Then I see only the following ordered radio buttons in the approval decision :
-      | Approve | Reject | Forward  | Send back |
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
+      | Name       | Amendment Request |
+      | Sarah PM   |  Step 2           |
+    Then I softly see the following messages in the page details contains:
+      | You cannot specify the same step for multiple users for Amendment Request |
+    And I refresh the page
+    And I wait for "2" seconds
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
+      | Name       | Amendment Request |
+      | Sarah PM   |  NA               |
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
+      | Name         | Amendment Request |
+      | Victor EXE   |  NA               |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Responsibilities - At least one approver is required |
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
+      | Name       | Amendment Request |
+      | Sarah PM   |  Step 1           |
+    When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
+      | Name       | Amendment Request |
+      | Victor EXE | Step 2            |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
