@@ -4977,7 +4977,7 @@ Feature: Sanity scenarios
     Then I softly see "Snapshot History" page block displayed
     When I enter "Grantee_nonFed_Edition" values from "Program_Field_Values.xlsx"
     And I generate the random digits and save as "digits"
-    And I enter in modal value "{SavedValue:digits}" into field "FederalProgramCFDA__c"
+    And I enter value "{SavedValue:digits}" into field "FederalProgramCFDA__c"
     And I click on "Save" in the page details
     And I wait for "3" seconds
     When I navigate to "Files" sub tab
