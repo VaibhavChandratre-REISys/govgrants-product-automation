@@ -2671,7 +2671,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
- @hit3 @77293 @77294 @77343 @AdditionPDFModificationInImpact
+ @77293 @77294 @77343 @AdditionPDFModificationInImpact
   Scenario Outline: To verify user able to add new review question with success message in Impact of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user allow to download PDF for review question in Impact of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user able to modify review question in Impact of Review Panel Categories in Program review form for SME review step in planning phase
@@ -3009,6 +3009,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Form Weight (%) | Minimum Number of Reviews per Application |
       | Program Review | 0               | 1                                         |
+   And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
@@ -6057,7 +6058,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 110.00%. |
 
- @hit3 @109794 @VerifyValidationMessageForReviewFormWeightGreaterThan100%   @needToCheckErrorMessage
+ @109794 @VerifyValidationMessageForReviewFormWeightGreaterThan100%   @needToCheckErrorMessage
   Scenario: validate user is able to see validation message when review form weight is greater than 100%
     And I navigate to "Setup" sub tab
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
