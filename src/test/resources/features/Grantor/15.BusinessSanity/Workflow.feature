@@ -1532,16 +1532,23 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @tst @debug
+  @tst
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I login to "As a Grantor" app as "EXE" user
-    And I wait for "6" seconds
-    When I select radio button "Reject" in the approval decision
-    When I enter comment "Automation testing" in the approval decision
-    And I submit the approval in the approval decision without processing
-    And I wait for "2" seconds
-    Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
-    And I click "Cancel" on modal confirmation box
-    And I wait for "3" seconds
-    Then I see only the following ordered radio buttons in the approval decision :
-      | Approve | Reject | Forward  | Send back |
+    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Financial Reports - All"
+    And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
+    When I click on "View" icon for "FR--GT-GA-02662-001" inside table
+    And I navigate to "Chatter" sub tab in split screen
+    Then I softly see the text containing "Post"
+
+  @tst1 @debug
+  Scenario:
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Program__c/a37Dh000002xOOQIA2/view"
+    And I wait for "10" seconds
+    And I navigate to "Chatter" sub tab in split screen
+    And I post the message "Automation Test Execution" inside chatter
+    Then I softly see post "Automation Test Execution" by user "Sarah PM"
+    And I halt execution

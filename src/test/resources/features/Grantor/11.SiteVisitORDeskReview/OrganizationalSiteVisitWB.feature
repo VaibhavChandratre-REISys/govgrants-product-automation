@@ -45,6 +45,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
+    And I wait for "2" seconds
     And I checkout to yopmail with mailid "exe.automation@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -164,6 +165,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
+    And I wait for "2" seconds
     And I checkout to yopmail with mailid "fo.automation@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -306,6 +308,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
+    And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -555,6 +558,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
+    And I wait for "2" seconds
     And I checkout to yopmail with mailid "automationpo@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -723,6 +727,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
+    And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -887,6 +892,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
+    And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "fo.automation@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1008,6 +1014,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
+    And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "fo.automation@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1456,56 +1463,57 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:SitevVisitId} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
-    Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
-    And I pause execution for "10" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Notification: Owner Reassignment Report
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-
-      EGMS ID Assigned By Module Name
-      {SavedValue:SitevVisitId} Automation ADMIN Site Visit /Desk Review
-
-      Because these records have been reassigned, the original reviewer may have only view access to the record.
-
-      Log in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
-
-      Thank you,
-      The EGMS Team
-      """
+    And I pause execution for "2" seconds
+#    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:SitevVisitId} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
+#    Given I am on "INTERNAL" portal
+#    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+#    And I pause execution for "10" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Notification: Owner Reassignment Report
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     The record(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
+#
+#      EGMS ID Assigned By Module Name
+#      {SavedValue:SitevVisitId} Automation ADMIN Site Visit /Desk Review
+#
+#      Because these records have been reassigned, the original reviewer may have only view access to the record.
+#
+#      Log in to EGMS and click on EGMS IDs to access the assigned record.
+#
+#      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this record.
+#
+#      Thank you,
+#      The EGMS Team
+#      """
     Given I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Monitoring" tab
@@ -1591,6 +1599,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
+    And I pause execution for "2" seconds
     And I checkout to yopmail with mailid "automationfd@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :

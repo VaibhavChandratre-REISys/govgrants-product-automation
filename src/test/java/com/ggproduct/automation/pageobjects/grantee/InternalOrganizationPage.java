@@ -664,7 +664,7 @@ public class InternalOrganizationPage extends GranteeProjectManager {
     private boolean isNumberOfPagesInsideTableDisplayed(String tableId, String text) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//*[@id='" + tableId + "']//span[contains(text(),'" + text + "')]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//span[contains(text(),'" + text + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {

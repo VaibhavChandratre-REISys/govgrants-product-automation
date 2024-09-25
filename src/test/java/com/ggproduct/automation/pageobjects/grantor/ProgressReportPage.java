@@ -113,7 +113,7 @@ public class ProgressReportPage extends GrantorProjectManager {
      */
     public Boolean isTopRightButtonDisplayed(String buttonName, String flextableHeaderName) {
         try {
-            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//a[text()='" + flextableHeaderName + "']/../../div/button[text()='" + buttonName + "']"));
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flextableHeaderName + "']//*[@title='" + buttonName + "' or text()='" + buttonName + "']"));
         } catch (Exception e) {
             return false;
         }

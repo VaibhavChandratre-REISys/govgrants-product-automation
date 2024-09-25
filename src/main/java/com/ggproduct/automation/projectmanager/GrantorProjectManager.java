@@ -696,6 +696,7 @@ public class GrantorProjectManager extends ProjectManager {
      */
     public void clickAllDeleteButtonsInsideFlexTable(String flextableId) {
         By columnSelector = By.xpath("//*[@id='" + flextableId + "']//table//tr//td[1] | //*[@data-flextablename='" + flextableId + "']//table//tr//td[1]");
+        I.amPerforming().waitFor().ElementToBeVisible(columnSelector);
         List<Elements> rowValues = I.amPerforming().getElementReference().forListOfElements().of(columnSelector);
         int rowSize = rowValues.size();
         int counter = 0;
