@@ -2403,7 +2403,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @443755 @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @TBExecution2
+  @443755 @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario Outline: Non Federal_ Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -4860,7 +4860,7 @@ Feature: Sanity scenarios
     And I click modal button "Close"
     Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:fedContactTableId---"
 
-  @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram @TBExecution2
+  @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram
   Scenario: Validate Non-Federal program PM user can create and Activate Non Federal program
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
