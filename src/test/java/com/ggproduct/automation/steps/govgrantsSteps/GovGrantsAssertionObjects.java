@@ -4056,4 +4056,27 @@ public final class GovGrantsAssertionObjects {
         }
         return flag;
     }
+
+    public void assertPostByUser(String usage, String message, String userName) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isPostByUser(message, userName));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isPostByUser(message, userName));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isPostByUser(message, userName)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isPostByUser(message, userName)).isFalse();
+        }
+    }
+
+    private Boolean isPostByUser(String message, String userName) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-feed-type='Record']//article[contains(@aria-label,'" + userName + "')]//div[@class='feedBodyInner Desktop oneApp']//p//span[text()='" + message + "']"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
 }

@@ -263,4 +263,9 @@ public final class GovGrantsProductSteps {
     public void iClickOnGlobalSearchBox() {
         ggProductObjects.iClickOnGlobalSearchBox();
     }
+
+    @And("I post the message {string} inside chatter")
+    public void iPostTheMessageInsideChatter(String message) {
+        ggProductObjects.iPostTheMessageInsideChatter(message);
+    }
 }

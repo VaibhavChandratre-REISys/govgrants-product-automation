@@ -1546,18 +1546,9 @@ Feature: Validate all scenarios of every modules flow
   @tst1 @debug
   Scenario:
     Given I login to "As a Grantee" app as "GRANTEE PM" user
-    When I navigate to "Home" tab
-    Then I see "External" inside "Contacts" is displayed
-    Then I see "Internal" inside "Contacts" is displayed
-    And I navigate to "Internal" content inside "Contacts" subheader on left panel
-    And I click toggle button to select "My Organization’s Contact"
-#    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fK41YAE/view"
-    Then I softly see toggle option "All Contacts" inside flex table id "---grantee_tableId:-:InternalContacts---"
-    Then I softly see toggle option "My Organization’s Contact" inside flex table id "---grantee_tableId:-:InternalContacts---"
-    When I click on parallel lines menu bar with data target value "My Organization’s Contact"
-    And I wait for "2" seconds
-    Then I see option "Refresh" present in parallel dropdown
-    Then I see option "Download as PDF" present in parallel dropdown
-    And I click on page navigation arrow "---grantee_tableId:-:InternalContacts---" for table id "Next"
-    Then I see table "---grantee_tableId:-:InternalContacts---" shows "Page 2 of 7"
-    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:InternalContacts---"
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Program__c/a37Dh000002xOOQIA2/view"
+    And I wait for "10" seconds
+    And I navigate to "Chatter" sub tab in split screen
+    And I post the message "Automation Test Execution" inside chatter
+    Then I softly see post "Automation Test Execution" by user "Sarah PM"
+    And I halt execution

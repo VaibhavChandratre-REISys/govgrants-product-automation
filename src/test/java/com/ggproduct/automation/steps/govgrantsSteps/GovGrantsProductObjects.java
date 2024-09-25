@@ -735,4 +735,13 @@ public final class GovGrantsProductObjects {
     public void iClickOnGlobalSearchBox() {
         I.amPerforming().click().on(By.xpath("//div[contains(@class,'global-header__item_search')]//input[@placeholder='Search...']"));
     }
+
+    public void iPostTheMessageInsideChatter(String message) {
+        I.amPerforming().click().withJavaScript(By.xpath("//div[contains(@class,'publisher-quick-action-collapser')]//button//span[text()='Share an update...']"));
+        By inputBox = By.xpath("//div[@class='forceChatterMessageBodyInput']//div[contains(@class,'textarea')]//div");
+        I.amPerforming().waitFor().ElementToBeVisible(inputBox);
+        I.amPerforming().click().withJavaScript(inputBox);
+        I.amPerforming().textInput().in(inputBox, message);
+        I.amPerforming().click().withJavaScript(By.xpath("//button[text()='Share']"));
+    }
 }

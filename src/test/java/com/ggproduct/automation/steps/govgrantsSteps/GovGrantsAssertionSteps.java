@@ -862,8 +862,13 @@ public final class GovGrantsAssertionSteps {
         ggAssertionObjects.assertButtonDisplayOnFooter(usage,buttonName);
     }
 
-    @Then("I (softly see|see|do not see|softly do not see) button \"([^\"]*)\" inside flextable \"([^\"]*)\"$")
+    @Then("^I (softly see|see|do not see|softly do not see) button \"([^\"]*)\" inside flextable \"([^\"]*)\"$")
     public void iSoftlySeeButtonInsideFlextable(String usage,String buttonName, String tableId) {
         ggAssertionObjects.assertResetButtonInsideFlextable(usage, buttonName, tableId);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) post \"([^\"]*)\" by user \"([^\"]*)\"$")
+    public void iSoftlySeePostByUser(String usage,String message, String userName) {
+        ggAssertionObjects.assertPostByUser(usage,message,userName);
     }
 }
