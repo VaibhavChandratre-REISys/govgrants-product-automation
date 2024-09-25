@@ -649,7 +649,7 @@ public class ReportAnalyzer {
             List<Path> featurePath = Files.walk(Paths.get(System.getProperty("user.dir") + "/src/test/resources/features")).filter(fileType -> fileType.getFileName().toString().contains(".feature")).map(filePaths -> filePaths.toAbsolutePath()).collect(Collectors.toList());
 
             for (Path featureFiles : featurePath) {
-                testCount = testCount + Files.readAllLines(featureFiles).stream().map(trimLines -> trimLines.trim()).filter(ff -> ff.startsWith("Then I")).count();
+                testCount = testCount + Files.readAllLines(featureFiles).stream().map(trimLines -> trimLines.trim()).filter(ff -> ff.startsWith("@"+"\\b\\d{5,6}\\b")).count();
             }
         } catch (Exception e){
 

@@ -1549,6 +1549,5 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Program__c/a37Dh000002xOOQIA2/view"
     And I wait for "10" seconds
     And I navigate to "Chatter" sub tab in split screen
-    And I post the message "Automation Test Execution" inside chatter
-    Then I softly see post "Automation Test Execution" by user "Sarah PM"
-    And I halt execution
+    And I post the message "Automation Test1 Execution" inside chatter
+    Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
