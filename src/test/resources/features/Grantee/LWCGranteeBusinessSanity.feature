@@ -4977,6 +4977,7 @@ Feature: Sanity scenarios
     Then I softly see "Snapshot History" page block displayed
     When I enter "Grantee_nonFed_Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
     And I pause execution for "2" seconds
