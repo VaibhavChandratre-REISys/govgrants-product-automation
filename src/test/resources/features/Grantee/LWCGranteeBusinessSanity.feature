@@ -1172,9 +1172,9 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
-    Then I softly see value "Record Id" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
+    Then I softly see value "{SavedValue:financialEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1183,9 +1183,9 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
-    Then I softly see value "Record Id" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
+    Then I softly see value "{SavedValue:financialEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
@@ -4994,9 +4994,9 @@ Feature: Sanity scenarios
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
-    Then I softly see value "Other Artifacts" for title "Classification" inside table "---program:-:GrantorInternalProgramFilesTableId---"
-    And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---" without waiting for record
-    Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---program:-:GrantorInternalProgramFilesTableId---"
+    Then I softly see value "Other Artifacts" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
+    And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---" without waiting for record
+    Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:nonFedNotesTableId---" by clicking "Add" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
@@ -5596,25 +5596,24 @@ Feature: Sanity scenarios
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:progressReportApprovers---"
     Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
     Then I softly cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:progressReportApprovers---"
-
     When I navigate to "Forms & Files" sub tab
-    Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly cannot see row level action button "Edit" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:financialReportAddFilesTableId---"
-    Then I softly can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
-    Then I softly can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
-    Then I softly cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
+    Then I softly can see row level action button "View" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly cannot see row level action button "Edit" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly do not see top right button "Add" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
-    Then I softly see value "Record Id" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
+    Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5623,15 +5622,15 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
-    Then I softly see value "Record Id" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
+    Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
-    When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
-    And I click toggle button to select "Financial Reports - All"
-    And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
-    When I click on "View" icon for "{SavedValue:financialEGMSID}" inside table
+    When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Progress Reports - All"
+    And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
+    When I click on "View" icon for "{SavedValue:progressEGMSID}" inside table
     Then I softly can see top right button "Mark as Submitted" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly see "Name" in flex table header "---grantee_tableId:-:financialReportOwnerTableId---"
@@ -5646,7 +5645,7 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | Submitted to Grantor On is required to save. |
-    And I enter in modal "Submit Details" values from "Financial_Report_Field_Values.xlsx"
+    And I enter in modal "Grantee_Submit Details" values from "ProgressReport_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "3" seconds
     When I click modal button "Close"
@@ -5681,9 +5680,10 @@ Feature: Sanity scenarios
     And I navigate to "Field Audit" sub tab in split screen
     Then I softly can see "Field Audit" sub tab at view detail page
     When I navigate to "Forms & Files" sub tab
-    Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
-    Then I softly can see row level action button "Edit" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "View" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Edit" against "PSR: Performance Progress Reports" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I navigate to "Chatter" sub tab in split screen
-    Then I softly see the text containing "Post"
+    And I post the message "Automation Test1 Execution" inside chatter
+    Then I softly see post "Automation Test1 Execution" by user "Victor EXE"
