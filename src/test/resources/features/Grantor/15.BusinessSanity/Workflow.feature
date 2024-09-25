@@ -1545,8 +1545,18 @@ Feature: Validate all scenarios of every modules flow
 
    @tst1
    Scenario:
-     Given I login to "As a Grantor" app as "EXE" user
-     And I navigate to url "https://test8-internal--vaqaorg.sandbox.lightning.force.com/lightning/r/Award__c/a1oDf000001BtB6IAK/view?c__Mode=ZWRpdA%3D%3D"
-     And I wait for "10" seconds
-     Then I see status in Progress-bar is "Created" and is "dark blue"
-     And I halt execution
+     Given I login to "As a Grantor" app as "EXE1" user
+     And I click on Menu icon present on top right corner of the page
+     And I wait for "2" seconds
+     And I select "Download As PDF" from dropdown
+     And I wait for "5" seconds
+     And I download the file
+     And I wait for "5" seconds
+     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
+     Then I softly see following details in "govgrants" pdf file:
+       | Detail   | Page Number |
+       | Contacts | 1           |
+     And I switch to parent tab
+     When I refresh the page
+     And I navigate to "History" sub tab
+     Then I softly see snapshot with name containing "Internal Program - submit for approval.pdf" as name
