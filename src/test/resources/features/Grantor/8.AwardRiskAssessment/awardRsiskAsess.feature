@@ -2575,7 +2575,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation EXE" for title "Name" inside table "---riskassessment:-:riskAssOwnerTableId---"
 
-  @200365 @ValidateFieldHistorywithRespecttoRiskAssessmentisupdatedforcorrespondingawardwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646  @reassignment
+  @200365 @ValidateFieldHistorywithRespecttoRiskAssessmentisupdatedforcorrespondingawardwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646  @reassignment @TBExecution2
   Scenario: Validate Field History with Respect to Risk Assessment is updated for corresponding award with respect to owner ship transfer of a Active Risk Assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
