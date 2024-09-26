@@ -110,7 +110,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on hyperlink containing value "View All"
     Then I softly see value "Active" for title "New Value" inside field history table
 
-  @58168 @58169 @59875 @pendingTaskCreationforRiskAssesmentostRejectCheckFieldHistory @FieldHistoryExclude @TBExecution1
+  @58168 @58169 @59875 @pendingTaskCreationforRiskAssesmentostRejectCheckFieldHistory @FieldHistoryExclude
   Scenario: Validate the field history after rejection of Risk Assessment and whether user is able to view the pending task once submitted for approval under Monitoring Tab and First Approver is able to reject the Risk Assessment then status in Progress bar is Rejected.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -269,7 +269,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I see the following messages in the page details contains:
       | Assessment Tab - Complete all of the questions on the Risk Assessment form. |
 
-  @58174 @58175 @peerReviewIntiationforRiskAssessment @TBexecution1
+  @58174 @58175 @peerReviewIntiationforRiskAssessment @TBExecution1
   Scenario: Validate whether user is able to add reviewer to the peer reviewers table and user able to intiate the peer review process for Risk Assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -506,7 +506,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @58818 @buttonforRiskAssessmentNotHiddenAfterSubmitforApproval @TBExecution1
+  @58818 @buttonforRiskAssessmentNotHiddenAfterSubmitforApproval
   Scenario: Validate New button still be avialble on the Table post Risk Assessment is submitted for approval.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1322,7 +1322,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Overview" sub tab
     Then I see "Risk Level" image as "b-grn.png"
 
-  @59807 @highRiskRAAssessmentFieldColorRed @TBExecution1
+  @59807 @highRiskRAAssessmentFieldColorRed
   Scenario: Validate after selecting certain combinations of answers on the  Form and submitting RA for approval, system sets high Risk with color as red
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2349,7 +2349,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Automation.pdf" for title "Title" inside table "---orgRiskAssessment:-:awardRiskAssessmentTableId---"
     Then I softly see value "Program Artifacts" for title "Classification" inside table "---orgRiskAssessment:-:awardRiskAssessmentTableId---"
 
-  @60218 @taskNotCreatedForFOWhenPMSendbacktoOwnerOfRiskAssessment @TBExecution1
+  @60218 @taskNotCreatedForFOWhenPMSendbacktoOwnerOfRiskAssessment
   Scenario: To validate  task is not created for Fiscal Approver when progress approver Sends back the Risk Assessment to Owner.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2448,7 +2448,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Overview" sub tab
     Then I softly see field "OverAll Risk" as "44.0%"
 
-  @60226 @submittedRAAtManagementTabOnAwardAtInternalSide @TBExecution1
+  @60226 @submittedRAAtManagementTabOnAwardAtInternalSide
   Scenario: Validate Risk Assessment table on Management tab is getting updated with Risk Assessments whose status is Submitted to Approval at Award owner End
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3012,6 +3012,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I pause execution for "5" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3187,7 +3188,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Overview" sub tab
     Then I see "Risk Level" image as "b-ylw.png"
 
-  @62093 @59255 @overallRiskFieldAvailabilityToSRProfileUserk @TBExecution1
+  @62093 @59255 @overallRiskFieldAvailabilityToSRProfileUserk
   Scenario:  Verify whether SPI profile User can view the section Overview for Overall Risk Calculation for a Sub Recipient Organization
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
