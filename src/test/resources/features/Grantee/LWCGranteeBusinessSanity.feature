@@ -4897,6 +4897,9 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
+      | Name      | Award  |
+      | Sarah PM  | NA     |
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name      | Award  | Amendment Request  |
       | Sarah PM  | Step 1 | Step 1             |
     Then I softly see the following messages in the page details contains:
