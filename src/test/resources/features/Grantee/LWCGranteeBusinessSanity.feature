@@ -4996,6 +4996,8 @@ Feature: Sanity scenarios
     When I click modal button "Save"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---" without waiting for record
     Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
