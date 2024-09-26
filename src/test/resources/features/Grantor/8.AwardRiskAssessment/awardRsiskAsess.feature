@@ -1701,7 +1701,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "1" seconds
     Then I softly see row level action button "Remove record" inside "---subAwardStandAlone:-:riskAssessmentApproverTableId---" flex table
 
- @143414 @VerifyUserCannotAddApproverAfterRiskAssessmentActive-RnRFunctnality @TBExecution3
+ @143414 @VerifyUserCannotAddApproverAfterRiskAssessmentActive-RnRFunctnality
   Scenario Outline: Verify when risk assessment is active then user cannot add approver
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2106,7 +2106,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
     Then I softly can see top right button "Submit for Approval" in page detail
 
-  @198041 @ValidatePOusercansubmittheawardriskassessmentforapprovalpostrevieweraddcommentswhenownershipistransferredforRAwhichisinSubmittedforReviewstatus @sprint-12-US-226646  @reassignment @TBExecution3
+  @198041 @ValidatePOusercansubmittheawardriskassessmentforapprovalpostrevieweraddcommentswhenownershipistransferredforRAwhichisinSubmittedforReviewstatus @sprint-12-US-226646  @reassignment
   Scenario: Validate PO user can submit the award risk assessment for approval post reviewer add comments when ownership is transferred for a RA which is in Submitted for Review status
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
@@ -2305,7 +2305,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
 
-  @risk2 @197973 @201283 @ValidateADMINhasanoptiontochangeownershipofAwardRiskAssessmenttransferitsownershipwhenithasstatusascreatedandownerisPM @sprint-12-US-226646  @reassignment @buglogged-201264 @TBExecution3
+  @risk2 @197973 @201283 @ValidateADMINhasanoptiontochangeownershipofAwardRiskAssessmenttransferitsownershipwhenithasstatusascreatedandownerisPM @sprint-12-US-226646  @reassignment
   Scenario: Validate ADMIN has an option to change ownership of Award Risk Assessment, transfer its ownership when it has status as created and owner is PM
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2556,7 +2556,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
-    Then I softly see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
+    Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     When I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
@@ -2725,6 +2725,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:RAEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     Then I softly do not see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4756,7 +4757,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see snapshot with name containing "Risk Assessment Activation/Rejection.pdf" as name
     Then I softly see snapshot with user containing "{SavedValue:FD Username}" against the value "Risk Assessment Activation/Rejection.pdf"
 
-  @119401 @Validatetheriskassessmentisapprovedstep4setupactivatedpostalltheapprovalarecompletewhenpeerreviewwasperformedonit @Sprint-23-US-273843  @Allocation @TBExecution3
+  @119401 @Validatetheriskassessmentisapprovedstep4setupactivatedpostalltheapprovalarecompletewhenpeerreviewwasperformedonit @Sprint-23-US-273843  @Allocation
   Scenario: Validate the risk assessment is approved step4 set up activated post all the approval are complete when peer review was performed on it
     Given I login to "As a Grantor" app as "PO" user
     And I navigate to "Grants" tab
