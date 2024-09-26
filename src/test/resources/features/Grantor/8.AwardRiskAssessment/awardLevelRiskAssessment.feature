@@ -206,7 +206,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I "Reassign" to user "{SavedValue:EXE Username}" in the approval decision
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @58172 @58816 @riskAssesmentSetToNowhileAwardCreation @TBExecution1
+  @58172 @58816 @riskAssesmentSetToNowhileAwardCreation
   Scenario: Validate Activation of Award Risk Assessment is not required and filling/creating risk assessment is not applicable if Grant has setting Risk Assessment=No.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -364,7 +364,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
 
-  @58177 @58181 @viewDeletionOfRiskAssessmentstatusUnderMonitoring @TBExecution1
+  @58177 @58181 @viewDeletionOfRiskAssessmentstatusUnderMonitoring
   Scenario: Validate whether owner has the availability (permission) of View and delete icon across created Award Risk Assessment under Monitoring Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -729,7 +729,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "{SavedValue:ActiveID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
     Then I softly see "{SavedValue:ActiveID}" inside flex table with id "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
-  @58821 @validateEditionOfRiskAssessment @TBExecution1
+  @58821 @validateEditionOfRiskAssessment
   Scenario: Validate whether user can Edit the created Risk Assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -929,7 +929,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @58936 @acknowledgementIsRequiredToContinue @TBExecution1
+  @58936 @acknowledgementIsRequiredToContinue
   Scenario: Validate System generates an error message if the user tries to proceed on the risk assessment without providing acknowledgment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1343,6 +1343,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "Save and Continue" in the page details
     And I enter "RiskAssessmentValuesRed" values from "RiskAssessment_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     And I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
@@ -1352,7 +1353,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     When I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "3" seconds
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1519,7 +1521,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I see the following messages in the page details contains:
       | Management Tab - award risk assessment has already been created or is in progress. Another risk assessment can only be created once the current assessment expires or if a revision to an active risk assessment is required. |
 
-  @59811 @userApprovesForwardedRiskAssessment @TBExecution1
+  @59811 @userApprovesForwardedRiskAssessment
   Scenario: Verify whether user is able to approve the forwarded Risk Assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1959,6 +1961,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
       | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
     And I click on "Send for Review" icon for "Fiscal Reviewer" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2476,7 +2479,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | {SavedValue:FO Username} | Step 2          |
     When I save the field labeled "EGMS ID" as "RISKID"
     And I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "3" seconds
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
@@ -2906,7 +2910,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     When I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "3" seconds
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2924,6 +2929,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
     When I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
+    And I wait for "5" seconds 
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -2947,10 +2953,12 @@ Feature: Validate all scenarios in the Risk Assessment
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     When I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "3" seconds
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I wait for "3" seconds
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
@@ -3216,6 +3224,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
