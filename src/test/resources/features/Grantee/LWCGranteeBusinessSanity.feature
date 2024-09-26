@@ -5097,7 +5097,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
     And I wait for "2" seconds
-    And I enter "Grantee_GrantCreation1" values from "Award_Field_Values.xlsx"
+    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Overview" sub tab
@@ -5153,6 +5153,8 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
       | Focus Area Name                 | Projected Program Income ($) | Program Income Justification |
       | Automation Permanent Focus Area | 1000                         | Automation Test              |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
       | Title | Date From | Date To | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
       | Rate  | 15        | 30      | 10                             | Final                   |
