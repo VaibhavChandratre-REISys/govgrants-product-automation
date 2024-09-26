@@ -1536,44 +1536,100 @@ Feature: Validate all scenarios of every modules flow
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I wait for "5" seconds
+    When I navigate to "Overview" sub tab
+    Then I softly see "Budget Category" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see "Spent" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see "Remaining Budget" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see "Revised Award Budget" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see "Difference" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
+    When I click on "Original Budget Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
+    When I close "Original Budget Details" modal by clicking the top right x button
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see "Narrative" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see "Prior Awarded Budget" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see "Awarded Budget" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see "Previous Leverage" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see "Previous Project Cost" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Awarded Budget | Cash Match | Other Leverage |
+      | Test         | The narrative | 5000           | 500        | 500           |
+    Then I softly can see row level action button "Edit" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly can see row level action button "Delete" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
+      | Title        | Narrative     | Awarded Budget | Cash Match | Other Leverage |
+      | Test        | The narrative | 5000           | 500        | 500            |
+    And I click on "Delete" icon for "Test" inside flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly do not see value "Test" for title "Title" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    When I close "Add Line Items" modal by clicking the top right x button
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see "Date From" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see "Date To" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Edit" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Delete" against "Rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see fields "GeneralConditionChanged__c" is in edit mode
+    And I enter value "Checked" into field "GeneralConditionChanged__c"
+    Then I softly see fields "AreTCspartofNGAAttachments__c" is in edit mode
+    Then I softly see fields "FederalTCLink__c" is in edit mode
+    And I enter value "Unchecked" into field "GeneralConditionChanged__c"
+    Then I softly do not see fields "AreTCspartofNGAAttachments__c" is visible
+    Then I softly do not see fields "FederalTCLink__c" is visible
+    And I click on "Save" in the page details
+    And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly can see row level action button "View" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly can see row level action button "Edit" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly can see row level action button "Delete" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    When I enter in modal value "Terms1" into field "Title__c"
+    When I enter in modal value "Terms Description" into field "Description__c"
+    When I enter in modal value "1" into field "Sequence__c"
+    When I enter in modal value "1" into field "EffectiveFrom__c"
+    When I enter in modal value "1" into field "EffectiveTill__c"
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    Then I softly see value "Terms1" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    And I click on "Delete" icon for "Terms1" inside flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly do not see value "Terms1" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see link "Created By" inside Page block
+    And I save the field labeled "Created By" as "CreatedBy"
+    Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
+    And I save the field labeled "Created Date" as "CreatedDate"
+    Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
+    Then I softly see link "Last Modified By" inside Page block
+    And I save the field labeled "Last Modified By" as "LastModifiedBy"
+    Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedBy}"
+    And I save the field labeled "Last Modified Date" as "LastModifiedDate"
+    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
     When I navigate to "Responsibilities" sub tab
-    Then I softly see "Amendment Request" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
-    Then I softly see "Name" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
-    Then I softly see value "Step 1" for title "Amendment Request" against the value "Sarah PM" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
-    Then I softly see value "Step 2" for title "Amendment Request" against the value "Victor EXE" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | David FO   |  NA               |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
-    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Amendment Request  |
-      | Step 3             |
-    Then I softly see the following messages in the page details contains:
-      | Required Fields Missing |
-    And I refresh the page
-    And I wait for "2" seconds
-    When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
-      | Name       | Amendment Request |
-      | Sarah PM   |  Step 2           |
-    Then I softly see the following messages in the page details contains:
-      | You cannot specify the same step for multiple users for Amendment Request |
-    And I refresh the page
-    And I wait for "2" seconds
-    When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
-      | Name       | Amendment Request |
-      | Sarah PM   |  NA               |
-    When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
-      | Name         | Amendment Request |
-      | Victor EXE   |  NA               |
-    And I click on "Submit for Approval" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Responsibilities - At least one approver is required |
-    When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
-      | Name       | Amendment Request |
-      | Sarah PM   |  Step 1           |
-    When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
-      | Name       | Amendment Request |
-      | Victor EXE | Step 2            |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
+    Then I softly see "Peer Reviewers" page block displayed
+    Then I softly see "Approvers" page block displayed
+    Then I softly see "Owner" page block displayed
+    Then I softly see "Reviewer Name" in flex table header "---grantee_tableId:-:amendmentPeerReviewerTableId---"
