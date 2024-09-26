@@ -170,7 +170,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Overview" sub tab
     Then I cannot see field "Risk Level" inside page block
 
- @76272 @65550 @raOwnerCanAddMultiplePeerReviewerForRA @TBExecution2
+ @76272 @65550 @raOwnerCanAddMultiplePeerReviewerForRA
   Scenario: Validate Award owner can add Multiple Peer reviewer for Risk Assessment whose status is Submitted to grantor | Validate whether the record owner recieve an email notfication when risk assessment is created
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1151,7 +1151,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to"Awards"content inside "Grants, Awards & Amendments" subheader on left panel
+    When I navigate to "Awards" content inside "Grants, Awards & Amendments" subheader on left panel
     And I click toggle button to select "Awards  - All"
     When I perform quick search for "<Award Name>" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
@@ -2396,7 +2396,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly do not see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---home:-:internalHomePendingTaskTableId---"
     Then I softly do not see value "Create Risk Assessment for Subaward" for title "Task Type" inside table "---home:-:internalHomePendingTaskTableId---"
 
-  @198046 @ValidateEXEprofileusercanapprovetheawardriskassessmentforstep2approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment @TBExecution2
+  @198046 @ValidateEXEprofileusercanapprovetheawardriskassessmentforstep2approvalswhenownershipistransferredforRAwhichisinSubmittedforapprovalstatus @sprint-12-US-226646  @reassignment
   Scenario: Validate EXE profile user can approve the award risk assessment for step 2 approvals when ownership is transferred for a RA which is in Submitted for approval status
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4695,7 +4695,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @116321 @ValidateFieldhistorySnapshotupdatepostApprovalofRiskAssessment @Sprint-23-US-273843  @Allocation @FieldHistoryExclude @TBExecution2
+  @116321 @ValidateFieldhistorySnapshotupdatepostApprovalofRiskAssessment @Sprint-23-US-273843  @Allocation @FieldHistoryExclude
   Scenario: Validate Field history Snapshot update post Approval of Risk Assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
