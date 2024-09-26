@@ -5161,6 +5161,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name     | Award  |
+      | Sarah PM | NA     |
       | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
