@@ -157,7 +157,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on hyperlink containing value "View All"
     Then I softly see value "Rejected" for title "New Value" inside field history table
 
-  @58170 @58171 @forwardToOtherUsersendtoOwnerRiskAssesment @TBExecution
+  @58170 @58171 @forwardToOtherUsersendtoOwnerRiskAssesment
   Scenario: Validate whether user is to able to forward Risk Assessment for Approval and Send to Owner
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1468,7 +1468,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on hyperlink containing value "View All"
     Then I see value "Created" for title "New Value" inside field history table
 
-  @59810 @newbuttonHiddenWhenSubmittedforApproval  @smoke @TBExecution
+  @59810 @newbuttonHiddenWhenSubmittedforApproval  @smoke
   Scenario: Validate whether the record owner is not allowed to creating new risk assessment when only the Program approval is complete and risk assessment is in submit for approval status
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1517,6 +1517,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for Risk Assessment}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I wait for "7" seconds
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
     And I wait for "3" seconds
