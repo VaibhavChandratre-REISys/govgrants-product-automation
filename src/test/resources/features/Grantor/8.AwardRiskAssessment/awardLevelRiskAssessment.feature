@@ -196,6 +196,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
@@ -1993,7 +1994,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "RiskAssessmentApproverRoles"
 
-  @59960 @intialRiskAssessmentMarkedAsExpired @smoke @TBExecution
+  @59960 @intialRiskAssessmentMarkedAsExpired @smoke
   Scenario Outline: Validate when the Award is activated whether SR user can view the second Risk Assessment that was in Created Status
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2283,7 +2284,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "7" seconds
     Then I see "Active" on page "1" of "govgrants" pdf file
 
-  @60210 @60220 @recordOwnerCannotEditEffectiveDateAndCreatedDateOfRA @TBExecution
+  @60210 @60220 @recordOwnerCannotEditEffectiveDateAndCreatedDateOfRA
   Scenario: Validate Record Owner is not able to edit the Effective Dates under Overview tab of Risk Assessment and the Created Date of Risk Assessment display on Overview Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2394,7 +2395,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     Then I see "No Records Found" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
 
-  @60224 @60221 @EditButtonAvailabilityforRecordOwnerAndOverAllRiskOfAwardRA @TBExecution
+  @60224 @60221 @EditButtonAvailabilityforRecordOwnerAndOverAllRiskOfAwardRA
   Scenario: Validate Approvers Table is not editable for record owner and award owner end when the status of risk assesment is Submitted to Approval and Overall Risk Assessment of Award Risk Assessment
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
