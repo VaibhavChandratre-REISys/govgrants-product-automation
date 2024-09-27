@@ -2494,7 +2494,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
 
-  @198632 @ValidateEXEprofileuserasRA1ownershouldnotgetaffectedwhenownershipofGrantistransferredfromEXE1toEXE2whichisinCreatedstatusaftercreatingtheRAonthataward @sprint-12-US-226646  @reassignment @TBExecution1
+  @198632 @ValidateEXEprofileuserasRA1ownershouldnotgetaffectedwhenownershipofGrantistransferredfromEXE1toEXE2whichisinCreatedstatusaftercreatingtheRAonthataward @sprint-12-US-226646  @reassignment
   Scenario: Validate EXE profile user as RA1 owner should not get affected when ownership of Grant is transferred from EXE1 to EXE2 which is in 'Created' status after creating the RA on that award
     Given I login to "As a Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -3432,7 +3432,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
- @223701 @ValidateRiskAssessmentapprovertableshoulnotgetupdateonawardafterapproverreassignmentgetdoneonit'srelatedRiskassessment @sprint-11-US-218319  @reassignment
+ @223701 @ValidateRiskAssessmentapprovertableshoulnotgetupdateonawardafterapproverreassignmentgetdoneonit'srelatedRiskassessment @sprint-11-US-218319  @reassignment @TBExecution1
   Scenario: Validate Risk Assessment approver table should not get update on award after approver reassignment get done on it's related Risk assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3523,7 +3523,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Step 1" for title "Award" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
     Then I softly see value "Step 1" for title "Advance" against the value "Automation EXE" inside table "---subAwardStandAlone:-:awardApproversTableId---"
 
-  @224658 @ValidateRiskAssfailureemailshouldgeneratedforRAownerifusertrytoreassignreviewtasktoalreadyassignreviewer @sprint-11-US-218319  @reassignment
+  @224658 @ValidateRiskAssfailureemailshouldgeneratedforRAownerifusertrytoreassignreviewtasktoalreadyassignreviewer @sprint-11-US-218319  @reassignment @TBExecution1
   Scenario: Validate Risk Ass failure email should generated for RA owner if user try to reassign review task to already assign reviewer
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
