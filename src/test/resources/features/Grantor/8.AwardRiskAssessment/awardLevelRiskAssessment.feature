@@ -2252,13 +2252,15 @@ Feature: Validate all scenarios in the Risk Assessment
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     When I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "3" seconds
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
