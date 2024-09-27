@@ -2243,6 +2243,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Assessment" sub tab
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
@@ -2251,8 +2252,9 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
-    When I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
+    When I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
     Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2282,7 +2284,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Risk Assessment Activation/Rejection.pdf"
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I download the file
     And I wait for "7" seconds
     Then I see "Active" on page "1" of "govgrants" pdf file
