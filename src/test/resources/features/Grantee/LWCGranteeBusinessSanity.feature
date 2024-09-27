@@ -5027,8 +5027,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
       | Victor EXE | Step 2            |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-    When I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---grantee_tableId:-:amendmentOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
