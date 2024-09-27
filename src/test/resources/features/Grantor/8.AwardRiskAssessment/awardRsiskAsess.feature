@@ -2575,7 +2575,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation EXE" for title "Name" inside table "---riskassessment:-:riskAssOwnerTableId---"
 
-  @200365 @ValidateFieldHistorywithRespecttoRiskAssessmentisupdatedforcorrespondingawardwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646  @reassignment @TBExecution2
+  @200365 @ValidateFieldHistorywithRespecttoRiskAssessmentisupdatedforcorrespondingawardwithrespecttoownershiptransferofActiveRiskAssessment @sprint-12-US-226646  @reassignment
   Scenario: Validate Field History with Respect to Risk Assessment is updated for corresponding award with respect to owner ship transfer of a Active Risk Assessment
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -2594,10 +2594,8 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Save" in the page details
     And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
+    And I navigate to "Management" sub tab
+    When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
     And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"

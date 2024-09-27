@@ -1468,7 +1468,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on hyperlink containing value "View All"
     Then I see value "Created" for title "New Value" inside field history table
 
-  @59810 @newbuttonHiddenWhenSubmittedforApproval  @smoke @TBExecution2
+  @59810 @newbuttonHiddenWhenSubmittedforApproval @smoke
   Scenario: Validate whether the record owner is not allowed to creating new risk assessment when only the Program approval is complete and risk assessment is in submit for approval status
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1687,7 +1687,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
 
-  @63985 @recordOwnerCannotCreateNewRAWhenInSubmittedForApproval @TBExecution1
+  @63985 @recordOwnerCannotCreateNewRAWhenInSubmittedForApproval
   Scenario Outline: Validate when an award was activated with one active risk assessment and has other risk assessment which in created state should not get submitted for approval
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1928,7 +1928,7 @@ Feature: Validate all scenarios in the Risk Assessment
   #  When I close "Review" modal by clicking the top right x button
     Then I see status in Progress-bar is "Submitted for Review" and is "dark blue"
 
-  @59618 @59872 @editButtonIsHiddensubmittedReviewCompleteFoCannotResubmitComemnts @TBExecution1
+  @59618 @59872 @editButtonIsHiddensubmittedReviewCompleteFoCannotResubmitComemnts
   Scenario: Validate after submitting the review comments, the Edit button Hidden for reviewer and once RA owner Complete Review then the progress bar changes from Submitted for Review to Reviewed and reviewer cannot submit review activities if the record marked as complete review by the  owner.
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2219,7 +2219,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "5" seconds
     Then I see "Submitted for Approval" on page "1" of "govgrants" pdf file
 
-  @60209 @validateRecordOwnerISAbleToViewActiveRASnapshot @TBExecution1
+  @60209 @validateRecordOwnerISAbleToViewActiveRASnapshot
   Scenario: Validate whether Snapshot is captured/(taken) automatically  by the system in the table Snapshot History when Risk Assessment is Activated
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
