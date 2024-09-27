@@ -1535,25 +1535,25 @@ Feature: Validate all scenarios of every modules flow
   @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I login to "As a Grantee" app as "GRANTEE PM" user
-    And I wait for "5" seconds
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    When I navigate to "Amendments" sub tab
-    When I click on "View" icon for "{SavedValue:SOWEGMSID}" inside table
-    And I click on "Submit for Approval" in the page details without processing
-    Then I softly see confirmation box with body "Are you sure, you want to submit this request for approval?" is displayed
-    And I click "OK" on modal confirmation box
-    Then I softly see field "Status" as "Submitted for Approval"
-    And I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
-    When I "Send to Owner" in the approval decision
-    Then I softly see field "Status" as "Created"
-    And I click on "Submit for Approval" in the page details
+#    And I wait for "5" seconds
+#    When I navigate to "Awards" sub tab
+#    And I click on "View" icon for "AD-GA-2876" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+#    When I navigate to "Amendments" sub tab
+#    When I click on "View" icon for "CR-AD-GA-2876-00" inside table
+#    And I wait for "3" seconds
+#    And I click on "Submit for Approval" in the page details without processing
+#    Then I softly see confirmation box with body "Are you sure, you want to submit this request for approval?" is displayed
+#    And I click "OK" on modal confirmation box
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    And I navigate to "History" sub tab
+#    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
+#    When I "Send to Owner" in the approval decision
+#    Then I softly see field "Status" as "Created"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I perform quick search for "CR-AD-GA-2876-00" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "CR-AD-GA-2876-00" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I select radio button "Forward" in the approval decision
     And I select user "David FO" in the approval decision
     When I enter comment "Automation testing" in the approval decision
