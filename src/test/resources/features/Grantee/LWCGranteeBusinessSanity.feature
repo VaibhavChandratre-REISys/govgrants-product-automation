@@ -5306,15 +5306,15 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "Start Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "End Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    Then I softly see "Tittle" in flex table header "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:focusAreaTableId---"
+    Then I softly see "Tittle" in flex table header "---grantee_tableId:-:focusAreaTableId---"
+    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:focusAreaTableId---"
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:focusAreaTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:focusAreaTableId---"
     And I click modal button "Close"
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date                         | End Date    |
       | Automation Permanent Focus Area2 | {SavedValue:BudgetPeriodStartDate} | 0           |
     And I click on "Save" in the page details
@@ -5322,7 +5322,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Focus Area End Date should be greater than Focus Area Start Date.
       | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date.
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date                         | End Date                         |
       | Automation Permanent Focus Area2 | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
     And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
