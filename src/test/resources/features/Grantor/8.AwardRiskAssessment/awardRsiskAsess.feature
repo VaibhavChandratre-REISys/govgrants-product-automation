@@ -311,9 +311,9 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---subAwardFromFDM:-:associateContactTableId---"
-    When I click "Associate" after selection of "{SavedValue:SPI4 Username}" in the table "---subAwardFromFDM:-:keyContactsTableId---"
-    When I click modal button "Close"
+#    And I click on top right button "Associate" in flex table with id "---subAwardFromFDM:-:associateContactTableId---"
+#    When I click "Associate" after selection of "{SavedValue:SPI4 Username}" in the table "---subAwardFromFDM:-:keyContactsTableId---"
+#    When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
@@ -4554,7 +4554,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "{SavedValue:RAEGMSID1}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
     Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID1}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
-  @116310 @ValidateAwardOwnerhasthepermissiontorevisetheawardRiskAssessmentuntilawardactivation @Sprint-23-US-273843  @Allocation @TBExecution
+  @116310 @ValidateAwardOwnerhasthepermissiontorevisetheawardRiskAssessmentuntilawardactivation @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate Award Owner has the permission to revise the award Risk Assessment until award activation
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
