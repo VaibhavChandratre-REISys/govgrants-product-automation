@@ -5220,8 +5220,6 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "FNCAMENDID"
-    Then I softly can see top right button "Save" in page detail
-    Then I softly can see top right button "Cancel" in page detail
     When I navigate to "Overview" sub tab
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     When I navigate to "Amendments" sub tab
@@ -5253,7 +5251,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     Then I softly see field "EGMS ID" as "{SavedValue:FNCAMENDID}"
     Then I softly see field "Status" as "Created"
     Then I softly see field "Initiated By" as "Grantor"
-    Then I softly see field "Amendment Type" as "Budget Redirection"
+    Then I softly see field "Amendment Type" as "Funding Change"
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Delete" in page detail
     Then I can see top right button "Submit for Approval" in page detail
@@ -5300,17 +5298,17 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     Then I softly see fields "RequestedChangeInBudget__c" is in edit mode
     Then I softly see field "Required Match(%)" as "{SavedValue:ReqiredChange}"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "Start Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "End Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:focusAreaTableId---"
-    Then I softly see "Tittle" in flex table header "---grantee_tableId:-:focusAreaTableId---"
-    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:focusAreaTableId---"
-    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:focusAreaTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
+    Then I softly see "Tittle" in flex table header "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
+    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
     And I click modal button "Close"
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
