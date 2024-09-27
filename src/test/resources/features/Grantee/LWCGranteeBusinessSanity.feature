@@ -5054,6 +5054,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     When I navigate to "Amendments" sub tab
     When I click on "View" icon for "{SavedValue:SOWEGMSID}" inside table
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details without processing
     Then I softly see confirmation box with body "Are you sure, you want to submit this request for approval?" is displayed
     And I click "OK" on modal confirmation box
@@ -5063,11 +5064,14 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     When I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
     And I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    And I "Approve" in the approval decision
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I select radio button "Forward" in the approval decision
     And I select user "David FO" in the approval decision
     When I enter comment "Automation testing" in the approval decision
@@ -5078,8 +5082,8 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Then I cannot see top right button "Edit" in page detail
     And I submit the approval in the approval decision without processing
@@ -5091,6 +5095,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    Then I cannot see top right button "Edit" in page detail
 
   @449167 @VerifyPMuserasAROwnercanabletocreateFundingChangeARonactiveAward&NotAcceptARbyGrantor&notabletoseeAmendAwardbuttoninNotAcceptedstateofFCAR
   Scenario: Verify PM user as (AR Owner) can able to create Funding Change AR on active Award & Not Accept AR by Grantor & not able to see Amend Award button in Not Accepted state of FC AR
