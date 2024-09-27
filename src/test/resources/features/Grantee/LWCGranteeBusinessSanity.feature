@@ -5316,7 +5316,6 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
     And I click modal button "Close"
     And I click on "Save" in the page details
-    And I refresh the page
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date                         | End Date    |
