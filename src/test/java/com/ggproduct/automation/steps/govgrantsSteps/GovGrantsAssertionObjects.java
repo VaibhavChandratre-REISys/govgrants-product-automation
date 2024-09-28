@@ -2168,7 +2168,7 @@ public final class GovGrantsAssertionObjects {
     private boolean isHyperTextDisplayed(String linkName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[contains(text(),'" + linkName + "')]/ancestor::a |  //a[contains(text(),'" + linkName + "')]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//label[contains(text(),'" + linkName + "')]//parent::div//a |//span[contains(text(),'" + linkName + "')]/ancestor::a |//a[contains(text(),'" + linkName + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {
