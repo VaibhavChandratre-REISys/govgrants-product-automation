@@ -613,7 +613,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Send to Subrecipient" in the page details
     Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
-  @56845 @ValidateGrantorCanDeleteCreatedAmendmentRequest @TBExecution1
+  @56845 @ValidateGrantorCanDeleteCreatedAmendmentRequest
   Scenario: Verify Internal (Award owner) user can delete the created amendment request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -690,7 +690,7 @@ Feature: Validate all scenarios in the Amendment Request
     Then I see the following messages in the page details contains:
       | Overview Tab - Please specify the New Obligation planned through this amendment request. |
 
-  @56854 @checkDuplicateFundingChangeNotAllowed @TBExecution1
+  @56854 @checkDuplicateFundingChangeNotAllowed
   Scenario: Verify Once Internal user request for Amendment request is in Progress then no other request can be created.
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2165,7 +2165,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     #97917 #monu
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
