@@ -5680,8 +5680,8 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     Then I softly cannot see top right button "Edit" in page detail
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "Rejected" for title "New Value" inside field history table
-    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
+    Then I softly see value "Not Accepted" for title "New Value" inside field history table
+    Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
 
   @449166 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant
   Scenario: Verify PM user as (AR Owner same as Award Owner) can able to create Funding Change AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant
@@ -6319,6 +6319,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID3"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -6327,7 +6328,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
     Then I softly see value "Amended" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID3}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Projections" sub tab
     Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
