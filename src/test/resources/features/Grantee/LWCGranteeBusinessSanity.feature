@@ -5172,9 +5172,9 @@ Feature: Sanity scenarios
     And I perform quick search for "Approved" in "---grantee_tableId:-:ProgressReports---" panel
     And I save the value from row "1" for column name "EGMS ID" as "approvedEGMSID" from flex table "---grantee_tableId:-:ProgressReports---"
     Then I softly see value "Approved" for title "Status" against the value "{SavedValue:approvedEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:approvedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:approvedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
     Then I softly can see row level action button "View" against "{SavedValue:approvedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
-    Then I softly can see row level action button "Delete" against "{SavedValue:approvedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:approvedEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:ProgressReports---"
     Then I softly see "Award EGMS ID" in flex table header "---grantee_tableId:-:ProgressReports---"
     Then I softly see "Grant Award Number" in flex table header "---grantee_tableId:-:ProgressReports---"
@@ -5302,8 +5302,8 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
-      | EGMS ID                  | Reported Value | Reported Value As Of |
-      | Automation Permanent KPI | 10             | 1                    |
+      | EGMS ID                | Reported Value | Reported Value As Of |
+      | Automation Runtime KPI | 10             | 1                    |
     And I click on "Edit" in the page details
     Then I see textarea field "KeyAccomplishments__c" is editable
     Then I see textarea field "Obstacles__c" is editable
@@ -5797,7 +5797,7 @@ Feature: Sanity scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Report Creation Date |
       | {SavedValue:EGMS ID1} | 0                    |
-    And I wait for "120" seconds
+    And I wait for "180" seconds
     And I refresh the page
     And I wait for "3" seconds
     And I save the value from row "1" for column name "EGMS ID" as "financialEGMSID" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
