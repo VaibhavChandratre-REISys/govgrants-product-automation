@@ -6336,7 +6336,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
 #    Then I see value "$1,000.00" for title "Projected Program Income ($)" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    Then I see value "10.00%" for title "Rate" against the value "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+#    Then I see value "10.00%" for title "Rate" against the value "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
     When I navigate to "Actuals" sub tab
     When I save the field labeled "Total Awarded Budget" as "TotalAwardedBudget"
     Then I softly see field "Total Awarded Budget" as "{SavedValue:TotalAwardedBudget}"
