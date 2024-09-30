@@ -1551,3 +1551,5 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Chatter" sub tab in split screen
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
+
+  Then I softly see field "First Name" as "Automation Federal"
