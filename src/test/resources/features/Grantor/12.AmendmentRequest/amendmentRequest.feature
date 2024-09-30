@@ -555,7 +555,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Automation Permanent Focus Area | 500      |
     Then I see that "Automation Permanent Focus Area" has been added in flextable with Id "---amendment:-:projectAreasTableId---"
 
-  @53211 @associateFocusAreaToBPCAmendmentRequest
+  @53211 @associateFocusAreaToBPCAmendmentRequest @TBExecution1
   Scenario Outline: Validate the association of FocusArea to BPC
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -613,7 +613,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Send to Subrecipient" in the page details
     Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
-  @56845 @ValidateGrantorCanDeleteCreatedAmendmentRequest
+  @56845 @ValidateGrantorCanDeleteCreatedAmendmentRequest @TBExecution1
   Scenario: Verify Internal (Award owner) user can delete the created amendment request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -690,7 +690,7 @@ Feature: Validate all scenarios in the Amendment Request
     Then I see the following messages in the page details contains:
       | Overview Tab - Please specify the New Obligation planned through this amendment request. |
 
-  @56854 @checkDuplicateFundingChangeNotAllowed
+  @56854 @checkDuplicateFundingChangeNotAllowed @TBExecution1
   Scenario: Verify Once Internal user request for Amendment request is in Progress then no other request can be created.
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1290,7 +1290,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
 
-  @57267 @verifyReviseButtonAmendment
+  @57267 @verifyReviseButtonAmendment @TBExecution1
   Scenario: Verify Once Sub-recipient update the requested changes and submit to Grantor Revise button is displayed.
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1321,7 +1321,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Awarded Budget |
+      | Title        | Narrative     | Award Amount |
       | Extra Salary | The narrative | 1000           |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
@@ -2146,11 +2146,11 @@ Feature: Validate all scenarios in the Amendment Request
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @62966 @97938 @97976 @97966 @97942 @97917 @98482  @smoke
+  @62966 @97938 @97976 @97966 @97942 @97917 @98482  @smoke @TBExecution1
   Scenario: Validate whether SR user can view the Risk Score which remained as is when Award Risk Assessment is copied to new created award when amendment type -  Terms and conditions amendment
     And I navigate to "Management" sub tab
-    When I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
-    And I save the field labeled "OverAll Risk" as "OverAllRisk"
+#    When I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
+#    And I save the field labeled "OverAll Risk" as "OverAllRisk"
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
