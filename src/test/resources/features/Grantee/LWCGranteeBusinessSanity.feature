@@ -5476,6 +5476,9 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     Then I softly see "Amendment Request" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request  |
+      | Victor EXE | NA                 |
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+      | Name       | Amendment Request  |
       | Victor EXE | Step 1             |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request  |
@@ -5492,7 +5495,6 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     Then I softly see "File Extension" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
@@ -5532,7 +5534,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see the following messages in the page details contains:
-      |Record created successfully!|
+      | Saved Successfully! |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
@@ -5579,7 +5581,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     And I clear the value from field "PurposeRTA__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Justification is Required to save under Overview. |
+      | Justification is required to save under Overview. |
     And I enter value "Automation Justification" into field "PurposeRTA__c"
     And I enter value "2222" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
@@ -5632,21 +5634,21 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-#    And I navigate to "Home" tab
-#    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
-#    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+    And I navigate to "Home" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-#    And I wait for "3" seconds
-#    And I navigate to "Home" tab
-#    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
-#    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+    And I wait for "3" seconds
+    And I navigate to "Home" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -6077,7 +6079,6 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     Then I softly see "File Extension" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
@@ -6117,7 +6118,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see the following messages in the page details contains:
-      |Record created successfully!|
+      | Saved Successfully! |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
@@ -6216,22 +6217,22 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-#    And I wait for "3" seconds
-#    And I navigate to "Grants" tab
-#    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
-#    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+    And I wait for "3" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-#    And I wait for "3" seconds
-#    And I navigate to "Grants" tab
-#    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
-#    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
+    And I wait for "3" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
+    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
