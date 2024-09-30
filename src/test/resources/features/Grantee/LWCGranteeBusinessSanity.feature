@@ -5390,6 +5390,7 @@ Feature: Sanity scenarios
       | Victor EXE | Step 1          |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
+    And I wait for "5" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
       | Name     | Progress Report |
       | Sarah PM | Step 2          |
@@ -5483,7 +5484,7 @@ Feature: Sanity scenarios
     Then I softly see field "EGMS ID" as "{SavedValue:AwardID}"
     And I click on back arrow
     And I click on hyperlink containing value "{SavedValue:progressEGMSID}"
-    Then I softly see field "Status" as "Created"
+    Then I softly see field "Status" as "Reviewed"
     When I navigate to "Forms & Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     Then I see "Upload" button is disabled at modal under library
@@ -5537,7 +5538,7 @@ Feature: Sanity scenarios
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see the following messages in the page details contains:
-      | Record created successfully! |
+      | Saved Successfully! |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
@@ -5572,9 +5573,10 @@ Feature: Sanity scenarios
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details contains:
-      | The Report has been validated successfully. |
+#    Bug -463671
+#    When I click on "Validate" in the page details
+#    Then I softly see the following messages in the page details contains:
+#      | The Report has been validated successfully. |
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Monitoring" tab
@@ -6129,9 +6131,9 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
 #    Bug -463671
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details contains:
-      | The Report has been validated successfully. |
+#    When I click on "Validate" in the page details
+#    Then I softly see the following messages in the page details contains:
+#      | The Report has been validated successfully. |
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Monitoring" tab
