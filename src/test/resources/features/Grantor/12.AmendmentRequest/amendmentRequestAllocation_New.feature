@@ -124,7 +124,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction | The narrative | 2000         |
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
-    And I pause execution for "5" seconds
     Then I see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection. |
 
@@ -150,7 +149,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction  | 2000                 | 200        | 0              |
     And I pause execution for "9" seconds
     When I click on "Submit to Grantor" in the page details
-    And I pause execution for "5" seconds
     Then I see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection. |
 
@@ -2763,7 +2761,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction | The narrative | 500          |
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
-    And I pause execution for "5" seconds
     Then I see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection. |
 
@@ -3158,6 +3155,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Close"
     And I pause execution for "5" seconds
     When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -4638,7 +4636,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Current Obligation" as "CurrentObligation"
     Then I softly see value "{SavedValue:CurrentObligation}" is "Equals to" the value "{SavedValue:CumulativeObligationl1}"
 
-  @263786 @263830 @VerifyusershouldnotabletoedittheBudgetSummarybyFocusAreaSection @sprint-20-US-263507  @Allocation
+ @Run1 @263786 @263830 @VerifyusershouldnotabletoedittheBudgetSummarybyFocusAreaSection @sprint-20-US-263507  @Allocation
   Scenario: erify SPI/SPA user should able to  see all the focus areas from the award when with zero Obligation
     And I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "default"
@@ -4717,11 +4715,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I refresh the page
     Then I softly see field "Budgeted Amount" as "$2,000.00"
     And I click on "Submit to Grantor" in the page details
-    And I pause execution for "5" seconds
     Then I see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection. |
 
-  @263828 @VerifywhenSPI/SPAtriedtogivemoreRevisedAwardamountthantheAwardAmountthenusershouldseetheValidationFAYes @sprint-20-US-263425  @Allocation
+ @Run1 @263828 @VerifywhenSPI/SPAtriedtogivemoreRevisedAwardamountthantheAwardAmountthenusershouldseetheValidationFAYes @sprint-20-US-263425  @Allocation
   Scenario: Verify user should not  able to edit the  Budget Summary by Focus Area Section  not able to change(FA Yes)
     And I published "Directed" type announcement having name "Automation Runtime Announcement" and properties "SECOND_FOCUS_AREA_DETAILS_BUDGET_YES_RISK_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CAT_DETAILS_BUD_YES"
@@ -4803,11 +4800,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction | The narrative | 500          |
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
-    And I pause execution for "5" seconds
     Then I see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection. |
 
- @263829 @263831 @263788 @263790 @VerifywhenSPItriedtogivemorerevisedawardamountthantheAwardAmountthenusershouldseetheValidationFANo @sprint-20-US-263507  @Allocation
+ @Run1 @263829 @263831 @263788 @263790 @VerifywhenSPItriedtogivemorerevisedawardamountthantheAwardAmountthenusershouldseetheValidationFANo @sprint-20-US-263507  @Allocation
   Scenario: Verify when SPI tried  to give more  revised award amount than the Award Amount  then user should see the Validation(FA No)
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Directed"
     When I login to "As a Grantor" app as "PO" user
@@ -4909,7 +4905,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #263831
     Then I softly see field "Budgeted Amount" as "$1,500.00"
     And I click on "Submit to Grantor" in the page details
-    And I pause execution for "5" seconds
     Then I see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection. |
 
@@ -12500,7 +12495,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see the following messages in the page details contains:
       | Please specify the New Obligation planned through this amendment request. |
 
- @256836 @VerifywhenusertriedtogivemoreAwardamountthantheAwardedbudgetthenusershouldseetheValidationFAYes
+@Run1 @256836 @VerifywhenusertriedtogivemoreAwardamountthantheAwardedbudgetthenusershouldseetheValidationFAYes
   Scenario: Verify when user  tried  to give more Award amount than the Awarded budget  then user should see the Validation(FA Yes)
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -12529,7 +12524,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction | The narrative | 5000         |
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
-    And I pause execution for "5" seconds
     Then I see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection. |
 
