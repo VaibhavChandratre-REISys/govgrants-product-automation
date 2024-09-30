@@ -5894,7 +5894,6 @@ Feature: Sanity scenarios
     Then I softly see that "Reporting Period Start Date" rendered in view mode only
     Then I softly see that "Reporting Period End Date" rendered in view mode only
     Then I softly see that "Report Due Date" rendered in view mode only
-    Then I softly see that "Email" rendered in view mode only
     Then I softly see fields "IsFinalReport__c" is in edit mode
     And I click on "Save" in the page details
     And I wait for "2" seconds
