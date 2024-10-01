@@ -360,7 +360,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Amend Subaward" in the page details
     Then I see that "{SavedValue:Automation Runtime Award}" is in "Pending Activation" status
 
-  @53207 @97980 @activateSubawardSOWAmendmentRequest @scopeOfWorkHappyPath @TBExecution1
+  @53207 @97980 @activateSubawardSOWAmendmentRequest @scopeOfWorkHappyPath
   Scenario: Activate SOW Amendment Request
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -503,8 +503,10 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
     When I click on "Activate" in the page details
-    When I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
-    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime award}" having object api name as "ProgressReports__c"
+    Then I softly see field "Status" as "Activated"
+    And I save the field containing "EGMS ID" as "subAwardId1"
+    When I delete the record "{SavedValue:subAwardId1}" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:subAwardId1}" having object api name as "ProgressReports__c"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
@@ -555,19 +557,13 @@ Feature: Validate all scenarios in the Amendment Request
       | Automation Permanent Focus Area | 500      |
     Then I see that "Automation Permanent Focus Area" has been added in flextable with Id "---amendment:-:projectAreasTableId---"
 
-  @53211 @associateFocusAreaToBPCAmendmentRequest
-  Scenario Outline: Validate the association of FocusArea to BPC
+  @53211 @associateFocusAreaToBPCAmendmentRequest @TBExecution1
+  Scenario: Validate the association of FocusArea to BPC
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I click on top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
-    And I check "<Focus Area>" boxes in flex table with id "---amendment:-:focusAreaTableId---"
-    When I click on top right button "Associate" in flex table with id "---amendment:-:focusAreaTableId---"
-    Then I see that "<Focus Area>" has been added in flextable with Id "---amendment:-:projectAreasTableId---"
-    Examples:
-      | Focus Area                       |
-      | Automation Permanent Focus Area2 |
+    Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
 
   @56843 @66584 @96425 @ValidateGrantorCanIncreaseAwardBudgetAmountInFundingChangeTypeRequest
   Scenario: Verify Internal user can send request to Sub-recipient for increase in the award budget amount using Funding change option.
@@ -1105,7 +1101,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I softly see value "$500.00" for title "Difference" against the value "Site work" inside table "---amendment:-:grantorBudgetChangeTableId---"
     Then I softly see field "New Obligation" as "$1,000.00"
 
-  @57139 @102773 @awardOwnerActivateAmendedSubAward @TBExecution1
+  @57139 @102773 @awardOwnerActivateAmendedSubAward
   Scenario: Verify that award owner can active the Amended sub-award
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1381,7 +1377,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Send Back to Subrecipient" in the page details
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
 
-  @57444 @verifyPaymentApproverApproveReimbursementPaymentRequestActiveSubawardAfterFundingChangeAmendment @TBExecution1
+  @57444 @verifyPaymentApproverApproveReimbursementPaymentRequestActiveSubawardAfterFundingChangeAmendment
   Scenario Outline: Verify Payment Request Approver can approve the Reimbursement Payment Request created on Active subaward after Funding change amendment
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1782,7 +1778,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I save the field labeled "New Budget Period End Date" as "NBPED"
     Then I softly see field "New Budget Period End Date" as "{SavedValue:NBPED}"
 
-  @57356 @verifyReimbursementPRCreatedAtRevisedAmendmentSubaward @TBExecution1
+  @57356 @verifyReimbursementPRCreatedAtRevisedAmendmentSubaward
   Scenario: Verify Reimbursement Payment request is created at revised amendment request
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1895,7 +1891,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @57365 @verifySubmissionOfReimbursmentPaymentRequest @TBExecution1
+  @57365 @verifySubmissionOfReimbursmentPaymentRequest
   Scenario: Verify user can submit Reimbursement Payment request to grantor after Budget Period Change Amendment is done on Subaward
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1973,7 +1969,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @57367 @verifyRecipientCanSeeAmendedBudgetPeriodOnReimbursementPaymentRequestPage @TBExecution1
+  @57367 @verifyRecipientCanSeeAmendedBudgetPeriodOnReimbursementPaymentRequestPage
   Scenario Outline: Verify Sub-recipient user can see the amended Budget Period on Reimbursement Payment Request Page
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2057,7 +2053,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @57404 @verifyGrantorCanSeeAmendedBudgetPeriodOnReimbursementPaymentRequestPage @TBExecution1
+  @57404 @verifyGrantorCanSeeAmendedBudgetPeriodOnReimbursementPaymentRequestPage
   Scenario Outline: Verify grantor can see the amended Budget Period on Reimbursement Payment Request Page
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2238,7 +2234,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---riskassessment:-:riskAssessmentGridViewExternalTableId---" without waiting for record
     Then I softly see field "Overall Risk" as "{SavedValue:OverAllRisk}"
 
-  @68088 @verifyAmendedBudgetPeriodHighlighted  @TBExecution1
+  @68088 @verifyAmendedBudgetPeriodHighlighted
   Scenario Outline: Validate that after amendment is done (budget period) the changed budget period is highlighted in the Subawards table
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2325,7 +2321,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I navigate to "Management" sub tab
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:amendmentRequestTableId---"
 
-  @98483 @ValidateReactivationOfSubAwardAtAmendmentRequestByInternalUser-TCAmendmentRequest @smoke @TBExecution1
+  @98483 @ValidateReactivationOfSubAwardAtAmendmentRequestByInternalUser-TCAmendmentRequest @smoke
   Scenario: Validate whether Internal user is able Activate Amendment request
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
