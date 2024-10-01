@@ -1098,7 +1098,7 @@ Feature: Sanity scenarios
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see the following messages in the page details contains:
-      | Record created successfully! |
+      | Saved Successfully! |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
@@ -1659,7 +1659,7 @@ Feature: Sanity scenarios
     Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
-  @445640 @446229 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
+  @445640 @446229 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @GranteeTBE
   Scenario Outline: Validate Financial Report Schedule user can edit Financial report schedule on Created Submitted for review Reviewed Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -2600,7 +2600,7 @@ Feature: Sanity scenarios
 #      | GRANTEE PM | Attachment.pdf        | Notes Record | Sarah PM   | Test  |
       | GRANTEE PO | AttachmentTesting.pdf | Notes for PO | Grantee PO | Test1 |
 
-  @443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject
+  @443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject @GranteeTBE
   Scenario: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -3509,7 +3509,7 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
 
-  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR
+  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR @GranteeTBE
   Scenario: Verify PM user as (AR Owner same as Award Owner) can able to create budget Redirection AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant (Flow AR)
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -4126,7 +4126,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE |
       | GRANTEE PM  |
 
-  @443719 @VerifytheinternalOrganizationallsectionandfields
+  @443719 @VerifytheinternalOrganizationallsectionandfields @GranteeTBE
   Scenario: Verify the internal Organization all section and fields
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
@@ -4757,7 +4757,7 @@ Feature: Sanity scenarios
       | GRANTEE FO  |
       | GRANTEE PM  |
 
-  @443676 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's @bug_456489
+  @443676 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's @GranteeTBE
   Scenario: federal_ Verify user should see all fields and section for federal contact's
     When I login to "As a Grantor" app as "GRANTEE ADMIN" user
     When I navigate to "Home" tab
