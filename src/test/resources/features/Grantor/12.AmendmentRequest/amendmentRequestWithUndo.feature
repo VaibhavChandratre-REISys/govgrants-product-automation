@@ -3561,7 +3561,7 @@ Feature: Amendment Request scenarios with Undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
-  @287058 @287059 @287060 @287061 @287062 @287063 @287064 @287065 @287073 @287074 @287067 @VerifythatPMApproverlastwillseetheundobuttontoreopentheapprovedtaskwhenFundingChangeARinApprovedState @sprint-1-US-285148  @Undo @TBExecution2
+  @287058 @287059 @287060 @287061 @287062 @287063 @287064 @287065 @287073 @287074 @287067 @VerifythatPMApproverlastwillseetheundobuttontoreopentheapprovedtaskwhenFundingChangeARinApprovedState @sprint-1-US-285148 @Undo
   Scenario:Verify that PM Approver(last) will see  the undo button to reopen the approved task when  Funding Change AR in Approved State
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
