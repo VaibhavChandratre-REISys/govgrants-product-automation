@@ -355,7 +355,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     Then I softly see field "Payment Period End Date" as "{SavedValue:updatedBudgetPeriodDate}"
 
-  @Run2 @257686 @257701 @257708 @257692 @257717 @257709 @257736 @257744 @257745 @257747 @257746 @257748 @257749 @ValidatePOusercanseeNewObligationfieldasuserenterdollarfieldenterPositivevalueinNewObligationfieldunderBudgetSummarysectionwhenPeriodicRenewalamendmentrequestincreatedstateFAYES @sprint-19-US-250552  @Allocation
+  @257686 @257701 @257708 @257692 @257717 @257709 @257736 @257744 @257745 @257747 @257746 @257748 @257749 @ValidatePOusercanseeNewObligationfieldasuserenterdollarfieldenterPositivevalueinNewObligationfieldunderBudgetSummarysectionwhenPeriodicRenewalamendmentrequestincreatedstateFAYES @sprint-19-US-250552  @Allocation
   Scenario: Validate PO user can see New Obligation field as user enter dollar field & enter Positive Value in New Obligation field under Budget Summary section when Periodic Renewal amendment request in created state(FA=YES)
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_RISK_ASS_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -708,7 +708,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "9" seconds
     And I click on "Send to Subrecipient" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     #257889
     And I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
@@ -717,7 +717,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "9" seconds
     And I click on "Send to Subrecipient" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     #257887
     And I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
@@ -750,7 +750,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "9" seconds
     And I click on "Send Back to Subrecipient" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     #257889
     And I click on "Edit" in the page details
     And I navigate to "Overview" sub tab
@@ -759,7 +759,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "9" seconds
     And I click on "Send Back to Subrecipient" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     And I refresh the page
     #261579
     And I click on "Edit" in the page details
@@ -770,7 +770,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "9" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     #261581
     And I click on "Edit" in the page details
     When I enter values into fields
@@ -780,7 +780,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "9" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
 
   @258053 @258326 @258349 @258522 @258525 @258530 @258536 @258537 @258538 @258333 @258348 @ValidateCompetitiveFDusercanseeNewObligationfieldasuserenterdollarfield&enternegativeValueinNewObligationfieldunderBudgetSummarysectionwhenPeriodicRenewalamendmentrequestincreatedstateFANO @sprint-19-US-250552-250556  @Allocation
   Scenario: Validate Competitive FD user can see New Obligation field as user enter dollar field & enter negative Value in New Obligation field under Budget Summary section when Periodic Renewal amendment request in created state(FA=NO)
@@ -827,7 +827,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Send to Subrecipient" in the page details
     #258326
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     #258349
     And I navigate to "Overview" sub tab
     Then I softly see field "Revised Commitment" as "$2,000.00"
@@ -889,7 +889,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Send Back to Subrecipient" in the page details
     #258326
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     #258348
     And I click on "Edit" in the page details
     When I enter values into fields
@@ -1931,7 +1931,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I refresh the page
     And I click on "Send to Subrecipient" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | Start Date         | End Date           | New Obligation |
       | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} | -1000          |
@@ -3668,7 +3668,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "9" seconds
     And I click on "Send to Subrecipient" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                      |
@@ -3677,7 +3677,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "9" seconds
     And I click on "Send to Subrecipient" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                      |
@@ -4478,7 +4478,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$0.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see value "$0.00" for title "New Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
-  @Run2 @258410 @258414 @258422 @258423 @ValidateCumulativeObligationvalueshouldbereadonlycolumnandRolluptheAwardAmountforeachfocusareafromtheawardbudgetgrid @sprint-19-US-250549  @Allocation
+  @Run3 @258410 @258414 @258422 @258423 @ValidateCumulativeObligationvalueshouldbereadonlycolumnandRolluptheAwardAmountforeachfocusareafromtheawardbudgetgrid @sprint-19-US-250549  @Allocation
   Scenario: Validate Cumulative Obligation value should be read-only column and Roll up the Award Amount for each focus area from the award budget grid.
     Given I published "Formula" type announcement having name "Automation Runtime FDM Announcement" and properties "SECOND_FOCUS_AREA_BY_APPL_RISK_ASS_NO-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "SECOND_BUDGET_CATEGORY"
@@ -5180,7 +5180,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "9" seconds
     And I click on "Send to Subrecipient" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     #256721
     When I click on "Edit" in the page details
     When I enter values into fields
@@ -5229,7 +5229,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Send to Subrecipient" in the page details
     And I wait for "9" seconds
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     #256924
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
@@ -5238,7 +5238,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "9" seconds
     And I click on "Send to Subrecipient" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
@@ -5313,7 +5313,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
     When I enter values into fields
@@ -5718,7 +5718,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Test Focus Area1" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$1,500.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:projectAreasTableId---"
-#    When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
+    When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
     And I pause execution for "3" seconds
     Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Previous"
@@ -5758,7 +5758,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,500.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Test Focus Area1" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$2,500.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:projectAreasTableId---"
-    When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
+#    When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
     And I pause execution for "3" seconds
     Then I softly see value "$0.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     And I click on page navigation arrow "---amendment:-:grantorBudgetChangeTableId---" for table id "Next"
@@ -5902,7 +5902,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Revised Award Amount |
       | $2,500.00            |
 
-  @Run2 @264151 @264152 @264574 @264576 @264586 @264768 @264797 @308967 @265760  @sprint-20-US-228432-244399  @Allocation @skipDueToIndUser
+ @Run3 @264151 @264152 @264574 @264576 @264586 @264768 @264797 @308967 @265760  @sprint-20-US-228432-244399  @Allocation @skipDueToIndUser
   Scenario: Validate PO user can see Budgeted Amount as Rolled up from the budget change sections Revised Award Amount column
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY-Automation IND user"
@@ -6129,7 +6129,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @Run2 @264263 @264283 @264379 @264365 @264383 @264150 @264237 @264242 @264246 @264580 @264783 @264785 @264787 @264794 @264798 @264801 @264811 @264849 @264852 @308964 @sprint-20-US-228432-244399  @Allocation @skipDueToIndUser
+  @264263 @264283 @264379 @264365 @264383 @264150 @264237 @264242 @264246 @264580 @264783 @264785 @264787 @264794 @264798 @264801 @264811 @264849 @264852 @308964 @sprint-20-US-228432-244399  @Allocation @skipDueToIndUser
   Scenario: Validate values displayed in Spent field when Carry forward amendment is in submitted to grantor state
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUD_CAT_SUB_ORG_IND-Automation PO user" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PO" user
@@ -7154,7 +7154,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$4,000.00"
     Then I softly see value "{SavedValue:TotalCommitmentAward}" is "Equals to" the value "{SavedValue:TotalCommitmentGrant}"
 
- @Run2 @265137 @265192 @ValidatePOusercanseeCumulativeObligationfieldvalueasthetotaloftheEncumbrancecolumnfromtheAwardFundingAccountinformationinactivatestateofaward @sprint-20-US-263389  @Allocation @skipDueToIndUser
+ @265137 @265192 @ValidatePOusercanseeCumulativeObligationfieldvalueasthetotaloftheEncumbrancecolumnfromtheAwardFundingAccountinformationinactivatestateofaward @sprint-20-US-263389  @Allocation @skipDueToIndUser
   Scenario: Validate PO user can see Cumulative Obligation field value as the total of the 'Encumbrance' column from the Award Funding Account information in activate state of award
     Given I published "Formula" type announcement having name "Automation Runtime Announcement" and properties "INVITED_APP_IND_ORG_BY_APP_TWO_FOCUS_AREA_RISK_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "SECOND_BUDGET_CATEGORY-Automation IND user"
@@ -24165,7 +24165,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Send to Subrecipient" in the page details
     And I wait for "4" seconds
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                      |
@@ -24175,7 +24175,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Send to Subrecipient" in the page details
     And I wait for "4" seconds
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - New Obligation must be greater than $0 |
+      | Overview Tab - New Obligation must be greater than $0. |
     #257532
     And I click on "Edit" in the page details
     When I enter values into fields
@@ -24328,7 +24328,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Budget" sub tab
     Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
-  @Run3 @257077 @308950 @VerifyNewObligationfieldisaneditablefieldandusercannotenternegativevalueinNewObligationfieldwhenamendmentisincreatedstateFANO @sprint-19-US-229281  @Allocation
+  @257077 @308950 @VerifyNewObligationfieldisaneditablefieldandusercannotenternegativevalueinNewObligationfieldwhenamendmentisincreatedstateFANO @sprint-19-US-229281  @Allocation
   Scenario: Verify New Obligation field is an editable field and user cannot enter negative value in New Obligation field when amendment is in created state FA NO
     Given I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Directed"
     When I login to "As a Grantor" app as "FO" user
