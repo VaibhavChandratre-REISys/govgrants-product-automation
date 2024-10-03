@@ -505,9 +505,9 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field containing "EGMS ID" as "subAwardId1"
+    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I delete the record "{SavedValue:subAwardId1}" from the object "Progress Report"
     When I create a post award record "ProgressReport" for the Award "{SavedValue:subAwardId1}" having object api name as "ProgressReports__c"
-    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Progress Reports - All"
@@ -2144,14 +2144,23 @@ Feature: Validate all scenarios in the Amendment Request
 
   @62966 @97938 @97976 @97966 @97942 @97917 @98482  @smoke
   Scenario: Validate whether SR user can view the Risk Score which remained as is when Award Risk Assessment is copied to new created award when amendment type -  Terms and conditions amendment
+    Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "YES_RISK_ASSESSMENT" of type "Competitive"
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
     When I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
     And I save the field labeled "OverAll Risk" as "OverAllRisk"
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record

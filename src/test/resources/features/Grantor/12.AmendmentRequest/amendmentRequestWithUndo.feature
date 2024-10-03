@@ -13323,7 +13323,7 @@ Feature: Amendment Request scenarios with Undo
     Then I softly see field "Status" as "Force Closed"
     Then I cannot see top right button "Undo" in page detail
 
-  @329638 @ValidateCFthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApproverofAmendment @Sprint-13-US-331643  @Undo @TBExecution1
+  @329638 @ValidateCFthatapprovaltaskandemailisgeneratedtolaststepapproveronclickofundobuttonbyLastApproverofAmendment @Sprint-13-US-331643  @Undo
   Scenario: Validate CF that approval task and email is generated to last step approver on click of undo button by Last Approver of Amendment
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user

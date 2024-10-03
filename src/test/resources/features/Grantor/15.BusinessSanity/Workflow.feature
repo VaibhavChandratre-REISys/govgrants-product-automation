@@ -1534,22 +1534,13 @@ Feature: Validate all scenarios of every modules flow
 
   @tst
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I login to "As a Grantee" app as "GRANTEE EXE" user
-    And I navigate to "Monitoring" tab
-    When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
-    And I click toggle button to select "Financial Reports - All"
-    And I perform quick search for "FR--GT-GA-02662-001" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
-    When I click on "View" icon for "FR--GT-GA-02662-001" inside table
-    And I navigate to "Chatter" sub tab in split screen
-    Then I softly see the text containing "Post"
-
-  @tst1 @debug
-  Scenario:
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Program__c/a37Dh000002xOOQIA2/view"
-    And I wait for "10" seconds
-    And I navigate to "Chatter" sub tab in split screen
-    And I post the message "Automation Test1 Execution" inside chatter
-    Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
-
-  Then I softly see field "First Name" as "Automation Federal"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "YES_RISK_ASSESSMENT" of type "Competitive"
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I halt execution
