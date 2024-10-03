@@ -70,6 +70,7 @@ public final class Approvals {
         try {
             I.amPerforming().click().on(userLookupLocator);
             I.amPerforming().textInput().in(userLookupSearchLocator, userName);
+            I.amPerforming().waitFor().ElementToBeVisible(userLookupResultLocator(userName));
             I.amPerforming().click().on(userLookupResultLocator(userName));
         } catch (Exception e) {
             String error = e.getMessage();

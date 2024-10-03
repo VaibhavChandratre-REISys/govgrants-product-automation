@@ -1534,18 +1534,16 @@ Feature: Validate all scenarios of every modules flow
 
   @tst
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "SPI3" user
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "CR-AD-1234-16224-00" in "---amendment:-:pendingTaskTableId---" panel
-    And I click on "View" icon for "CR-AD-1234-16224-00" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I wait for "4" seconds
-    And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
-    And I halt execution
-    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---amendment:-:budgetChangeTableId---"
-    When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Amount |
-      | Extra Salary | The narrative | 1000         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    Given I login to "As a Grantor" app as "PM" user
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/AmendmentRequest__c/a1YDV000002wrVT2AY/view"
+    And I wait for "10" seconds
+    When I select radio button "Forward" in the approval decision
+    And I submit the approval in the approval decision
+#    Then I can see the message "Comments are Required." in the approval decision
+    And I refresh the page
+    And I wait for "3" seconds
+    When I select radio button "Forward" in the approval decision
+    And I select user "{SavedValue:EXE1 Username}" in the approval decision
+    When I enter comment "Automation testing" in the approval decision
+    And I submit the approval in the approval decision without processing
     And I halt execution

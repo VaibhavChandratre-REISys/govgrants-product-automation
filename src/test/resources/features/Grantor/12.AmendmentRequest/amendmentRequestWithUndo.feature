@@ -13762,7 +13762,7 @@ Feature: Amendment Request scenarios with Undo
     The EGMS Team
     """
 
-  @325565 @ValidateCArryFwdthebehaviorifForwardedapproverapprovesARandclicksonundoButton @Sprint-13-US-331643  @Undo @TBExecution1
+  @325565 @ValidateCArryFwdthebehaviorifForwardedapproverapprovesARandclicksonundoButton @Sprint-13-US-331643  @Undo
   Scenario: Validate CArry Fwd the behavior if Forwarded approver approves AR and clicks on undo Button
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "As a Grantor" app as "PM" user
@@ -13939,6 +13939,8 @@ Feature: Amendment Request scenarios with Undo
     When I select radio button "Forward" in the approval decision
     And I submit the approval in the approval decision
 #    Then I can see the message "Comments are Required." in the approval decision
+    And I refresh the page
+    And I wait for "3" seconds
     When I select radio button "Forward" in the approval decision
     And I select user "{SavedValue:EXE1 Username}" in the approval decision
     When I enter comment "Automation testing" in the approval decision
