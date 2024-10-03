@@ -13146,7 +13146,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction | The narrative | 2000         |
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
-    And I pause execution for "5" seconds
     Then I see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection. |
 

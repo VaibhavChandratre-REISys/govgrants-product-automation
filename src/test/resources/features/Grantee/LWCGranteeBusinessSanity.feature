@@ -4750,6 +4750,7 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
+    And I wait for "2" seconds
     And I select "Download as PDF" from parallel lines dropdown of "Federal Contacts"
     And I download the file
     Then I see "Federal Contacts" on page "1" of "govgrants" pdf file
