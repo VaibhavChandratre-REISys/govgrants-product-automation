@@ -3895,7 +3895,7 @@ Feature: Sanity scenarios
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see the following messages in the page details contains:
-      |Record created successfully!|
+      | Saved Successfully! |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
@@ -4204,13 +4204,14 @@ Scenario Outline:KPI_ Verify FD user should see footer navigator after open the 
     Then I softly see "Registered Entity Name" in flex table header "---grantee_tableId:-:uieNumberTableId---"
     Then I softly see "Location" in flex table header "---grantee_tableId:-:uieNumberTableId---"
     Then I softly see "Child Organizations" page block displayed
+    Then I softly see link "Created By" inside Page block
     And I save the field labeled "Created By" as "CreatedBy"
     Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
     And I save the field labeled "Created Date" as "CreatedDate"
     Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
+    Then I softly see link "Last Modified By" inside Page block
     And I save the field labeled "Last Modified By" as "LastModifiedBy"
     Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedBy}"
-    Then I softly see link "Last Modified Date" inside Page block
     And I save the field labeled "Last Modified Date" as "LastModifiedDate"
     Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
     And I navigate to "Related Log" sub tab
