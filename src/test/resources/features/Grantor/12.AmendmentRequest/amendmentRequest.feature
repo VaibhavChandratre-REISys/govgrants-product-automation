@@ -2145,7 +2145,6 @@ Feature: Validate all scenarios in the Amendment Request
   @62966 @97938 @97976 @97966 @97942 @97917 @98482  @smoke
   Scenario: Validate whether SR user can view the Risk Score which remained as is when Award Risk Assessment is copied to new created award when amendment type -  Terms and conditions amendment
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "YES_RISK_ASSESSMENT" of type "Competitive"
-    When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
