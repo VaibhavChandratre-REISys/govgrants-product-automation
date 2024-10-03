@@ -5583,10 +5583,10 @@ Feature: Sanity scenarios
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - All"
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
-    Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:progressEGMSID---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:progressEGMSID---"
-    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:progressEGMSID---"
-    Then I softly cannot see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:progressEGMSID---"
+    Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReports---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
     When I click on "View" icon for "{SavedValue:progressEGMSID}" inside table
     When I navigate to "Overview" sub tab
     Then I softly cannot see top right button "Edit" in page detail
