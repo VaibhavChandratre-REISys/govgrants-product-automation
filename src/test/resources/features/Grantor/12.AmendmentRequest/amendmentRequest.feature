@@ -2153,6 +2153,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
+    And I save the value from row "1" for column name "EGMS ID" as "RAEGMSID" from flex table "---subAwardStandAlone:-:riskAssessmentTableId---"
     When I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
     And I save the field labeled "OverAll Risk" as "OverAllRisk"
     And I navigate to "Grants" tab
@@ -2239,7 +2240,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
-    When I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---riskassessment:-:riskAssessmentGridViewExternalTableId---" without waiting for record
+    When I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:riskAssessmentGridViewExternalTableId---" without waiting for record
     Then I softly see field "Overall Risk" as "{SavedValue:OverAllRisk}"
 
   @68088 @verifyAmendedBudgetPeriodHighlighted

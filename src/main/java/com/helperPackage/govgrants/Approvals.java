@@ -28,7 +28,7 @@ public final class Approvals {
     }
 
     private By userLookupResultLocator(String userName) {
-        return By.xpath("//div[@id='select2-drop']//ul//li/div[" + I.amPerforming().sanityOfXpathTo().contains(".", userName) + "] | //div[@class='slds-combobox_container']//div//ul//li//div[" + I.amPerforming().sanityOfXpathTo().contains(".", userName) + "]");
+        return By.xpath("//div[@id='select2-drop']//ul//li/div[" + I.amPerforming().sanityOfXpathTo().contains(".", userName) + "] | //div[@class='slds-combobox_container']//div//ul//li//div[" + I.amPerforming().sanityOfXpathTo().contains(".", userName) + "] | //div[@class='slds-combobox_container']//div//ul//li//div[@data-label='" + userName +"']");
     }
 
 
