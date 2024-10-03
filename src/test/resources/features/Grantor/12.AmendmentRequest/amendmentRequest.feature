@@ -438,7 +438,7 @@ Feature: Validate all scenarios in the Amendment Request
     Then I softly see field "Budget Period Number" as "BP01"
     Then I see status in Progress-bar is "Activated" and is "dark blue"
 
-  @101511 @ValidateIncreasedTargetValueOfAmendmentRequest-SOWAmendmentRequest @TBExecution1
+  @101511 @ValidateIncreasedTargetValueOfAmendmentRequest-SOWAmendmentRequest
   Scenario Outline: Verify Increased Target value of Associated KPI at Amendment request should displayed at progress report
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -557,7 +557,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Automation Permanent Focus Area | 500      |
     Then I see that "Automation Permanent Focus Area" has been added in flextable with Id "---amendment:-:projectAreasTableId---"
 
-  @53211 @associateFocusAreaToBPCAmendmentRequest @TBExecution1
+  @53211 @associateFocusAreaToBPCAmendmentRequest
   Scenario: Validate the association of FocusArea to BPC
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
