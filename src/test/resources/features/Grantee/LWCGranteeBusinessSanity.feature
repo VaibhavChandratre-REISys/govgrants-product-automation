@@ -6414,7 +6414,7 @@ Feature: Sanity scenarios
       | Funding Organization is required to save.      |
       | Allow Indirect Costs? is required to save.     |
       | Match is Required? is required to save.        |
-    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
+    And I enter "Grantee_Grant_Setting_No" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     Then I see the header is "Grant" in the page details
     Then I softly see "Collapse" button for header
