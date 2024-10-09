@@ -6490,12 +6490,12 @@ Feature: Sanity scenarios
     Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     And I navigate to "Financials" sub tab
-    Then I softly see field "Budgeted Cash Match" inside page block
-    Then I softly see field "Budgeted Non-Cash Match" inside page block
-    Then I softly see field "Budgeted Non-Cash Match" inside page block
-    Then I softly see field "Budgeted Leverage" inside page block
-    Then I softly see field "Total Anticipated Program Income" inside page block
-    Then I softly see field "Total Program Income Expenditure" inside page block
+    Then I softly cannot see field "Budgeted Cash Match" inside page block
+    Then I softly cannot see field "Budgeted Non-Cash Match" inside page block
+    Then I softly cannot see field "Budgeted Non-Cash Match" inside page block
+    Then I softly cannot see field "Budgeted Leverage" inside page block
+    Then I softly cannot see field "Total Anticipated Program Income" inside page block
+    Then I softly cannot see field "Total Program Income Expenditure" inside page block
     And I navigate to "Awards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
