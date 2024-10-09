@@ -114,6 +114,10 @@ public class CommonSteps {
         govgrants.perform().pageDetails().pageBlockExpandedOrCollapse(pageBlockTitle,actionIcon);
     }
 
+    @And("I update post as {string} after slecting {string} from dropdown")
+    public void iUpdatePostAsAfterSlectingFromDropdown(String message, String dropDownButton) {
+        projectManager.UpdatePostAsAfterSlectingFromDropdown(message,dropDownButton);
+    }
 }
 
 

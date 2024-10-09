@@ -803,6 +803,11 @@ public final class GovGrantsAssertionSteps {
         ggAssertionObjects.assertSectionsofGlobalSearchDisplayOrNot(usage, sectionName);
     }
 
+    @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" button name inside post dropdown$")
+    public void iSeeButtonNameInsidePostDropdown(String buttonName, String usage) {
+        ggAssertionObjects.assertButtonNameInsidePostDropdown(usage, buttonName);
+    }
+
     @Then("^I (softly see|see|do not see|softly do not see) recent \"([^\"]*)\" records in global search box$")
     public void iSoftlySeeRecentRecordsInGlobalSearchBox(String number, String usage) {
         ggAssertionObjects.assertTopRecentRecordsDisplayInsideGlobalSearchBox(usage, number);

@@ -5985,6 +5985,7 @@ Feature: Sanity scenarios
       | Sarah PM | Step 1           |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
+    And I wait for "5" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
       | Name       | Financial Report |
       | Victor EXE | Step 2           |
@@ -6126,7 +6127,7 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exegrantee.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "sarah.pm.automation1@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
@@ -6247,3 +6248,459 @@ Feature: Sanity scenarios
     And I navigate to "Chatter" sub tab in split screen
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
+
+  @443791 @ValidateGrantWithPMProfileAfterclickonGrantphaseredirecttoGrantListviewpage @Grantee1
+  Scenario: Validate Grant With PM Profile After click on Grant phase redirect to Grant List view page
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "Create Grant" opens in overLay window
+    When I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | Grant Title is required to save.               |
+      | Grant Abbreviation is required to save.        |
+      | Grant Number is required to save.              |
+      | Project Period Start Date is required to save. |
+      | Project Period End Date is required to save.   |
+      | Budget Type is required to save.               |
+      | Total Anticipated Amount is required to save.  |
+      | Grant Type is required to save.                |
+      | Funding Organization is required to save.      |
+      | Allow Indirect Costs? is required to save.     |
+      | Match is Required? is required to save.        |
+    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    Then I see the header is "Grant" in the page details
+    Then I softly see "Collapse" button for header
+    Then I softly see "Resize" button for page
+    Then I softly see "Collapse" button for page
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | UEI Number is required to save under Overview. |
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    When I click on "Cancel" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
+    When I click modal button "Cancel"
+    Then I can see top right button "Edit" in page detail
+    Then I softly see field "UEI Number" as ""
+    And I click on "Edit" in the page details
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    And I click on "Save" in the page details
+    And I save the field labeled "Funding Organization" as "FundingOrganization"
+    Then I softly see field "Funding Organization" inside page block
+    Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
+    And I save the field labeled "Internal Organization" as "InternalOrganization"
+    Then I softly see field "Internal Organization" inside page block
+    Then I softly see link "{SavedValue:InternalOrganization}" inside Page block
+    And I save the field labeled "Created by" as "Createdby"
+    Then I softly see field "Created by" inside page block
+    Then I softly see link "{SavedValue:Createdby}" inside Page block
+    And I save the field labeled "Last Modified by" as "LastModifiedby"
+    Then I softly see field "Last Modified by" inside page block
+    Then I softly see link "{SavedValue:LastModifiedby}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:LastModifiedby}"
+    Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
+    And I click on back arrow
+    And I click on hyperlink containing value "{SavedValue:Createdby}"
+    Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
+    And I click on back arrow
+    And I click on hyperlink containing value "{SavedValue:FundingOrganization}"
+    Then I see the header is "Federal Organization" in the page details
+    Then I see the sub-header is "{SavedValue:FundingOrganization}" in the page details
+    And I click on back arrow
+    And I click on hyperlink containing value "{SavedValue:InternalOrganization}"
+    Then I see the header is "Internal Organization" in the page details
+    Then I see the sub-header is "{SavedValue:InternalOrganization}" in the page details
+    And I click on back arrow
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Awards" sub tab at view detail page
+    Then I softly can see "Financials" sub tab at view detail page
+    Then I softly can see "Management" sub tab at view detail page
+    Then I softly can see "Monitoring" sub tab at view detail page
+    Then I softly can see "Closeout" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    Then I softly can see "Chatter" sub tab at view detail page
+    Then I softly can see "Field Audit" sub tab at view detail page
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
+    When I click on parallel lines menu bar with data target value "Budget Period Details"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    When I click on parallel lines menu bar with data target value "Focus Areas"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    When I click on parallel lines menu bar with data target value "External Programs"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    When I click on parallel lines menu bar with data target value "Contacts"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I navigate to "Awards" sub tab
+    When I click on parallel lines menu bar with data target value "Awards / Revisions"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    When I navigate to "Management" sub tab
+    When I click on parallel lines menu bar with data target value "Change Requests"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    When I click on parallel lines menu bar with data target value "Performance Progress Reports"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    When I click on parallel lines menu bar with data target value "Financial Reports"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I navigate to "Monitoring" sub tab
+    When I click on parallel lines menu bar with data target value "Objectives"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    When I click on parallel lines menu bar with data target value "Key Performance Indicators (KPIs)"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    When I navigate to "Closeout" sub tab
+    When I click on parallel lines menu bar with data target value "Project Period Closeout Requests"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    When I navigate to "Files" sub tab
+    When I click on parallel lines menu bar with data target value "Grant Files"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    When I click on parallel lines menu bar with data target value "Notes"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I post the message "Automation Test1 Execution" inside chatter
+    Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
+    Then I see "Edit" button name inside post dropdown
+    Then I see "Delete" button name inside post dropdown
+    Then I see "Bookmark" button name inside post dropdown
+
+  @443801 @443801alidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection @Grantee1
+  Scenario: Validate Grant with EXE Profile able to create direct grant and see all tabs and section
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "Create Grant" opens in overLay window
+    When I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | Grant Title is required to save.               |
+      | Grant Abbreviation is required to save.        |
+      | Grant Number is required to save.              |
+      | Project Period Start Date is required to save. |
+      | Project Period End Date is required to save.   |
+      | Budget Type is required to save.               |
+      | Total Anticipated Amount is required to save.  |
+      | Grant Type is required to save.                |
+      | Funding Organization is required to save.      |
+      | Allow Indirect Costs? is required to save.     |
+      | Match is Required? is required to save.        |
+    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    Then I see the header is "Grant" in the page details
+    Then I softly see "Collapse" button for header
+    Then I softly see "Resize" button for page
+    Then I softly see "Collapse" button for page
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | UEI Number is required to save under Overview. |
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    When I click on "Cancel" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
+    When I click modal button "Cancel"
+    Then I can see top right button "Edit" in page detail
+    Then I softly see field "UEI Number" as ""
+    And I click on "Edit" in the page details
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    And I click on "Save" in the page details
+    And I save the field labeled "Funding Organization" as "FundingOrganization"
+    Then I softly see field "Funding Organization" inside page block
+    Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
+    And I save the field labeled "Internal Organization" as "InternalOrganization"
+    Then I softly see field "Internal Organization" inside page block
+    Then I softly see link "{SavedValue:InternalOrganization}" inside Page block
+    And I save the field labeled "Created by" as "Createdby"
+    Then I softly see field "Created by" inside page block
+    Then I softly see link "{SavedValue:Createdby}" inside Page block
+    And I save the field labeled "Last Modified by" as "LastModifiedby"
+    Then I softly see field "Last Modified by" inside page block
+    Then I softly see link "{SavedValue:LastModifiedby}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:LastModifiedby}"
+    Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
+    And I click on back arrow
+    And I click on hyperlink containing value "{SavedValue:Createdby}"
+    Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
+    And I click on back arrow
+    And I click on hyperlink containing value "{SavedValue:FundingOrganization}"
+    Then I see the header is "Federal Organization" in the page details
+    Then I see the sub-header is "{SavedValue:FundingOrganization}" in the page details
+    And I click on back arrow
+    And I click on hyperlink containing value "{SavedValue:InternalOrganization}"
+    Then I see the header is "Internal Organization" in the page details
+    Then I see the sub-header is "{SavedValue:InternalOrganization}" in the page details
+    And I click on back arrow
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Awards" sub tab at view detail page
+    Then I softly can see "Financials" sub tab at view detail page
+    Then I softly can see "Management" sub tab at view detail page
+    Then I softly can see "Monitoring" sub tab at view detail page
+    Then I softly can see "Closeout" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    Then I softly can see "Chatter" sub tab at view detail page
+    Then I softly can see "Field Audit" sub tab at view detail page
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
+    And I click on "Download As PDF" in the page details
+    And I wait for "5" seconds
+    And I download the file
+    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
+    And I click on "Take Snapshot" in the page details
+    And I wait for "5" seconds
+    When I navigate to "History" sub tab
+    And I click on hyperlink containing value "SnapShot on"
+    And I wait for "5" seconds
+    When I download the file
+    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
+    And I navigate to "Financials" sub tab
+    Then I softly see field "Budgeted Cash Match" inside page block
+    Then I softly see field "Budgeted Non-Cash Match" inside page block
+    Then I softly see field "Budgeted Non-Cash Match" inside page block
+    Then I softly see field "Budgeted Leverage" inside page block
+    Then I softly see field "Total Anticipated Program Income" inside page block
+    Then I softly see field "Total Program Income Expenditure" inside page block
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Projections" sub tab
+    Then I softly do not see "Program Income" page block displayed
+    Then I softly do not see "Indirect Rates" page block displayed
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "{SavedValue:GrantEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I can see row level action button "View" against "{SavedValue:GrantEGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    Then I can see row level action button "Edit" against "{SavedValue:GrantEGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:GrantEGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
+
+  @443858 @ValidateAwardsplconwithPMProfileIfSpecialConditionisaddedtheninawardspecialconditionmoduleafterexpandtheawardabletoseespecialconditionrecord @Grantee1
+  Scenario: Validate Award spl con with PM Profile ,If Special Condition is added then in  award special condition module after expand the award able to see special condition record
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I wait for "2" seconds
+    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Title" as "Automation Runtime award"
+    And I click on "Edit" in the page details
+    When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
+      | Name     | Project Role    | Is Key Contact |
+      | Sarah PM | Project Officer | Checked        |
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
+      | Title               | Is Primary Program |
+      | Open Data Framework | Checked            |
+    And I navigate to "Projections" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
+    And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
+      | Title                           | Start Date                         | End Date                         |
+      | Automation Permanent Focus Area | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
+      | Construction | The narrative | 5000         | 500        | 200            |
+    When I close "Add Line Items" modal by clicking the top right x button
+    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
+      | Focus Area Name                 | Projected Program Income ($) | Program Income Justification |
+      | Automation Permanent Focus Area | 1000                         | Automation Test              |
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
+      | Title | Date From | Date To | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15        | 30      | 10                             | Final                   |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
+    And I navigate to "Monitoring" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    And I wait for "3" seconds
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I enter in modal value "Terms" into field "Title__c"
+    When I enter in modal value "Terms Description" into field "Description__c"
+    When I enter in modal value "1" into field "Sequence__c"
+    When I enter in modal value "{SavedValue:BudgetPeriodEndDate}" into field "EffectiveTill__c"
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I save the value from row "1" for column name "Title" as "TermsTitle" from flex table "---grantee_tableId:-:SpecialConditionTableId---"
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Validate" in the page details
+    And I wait for "5" seconds
+    Then I softly see the following messages in the page details contains:
+      | The Subaward has been validated successfully. |
+    And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Activated"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Awards Special Conditions" content inside "Monitoring" subheader on left panel
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:specialConditionPhaseLevelTableId---" panel
+    And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
+    Then I softly see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:specialConditionsChildTableId---"
+
+  @443857 @ValidateAwardsplconwithEXEProfileIfSpecialConditionisnotaddedtheninawardspecialconditionmoduleafterexpandtheawardunabletoseeanyrecord @Grantee1
+  Scenario: Validate Award spl con with EXE Profile If Special Condition is not added then in award special condition module after expand the award unable to see any record
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I wait for "2" seconds
+    And I enter "Grantee_Grant_Setting_No" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Title" as "Automation Runtime award"
+    And I click on "Edit" in the page details
+    When I enter "Grantee_Award_Edition_All_No" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
+      | Name     | Project Role    | Is Key Contact |
+      | Sarah PM | Project Officer | Checked        |
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
+      | Title               | Is Primary Program |
+      | Open Data Framework | Checked            |
+    And I navigate to "Projections" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
+    And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
+      | Title                           | Start Date                         | End Date                         |
+      | Automation Permanent Focus Area | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Budget |
+      | Construction | The narrative | 5000         |
+    When I close "Add Line Items" modal by clicking the top right x button
+    And I wait for "3" seconds
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
+      | Name       | Award  |
+      | Victor EXE | Step 1 |
+    And I navigate to "Monitoring" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Validate" in the page details
+    And I wait for "5" seconds
+    Then I softly see the following messages in the page details contains:
+      | The Subaward has been validated successfully. |
+    And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Activated"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Awards Special Conditions" content inside "Monitoring" subheader on left panel
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:specialConditionPhaseLevelTableId---" panel
+    And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:specialConditionsChildTableId---"
