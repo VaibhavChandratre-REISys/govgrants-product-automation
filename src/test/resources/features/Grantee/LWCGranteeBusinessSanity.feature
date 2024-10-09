@@ -6249,7 +6249,7 @@ Feature: Sanity scenarios
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Sarah PM"
 
-  @443791 @ValidateGrantWithPMProfileAfterclickonGrantphaseredirecttoGrantListviewpage @Grantee1
+  @443791 @ValidateGrantWithPMProfileAfterclickonGrantphaseredirecttoGrantListviewpage
   Scenario: Validate Grant With PM Profile After click on Grant phase redirect to Grant List view page
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -6394,7 +6394,7 @@ Feature: Sanity scenarios
     Then I see "Delete" button name inside post dropdown
     Then I see "Bookmark" button name inside post dropdown
 
-  @443801 @443801alidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection @Grantee1
+  @443801 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection
   Scenario: Validate Grant with EXE Profile able to create direct grant and see all tabs and section
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
