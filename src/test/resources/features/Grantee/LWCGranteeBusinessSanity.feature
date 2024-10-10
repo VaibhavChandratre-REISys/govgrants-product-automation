@@ -6723,11 +6723,12 @@ Feature: Sanity scenarios
     Then I softly see value "Active" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
-    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     And I click on page navigation arrow "---grantee_tableId:-:GrantsTable---" for table id "Next"
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:GrantsTable---"
     Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:GrantsTable---"
+    And I click toggle button to select "Grants - All"
     When I click on parallel lines menu bar with data target value "Grants - All"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -6747,7 +6748,7 @@ Feature: Sanity scenarios
     Then I softly do not see value "Active" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
-    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Terminated" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
@@ -6763,7 +6764,7 @@ Feature: Sanity scenarios
     Then I softly do not see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
-    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Terminated" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
@@ -6779,7 +6780,7 @@ Feature: Sanity scenarios
     Then I softly do not see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
-    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Active" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
@@ -6789,13 +6790,13 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
     And I click toggle button to select "Grants - Closed"
-    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
-    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Terminated" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
@@ -6805,14 +6806,14 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
     And I click toggle button to select "Grants - My Records"
-    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
-    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Active" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly do not see value "Terminated" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
