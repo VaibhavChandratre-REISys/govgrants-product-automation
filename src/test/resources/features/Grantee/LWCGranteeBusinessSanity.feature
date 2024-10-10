@@ -6704,3 +6704,148 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:specialConditionPhaseLevelTableId---" panel
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:specialConditionsChildTableId---"
+
+  @443790 @ValidateGrantWithPMProfileAfterclickonGrantphaseredirecttoGrantListviewpage @Grantee1
+  Scenario: Validate Grant With PM Profile After click on Grant phase redirect to Grant List view page
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    Then I softly see toggle option "Grants - All" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see toggle option "Grants - Draft" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see toggle option "Grants - Active" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see toggle option "Grants - Rejected" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see toggle option "Grants - Closed" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see toggle option "Grants - My Records" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "Active" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    And I click on page navigation arrow "---grantee_tableId:-:GrantsTable---" for table id "Next"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:GrantsTable---"
+    When I click on parallel lines menu bar with data target value "Grants - All"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Download as PDF" from parallel lines dropdown of "Grants - All"
+    And I wait for "5" seconds
+    And I download the file
+    Then I see "Grants - All" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
+    When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
+    And I select "Refresh" from parallel lines dropdown of "Non-Federal Programs- All"
+    Then I see table is refreshing
+    And I click toggle button to select "Grants - Draft"
+    When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Active" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Terminated" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "Active" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Terminated" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I click toggle button to select "Grants - Rejected"
+    When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "Terminated" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Active" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I click toggle button to select "Grants - Closed"
+    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Terminated" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I click toggle button to select "Grants - My Records"
+    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Closed/Completed" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly do not see value "Terminated" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:GrantsTable---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "Create Grant" opens in overLay window
+    When I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | Grant Title is required to save.               |
+      | Grant Abbreviation is required to save.        |
+      | Grant Number is required to save.              |
+      | Project Period Start Date is required to save. |
+      | Project Period End Date is required to save.   |
+      | Budget Type is required to save.               |
+      | Total Anticipated Amount is required to save.  |
+      | Grant Type is required to save.                |
+      | Funding Organization is required to save.      |
+      | Allow Indirect Costs? is required to save.     |
+      | Match is Required? is required to save.        |
+    And I enter "Grantee_Grant_Setting_No" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    Then I see the header is "Grant" in the page details
+
+  @447517 @ValidateGrantwithPMProfileOndirectgrantmodalunabletoseethefieldIsBudgetPeriodCloseoutRequestRequired @Grantee1
+  Scenario: Validate Grant with PM Profile On direct grant modal unable to see the field Is Budget Period Closeout Request Required
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I wait for "2" seconds
+    Then I softly see "Create Grant" opens in overLay window
+    Then I softly cannot see field "Is Budget Period Closeout Request Required?" inside page block
