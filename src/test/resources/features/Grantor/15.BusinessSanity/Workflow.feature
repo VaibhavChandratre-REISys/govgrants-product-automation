@@ -1543,10 +1543,27 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-   @tst1
-   Scenario:
-     Given I login to "As a Grantor" app as "PM" user
-     And I navigate to url "https://test8-internal--vaqaorg.sandbox.lightning.force.com/lightning/r/Award__c/a1oDf000001BtB6IAK/view?c__Mode=ZWRpdA%3D%3D"
-     And I wait for "10" seconds
-     Then I see status in Progress-bar is "Created" and is "dark blue"
-     And I halt execution
+  @debug1 @ValidatePMuserisabletotransferhisowntaskofthetasktypeActivatetheProgramstatusasInprogresstoanotherPMuserforinternalprogram @sprint-4  @reassignment @ownvai
+  Scenario Outline: Validate PM user is able to transfer his own task of the task type Activate the Program status as In progress to another PM user for internal program
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter "<Excel>" script values from "Program_Field_Values.xlsx"
+    Examples:
+      | Excel          |
+      | CSS_Creation1  |
+
+  @debug @ValidatePMusercanaddnotesonInternalProgramcreatedbyEXEuserwhenitsstatusiscreated @sprint-7-US-201927  @Notes
+  Scenario Outline: Validate PM user can add notes on Internal Program created by EXE user when its status is created
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "Automation Permanent Css Program1" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "Automation Permanent Css Program1" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    When I enter "<Excel>" script values from "Program_Field_Values.xlsx"
+    Examples:
+      | Excel        |
+      | CSS_Edition  |

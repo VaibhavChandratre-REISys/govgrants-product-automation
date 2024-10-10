@@ -1,6 +1,5 @@
 package com.helperPackage.govgrants;
 
-
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.objects.Elements;
@@ -18,6 +17,10 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.helperPackage.misclib.ConsoleFormatter.COLOR.GREEN;
+import static com.helperPackage.misclib.ConsoleFormatter.COLOR.RED;
+import static com.helperPackage.misclib.ConsoleFormatter.ICON.TICK;
+
 //@Refactoring of the class is required. There is commented code which will be considered to remove gradually.
 
 public final class InputForms {
@@ -27,7 +30,6 @@ public final class InputForms {
     private final By
             ConflictOfInterestReviewForLwcFromPath = By.xpath("//label//span[@class='slds-form-element__label']/../../input[@type='radio'][@value='I agree']"),
             formSectionTitlesLwc = By.xpath("//div[@class='slds-box pblock']//span[contains(@class,'slds-text-heading_medium')]");
-
     /******* "Key Methods with complete functionality - Public" *****************/
 
     /**
@@ -108,6 +110,64 @@ public final class InputForms {
         }
     }
 
+        public void enterInputFieldsFromExcelFileForCss(String fileName, String sheetName, String isModal) {
+            String[][] data = I.amPerforming().fileHandling().forExcelAnd().readExcelFile(fileName, sheetName);
+            if (!isModal.contains("form")) {
+                String currentSubTab = "";
+                if (data != null) {
+                    for (String[] column : data) {
+                        if ((column[0] == null || "".equalsIgnoreCase(column[0].trim()))
+                                && (column[1] == null || "".equalsIgnoreCase(column[1].trim()))
+                                && (column[2] == null || "".equalsIgnoreCase(column[2].trim()))) {
+                            continue;
+                        }
+                        String subTab = column[0];
+                        String fieldApiName = column[1];
+                        String fieldValue = column[2];
+                        String actionValue = column[3];
+                        // Added temporarily for product home scenarios
+//                        if (fieldValue.equalsIgnoreCase("Product Automation Org")) {
+//                            fieldValue = fieldValue + Math.random() * ((1000 - 100) + 1) + 100;
+//                        }
+                        // Switch to relevant tab
+                        if (subTab != null && !"None".equalsIgnoreCase(subTab) && !subTab.equalsIgnoreCase(currentSubTab)) {
+                            if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+                                if(subTab.contains("Planning"))
+                                {
+                                    govgrants.perform().mainPage().clickMainMenuBarForLwc(subTab);
+                                }else {
+                                    govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
+                                    currentSubTab = subTab;
+                                }
+                            } else {
+                                govgrants.perform().pageDetails().clickSubTabsInsideTableView(subTab);
+                                currentSubTab = subTab;
+                            }
+                        }
+                        this.inputFormDataByFieldApiNameForCss(fieldApiName, fieldValue, isModal.contains("modal"), actionValue);
+                    }
+                }
+            } else if (isModal.contains("form")) {
+                if (data != null) {
+                    for (String[] column : data) {
+                        if ((column[0] == null || "".equalsIgnoreCase(column[0].trim()))
+                                && (column[1] == null || "".equalsIgnoreCase(column[1].trim()))
+                                && (column[2] == null || "".equalsIgnoreCase(column[2].trim()))) {
+                            continue;
+                        }
+                        String subTab = column[0];
+                        String fieldApiName = column[1];
+                        String fieldValue = column[2];
+
+                        // Switch to relevant page block and label
+                        By element = By.xpath("//h3//a[contains(@title,'" + subTab + "')]/ancestor::div[@class='panel-heading']/following-sibling::div//dt//*[contains(text(),'" + fieldApiName + "')]//parent::dt//following-sibling::dd");
+                        WebElement fieldWrapper = I.amPerforming().getElementReference().of(element);
+                        handleFormDataInputs(fieldWrapper, fieldValue);
+                    }
+                }
+            }
+        }
+
     /**
      * @param fieldApiName The Salesforce Api name of the field to be entered. Can be found
      *                     in the Edit page's HTML in a div surrounding the input field with
@@ -162,11 +222,74 @@ public final class InputForms {
         }
     }
 
+    public void inputFormDataByFieldApiNameForCss(String fieldApiName, String fieldValue, boolean isModal, String action) {
+
+        if (fieldValue.startsWith("Automation Runtime") && (!fieldValue.matches(".*\\d+.*"))) {
+            var newFieldValue = fieldValue + I.amPerforming().addOnsTo().getStringRandomNumber();
+            I.amPerforming().propertiesFileOperationsTo().saveValue(fieldValue, newFieldValue);
+            fieldValue = newFieldValue;
+
+        }else if(fieldApiName.contains("PageLayout")||fieldApiName.contains("ModalLayout")) {
+                if (fieldApiName.contains("PageLayout")) {
+                    govgrants.perform().pageDetails().clickAnyTopRightButton(fieldValue);
+                }else {
+                    govgrants.perform().modal().clickModalContentSpecificButton(fieldValue);
+                   I.amPerforming().waitFor().makeThreadSleep(10000);
+                    By xpath=By.xpath("//label[text()='Status']//..//div//lightning-formatted-text");
+                    String status=I.amPerforming().getElementReference().of(xpath).getText();
+                    I.amPerforming().waitFor().makeThreadSleep(5000);
+                    if(status=="Created")
+                    {
+                        I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_INFO, GREEN, TICK, "Success");
+                    }
+                    else {
+                        I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_INFO, RED, TICK, "Fail");
+                    }
+                }
+            } else if(action.contains("Navigator")||action.contains("Table")) {
+                if(action.contains("Table")) {
+                    govgrants.perform().flexTable().clickTableTopRightButton(fieldApiName, fieldValue);
+                }else {
+                    govgrants.perform().sideBar().clickSideBarContent(fieldApiName, fieldValue);
+                }
+        } else {
+            govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+            By fieldWrapperLocator;
+            if (isModal) {
+                fieldWrapperLocator = By.xpath("//div[@id='modaltemp']//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //span[contains(@id,'" + fieldApiName + "')]|//div[@id='modaltemp']//div[@id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldApiName + "'] | //div[contains(@class,'modal__footer')]//button | //c-lwc-flex-table[@data-flextablename='" + fieldApiName + "']//lightning-button//button |//div[contains(@class,'sidebar slds-split-view_container slds-is-open open-panel')]//section//button[@title='" + fieldApiName + "']");
+                I.amPerforming().waitFor().ElementToBePresent(fieldWrapperLocator);
+            } else {
+                fieldWrapperLocator = By.xpath("//*[(local-name()='div' or local-name()='span') and @id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "'] |//c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//lightning-input | //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//lightning-textarea");
+                int size = I.amPerforming().getElementReference().forListOfElements().of(fieldWrapperLocator).size();
+                if (size > 2) {
+                    fieldWrapperLocator = By.xpath("//*[(local-name()='div' or local-name()='span') and @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] |//c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//lightning-textarea ");
+                    size = I.amPerforming().getElementReference().forListOfElements().of(fieldWrapperLocator).size();
+                    if (size > 1) {
+                        fieldWrapperLocator = By.xpath("//*[(local-name()='div' or local-name()='span') and @id='" + fieldApiName + "']//label[contains(string(),'Description')]/.. | //field[@field-name='" + fieldApiName + "']");
+                    }
+
+                }
+            }
+            WebElement fieldWrapper = I.amPerforming().getElementReference().of(fieldWrapperLocator);
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            I.amPerforming().scroll().withMouseToElement(fieldWrapperLocator);
+//        I.amPerforming().scroll().toMoveToElement(fieldWrapperLocator);
+            if ("".equalsIgnoreCase(fieldValue)) {
+                handleClearingFormDataInputs(fieldWrapper);
+            } else {
+                handleFormDataInputsForCss(fieldWrapper, fieldValue);
+
+            }
+        }
+
+    }
+
+
     /**
      * @param pageBlock Page block name on form page
      * @param table     table contains field and value
      * @author aashish.pardeshi
-     * @modifier aashish.pardeshi -- added xpath and logic for multi-comments section for review form
+     *  private GovGrantsAssertionObjects ggAssertionObjects;@modifier aashish.pardeshi -- added xpath and logic for multi-comments section for review form
      */
     public void inputDataIntoForms(String operation, String pageBlock, List table) {
         if (operation.equalsIgnoreCase("clear")) {
@@ -627,6 +750,76 @@ public final class InputForms {
         }
     }
 
+        private void handleFormDataInputsForCss(WebElement fieldWrapper, String fieldValue) {
+            int counter = 0;
+            while (counter < 5) {
+                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+                if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//iframe")).size() > 0) {
+                    handleRichTextInput(fieldWrapper, fieldValue);
+                    break;
+                } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//span[@class='slds-radio_faux']")).size() > 0) {
+                    handleRadioButtonInput(fieldWrapper, fieldValue);
+                    break;
+                } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
+                    handleCheckBoxInput(fieldWrapper, fieldValue);
+                    break;
+                } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//div[contains(@class,'text-area')] | .//div[contains(@class,'textarea')]//textarea")).size() > 0) {
+                    handleRichTextAreaInput(fieldWrapper, fieldValue);
+                    break;
+                } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper,
+                                By.xpath(".//input[@type='text'] | .//textarea[not(@warningchar)]"))
+                        .size() > 0) {
+                /*if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//*[contains(@class, 'datetimepicker')]")).size() > 0) {
+                    handleDatePickerInput(fieldWrapper, fieldValue);
+                } else */
+                    if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//*[contains(@class, 'dateOnlyInput')]")).size() > 0) {
+                        handleDateInput(fieldWrapper, fieldValue, false);
+                    } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//*[contains(@class, 'dateInput')]")).size() > 0) {
+                        handleDateInput(fieldWrapper, fieldValue, true);
+                    } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//lightning-datepicker")).size() > 0) {
+                        handleDateInput(fieldWrapper, fieldValue, false);
+                    } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//*[contains(@class, 'lookupInput')]")).size() > 0) {
+                        handleLookUpInput(fieldWrapper, fieldValue);
+                    } else {
+                        handleTextInput(fieldWrapper, fieldValue);
+                    }
+                    break;
+                } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//select")).size() > 0) {
+                    Select select = new Select(I.amPerforming().getElementReference().ofNested(fieldWrapper, By.xpath(".//select")));
+                    if (select.isMultiple()) {
+                        handleMultiSelectInput(fieldWrapper, fieldValue.split(";"));
+                    } else {
+                        handleDropdownInput(fieldWrapper, fieldValue);
+                    }
+                    break;
+                } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//ul//li[contains(@class,'listbox__item')]")).size() > 0) {
+                    handleMultiSelectInput(fieldWrapper, fieldValue.split(";"));
+                    break;
+                } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[" + I.amPerforming().sanityOfXpathTo().equals("@value", fieldValue) + "] ")).size() > 0) {
+                    handleRadioButtonInput(fieldWrapper, fieldValue);
+                    break;
+                } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//button[contains(@id,'combobox-button')]")).size() > 0) {
+                    handleDropdownInput(fieldWrapper, fieldValue);
+                    break;
+                } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//c-lwc-flex-table//input[@type='checkbox']")).size() > 0) {
+                    handleCheckBoxInputForTable(fieldWrapper, fieldValue);
+                    break;
+                } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[" + I.amPerforming().sanityOfXpathTo().equals("@value", fieldValue) + "] ")).size() > 0) {
+                    handleRadioButtonInput(fieldWrapper, fieldValue);
+                    break;
+                } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//input[@type='text'] | .//lightning-input |.//textarea[not(@warningchar)]")).size() > 0) {
+                    if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//lightning-datepicker")).size() > 0) {
+                        handleDateInput(fieldWrapper, fieldValue, false);
+                    } else {
+                        handleTextInput(fieldWrapper, fieldValue);
+                    }
+                    break;
+            }
+                I.amPerforming().waitFor().makeThreadSleep(1000);
+                counter++;
+            }
+        }
+
     /**
      * @param fieldWrapper
      * @author john.phillips
@@ -707,7 +900,7 @@ public final class InputForms {
                 I.amPerforming().click().withJavaScript(inputBox1);
                 I.amPerforming().textInput().in(inputBox1, fieldValue);
             } else {
-                By inputBox = By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text'] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'textarea')]//textarea");
+                By inputBox = By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text'] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'textarea')]//textarea | //c-fieldlwc[@data-fieldapiname='" + field + "']//lightning-textarea//textarea");
                 I.amPerforming().click().withJavaScript(inputBox);
                 I.amPerforming().textInput().in(inputBox, fieldValue);
             }
@@ -794,7 +987,7 @@ public final class InputForms {
                     I.amPerforming().textInput().toClear(inputBox);
                     I.amPerforming().textInput().in(inputBox, fieldValue);
                 } else {
-                    By inputBox = By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text'] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'textarea')]//textarea");
+                    By inputBox = By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text'] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'textarea')]//textarea |//c-fieldlwc[@data-fieldapiname='" + field + "']//lightning-input//input");
                     I.amPerforming().click().withJavaScript(inputBox);
                     I.amPerforming().textInput().toClear(inputBox);
                     I.amPerforming().textInput().in(inputBox, fieldValue);
@@ -1550,6 +1743,7 @@ public final class InputForms {
         WebElement fieldWrapper = I.amPerforming().getElementReference().of(element);
         handleClearingFormDataInputs(fieldWrapper);
     }
+
 
     /**
      * method under testing
