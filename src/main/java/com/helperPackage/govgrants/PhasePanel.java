@@ -271,7 +271,11 @@ public final class PhasePanel {
      */
     public void clickParallelMenuBarsWithDataTargetValue(String dataTargetValue) {
         By parallelMenuBarswithDataTarget = By.xpath("//a[@data-target='" + dataTargetValue + "']/ancestor::div[contains(@class,'panel-heading')]//a[@title='Menu'] |//span[@title='" + dataTargetValue + "']//ancestor::div[@class='header']//button[@title='Menu']");
-        I.amPerforming().click().on(parallelMenuBarswithDataTarget);
+       try {
+           I.amPerforming().click().on(parallelMenuBarswithDataTarget);
+       }catch (Exception e){
+           I.amPerforming().click().withJavaScript(parallelMenuBarswithDataTarget);
+       }
     }
 
     /**
@@ -381,7 +385,7 @@ public final class PhasePanel {
                 + "']/ancestor::div/following-sibling::div//li//span[contains(text(),'" + menuItemName
                 + "')] | //*[text()='"+panelTitleName+"']/preceding-sibling::span//*[@title='Menu' or contains(@class,'fa-bars')]/following-sibling::ul//a[text()='"
                 + menuItemName + "'] | //div//a[@title='"+panelTitleName+"']/ancestor::div/following-sibling::span//li//a[@title='"+ menuItemName+"']" +
-                "| //a[contains(@title,'" + panelTitleName + "')]/ancestor::div/div[@align='right']//li/a[@title='Download as PDF'] | //*[text()='"+panelTitleName+"']/ancestor::c-flex-gridlwc//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"']");
+                "| //a[contains(@title,'" + panelTitleName + "')]/ancestor::div/div[@align='right']//li/a[@title='Download as PDF'] | //*[text()='"+panelTitleName+"']/ancestor::c-flex-gridlwc//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"'] | //*[text()='"+panelTitleName+"']/ancestor::c-lwc-flex-table//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"']");
         I.amPerforming().click().on(parallelMenuItem);
         try {
                 govgrants.perform().modal().acceptPopUpWithParameter("Yes");

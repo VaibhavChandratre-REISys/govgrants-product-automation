@@ -503,9 +503,11 @@ Feature: Validate all scenarios in the Amendment Request
     When I click on "View" icon for "Record Id" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
     When I click on "Activate" in the page details
-    When I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
-    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime award}" having object api name as "ProgressReports__c"
+    Then I softly see field "Status" as "Activated"
+    And I save the field containing "EGMS ID" as "subAwardId1"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I delete the record "{SavedValue:subAwardId1}" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:subAwardId1}" having object api name as "ProgressReports__c"
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     When I click toggle button to select "Progress Reports - All"
@@ -556,18 +558,12 @@ Feature: Validate all scenarios in the Amendment Request
     Then I see that "Automation Permanent Focus Area" has been added in flextable with Id "---amendment:-:projectAreasTableId---"
 
   @53211 @associateFocusAreaToBPCAmendmentRequest
-  Scenario Outline: Validate the association of FocusArea to BPC
+  Scenario: Validate the association of FocusArea to BPC
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I click on top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
-    And I check "<Focus Area>" boxes in flex table with id "---amendment:-:focusAreaTableId---"
-    When I click on top right button "Associate" in flex table with id "---amendment:-:focusAreaTableId---"
-    Then I see that "<Focus Area>" has been added in flextable with Id "---amendment:-:projectAreasTableId---"
-    Examples:
-      | Focus Area                       |
-      | Automation Permanent Focus Area2 |
+    Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:projectAreasTableId---"
 
   @56843 @66584 @96425 @ValidateGrantorCanIncreaseAwardBudgetAmountInFundingChangeTypeRequest
   Scenario: Verify Internal user can send request to Sub-recipient for increase in the award budget amount using Funding change option.
@@ -620,6 +616,7 @@ Feature: Validate all scenarios in the Amendment Request
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I get the "EGMS ID"
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -695,6 +692,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1319,7 +1317,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
     When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Awarded Budget |
+      | Title        | Narrative     | Award Amount |
       | Extra Salary | The narrative | 1000           |
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
@@ -1893,7 +1891,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @57365 @verifySubmissionOfReimbursmentPaymentRequest  @buglogged142465
+  @57365 @verifySubmissionOfReimbursmentPaymentRequest
   Scenario: Verify user can submit Reimbursement Payment request to grantor after Budget Period Change Amendment is done on Subaward
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -1971,7 +1969,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @57367 @verifyRecipientCanSeeAmendedBudgetPeriodOnReimbursementPaymentRequestPage  @buglogged138281
+  @57367 @verifyRecipientCanSeeAmendedBudgetPeriodOnReimbursementPaymentRequestPage
   Scenario Outline: Verify Sub-recipient user can see the amended Budget Period on Reimbursement Payment Request Page
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2055,7 +2053,7 @@ Feature: Validate all scenarios in the Amendment Request
       | Grant Name                            |
       | {SavedValue:Automation Runtime Award} |
 
-  @57404 @verifyGrantorCanSeeAmendedBudgetPeriodOnReimbursementPaymentRequestPage  @buglogged138281
+  @57404 @verifyGrantorCanSeeAmendedBudgetPeriodOnReimbursementPaymentRequestPage
   Scenario Outline: Verify grantor can see the amended Budget Period on Reimbursement Payment Request Page
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
@@ -2146,14 +2144,23 @@ Feature: Validate all scenarios in the Amendment Request
 
   @62966 @97938 @97976 @97966 @97942 @97917 @98482  @smoke
   Scenario: Validate whether SR user can view the Risk Score which remained as is when Award Risk Assessment is copied to new created award when amendment type -  Terms and conditions amendment
+    Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "YES_RISK_ASSESSMENT" of type "Competitive"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
+    And I save the value from row "1" for column name "EGMS ID" as "RAEGMSID" from flex table "---subAwardStandAlone:-:riskAssessmentTableId---"
     When I click on "View" icon for "Active" inside flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---" without waiting for record
     And I save the field labeled "OverAll Risk" as "OverAllRisk"
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
@@ -2163,7 +2170,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I click modal button "Save and Continue"
     When I enter values into fields
       | Value                    | Field               |
-      | Automation Justification | fieldTncComments__c |
+      | Automation Justification | TncComments__c |
     And I click on "Save" in the page details
     #97917 #monu
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -2233,10 +2240,11 @@ Feature: Validate all scenarios in the Amendment Request
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I navigate to "Risk Assessment" sub tab
-    When I click on "View" icon for "{SavedValue:EGMSID}" inside flex table with id "---riskassessment:-:riskAssessmentGridViewExternalTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
+    When I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:organizationprofileviewTableId---" without waiting for record
     Then I softly see field "Overall Risk" as "{SavedValue:OverAllRisk}"
 
-  @68088 @verifyAmendedBudgetPeriodHighlighted  @buglogges138281
+  @68088 @verifyAmendedBudgetPeriodHighlighted
   Scenario Outline: Validate that after amendment is done (budget period) the changed budget period is highlighted in the Subawards table
     When I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"

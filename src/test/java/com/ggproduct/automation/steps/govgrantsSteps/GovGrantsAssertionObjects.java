@@ -3793,6 +3793,30 @@ public final class GovGrantsAssertionObjects {
         return false;
     }
 
+    public void assertButtonNameInsidePostDropdown(String usage, String buttonName) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isButtonNameInsidePostDropdown(buttonName)).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isButtonNameInsidePostDropdown(buttonName)).isFalse();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isButtonNameInsidePostDropdown(buttonName));
+        } else {
+            Assert.assertFalse(isButtonNameInsidePostDropdown(buttonName));
+        }
+    }
+
+    private boolean isButtonNameInsidePostDropdown(String buttonName) {
+        try {
+            I.amPerforming().click().on(By.xpath("//article//button[@aria-haspopup='true']"));
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//article//div//ul//li//span[text()='" + buttonName + "']")))) {
+                return true;
+            }
+        } catch (Exception e) {
+            //Handle exception to continue execution
+        }
+        return false;
+    }
+
     public void assertTopRecentRecordsDisplayInsideGlobalSearchBox(String number, String usage) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(Integer.parseInt(number)).isEqualTo(isTopRecentRecordsInGlobalSearchDisplay(number));

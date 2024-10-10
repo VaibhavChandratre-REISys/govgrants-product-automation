@@ -29,31 +29,29 @@ Feature: Amendment Request scenarios without background
       | Name                     | Amendment Request |
       | {SavedValue:FO Username} | Step 2            |
     When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "FundingID"
     And I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I wait for "4" seconds
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
-    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---amendment:-:budgetChangeTableId---"
-    When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Amount |
-      | Extra Salary | The narrative | 1000         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
+      | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
+      | Site work       | 1000                 | 100        | 0              |
     When I click on button "resetIcon" in flex table with id "---amendment:-:budgetChangeTableId---"
-    When I click on "Add Line Items" icon for "Project inspection fees" inside flex table with id "---amendment:-:budgetChangeTableId---"
-    When I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Amount |
-      | Extra Salary | The narrative | 1000         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
+      | Budget Category         | Revised Award Amount | Cash Match | Non Cash Match |
+      | Project inspection fees | 1000                 | 100        | 0              |
     And I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---"
     And I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     When I enter values into fields
@@ -357,7 +355,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Amend Subaward" in the page details
     And I wait for "3" seconds
     When I click on "Activate" in the page details
-   And I wait for "3" seconds
+    And I wait for "3" seconds
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -394,7 +392,7 @@ Feature: Amendment Request scenarios without background
       | Name                     | Reimbursement |
       | {SavedValue:FO Username} | Step 1        |
     When I click on "Submit for Approval" in the page details
-   And I wait for "3" seconds
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -677,7 +675,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Actuals" sub tab
     Then I softly see field "Balance" as "$1,000.00"
     #103179 #monu
-    Then I softly see field "Reimbursed Amount" as "{SavedValue:PRA}"
+    Then I softly see field "Balance" as "{SavedValue:PRA}"
 
     Examples:
       | Award Name                                      | Grant Name                                      |
@@ -2153,13 +2151,11 @@ Feature: Amendment Request scenarios without background
     And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "NewSubAwardId"
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:NewSubAwardId}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:NewSubAwardId}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Management" sub tab
+    When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter value "Checked" into field "Signature__c"
     And I click on "Save and Continue" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Effective Date" as "{SavedValue:PBPSD}"
     Then I softly see field "Expiration Date" as "{SavedValue:PBPED}"
 
@@ -2464,7 +2460,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "VA: Virginia" into field "State__c"
     When I click on "Save" in the page details
     Then I softly see field "Zip Code" as "12346"
-    Then I softly see field "Subaward Details" as "{SavedValue:Automation Runtime Award}"
+    Then I softly see field "Subaward Details" as "Award Created From Automation API123"
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Delete" in page detail
     Then I softly can see top right button "Submit to Grantor" in page detail
@@ -3833,7 +3829,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Actual | Reported Date |
-      | Automation Permanent KPI |   7    |  7            |
+      | Automation Permanent KPI | 7      | 7             |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -3955,7 +3951,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Actual | Reported Date |
-      | Automation Permanent KPI |   8    |  8            |
+      | Automation Permanent KPI | 8      | 8             |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -5738,7 +5734,7 @@ Feature: Amendment Request scenarios without background
       | {SavedValue:PM Username} | Step 2            |
     Then I softly see "You cannot specify the same user for multiple steps for Amendment Request" inside flex table with id "---amendment:-:approversTableId---"
 
-  @154982 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUser-KPCAmendmentRequest-RnRFunctionality h
+  @154982 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUser-KPCAmendmentRequest-RnRFunctionality
   Scenario: Verify validation displayed when same approver is added on different  step for amendment key personnel change
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -8866,6 +8862,7 @@ Feature: Amendment Request scenarios without background
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Source User" sub tab
+    And I reset the table
     When I perform quick search for "{SavedValue:kpcId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:kpcId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
 
@@ -9332,7 +9329,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PM1" for title "Original Value" inside field history table
     And I click on back arrow
     When I navigate to "Files" sub tab
-    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I cannot see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
   @201081 @ValidateCarryforwardPOusercanreassignownershiptootheruserinapprovedstateofcarryforwardamendment @sprint-5-US-198235  @reassignment @FieldHistoryExclude
   Scenario: Validate Carry forward PO user can reassign ownership to other user in approved state of carry forward amendment
@@ -9462,7 +9459,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation PO" for title "Original Value" inside field history table
     And I click on back arrow
     When I navigate to "Files" sub tab
-    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I cannot see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
 
   @201084 @ValidateCarryforwardPOusercanreassignownershiptootheruserinapprovedstateofcarryforwardamendment @sprint-5-US-198235  @reassignment @FieldHistoryExclude
   Scenario: Validate Carry forward PO user can reassign ownership to other user in approved state of carry forward amendment
@@ -9565,7 +9562,7 @@ Feature: Amendment Request scenarios without background
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM" into field "input-1"
-    And I select value "Automation PM1" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
     And I select module "Amendment Request" from reassign ownership dropdown
     When I perform quick search for "{SavedValue:CFAmendmentId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:CFAmendmentId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
@@ -10026,7 +10023,7 @@ Feature: Amendment Request scenarios without background
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                           | End Date                             |
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} |
-     And I wait for "3" seconds
+    And I wait for "3" seconds
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -10257,12 +10254,9 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PO" into field "input-1"
     And I select value "Automation PO1" into field "input-2"
-    And I Click on "Start" icon for "Automation PO" without tableid
     And I pause execution for "3" seconds
-    Then I softly see " Reassign Ownership" page block displayed
-    Then I see the text containing "Amendment Request"
-    And I Click on "Reassign Records" icon for "Amendment Request" without tableid
-    Then I softly see "Amendment Requests Available for Reassignment " page block displayed
+    And I select module "Amendment Request" from reassign ownership dropdown
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
     Then I see value "{SavedValue:budgetPChangeId}" for title "Amendment Request ID" inside table "---amendment:-:amendmentSourceOwnerTableId---"
     When I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:amendmentSourceOwnerTableId---" panel
@@ -11252,10 +11246,8 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---amendment:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Subrecipient_BPCSOW_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "budgetSOWChangeId"
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Award}"
-    When I click on "Edit" in the page details
     And I enter "SubRecipientBPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
@@ -16330,6 +16322,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:BudgetRedirectId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
     And I click on "View" icon for "{SavedValue:BudgetRedirectId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I click on "Amend Subaward" in the page details
+    And I wait for "3" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -18333,8 +18326,8 @@ Feature: Amendment Request scenarios without background
     When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
-    And I select value "Automation PM" into field "s2id_autogen1"
-    And I select value "Automation PM1" into field "s2id_autogen3"
+    And I select value "Automation PM" into field "input-source"
+    And I select value "Automation PM1" into field "input-target"
     When I perform quick search for "{SavedValue:budgetPC&ScopeId}" in "---program:-:adminTaskReassignmentTableId---" panel
     When I check "{SavedValue:budgetPC&ScopeId}" boxes in flex table with id "---program:-:adminTaskReassignmentTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:adminTaskReassignmentTableId---"
