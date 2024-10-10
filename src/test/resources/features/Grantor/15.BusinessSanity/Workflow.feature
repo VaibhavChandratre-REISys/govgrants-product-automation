@@ -1543,20 +1543,27 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-   @tst1
-   Scenario:
-     Given I login to "As a Grantor" app as "EXE1" user
-     And I click on Menu icon present on top right corner of the page
-     And I wait for "2" seconds
-     And I select "Download As PDF" from dropdown
-     And I wait for "5" seconds
-     And I download the file
-     And I wait for "5" seconds
-     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
-     Then I softly see following details in "govgrants" pdf file:
-       | Detail   | Page Number |
-       | Contacts | 1           |
-     And I switch to parent tab
-     When I refresh the page
-     And I navigate to "History" sub tab
-     Then I softly see snapshot with name containing "Internal Program - submit for approval.pdf" as name
+  @debug1 @ValidatePMuserisabletotransferhisowntaskofthetasktypeActivatetheProgramstatusasInprogresstoanotherPMuserforinternalprogram @sprint-4  @reassignment @ownvai
+  Scenario Outline: Validate PM user is able to transfer his own task of the task type Activate the Program status as In progress to another PM user for internal program
+    When I login to "As a Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter "<Excel>" script values from "Program_Field_Values.xlsx"
+    Examples:
+      | Excel          |
+      | CSS_Creation1  |
+
+  @debug @ValidatePMusercanaddnotesonInternalProgramcreatedbyEXEuserwhenitsstatusiscreated @sprint-7-US-201927  @Notes
+  Scenario Outline: Validate PM user can add notes on Internal Program created by EXE user when its status is created
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "Automation Permanent Css Program1" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "Automation Permanent Css Program1" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    When I enter "<Excel>" script values from "Program_Field_Values.xlsx"
+    Examples:
+      | Excel        |
+      | CSS_Edition  |

@@ -1201,4 +1201,15 @@ public final class GovGrantsSteps {
     public void iClickOnbottomNavigatorInpageDetail(String buttonName) {
         ggObjects.toClickOnNavigatorButtonInBottom(buttonName);
     }
+
+    @When("^I (enter|enter in modal|enter in form) \"([^\"]*)\" script values from \"([^\"]*)\"$")
+    public void iEnterInModalValuesFromForCss(String usage, String sheetName, String fileName) {
+        govgrants.perform().inputForms().enterInputFieldsFromExcelFileForCss(
+                fileName,
+                sheetName,
+                usage
+        );
+    }
 }
+
+
