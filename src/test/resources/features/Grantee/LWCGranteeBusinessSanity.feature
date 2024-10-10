@@ -6738,8 +6738,8 @@ Feature: Sanity scenarios
     And I download the file
     Then I see "Grants - All" on page "1" of "govgrants" pdf file
     And I switch to parent tab
-    When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
-    And I select "Refresh" from parallel lines dropdown of "Non-Federal Programs- All"
+    When I click on parallel lines menu bar with data target value "Grants - All"
+    And I select "Refresh" from parallel lines dropdown of "Grants - All"
     Then I see table is refreshing
     And I click toggle button to select "Grants - Draft"
     When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
@@ -6850,3 +6850,117 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I softly see "Create Grant" opens in overLay window
     Then I softly cannot see field "Is Budget Period Closeout Request Required?" inside page block
+
+  @443804 @ValidateGrantWithEXEProfileGrantisinCreatedDraftstate
+  Scenario: Validate Grant With EXE Profile Grant is in Created Draft state
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I wait for "2" seconds
+    And I enter "Grantee_Grant_Setting_No" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    Then I softly see field "Status" as "Draft"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly can see top right button "Save" in page detail
+    Then I softly can see top right button "Cancel" in page detail
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    Then I softly see fields "DUNS__c" is in edit mode
+    Then I softly see fields "ProjectTitle__c" is in edit mode
+    Then I softly see fields "ProjectTitle__c" is in edit mode
+    Then I softly see fields "GrantAbbreviation__c" is in edit mode
+    Then I softly see fields "GrantNumber__c" is in edit mode
+    Then I softly see fields "ExternalOrganization__c" is in edit mode
+    Then I softly see fields "GrantType__c" is in edit mode
+    Then I softly see that "Internal Organization" rendered in view mode only
+    Then I softly see that "EIN" rendered in view mode only
+    Then I softly see that "Budget Type" rendered in view mode only
+    Then I softly see that "Funder Payment System" rendered in view mode only
+    Then I softly see field "Internal Organization" as "Department of Product"
+    Then I softly see field "EIN" as "YEA9221812"
+    Then I softly see field "Budget Type" as "Construction"
+    Then I softly see fields "GrantDescription__c" is in edit mode
+    Then I softly see fields "ProjectPeriodStartDate__c" is in edit mode
+    Then I softly see fields "ProjectPeriodEndDate__c" is in edit mode
+    Then I softly see fields "IsMatchRequired__c" is in edit mode
+    Then I softly see fields "DoesGrantAllowIndirect__c" is in edit mode
+    Then I softly see fields "MaintenanceOfEffort__c" is in edit mode
+    Then I softly see fields "LaverageAllowed__c" is in edit mode
+    Then I softly see fields "IsProgramIncomeAnticipated__c" is in edit mode
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Awards" sub tab
+    Then I softly can see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    And I navigate to "Financials" sub tab
+    And I click on "Edit" in the page details
+    Then I softly see fields "TotalObligatedAmount__c" is in edit mode
+    Then I softly see that "Award Amount to Date" rendered in view mode only
+    Then I softly see that "Expenditures to Date" rendered in view mode only
+    Then I softly see that "Remaining Budget" rendered in view mode only
+    Then I softly see that "Budgeted Match" rendered in view mode only
+    Then I softly see that "Remaining Match" rendered in view mode only
+    And I click on "Save" in the page details
+    And I navigate to "Files" sub tab
+    Then I softly can see top right button "Add Files" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
+    And I wait for "3" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:grantAddFilesTableId---"
+    Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
+    Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
+    Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
+    And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Award Documents" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:grantAddFilesTableId---"
+    Then I softly see value "Award Documents" for title "Classification" inside table "---grantee_tableId:-:grantAddFilesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:grantNotesTableId---" by clicking "Add" :
+      | Description      |
+      | Automation Notes |
+    Then I softly see the following messages in the page details :
+      | Required Fields Missing |
+    And I refresh the page
+    And I wait for "3" seconds
+    When I enter the following values into flex table with id "---grantee_tableId:-:grantNotesTableId---" by clicking "Add" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:grantNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
+    When I click on "Delete" icon for "Notes Record" inside flex table with id "---grantee_tableId:-:grantNotesTableId---"
+    And I wait for "3" seconds
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantNotesTableId---"
+    And I navigate to "Messages" sub tab
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To                        | Subject            | Body            |
+      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "4" seconds
+    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
+    Then I softly see value "victor.exegrantee.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    And I navigate to "Management" sub tab
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:grantProgressReportTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:GrantsFinancialReportTableId---"
+    And I navigate to "Monitoring" sub tab
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:grantGoalsTableId---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:grantKPITableId---"
+    And I navigate to "Closeout" sub tab
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
