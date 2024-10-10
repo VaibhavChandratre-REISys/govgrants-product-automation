@@ -1,7 +1,7 @@
 @programWB @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
-   @109448 @VerifySelectionOfChildOrganization
+  @109448 @VerifySelectionOfChildOrganization
   Scenario: Verifying if the user is able to change or add child organization to created program
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -10,6 +10,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+     And I pause execution for "3" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
      And I enter value "11.123" into field "FederalProgramCFDA__c"
@@ -426,7 +427,7 @@ Feature: Validate all scenarios for program
     And I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @141801 @VerifyErrorMessageWhileSkippingStepsForNGOProgram-RnRFunctionality
+ @wip @141801 @VerifyErrorMessageWhileSkippingStepsForNGOProgram-RnRFunctionality
   Scenario: Verify the validation message is displayed when user skip the approval steps on NGO program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -453,7 +454,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 
-  @169882 @169884 @169886 @169897 @169896 @169898 @ValidateusershouldabletoseenewGrantorPreapplicationformunderthesetuptabinInternalPrograms @sprint-7
+ @169882 @169884 @169886 @169897 @169896 @169898 @ValidateusershouldabletoseenewGrantorPreapplicationformunderthesetuptabinInternalPrograms @sprint-7 @wip
   Scenario Outline: Validate user should able to see new Grantor Pre application form under the setup tab in Internal Programs
     When I login to "As a Grantor" app as "<User>" user
     And I navigate to "Planning" tab
@@ -503,14 +504,14 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Grantor Pre-application Form"
     Then I softly see value "Standard Pre-Application form" for title "Form Name" inside table "---program:-:packagesTableId---"
 
-  @197300 @ValidatePMuserisabletotransferhisowntaskofthetasktypeActivatetheProgramstatusasInprogresstoanotherPMuserforinternalprogram @sprint-4  @reassignment @ownvai
+   @197300 @ValidatePMuserisabletotransferhisowntaskofthetasktypeActivatetheProgramstatusasInprogresstoanotherPMuserforinternalprogram @sprint-4  @reassignment @ownvai
   Scenario: Validate PM user is able to transfer his own task of the task type Activate the Program status as In progress to another PM user for internal program
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+    When I enter in modal "Creation" script values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
@@ -653,7 +654,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:OwnerName1}" for title "Name" inside table "---program:-:programOwnerTableId---"
     Then I cannot see top right button "Activate" in page detail
 
-  @197312 @ValidatereassignedtaskownerPMuserisabletoactivatetheinternalprogramifanothePMtransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskasNotstarted @sprint-4  @reassignment
+   @197312 @ValidatereassignedtaskownerPMuserisabletoactivatetheinternalprogramifanothePMtransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskasNotstarted @sprint-4  @reassignment
   Scenario: Validate reassigned task owner PM user is able to activate the internal program if another PM transfers task of the task type Activate the Program when status of task as Not started
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -822,7 +823,7 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I can see top right button "Amend Program" in page detail
 
-  @195200 @195206 @195208 @195211 @ValidateAdminusershouldabletoseethenewoptionofownershipunderreassignsectiononleftnavigationbarofAsaGrantorApp @sprint-4  @reassignment
+   @195200 @195206 @195208 @195211 @ValidateAdminusershouldabletoseethenewoptionofownershipunderreassignsectiononleftnavigationbarofAsaGrantorApp @sprint-4  @reassignment
   Scenario: Validate Admin user should able to see the new option of ownership under reassign section on left navigation bar of As a Grantor App
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
@@ -846,7 +847,7 @@ Feature: Validate all scenarios for program
     And I enter value "Undertaker FO" in reassign lookup
     Then I softly do not see "Undertaker FO" inside auto search result
 
-  @195212 @Validateusershouldabletoreassigntheownershiptaskbetweensameprofileandthesameorganization @sprint-4  @reassignment @ownvai
+   @195212 @Validateusershouldabletoreassigntheownershiptaskbetweensameprofileandthesameorganization @sprint-4  @reassignment @ownvai
   Scenario: Validate user should able to re-assign the ownership task between same profile and the same organization
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -879,7 +880,7 @@ Feature: Validate all scenarios for program
     #And I save the value from row "1" for column name "Owner" as "OwnerName1" from flex table "---program:-:adminTargetOwnerReplaceTableId---"
     Then I see value "Automation PM1" for title "Owner" inside table "---program:-:adminTargetOwnerReplaceTableId---"
 
-  @195222 @ValidateuserselectsourceuserasPMuser&targetuserasEXEuserthenusershouldgetanerrorafterclickingontheStarticon @sprint-4  @reassignment
+   @195222 @ValidateuserselectsourceuserasPMuser&targetuserasEXEuserthenusershouldgetanerrorafterclickingontheStarticon @sprint-4  @reassignment
   Scenario: Validate user select source user  as PM user & target user as EXE user then user should get an error after clicking on the Start icon
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
@@ -889,7 +890,7 @@ Feature: Validate all scenarios for program
     And I enter value "Automation EXE" in reassign lookup
     Then I softly do not see "Automation EXE" inside auto search result
 
-  @195223 @ValidateuserselectsourceuserasPMuser&targetuserasFDuserthenusershouldgeterrormessageafterclickingontheplayicon @sprint-4  @reassignment
+   @195223 @ValidateuserselectsourceuserasPMuser&targetuserasFDuserthenusershouldgeterrormessageafterclickingontheplayicon @sprint-4  @reassignment
   Scenario: Validate user select source user  as PM user & target user as FD user then user should get error message after clicking on the play icon
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
@@ -899,7 +900,7 @@ Feature: Validate all scenarios for program
     And I enter value "Automation FD" in reassign lookup
     Then I softly do not see "Automation FD" inside auto search result
 
-  @195234 @Validateusershouldnavigatedtothesepagewhereusershouldabletoseelistofalltheprogramsafterclickonreassignbutton/icon @sprint-4  @reassignment
+   @195234 @Validateusershouldnavigatedtothesepagewhereusershouldabletoseelistofalltheprogramsafterclickonreassignbutton/icon @sprint-4  @reassignment
   Scenario: Validate user should navigated to these page where user should able to see list of all the programs after click on reassign button/icon
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
@@ -993,7 +994,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | You need to select at least one record |
 
-  @195268 @Validatetherecordistransferredthenusershouldabletoseethesamerecordinthetargetuserstable @sprint-4  @reassignment
+   @195268 @Validatetherecordistransferredthenusershouldabletoseethesamerecordinthetargetuserstable @sprint-4  @reassignment
   Scenario: Validate the record is transferred then user should able to see the same record in the target user's table
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -1019,7 +1020,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
 
-  @195273 @195278 @195277 @Validateuserclickontransferbuttonusershouldgetfollowingwarningmessage @sprint-4  @reassignment
+   @195273 @195278 @195277 @Validateuserclickontransferbuttonusershouldgetfollowingwarningmessage @sprint-4  @reassignment
   Scenario: Validate user click on transfer button user should  get following warning message
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -1050,7 +1051,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Transfer is in progress, Kindly wait for email confirmation (Warning: if another user has already performed this action, no further processing will take place) |
 
-  @195317 @195347 @ValidateownershipistransferredforaProgramincreatedstateValidateallthevisibilityofallthebuttonsoftheprogramisavailabletothenewowner @sprint-4  @reassignment @FieldHistoryExclude
+   @195317 @195347 @ValidateownershipistransferredforaProgramincreatedstateValidateallthevisibilityofallthebuttonsoftheprogramisavailabletothenewowner @sprint-4  @reassignment @FieldHistoryExclude
   Scenario: Validate ownership is transferred for a Program in created state Validate all the visibility of all the buttons of the program is available to the new owner
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -1107,7 +1108,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Automation PM" for title "New Value" inside field history table
     Then I softly see value "Automation PM1" for title "Original Value" inside field history table
 
-  @195340 @Validatenameoftheownershouldgetupdatedinresponsibilitytab @sprint-1  @reassignment
+   @195340 @Validatenameoftheownershouldgetupdatedinresponsibilitytab @sprint-1  @reassignment
   Scenario: Validate name of the owner should  get updated in responsibility tab
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -1146,7 +1147,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---program:-:programOwnerTableId---"
 
-  @196652 @ValidateownershipistransferredforaProgramSubmittedforapprovalValidateapprovercanapprovetheprogram&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUI @sprint-4  @reassignment
+   @196652 @ValidateownershipistransferredforaProgramSubmittedforapprovalValidateapprovercanapprovetheprogram&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUI @sprint-4  @reassignment
   Scenario: Validate ownership is transferred for a Program Submitted for approval Validate approver can approve the program  & new program owner gets the Activate related task and has buttons on UI
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -1246,7 +1247,7 @@ Feature: Validate all scenarios for program
     Then I see value "Record Id" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
     Then I softly see value "Activate Internal Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:completedTaskTableId---"
 
-  @196688 @ValidateownershipistransferredforaPrograminSubmittedforReviewstateValidateallthevisibilityofallthebuttonsoftheprogramisavailabletothenewowner @sprint-4  @reassignment @ownvai
+   @196688 @ValidateownershipistransferredforaPrograminSubmittedforReviewstateValidateallthevisibilityofallthebuttonsoftheprogramisavailabletothenewowner @sprint-4  @reassignment @ownvai
   Scenario: Validate ownership is transferred for a Program in Submitted for Review state Validate all the visibility of all the buttons of the program is available to the new owner
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -1257,8 +1258,6 @@ Feature: Validate all scenarios for program
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I enter value "11.123" into field "FederalProgramCFDA__c"
     And I click on "Save" in the page details
@@ -1337,7 +1336,7 @@ Feature: Validate all scenarios for program
     And I click on Menu icon present on top right corner of the page
     Then I softly can see top right button "Submit For Approval" in page detail
 
-  @196706 @Validatepeerreviewtasksnotstartedremainwithassignedreviewer&arenotautomaticallyassignedtonewownerofprogramwhenownershipofsuchinternalsprogramistransferred @sprint-4  @reassignment
+   @196706 @Validatepeerreviewtasksnotstartedremainwithassignedreviewer&arenotautomaticallyassignedtonewownerofprogramwhenownershipofsuchinternalsprogramistransferred @sprint-4  @reassignment
   Scenario: Validate peer review tasks (not started) remain with assigned reviewer & are not automatically assigned to new owner of program when ownership of such internals program is transferred
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -1348,8 +1347,6 @@ Feature: Validate all scenarios for program
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I enter value "11.123" into field "FederalProgramCFDA__c"
     And I click on "Save" in the page details
@@ -1400,7 +1397,7 @@ Feature: Validate all scenarios for program
     Then I see value "Record Id" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     Then I see value "Review Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
 
-  @196764 @ValidatethevisibilityofallthebuttonsoftheprogramisnotavailablefortheinitialownerwhenownershipistransferredtonewuserforaPrograminSubmittedforReviewstate @sprint-4  @reassignment
+   @196764 @ValidatethevisibilityofallthebuttonsoftheprogramisnotavailablefortheinitialownerwhenownershipistransferredtonewuserforaPrograminSubmittedforReviewstate @sprint-4  @reassignment
   Scenario: Validate the visibility of all the buttons of the program is not available for the initial owner when ownership is transferred to a new user for a Program in Submitted for Review state
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -1455,7 +1452,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     Then  I cannot see top right button "New" in flex table with id "---program:-:peerReviewTableId---"
 
-  @196693 @Validatetasksareremovedforoldowner&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUIwhenownershipistransferredforaProgramofapprovedstatus @sprint-4  @reassignment
+   @196693 @Validatetasksareremovedforoldowner&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUIwhenownershipistransferredforaProgramofapprovedstatus @sprint-4  @reassignment
   Scenario: Validate tasks are removed for old owner & new program owner gets the Activate related task and has buttons on UI when ownership is transferred for a Program of approved status
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -1632,7 +1629,7 @@ Feature: Validate all scenarios for program
     Then I see value "Record Id" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
     Then I softly see value "Activate NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:completedTaskTableId---"
 
-  @197125 @Validateownershiptasksareroutedtoappropriateuserwhentransferofownershipisdonesimultaneouslyfor4internalprogramsindifferentstateshasrelatedtasksonthem @sprint-4  @reassignment
+   @197125 @Validateownershiptasksareroutedtoappropriateuserwhentransferofownershipisdonesimultaneouslyfor4internalprogramsindifferentstateshasrelatedtasksonthem @sprint-4  @reassignment
   Scenario: Validate ownership & tasks are routed to appropriate user when transfer of ownership is done simultaneously for 4 internal programs in different states & has related tasks on them
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -2014,7 +2011,7 @@ Feature: Validate all scenarios for program
       """
 
 
-  @198790  @sprint-4  @reassignment
+   @198790  @sprint-4  @reassignment
   Scenario: Validate newly assigned owner PM receives an email after internal program is sent to owner during approvals when ownership is transferred before post program is Reviewed
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -2169,7 +2166,7 @@ Feature: Validate all scenarios for program
     Then  I can see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then  I can see top right button "Add" in flex table with id "---program:-:internalProgramNotesTableId---"
 
-  @199612 @validateownershipreassignmentissuccessfulforainternalprogramonRejectedstatus @sprint-4  @reassignment
+   @199612 @validateownershipreassignmentissuccessfulforainternalprogramonRejectedstatus @sprint-4  @reassignment
   Scenario: Validate ownership reassignment is successful for a internal program on Rejected status
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -2601,8 +2598,6 @@ Feature: Validate all scenarios for program
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I enter value "11.123" into field "FederalProgramCFDA__c"
     And I click on "Save" in the page details
@@ -2614,9 +2609,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
     And I click modal button "Close"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "SYSTEM" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I perform quick search for "Automation ADMIN" in "---program:-:associateKPITableId---" panel
     When I click "Associate" after selection of "Automation Permanent KPI For Admin" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
@@ -2822,7 +2815,7 @@ Feature: Validate all scenarios for program
     Then I see field "Upload File" as " " on modal
     Then I see field "Description" as " " on modal
 
-  @204037 @ValidateUserPMcanseetwobuttonsatthebottomofUploadFilesfromComputerUploadItwillenableonlyafterwechooseafiletouploadelseitwillbedisabled @sprint-7-US-202724
+ @204037 @ValidateUserPMcanseetwobuttonsatthebottomofUploadFilesfromComputerUploadItwillenableonlyafterwechooseafiletouploadelseitwillbedisabled @sprint-7-US-202724
   Scenario: Validate User PM can see two buttons at the bottom of Upload Files from Computer Upload It will enable only after we choose a file to upload else it will be disabled
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -2910,7 +2903,7 @@ Feature: Validate all scenarios for program
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     Then I do not see "Cancel" button is disabled at modal under library
 
-  @198791 @ValidateemailnotificationregardingReviewcompletionoftheinternalprogramissenttothenewowneruponreviewcompletionwhenownershipistransferredforPrograminSubmittedforReviewstate @sprint-5-US-195182  @reassignment @buglogged-199105
+   @198791 @ValidateemailnotificationregardingReviewcompletionoftheinternalprogramissenttothenewowneruponreviewcompletionwhenownershipistransferredforPrograminSubmittedforReviewstate @sprint-5-US-195182  @reassignment @buglogged-199105
   Scenario: Validate email notification regarding Review completion of the internal program is sent to the new owner upon review completion when ownership is transferred for a Program in Submitted for Review state
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -3087,7 +3080,7 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
 
-  @197530 @ValidatereassignedtaskownerEXEuserisabletocompletetheworkflowoninternalprogramifanotherEXEtransferstaskoftypeActivatetheProgramwhenprogramisamendedafteractivation @sprint-12-US-226646  @reassignment
+   @197530 @ValidatereassignedtaskownerEXEuserisabletocompletetheworkflowoninternalprogramifanotherEXEtransferstaskoftypeActivatetheProgramwhenprogramisamendedafteractivation @sprint-12-US-226646  @reassignment
   Scenario: Validate reassigned task owner EXE user is able to complete the workflow on internal program if another EXE transfers task of type Activate the Program when program is amended after activation
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -3158,7 +3151,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Active"
     Then I can see top right button "Amend Program" in page detail
 
-  @162651 @ValidateSystemAdminSAuserscannotreassignpendingtasksforAuditorprofileuser @sprint-12-US-226646  @reassignment
+   @162651 @ValidateSystemAdminSAuserscannotreassignpendingtasksforAuditorprofileuser @sprint-12-US-226646  @reassignment
   Scenario: Validate System Admin SA users cannot reassign pending tasks for Auditor profile user
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Planning" tab
@@ -3182,9 +3175,6 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
     And I click modal button "Close"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "SYSTEM" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI For Admin" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I click modal button "Close"
@@ -3207,7 +3197,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "4" seconds
     Then I softly do not see "Automation AUDITOR" inside auto search result
 
-  @217607 @ValidateInternalProgapproveandownerofprogramaresamevalidateafterreassigningtheapprovaltaskownershipofrecordisnotchanged @sprint-12-US-226646  @reassignment
+   @217607 @ValidateInternalProgapproveandownerofprogramaresamevalidateafterreassigningtheapprovaltaskownershipofrecordisnotchanged @sprint-12-US-226646  @reassignment
   Scenario: Validate Internal Prog approver and owner of a program are same validate after reassigning the approval task ownership of record is not changed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3218,8 +3208,6 @@ Feature: Validate all scenarios for program
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I enter value "11.123" into field "FederalProgramCFDA__c"
     And I click on "Save" in the page details
@@ -3286,7 +3274,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---program:-:programOwnerTableId---"
 
-  @217752 @ValidateInternalProgadditionalentriesmadeduetoreassignmentforR&Rincontexttonextmodulearecarriedahead @sprint-12-US-226646  @reassignment
+   @217752 @ValidateInternalProgadditionalentriesmadeduetoreassignmentforR&Rincontexttonextmodulearecarriedahead @sprint-12-US-226646  @reassignment
   Scenario: Validate Internal Prog additional entries made due to reassignment for R&R in context to next module are carried ahead
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3382,7 +3370,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "NA" for title "Announcement" against the value "Automation PM" inside table "---announcement:-:approversTableId---"
     Then I softly see value "NA" for title "Announcement" against the value "Automation PM1" inside table "---announcement:-:approversTableId---"
 
-  @217759 @ValidateInternalProgstepshouldgetupdatedifVictorEXEstep1approverreassignapprovertaskofsamerecordtoScottEXEwhosestepisNAforprogram @sprint-12-US-226646  @reassignment
+   @217759 @ValidateInternalProgstepshouldgetupdatedifVictorEXEstep1approverreassignapprovertaskofsamerecordtoScottEXEwhosestepisNAforprogram @sprint-12-US-226646  @reassignment
   Scenario: Validate Internal Prog_ Verify step should get updated if Victor EXE step 1 approver reassign approver task of same record to Scott EXE whose step is NA for program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3393,8 +3381,6 @@ Feature: Validate all scenarios for program
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I enter value "11.123" into field "FederalProgramCFDA__c"
     And I click on "Save" in the page details
@@ -3440,7 +3426,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Step 1" for title "Post Award / Monitoring" against the value "Automation EXE1" inside table "---program:-:approverTableId---"
     Then I softly see value "Step 1" for title "Closeout" against the value "Automation EXE1" inside table "---program:-:approverTableId---"
 
-  @217602 @ValidateInternalProgtaskreassignmentdoesnothappenwhenusertriestoreassignhistasktoanotheruserisresponsiblefordifferentstepofsamemodule @sprint-12-US-226646  @reassignment
+   @217602 @ValidateInternalProgtaskreassignmentdoesnothappenwhenusertriestoreassignhistasktoanotheruserisresponsiblefordifferentstepofsamemodule @sprint-12-US-226646  @reassignment
   Scenario: Validate Internal Prog_ Validate task reassignment does not happen when a user tries to reassign his task to another user is responsible for different step of same module
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3509,7 +3495,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Step 1" for title "Post Award / Monitoring" against the value "Automation EXE1" inside table "---program:-:approverTableId---"
     Then I softly see value "Step 1" for title "Closeout" against the value "Automation EXE1" inside table "---program:-:approverTableId---"
 
-  @223421 @ValidatetransferofpeerreviewtasksisfailedincaseofanyreasonthenR&RonInternalprogramshouldnotgetupdated @sprint-12-US-226646  @reassignment @FieldHistoryExclude
+   @223421 @ValidatetransferofpeerreviewtasksisfailedincaseofanyreasonthenR&RonInternalprogramshouldnotgetupdated @sprint-12-US-226646  @reassignment @FieldHistoryExclude
   Scenario: Validate transfer of peer review tasks is failed in case of any reason then R&R on Internal program should not get updated
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3617,7 +3603,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @195757 @ValidateEmailistriggeredtoreassigneduserontheclickofReassignAll @sprint-12-US-226646  @reassignment
+   @195757 @ValidateEmailistriggeredtoreassigneduserontheclickofReassignAll @sprint-12-US-226646  @reassignment
   Scenario: Validate Email is triggered to the reassigned user on the click of Reassign All
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -3628,8 +3614,6 @@ Feature: Validate all scenarios for program
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I enter value "11.123" into field "FederalProgramCFDA__c"
     And I click on "Save" in the page details
@@ -3688,8 +3672,7 @@ Feature: Validate all scenarios for program
 
       The EGMS Team.
       """
-
-  @217621 @ValidateInternalProgIapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityprogramreviewervalidatereassignmentfails @sprint-12-US-226646  @reassignment
+   @217621 @ValidateInternalProgIapeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityprogramreviewervalidatereassignmentfails @sprint-12-US-226646  @reassignment
   Scenario: Validate Internal Prog If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (program reviewer)validate reassignment fails
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3700,8 +3683,6 @@ Feature: Validate all scenarios for program
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I enter value "11.123" into field "FederalProgramCFDA__c"
     And I click on "Save" in the page details
@@ -3765,8 +3746,7 @@ Feature: Validate all scenarios for program
 
       The EGMS Team.
       """
-
-  @161994 @ValidateForpeerreviewtasksifausertriestoreassignareviewtasktoauserwhowasalreadyassignedasreviewerontherecordandforthesametypeprogramorfiscalthetasksdogetreassigned @sprint-12-US-226646  @reassignment
+   @161994 @ValidateForpeerreviewtasksifausertriestoreassignareviewtasktoauserwhowasalreadyassignedasreviewerontherecordandforthesametypeprogramorfiscalthetasksdogetreassigned @sprint-12-US-226646  @reassignment
   Scenario: Validate For peer review tasks, if a user tries to reassign a review task to a user who was already assigned as a reviewer on the record, and for the same type (program or fiscal), the tasks do not get reassigned
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3839,7 +3819,7 @@ Feature: Validate all scenarios for program
       The EGMS Team.
       """
 
-  @224662 @ValidateInternalProgramfailureemailshouldgeneratedforapproversandsuccessemailgeneratedforpeerreviewers @sprint-12-US-226646  @reassignment
+   @224662 @ValidateInternalProgramfailureemailshouldgeneratedforapproversandsuccessemailgeneratedforpeerreviewers @sprint-12-US-226646  @reassignment
   Scenario: Validate Internal Program failure email should generated for approvers and success email generated for peer reviewers
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -4011,7 +3991,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Step 1" for title "Program" against the value "{SavedValue:PM Username}" inside table "---program:-:approverTableId---"
     Then I softly see value "Step 2" for title "Program" against the value "Automation PM1" inside table "---program:-:approverTableId---"
 
-  @195749 @Validateuserseevalidationmessageifuserhasalreadyre-assignedthetasksandheistryingtore-assigntasksagainandbatchjobisalreadyrunning @sprint-12-US-226646  @reassignment
+   @195749 @Validateuserseevalidationmessageifuserhasalreadyre-assignedthetasksandheistryingtore-assigntasksagainandbatchjobisalreadyrunning @sprint-12-US-226646  @reassignment
   Scenario: Validate user see validation message if user has already re-assigned the tasks and he is trying to re-assign tasks again and batch job is already running
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -4051,7 +4031,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details :
       | Reassignment is still in progress, kindly wait for few minutes. |
 
-  @195279 @ValidateProgramwhentheownershipofrecordischangedthenemailnotificationshouldsenttotheSAuserpreviousowner @sprint-11-US-224734  @reassignment
+   @195279 @ValidateProgramwhentheownershipofrecordischangedthenemailnotificationshouldsenttotheSAuserpreviousowner @sprint-11-US-224734  @reassignment
   Scenario: Validate Program when the ownership of a record is changed then email notification should sent to the SA user(previous owner)
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -4155,7 +4135,7 @@ Feature: Validate all scenarios for program
       The EGMS Team
       """
 
-  @162073 @ValidateEmailistriggeredtothereassigneduserontheclickofReassignselected @sprint-11-US-224734  @reassignment
+   @162073 @ValidateEmailistriggeredtothereassigneduserontheclickofReassignselected @sprint-11-US-224734  @reassignment
   Scenario: Validate Email is triggered to the reassigned user on the click of Reassign selected
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -4264,7 +4244,7 @@ Feature: Validate all scenarios for program
       """
 
 
-  @191032 @ValidatePlanningPMasrecordownercanseenewlyreassignApprovernameinapproversection @sprint-11-US-224734  @reassignment
+   @191032 @ValidatePlanningPMasrecordownercanseenewlyreassignApprovernameinapproversection @sprint-11-US-224734  @reassignment
   Scenario: Validate Planning PM as record owner can see newly reassign Approver name in approver section
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -4275,8 +4255,6 @@ Feature: Validate all scenarios for program
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I enter value "11.123" into field "FederalProgramCFDA__c"
     And I click on "Save" in the page details
@@ -4326,7 +4304,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @195753 @ValidateEmailistriggeredtothereassigneduserontheclickofReassignselected @sprint-7-US-191250  @reassignment
+   @195753 @ValidateEmailistriggeredtothereassigneduserontheclickofReassignselected @sprint-7-US-191250  @reassignment
   Scenario: Validate Email is triggered to the reassigned user on the click of Reassign selected
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -4427,7 +4405,7 @@ Feature: Validate all scenarios for program
       """
 
 
-  @217601 @ValidateInternalProgstep2approverisinsertedforprogramcolumnwhenapprovaltaskisreassigned @sprint-7-US-191250  @reassignment
+   @217601 @ValidateInternalProgstep2approverisinsertedforprogramcolumnwhenapprovaltaskisreassigned @sprint-7-US-191250  @reassignment
   Scenario: Validate Internal Prog step2 approver is inserted for program column when approval task is reassigned
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -4494,7 +4472,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Step 1" for title "Closeout" against the value "Automation PM" inside table "---program:-:approverTableId---"
     Then I softly see value "Step 2" for title "Program" against the value "Automation PM1" inside table "---program:-:approverTableId---"
 
-  @217603 @validateInternalProgtaskreassignmentissuccessfulwhenusertriestoreassignhistasktoanotheruserisresponsibleforsamestepofdifferentmodules @sprint-7-US-191250  @reassignment
+   @217603 @validateInternalProgtaskreassignmentissuccessfulwhenusertriestoreassignhistasktoanotheruserisresponsibleforsamestepofdifferentmodules @sprint-7-US-191250  @reassignment
   Scenario: Validate Internal Prog task reassignment is successful when a user tries to reassign his task to another user is responsible for same step of different modules
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -4569,7 +4547,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "NA" for title "FDM" against the value "Automation FO" inside table "---program:-:approverTableId---"
     Then I softly see value "NA" for title "Award" against the value "Automation FO" inside table "---program:-:approverTableId---"
 
-  @217609 @ValidateInternalProgIfapproverandownerofprogramaresameafterreassigningtheownershipofrecordapprovernameshouldnotchanged @sprint-7-US-191250  @reassignment
+   @217609 @ValidateInternalProgIfapproverandownerofprogramaresameafterreassigningtheownershipofrecordapprovernameshouldnotchanged @sprint-7-US-191250  @reassignment
   Scenario: Validate Internal Prog If approver and owner of a program are same validate after reassigning the ownership of record approver name should not changed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -4636,7 +4614,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Step 2" for title "Program" against the value "Automation PM" inside table "---program:-:approverTableId---"
     Then I softly see value "Step 1" for title "Program" against the value "Automation EXE" inside table "---program:-:approverTableId---"
 
-  @217655 @ValidateInternalProgapproverdefinitionisnotmodifiedoninitialrecordifapproversarechangedatruntime @sprint-7-US-191250  @reassignment
+   @217655 @ValidateInternalProgapproverdefinitionisnotmodifiedoninitialrecordifapproversarechangedatruntime @sprint-7-US-191250  @reassignment
   Scenario: Validate Internal Prog approver definition is not modified on initial record if approvers are changed at runtime
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -4750,7 +4728,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Step 1" for title "Program" against the value "Automation PM" inside table "---program:-:approverTableId---"
     Then I softly see value "Step 1" for title "Announcement" against the value "Automation PM" inside table "---program:-:approverTableId---"
 
-  @217745 @ValidateInternalProgIfpeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityfiscalreviewervalidatereassignmentfails @sprint-7-US-191250  @reassignment
+   @217745 @ValidateInternalProgIfpeerreviewerisalreadyaddedforsimilarroleandreviewertriestoreassignsuchtasktootherreviewerwithsameresponsibilityfiscalreviewervalidatereassignmentfails @sprint-7-US-191250  @reassignment
   Scenario: Validate Internal Prog If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (fiscal reviewer) reassignment fails
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -4787,7 +4765,7 @@ Feature: Validate all scenarios for program
       | Reviewer Name  | Responsibility  | Description                 | Due Date |
       | Automation FO1 | Fiscal Reviewer | Automation Test Description | 10       |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
-    And I pause execution for "5" second
+    And I pause execution for "5" seconds
     When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "Automation FO1" inside table
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -4834,7 +4812,7 @@ Feature: Validate all scenarios for program
       The EGMS Team.
       """
 
-  @217761 @ValidateInternalProgusershouldgetfailureemailifusertriestoreassignsameuserformultipleapprovalsteps @sprint-7-US-191250  @reassignment
+   @217761 @ValidateInternalProgusershouldgetfailureemailifusertriestoreassignsameuserformultipleapprovalsteps @sprint-7-US-191250  @reassignment
   Scenario: Validate Internal Prog user should get failure email if user tries to reassign same user for multiple approval steps
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -4908,7 +4886,7 @@ Feature: Validate all scenarios for program
       """
 
 
-  @217762 @ValidateInternalProgadditionalentriesmadeduetoreassignmentforR&Rincontexttonextmodulearenotcarriedahead @sprint-7-US-191250  @reassignment
+   @217762 @ValidateInternalProgadditionalentriesmadeduetoreassignmentforR&Rincontexttonextmodulearenotcarriedahead @sprint-7-US-191250  @reassignment
   Scenario: Validate Internal Prog additional entries made due to reassignment for R&R in context to next module are not carried ahead
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -5048,7 +5026,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "NA" for title "Program" against the value "Automation PM1" inside table "---program:-:extapproverTableId---"
     Then I softly see value "Step 2" for title "Program" against the value "Automation PM" inside table "---program:-:extapproverTableId---"
 
-  @226835  @sprint-11-US-218319  @reassignment
+   @226835  @sprint-11-US-218319  @reassignment
   Scenario: Validate Internal Prog If a peer reviewer is already added for similar role and reviewer tries to reassign such task to other reviewer with same responsibility (program reviewer)validate reassignment fails Keep target user in created state
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -5059,8 +5037,6 @@ Feature: Validate all scenarios for program
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I enter value "11.123" into field "FederalProgramCFDA__c"
     And I click on "Save" in the page details
@@ -5118,7 +5094,7 @@ Feature: Validate all scenarios for program
      The EGMS Team.
       """
 
-  @223527 @ValidateProgramModuleifprogramrecordisinsubmittedforreviewstate&submittedreviewbyreviewerafterchangingtheownershipofprogramthenemailshouldbesendtothenewowner @sprint-11-US-217998  @reassignment
+   @223527 @ValidateProgramModuleifprogramrecordisinsubmittedforreviewstate&submittedreviewbyreviewerafterchangingtheownershipofprogramthenemailshouldbesendtothenewowner @sprint-11-US-217998  @reassignment
   Scenario: Validate Program Module if program record is in submitted for review state & submitted review by reviewer after changing the ownership of  program then email should be send to the new owner
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -5199,8 +5175,7 @@ Feature: Validate all scenarios for program
       The EGMS Team
       """
 
-
-  @223481 @ValidateProgramModulaftertransferringthemorethan10recordtonewownerthenallfuturetaskaccessvisibletonewowner @sprint-11-US-217998  @reassignment
+   @223481 @ValidateProgramModulaftertransferringthemorethan10recordtonewownerthenallfuturetaskaccessvisibletonewowner @sprint-11-US-217998  @reassignment
   Scenario: Validate Program Module after transferring the more than 10 record to new owner then all future task access visible to new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -5640,7 +5615,7 @@ Feature: Validate all scenarios for program
       """
 
 
-  @224336 @ValidateInternalProgapprovershouldabletoapproveprogramafterreassigntheforwardedapprovaltasktootherapprover @sprint-11-US-218319  @reassignment
+   @224336 @ValidateInternalProgapprovershouldabletoapproveprogramafterreassigntheforwardedapprovaltasktootherapprover @sprint-11-US-218319  @reassignment
   Scenario: Validate Internal Prog approver should able to approve program after reassign the forwarded approval task to other approver
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -5803,7 +5778,7 @@ Feature: Validate all scenarios for program
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
 
-  @204488 @ValidateP0usercanaddnotesonInternalProgramcreatedbyPMuserwhenitsstatusisBeingamended @sprint-7-US-201927  @Notes
+ @204488 @ValidateP0usercanaddnotesonInternalProgramcreatedbyPMuserwhenitsstatusisBeingamended @sprint-7-US-201927  @Notes
   Scenario: Validate P0 user can add notes on  Internal Program created by PM user when its status is Being amended
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -5814,15 +5789,13 @@ Feature: Validate all scenarios for program
     And I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I enter value "11.123" into field "FederalProgramCFDA__c"
     And I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
@@ -5897,7 +5870,7 @@ Feature: Validate all scenarios for program
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
 
-  @204512 @ValidateEXEusercantaddnotesbuteditdeletehisnotesonhisInternalPrograminRejectedStatus @sprint-7-US-201927  @Notes
+ @204512 @ValidateEXEusercantaddnotesbuteditdeletehisnotesonhisInternalPrograminRejectedStatus @sprint-7-US-201927  @Notes
   Scenario: Validate EXE user cant add notes but edit/delete his notes on his Internal Program in Rejected Status
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -5914,7 +5887,7 @@ Feature: Validate all scenarios for program
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -5966,7 +5939,7 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---program:-:internalProgramNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
 
-  @204513 @ValidatePMuserusercantaddnotesbuteditdeletehisnotesonInternalProgramcreatedbyEXEuserwhenitsstatusisRejected @sprint-7-US-201927  @Notes
+ @204513 @ValidatePMuserusercantaddnotesbuteditdeletehisnotesonInternalProgramcreatedbyEXEuserwhenitsstatusisRejected @sprint-7-US-201927  @Notes
   Scenario: Validate PM user user cant add notes but edit/delete his notes on Internal Program created by EXE user when its status is Rejected
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -5983,7 +5956,7 @@ Feature: Validate all scenarios for program
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -6065,7 +6038,7 @@ Feature: Validate all scenarios for program
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
 
-  @204536 @ValidatePMEXEFOcanaddnotesonainternalprogramwhichissubmittedforReview&Reviewed @sprint-7-US-201927  @Notes
+ @204536 @ValidatePMEXEFOcanaddnotesonainternalprogramwhichissubmittedforReview&Reviewed @sprint-7-US-201927  @Notes
   Scenario: Validate PM,EXE,FO can add notes on a internal program which is submitted for Review & Reviewed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -6083,7 +6056,7 @@ Feature: Validate all scenarios for program
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -6193,7 +6166,7 @@ Feature: Validate all scenarios for program
     And I save the value from row "1" for column name "Created Date" as "CreatedDate" from flex table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:internalProgramNotesTableId---"
 
-  @204537 @ValidatePOFDADMINcanaddnotesonainternalprogramwhichisReviewed @sprint-7-US-201927  @Notes
+ @204537 @ValidatePOFDADMINcanaddnotesonainternalprogramwhichisReviewed @sprint-7-US-201927  @Notes
   Scenario:Validate PO,FD, ADMIN can add notes on a internal program which is Reviewed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -6209,7 +6182,7 @@ Feature: Validate all scenarios for program
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -6293,7 +6266,7 @@ Feature: Validate all scenarios for program
     And I save the value from row "1" for column name "Created Date" as "CreatedDate" from flex table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---program:-:internalProgramNotesTableId---"
 
-  @204544 @204545 @204546 @ValidatePMEXEPOcanaddnotesonainternalprogramwhichissubmittedforapproval&Approved @sprint-7-US-201927  @Notes
+ @204544 @204545 @204546 @ValidatePMEXEPOcanaddnotesonainternalprogramwhichissubmittedforapproval&Approved @sprint-7-US-201927  @Notes
   Scenario: Validate PM,EXE,PO can add notes on a internal program which is submitted for approval & Approved
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -6309,7 +6282,7 @@ Feature: Validate all scenarios for program
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -6977,7 +6950,7 @@ Feature: Validate all scenarios for program
     Then I softly cannot see row level action button "Edit" against "Notes Record4" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record4" in flex table with id "---program:-:externalProgramNotesTableId---"
 
-  @204887 @ValidateFiscalReviewerEXEcanaddnotesonaInternalprogramwhenitssentforreviewevenifAllowrecordeditisNo @sprint-7-US-201927  @Notes
+@204887 @ValidateFiscalReviewerEXEcanaddnotesonaInternalprogramwhenitssentforreviewevenifAllowrecordeditisNo @sprint-7-US-201927  @Notes
   Scenario: Validate Fiscal Reviewer EXE can add notes on a Internal program when its sent for review even if Allow record edit is No
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -6994,7 +6967,7 @@ Feature: Validate all scenarios for program
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -7029,7 +7002,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
 
-  @204888 @ValidateProgramReviewerPOcanaddnotesonaInternalprogramwhenallowrecordeditisYesandevenifreviewissubmitted @sprint-7-US-201927  @Notes
+ @204888 @ValidateProgramReviewerPOcanaddnotesonaInternalprogramwhenallowrecordeditisYesandevenifreviewissubmitted @sprint-7-US-201927  @Notes
   Scenario:Validate Program Reviewer PO can add notes on a Internal program when allow record edit is Yes and even if review is submitted
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7045,7 +7018,7 @@ Feature: Validate all scenarios for program
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -7088,7 +7061,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
 
-  @204890 @ValidateFiscalReviewerFOhavingAllowrecordeditpermissionasYescanaddnotesonaInternalprogramwhenitsreviewed @sprint-7-US-201927  @Notes
+ @204890 @ValidateFiscalReviewerFOhavingAllowrecordeditpermissionasYescanaddnotesonaInternalprogramwhenitsreviewed @sprint-7-US-201927  @Notes
   Scenario:Validate Fiscal Reviewer FO  having Allow record edit permission as Yes, can add notes on a Internal program when its reviewed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7104,7 +7077,7 @@ Feature: Validate all scenarios for program
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -7450,9 +7423,9 @@ Feature: Validate all scenarios for program
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     Then I see only the following ordered options in dropdown field "Classification" :
-      | Template for Planning | Others |
+      | Select file classification | Template for Planning | Others |
 
-  @330560 @330580 @330611 @330615 @ValidatePMusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectccaddresscolumnsonMessagessectionundercollabtabofInternalProgram @SystemEmail
+ @330560 @330580 @330611 @330615 @ValidatePMusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectccaddresscolumnsonMessagessectionundercollabtabofInternalProgram @SystemEmail
   Scenario: Validate PM user should see value populates in " Subject, From Address, To Address, Attention to, Email subject,cc address" columns on Messages section under collab tab of Internal Program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7485,7 +7458,7 @@ Feature: Validate all scenarios for program
       | fo.automation@yopmail.com | RE: Automation Test1 | Automation Re-Test Email Body |
     Then I softly see the following messages in the page details contains:
       | Email Sent Successfully. |
-    And I close "Reply" modal by clicking the top right x button
+    And I close "Send Email" modal by clicking the top right x button
     Then I see value "" for title "Attention To" against the value "RE: Automation Test1" inside table "---program:-:programCollabMessagesTableId---"
     #330611
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -7505,7 +7478,7 @@ Feature: Validate all scenarios for program
       | fo.automation@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
     Then I softly see the following messages in the page details contains:
       | Email Sent Successfully. |
-    And I close "Reply" modal by clicking the top right x button
+    And I close "Send Email" modal by clicking the top right x button
     Then I see value "" for title "Attention To" against the value "RE: Automation Test2" inside table "---program:-:programCollabMessagesTableId---"
 
   @331481 @331482 @331479 @331477 @331478 @ValidatethatSarahPMAndPeerReviewerVictorEXEwillseesystemEmailafterSarahPmsendsInternalProgramforPeerreview @Sprint-11-US-327737 @SystemEmail
@@ -7617,7 +7590,7 @@ Feature: Validate all scenarios for program
     And I save the value from row "2" for column name "Subject" as "oldSubject" from flex table "---program:-:systemEmailsTableId---"
     Then I softly see that the saved value "{SavedValue:oldSubject}" and "Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review" are equal
 
-  @331854 @ValidatethatSystemEmailwillgenerateinmessagestabwhenlastApproverClickonundobuttononApprovedInternalProgram @Sprint-11-US-327737 @SystemEmail
+@331854 @ValidatethatSystemEmailwillgenerateinmessagestabwhenlastApproverClickonundobuttononApprovedInternalProgram @Sprint-11-US-327737 @SystemEmail
   Scenario: Validate that System Email will generate in messages tab when last Approver Click on undo button on Approved Internal Program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7635,7 +7608,7 @@ Feature: Validate all scenarios for program
     Then I cannot see top right button "Undo" in page detail
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -7876,7 +7849,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @331820 @331821 @331823 @ValidatethatAfterApproverclicksonSendbackbuttonforInternalProgramthenSystemEmaildonotgenerateinmessagestab @Sprint-11-US-327737 @SystemEmail
+ @331820 @331821 @331823 @ValidatethatAfterApproverclicksonSendbackbuttonforInternalProgramthenSystemEmaildonotgenerateinmessagestab @Sprint-11-US-327737 @SystemEmail
   Scenario: Validate that After Approver clicks on Send back button for Internal Program then System Email do not generate in messages tab
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -8011,7 +7984,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @331855 @ValidatethatSystemEmailwillnotgenerateinmessagestabofInternalProgramwhenApprovaltaskisReassignstootheruserbyapprover @Sprint-11-US-327737 @SystemEmail
+   @331855 @ValidatethatSystemEmailwillnotgenerateinmessagestabofInternalProgramwhenApprovaltaskisReassignstootheruserbyapprover @Sprint-11-US-327737 @SystemEmail
   Scenario: Validate that System Email will not generate in messages tab of Internal Program when Approval task is Reassigns to other user by approver
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -8073,7 +8046,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @330620 @330624 @ValidateEXEusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectcolumnsonMessagessectionundercollabtabofInternalProgram @Sprint-11-US-326332 @SystemEmail
+ @330620 @330624 @ValidateEXEusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectcolumnsonMessagessectionundercollabtabofInternalProgram @Sprint-11-US-326332 @SystemEmail
   Scenario: Validate EXE user should see value populates in " Subject, From Address, To Address, Attention to, Email subject" columns on Messages section under collab tab of Internal Program
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -8113,7 +8086,7 @@ Feature: Validate all scenarios for program
       | fo.automation@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
     Then I softly see the following messages in the page details contains:
       | Email Sent Successfully. |
-    And I close "Reply" modal by clicking the top right x button
+   And I close "Send Email" modal by clicking the top right x button
     Then I see value "" for title "Attention To" against the value "RE: Automation Test2" inside table "---program:-:programCollabMessagesTableId---"
 
   @330625 @330629 @330617 @330598 @ValidatethatFDusercanSeeSendEmailbuttononmessagessectionofmessagestabinAnystateofInternalProgram @Sprint-11-US-326332 @SystemEmail

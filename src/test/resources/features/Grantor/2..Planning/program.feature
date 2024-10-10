@@ -9,6 +9,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "5" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     And I enter value "11.123" into field "FederalProgramCFDA__c"
@@ -25,7 +26,7 @@ Feature: Validate all scenarios for program
       | Program flextable Header  | Program                                          |
       | Internal Programs - Draft | {SavedValue:Automation Runtime Internal Program} |
 
-  @105872 @VerifyDeletionOfCreatedProgram
+ @105872 @VerifyDeletionOfCreatedProgram
   Scenario Outline: Verifying if the owner of program is ablr to delete created program
     When I navigate to "Planning" tab
     And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
@@ -546,7 +547,7 @@ Feature: Validate all scenarios for program
       | Setup Tab - Pre-Screen Review - Pre-Screen: The total section weight must equal 100% or 0%. It is currently 120%.                                   |
       | Setup Tab - SME Review - Fiscal Review: The total section weight must equal 100% or 0%. It is currently 90%.                                        |
 
-  @76943 @76944 @76948 @76947 @76984 @76985 @77098
+ @76943 @76944 @76948 @76947 @76984 @76985 @77098
   Scenario: To verify user able to modify review question in Strategic Alignment of Review Panel Categories in management review form for management review step in planning phase
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Management Review"
@@ -667,13 +668,14 @@ Feature: Validate all scenarios for program
       | {SavedValue:EXE Username} | Step 2  |
     Then I see that "{SavedValue:EXE Username}" has been added in flextable with Id "---program:-:approverTableId---"
 
-  @34616 @76118 @75992 @75821 @75830 @75831 @75836 @75832 @75840 @75841 @programFocusAreaAssociation
+  @hit1 @34616 @76118 @75992 @75821 @75830 @75831 @75836 @75832 @75840 @75841 @programFocusAreaAssociation
   Scenario Outline: Validate the association of Focus Area for the Internal Program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "<Title>" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see that "<Title>" has been added in flextable with Id "---program:-:focusAreaTableId---"
     And I expand nested table containing column value "Pre-Screen Review"
     And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
@@ -684,7 +686,7 @@ Feature: Validate all scenarios for program
       | Reviewer                 |
       | {SavedValue:PM Username} |
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
-    Then I softly see value "donald_pm@ggp.test7.atm.prolwcut" for title "Email" inside table "---program:-:reviewStepTableId---"
+    Then I softly see value "donald_pm@ggp.test7.atm.vaqaorg" for title "Email" inside table "---program:-:reviewStepTableId---"
     Then I softly see value "Test Automation Organization" for title "Organization Name" inside table "---program:-:reviewStepTableId---"
     And I refresh the page
     And I navigate to "Setup" sub tab
@@ -718,7 +720,7 @@ Feature: Validate all scenarios for program
       | Reviewer                 |
       | {SavedValue:PM Username} |
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
-    Then I softly see value "donald_pm@ggp.test7.atm.prolwcut" for title "Email" inside table "---program:-:reviewStepTableId---"
+    Then I softly see value "donald_pm@ggp.test7.atm.vaqaorg" for title "Email" inside table "---program:-:reviewStepTableId---"
     Then I softly see value "Test Automation Organization" for title "Organization Name" inside table "---program:-:reviewStepTableId---"
     And I click on "Delete" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details :
@@ -793,7 +795,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details :
       | Setup Tab - Remove all the Focus Areas associated with this program if the Focus Area Required is "No". |
 
-  @34737 @76116 @76117 @76113 @76115 @75894 @75888 @75891 @programObjectiveAssociation
+ @hit1 @34737 @76116 @76117 @76113 @76115 @75894 @75888 @75891 @programObjectiveAssociation
   Scenario Outline: Validate the Association of Objective to the Internal Program
     When I navigate to "Setup" sub tab
 #    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
@@ -856,8 +858,10 @@ Feature: Validate all scenarios for program
       | Reviewer                 |
       | {SavedValue:PO Username} |
     Then I softly see the following messages in the page details :
-      | Saved Successfully! |
+      |  Saved Successfully! |
+   And I wait for "3" seconds
     And I click on parallel lines menu bar with data target value "Reviewers"
+    And I wait for "3" seconds
     And I select "Download as PDF" from parallel lines dropdown of "Reviewers"
     And I download the file
     Then I softly see "Reviewers" on page "1" of "govgrants" pdf file
@@ -882,7 +886,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @34738 @75991 @75993 @75895 @75896 @75909 @75912 @75913 @programKPIAssociation
+ @34738 @75991 @75993 @75895 @75896 @75909 @75912 @75913 @programKPIAssociation
   Scenario Outline: Validate the association of KPI
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
@@ -923,6 +927,7 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:programReviewPanel---" by clicking "New" :
       | Section Order | Section Header    |
       | 3             | Automation Header |
+   And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
 
@@ -1240,7 +1245,7 @@ Feature: Validate all scenarios for program
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
     And I refresh the page
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
@@ -1487,7 +1492,7 @@ Feature: Validate all scenarios for program
       | Setup Tab - Management Review: At least one form is required for this review step.                                   |
       | Setup Tab - Management Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
 
-  @76339 @ValidateErrorMessageForComplianceReviewForm
+ @program3 @76339 @ValidateErrorMessageForComplianceReviewForm
   Scenario: To validate system generated error message,for compliance review form, If Review Panel Categories not associated with review question in SME review step of setup tab in planing
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -1539,7 +1544,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Setup Tab - SME Review - Compliance Review: A weighted form must contain weighted sections. |
 
-  @76480 @76481 @76482 @ManagementReviewPanelCategoryReviewFormWeight  @kjhefuwehfiuqwefh
+ @76480 @76481 @76482 @ManagementReviewPanelCategoryReviewFormWeight  @kjhefuwehfiuqwefh
   Scenario: To validate system generated error message , When Total section Weight is more than 100% for all Review Panel Categories in management review form for management review step in planning phase
   | To validate system generated error message , When Total section Weight is less than 100% for all Review Panel Categories in management review form for management review step in planning phase
   | To validate system generated error message ,When management review form Weight : 0% & total section weight : 100 % for all review panel categories for management review step in planning phase
@@ -1618,7 +1623,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Management Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
 
-  @76478 @PrescreenReviewPanelCategoriesWithoutAssociated
+ @76478 @PrescreenReviewPanelCategoriesWithoutAssociated
   Scenario Outline: To validate system generated error message,for Prescreen Review form, If Review Panel Categories not associated with review question in  Prescreening review step of setup tab in planing
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -1666,7 +1671,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @76579 @76580 @76581 @SMEReviewTotalSectionWeightValidation  @needToCheckErrorMessage
+ @76579 @76580 @76581 @SMEReviewTotalSectionWeightValidation  @needToCheckErrorMessage
   Scenario Outline: To validate system generated error message ,When Total section Weight is 0% for all Review Panel Categories in program review form for SME review step in planning phase
   | To validate system generated error message , When Total section Weight is more than 100% for all Review Panel Categories in program review form for SME review step in planning phase
   | To validate system generated error message , When Total section Weight is less than 100% for all Review Panel Categories in program review form for SME review step in planning phase
@@ -1763,7 +1768,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @76583 @76584 @76586 @PrescreeningSMEReviewQuestionValidation
+ @76583 @76584 @76586 @PrescreeningSMEReviewQuestionValidation
   Scenario Outline: To verify,review question section displayed by default for all review panel categories for prrescreening review form in prescreening review step of planning phase
   |To verify,review question section displayed by default for all review panel categories for compliance review form in SME review step of planning phase
   |To verify,review question section displayed by default for all review panel categories for Fiscal review form in SME review step of planning phase
@@ -1981,7 +1986,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @76925 @76924 @76938 @ModificationDeletionManagementReviewQuestion  @needToCheckErrorMessage
+ @hit1 @76925 @76924 @76938 @ModificationDeletionManagementReviewQuestion  @needToCheckErrorMessage
   Scenario Outline: To verify user able to modify review question in Return on Investment (ROI) of Review Panel Categories in management review form for management review step in planning phase
   | To verify user able to delete review question with success message in Return on Investment (ROI) of Review Panel Categories in management review form for management review step in planning phase
   | To verify user able to delete review question with success message in Strategic Alignment of Review Panel Categories in management review form for management review step in planning phase
@@ -2049,7 +2054,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @38246 @77115 @77106 @ValidatingPre-ScreenReviewFormAndComplianceReviewAdditionDeletion
+ @38246 @77115 @77106 @ValidatingPre-ScreenReviewFormAndComplianceReviewAdditionDeletion
   Scenario: To validate system generated error message ,When Total section Weight is 0% for all Review Panel Categories in prescreening review form for prescreening review step in planning phase
   | To verify user able to modify review question  in Environment of Review Panel Categories in compliance review form for SME review step in planning phase
   | To verify user able to add new review question with success message in Permits of Review Panel Categories in compliance review form for SME review step in planning phase
@@ -2251,7 +2256,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77172 @ValidatingAdditionInMatchFiscalReviewForm
+ @77172 @ValidatingAdditionInMatchFiscalReviewForm
   Scenario: To verify user able to add new review question with success message in Match of Review Panel Categories in Fiscal review form for SME review step in planning phase
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -2291,7 +2296,7 @@ Feature: Validate all scenarios for program
     Then I softly can see row level action button "Edit" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Delete" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
 
-  @77173 @77176 @77174 @ValidatingPDFModificationDeletionInMatchFiscalReviewForm
+ @77173 @77176 @77174 @ValidatingPDFModificationDeletionInMatchFiscalReviewForm
   Scenario Outline:  To verify user allow to download PDF for review question in match of Review Panel Categories in Fiscal review form for SME review step in planning phase
   | To verify user able to modify review question in Match of Review Panel Categories in fiscal review form for SME review step in planning phase
   | To verify user able to delete review question with success message in Match of Review Panel Categories in fiscal review form for SME review step in planning phase
@@ -2356,7 +2361,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77189 @ValidatingAdditionInProgramIncomeFiscalReviewForm
+ @77189 @ValidatingAdditionInProgramIncomeFiscalReviewForm
   Scenario Outline: To verify user able to add new review question with success message in Program Income of Review Panel Categories in Fiscal review form for SME review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -2556,7 +2561,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @76479 @ValidatingTotalSectionWeightInManagmentReview
+ @76479 @ValidatingTotalSectionWeightInManagmentReview
   Scenario: To validate system generated error message ,When Total section Weight is 0% for all Review Panel Categories in management review form for management review step in planning phase
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -2598,7 +2603,7 @@ Feature: Validate all scenarios for program
       | Setup Tab - Management Review - Management Review: A score cannot be associated to a question in the Strategic Alignment section because it does not have a weight.        |
       | Setup Tab - Management Review - Management Review: A weighted form must contain weighted sections.                                                                         |
 
-  @77290 @77289 @77292 @77291  @PDFAdditionModificationDeletionInApproach
+ @77290 @77289 @77292 @77291  @PDFAdditionModificationDeletionInApproach
   Scenario Outline: To verify user allow to download PDF for review question in Approach of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user able to add new review question with success message in Approach of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user able to modify review question in Approach of Review Panel Categories in Program review form for SME review step in planning phase
@@ -2666,7 +2671,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77293 @77294 @77343 @AdditionPDFModificationInImpact
+ @77293 @77294 @77343 @AdditionPDFModificationInImpact
   Scenario Outline: To verify user able to add new review question with success message in Impact of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user allow to download PDF for review question in Impact of Review Panel Categories in Program review form for SME review step in planning phase
   | To verify user able to modify review question in Impact of Review Panel Categories in Program review form for SME review step in planning phase
@@ -2727,7 +2732,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77418 @77422 @77421 @ValidatingErrorMessageInManagamentComplianceFiscalReviewForm
+ @hit3 @77418 @77422 @77421 @ValidatingErrorMessageInManagamentComplianceFiscalReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :100% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Management Review form in Management Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :20% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for compliance Review form in SME Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :40% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Fiscal Review form in SME Review step in planning phase
@@ -2772,7 +2777,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77423 @ValidatingErrorMessageInPreScreenReviewForm
+ @program3 @77423 @ValidatingErrorMessageInPreScreenReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :100% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for prescreening Review form in prescreening Review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -2965,7 +2970,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77612 @ValidatingErrorMessageInProgramReviewForm
+ @hit3 @77612 @ValidatingErrorMessageInProgramReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) : 0% ,Minimum Number of Reviews per Application : 1 , Required? : Checked ,for Program Review Review form in SME Review step in planning phase
     And I wait for "5" seconds
     And I click on "Edit" in the page details
@@ -3004,6 +3009,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Form Weight (%) | Minimum Number of Reviews per Application |
       | Program Review | 0               | 1                                         |
+   And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
@@ -3014,7 +3020,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77613 @ValidatingErrorMessageFiscalReviewForm
+ @hit3 @77613 @ValidatingErrorMessageFiscalReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :0% ,Minimum Number of Reviews per Application : 1 , Required? :Checked ,for fiscal Review Review form in SME Review step in planning phase
     And I click on "Edit" in the page details
     And I wait for "10" seconds
@@ -3061,7 +3067,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77615 @ValidatingErrorMessageInComplianceReviewForm
+ @77615 @ValidatingErrorMessageInComplianceReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :0% ,Minimum Number of Reviews per Application : 1 , Required? :Checked ,for compliance Review Review form in SME Review step in planning phase
     And I click on "Edit" in the page details
     And I wait for "10" seconds
@@ -3098,6 +3104,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application |
       | Compliance Review | 0               | 1                                         |
+   And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
@@ -3232,7 +3239,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77485 @77609 @77616 @validatingErrorMsgPrescreeningReviewForm  @needToCheckErrorMessage
+ @program3 @77485 @77609 @77616 @validatingErrorMsgPrescreeningReviewForm  @needToCheckErrorMessage
   Scenario Outline: To validate system generated validation message, When Max score:0, for all review questions under the Completeness review panel categories and  Weight is present, in prescreening Review form of prescreening review steps in planning phase
   | To validate system generated error message, if Form Weight (%) :0% ,Minimum Number of Reviews per Application : 0 , Required? :Unchecked ,for prescreening Review Review form in prescreening Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :0% ,Minimum Number of Reviews per Application : 1 , Required? :Checked ,for prescreening Review Review form in prescreening Review step in planning phase
@@ -3419,7 +3426,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77710 @77711 @77712 @validatingErrorMsgFiscalReviewForm  @needToCheckErrorMessage
+ @program3 @77710 @77711 @77712 @validatingErrorMsgFiscalReviewForm  @needToCheckErrorMessage
   Scenario Outline: To validate system generated error message, Max score set as 0 on all questions and weight as 60% on Review Panel Categories of "Program Income" under fiscals review form of the SME reviews steps of setup tab of planning phase.
   | To validate system generated error message, Max score set as 0 on all questions and weight as 60% on Review Panel Categories of "Match" under fiscals review form of the SME reviews steps of setup tab of planning phase.
   |  To validate system generated error message, Max score set as 0 on all questions and weight as 60% on Review Panel Categories of "Budget" under fiscals review form of the SME reviews steps of setup tab of planning phase.
@@ -3892,7 +3899,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @78087 @validateSuccessMessageForReviewStepSection
+ @78087 @validateSuccessMessageForReviewStepSection
   Scenario Outline: To validate success message,when user click on validate button in review step section of setup tab in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -3917,7 +3924,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @81230 @validatingPreScreenReviewFormQuestions
+ @program3 @81230 @validatingPreScreenReviewFormQuestions
   Scenario Outline: To verify,review question displayed by default for all review panel categories for Prescreen review form in prescreen review step of planning phase
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -3963,7 +3970,7 @@ Feature: Validate all scenarios for program
       | Focus Area                      | Program Name                                     |
       | Automation Permanent Focus Area | {SavedValue:Automation Runtime Internal Program} |
 
-  @81231 @validatingComplainceReviewQuestionsInSMEReviewForEXEUser
+ @81231 @validatingComplainceReviewQuestionsInSMEReviewForEXEUser
   Scenario Outline: To verify,review question displayed by default for all review panel categories for Compliance Review review form in SME review step of planning phase
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -4022,7 +4029,7 @@ Feature: Validate all scenarios for program
       | Focus Area                      | Program Name                                     |
       | Automation Permanent Focus Area | {SavedValue:Automation Runtime Internal Program} |
 
-  @77347 @77349 @77348 @validatingMaximumScoreSMEReviewFormQuestions  @needToCheckErrorMessage
+ @77347 @77349 @77348 @validatingMaximumScoreSMEReviewFormQuestions  @needToCheckErrorMessage
   Scenario Outline: To validate system generated validation message, When Max score:0, for all review questions under the Capability review panel categories and  Weight is present, in program review form of SME review steps in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -4096,7 +4103,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77403 @validatingSMEReviewFormQuestionsForMatchReviewPanel
+ @77403 @validatingSMEReviewFormQuestionsForMatchReviewPanel
   Scenario: To validate system generated validation message, When Max score:0, for all review questions under the Capability review panel categories and  Weight is present, in program review form of SME review steps in planning phase
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -4328,7 +4335,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77487 @77602 @77603 @77604 @ValidatingMinimumNoOfReviewsShouldBeGreaterThanZeroInProgramFiscalAndComplianceReviewForm
+ @77487 @77602 @77603 @77604 @ValidatingMinimumNoOfReviewsShouldBeGreaterThanZeroInProgramFiscalAndComplianceReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) : 0% ,Minimum Number of Reviews per Application : 0 , Required? : checked ,for Program,Fiscal and Compliance Review form, in SME Review step in planning phase
     And I click on "Edit" in the page details
     And I wait for "10" seconds
@@ -4417,7 +4424,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77476 @77477 @77478 @ValidatingMinimumNoOfReviewsShouldBeZeroInProgramFiscalAndComplianceReviewForm
+ @program3 @77476 @77477 @77478 @ValidatingMinimumNoOfReviewsShouldBeZeroInProgramFiscalAndComplianceReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :50%, 30%, 30%,Minimum Number of Reviews per Application : 0 , Required? : checked ,for Program, Fiscal and Compliance Review form in SME Review step in planning phase
     And I click on "Edit" in the page details
     And I wait for "10" seconds
@@ -4609,7 +4616,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77694 @77706 @validatingErrorMessagesManagementReviewFormQuestions
+ @program3 @77694 @77706 @validatingErrorMessagesManagementReviewFormQuestions
   Scenario Outline:To validate system generated error message, Max score set as 0 on all questions and weight as 40% on Review Panel Categories of "Return on Investment (ROI)" under management review of the reviews steps section of setup tab of planning phase.
     And I click on "Edit" in the page details
     And I wait for "10" seconds
@@ -5253,7 +5260,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77192 @validatingDownloadPDFForImpactInSMEReviewFormQuestions
+ @77192 @validatingDownloadPDFForImpactInSMEReviewFormQuestions
   Scenario Outline:To verify user allow to download PDF for review question in Impact of Review Panel Categories in Program review form for SME review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -5340,7 +5347,7 @@ Feature: Validate all scenarios for program
       | Objective                      | Question 2                                                                                                                                      |
       | Automation Permanent Objective | Does the budget outline how program income will be used and tracked? Are the proposed program income uses consistent with program requirements? |
 
-  @77199 @validatingDownloadPDFSMEReviewPanelCategory
+ @hit3 @77199 @validatingDownloadPDFSMEReviewPanelCategory
   Scenario Outline:To verify user is able to download review panel category for SME review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -5361,7 +5368,8 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I click on parallel menu button in flex table title "Review Categories"
-    And I select "Download as PDF" from parallel lines dropdown of "Review Categories"
+   And I wait for "3" seconds
+   And I select "Download as PDF" from parallel lines dropdown of "Review Categories"
     And I download the file
     Then I see "Review Panel Categories" on page "1" of "govgrants" pdf file
     Examples:
@@ -5504,7 +5512,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77346 @validatingDownloadPDFForProgramIncomeInSMEReviewFormQuestions
+ @77346 @validatingDownloadPDFForProgramIncomeInSMEReviewFormQuestions
   Scenario Outline:To verify user allow to download PDF for review question in Program Income of Review Panel Categories in Fiscal review form for SME review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -5533,7 +5541,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @80051 @38864 @76503 @76946 @77105 @validatingComplianceReviewFormQuestionsInSMEReview
+ @80051 @38864 @76503 @76946 @77105 @validatingComplianceReviewFormQuestionsInSMEReview
   Scenario: To verify,review question displayed by default for all review panel categories for Compliance Review review form in SME review step of planning phase
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -5800,7 +5808,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @passed @106332 @106322 @106319 @106317 @verifyActivationOfAmendedProgram
+  @106332 @106322 @106319 @106317 @verifyActivationOfAmendedProgram
   Scenario Outline: Verify user is able to activate the amended internal program
     And I click on "Edit" in the page details
     And I wait for "10" seconds
@@ -5933,7 +5941,7 @@ Feature: Validate all scenarios for program
       | Focus Area                      |
       | Automation Permanent Focus Area |
 
-  @105969 @VerifyAllActiveFocusArea
+ @program3 @105969 @VerifyAllActiveFocusArea
   Scenario: Validate user is able to see all active focus area on associate modal
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -6050,7 +6058,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Setup Tab - The total Review Step weight must equal 100%. It is currently 110.00%. |
 
-  @109794 @VerifyValidationMessageForReviewFormWeightGreaterThan100%   @needToCheckErrorMessage
+ @109794 @VerifyValidationMessageForReviewFormWeightGreaterThan100%   @needToCheckErrorMessage
   Scenario: validate user is able to see validation message when review form weight is greater than 100%
     And I navigate to "Setup" sub tab
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
@@ -6165,7 +6173,7 @@ Feature: Validate all scenarios for program
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I softly see field "Status" as "Approved"
 
-  @138464 @VerifyErrorMessageWhileSkippingStepsAtProgramApproverSection-RnRFuntionality
+ @program3 @138464 @VerifyErrorMessageWhileSkippingStepsAtProgramApproverSection-RnRFuntionality
   Scenario:  Validate owner of the program cannot skip any approval steps for program approval while defining the approval on the program
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -6200,7 +6208,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 
-  @140330 @Verify4StepApprovalAtProgramApprover-RnRFuntionality
+ @program3 @140330 @Verify4StepApprovalAtProgramApprover-RnRFuntionality
   Scenario: Verify that user can add four step approver on internal program
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
