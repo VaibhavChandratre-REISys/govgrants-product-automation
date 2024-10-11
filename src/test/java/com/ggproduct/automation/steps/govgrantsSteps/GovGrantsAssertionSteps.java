@@ -743,7 +743,7 @@ public final class GovGrantsAssertionSteps {
         ggAssertionObjects.isRecordDisplayedInExpectedColorAtCalendar(record, colorName);
     }
 
-    @Then("^I (see|do not see) toggle option \"([^\"]*)\" inside flex table id \"([^\"]*)\"$")
+    @Then("^I (softly see|see|do not see|softly do not see) toggle option \"([^\"]*)\" inside flex table id \"([^\"]*)\"$")
     public void iCannotSeeToggleOptionInsideFlexTableId(String usage, String toggleOptions, String flexTableId) {
         ggAssertionObjects.assertToggleOptionDisplayed(toggleOptions, flexTableId, usage);
     }
@@ -766,7 +766,7 @@ public final class GovGrantsAssertionSteps {
     public void iSoftlyDoNotSeeTopRightButtonInsideFlexTable(String usage, String buttonName, String tableId) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(topRightButtonVisibleOrNot(buttonName, tableId)).isTrue();
-        } else if (usage.equalsIgnoreCase("do not see")) {
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
             I.amPerforming().assertionsTo().assertThat(topRightButtonVisibleOrNot(buttonName, tableId)).isFalse();
         }
     }
@@ -801,6 +801,11 @@ public final class GovGrantsAssertionSteps {
     @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" section inside global search dropdown$")
     public void iSoftlySeeSectionsInsideGlobalSearchDropdown(String sectionName, String usage) {
         ggAssertionObjects.assertSectionsofGlobalSearchDisplayOrNot(usage, sectionName);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" button name inside post dropdown$")
+    public void iSeeButtonNameInsidePostDropdown(String buttonName, String usage) {
+        ggAssertionObjects.assertButtonNameInsidePostDropdown(usage, buttonName);
     }
 
     @Then("^I (softly see|see|do not see|softly do not see) recent \"([^\"]*)\" records in global search box$")
@@ -860,5 +865,15 @@ public final class GovGrantsAssertionSteps {
     @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" button display on footer$")
     public void iSoftlySeeButtonDisplayOnFooter(String usage,String buttonName) {
         ggAssertionObjects.assertButtonDisplayOnFooter(usage,buttonName);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) button \"([^\"]*)\" inside flextable \"([^\"]*)\"$")
+    public void iSoftlySeeButtonInsideFlextable(String usage,String buttonName, String tableId) {
+        ggAssertionObjects.assertResetButtonInsideFlextable(usage, buttonName, tableId);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) post \"([^\"]*)\" by user \"([^\"]*)\"$")
+    public void iSoftlySeePostByUser(String usage,String message, String userName) {
+        ggAssertionObjects.assertPostByUser(usage,message,userName);
     }
 }

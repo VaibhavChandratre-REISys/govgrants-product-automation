@@ -37,18 +37,18 @@ Feature: Validate all scenarios for program
       | Program flextable Header  | Program                                          |
       | Internal Programs - Draft | {SavedValue:Automation Runtime Internal Program} |
 
- @34503 @66389 @105898 @35985 @75815 @38247 @75816 @75817 @75812 @75813 @75910 @75911 @75814 @updateFieldsValidationCheck
+  @34503 @66389 @105898 @35985 @75815 @38247 @75816 @75817 @75812 @75813 @75910 @75911 @75814 @updateFieldsValidationCheck
   Scenario: To verify that the user is able to modified created internal program settings and view the added setting by the creating a direct grant.
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     #105898 #monu
-    Then I softly see field "Focus Area Required?" as "Yes"
+    Then I softly see field "Focus Areas Required?" as "Yes"
     And I softly see field "KPI" as "Yes"
     And I softly see field "Objectives Required?" as "Yes"
     #66389
     And I click on "Edit" in the page details
     And I enter "Edition1" values from "Program_Field_Values.xlsx"
     When I click on "Save" in the page details
-    Then I softly see field "Focus Area Required?" as "No"
+    Then I softly see field "Focus Areas Required?" as "No"
     And I softly see field "KPI" as "No"
     And I softly see field "Objectives Required?" as "No"
     And I navigate to "Setup" sub tab
@@ -103,7 +103,7 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "Pre-Screen Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly do not see value "Pre-Screen Review" for title "Step Name" inside table "---program:-:reviewStepTableId---"
     And I expand nested table containing column value "Management Review"
-    And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
+    And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanel---" by clicking "Edit" :
       | Section Order | Section Header                  |
       | 1             | Return on Investment (ROI) Test |
@@ -127,7 +127,9 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PM Username} |
-    Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
+    And I refresh the page
+    And I wait for "4" seconds
+    Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:addReviewersTableId---"
     And I click on parallel menu button in flex table title "Reviewers"
     And I select "Download as PDF" from dropdown
     And I download the file
@@ -135,15 +137,19 @@ Feature: Validate all scenarios for program
       | Detail                   | Page Number |
       | {SavedValue:PM Username} | 1           |
     And I switch to parent tab
-    And I click on "Delete" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-    Then I softly do not see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
+    And I click on "Remove from Form" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:addReviewersTableId---" without waiting for record
+    And I wait for "2" seconds
+    Then I softly do not see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:addReviewersTableId---"
     And I refresh the page
+    And I wait for "2" seconds
     And I navigate to "Setup" sub tab
+    When I collapse nested table containing column value "Pre-Screen Review"
     And I expand nested table containing column value "Management Review"
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PM Username} |
-    Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
+    And I refresh the page
+    Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:addReviewersTableId---"
     And I click on parallel menu button in flex table title "Reviewers"
     And I select "Download as PDF" from dropdown
     And I download the file
@@ -151,12 +157,12 @@ Feature: Validate all scenarios for program
       | Detail                   | Page Number |
       | {SavedValue:PM Username} | 1           |
     And I switch to parent tab
-    And I click on "Delete" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-    Then I softly do not see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
-    And I refresh the page
-    And I navigate to "Setup" sub tab
-    And I collapse nested table containing column value "Pre-Screen Review"
+    And I click on "Remove from Form" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:addReviewersTableId---" without waiting for record
     And I wait for "2" seconds
+    Then I softly do not see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:addReviewersTableId---"
+    And I refresh the page
+    And I wait for "2" seconds
+    And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     And I click on parallel menu button in flex table title "Review Forms"
     And I select "Download as PDF" from dropdown
@@ -177,7 +183,7 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Pre-Screen Review"
     And I click on "Delete" icon for "Pre-Screen" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details contains:
-      | Record deleted Successfully. |
+      | Record deleted successfully. |
     Then I softly see "No records found" inside flex table with id "---program:-:reviewStepTableId---"
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
@@ -283,47 +289,22 @@ Feature: Validate all scenarios for program
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-#    And I click on advance filter "#advfProgramRelatedReviewPanelCategories" of table id "---program:-:programReviewPanel---"
-#    And I enter advance filter values inside id "advfProgramRelatedReviewPanelCategories"
-#      | Section Order | equals to | 2 |
-#    Then I softly see value "Completeness" for title "Section Header" inside table "---program:-:programReviewPanel---"
-#    And I softly see total records count "Total Records:1" in flex table "---program:-:programReviewPanel---"
-#    And I clear all the filter from the table id "advfProgramRelatedReviewPanelCategories"
-#    And I enter advance filter values inside id "advfProgramRelatedReviewPanelCategories"
-#      | Section Order | equals to | 5 |
-#    Then I softly see "No records found" inside flex table with id "---program:-:programReviewPanel---"
     And I refresh the page
     And I navigate to "Setup" sub tab
     When I collapse nested table containing column value "Pre-Screen Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-#    And I click on advance filter of table id "---program:-:programReviewPanel---" for LWC
-#    And I enter advance filter values inside id "---program:-:programReviewPanel---" for LWC
-#      | Section Order | equals to | 3 |
-#    Then I softly see value "Permits" for title "Section Header" inside table "---program:-:programReviewPanel---"
-#    And I softly see total records count "Total Records:1" in flex table "---program:-:programReviewPanel---"
-#    And I clear all the filter from the table id "advfProgramRelatedReviewPanelCategories"
-#    And I enter advance filter values inside id "advfProgramRelatedReviewPanelCategories"
-#      | Section Order | equals to | 5 |
-#    Then I softly see "No records found" inside flex table with id "---program:-:programReviewPanel---"
     And I refresh the page
     And I navigate to "Setup" sub tab
     When I collapse nested table containing column value "SME Review"
     And I wait for "2" seconds
-    And I expand nested table containing column value "SME Review"
-    And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-#    And I click on advance filter of table id "---program:-:programReviewPanel---" for LWC
-#    And I enter advance filter values inside id "---program:-:programReviewPanel---" for LWC
-#      | Section Order | equals to | 3 |
-#    Then I softly see value "Program Income" for title "Section Header" inside table "---program:-:programReviewPanel---"
-#    And I softly see total records count "Total Records:1" in flex table "---program:-:programReviewPanel---"
     And I refresh the page
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Pre-Screen | 100.00%         | Checked   | 1                                         |
+      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | Checked   | 100             | 1                                         |
     And I pause execution for "5" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
@@ -568,18 +549,18 @@ Feature: Validate all scenarios for program
   Scenario: To verify user able to modify review question in Strategic Alignment of Review Panel Categories in management review form for management review step in planning phase
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Management Review"
-    And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
+    And I click on "Review Form" icon for "Management Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I expand nested table containing column value "Strategic Alignment"
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "Edit" :
-      | Question Order | Type   |
-      | 2              | Yes/No |
+      | Question Order | Type |
+      | 2              | Date |
       #76943 following 2 assertion belongs to this
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-    And I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
+    And I softly see value "Date" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I refresh the page
     And I expand nested table containing column value "Pre-Screen Review"
-    And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
+    And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I expand nested table containing column value "Eligibility"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -601,7 +582,7 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "2" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
       #76947 following 2 assertion belongs to this
     Then I softly see the following messages in the page details contains:
-      | Record deleted Successfully. |
+      | Record deleted successfully. |
     And I softly do not see value "2" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     #And I collapse nested table containing column value "Eligibility"
     And I expand nested table containing column value "Completeness"
@@ -1113,14 +1094,7 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I wait for "3" seconds
     When I click modal button "Close"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
-    When I click modal button "Close"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program |
@@ -1134,13 +1108,14 @@ Feature: Validate all scenarios for program
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Automation test description" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     #110141 #monu
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
     And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see "Program Artifacts" has been added in "Program Files" flex table
     And I click on "Submit For Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -1706,8 +1681,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -1803,8 +1778,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -2076,7 +2051,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @38246 @77115 @77106 @ValidatingPre-ScreenReviewFormAndComplianceReviewAdditionDeletion  @needToCheckErrorMessage
+  @38246 @77115 @77106 @ValidatingPre-ScreenReviewFormAndComplianceReviewAdditionDeletion
   Scenario: To validate system generated error message ,When Total section Weight is 0% for all Review Panel Categories in prescreening review form for prescreening review step in planning phase
   | To verify user able to modify review question  in Environment of Review Panel Categories in compliance review form for SME review step in planning phase
   | To verify user able to add new review question with success message in Permits of Review Panel Categories in compliance review form for SME review step in planning phase
@@ -2145,9 +2120,7 @@ Feature: Validate all scenarios for program
     When I edit the following rows inline in flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "Edit" :
       | Question Order | Type   |
       | 4              | Number |
-    And I pause execution for "5" seconds
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
+    And I pause execution for "3" seconds
     Then I softly see value "Number" for title "Type" against the value "4" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on "Delete" icon for "4" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly do not see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2310,12 +2283,9 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 4              | Test 4   | Yes/No | 0         |
-    And I wait for "5" seconds
-   Then I softly see the following messages in the page details contains:
-     | Saved Successfully! |
-    And I collapse nested table containing column value "Match"
-    And I wait for "2" seconds
-    And I expand nested table containing column value "Match"
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
     Then I softly see value "4" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 4" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Yes/No" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2336,8 +2306,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -2346,9 +2316,10 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
     And I expand nested table containing column value "Budget"
-    And I click on parallel lines menu bar with data target value "ProgramReviewPanelCategories"
+    And I click on parallel menu button in flex table title "Review Questions"
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
     And I download the file
+    And I wait for "5" seconds
     Then I softly see "Budget" on page "1" of "govgrants" pdf file
     Then I softly see "Program Income" on page "1" of "govgrants" pdf file
     Then I softly see "Match" on page "1" of "govgrants" pdf file
@@ -2381,7 +2352,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Date" for title "Type" against the value "7" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on "Delete" icon for "7" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly see the following messages in the page details contains:
-      | Record deleted Successfully. |
+      | Record deleted successfully. |
     Then I softly do not see value "7" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Examples:
       | Objective                      |
@@ -2411,12 +2382,9 @@ Feature: Validate all scenarios for program
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type | Max Score |
       | 3              | Test 3   | Date | 0         |
-    And I wait for "5" seconds
-   Then I softly see the following messages in the page details contains:
-     | Saved Successfully! |
-    And I collapse nested table containing column value "Program Income"
-    And I wait for "2" seconds
-    And I expand nested table containing column value "Program Income"
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
     Then I softly see value "3" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Test 3" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see value "Written" for title "Type" inside table "---program:-:programReviewPanelQuestionsTableId---"
@@ -2438,8 +2406,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I navigate to "Setup" sub tab
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
@@ -2500,8 +2468,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -2557,8 +2525,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -2646,19 +2614,20 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
       | SME Review        | 75              |
       | Pre-Screen Review | 0               |
     And I expand nested table containing column value "SME Review"
-    And I click on "Review Form" icon for "Program review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
+    And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I expand nested table containing column value "Approach"
-    And I click on parallel lines menu bar with data target value "ProgramReviewPanelCategories"
+    And I click on parallel menu button in flex table title "Review Questions"
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
     And I download the file
+    And I wait for "8" seconds
     Then I softly see "Capability" on page "1" of "govgrants" pdf file
     Then I softly see "Approach" on page "1" of "govgrants" pdf file
     Then I softly see "Impact" on page "2" of "govgrants" pdf file
@@ -2672,6 +2641,7 @@ Feature: Validate all scenarios for program
     Then I softly see "Max" on page "1" of "govgrants" pdf file
     Then I softly see "Score" on page "1" of "govgrants" pdf file
     And I switch to parent tab
+    And I wait for "3" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type | Max Score |
@@ -2692,7 +2662,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Written" for title "Type" against the value "11" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on "Delete" icon for "11" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---" without waiting for record
     Then I softly see the following messages in the page details contains:
-      | Record deleted Successfully. |
+      | Record deleted successfully. |
     Then I softly do not see value "11" for title "Question Order" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Examples:
       | Objective                      |
@@ -2711,15 +2681,15 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
       | SME Review        | 75              |
       | Pre-Screen Review | 0               |
     And I expand nested table containing column value "SME Review"
-    And I click on "Review Form" icon for "Program review" inside flex table with id "---program:-:reviewFormPanelId---" without waiting for record
+    And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     And I expand nested table containing column value "Impact"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -2732,9 +2702,10 @@ Feature: Validate all scenarios for program
     Then I softly see value "0" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Edit" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly can see row level action button "Delete" against "4" in flex table with id "---program:-:programReviewPanelQuestionsTableId---"
-    And I click on parallel lines menu bar with data target value "ProgramReviewPanelCategories"
+    And I click on parallel menu button in flex table title "Review Questions"
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
     And I download the file
+    And I wait for "8" seconds
     Then I softly see "Capability" on page "1" of "govgrants" pdf file
     Then I softly see "Approach" on page "1" of "govgrants" pdf file
     Then I softly see "Impact" on page "2" of "govgrants" pdf file
@@ -2816,6 +2787,7 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -2823,8 +2795,8 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 25              |
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 40              | 0                                         | Unchecked |
+      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | 40              | 0                                         |
     Then I see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
     Examples:
@@ -2852,19 +2824,23 @@ Feature: Validate all scenarios for program
       | SME Review        | 50              |
       | Pre-Screen Review | 25              |
     And I expand nested table containing column value "SME Review"
-    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name         | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Compliance Review | 30              | Unchecked | 1                                         |
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Compliance Review | Unchecked | 30              | 1                                         |
     Then I softly see the following messages in the page details contains:
       | Reviewers are not required for optional panels |
-    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name     | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Fiscal Review | 30              | Unchecked | 1                                         |
+    And I refresh the page
+    And I wait for "1" seconds
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Form Name     | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Fiscal Review | Unchecked | 30              | 1                                         |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
-    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name      | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Program Review | 50              | Unchecked | 1                                         |
+      | Reviewers are not required for optional panels |
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+      | Form Name      | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Program Review | Unchecked | 50              | 1                                         |
     Then I softly see the following messages in the page details contains:
       | Reviewers are not required for optional panels |
     Examples:
@@ -2882,8 +2858,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -2891,8 +2867,8 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 25              |
     And I expand nested table containing column value "Management Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Management Review | 0               | 0                                         | Checked   |
+      | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Management Review | 0               | 0                                         |
     Then I see the following messages in the page details contains:
       | For required panel the Minimum Number of Reviews should be greater than zero. |
     Examples:
@@ -2971,6 +2947,7 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -2978,8 +2955,8 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 25              |
     And I expand nested table containing column value "Management Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Management Review | 0               | 1                                         | Checked   |
+      | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Management Review | 0               | 1                                         |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
@@ -3027,8 +3004,8 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name      | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Program Review | 0               | 1                                         | Checked   |
+      | Form Name      | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Program Review | 0               | 1                                         |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
@@ -3051,8 +3028,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -3074,8 +3051,8 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name     | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Fiscal Review | 0               | 1                                         | Checked   |
+      | Form Name     | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Fiscal Review | 0               | 1                                         |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
@@ -3121,8 +3098,8 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Compliance Review | 0               | 1                                         | Checked   |
+      | Form Name         | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Compliance Review | 0               | 1                                         |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
@@ -3223,8 +3200,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 40              |
@@ -3242,6 +3219,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Completeness   | 30                 |
     And I expand nested table containing column value "Completeness"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
@@ -3269,8 +3247,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -3282,6 +3260,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Eligibility    | 50                 |
     And I expand nested table containing column value "Eligibility"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     And I collapse nested table containing column value "Eligibility"
@@ -3290,6 +3269,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Completeness   | 50                 |
     And I expand nested table containing column value "Completeness"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
@@ -3301,8 +3281,8 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 100             | 1                                         | UnChecked |
+      | Form Name  |  Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen |  100             | 1                                         |
     Then I softly see the following messages in the page details contains:
       | Reviewers are not required for optional panels |
     And I refresh the page
@@ -3311,8 +3291,8 @@ Feature: Validate all scenarios for program
     And I wait for "1" seconds
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 0               | 0                                         | Unchecked |
+      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | checked   | 0               | 1                                         |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
@@ -3325,8 +3305,8 @@ Feature: Validate all scenarios for program
     And I wait for "1" seconds
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 0               | 1                                         | Checked   |
+      | Form Name  |  Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen |  0               | 1                                         |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
@@ -3350,8 +3330,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 50              |
@@ -3370,6 +3350,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Impact         | 60                 |
     And I expand nested table containing column value "Impact"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -3397,6 +3378,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Approach       | 60                 |
     And I expand nested table containing column value "Approach"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -3422,6 +3404,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Capability     | 60                 |
     And I expand nested table containing column value "Capability"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -3451,8 +3434,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 50              |
@@ -3470,6 +3453,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Program Income | 60                 |
     And I expand nested table containing column value "Program Income"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -3494,6 +3478,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Match          | 60                 |
     And I expand nested table containing column value "Match"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -3523,6 +3508,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Budget         | 60                 |
     And I expand nested table containing column value "Budget"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -3553,8 +3539,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 50              |
@@ -3570,6 +3556,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Schedule       | 60                 |
     And I expand nested table containing column value "Schedule"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -3597,6 +3584,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Environment    | 60                 |
     And I expand nested table containing column value "Environment"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -3619,6 +3607,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Permits        | 60                 |
     And I expand nested table containing column value "Permits"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -3647,8 +3636,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 50              |
@@ -3664,6 +3653,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Completeness   | 60                 |
     And I expand nested table containing column value "Completeness"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -3693,6 +3683,7 @@ Feature: Validate all scenarios for program
     And I collapse nested table containing column value "Eligibility"
     And I wait for "2" seconds
     And I expand nested table containing column value "Eligibility"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -3717,8 +3708,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 50              |
@@ -3733,6 +3724,7 @@ Feature: Validate all scenarios for program
       | Section Header             | Section Weight (%) |
       | Return on Investment (ROI) | 60                 |
     And I expand nested table containing column value "Return on Investment (ROI)"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -3758,8 +3750,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 50              |
@@ -3782,7 +3774,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Budget         | 0                  |
     And I expand nested table containing column value "Match"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
@@ -4043,8 +4035,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -4063,6 +4055,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Capability     | 30                 |
     And I expand nested table containing column value "Capability"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
@@ -4075,6 +4068,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Approach       | 30                 |
     And I expand nested table containing column value "Approach"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
@@ -4087,6 +4081,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Impact         | 30                 |
     And I expand nested table containing column value "Impact"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
@@ -4138,6 +4133,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Match          | 30                 |
     And I expand nested table containing column value "Match"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
@@ -4300,8 +4296,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 40              |
@@ -4319,6 +4315,7 @@ Feature: Validate all scenarios for program
       | Section Header | Section Weight (%) |
       | Eligibility    | 30                 |
     And I expand nested table containing column value "Eligibility"
+    And I wait for "2" seconds
     And I delete all rows inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     Then I softly see "No Records Found" inside flex table with id "---program:-:programReviewPanelQuestionsTableId---"
     When I enter the following values into flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "New" :
@@ -4357,9 +4354,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name      | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Program Review | Unchecked | 0                                         | 0               |
-    When I collapse nested table containing column value "SME Review"
-    And I wait for "2" seconds
-    And I expand nested table containing column value "SME Review"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
@@ -4376,9 +4371,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Fiscal Review | Unchecked | 0                                         | 0               |
-    When I collapse nested table containing column value "SME Review"
-    And I wait for "2" seconds
-    And I expand nested table containing column value "SME Review"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
@@ -4395,9 +4388,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Minimum Number of Reviews per Application | Form Weight (%) |
       | Compliance Review | Unchecked | 0                                         | 0               |
-    When I collapse nested table containing column value "SME Review"
-    And I wait for "2" seconds
-    And I expand nested table containing column value "SME Review"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
@@ -4561,8 +4552,8 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 25              |
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
-      | Pre-Screen | Unchecked | 0               | 1                                         |
+      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | 0               | 1                                         |
     Then I softly see the following messages in the page details :
       | Reviewers are not required for optional panels |
     Examples:
@@ -4793,8 +4784,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 50              |
@@ -4846,8 +4837,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 50              |
@@ -4855,8 +4846,8 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 25              |
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 100             | 1                                         | Checked   |
+      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | Checked   | 100             | 1                                         |
     When I collapse nested table containing column value "Pre-Screen Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "Pre-Screen Review"
@@ -4884,6 +4875,7 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "Edit" :
       | Question Order | Max Score |
       | 1              | 0         |
+    And I collapse nested table containing column value "Completeness"
     And I close "Review Form" modal by clicking the top right x button
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
@@ -4903,13 +4895,13 @@ Feature: Validate all scenarios for program
       | Completeness   | 60                 |
     And I softly see value "60%" for title "Section Weight (%)" inside table "---program:-:programReviewPanel---"
     And I wait for "2" seconds
+    And I expand nested table containing column value "Completeness"
     And I edit the following rows inline in flex table with id "---program:-:programReviewPanelQuestionsTableId---" by clicking "Edit" :
       | Question Order | Max Score |
       | 1              | 100       |
     And I close "Review Form" modal by clicking the top right x button
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
-      | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
       | There are no errors with the review step templates. |
     Examples:
       | Objective                      |
@@ -4926,8 +4918,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 50              |
@@ -5015,8 +5007,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 50              |
@@ -5114,8 +5106,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 50              |
@@ -5274,8 +5266,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -5361,8 +5353,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -5370,8 +5362,8 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 0               |
     And I expand nested table containing column value "SME Review"
     And I click on "Review Form" icon for "Program Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
-    And I click on parallel menu button in flex table title "Review Panel Categories"
-    And I select "Download as PDF" from parallel lines dropdown of "Review Panel Categories"
+    And I click on parallel menu button in flex table title "Review Categories"
+    And I select "Download as PDF" from parallel lines dropdown of "Review Categories"
     And I download the file
     Then I see "Review Panel Categories" on page "1" of "govgrants" pdf file
     Examples:
@@ -5389,8 +5381,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -5438,8 +5430,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 50              |
@@ -5525,8 +5517,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |
@@ -5747,8 +5739,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
     When I click "Associate" after selection of "<Objective>" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I wait for "3" seconds
     When I click modal button "Close"
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
       | Step Name         | Step Weight (%) |
       | Management Review | 25              |

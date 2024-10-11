@@ -143,7 +143,7 @@ public final class GovGrantsProductObjects {
      * @Modify Keerti.Munde
      */
     public void assertFieldsInViewMode(String fieldApiName, boolean isSoftly) {
-        By pageBlockFields = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldApiName + "']//lightning-formatted-text | //div//label[contains(text(),'" + fieldApiName + "')]/..//lightning-output-field | //lightning-input-field[@data-field_api_name='" + fieldApiName + "']//span[@class='slds-checkbox_faux'] | //div//label[contains(text(),'" + fieldApiName + "')]/..//input[@disabled]");
+        By pageBlockFields = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldApiName + "']//lightning-formatted-text | //div//label[contains(text(),'" + fieldApiName + "')]/..//lightning-output-field | //lightning-input-field[@data-field_api_name='" + fieldApiName + "']//span[@class='slds-checkbox_faux'] | //div//label[contains(text(),'" + fieldApiName + "')]/..//input[@disabled] | //div//label[normalize-space(text())='" + fieldApiName + "']");
         if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(pageBlockFields)).isTrue();
         } else {
@@ -734,5 +734,14 @@ public final class GovGrantsProductObjects {
 
     public void iClickOnGlobalSearchBox() {
         I.amPerforming().click().on(By.xpath("//div[contains(@class,'global-header__item_search')]//input[@placeholder='Search...']"));
+    }
+
+    public void iPostTheMessageInsideChatter(String message) {
+        I.amPerforming().click().withJavaScript(By.xpath("//div[contains(@class,'publisher-quick-action-collapser')]//button//span[text()='Share an update...']"));
+        By inputBox = By.xpath("//div[@class='forceChatterMessageBodyInput']//div[contains(@class,'textarea')]//div");
+        I.amPerforming().waitFor().ElementToBeVisible(inputBox);
+        I.amPerforming().click().withJavaScript(inputBox);
+        I.amPerforming().textInput().in(inputBox, message);
+        I.amPerforming().click().withJavaScript(By.xpath("//button[text()='Share']"));
     }
 }

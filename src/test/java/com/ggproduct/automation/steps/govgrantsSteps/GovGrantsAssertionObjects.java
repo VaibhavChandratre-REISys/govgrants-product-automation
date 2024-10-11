@@ -3632,10 +3632,14 @@ public final class GovGrantsAssertionObjects {
      * @modifier richa sharma added the step to saas
      */
     public void assertToggleOptionDisplayed(String toggleOptions, String flexTableId, String usage) {
-        if (usage.equalsIgnoreCase("see")) {
+        if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isGivenToggleOptionPresent(toggleOptions, flexTableId)).isTrue();
-        } else if (usage.equalsIgnoreCase("do not see")) {
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
             I.amPerforming().assertionsTo().assertThat(isGivenToggleOptionPresent(toggleOptions, flexTableId)).isFalse();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isGivenToggleOptionPresent(toggleOptions, flexTableId));
+        } else{
+            Assert.assertFalse(isGivenToggleOptionPresent(toggleOptions, flexTableId));
         }
     }
 
@@ -3649,9 +3653,20 @@ public final class GovGrantsAssertionObjects {
      */
     private Boolean isGivenToggleOptionPresent(String toggleOptions, String flexTableId) {
         boolean flag = false;
+        if(toggleOptions.contains("Announcements") || toggleOptions.contains("Funding Decision Memos")){
+            I.amPerforming().click().on(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']"));
+        } else if(toggleOptions.contains("External Funding Sources")|| toggleOptions.contains("NGO Programs")){
+            String toggleName1 = toggleOptions.split(" ")[1];
+            I.amPerforming().click().on(By.xpath("//span[contains(text(),'" + toggleName1 + "')]/ancestor::c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']"));
+        } else if(toggleOptions.contains("Subawards")){
+            String toggleName1 = toggleOptions.split(" -")[0];
+            I.amPerforming().click().on(By.xpath("//span[contains(text(),'" + toggleName1 + "')]/ancestor::c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']"));
+        } else {
+            String toggleName = toggleOptions.split("-")[0];
+            I.amPerforming().click().on(By.xpath("//span[contains(text(),'" + toggleName + "')]/ancestor::c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']"));
+        }
         try {
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(ByUsing.xpath("//div[@id='" + flexTableId + "']//*[@id='dropdownListView']//ul/li/a/span[contains(@class,'ng-binding') and text()='" + toggleOptions + "']")))
-                ;
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(ByUsing.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//lightning-button-menu//div//a//span[text()='" + toggleOptions + "']")));
             flag = true;
         } catch (org.openqa.selenium.NoSuchElementException e) {
         }
@@ -3770,6 +3785,30 @@ public final class GovGrantsAssertionObjects {
             WebElement globalSearchDropdown = I.amPerforming().getElementReference().of(By.xpath("//*[@data-value='Search: All']"));
             I.amPerforming().click().on(globalSearchDropdown);
             if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'global-header__item_search')]//ul//h3[@title='" + sectionName + "']")))) {
+                return true;
+            }
+        } catch (Exception e) {
+            //Handle exception to continue execution
+        }
+        return false;
+    }
+
+    public void assertButtonNameInsidePostDropdown(String usage, String buttonName) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isButtonNameInsidePostDropdown(buttonName)).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isButtonNameInsidePostDropdown(buttonName)).isFalse();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isButtonNameInsidePostDropdown(buttonName));
+        } else {
+            Assert.assertFalse(isButtonNameInsidePostDropdown(buttonName));
+        }
+    }
+
+    private boolean isButtonNameInsidePostDropdown(String buttonName) {
+        try {
+            I.amPerforming().click().on(By.xpath("//article//button[@aria-haspopup='true']"));
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(By.xpath("//article//div//ul//li//span[text()='" + buttonName + "']")))) {
                 return true;
             }
         } catch (Exception e) {
@@ -4012,6 +4051,52 @@ public final class GovGrantsAssertionObjects {
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-component-id='GNT_sideBarLwc']//button//span[text()='" + buttonName + "']"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
+
+    public void assertResetButtonInsideFlextable(String usage, String buttonName, String tableId) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isResetButtonInsideFlextable(buttonName, tableId));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isResetButtonInsideFlextable(buttonName, tableId));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isResetButtonInsideFlextable(buttonName, tableId)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isResetButtonInsideFlextable(buttonName, tableId)).isFalse();
+        }
+    }
+
+    private Boolean isResetButtonInsideFlextable(String buttonName, String tableId) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//button[contains(@title,'" + buttonName +"')]"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
+
+    public void assertPostByUser(String usage, String message, String userName) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isPostByUser(message, userName));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isPostByUser(message, userName));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isPostByUser(message, userName)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isPostByUser(message, userName)).isFalse();
+        }
+    }
+
+    private Boolean isPostByUser(String message, String userName) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-feed-type='Record']//article[contains(@aria-label,'" + userName + "')]//div[@class='feedBodyInner Desktop oneApp']//p//span[text()='" + message + "']"))) {
                 flag = true;
             }
         } catch (Exception e) {

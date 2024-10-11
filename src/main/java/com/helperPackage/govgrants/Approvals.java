@@ -28,7 +28,7 @@ public final class Approvals {
     }
 
     private By userLookupResultLocator(String userName) {
-        return By.xpath("//div[@id='select2-drop']//ul//li/div[" + I.amPerforming().sanityOfXpathTo().contains(".", userName) + "] | //div[@class='slds-combobox_container']//div//ul//li//div[" + I.amPerforming().sanityOfXpathTo().contains(".", userName) + "]");
+        return By.xpath("//div[@id='select2-drop']//ul//li/div[" + I.amPerforming().sanityOfXpathTo().contains(".", userName) + "] | //div[@class='slds-combobox_container']//div//ul//li//div[" + I.amPerforming().sanityOfXpathTo().contains(".", userName) + "] | //div[@class='slds-combobox_container']//div//ul//li//div[@data-label='" + userName +"']");
     }
 
 
@@ -70,6 +70,7 @@ public final class Approvals {
         try {
             I.amPerforming().click().on(userLookupLocator);
             I.amPerforming().textInput().in(userLookupSearchLocator, userName);
+            I.amPerforming().waitFor().ElementToBeVisible(userLookupResultLocator(userName));
             I.amPerforming().click().on(userLookupResultLocator(userName));
         } catch (Exception e) {
             String error = e.getMessage();

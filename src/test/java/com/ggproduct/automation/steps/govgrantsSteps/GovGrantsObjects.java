@@ -426,6 +426,44 @@ public final class GovGrantsObjects {
         }
     }
 
+    /**
+     * @param fileName name of a file
+     * @param fileType type of file such as Other....
+     * @description description
+     *                 When we wants to add classification type and file on modal after clicking on Add Files top right button present in
+     *                 flex table then we can use this step...
+     */
+    public void uploadAttachmentInFlexTableFromComputerWithDescription(Boolean withoutRandomNumber, String fileName, String fileType, String Description) {
+        By classificationType = By.xpath("//select[@title='Classification' or @name='Classification']");
+        By filePath = By.xpath("//label[contains(@id,'file')]/../input");
+        By descript = By.xpath("//div[@id='WorkspaceFilesUpload']//textarea");
+        String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
+        String[] splitFileName = fileName.split("\\.");
+        String newFileName = withoutRandomNumber ? fileName : splitFileName[0] + I.amPerforming().addOnsTo().getStringRandomNumber() + "." + splitFileName[1];
+        try {
+            // renamed file with random number
+            if (!withoutRandomNumber) {
+                renameFile(defaultFilePath, fileName, newFileName);
+            }
+            I.amPerforming().waitFor().ElementToBeVisible(classificationType);
+            I.amPerforming().dropDownSelection().from(classificationType).selectByValue(fileType);
+            I.amPerforming().waitFor().makeThreadSleep(5000);
+            I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);
+            I.amPerforming().textInput().in(descript,Description);
+            I.amPerforming().click().withJavaScript(By.xpath("//button[text()='Upload']"));
+        } finally {
+            try {
+                I.amPerforming().waitFor().makeThreadSleep(10000);
+                if (!withoutRandomNumber) {
+                    // renaming back to the original file name
+                    renameFile(defaultFilePath, newFileName, fileName);
+                }
+            } catch (Exception ee) {
+                ee.printStackTrace();
+            }
+        }
+    }
+
     public void uploadAttachmentInFlexTableFromComputerForLWC(Boolean withoutRandomNumber, String fileName, String fileType) {
 
         By classificationType = By.xpath("//button[@title='Classification' or @name='Classification']");

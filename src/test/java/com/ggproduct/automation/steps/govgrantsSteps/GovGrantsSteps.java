@@ -504,6 +504,18 @@ public final class GovGrantsSteps {
         }
     }
 
+    @Description("Used to add attachments from computer")
+    @When("^I upload attachment (without random number )?\"([^\"]*)\" of type \"([^\"]*)\" with description \"([^\"]*)\" from computer$")
+    public void uplaodAttachFromComputerWithDescription(String withoutRandomNumber, String fileName, String fileType, String description) {
+            ggObjects.uploadAttachmentInFlexTableFromComputerWithDescription(
+                    withoutRandomNumber != null,
+                    fileName,
+                    fileType,
+                    description
+            );
+    }
+
+
     /**
      * Uploads an attachment file using a flex table edit action
      *
