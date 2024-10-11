@@ -1534,9 +1534,5 @@ Feature: Validate all scenarios of every modules flow
 
   @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
-    And I pause execution for "5" seconds
-    When I click on "Submit to Grantor" in the page details
-    Then I see the following messages in the page details contains:
-      | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection. |
+    When I login to "As a Grantee" app as "GRANTEE FD" user
+
