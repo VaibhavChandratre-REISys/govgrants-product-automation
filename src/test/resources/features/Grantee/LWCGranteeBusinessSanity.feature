@@ -6753,6 +6753,7 @@ Feature: Sanity scenarios
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
+    And I wait for "2" seconds
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
@@ -6770,6 +6771,7 @@ Feature: Sanity scenarios
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
+    And I wait for "2" seconds
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
@@ -6787,6 +6789,7 @@ Feature: Sanity scenarios
     When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
+    And I wait for "2" seconds
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
@@ -6804,6 +6807,7 @@ Feature: Sanity scenarios
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
+    And I wait for "2" seconds
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
@@ -6821,6 +6825,7 @@ Feature: Sanity scenarios
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
+    And I wait for "2" seconds
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
@@ -6856,7 +6861,7 @@ Feature: Sanity scenarios
     Then I softly see "Create Grant" opens in overLay window
     Then I softly cannot see field "Is Budget Period Closeout Request Required?" inside page block
 
-  @443804 @ValidateGrantWithEXEProfileGrantisinCreatedDraftstate @Grantee1
+  @443804 @ValidateGrantWithEXEProfileGrantisinCreatedDraftstate
   Scenario: Validate Grant With EXE Profile Grant is in Created Draft state
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -7053,12 +7058,12 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Delete" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:grantNotesTableId---" by clicking "Edit" :
-    | Created By  | Title                           | Description      |
-    | Sarah PM    | Notes Record PM Automation User | Automation Notes |
+      | Created By | Title                           | Description      |
+      | Sarah PM   | Notes Record PM Automation User | Automation Notes |
     Then I softly see value "Notes Record PM Automation User" for title "Title" inside table "---grantee_tableId:-:grantNotesTableId---"
     When I click on "Delete" icon for "Notes Record PM Automation User" inside flex table with id "---grantee_tableId:-:grantNotesTableId---"
     And I wait for "3" seconds
-    Then I softly see value "Notes Record PM User" for title "Title" inside table "---grantee_tableId:-:grantNotesTableId---"
+    Then I softly do not see value "Notes Record PM User" for title "Title" inside table "---grantee_tableId:-:grantNotesTableId---"
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
@@ -7070,3 +7075,183 @@ Feature: Sanity scenarios
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+
+  @443816 @ValidateAwardWithPMProfileAfterclickonAwardphaseListviewpage @Grantee1
+  Scenario: Validate Award With PM Profile After click on Award phase List view page
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    Then I softly see toggle option "Awards - All" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see toggle option "Awards - Draft" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see toggle option "Awards - Active" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see toggle option "Awards - Rejected" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see toggle option "Awards - Closed" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    Then I softly see toggle option "Awards - My Records" inside flex table id "---grantee_tableId:-:GrantsTable---"
+    And I click toggle button to select "Awards - All"
+    When I perform quick search for "created" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "created" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Activated" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Activated" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Closed" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Closed" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Amended" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Amended" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    And I click on page navigation arrow "---grantee_tableId:-:awardTableId---" for table id "Next"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardTableId---"
+    Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:awardTableId---"
+    And I click toggle button to select "Awards - All"
+    When I click on parallel lines menu bar with data target value "Awards - All"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Download as PDF" from parallel lines dropdown of "Awards - All"
+    And I wait for "7" seconds
+    And I download the file
+    Then I see "Awards - All" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
+    When I click on parallel lines menu bar with data target value "Awards - All"
+    And I select "Refresh" from parallel lines dropdown of "Awards - All"
+    Then I see table is refreshing
+    And I click toggle button to select "Awards - Draft"
+    When I perform quick search for "Created" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Activated" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Closed" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Amended" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Created" in "---grantee_tableId:-:awardTableId---" panel
+    And I wait for "2" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:awardTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:awardTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:awardTableId---"
+    And I click toggle button to select "Awards - Active"
+    When I perform quick search for "Activated" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Activated" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Created" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Closed" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Amended" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Activated" in "---grantee_tableId:-:awardTableId---" panel
+    And I wait for "2" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:awardTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:awardTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:awardTableId---"
+    And I click toggle button to select "Awards - Rejected"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Created" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Closed" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Amended" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    And I wait for "2" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:awardTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:awardTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:awardTableId---"
+    And I click toggle button to select "Awards - Closed"
+    When I perform quick search for "Closed" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Closed" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Created" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Amended" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Closed" in "---grantee_tableId:-:awardTableId---" panel
+    And I wait for "2" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:awardTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:awardTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:awardTableId---"
+    And I click toggle button to select "Awards - My Records"
+    When I perform quick search for "Created" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Activated" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Closed" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Amended" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Created" in "---grantee_tableId:-:awardTableId---" panel
+    And I wait for "2" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:awardTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:awardTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:awardTableId---"
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:awardTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:awardTableId---"
+    Then I softly see "Award Title" in flex table header "---grantee_tableId:-:awardTableId---"
+    Then I softly see "Grant Award Number" in flex table header "---grantee_tableId:-:awardTableId---"
+    Then I softly see "Version Number" in flex table header "---grantee_tableId:-:awardTableId---"
+    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:awardTableId---"
+    Then I softly see "Award Amount To Date" in flex table header "---grantee_tableId:-:awardTableId---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:awardTableId---"
