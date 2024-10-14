@@ -126,7 +126,7 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exegrantee.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
@@ -173,7 +173,7 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exegrantee.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
@@ -228,7 +228,7 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exegrantee.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I save the field labeled "Strategic Plan" as "StrategicPlan"
     And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
@@ -294,7 +294,7 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exegrantee.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
@@ -583,7 +583,7 @@ Feature: Sanity scenarios
       | Saved Successfully! |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     Then I softly see the following messages in the page details contains:
       | Goals/Objectives associated successfully. |
     And I click modal button "Close"
@@ -692,8 +692,8 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I can see row level action button "View" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I cannot see row level action button "View" against "ETE objectives 1" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    Then I cannot see row level action button "Edit" against "ETE objectives 1" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    Then I cannot see row level action button "View" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    Then I cannot see row level action button "Edit" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     Then I softly can see "Amendments" sub tab at view detail page
     When I navigate to "Responsibilities" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardApproverTableId---"
@@ -795,7 +795,7 @@ Feature: Sanity scenarios
       | Victor EXE | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
@@ -1129,7 +1129,7 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exegrantee.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
@@ -1548,7 +1548,7 @@ Feature: Sanity scenarios
       | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
@@ -1959,7 +1959,7 @@ Feature: Sanity scenarios
       | <userName> | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
@@ -2142,7 +2142,7 @@ Feature: Sanity scenarios
       | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
@@ -2678,7 +2678,7 @@ Feature: Sanity scenarios
       | Saved Successfully! |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     Then I softly see the following messages in the page details contains:
       | Goals/Objectives associated successfully. |
     And I click modal button "Close"
@@ -2840,7 +2840,7 @@ Feature: Sanity scenarios
       | Saved Successfully! |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     Then I softly see the following messages in the page details contains:
       | Goals/Objectives associated successfully. |
     And I click modal button "Close"
@@ -3119,7 +3119,7 @@ Feature: Sanity scenarios
       | Saved Successfully! |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     Then I softly see the following messages in the page details contains:
       | Goals/Objectives associated successfully. |
     And I click modal button "Close"
@@ -3326,7 +3326,7 @@ Feature: Sanity scenarios
       | Saved Successfully! |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     Then I softly see the following messages in the page details contains:
       | Goals/Objectives associated successfully. |
     And I click modal button "Close"
@@ -3500,7 +3500,7 @@ Feature: Sanity scenarios
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I can see row level action button "Remove" against "ETE objective 2" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-    Then I cannot see row level action button "Remove" against "ETE objectives 1" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I cannot see row level action button "Remove" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     And I click on "Remove" icon for "ETE objective 2" inside flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly do not see value "ETE objective 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
@@ -3603,7 +3603,7 @@ Feature: Sanity scenarios
       | Saved Successfully! |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     Then I softly see the following messages in the page details contains:
       | Goals/Objectives associated successfully. |
     And I click modal button "Close"
@@ -4608,7 +4608,7 @@ Feature: Sanity scenarios
       | Victor EXE | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
@@ -5091,7 +5091,7 @@ Feature: Sanity scenarios
       | Victor EXE | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
@@ -5569,7 +5569,7 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exegrantee.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
@@ -5762,7 +5762,7 @@ Feature: Sanity scenarios
       | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
@@ -6580,7 +6580,7 @@ Feature: Sanity scenarios
       | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
@@ -6678,7 +6678,7 @@ Feature: Sanity scenarios
       | Victor EXE | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
@@ -6745,13 +6745,14 @@ Feature: Sanity scenarios
     When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Active" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Terminated" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
@@ -6761,13 +6762,14 @@ Feature: Sanity scenarios
     When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "Active" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Terminated" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
@@ -6777,13 +6779,14 @@ Feature: Sanity scenarios
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "Terminated" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Active" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
@@ -6793,13 +6796,14 @@ Feature: Sanity scenarios
     When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Closed/Completed" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Terminated" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
@@ -6811,11 +6815,12 @@ Feature: Sanity scenarios
     When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Active" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly do not see value "Terminated" for title "Status" inside table "---grantee_tableId:-:GrantsTable---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
@@ -6954,7 +6959,7 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "4" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exegrantee.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Management" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
@@ -7016,7 +7021,7 @@ Feature: Sanity scenarios
     And I click on "Download As PDF" in the page details
     And I wait for "5" seconds
     And I download the file
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+    Then I softly see "Grants - All" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     And I click on "Take Snapshot" in the page details
     And I wait for "5" seconds
@@ -7024,13 +7029,13 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "SnapShot on"
     And I wait for "5" seconds
     When I download the file
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+    Then I softly see "Grants - All" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     And I navigate to "Awards" sub tab
     Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I navigate to "Files" sub tab
-    Then I softly can see top right button "Add Files" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:grantAddFilesTableId---"
     Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
     Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
@@ -7048,8 +7053,8 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Delete" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:grantNotesTableId---" by clicking "Edit" :
-      | Title                           | Description      |
-      | Notes Record PM Automation User | Automation Notes |
+    | Created By  | Title                           | Description      |
+    | Sarah PM    | Notes Record PM Automation User | Automation Notes |
     Then I softly see value "Notes Record PM Automation User" for title "Title" inside table "---grantee_tableId:-:grantNotesTableId---"
     When I click on "Delete" icon for "Notes Record PM Automation User" inside flex table with id "---grantee_tableId:-:grantNotesTableId---"
     And I wait for "3" seconds
