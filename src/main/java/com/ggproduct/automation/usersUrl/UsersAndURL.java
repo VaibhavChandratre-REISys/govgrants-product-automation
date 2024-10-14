@@ -124,6 +124,27 @@ public class UsersAndURL implements UsersController {
             case "SARAH PM":
                 password = "Grants@2026";
                 break;
+            case "GRANTEE ADMIN":
+                password = "Grantee@2026";
+                break;
+            case "GRANTEE PM":
+                password = "Grantee@2026";
+                break;
+            case "GRANTEE EXE":
+                password = "Grantee@2026";
+                break;
+            case "GRANTEE FO":
+                password = "Grantee@2026";
+                break;
+            case "GRANTEE FD":
+                password = "Grantee@2026";
+                break;
+            case "GRANTEE AUDITOR":
+                password = "Grantee@2026";
+                break;
+            case "GRANTEE PO":
+                password = "Grantee@2026";
+                break;
             default:
                 password = "Salesforce2040";
         }
