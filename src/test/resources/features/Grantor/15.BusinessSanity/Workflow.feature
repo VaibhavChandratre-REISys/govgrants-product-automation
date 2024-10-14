@@ -1534,14 +1534,15 @@ Feature: Validate all scenarios of every modules flow
 
   @tst
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fKCKYA2/view"
-    And I wait for "10" seconds
-    And I navigate to "Messages" sub tab
-    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
-    And I send the email under collab tab with following details:
-      | To                        | Cc                         | Subject | Body            |
-      | pm.automation@yopmail.com | exe.automation@yopmail.com | test    | Automation Test |
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - Draft"
+    When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
+    And I wait for "2" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
     And I halt execution
 
   @TestingXSS
