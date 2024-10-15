@@ -1,7 +1,7 @@
 @GranteeSanityBusinessFlow
 Feature: Sanity scenarios
 
-  @443880 @ValidatePMusershouldabletoCreateActivatetheKPI @GranteeTBE
+  @443880 @ValidatePMusershouldabletoCreateActivatetheKPI
   Scenario: Validate PM user should able to Create & Activate the KPI
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
@@ -76,7 +76,7 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Activate.pdf" as name
 
-  @440386 @ValidatePMusercancreateandActivateStrategicplan @GranteeTBE
+  @440386 @ValidatePMusercancreateandActivateStrategicplan
   Scenario: Validate PM user can create and Activate Strategic plan
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
@@ -246,7 +246,7 @@ Feature: Sanity scenarios
     When I expand nested table containing column value "Automation Strategic Goal"
     Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
 
-  @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea @GranteeTBE
+  @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea
   Scenario: Validate Focus Area With EXE Profile Able to create Activate Deactive the focus area
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     When I navigate to "Planning" tab
@@ -637,7 +637,7 @@ Feature: Sanity scenarios
     When I click on "Validate" in the page details
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | The Subaward has been validated successfully. |
+      | The award has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -816,7 +816,7 @@ Feature: Sanity scenarios
     When I click on "Validate" in the page details
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | The Subaward has been validated successfully. |
+      | The award has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -1248,7 +1248,7 @@ Feature: Sanity scenarios
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-  @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @GranteeTBE
+  @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
   Scenario: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -1569,7 +1569,7 @@ Feature: Sanity scenarios
     When I click on "Validate" in the page details
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | The Subaward has been validated successfully. |
+      | The award has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -1659,7 +1659,7 @@ Feature: Sanity scenarios
     Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
-  @445640 @446229 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @GranteeTBE
+  @445640 @446229 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
   Scenario Outline: Validate Financial Report Schedule user can edit Financial report schedule on Created Submitted for review Reviewed Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -1980,7 +1980,7 @@ Feature: Sanity scenarios
     When I click on "Validate" in the page details
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | The Subaward has been validated successfully. |
+      | The award has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -2075,7 +2075,7 @@ Feature: Sanity scenarios
       | GRANTEE PM  | Sarah PM   |
       | GRANTEE EXE | Victor EXE |
 
-  @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout @GranteeTBE
+  @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout
   Scenario: Validate GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -2403,7 +2403,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @443755 @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @GranteeTBE
+  @443755 @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario Outline: Non Federal_ Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -2694,6 +2694,7 @@ Feature: Sanity scenarios
     When I enter in modal value "Terms" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
     When I enter in modal value "1" into field "Sequence__c"
+    When I enter in modal value "{SavedValue:BudgetPeriodEndDate}" into field "EffectiveTill__c"
     And I click modal button "Save"
     And I wait for "3" seconds
     And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:SpecialConditionTableId---"
@@ -2722,7 +2723,7 @@ Feature: Sanity scenarios
     When I click on "Validate" in the page details
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | The Subaward has been validated successfully. |
+      | The award has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -2760,7 +2761,7 @@ Feature: Sanity scenarios
     When I navigate to "History" sub tab
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
 
-  @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell @GranteeTBE
+  @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell
   Scenario: Award - Verify with PM Profile ,After activate the award able to see the Actual Tab in pending Closeout ,closed and amended state as well
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3028,7 +3029,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Closed"
     Then I softly can see "Actuals" sub tab at view detail page
 
-  @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment @GranteeTBE
+  @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment
   Scenario: Verify the  Not Accepeted function of budget Redirection Amendment
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3492,26 +3493,26 @@ Feature: Sanity scenarios
     Then I softly see "Objectives" page block displayed
     Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objective 2" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Objective" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
     Then I softly see the following messages in the page details contains:
       | Objectives were associated successfully. |
     And I click modal button "Close"
-    Then I softly see value "ETE objective 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly see value "Objective" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     When I click on parallel lines menu bar with data target value "Objectives"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    Then I can see row level action button "Remove" against "ETE objective 2" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I can see row level action button "Remove" against "Objective" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I cannot see row level action button "Remove" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-    And I click on "Remove" icon for "ETE objective 2" inside flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-    Then I softly do not see value "ETE objective 2" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    And I click on "Remove" icon for "Objective" inside flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly do not see value "Objective" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly see "Month-Year Created" in flex table header "---grantee_tableId:-:amendmentObjectiveTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
 
-  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR @GranteeTBE
+  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR
   Scenario: Verify PM user as (AR Owner same as Award Owner) can able to create budget Redirection AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant (Flow AR)
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3929,7 +3930,7 @@ Feature: Sanity scenarios
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see the following messages in the page details contains:
-      | Record created successfully! |
+      | Saved Successfully! |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
@@ -4064,7 +4065,7 @@ Feature: Sanity scenarios
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @455427 @455428 @455429  @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR @GranteeTBE
+  @455427 @455428 @455429  @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
   Scenario Outline: Funding Change AR_ Verify PM user should see footer navigator after open the Funding Change AR
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -4096,7 +4097,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE |
       | GRANTEE FO  |
 
-  @455419 @455420 @455421 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI @GranteeTBE
+  @455419 @455420 @455421 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
   Scenario Outline:KPI_ Verify FD user should see footer navigator after open the KPI
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Planning" tab
@@ -4308,7 +4309,7 @@ Feature: Sanity scenarios
     Then I softly can see "Field Audit" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
 
-  @446228 @VerifyEXEusercanseeProgressreportschedulesfromawardinMonitoringschedules @GranteeTBE
+  @446228 @VerifyEXEusercanseeProgressreportschedulesfromawardinMonitoringschedules
   Scenario: Verify EXE user  can see Progress report schedules from award in Monitoring schedules
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -4631,7 +4632,7 @@ Feature: Sanity scenarios
     When I click on "Validate" in the page details
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | The Subaward has been validated successfully. |
+      | The award has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -4777,6 +4778,7 @@ Feature: Sanity scenarios
     Then I see option "Download as PDF" present in parallel dropdown
 #    When I click on parallel lines menu bar with data target value "Federal Contacts"
     And I select "Download as PDF" from parallel lines dropdown of "Federal Contacts"
+    And I wait for "5" seconds
     And I download the file
     Then I see "Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
@@ -4935,8 +4937,8 @@ Feature: Sanity scenarios
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Download as CSV" present in parallel dropdown
     And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Programs- All"
+    And I wait for "6" seconds
     And I download the file
-    And I wait for "4" seconds
     Then I see "Non-Federal Programs- All" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
@@ -5025,7 +5027,7 @@ Feature: Sanity scenarios
     Then I softly see value "Active" for title "New Value" inside field history table
     And I softly see value "Created" for title "Original Value" inside field history table
 
-  @444513 @ValidateEXEuserProgressreportOwnercanabltocreateAdhocProgressReportabletosubmitProgressReporttoGrantor @GranteeTBE
+  @444513 @ValidateEXEuserProgressreportOwnercanabltocreateAdhocProgressReportabletosubmitProgressReporttoGrantor
   Scenario: Validate EXE user (Progress report Owner)can able to create Adhoc Progress Report & able to submit Progress Report to Grantor
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -5114,7 +5116,7 @@ Feature: Sanity scenarios
     When I click on "Validate" in the page details
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | The Subaward has been validated successfully. |
+      | The award has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -5696,7 +5698,7 @@ Feature: Sanity scenarios
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Victor EXE"
 
-  @445208 @ValidatePMuserAwardOwnercanabletocreateSceduledFinancialReport&abletosubmitFinancialReporttoGrantor @GranteeTBE
+  @445208 @ValidatePMuserAwardOwnercanabletocreateSceduledFinancialReport&abletosubmitFinancialReporttoGrantor
   Scenario: Validate PM user Award Owner can able to create Sceduled Financial Report & able to submit Financial Report to Grantor
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -5785,7 +5787,7 @@ Feature: Sanity scenarios
     When I click on "Validate" in the page details
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | The Subaward has been validated successfully. |
+      | The award has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -6479,7 +6481,7 @@ Feature: Sanity scenarios
     Then I see option "Download As PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     And I click on "Download As PDF" in the page details
-    And I wait for "7" seconds
+    And I wait for "8" seconds
     And I download the file
     Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
     And I switch to parent tab
@@ -6488,7 +6490,7 @@ Feature: Sanity scenarios
     And I refresh the page
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot on"
-    And I wait for "7" seconds
+    And I wait for "8" seconds
     When I download the file
     Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
     And I switch to parent tab
@@ -6515,7 +6517,7 @@ Feature: Sanity scenarios
     Then I can see row level action button "Edit" against "{SavedValue:GrantEGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
     Then I cannot see row level action button "Delete" against "{SavedValue:GrantEGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
 
-  @443858 @ValidateAwardsplconwithPMProfileIfSpecialConditionisaddedtheninawardspecialconditionmoduleafterexpandtheawardabletoseespecialconditionrecord @GranteeTBE
+  @443858 @ValidateAwardsplconwithPMProfileIfSpecialConditionisaddedtheninawardspecialconditionmoduleafterexpandtheawardabletoseespecialconditionrecord
   Scenario: Validate Award spl con with PM Profile ,If Special Condition is added then in  award special condition module after expand the award able to see special condition record
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -6607,7 +6609,7 @@ Feature: Sanity scenarios
     When I click on "Validate" in the page details
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | The Subaward has been validated successfully. |
+      | The award has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -6619,7 +6621,7 @@ Feature: Sanity scenarios
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:specialConditionsChildTableId---"
 
-  @443857 @ValidateAwardsplconwithEXEProfileIfSpecialConditionisnotaddedtheninawardspecialconditionmoduleafterexpandtheawardunabletoseeanyrecord @GranteeTBE
+  @443857 @ValidateAwardsplconwithEXEProfileIfSpecialConditionisnotaddedtheninawardspecialconditionmoduleafterexpandtheawardunabletoseeanyrecord
   Scenario: Validate Award spl con with EXE Profile If Special Condition is not added then in award special condition module after expand the award unable to see any record
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -6696,7 +6698,7 @@ Feature: Sanity scenarios
     When I click on "Validate" in the page details
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
-      | The Subaward has been validated successfully. |
+      | The award has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -7343,7 +7345,7 @@ Feature: Sanity scenarios
       | Saved Successfully! |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     Then I softly see the following messages in the page details contains:
       | Goals/Objectives associated successfully. |
     And I click modal button "Close"
@@ -7606,7 +7608,7 @@ Feature: Sanity scenarios
       | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
@@ -8190,7 +8192,7 @@ Feature: Sanity scenarios
       | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    When I click "Associate" after selection of "ETE objectives 1" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
