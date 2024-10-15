@@ -8907,7 +8907,6 @@ Feature: Sanity scenarios
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
     And I wait for "2" seconds
     And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
-    And I enter value "20" into field "GranteeMatch__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Overview" sub tab
@@ -8922,6 +8921,10 @@ Feature: Sanity scenarios
     And I save the field labeled "Award Title" as "Automation Runtime award"
     And I click on "Edit" in the page details
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Projections" sub tab
+    And I click on "Edit" in the page details
+    When I enter value "20" into field "BudgetRedirectionThreshhold__c"
     And I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
@@ -9153,7 +9156,6 @@ Feature: Sanity scenarios
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
     And I wait for "2" seconds
     And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
-    And I enter value "1" into field "GranteeMatch__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Overview" sub tab
@@ -9168,6 +9170,10 @@ Feature: Sanity scenarios
     And I save the field labeled "Award Title" as "Automation Runtime award"
     And I click on "Edit" in the page details
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Projections" sub tab
+    And I click on "Edit" in the page details
+    When I enter value "1" into field "BudgetRedirectionThreshhold__c"
     And I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
@@ -9203,7 +9209,7 @@ Feature: Sanity scenarios
       | Title                            | Start Date                         | End Date                         |
       | Automation Permanent Focus Area2 | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
     Then I softly see the following messages in the page details contains:
-      | Focus Areas added to subaward successfully. |
+      | Saved Successfully! |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
