@@ -6382,7 +6382,7 @@ Feature: Sanity scenarios
     Then I see "Delete" button name inside post dropdown
     Then I see "Bookmark" button name inside post dropdown
 
-  @443801 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection @GranteeTBE
+  @443801 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection
   Scenario: Validate Grant with EXE Profile able to create direct grant and see all tabs and section
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
