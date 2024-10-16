@@ -1535,14 +1535,11 @@ Feature: Validate all scenarios of every modules flow
   @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - Draft"
-    When I perform quick search for "Draft" in "---grantee_tableId:-:GrantsTable---" panel
-    And I wait for "2" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:GrantsTable---"
-    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
-    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsTable---"
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDX000001K5ceYAC/view"
+    And I wait for "10" seconds
+    Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:SubreceipientAwardPersonnelBudgetTableID---" :
+      | Name      | Position | Salary    | Rate   | FTE  | Time Worked | Percentage of Time(%) | Total Cost | Cash Match | Non-Cash Match | Total Match
+      | Personnel | Staff    | $1,000.00 | Weekly | 0.40 | 100.00      | 2.00%                 | $2,000.00  | $100.00    | $100.00        | $200.00
     And I halt execution
 
   @TestingXSS

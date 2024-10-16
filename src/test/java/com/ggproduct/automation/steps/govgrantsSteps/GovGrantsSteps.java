@@ -573,8 +573,7 @@ public final class GovGrantsSteps {
         } else if (buttonLocation.equalsIgnoreCase("bottom of page details")) {
             govgrants.perform().pageDetails().clickAnyBottomRightButton(buttonName);
         } else if (buttonLocation.equalsIgnoreCase("page details without processing")) {
-            By topRightButton = govgrants.perform().pageDetails().getAnyTopRightButton(buttonName);
-            I.amPerforming().click().on(topRightButton);
+            govgrants.perform().pageDetails().clickAnyTopRightButtonForWithoutProcessing(buttonName);
         }
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
     }

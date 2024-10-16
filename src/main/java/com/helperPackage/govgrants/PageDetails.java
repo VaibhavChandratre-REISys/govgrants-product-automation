@@ -96,6 +96,40 @@ public final class PageDetails {
 
     /**
      * click any button on right header inside detail page. Submit, submit for
+     * approval without processing
+     *
+     * @param buttonName
+     * @return
+     * @author john.phillips
+     * modifier saranjit.modak - 09.09.2022 added explicit wait used try catch to handle ElementClickInterceptedException exception
+     */
+    public void clickAnyTopRightButtonForWithoutProcessing(String buttonName) {
+        By topRightButton = getAnyTopRightButton(buttonName);
+        try {
+            I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -800);
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            try {
+                I.amPerforming().waitFor().ElementToBeVisible(topRightButton);
+                try {
+                    I.amPerforming().click().on(topRightButton);
+                } catch (Exception e) {
+                    I.amPerforming().click().withJavaScript(topRightButton);
+                }
+            } catch (Exception ex) {
+                I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//gnt-header-overview//lightning-button-menu//button"));
+                I.amPerforming().click().withJavaScript(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
+                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+            }
+
+        } catch (ElementClickInterceptedException e) {
+            I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Exception {ElementClickInterceptedException} is thrown - used Explicit Wait and Java Script to click the element");
+            I.amPerforming().waitFor().ElementToBeClickable(topRightButton);
+            I.amPerforming().click().withJavaScript(topRightButton);
+        }
+    }
+
+    /**
+     * click any button on right header inside detail page. Submit, submit for
      * approval
      *
      * @param buttonName
