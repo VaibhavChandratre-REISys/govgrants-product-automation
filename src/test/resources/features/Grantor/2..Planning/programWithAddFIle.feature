@@ -172,7 +172,7 @@ Feature: Validate all scenarios for program with add file
     Then I cannot see row level action button "Edit" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then I cannot see row level action button "Delete" against "Program Artifacts" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
 
-  @222080 @VerifyPMusershouldnotabletoaddfileaftersubmitforapprovalstatus @sprint-10-US-199430 @addFiles @TBExecution1
+  @222080 @VerifyPMusershouldnotabletoaddfileaftersubmitforapprovalstatus @sprint-10-US-199430 @addFiles
   Scenario:Verify PM user should not able to add file after submit for approval status
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
