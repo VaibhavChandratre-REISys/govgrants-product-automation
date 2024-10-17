@@ -9741,3 +9741,89 @@ Feature: Sanity scenarios
     Then I softly see value "Owner" for title "Name" against the value "Sarah PM" inside table "---grantee_tableId:-:awardOwnerTableId---"
     And I click on hyperlink containing value "Sarah PM"
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
+
+  @443832 @AwardVerifywithPMprofileMonitioringTabofAwardPagelayout
+  Scenario: Award -  Verify with PM profile ,Monitioring Tab of Award Page layout
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I wait for "2" seconds
+    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Title" as "Automation Runtime award"
+    And I click on "Edit" in the page details
+    When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
+      | Name       | Project Role    | Is Key Contact |
+      | Victor EXE | Project Officer | Checked        |
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
+      | Title               | Is Primary Program |
+      | Open Data Framework | Checked            |
+    And I navigate to "Monitoring" sub tab
+    Then I softly see "Objectives" page block displayed
+    Then I softly see "Key Performance Indicators (KPIs)" page block displayed
+    Then I softly see "Special Conditions" page block displayed
+    And I navigate to "Monitoring" sub tab
+    Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    Then I softly see the following messages in the page details contains:
+      | Goals/Objectives associated successfully. |
+    And I click modal button "Close"
+    Then I softly can see row level action button "Remove" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    And I wait for "3" seconds
+    Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
+    Then I softly see the following messages in the page details contains:
+      | KPIs added succesfully. |
+    And I click modal button "Close"
+    Then I softly can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I softly can see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I softly can see row level action button "Remove" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    And I wait for "3" seconds
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I enter in modal value "Terms" into field "Title__c"
+    When I enter in modal value "Terms Description" into field "Description__c"
+    When I enter in modal value "1" into field "Sequence__c"
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly can see row level action button "Remove" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    And I click toggle button to select "Special Conditions"
+    When I click on parallel lines menu bar with data target value "Special Conditions"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Download as PDF" from parallel lines dropdown of "Special Conditions"
+    And I download the file
+    And I wait for "4" seconds
+    Then I see "Special Conditions" on page "1" of "govgrants" pdf file
