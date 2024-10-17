@@ -9506,8 +9506,8 @@ Feature: Sanity scenarios
       | Open Data Framework | Checked            |
     And I navigate to "Projections" sub tab
     Then I softly see "Project Period Details" page block displayed
-    Then I softly see field "{SavedValue:ProjectPeriodStartDate}" inside "Project Period Details" section
-    Then I softly see field "{SavedValue:ProjectPeriodEndDate}" inside "Project Period Details" section
+    Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
+    Then I softly see field "Project Period End Date" as "SavedValue:ProjectPeriodEndDate}"
     And I click on "Edit" in the page details
     Then I softly see "Budget Period Details" page block displayed
     Then I softly see fields "BudgetPeriodEndDate__c" is in edit mode
