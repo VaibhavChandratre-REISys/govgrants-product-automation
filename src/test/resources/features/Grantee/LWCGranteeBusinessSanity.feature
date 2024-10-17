@@ -460,7 +460,7 @@ Feature: Sanity scenarios
 
     Examples:
       | userType   | attachment            | Notes        |
-      | GRANTEE PM | Attachment.pdf        | Notes Record |
+      | GRANTEE PM | Attachment.pdf        | Notes for PM |
       | GRANTEE PO | AttachmentTesting.pdf | Notes for PO |
 
   @443850 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection
@@ -6730,7 +6730,7 @@ Feature: Sanity scenarios
     And I wait for "7" seconds
     And I download the file
     Then I see "Grants - All" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+    And I close the tab
     When I click on parallel lines menu bar with data target value "Grants - All"
     And I select "Refresh" from parallel lines dropdown of "Grants - All"
     Then I see table is refreshing
@@ -6795,7 +6795,7 @@ Feature: Sanity scenarios
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
-    When I perform quick search for "Closed" in "---grantee_tableId:-:GrantsTable---" panel
+    When I perform quick search for "Active" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     When I perform quick search for "Terminated" in "---grantee_tableId:-:GrantsTable---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
@@ -7103,6 +7103,7 @@ Feature: Sanity scenarios
     Then I softly see value "Pending Closeout" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Reviewed" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:awardTableId---" for table id "Next"
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardTableId---"
     Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:awardTableId---"
@@ -7115,7 +7116,7 @@ Feature: Sanity scenarios
     And I wait for "7" seconds
     And I download the file
     Then I see "Awards - All" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+    And I close the tab
     When I click on parallel lines menu bar with data target value "Awards - All"
     And I select "Refresh" from parallel lines dropdown of "Awards - All"
     Then I see table is refreshing
