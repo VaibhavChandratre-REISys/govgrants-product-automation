@@ -9710,11 +9710,11 @@ Feature: Sanity scenarios
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
       | Name       | Award |
       | Victor EXE |  NA   |
-    And I click on "Submit for Approval" in the page details
+    And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-      | Name       | Award    |
+      | Name       |  Award   |
       | Sarah PM   |  Step 1  |
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
       | Name       | Award   |
