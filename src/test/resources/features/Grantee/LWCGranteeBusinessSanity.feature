@@ -6699,6 +6699,10 @@ Feature: Sanity scenarios
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I refresh the page
+    And I wait for "3" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     Then I softly see toggle option "Grants - All" inside flex table id "---grantee_tableId:-:GrantsTable---"
     Then I softly see toggle option "Grants - Draft" inside flex table id "---grantee_tableId:-:GrantsTable---"
     Then I softly see toggle option "Grants - Active" inside flex table id "---grantee_tableId:-:GrantsTable---"
@@ -7068,6 +7072,10 @@ Feature: Sanity scenarios
   @443816 @ValidateAwardWithPMProfileAfterclickonAwardphaseListviewpage @Grantee1
   Scenario: Validate Award With PM Profile After click on Award phase List view page
     When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Grants" tab
     When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     Then I softly see toggle option "Awards - All" inside flex table id "---grantee_tableId:-:awardTableId---"
