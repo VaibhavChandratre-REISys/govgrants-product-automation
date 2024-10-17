@@ -1535,11 +1535,11 @@ Feature: Validate all scenarios of every modules flow
   @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDX000001K5ceYAC/view"
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Account/001Db000017RNJCIA4/view"
     And I wait for "10" seconds
-    Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:SubreceipientAwardPersonnelBudgetTableID---" :
-      | Name      | Position | Salary    | Rate   | FTE  | Time Worked | Percentage of Time(%) | Total Cost | Cash Match | Non-Cash Match | Total Match
-      | Personnel | Staff    | $1,000.00 | Weekly | 0.40 | 100.00      | 2.00%                 | $2,000.00  | $100.00    | $100.00        | $200.00
+    Then I see the following rows under the following headers in table with id "Non-FederalFiles" :
+      | Title                 | Classification            | File Extension |
+      | AttachmentTesting.pdf | Indirect Cost Rate Letter | pdf            |
     And I halt execution
 
   @TestingXSS

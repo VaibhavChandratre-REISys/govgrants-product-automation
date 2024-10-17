@@ -2594,7 +2594,7 @@ Feature: Sanity scenarios
       | GRANTEE PM | Attachment.pdf        | Notes Record | Sarah PM   | Test  |
       | GRANTEE PO | AttachmentTesting.pdf | Notes for PO | Grantee PO | Test1 |
 
-  @443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject @GranteeTBE
+  @443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject
   Scenario: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -2668,8 +2668,8 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name     | Award  |
-      | Sarah PM | Step 1 |
+      | Name       | Award  |
+      | Victor EXE | Step 1 |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Monitoring" sub tab
@@ -7245,7 +7245,7 @@ Feature: Sanity scenarios
     Then I softly see "Award Amount To Date" in flex table header "---grantee_tableId:-:awardTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:awardTableId---"
 
-  @447987 @VerifyPMusershouldabletosubmitandapprovedsenttoownerforwardApprovedtheSOWchangeamendmentrequest @GranteeTBE
+  @447987 @VerifyPMusershouldabletosubmitandapprovedsenttoownerforwardApprovedtheSOWchangeamendmentrequest
   Scenario: Verify PM user should able to submit and approved/sent to owner/forward/Approved the SOW change amendment request
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -7517,7 +7517,7 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Edit" in page detail
 
-  @449167 @VerifyPMuserasAROwnercanabletocreateFundingChangeARonactiveAward&NotAcceptARbyGrantor&notabletoseeAmendAwardbuttoninNotAcceptedstateofFCAR @GranteeTBE
+  @449167 @VerifyPMuserasAROwnercanabletocreateFundingChangeARonactiveAward&NotAcceptARbyGrantor&notabletoseeAmendAwardbuttoninNotAcceptedstateofFCAR
   Scenario: Verify PM user as (AR Owner) can able to create Funding Change AR on active Award & Not Accept AR by Grantor & not able to see Amend Award button in Not Accepted state of FC AR
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -8101,7 +8101,7 @@ Feature: Sanity scenarios
     Then I softly see value "Not Accepted" for title "New Value" inside field history table
     Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
 
-  @449166 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @GranteeTBE
+  @449166 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant
   Scenario: Verify PM user as (AR Owner same as Award Owner) can able to create Funding Change AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
