@@ -9733,7 +9733,6 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     Then I softly can see row level action button "Edit" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     Then I softly can see row level action button "Remove" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    And I click toggle button to select "Special Conditions"
     When I click on parallel lines menu bar with data target value "Special Conditions"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
