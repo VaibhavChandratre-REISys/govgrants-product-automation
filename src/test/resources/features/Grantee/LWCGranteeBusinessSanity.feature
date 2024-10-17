@@ -9709,7 +9709,7 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Goals/Objectives associated successfully. |
     And I click modal button "Close"
-    Then I softly can see row level action button "Remove" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I softly can see row level action button "Remove" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     And I wait for "3" seconds
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
