@@ -9693,39 +9693,39 @@ Feature: Sanity scenarios
     Then I softly see value "Step 1" for title "Award" against the value "Sarah PM" inside table "---grantee_tableId:-:awardApproverTableId---"
     Then I softly see value "Step 2" for title "Award" against the value "Victor EXE" inside table "---grantee_tableId:-:awardApproverTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | David FO   |  NA               |
+      | Name       | Award |
+      | David FO   |  NA   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Amendment Request  |
-      | Step 3             |
+      | Award  |
+      | Step 3 |
     Then I softly see the following messages in the page details contains:
       | Required Fields Missing |
     And I refresh the page
     And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-      | Name       | Amendment Request |
-      | Sarah PM   |  Step 2           |
+      | Name       | Award   |
+      | Sarah PM   |  Step 2 |
     Then I softly see the following messages in the page details contains:
-      | You cannot specify the same step for multiple users for Amendment Request |
+      | You cannot specify the same step for multiple users for Award. |
     And I refresh the page
     And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-      | Name       | Amendment Request |
-      | Sarah PM   |  NA               |
+      | Name       | Award |
+      | Sarah PM   |  NA   |
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-      | Name       | Amendment Request |
-      | Victor EXE |  NA               |
+      | Name       | Award |
+      | Victor EXE |  NA   |
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-      | Name       | Amendment Request |
-      | Sarah PM   |  Step 1           |
+      | Name       | Award    |
+      | Sarah PM   |  Step 1  |
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-      | Name       | Amendment Request |
-      | Victor EXE | Step 2            |
+      | Name       | Award   |
+      | Victor EXE | Step 2  |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:awardApproverTableId---"
