@@ -6694,7 +6694,7 @@ Feature: Sanity scenarios
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:specialConditionsChildTableId---"
 
-  @443790 @ValidateGrantWithPMProfileAfterclickonGrantphaseredirecttoGrantListviewpage @Grantee1
+  @443790 @ValidateGrantWithPMProfileAfterclickonGrantphaseredirecttoGrantListviewpage
   Scenario: Validate Grant With PM Profile After click on Grant phase redirect to Grant List view page
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -7069,7 +7069,7 @@ Feature: Sanity scenarios
     Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
 
-  @443816 @ValidateAwardWithPMProfileAfterclickonAwardphaseListviewpage @Grantee1
+  @443816 @ValidateAwardWithPMProfileAfterclickonAwardphaseListviewpage
   Scenario: Validate Award With PM Profile After click on Award phase List view page
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
