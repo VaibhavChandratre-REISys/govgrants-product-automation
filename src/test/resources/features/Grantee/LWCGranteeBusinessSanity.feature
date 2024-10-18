@@ -9855,6 +9855,7 @@ Feature: Sanity scenarios
     And I click on "Edit" in the page details
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    Then I softly cannot see "Closeout" sub tab at view detail page
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
@@ -9956,6 +9957,7 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    Then I softly cannot see "Closeout" sub tab at view detail page
 
   @443835 @AwardVerifywithPMprofileHistoryTabofAwardPagelayout
   Scenario: Award -  Verify with PM profile ,History Tab of Award Page layout.
