@@ -9434,13 +9434,13 @@ Feature: Sanity scenarios
     Then I see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I see value "Test Focus Area1" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Site work" inside table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Site work" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
-    Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Site work" inside table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Site work" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
-    Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Site work" inside table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Site work" inside table "---grantee_tableId:-:awardLineItemsTableId---"
 
   @443820 @AwardVerifyWithPMProfileProjectionTabofAwardPagelayoutfordirectgrant
