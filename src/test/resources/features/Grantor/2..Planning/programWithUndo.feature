@@ -826,7 +826,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
 
- @program2 @279438 @Verifyuserseevalidationmessageifuserclickonsubmitbuttonwithoutselectingdecisionandwithoutenteringcommentsonapprovaldecisionsection @sprint-25-US-295138  @Undo @IntProg
+  @program2 @279438 @Verifyuserseevalidationmessageifuserclickonsubmitbuttonwithoutselectingdecisionandwithoutenteringcommentsonapprovaldecisionsection @sprint-25-US-295138  @Undo @IntProg
   Scenario: Verify user see validation message if user click on submit button without selecting decision and without entering comments on approval decision section
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -877,8 +877,8 @@ Feature: Validate all scenarios for program
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
     And I wait for "2" seconds
-   Then I softly see the following messages in the page details contains:
-     | Comments are Required. |
+    Then I softly see the following messages in the page details contains:
+      | Comments are Required. |
 
   @279442 @VerifyusershouldnotseeactiveprogramtaskinpendingtaskfterpproverclickonUndobutton @sprint-25-US-295138  @Undo @IntProg
   Scenario: Verify user should not see active program task in pending task after approver click on Undo button
@@ -1225,7 +1225,7 @@ Feature: Validate all scenarios for program
 #    When I "Approve" in the approval decision
 #    Then I can see top right button "Undo" in page detail
 
-   @279457 @VerifyPOapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-295138 @FieldHistoryExclude @IntProg
+  @279457 @VerifyPOapprovershouldseeUndobuttonafterapprovaltaskownershipreassigntohim @sprint-25-US-295138 @FieldHistoryExclude @IntProg
   Scenario:Verify PO approver should see Undo button after approval task ownership reassign to him
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1293,7 +1293,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     Then I softly see value "Automation PO1" for title "User" inside field history table
 
-   @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138  @buglogged-356843 @IntProg
+  @279467 @VerifynotificationemailshouldgeneratetonewownerofprogramafterclickonUndobutton @sprint-25-US-295138  @buglogged-356843 @IntProg
   Scenario: Verify notification email should generate to new owner of program after click on Undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1406,7 +1406,7 @@ Feature: Validate all scenarios for program
      The EGMS Team
       """
 
-   @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138  @Undo @IntProg
+  @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138  @Undo @IntProg
   Scenario:Verify reassign approver should see Undo button after forwarded approver change approval task ownership
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1632,7 +1632,7 @@ Feature: Validate all scenarios for program
     And I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
 
- @hit @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138  @Undo @IntProg
+  @hit @299539 @Verifyhesnapshotisgeneratedinsnapshothistorysectionwhenlastapproverclickundoaction @sprint-25-US-295138  @Undo @IntProg
   Scenario: Verify the snapshot is generated in snapshot history section when last approver click undo action
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1708,7 +1708,7 @@ Feature: Validate all scenarios for program
     Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
     Then I softly see "Test Automation Organization" on page "1" of "govgrants" pdf file
 
- @hit @279332 @VerifyPOuserasstep2approvercanabletoclickonundobuttonandcanseeapprovaldecisionsectionwithfouroptionForwardsenttoownerapprovedandreject @sprint-25-US-295138  @Undo @IntProg
+  @hit @279332 @VerifyPOuserasstep2approvercanabletoclickonundobuttonandcanseeapprovaldecisionsectionwithfouroptionForwardsenttoownerapprovedandreject @sprint-25-US-295138  @Undo @IntProg
   Scenario: Verify PO user as step 2 approver can able to click on undo button and can see approval decision section with four option Forward, sent to owner, approved and reject
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2847,6 +2847,7 @@ Feature: Validate all scenarios for program
      Thank you.
      The EGMS Team
       """
+
   @wip @279522 @Verifyifforwardedapproverapprovetheprogramthentheforwardedapproveronlycanseeundobutton @sprint-25-US-291914  @Undo
   Scenario: Verify if forwarded approver approve the program then the forwarded approver only can see undo button
     When I login to "As a Grantor" app as "PM" user
@@ -3097,7 +3098,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see field "Status" as "Approved"
 
-@hit @312499 @312505 @ValidateInternalProgIseeIcaneditandupdatethefiledwhenundoisinprogress @Undo @IntProg
+  @hit @312499 @312505 @ValidateInternalProgIseeIcaneditandupdatethefiledwhenundoisinprogress @Undo @IntProg
   Scenario: Validate Internal Prog I see I can edit and update the filed when undo is in progress
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3171,7 +3172,7 @@ Feature: Validate all scenarios for program
     And I click on hyperlink containing value "Internal Program - Undo Approval.pdf"
     And I wait for "5" seconds
     When I download the file
-   And I wait for "5" seconds
+    And I wait for "5" seconds
     #312505
     Then I softly see following details in "govgrants" pdf file:
       | Status                 | Page Number |
@@ -3215,7 +3216,7 @@ Feature: Validate all scenarios for program
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Internal Program - submit for approval.pdf" as name
 
- @hit @281733 @InternalProgramVerifyuserseealltablesdisplaycorrectlyindownloadedPDFforprogramafterUndo @sprint-25-US-280680  @Undo @IntProg @TBExecution1
+  @hit @281733 @InternalProgramVerifyuserseealltablesdisplaycorrectlyindownloadedPDFforprogramafterUndo @sprint-25-US-280680  @Undo @IntProg @TBExecution1
   Scenario: Validate Internal Prog I see I can edit and update the filed when undo is in progress
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3285,12 +3286,10 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
     Then I cannot see top right button "Undo" in page detail
-    And I click on Menu icon present on top right corner of the page
-    And I wait for "2" seconds
-    And I select "Download As PDF" from dropdown
-   And I wait for "5" seconds
+    And I click on "Download As PDF" in the page details
+    And I wait for "7" seconds
     And I download the file
-   And I wait for "5" seconds
+    And I wait for "3" seconds
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
     Then I softly see following details in "govgrants" pdf file:
       | Detail   | Page Number |
@@ -3300,7 +3299,7 @@ Feature: Validate all scenarios for program
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Internal Program - submit for approval.pdf" as name
 
- @282645 @InternalProgVerifypreviousapprovesprogramtaskshouldnotcancelafterlaststepapproverclickonundobutton @sprint-25-US-291914  @Undo @IntProg
+  @282645 @InternalProgVerifypreviousapprovesprogramtaskshouldnotcancelafterlaststepapproverclickonundobutton @sprint-25-US-291914  @Undo @IntProg
   Scenario: Internal Prog_ Verify previous approves program task should not cancel after last step approver click on undo button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab

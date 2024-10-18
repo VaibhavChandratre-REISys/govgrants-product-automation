@@ -212,7 +212,7 @@ Feature: Validate all scenarios for program with add file
     And I navigate to "Files" sub tab
     Then  I cannot see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
 
-  @223487 @VerifyPMusershouldabletoaddfilewhenInternalProgramisinsubmittedforreviewandreviewstateprovidedifuserhavingthemaineditaccess @sprint-25-US-295138  @addFiles @TBExecution1
+  @223487 @VerifyPMusershouldabletoaddfilewhenInternalProgramisinsubmittedforreviewandreviewstateprovidedifuserhavingthemaineditaccess @sprint-25-US-295138  @addFiles
   Scenario:  Verify PM user should able to add file when Internal Program is in submitted for review and review state provided if user having the main edit access
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
