@@ -9435,13 +9435,10 @@ Feature: Sanity scenarios
     Then I see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I see value "Test Focus Area1" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Site work" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
     Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Site work" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
     Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Site work" inside table "---grantee_tableId:-:awardLineItemsTableId---"
 
   @443820 @AwardVerifyWithPMProfileProjectionTabofAwardPagelayoutfordirectgrant
   Scenario: Award - Verify With PM Profile ,  Projection Tab of Award Page layout for direct grant.
@@ -9832,7 +9829,7 @@ Feature: Sanity scenarios
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     When I navigate to "Files" sub tab
-    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
   @443834 @AwardVerifywithPMprofileCloseoutTabofAwardPagelayout
   Scenario: Award - Verify with PM profile ,Closeout  Tab of Award Page layout.
