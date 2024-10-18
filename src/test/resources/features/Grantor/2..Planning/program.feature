@@ -1,4 +1,4 @@
-@programExecution @grantor-regression @grantor-parallel-regression @planning @regression
+@programExecution @grantor-regression @grantor-parallel-regression @planning @regression @intProg
 Feature: Validate all scenarios for program
 
   Background: Create Program

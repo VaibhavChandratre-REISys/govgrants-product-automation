@@ -1,7 +1,7 @@
 @programWithUndo @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
-   @279282 @Verifyusershouldnotseeundobuttonincreatedsentforreviewreviewedstateofprogram @sprint-25-US-295138  @Undo
+   @279282 @Verifyusershouldnotseeundobuttonincreatedsentforreviewreviewedstateofprogram @sprint-25-US-295138  @Undo @intProg
   Scenario: Verify user should not see undo button in created, sent for review, reviewed state of program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2900,7 +2900,7 @@ Feature: Validate all scenarios for program
     Then I softly see "Submitted for Approval" on page "1" of "govgrants" pdf file
     Then I softly see "Test With Automation PM" on page "1" of "govgrants" pdf file
 
-  @303515 @InternalProgVerifyotherPMusershouldnotseeundobuttononprogram @sprint-6-US-303298  @Undo
+  @303515 @InternalProgVerifyotherPMusershouldnotseeundobuttononprogram @sprint-6-US-303298  @Undo @intProg
   Scenario: Internal Prog_ Verify other PM user should not see undo button on program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -3042,7 +3042,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see field "Status" as "Approved"
 
-  @312499 @312505 @ValidateInternalProgIseeIcaneditandupdatethefiledwhenundoisinprogress @Undo
+  @312499 @312505 @ValidateInternalProgIseeIcaneditandupdatethefiledwhenundoisinprogress @Undo @intProg
   Scenario: Validate Internal Prog I see I can edit and update the filed when undo is in progress
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab

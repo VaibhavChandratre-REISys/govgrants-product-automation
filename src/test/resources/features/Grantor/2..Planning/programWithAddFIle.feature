@@ -35,7 +35,7 @@ Feature: Validate all scenarios for program with add file
     And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---program:-:GrantorInternalProgramFilesTableId---" without waiting for record
     Then I softly do not see value "Program Artifacts" for title "Title" inside table "---program:-:GrantorInternalProgramFilesTableId---"
 
-  @222255 @VerifyifEXEuserisnotOwneroffilethenusercannotEditDeletefile @sprint-10-US-199430 @addFiles
+  @222255 @VerifyifEXEuserisnotOwneroffilethenusercannotEditDeletefile @sprint-10-US-199430 @addFiles @intProg
   Scenario: Verify if <EXE> user is not Owner of file then user can not Edit/Delete file
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab

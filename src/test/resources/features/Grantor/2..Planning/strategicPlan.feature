@@ -1,4 +1,4 @@
-  @grantor-regression @grantor-parallel-regression @planning @regression
+  @grantor-regression @grantor-parallel-regression @planning @regression @intProg
 Feature: Validate all scenarios in Strategic Plan
 
   Background: To setup data

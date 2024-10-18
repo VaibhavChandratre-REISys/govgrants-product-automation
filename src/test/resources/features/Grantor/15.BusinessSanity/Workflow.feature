@@ -1537,6 +1537,7 @@ Feature: Validate all scenarios of every modules flow
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Account/001Db000017RNJCIA4/view"
     And I wait for "10" seconds
+    And I navigate to "Files" sub tab
     Then I see the following rows under the following headers in table with id "Non-FederalFiles" :
       | Title                 | Classification            | File Extension |
       | AttachmentTesting.pdf | Indirect Cost Rate Letter | pdf            |
