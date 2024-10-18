@@ -2010,7 +2010,7 @@ Feature: Validate all scenarios for program
       """
 
 
-   @198790  @sprint-4  @reassignment @TBExecution1
+   @198790  @sprint-4  @reassignment
   Scenario: Validate newly assigned owner PM receives an email after internal program is sent to owner during approvals when ownership is transferred before post program is Reviewed
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab

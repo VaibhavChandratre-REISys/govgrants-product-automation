@@ -797,7 +797,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details :
       | Setup Tab - Remove all the Focus Areas associated with this program if the Focus Area Required is "No". |
 
- @hit1 @34737 @76116 @76117 @76113 @76115 @75894 @75888 @75891 @programObjectiveAssociation @TBExecution1
+ @hit1 @34737 @76116 @76117 @76113 @76115 @75894 @75888 @75891 @programObjectiveAssociation
   Scenario Outline: Validate the Association of Objective to the Internal Program
     When I navigate to "Setup" sub tab
 #    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
@@ -2756,24 +2756,27 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 0               |
     And I expand nested table containing column value "Management Review"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---program:-:reviewFormsTableId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
       | Management Review | 100             | Unchecked | 0                                         |
-    Then I softly see the following messages in the page details contains:
+   And I click on top right button "Save" in flex table with id "---program:-:reviewStepTableId---"
+   Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
     When I collapse nested table containing column value "Management Review"
     And I wait for "1" seconds
     And I expand nested table containing column value "SME Review"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---program:-:reviewFormsTableId---" by clicking "Edit" :
       | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Compliance Review | Unchecked | 40              | 0                                         |
-    Then I softly see the following messages in the page details contains:
+   And I click on top right button "Save" in flex table with id "---program:-:reviewStepTableId---"
+   Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
-    And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---program:-:reviewFormsTableId---" by clicking "Edit" :
       | Form Name     | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Fiscal Review | Unchecked | 40              | 0                                         |
-    Then I softly see the following messages in the page details contains:
+   And I click on top right button "Save" in flex table with id "---program:-:reviewStepTableId---"
+   Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
     Examples:
       | Objective                      |
@@ -3022,7 +3025,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
- @hit3 @77613 @ValidatingErrorMessageFiscalReviewForm @TBExecution1
+ @hit3 @77613 @ValidatingErrorMessageFiscalReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :0% ,Minimum Number of Reviews per Application : 1 , Required? :Checked ,for fiscal Review Review form in SME Review step in planning phase
     And I click on "Edit" in the page details
     And I wait for "10" seconds
