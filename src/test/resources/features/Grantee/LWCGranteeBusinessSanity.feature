@@ -9434,6 +9434,7 @@ Feature: Sanity scenarios
     Then I see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I see value "Test Focus Area1" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
     Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
@@ -10431,5 +10432,11 @@ Feature: Sanity scenarios
     And I enter "Grantee_PeriodicRenewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
-    And I enter "GranteePeriodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I click on "Submit for Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - Propose a new Budget Period End Date. |
+      | Overview Tab - Awarded Budget must be greater than $0. |
+      | Overview Tab - Enter a Focus Area Start Date and a Focus Area End Date to all Focus Areas before submitting this request.|
+      | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
+      | Responsibilities - At least one approver is required |
