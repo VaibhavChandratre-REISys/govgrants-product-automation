@@ -5420,8 +5420,8 @@ Feature: Sanity scenarios
     Then I softly do not see value "Test" for title "Title" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see "Date From" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see "Date To" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -5999,13 +5999,13 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Delete" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Awarded Budget | Cash Match | Other Leverage |
-      | Test        | The narrative | 5000           | 500        | 500            |
+      | Test        | The narrative  | 5000           | 500        | 500            |
     And I click on "Delete" icon for "Test" inside flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly do not see value "Test" for title "Title" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see "Date From" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see "Date To" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -6377,8 +6377,6 @@ Feature: Sanity scenarios
     Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
-#    Then I see value "$1,000.00" for title "Projected Program Income ($)" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
-#    Then I see value "10.00%" for title "Rate" against the value "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
     When I navigate to "Actuals" sub tab
     When I save the field labeled "Total Awarded Budget" as "TotalAwardedBudget"
     Then I softly see field "Total Awarded Budget" as "{SavedValue:TotalAwardedBudget}"
@@ -6392,14 +6390,13 @@ Feature: Sanity scenarios
     Then I softly see field "Total Program Income Revenue this Budget Period" as "{SavedValue:TotalProgramIncomeRevenuethisBudgetPeriod}"
     When I save the field labeled "Total Leverage" as "TotalLeverage"
     Then I softly see field "Total Leverage" as "{SavedValue:TotalLeverage}"
-    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$7,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Expenditures to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Carry-Forward" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly see value "$5,000.00" for title "Remaining Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$7,000.00" for title "Remaining Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I see value "$1,000.00" for title "Revised Program Income Earned" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:awardProgramRevenueTableId---"
-    Then I see value "$0.00" for title "Rate" against the value "Original Program Income Earned" inside table "---grantee_tableId:-:awardProgramRevenueTableId---"
+    Then I see value "$0.00" for title "Original Program Income Earned" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:awardProgramRevenueTableId---"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -6430,10 +6427,11 @@ Feature: Sanity scenarios
     When I save the field labeled "Total Project Cost" as "TotalProjectCost"
     Then I softly see field "TotalProjectCost" as "{SavedValue:TotalProjectCost}"
     Given I expand nested table containing column value "BP01"
-    Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$7,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$700.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$400.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$8,100.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
