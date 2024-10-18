@@ -712,9 +712,8 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details :
       | Record deleted Successfully. |
     When I enter the following values into flex table with id "---program:-:reviewFormPanelId---" by clicking "New" :
-      | Form Name         | Minimum Number of Reviews per Application | Required? |
-      | Automation Review | 1                                         | Checked   |
-    And I click on top right button "Save" in flex table with id "---program:-:reviewStepTableId---"
+      | Form Name         | Required? |Minimum Number of Reviews per Application | 
+      | Automation Review | Checked   |1                                         | 
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
@@ -723,11 +722,12 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:addReviewersTableId---"
     Then I softly see value "pm.automation@yopmail.com" for title "Email" inside table "---program:-:addReviewersTableId---"
     Then I softly see value "Test Automation Organization" for title "Organization Name" inside table "---program:-:addReviewersTableId---"
-    And I click on "Delete" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:addReviewersTableId---" without waiting for record
+    And I click on "Remove from Form" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:addReviewersTableId---" without waiting for record
     Then I softly see the following messages in the page details :
-      | Record deleted Successfully. |
+      | Record removed successfully. |
     When I click on parallel lines menu bar with data target value "Review Forms"
     And I select "Download as PDF" from parallel lines dropdown of "Review Forms"
+    And I wait for "8" seconds
     And I download the file
     Then I softly see "Review Forms" on page "1" of "govgrants" pdf file
     Examples:
@@ -2756,26 +2756,23 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 0               |
     And I expand nested table containing column value "Management Review"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---program:-:reviewFormsTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
       | Management Review | 100             | Unchecked | 0                                         |
-   And I click on top right button "Save" in flex table with id "---program:-:reviewStepTableId---"
    Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
     When I collapse nested table containing column value "Management Review"
     And I wait for "1" seconds
     And I expand nested table containing column value "SME Review"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---program:-:reviewFormsTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Compliance Review | Unchecked | 40              | 0                                         |
-   And I click on top right button "Save" in flex table with id "---program:-:reviewStepTableId---"
    Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
-    And I edit the following rows inline in flex table with id "---program:-:reviewFormsTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Form Name     | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
       | Fiscal Review | Unchecked | 40              | 0                                         |
-   And I click on top right button "Save" in flex table with id "---program:-:reviewStepTableId---"
    Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
     Examples:
