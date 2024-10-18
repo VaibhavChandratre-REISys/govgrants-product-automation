@@ -9434,11 +9434,11 @@ Feature: Sanity scenarios
     Then I see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I see value "Test Focus Area1" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
-    Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
-    Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see value "$45,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
 
   @443820 @AwardVerifyWithPMProfileProjectionTabofAwardPagelayoutfordirectgrant
   Scenario: Award - Verify With PM Profile ,  Projection Tab of Award Page layout for direct grant.
@@ -10342,12 +10342,6 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
     And I click modal button "Close"
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    And I click modal button "Close"
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    When I click "Associate" after selection of "Test Focus Area1" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    And I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
@@ -10355,26 +10349,8 @@ Feature: Sanity scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
       | Title                           | Start Date                         | End Date                         |
       | Automation Permanent Focus Area | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
-      | Title                            | Start Date                         | End Date                         |
-      | Automation Permanent Focus Area2 | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
-      | Title                            | Start Date                         | End Date                         |
-      | Test Focus Area1                 | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
-    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
-      | Construction | The narrative | 5000         | 500        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
-    And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
-    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
-      | Construction | The narrative | 5000         | 500        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
-    And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
@@ -10458,5 +10434,8 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PeriodicRenewal" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I enter "GranteePeriodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
