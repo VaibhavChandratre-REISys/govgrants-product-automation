@@ -3226,6 +3226,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Rejected"
     Then I cannot see top right button "Undo" in page detail
     And I click on Menu icon present on top right corner of the page
+    And I wait for "3" seconds
     And I select "Download As PDF" from dropdown
     And I wait for "3" seconds
     And I download the file
