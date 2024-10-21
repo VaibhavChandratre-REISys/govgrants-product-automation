@@ -277,10 +277,10 @@ Feature: Sanity scenarios
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "Attachment.pdf" has been added in "Focus Area Files" flex table
-    When I enter the following values into flex table with id "---grantee_tableId:-:focusAreaNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:focusAreaNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
-    When I enter the following values into flex table with id "---grantee_tableId:-:focusAreaNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:focusAreaNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:focusAreaNotesTableId---"
@@ -442,7 +442,7 @@ Feature: Sanity scenarios
     Then I can see row level action button "Delete" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I can see row level action button "Edit" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I can see row level action button "Download" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
-    Then I softly see top right button "Add" inside flex table "---grantee_tableId:-:fedNotesTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see value "<Notes>" for title "Title" inside table "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:fedNotesTableId---"
@@ -617,7 +617,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see the following messages in the page details contains:
@@ -705,7 +705,7 @@ Feature: Sanity scenarios
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentsTableId---"
     And I navigate to "Files" sub tab
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly do not see top right button "Add" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
     Then I can see row level action button "View" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I can see row level action button "Download" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I cannot see row level action button "Edit" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
@@ -1087,14 +1087,14 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I softly see value "Financial Report" for title "Classification" inside table "---grantee_tableId:-:financialReportAddFilesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
       | Description      |
       | Automation Notes |
     Then I softly see the following messages in the page details :
       | Required Fields Missing |
     And I refresh the page
     And I wait for "3" seconds
-    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see the following messages in the page details contains:
@@ -1105,7 +1105,7 @@ Feature: Sanity scenarios
     When I click on "Delete" icon for "Notes Record" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     And I wait for "3" seconds
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "Add" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     When I navigate to "History" sub tab
@@ -1166,7 +1166,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I softly can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I softly cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
-    Then I softly do not see top right button "Add" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     When I "Approve" in the approval decision
@@ -2265,7 +2265,7 @@ Feature: Sanity scenarios
     Then I softly see "Closeout Files" page block displayed
     Then I softly see "Notes" page block displayed
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:closeoutAddFilesTableId---"
-    Then I softly see top right button "Add" inside flex table "---grantee_tableId:-:closeoutNotesTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:closeoutNotesTableId---"
     When I navigate to "History" sub tab
     Then I softly see "Approval History" page block displayed
     Then I softly see "Snapshot History" page block displayed
@@ -2573,8 +2573,8 @@ Feature: Sanity scenarios
     Then I can see row level action button "Delete" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I can see row level action button "Edit" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I can see row level action button "Download" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
-    Then I softly see top right button "Add" inside flex table "---grantee_tableId:-:fedNotesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:fedNotesTableId---" by clicking "Add" :
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:fedNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:fedNotesTableId---" by clicking "New" :
       | Title   | Description      |
       | <Notes> | Automation Notes |
     Then I softly see value "<Notes>" for title "Title" inside table "---grantee_tableId:-:fedNotesTableId---"
@@ -2723,7 +2723,7 @@ Feature: Sanity scenarios
   And I wait for "2" seconds
   Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
   Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
-  When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "Add" :
+  When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
     | Title        | Description      |
     | Notes Record | Automation Notes |
   Then I softly see the following messages in the page details contains:
