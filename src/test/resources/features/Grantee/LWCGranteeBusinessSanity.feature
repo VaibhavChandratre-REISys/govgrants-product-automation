@@ -2403,7 +2403,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @443755 @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
+  @hitTem @443755 @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario Outline: Non Federal_ Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -2600,7 +2600,7 @@ Feature: Sanity scenarios
 #      | GRANTEE PM | Attachment.pdf        | Notes Record | Sarah PM   | Test  |
       | GRANTEE PO | AttachmentTesting.pdf | Notes for PO | Grantee PO | Test1 |
 
-  @443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject @GranteeTBE
+ @hitTem @443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject @GranteeTBE
   Scenario: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
   When I login to "As a Grantee" app as "GRANTEE EXE" user
   And I navigate to "Grants" tab
@@ -2766,7 +2766,7 @@ Feature: Sanity scenarios
     When I navigate to "History" sub tab
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
 
-  @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell
+ @hitTem @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell
   Scenario: Award - Verify with PM Profile ,After activate the award able to see the Actual Tab in pending Closeout ,closed and amended state as well
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3033,7 +3033,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Closed"
     Then I softly can see "Actuals" sub tab at view detail page
 
-  @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment
+  @hitTem @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment
   Scenario: Verify the  Not Accepeted function of budget Redirection Amendment
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3252,7 +3252,7 @@ Feature: Sanity scenarios
     And I softly can see row level action button "{SavedValue:BDRAMENDID}" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly can see top right button "New" in page detail
 
-  @447979 @SOWamendmentVerifyuserislandondetailedpageofamendmentrequestaftersavethedataonmodal
+ @hitTem  @447979 @SOWamendmentVerifyuserislandondetailedpageofamendmentrequestaftersavethedataonmodal
   Scenario: SOW amendment - Verify user is land on detailed page of amendment request after save the data on modal
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3516,7 +3516,7 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
 
-  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR @GranteeTBE
+  @hitTem @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR @GranteeTBE
   Scenario: Verify PM user as (AR Owner same as Award Owner) can able to create budget Redirection AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant (Flow AR)
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -4070,7 +4070,7 @@ Feature: Sanity scenarios
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @455427 @455428 @455429  @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
+ @hitTem @455427 @455428 @455429  @FundingChangeARVerifyPMusershouldseefooternavigatorafteropentheFundingChangeAR
   Scenario Outline: Funding Change AR_ Verify PM user should see footer navigator after open the Funding Change AR
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -4102,7 +4102,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE |
       | GRANTEE FO  |
 
-  @455419 @455420 @455421 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
+  @hitTem @455419 @455420 @455421 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
   Scenario Outline:KPI_ Verify FD user should see footer navigator after open the KPI
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Planning" tab
@@ -4315,7 +4315,7 @@ Feature: Sanity scenarios
     Then I softly can see "Field Audit" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
 
-  @446228 @VerifyEXEusercanseeProgressreportschedulesfromawardinMonitoringschedules
+ @hitTem @446228 @VerifyEXEusercanseeProgressreportschedulesfromawardinMonitoringschedules
   Scenario: Verify EXE user  can see Progress report schedules from award in Monitoring schedules
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -4729,7 +4729,7 @@ Feature: Sanity scenarios
     Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
-  @455424 @455425 @455422 @ProgressReportVerifyEXEusershouldseefooternavigatorafteropentheProgressReport
+ @hitTem @455424 @455425 @455422 @ProgressReportVerifyEXEusershouldseefooternavigatorafteropentheProgressReport
   Scenario Outline: Progress Report_ Verify EXE user should see footer navigator after open the Progress Report
     Given I login to "As a Grantee" app as "<User>" user
     And I navigate to "Monitoring" tab
@@ -4766,7 +4766,7 @@ Feature: Sanity scenarios
       | GRANTEE FO  |
       | GRANTEE PM  |
 
-  @443676 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's @GranteeTBE
+ @hitTem @443676 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's @GranteeTBE
   Scenario: federal_ Verify user should see all fields and section for federal contact's
     When I login to "As a Grantor" app as "GRANTEE ADMIN" user
     When I navigate to "Home" tab
@@ -4862,14 +4862,14 @@ Feature: Sanity scenarios
     Then I softly see field "LastName" as "Execution1"
     Then I softly see field "Phone" as "8967093855"
     Then I softly see field "MobilePhone" as "8967093455"
-#    Then I softly see field "Email" as "{SavedValue:uniqueEmailID}"
-#    And I click on hyperlink containing value "Organization"
-#    Then I softly see new tab is opened
-#    And I switch to parent tab
+    Then I softly see field "Email" as "{SavedValue:uniqueEmailID}"
+    And I click on hyperlink containing value "Organization"
+    Then I softly see new tab is opened
+    And I switch to parent tab
     And I click modal button "Close"
     Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:fedContactTableId---"
 
-  @447987 @VerifyPMusershouldabletosubmitandapprovedsenttoownerforwardApprovedtheSOWchangeamendmentrequest
+ @hitTem @447987 @VerifyPMusershouldabletosubmitandapprovedsenttoownerforwardApprovedtheSOWchangeamendmentrequest
   Scenario: Verify PM user should able to submit and approved/sent to owner/forward/Approved the SOW change amendment request
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -5141,7 +5141,7 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Edit" in page detail
 
-  @TempG @449167 @VerifyPMuserasAROwnercanabletocreateFundingChangeARonactiveAward&NotAcceptARbyGrantor&notabletoseeAmendAwardbuttoninNotAcceptedstateofFCAR
+  @hitTem @449167 @VerifyPMuserasAROwnercanabletocreateFundingChangeARonactiveAward&NotAcceptARbyGrantor&notabletoseeAmendAwardbuttoninNotAcceptedstateofFCAR
   Scenario: Verify PM user as (AR Owner) can able to create Funding Change AR on active Award & Not Accept AR by Grantor & not able to see Amend Award button in Not Accepted state of FC AR
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -5725,7 +5725,7 @@ Feature: Sanity scenarios
     Then I softly see value "Not Accepted" for title "New Value" inside field history table
     Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
 
-  @TempG @449166 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant
+  @hitTem @449166 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant
   Scenario: Verify PM user as (AR Owner same as Award Owner) can able to create Funding Change AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -8542,7 +8542,7 @@ Feature: Sanity scenarios
     And I navigate to "Closeout" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
 
-  @449379 @VerifythebudgetRedirectionRules
+  @hitTem @449379 @VerifythebudgetRedirectionRules
   Scenario: Verify the budget Redirection Rules
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -8905,7 +8905,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
 
-  @449402 @VerifyUserwillactivatethenewawardfromNonOwnerAwardOwner
+  @hitTem @449402 @VerifyUserwillactivatethenewawardfromNonOwnerAwardOwner
   Scenario: Verify User will activate the new award from Non Owner Award Owner
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -9178,7 +9178,7 @@ Feature: Sanity scenarios
     Then I softly see value "$400.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$4,600.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
 
-  @449404 @VerifyusershouldabletocorrectvaluesinnewactivatedAward
+  @hitTem @449404 @VerifyusershouldabletocorrectvaluesinnewactivatedAward
   Scenario: Verify user should able to correct values in new activated Award
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -9442,7 +9442,7 @@ Feature: Sanity scenarios
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
     Then I softly see value "$45,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
 
-  @443820 @AwardVerifyWithPMProfileProjectionTabofAwardPagelayoutfordirectgrant
+  @hitTem @443820 @AwardVerifyWithPMProfileProjectionTabofAwardPagelayoutfordirectgrant
   Scenario: Award - Verify With PM Profile ,  Projection Tab of Award Page layout for direct grant.
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -9535,7 +9535,7 @@ Feature: Sanity scenarios
     Then I can see row level action button "Edit" against "Rate" in flex table with id "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I can see row level action button "Delete" against "Rate" in flex table with id "---grantee_tableId:-:awardIndirectRateTableId---"
 
-  @443830 @AwardVerifywithPMprofileResponsiblitiesTabofAwardPagelayout
+  @hitTem @443830 @AwardVerifywithPMprofileResponsiblitiesTabofAwardPagelayout
   Scenario: Award -  Verify with PM profile ,Responsiblities Tab of Award Page layout.
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -9651,7 +9651,7 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "Sarah PM"
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
 
-  @443832 @AwardVerifywithPMprofileMonitioringTabofAwardPagelayout
+  @hitTem @443832 @AwardVerifywithPMprofileMonitioringTabofAwardPagelayout
   Scenario: Award -  Verify with PM profile ,Monitioring Tab of Award Page layout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -9736,7 +9736,7 @@ Feature: Sanity scenarios
     And I wait for "4" seconds
     Then I see "Special Conditions" on page "1" of "govgrants" pdf file
 
-  @443833 @AwardVerifywithPMprofileMonitioringTabofAwardPagelayout
+  @hitTem @443833 @AwardVerifywithPMprofileMonitioringTabofAwardPagelayout
   Scenario:  Award - Verify with PM profile ,Files Tab of AwardPagelayout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -9833,7 +9833,7 @@ Feature: Sanity scenarios
     When I navigate to "Files" sub tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
 
-  @443834 @AwardVerifywithPMprofileCloseoutTabofAwardPagelayout
+  @hitTem @443834 @AwardVerifywithPMprofileCloseoutTabofAwardPagelayout
   Scenario: Award - Verify with PM profile ,Closeout  Tab of Award Page layout.
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -9969,7 +9969,7 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     Then I softly cannot see "Closeout" sub tab at view detail page
 
-  @443835 @AwardVerifywithPMprofileHistoryTabofAwardPagelayout
+  @hitTem @443835 @AwardVerifywithPMprofileHistoryTabofAwardPagelayout
   Scenario: Award -  Verify with PM profile ,History Tab of Award Page layout.
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -10131,7 +10131,7 @@ Feature: Sanity scenarios
     When I navigate to "History" sub tab
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
 
-  @443835_1 @AwardVerifywithPMprofileHistoryTabofAwardPagelayout
+  @hitTem @443835_1 @AwardVerifywithPMprofileHistoryTabofAwardPagelayout
   Scenario: Award -  Verify with PM profile ,History Tab of Award Page layout.
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -10258,6 +10258,8 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I refresh the page
+    And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Activated" for title "New Value" inside field history table
@@ -10266,7 +10268,7 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
 
-  @463295 @PRAmdVerifythatPMasAmdowneruserseevalidationonSubmitforApprovalbuttononPeriodicRenewalAmendmentRequestlayout
+  @hitTem @463295 @PRAmdVerifythatPMasAmdowneruserseevalidationonSubmitforApprovalbuttononPeriodicRenewalAmendmentRequestlayout
   Scenario: PR Amd-->Verify that PM (as Amd owner)user see validation on Submit for Approval button on Periodic Renewal Amendment Request layout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -10413,7 +10415,7 @@ Feature: Sanity scenarios
       | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
       | Responsibilities - At least one approver is required |
 
-  @462436 @VerifyPOusercannotabletoseeGrantorDecisionHistorysectionunderHistorytabwhenPeriodicRenewalAmendmentRequestisnotinAcceptedstate
+  @hitTem @462436 @VerifyPOusercannotabletoseeGrantorDecisionHistorysectionunderHistorytabwhenPeriodicRenewalAmendmentRequestisnotinAcceptedstate
   Scenario: Verify PO user cannot able to see Grantor Decision History section under History tab when Periodic Renewal Amendment Request is not in Accepted state
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
