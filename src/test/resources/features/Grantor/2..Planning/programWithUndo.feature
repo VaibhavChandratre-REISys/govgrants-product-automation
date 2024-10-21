@@ -1444,32 +1444,32 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I logout
     And I pause execution for "5" seconds
-#    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
-#    And I pause execution for "150" seconds
-#    Then I refresh the page
-#    And I click on mail with subject "Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}"
-#    And I see the mail subject is as follows :
-#      """
-#      Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
-#      """
-#    Then I see the mail text is as follows :
-#      """
-#      Hello,
-#
-#     This email is to notify you that Program #{SavedValue:ProgramEGMSID} has been created and is waiting for your approval.
-#
-#     Program Details:
-#     Program ID: {SavedValue:ProgramEGMSID}
-#     Program Name: {SavedValue:Automation Runtime Internal Program}
-#
-#     Log in to EGMS and click here to start reviewing the Program.
-#
-#     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-#
-#     Thank you.
-#     The EGMS Team
-#      """
-#    Then I refresh the page
+    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
+    And I pause execution for "150" seconds
+    Then I refresh the page
+    And I click on mail with subject "Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}"
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
+      """
+    Then I see the mail text is as follows :
+      """
+      Hello,
+
+     This email is to notify you that Program #{SavedValue:ProgramEGMSID} has been created and is waiting for your approval.
+
+     Program Details:
+     Program ID: {SavedValue:ProgramEGMSID}
+     Program Name: {SavedValue:Automation Runtime Internal Program}
+
+     Log in to EGMS and click here to start reviewing the Program.
+
+     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+     Thank you.
+     The EGMS Team
+      """
+    Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
