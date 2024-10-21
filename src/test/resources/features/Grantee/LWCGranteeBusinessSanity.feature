@@ -9436,11 +9436,11 @@ Feature: Sanity scenarios
     Then I see value "Test Focus Area1" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     And I wait for "2" seconds
-    Then I softly see value "$45,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$45,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
-    Then I softly see value "$45,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$45,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
-    Then I softly see value "$45,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$45,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
 
   @443820 @AwardVerifyWithPMProfileProjectionTabofAwardPagelayoutfordirectgrant
   Scenario: Award - Verify With PM Profile ,  Projection Tab of Award Page layout for direct grant.

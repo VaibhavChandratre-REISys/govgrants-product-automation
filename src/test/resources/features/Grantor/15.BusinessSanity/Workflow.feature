@@ -1532,7 +1532,14 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @tst
+  @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantee" app as "GRANTEE FD" user
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I wait for "5" seconds
+    And I wait for "2" seconds
+    Then I softly see value "$45,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
+    Then I softly see value "$45,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
+    Then I softly see value "$45,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
 
