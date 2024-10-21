@@ -665,7 +665,7 @@ Feature: Validate all scenarios for program
       | {SavedValue:EXE Username} | Step 2  |
     Then I see that "{SavedValue:EXE Username}" has been added in flextable with Id "---program:-:approverTableId---"
 
- @program2 @34616 @76118 @75992 @75821 @75830 @75831 @75836 @75832 @75840 @75841 @programFocusAreaAssociation
+  @34616 @76118 @75992 @75821 @75830 @75831 @75836 @75832 @75840 @75841 @programFocusAreaAssociation @TBExecution
   Scenario Outline: Validate the association of Focus Area for the Internal Program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -681,7 +681,7 @@ Feature: Validate all scenarios for program
       | Reviewer                 |
       | {SavedValue:PM Username} |
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
-    Then I softly see value "donald_pm@ggp.test7.atm.prolwcut" for title "Email" inside table "---program:-:reviewStepTableId---"
+    Then I softly see value "pm.automation@yopmail.com" for title "Email" inside table "---program:-:reviewStepTableId---"
     Then I softly see value "Test Automation Organization" for title "Organization Name" inside table "---program:-:reviewStepTableId---"
     And I refresh the page
     And I navigate to "Setup" sub tab
@@ -706,25 +706,25 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details :
       | Record deleted Successfully. |
-   And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "New" :
-     | Form Name          | Minimum Number of Reviews per Application | Required? |
-     | Automation Review  | 1                                         | Check     |
+    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "New" :
+      | Form Name         | Required? | Minimum Number of Reviews per Application |
+      | Automation Review | Check     | 1                                         |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:PM Username} |
     Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---program:-:reviewStepTableId---"
-    Then I softly see value "donald_pm@ggp.test7.atm.prolwcut" for title "Email" inside table "---program:-:reviewStepTableId---"
+    Then I softly see value "pm.automation@yopmail.com" for title "Email" inside table "---program:-:reviewStepTableId---"
     Then I softly see value "Test Automation Organization" for title "Organization Name" inside table "---program:-:reviewStepTableId---"
     And I click on "Delete" icon for "{SavedValue:PM Username}" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details :
       | Record deleted Successfully. |
     When I click on parallel lines menu bar with data target value "Review Forms"
     And I select "Download as PDF" from parallel lines dropdown of "Review Forms"
-   And I wait for "3" seconds
+    And I wait for "3" seconds
     And I download the file
-   And I wait for "3" seconds
+    And I wait for "3" seconds
     Then I softly see "Review Forms" on page "1" of "govgrants" pdf file
     Examples:
       | Title                           |
@@ -2253,7 +2253,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
- @77172 @ValidatingAdditionInMatchFiscalReviewForm
+  @77172 @ValidatingAdditionInMatchFiscalReviewForm
   Scenario: To verify user able to add new review question with success message in Match of Review Panel Categories in Fiscal review form for SME review step in planning phase
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -2358,7 +2358,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
- @77189 @ValidatingAdditionInProgramIncomeFiscalReviewForm
+  @77189 @ValidatingAdditionInProgramIncomeFiscalReviewForm
   Scenario Outline: To verify user able to add new review question with success message in Program Income of Review Panel Categories in Fiscal review form for SME review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -2729,7 +2729,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77418 @77422 @77421 @ValidatingErrorMessageInManagamentComplianceFiscalReviewForm
+  @77418 @77422 @77421 @ValidatingErrorMessageInManagamentComplianceFiscalReviewForm @TBExecution1
   Scenario Outline: To validate system generated error message, if Form Weight (%) :100% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Management Review form in Management Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :20% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for compliance Review form in SME Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :40% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Fiscal Review form in SME Review step in planning phase
@@ -2752,8 +2752,8 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Management Review"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name         | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Management Review | 100             | Unchecked | 0                                         |
+      | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Management Review | Unchecked | 100             | 0                                         |
     Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
     When I collapse nested table containing column value "Management Review"
@@ -2761,20 +2761,20 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "SME Review"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name         | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Compliance Review | 40              | Unchecked | 0                                         |
+      | Form Name         | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Compliance Review | Unchecked | 40              | 0                                         |
     Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name     | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Fiscal Review | 40              | Unchecked | 0                                         |
+      | Form Name     | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Fiscal Review | Unchecked | 40              | 0                                         |
     Then I softly see the following messages in the page details contains:
       | You cannot associate a weight to an optional panel |
     Examples:
       | Objective                      |
       | Automation Permanent Objective |
 
- @77423 @ValidatingErrorMessageInPreScreenReviewForm
+  @77423 @ValidatingErrorMessageInPreScreenReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :100% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for prescreening Review form in prescreening Review step in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -3281,8 +3281,8 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  |  Form Weight (%) | Minimum Number of Reviews per Application |
-      | Pre-Screen |  100             | 1                                         |
+      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | 100             | 1                                         |
     Then I softly see the following messages in the page details contains:
       | Reviewers are not required for optional panels |
     And I refresh the page
@@ -3305,8 +3305,8 @@ Feature: Validate all scenarios for program
     And I wait for "1" seconds
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Form Name  |  Form Weight (%) | Minimum Number of Reviews per Application |
-      | Pre-Screen |  0               | 1                                         |
+      | Form Name  | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | 0               | 1                                         |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
@@ -3894,7 +3894,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @78087 @validateSuccessMessageForReviewStepSection
+  @78087 @validateSuccessMessageForReviewStepSection @TBExecution
   Scenario Outline: To validate success message,when user click on validate button in review step section of setup tab in planning phase
     And I click on "Edit" in the page details
     When I enter "Edition" values from "Program_Field_Values.xlsx"
@@ -6015,7 +6015,7 @@ Feature: Validate all scenarios for program
       Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
       """
 
- @program2 @VerifyValidationMessageForReviewFormWeightLessThan100%
+  @program2 @VerifyValidationMessageForReviewFormWeightLessThan100% @TBExecution1
   Scenario: validate user is able to see validation message when review form weight is les than 100%
     And I navigate to "Setup" sub tab
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
@@ -6023,8 +6023,8 @@ Feature: Validate all scenarios for program
       | Pre-Screen Review | 30              |
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
-      | Step Name  | Form Weight (%) | Minimum Number of Reviews per Application | Required? |
-      | Pre-Screen | 30              | 1                                         | Checked   |
+      | Step Name  | Required? |Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | Checked   |30              | 1                                         |
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     And I pause execution for "5" seconds
     #Bug444555

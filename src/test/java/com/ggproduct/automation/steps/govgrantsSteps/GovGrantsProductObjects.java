@@ -641,8 +641,8 @@ public final class GovGrantsProductObjects {
     public void sendTheEmailOnCollabTab(List<List<String>> emailDetails) {
         for (int i = 1; i < emailDetails.size(); i++) {
             List<String> ll = emailDetails.get(i);
-            I.amPerforming().textInput().toClear(By.xpath("//gnt-email-component//input[not(contains(@class,'combobox__input'))]"));
-            I.amPerforming().textInput().in(By.xpath("//gnt-email-component//input[not(contains(@class,'combobox__input'))]"), ll.get(0));
+            I.amPerforming().textInput().toClear(By.xpath("//gnt-email-component//input[not(contains(@placeholder,'Select an Option'))]"));
+            I.amPerforming().textInput().in(By.xpath("//gnt-email-component//input[not(contains(@placeholder,'Select an Option'))]"), ll.get(0));
             I.amPerforming().textInput().toClear(By.xpath("//gnt-email-component//input[@name='subject']"));
             I.amPerforming().textInput().in(By.xpath("//gnt-email-component//input[@name='subject']"), ll.get(1));
             I.amPerforming().click().withJavaScript(By.xpath("//gnt-email-component//div[contains(@class,'text-area')]"));

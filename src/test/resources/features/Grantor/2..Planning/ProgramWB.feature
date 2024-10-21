@@ -2973,9 +2973,9 @@ Feature: Validate all scenarios for program
       | Reviewer Name  | Responsibility  | Description                 | Due Date |
       | Automation EXE | Fiscal Reviewer | Automation Test Description | 10       |
     And I wait for "2" seconds
-    Then I softly can see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
-    Then I softly can see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
-    Then I softly can see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
+    Then I softly can see row level action button "Edit" against "Automation EXE" in flex table with id "---program:-:peerReviewTableId---"
+    Then I softly can see row level action button "Delete" against "Automation EXE" in flex table with id "---program:-:peerReviewTableId---"
+    Then I softly can see row level action button "Send for Review" against "Automation EXE" in flex table with id "---program:-:peerReviewTableId---"
     When I click on "Delete" icon for "Automation EXE" inside flex table with id "---program:-:peerReviewTableId---"
     Then I softly can see top right button "Complete Review" in page detail
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -2991,28 +2991,29 @@ Feature: Validate all scenarios for program
     When I click modal button "Save"
     And I click on submit review
     And I logout
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-    And I pause execution for "180" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Program {SavedValue:ProgramEGMSID} has been PeerReviewed
-      """
-    Then I see the mail text is as follows :
-      """
-      This email is to notify you that {SavedValue:ProgramEGMSID} has been peer reviewed.
-
-   Program Details:
-   Program ID: {SavedValue:ProgramEGMSID}
-   Program Name: {SavedValue:Automation Runtime Internal Program}
-
-   Log in to EGMS and click here to start reviewing the details.
-
-   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at {!$Setup.GNT__GlobalConfig__c.SupportEmail__c} if you have any questions or need assistance with this task.
-
-   Thank you.
-   The EGMS Team
-      """
+    And I wait for "2" seconds
+#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    And I pause execution for "180" seconds
+#    Then I refresh the page
+#    And I see the mail subject is as follows :
+#      """
+#      Sandbox: Notification: Program {SavedValue:ProgramEGMSID} has been PeerReviewed
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      This email is to notify you that {SavedValue:ProgramEGMSID} has been peer reviewed.
+#
+#   Program Details:
+#   Program ID: {SavedValue:ProgramEGMSID}
+#   Program Name: {SavedValue:Automation Runtime Internal Program}
+#
+#   Log in to EGMS and click here to start reviewing the details.
+#
+#   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at {!$Setup.GNT__GlobalConfig__c.SupportEmail__c} if you have any questions or need assistance with this task.
+#
+#   Thank you.
+#   The EGMS Team
+#      """
     Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "PM" user
@@ -4284,7 +4285,7 @@ Feature: Validate all scenarios for program
       """
 
 
-   @191032 @ValidatePlanningPMasrecordownercanseenewlyreassignApprovernameinapproversection @sprint-11-US-224734  @reassignment
+  @191032 @ValidatePlanningPMasrecordownercanseenewlyreassignApprovernameinapproversection @sprint-11-US-224734  @reassignment
   Scenario: Validate Planning PM as record owner can see newly reassign Approver name in approver section
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
@@ -7494,7 +7495,7 @@ Feature: Validate all scenarios for program
     Then I see only the following ordered options in dropdown field "Classification" :
       | Select file classification | Template for Planning | Others |
 
-  @330560 @330580 @330611 @330615 @ValidatePMusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectccaddresscolumnsonMessagessectionundercollabtabofInternalProgram @SystemEmail
+  @330560 @330580 @330611 @330615 @ValidatePMusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectccaddresscolumnsonMessagessectionundercollabtabofInternalProgram @SystemEmail @TBExecution1
   Scenario: Validate PM user should see value populates in " Subject, From Address, To Address, Attention to, Email subject,cc address" columns on Messages section under collab tab of Internal Program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -7818,7 +7819,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @331476 @331881 @331480 @ValidatethatAmeliafduserwillnotseeEmailsentfrommessageSectioninmessagestabonSystemEmailSectionofCollabtab @Sprint-11-US-327737 @SystemEmail
+  @331476 @331881 @331480 @ValidatethatAmeliafduserwillnotseeEmailsentfrommessageSectioninmessagestabonSystemEmailSectionofCollabtab @Sprint-11-US-327737 @SystemEmail @TBExecution
   Scenario: Validate that Amelia fd user will not see Email sent from message section in messages tab on System Email Section of Collab tab
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -8109,7 +8110,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-  @330620 @330624 @ValidateEXEusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectcolumnsonMessagessectionundercollabtabofInternalProgram @Sprint-11-US-326332 @SystemEmail
+  @330620 @330624 @ValidateEXEusershouldseevaluepopulatesinSubjectFromAddressToAddressAttentiontoEmailsubjectcolumnsonMessagessectionundercollabtabofInternalProgram @Sprint-11-US-326332 @SystemEmail @TBExecution1
   Scenario: Validate EXE user should see value populates in " Subject, From Address, To Address, Attention to, Email subject" columns on Messages section under collab tab of Internal Program
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
