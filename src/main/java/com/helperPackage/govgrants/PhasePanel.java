@@ -82,9 +82,9 @@ public final class PhasePanel {
      */
     public void handleDropdownInputForAdvanceFilterForLWC(String advanceFilterId, List rowvalues) {
         By filterAction = null;
-        By dropDownSelector1 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Column')]/..//c-outer-picklist//input");
-        By dropDownSelector2 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Operator')]/..//c-outer-picklist//input");
-        By dropDownSelector3 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//c-outer-picklist//input");
+        By dropDownSelector1 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//c-outer-picklist//label[contains(text(),'Column')]/..//input");
+        By dropDownSelector2 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//c-outer-picklist//label[contains(text(),'Operator')]/..//input");
+        By dropDownSelector3 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//input");
         By inputField = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//input");
         filterAction = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//*[@title='Apply']");
         I.amPerforming().textInput().toClear(dropDownSelector1);

@@ -6019,7 +6019,7 @@ Feature: Validate all scenarios for program
       Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
       """
 
-  @program2 @VerifyValidationMessageForReviewFormWeightLessThan100%
+  @program2 @VerifyValidationMessageForReviewFormWeightLessThan100% @TBExecution
   Scenario: validate user is able to see validation message when review form weight is les than 100%
     And I navigate to "Setup" sub tab
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :
@@ -6029,8 +6029,8 @@ Feature: Validate all scenarios for program
     And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "Edit" :
       | Step Name  | Required? |Form Weight (%) | Minimum Number of Reviews per Application |
       | Pre-Screen | Checked   |30              | 1                                         |
+    And I pause execution for "8" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
-    And I pause execution for "5" seconds
     #Bug444555
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
