@@ -706,9 +706,9 @@ Feature: Validate all scenarios for program
     And I click on "Delete" icon for "Compliance Review" inside flex table with id "---program:-:reviewStepTableId---" without waiting for record
     Then I softly see the following messages in the page details :
       | Record deleted Successfully. |
-    And I edit the following rows inline in flex table with id "---program:-:reviewFormPanelId---" by clicking "New" :
-      | Form Name         | Required? | Minimum Number of Reviews per Application |
-      | Automation Review | Check     | 1                                         |
+    When I enter the following values into flex table with id "---program:-:reviewFormPanelId---" by clicking "New" :
+      | Form Name         | Required? |Minimum Number of Reviews per Application |
+      | Automation Review | Checked   |1                                         |
     Then I softly see the following messages in the page details :
       | Saved Successfully! |
     When I enter the following values into flex table with id "---program:-:reviewStepTableId---" by clicking "Add" :
@@ -3912,6 +3912,7 @@ Feature: Validate all scenarios for program
       | Management Review | 40              |
       | SME Review        | 60              |
       | Pre-Screen Review | 0               |
+    And I wait for "8" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | There are no errors with the review step templates. |

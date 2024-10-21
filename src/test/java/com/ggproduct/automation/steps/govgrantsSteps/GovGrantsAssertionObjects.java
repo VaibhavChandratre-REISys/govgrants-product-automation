@@ -1407,7 +1407,15 @@ public final class GovGrantsAssertionObjects {
                                 .map(el -> el.getAttribute("title")).collect(Collectors.joining(" & ")));
                     } else {
                         // Add text of the cell to list
-                        rowValues.add(cell.getText());
+                        if (cell.getText().contains("*")) {// Exclude asterisks
+                            String cellText = cell.getText().trim();
+                            String newCell = cellText.split("\n")[1];
+                            rowValues.add(newCell);
+                        }
+                        else {
+                            rowValues.add(cell.getText());
+                        }
+//                        rowValues.add(cell.getText());
                     }
                 }
 

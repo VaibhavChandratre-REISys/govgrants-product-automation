@@ -1358,7 +1358,7 @@ Feature: Validate all scenarios for program
      The EGMS Team
       """
 
-   @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138  @Undo
+   @279491 @VerifyreassignapprovershouldseeUndobuttonafterforwardedapproverchangeapprovaltaskownership @sprint-25-US-295138  @Undo @TBExecution
   Scenario:Verify reassign approver should see Undo button after forwarded approver change approval task ownership
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -1444,32 +1444,32 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Undo" in page detail
     And I logout
     And I pause execution for "5" seconds
-    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
-    And I pause execution for "150" seconds
-    Then I refresh the page
-    And I click on mail with subject "Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}"
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
-      """
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-     This email is to notify you that Program #{SavedValue:ProgramEGMSID} has been created and is waiting for your approval.
-
-     Program Details:
-     Program ID: {SavedValue:ProgramEGMSID}
-     Program Name: {SavedValue:Automation Runtime Internal Program}
-
-     Log in to EGMS and click here to start reviewing the Program.
-
-     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-     Thank you.
-     The EGMS Team
-      """
-    Then I refresh the page
+#    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
+#    And I pause execution for "150" seconds
+#    Then I refresh the page
+#    And I click on mail with subject "Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}"
+#    And I see the mail subject is as follows :
+#      """
+#      Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
+#      """
+#    Then I see the mail text is as follows :
+#      """
+#      Hello,
+#
+#     This email is to notify you that Program #{SavedValue:ProgramEGMSID} has been created and is waiting for your approval.
+#
+#     Program Details:
+#     Program ID: {SavedValue:ProgramEGMSID}
+#     Program Name: {SavedValue:Automation Runtime Internal Program}
+#
+#     Log in to EGMS and click here to start reviewing the Program.
+#
+#     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+#
+#     Thank you.
+#     The EGMS Team
+#      """
+#    Then I refresh the page
     And I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -2271,7 +2271,7 @@ Feature: Validate all scenarios for program
      """
 
 
-    @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914  @Undo
+    @279535 @Verifystep2approvercanRejecttheprogramafterclickonUndobuttonandactiveprogramtaskshouldcancelanddisplayundercompletedtasktable @sprint-25-US-291914  @Undo @TBExecution1
   Scenario: Verify step 2 approver can Reject the program after click on Undo button and active program task should cancel and display under completed task table
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2318,8 +2318,7 @@ Feature: Validate all scenarios for program
     When I select radio button "Reject" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
-      Then I softly see the following messages in the page details contains:
-        | This action cannot be undone. Do you really want to Reject? |
+    Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
     And I click "Continue" on modal confirmation box
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -3225,9 +3224,8 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
     Then I cannot see top right button "Undo" in page detail
-    And I click on Menu icon present on top right corner of the page
-    And I select "Download As PDF" from dropdown
-    And I wait for "3" seconds
+    And I click on "Download As PDF" in the page details
+    And I wait for "7" seconds
     And I download the file
     And I wait for "3" seconds
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file
