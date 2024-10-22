@@ -2381,6 +2381,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Complete Closeout" in page detail
     When I click on "Complete Closeout" in the page details
     And I click modal button "Save"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Grantor Closeout Date is required to save. |
     When I enter values into fields
