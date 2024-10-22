@@ -501,7 +501,7 @@ public final class GovGrantsAssertionObjects {
 
     public void verifyFieldAvailableOnModal(String field, String text) {
         try {
-            By fieldText = By.xpath("//div[@id='modaltemp']//div//span[contains(text(),'" + field + "')]//following::dd//span[contains(text(),'" + text + "')] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/..//lightning-base-combobox//span[text()='" + text + "']");
+            By fieldText = By.xpath("//div[@id='modaltemp']//div//span[contains(text(),'" + field + "')]//following::dd//span[contains(text(),'" + text + "')] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/..//lightning-base-combobox//span[text()='" + text + "'] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/parent::div//lightning-formatted-text[text()='" + text + "'] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/parent::div//a[text()='" + text + "']");
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(fieldText)).isTrue();
         } catch (Exception e) {
 

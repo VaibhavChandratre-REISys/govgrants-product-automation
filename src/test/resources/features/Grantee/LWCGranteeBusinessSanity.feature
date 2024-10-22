@@ -8865,7 +8865,7 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Delete" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
     Then I cannot see row level action button "Edit" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
     And I click on "View" icon for "{SavedValue:ContactTitle}" inside flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---" without waiting for record
-    Then I softly see "Create Contact" opens in overLay window
+    Then I softly see "Contact" opens in overLay window
     Then I softly see field on modal "Organization" inside page block
     Then I softly see field on modal "Type" inside page block
     Then I softly see field on modal "Title" inside page block
@@ -8888,58 +8888,58 @@ Feature: Sanity scenarios
     Then I softly see field on modal "4-Digit Zip Code Extension" inside page block
     Then I softly see field on modal "Zip Code" inside page block
     And I save the field labeled "Title" as "Title" on modal
-    Then I softly see field "Title" as "{SavedValue:Title}"
+    Then I see field "Title" as "{SavedValue:Title}" on modal
     And I save the field labeled "First Name" as "FirstName" on modal
-    Then I softly see field "First Name" as "{SavedValue:FirstName}"
+    Then I see field "First Name" as "{SavedValue:FirstName}" on modal
     And I save the field labeled "Last Name" as "LastName" on modal
-    Then I softly see field "Last Name" as "{SavedValue:LastName}"
+    Then I see field "Last Name" as "{SavedValue:LastName}" on modal
     And I save the field labeled "Phone" as "Phone" on modal
-    Then I softly see field "Phone" as "{SavedValue:Phone}"
+    Then I see field "Phone" as "{SavedValue:Phone}" on modal
     And I save the field labeled "Mobile Phone" as "MobilePhone" on modal
-    Then I softly see field "Mobile Phone" as "{SavedValue:MobilePhone}"
+    Then I see field "Mobile Phone" as "{SavedValue:MobilePhone}" on modal
     And I save the field labeled "Email" as "Email" on modal
-    Then I softly see field "Email" as "{SavedValue:Email}"
+    Then I see field "Email" as "{SavedValue:Email}" on modal
     And I save the field labeled "Address Line 1" as "AddressLine1" on modal
-    Then I softly see field "Address Line 1" as "{SavedValue:AddressLine1}"
+    Then I see field "Address Line 1" as "{SavedValue:AddressLine1}" on modal
     And I save the field labeled "Address Line 2" as "AddressLine2" on modal
-    Then I softly see field "Address Line 2" as "{SavedValue:AddressLine2}"
+    Then I see field "Address Line 2" as "{SavedValue:AddressLine2}" on modal
     And I save the field labeled "State" as "State" on modal
-    Then I softly see field "State" as "{SavedValue:State}"
+    Then I see field "State" as "{SavedValue:State}" on modal
     And I save the field labeled "Congressional District" as "CongressionalDistrict" on modal
-    Then I softly see field "Congressional District" as "{SavedValue:CongressionalDistrict}"
+    Then I see field "Congressional District" as "{SavedValue:CongressionalDistrict}" on modal
     And I save the field labeled "City" as "City" on modal
-    Then I softly see field "City" as "{SavedValue:City}"
+    Then I see field "City" as "{SavedValue:City}" on modal
     And I save the field labeled "Country" as "Country" on modal
-    Then I softly see field "Country" as "{SavedValue:Country}"
+    Then I see field "Country" as "{SavedValue:Country}" on modal
     And I save the field labeled "County" as "County" on modal
-    Then I softly see field "County" as "{SavedValue:County}"
+    Then I see field "County" as "{SavedValue:County}" on modal
     And I save the field labeled "4-Digit Zip Code Extension" as "4-DigitZipCodeExtension" on modal
-    Then I softly see field "4-Digit Zip Code Extension" as "{SavedValue:4-DigitZipCodeExtension}"
+    Then I see field "4-Digit Zip Code Extension" as "{SavedValue:4-DigitZipCodeExtension}" on modal
     And I save the field labeled "Zip Code" as "ZipCode" on modal
-    Then I softly see field "Zip Code" as "{SavedValue:ZipCode}"
+    Then I see field "Zip Code" as "{SavedValue:ZipCode}" on modal
     And I save the field labeled "Created By" as "CreatedBy" on modal
-    Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
+    Then I see field "Created By" as "{SavedValue:CreatedBy}" on modal
     Then I softly see link "{SavedValue:CreatedBy}" inside Page block
     And I save the field labeled "Created Date" as "CreatedDate" on modal
-    Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
+    Then I see field "Created Date" as "{SavedValue:CreatedDate}" on modal
     And I save the field labeled "Last Modified By" as "LastModifiedBy" on modal
-    Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedBy}"
+    Then I see field "Last Modified By" as "{SavedValue:LastModifiedBy}" on modal
     Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I save the field labeled "Last Modified Date" as "LastModifiedDate" on modal
-    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
+    Then I see field "Last Modified Date" as "{SavedValue:LastModifiedDate}" on modal
     When I click modal button "Close"
     When I perform quick search for "{SavedValue:ContactTitle}" in "---grantee_tableId:-:FedOrgRelatedContacts---" panel
     Then I softly see value "{SavedValue:ContactTitle}" for title "Title" inside table "---grantee_tableId:-:FedOrgRelatedContacts---"
     And I save the field labeled "Created By" as "CreatedByPage"
     Then I softly see field "Created By" as "{SavedValue:CreatedByPage}"
     Then I softly see link "{SavedValue:CreatedByPage}" inside Page block
-    And I save the field labeled "Created Date" as "CreatedDate"
-    Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
-    And I save the field labeled "Last Modified By" as "LastModifiedBy"
+    And I save the field labeled "Created Date" as "CreatedDatePage"
+    Then I softly see field "Created Date" as "{SavedValue:CreatedDatePage}"
+    And I save the field labeled "Last Modified By" as "LastModifiedByPage"
     Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedByPage}"
     Then I softly see link "{SavedValue:LastModifiedByPage}" inside Page block
-    And I save the field labeled "Last Modified Date" as "LastModifiedDate"
-    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
+    And I save the field labeled "Last Modified Date" as "LastModifiedDatePage"
+    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDatePage}"
     And I navigate to "Related Log" sub tab
     Then I softly see "Active Leads" page block displayed
     Then I softly see "Opportunities" page block displayed
@@ -8984,8 +8984,8 @@ Feature: Sanity scenarios
     Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see "Created By" in flex table header "---grantee_tableId:-:fedNotesTableId---"
-    Then I cannot see row level action button "Delete" against "<Notes>" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
-    Then I cannot see row level action button "Edit" against "<Notes>" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
+    Then I cannot see row level action button "Delete" against "Notes for PM" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
+    Then I cannot see row level action button "Edit" against "Notes for PM" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see value "Test" for title "Title" inside table "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see value "Grantee testing" for title "Description" inside table "---grantee_tableId:-:fedNotesTableId---"
     And I save the value from row "2" for column name "Created By" as "CreatedBy" from flex table "---grantee_tableId:-:fedNotesTableId---"
@@ -9053,7 +9053,7 @@ Feature: Sanity scenarios
     And I save the field labeled "4-Digit Zip Code Extension" as "4-DigitZipCodeExtension" on modal
     And I save the field labeled "Zip Code" as "ZipCode" on modal
     And I save the field labeled "Created By" as "CreatedBy" on modal
-    And I save the field labeled "CreatedDate" as "CreatedDate" on modal
+    And I save the field labeled "Created Date" as "CreatedDate" on modal
     And I save the field labeled "Last Modified By" as "LastModifiedBy" on modal
     And I save the field labeled "Last Modified Date" as "LastModifiedDate" on modal
     When I click modal button "Close"
