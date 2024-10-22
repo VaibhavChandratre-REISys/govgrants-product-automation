@@ -810,11 +810,11 @@ public final class PageDetails {
 
     public void pageBlockExpandedOrCollapse(String pageBlockTitle,String actionIcon) {
         if(actionIcon.contains("Collapse")) {
-            By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//span[text()='Expanded']");
+            By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//lightning-icon[contains(@icon-name,'up')]");
             I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
         }
         else {
-            By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//span[text()='Collapse']");
+            By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//lightning-icon[contains(@icon-name,'down')]");
             I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
         }
     }

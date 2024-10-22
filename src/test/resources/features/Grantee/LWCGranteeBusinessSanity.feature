@@ -4236,7 +4236,7 @@ Feature: Sanity scenarios
     Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
     And I save the field labeled "Last Modified By" as "LastModifiedBy"
     Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedBy}"
-    Then I softly see link "Last Modified By" inside Page block
+    Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I save the field labeled "Last Modified Date" as "LastModifiedDate"
     Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
     And I navigate to "Related Log" sub tab
