@@ -4787,8 +4787,8 @@ Feature: Sanity scenarios
       | Country is required to save.        |
       | Zip Code is required to save.       |
     And I wait for "2" seconds
-    When I enter in modal value "Test With Automation PM" into field "AccountId"
     When I enter in modal value "Automation Runtime" into field "Title"
+    When I enter in modal value "Test With Automation PM" into field "AccountId"
     When I enter in modal value "Automation" into field "FirstName"
     When I enter in modal value "Execution" into field "LastName"
     When I enter in modal value "8967093844" into field "Phone"
@@ -7019,17 +7019,17 @@ Feature: Sanity scenarios
     Then I see option "Download As PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     And I click on "Download As PDF" in the page details
-    And I wait for "5" seconds
+    And I wait for "7" seconds
     And I download the file
-    Then I softly see "Grants - All" on page "1" of "govgrants" pdf file
+    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     And I click on "Take Snapshot" in the page details
     And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot on"
-    And I wait for "5" seconds
+    And I wait for "7" seconds
     When I download the file
-    Then I softly see "Grants - All" on page "1" of "govgrants" pdf file
+    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     And I navigate to "Awards" sub tab
     Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
