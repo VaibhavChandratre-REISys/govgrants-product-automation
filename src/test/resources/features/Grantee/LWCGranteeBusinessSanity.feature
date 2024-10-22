@@ -5136,7 +5136,8 @@ Feature: Sanity scenarios
       | Please select appropriate action before submitting. |
     When I select radio button "Approve" in the approval decision
     And I submit the approval in the approval decision
-    Then I can see the message "Comments are Required." in the approval decision
+   Then I softly see the following messages in the page details contains:
+     | Comments are Required. |
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
