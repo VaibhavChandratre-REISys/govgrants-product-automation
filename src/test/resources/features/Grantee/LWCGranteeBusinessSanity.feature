@@ -4760,7 +4760,6 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-#    When I click on parallel lines menu bar with data target value "Federal Contacts"
     And I select "Download as PDF" from parallel lines dropdown of "Federal Contacts"
     And I wait for "7" seconds
     And I download the file
@@ -4778,6 +4777,7 @@ Feature: Sanity scenarios
     Then I softly see field on modal "Email" inside page block
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
+      | Organization is required to save.     |
       | First Name is required to save.     |
       | Last Name is required to save.      |
       | Email is required to save.          |
@@ -4787,6 +4787,7 @@ Feature: Sanity scenarios
       | Country is required to save.        |
       | Zip Code is required to save.       |
     And I wait for "2" seconds
+    When I enter in modal value "Test With Automation PM" into field "AccountId"
     When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Automation" into field "FirstName"
     When I enter in modal value "Execution" into field "LastName"
@@ -4841,10 +4842,11 @@ Feature: Sanity scenarios
     Then I softly see field "LastName" as "Execution1"
     Then I softly see field "Phone" as "8967093855"
     Then I softly see field "MobilePhone" as "8967093455"
-#    Then I softly see field "Email" as "{SavedValue:uniqueEmailID}"
-#    And I click on hyperlink containing value "Organization"
-#    Then I softly see new tab is opened
-#    And I switch to parent tab
+    Then I softly see field "Email" as "{SavedValue:uniqueEmailID}"
+    And I click on hyperlink containing value "Test With Automation PM"
+    Then I see the header is "Non-Federal Organization" in the page details
+    Then I see the sub-header is "Test With Automation PM" in the page details
+    And I click on back arrow
     And I click modal button "Close"
     Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:fedContactTableId---"
 
