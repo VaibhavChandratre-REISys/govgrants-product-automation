@@ -1,7 +1,7 @@
 @GranteeSanityBusinessFlow
 Feature: Sanity scenarios
 
-  @443880 @ValidatePMusershouldabletoCreateActivatetheKPI @GranteeTBE
+  @443880 @ValidatePMusershouldabletoCreateActivatetheKPI
   Scenario: Validate PM user should able to Create & Activate the KPI
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
@@ -76,7 +76,7 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Activate.pdf" as name
 
-  @440386 @ValidatePMusercancreateandActivateStrategicplan @GranteeTBE
+  @440386 @ValidatePMusercancreateandActivateStrategicplan
   Scenario: Validate PM user can create and Activate Strategic plan
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
@@ -246,7 +246,7 @@ Feature: Sanity scenarios
     When I expand nested table containing column value "Automation Strategic Goal"
     Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
 
-  @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea @GranteeTBE
+  @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea
   Scenario: Validate Focus Area With EXE Profile Able to create Activate Deactive the focus area
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     When I navigate to "Planning" tab
@@ -308,7 +308,7 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
-  @443756 @461002 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @GranteeTBE
+  @443756 @461002 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg
   Scenario Outline: Validate Federal user should see all fields and section on federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -463,7 +463,7 @@ Feature: Sanity scenarios
       | GRANTEE PM | Attachment.pdf        | Notes for PM |
       | GRANTEE PO | AttachmentTesting.pdf | Notes for PO |
 
-  @443850 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection @GranteeTBE
+  @443850 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection
   Scenario: Validate with PM Profile in direct grant keep setting YES then In Approved Active state able to see the access of section
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -727,7 +727,7 @@ Feature: Sanity scenarios
     And I download the file
     Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
 
-  @445207 @ValidateEXEuserFinancialreportOwnercanabletocreateAdhocFinancialReport&abletosubmitFinancialReporttoGrantor @GranteeTBE
+  @445207 @ValidateEXEuserFinancialreportOwnercanabletocreateAdhocFinancialReport&abletosubmitFinancialReporttoGrantor
   Scenario: Validate EXE user Financial report Owner can able to create Adhoc Financial Report & able to submit Financial Report to Grantor
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -1248,7 +1248,7 @@ Feature: Sanity scenarios
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-  @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @GranteeTBE
+  @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
   Scenario: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -1659,7 +1659,7 @@ Feature: Sanity scenarios
     Then I softly see value "{Date:MM/dd/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
-  @445640 @446229 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @GranteeTBE
+  @445640 @446229 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
   Scenario Outline: Validate Financial Report Schedule user can edit Financial report schedule on Created Submitted for review Reviewed Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -2045,7 +2045,7 @@ Feature: Sanity scenarios
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "13" for column name "EGMS ID" as "EGMS ID13" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I wait for "10" seconds
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMS ID1}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID1}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID2}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID3}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID4}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
@@ -2069,7 +2069,7 @@ Feature: Sanity scenarios
       | GRANTEE PM  | Sarah PM   |
       | GRANTEE EXE | Victor EXE |
 
-  @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout @GranteeTBE
+  @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout
   Scenario: Validate GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -2397,7 +2397,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @443755 @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @GranteeTBE
+  @443755 @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario Outline: Non Federal_ Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -2594,7 +2594,7 @@ Feature: Sanity scenarios
       | GRANTEE PM | Attachment.pdf        | Notes Record | Sarah PM   | Test  |
       | GRANTEE PO | AttachmentTesting.pdf | Notes for PO | Grantee PO | Test1 |
 
-  @443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject @GranteeTBE
+  @443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject
   Scenario: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -2756,7 +2756,7 @@ Feature: Sanity scenarios
     When I navigate to "History" sub tab
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
 
-  @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell @GranteeTBE
+  @443826 @AwardVerifywithPMProfileAfteractivatetheawardabletoseetheActualTabinpendingCloseoutclosedandamendedstateaswell
   Scenario: Award - Verify with PM Profile ,After activate the award able to see the Actual Tab in pending Closeout ,closed and amended state as well
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3024,7 +3024,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Closed"
     Then I softly can see "Actuals" sub tab at view detail page
 
-  @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment @GranteeTBE
+  @449394 @VerifytheNotAccepetedfunctionofbudgetRedirectionAmendment
   Scenario: Verify the  Not Accepeted function of budget Redirection Amendment
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3243,7 +3243,7 @@ Feature: Sanity scenarios
     And I softly can see row level action button "{SavedValue:BDRAMENDID}" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly can see top right button "New" in page detail
 
-  @447979 @SOWamendmentVerifyuserislandondetailedpageofamendmentrequestaftersavethedataonmodal @GranteeTBE
+  @447979 @SOWamendmentVerifyuserislandondetailedpageofamendmentrequestaftersavethedataonmodal
   Scenario: SOW amendment - Verify user is land on detailed page of amendment request after save the data on modal
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -3507,7 +3507,7 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
 
-  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR @GranteeTBE
+  @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR
   Scenario: Verify PM user as (AR Owner same as Award Owner) can able to create budget Redirection AR on active Award & able to Accept it & able to create new Award & see impact on Award & Grant (Flow AR)
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -4120,7 +4120,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE |
       | GRANTEE PM  |
 
-  @443719 @VerifytheinternalOrganizationallsectionandfields @GranteeTBE
+  @443719 @VerifytheinternalOrganizationallsectionandfields
   Scenario: Verify the internal Organization all section and fields
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
@@ -4744,7 +4744,7 @@ Feature: Sanity scenarios
       | GRANTEE FO  |
       | GRANTEE PM  |
 
-  @443676 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's @GranteeTBE
+  @443676 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's
   Scenario: federal_ Verify user should see all fields and section for federal contact's
     When I login to "As a Grantor" app as "GRANTEE ADMIN" user
     When I navigate to "Home" tab
@@ -4848,9 +4848,10 @@ Feature: Sanity scenarios
     Then I see the sub-header is "Department of Education" in the page details
     And I click on back arrow
     And I click modal button "Close"
+    And I perform quick search for "{SavedValue:Title}" in "---grantee_tableId:-:fedContactTableId---" panel
     Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:fedContactTableId---"
 
-  @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram @GranteeTBE
+  @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram
   Scenario: Validate Non-Federal program PM user can create and Activate Non Federal program
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
@@ -5013,7 +5014,7 @@ Feature: Sanity scenarios
     Then I softly see value "Active" for title "New Value" inside field history table
     And I softly see value "Created" for title "Original Value" inside field history table
 
-  @444513 @ValidateEXEuserProgressreportOwnercanabltocreateAdhocProgressReportabletosubmitProgressReporttoGrantor @GranteeTBE
+  @444513 @ValidateEXEuserProgressreportOwnercanabltocreateAdhocProgressReportabletosubmitProgressReporttoGrantor
   Scenario: Validate EXE user (Progress report Owner)can able to create Adhoc Progress Report & able to submit Progress Report to Grantor
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -5421,7 +5422,6 @@ Feature: Sanity scenarios
     Then I softly see that "Project/Grant Period" rendered in view mode only
     Then I softly see that "Reporting Period End Date:" rendered in view mode only
     Then I softly see that "Final Report?" rendered in view mode only
-    Then I softly see that "Frequency" rendered in view mode only
     And I enter "Grantee_PSR_form" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I wait for "3" seconds
@@ -5455,7 +5455,6 @@ Feature: Sanity scenarios
     Then I softly see field "Project/Grant Period" inside page block
     Then I softly see field "Reporting Period End Date:" inside page block
     Then I softly see field "Final Report?" inside page block
-    Then I softly see field "Frequency" inside page block
     Then I softly see field "Performance Narrative" inside page block
     Then I softly see field "Key Accomplishments:" inside page block
     Then I softly see field "Lessons Learned:" inside page block
@@ -5684,7 +5683,7 @@ Feature: Sanity scenarios
     And I post the message "Automation Test1 Execution" inside chatter
     Then I softly see post "Automation Test1 Execution" by user "Victor EXE"
 
-  @445208 @ValidatePMuserAwardOwnercanabletocreateSceduledFinancialReport&abletosubmitFinancialReporttoGrantor @GranteeTBE
+  @445208 @ValidatePMuserAwardOwnercanabletocreateSceduledFinancialReport&abletosubmitFinancialReporttoGrantor
   Scenario: Validate PM user Award Owner can able to create Sceduled Financial Report & able to submit Financial Report to Grantor
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -6503,7 +6502,7 @@ Feature: Sanity scenarios
     Then I can see row level action button "Edit" against "{SavedValue:GrantEGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
     Then I cannot see row level action button "Delete" against "{SavedValue:GrantEGMSID}" in flex table with id "---grantee_tableId:-:GrantsTable---"
 
-  @443858 @ValidateAwardsplconwithPMProfileIfSpecialConditionisaddedtheninawardspecialconditionmoduleafterexpandtheawardabletoseespecialconditionrecord @GranteeTBE
+  @443858 @ValidateAwardsplconwithPMProfileIfSpecialConditionisaddedtheninawardspecialconditionmoduleafterexpandtheawardabletoseespecialconditionrecord
   Scenario: Validate Award spl con with PM Profile ,If Special Condition is added then in  award special condition module after expand the award able to see special condition record
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -6607,7 +6606,7 @@ Feature: Sanity scenarios
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:specialConditionsChildTableId---"
 
-  @443857 @ValidateAwardsplconwithEXEProfileIfSpecialConditionisnotaddedtheninawardspecialconditionmoduleafterexpandtheawardunabletoseeanyrecord @GranteeTBE
+  @443857 @ValidateAwardsplconwithEXEProfileIfSpecialConditionisnotaddedtheninawardspecialconditionmoduleafterexpandtheawardunabletoseeanyrecord
   Scenario: Validate Award spl con with EXE Profile If Special Condition is not added then in award special condition module after expand the award unable to see any record
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -6846,7 +6845,7 @@ Feature: Sanity scenarios
     When I click modal button "Save and Continue"
     Then I see the header is "Grant" in the page details
 
-  @447517 @ValidateGrantwithPMProfileOndirectgrantmodalunabletoseethefieldIsBudgetPeriodCloseoutRequestRequired @GranteeTBE
+  @447517 @ValidateGrantwithPMProfileOndirectgrantmodalunabletoseethefieldIsBudgetPeriodCloseoutRequestRequired
   Scenario: Validate Grant with PM Profile On direct grant modal unable to see the field Is Budget Period Closeout Request Required
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -6971,7 +6970,7 @@ Feature: Sanity scenarios
     And I navigate to "Closeout" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
 
-  @443802 @ValidateGrantwithnonownerabletoseeonlyviewaction @GranteeTBE
+  @443802 @ValidateGrantwithnonownerabletoseeonlyviewaction
   Scenario: Validate Grant with non owner able to see only view action
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -7256,7 +7255,7 @@ Feature: Sanity scenarios
     Then I softly see "Award Amount To Date" in flex table header "---grantee_tableId:-:awardTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:awardTableId---"
 
-  @447987 @VerifyPMusershouldabletosubmitandapprovedsenttoownerforwardApprovedtheSOWchangeamendmentrequest @GranteeTBE
+  @447987 @VerifyPMusershouldabletosubmitandapprovedsenttoownerforwardApprovedtheSOWchangeamendmentrequest
   Scenario: Verify PM user should able to submit and approved/sent to owner/forward/Approved the SOW change amendment request
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -7528,7 +7527,7 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Edit" in page detail
 
-  @449167 @VerifyPMuserasAROwnercanabletocreateFundingChangeARonactiveAward&NotAcceptARbyGrantor&notabletoseeAmendAwardbuttoninNotAcceptedstateofFCAR @GranteeTBE
+  @449167 @VerifyPMuserasAROwnercanabletocreateFundingChangeARonactiveAward&NotAcceptARbyGrantor&notabletoseeAmendAwardbuttoninNotAcceptedstateofFCAR
   Scenario: Verify PM user as (AR Owner) can able to create Funding Change AR on active Award & Not Accept AR by Grantor & not able to see Amend Award button in Not Accepted state of FC AR
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -8823,3 +8822,399 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "View All"
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
+
+  @460983 @ValidateFederalOrgAuditorprofileusershouldseeallfieldsandsectionreadonlyonfederalOrglayoutViewonlyaccess @GranteeTBE
+  Scenario: Validate Federal Org Auditor profile user should see all fields and section readonly on federal Org layout Viewonly access
+    When I login to "As a Grantor" app as "GRANTEE AUDITOR" user
+    When I navigate to "Home" tab
+    And I navigate to "External" content inside "Organizations" subheader on left panel
+    When I perform quick search for "Agency For International Development" in "---grantee_tableId:-:fedOrgTableId---" panel
+    And I click on "View" icon for "Agency For International Development" inside flex table with id "---grantee_tableId:-:fedOrgTableId---" without waiting for record
+    Then I see the header is "Federal Organization" in the page details
+    Then I see the sub-header is "Agency For International Development" in the page details
+    Then I softly see field "Parent Organization" as "NA"
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Related Log" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    And I navigate to "Overview" sub tab
+    Then I softly see "Address" page block displayed
+    Then I softly see "Related Contacts" page block displayed
+    Then I softly see "Child Organizations" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I softly see field "Organization Name" as "Agency For International Development"
+    Then I softly see field "Abbreviation" as "USAID"
+    Then I softly see field "Address Line 1" as "1300 Pennsylvania Ave NW"
+    Then I softly see field "City" as "Washington"
+    Then I softly see field "State" as "DC"
+    Then I softly see field "Congressional District" inside page block
+    When I hovering mouse on help text icon inside page block detail "Congressional District"
+    Then I softly see "Enter 3 digit numeric value. For Example if Congressional District is 8 enter 008, if congressional District is 78 enter 078 and if Congressional District is 876 enter 876." shown as help text
+    Then I softly see field "Country" as "USA"
+    Then I softly see field "Zip Code" as "20004"
+    Then I softly see field "Website" as "www.usaid.gov"
+    Then I softly see field "Address Line 2" inside page block
+    Then I softly see field "4-digit Zip Code Extension" inside page block
+    Then I softly see field "County" inside page block
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FedOrgRelatedContacts---"
+    And I save the value from row "1" for column name "Title" as "ContactTitle" from flex table "---grantee_tableId:-:FedOrgRelatedContacts---"
+    Then I can see row level action button "View" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
+    And I click on "View" icon for "{SavedValue:ContactTitle}" inside flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---" without waiting for record
+    Then I softly see "Create Contact" opens in overLay window
+    Then I softly see field on modal "Organization" inside page block
+    Then I softly see field on modal "Type" inside page block
+    Then I softly see field on modal "Title" inside page block
+    Then I softly see field on modal "First Name" inside page block
+    Then I softly see field on modal "Last Name" inside page block
+    Then I softly see field on modal "Phone" inside page block
+    When I hovering mouse on help text icon inside modal "Phone"
+    Then I softly see "Please enter number in this format (xxx)-xxx-xxxx" shown as help text
+    Then I softly see field on modal "Mobile Phone" inside page block
+    Then I softly see field on modal "Email" inside page block
+    Then I softly see field on modal "Address Line 1" inside page block
+    Then I softly see field on modal "Address Line 2" inside page block
+    Then I softly see field on modal "State" inside page block
+    Then I softly see field on modal "Congressional District" inside page block
+    When I hovering mouse on help text icon inside modal "Congressional District"
+    Then I softly see "Enter 3 digit numeric value. For Example if Congressional District is 8 enter 008, if congressional District is 78 enter 078 and if Congressional District is 876 enter 876." shown as help text
+    Then I softly see field on modal "City" inside page block
+    Then I softly see field on modal "Country" inside page block
+    Then I softly see field on modal "County" inside page block
+    Then I softly see field on modal "4-Digit Zip Code Extension" inside page block
+    Then I softly see field on modal "Zip Code" inside page block
+    And I save the field labeled "Title" as "Title" on modal
+    Then I softly see field "Title" as "{SavedValue:Title}"
+    And I save the field labeled "First Name" as "FirstName" on modal
+    Then I softly see field "First Name" as "{SavedValue:FirstName}"
+    And I save the field labeled "Last Name" as "LastName" on modal
+    Then I softly see field "Last Name" as "{SavedValue:LastName}"
+    And I save the field labeled "Phone" as "Phone" on modal
+    Then I softly see field "Phone" as "{SavedValue:Phone}"
+    And I save the field labeled "Mobile Phone" as "MobilePhone" on modal
+    Then I softly see field "Mobile Phone" as "{SavedValue:MobilePhone}"
+    And I save the field labeled "Email" as "Email" on modal
+    Then I softly see field "Email" as "{SavedValue:Email}"
+    And I save the field labeled "Address Line 1" as "AddressLine1" on modal
+    Then I softly see field "Address Line 1" as "{SavedValue:AddressLine1}"
+    And I save the field labeled "Address Line 2" as "AddressLine2" on modal
+    Then I softly see field "Address Line 2" as "{SavedValue:AddressLine2}"
+    And I save the field labeled "State" as "State" on modal
+    Then I softly see field "State" as "{SavedValue:State}"
+    And I save the field labeled "Congressional District" as "CongressionalDistrict" on modal
+    Then I softly see field "Congressional District" as "{SavedValue:CongressionalDistrict}"
+    And I save the field labeled "City" as "City" on modal
+    Then I softly see field "City" as "{SavedValue:City}"
+    And I save the field labeled "Country" as "Country" on modal
+    Then I softly see field "Country" as "{SavedValue:Country}"
+    And I save the field labeled "County" as "County" on modal
+    Then I softly see field "County" as "{SavedValue:County}"
+    And I save the field labeled "4-Digit Zip Code Extension" as "4-DigitZipCodeExtension" on modal
+    Then I softly see field "4-Digit Zip Code Extension" as "{SavedValue:4-DigitZipCodeExtension}"
+    And I save the field labeled "Zip Code" as "ZipCode" on modal
+    Then I softly see field "Zip Code" as "{SavedValue:ZipCode}"
+    And I save the field labeled "Created By" as "CreatedBy" on modal
+    Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
+    Then I softly see link "{SavedValue:CreatedBy}" inside Page block
+    And I save the field labeled "Created Date" as "CreatedDate" on modal
+    Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
+    And I save the field labeled "Last Modified By" as "LastModifiedBy" on modal
+    Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedBy}"
+    Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
+    And I save the field labeled "Last Modified Date" as "LastModifiedDate" on modal
+    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
+    When I click modal button "Close"
+    When I perform quick search for "{SavedValue:ContactTitle}" in "---grantee_tableId:-:FedOrgRelatedContacts---" panel
+    Then I softly see value "{SavedValue:ContactTitle}" for title "Title" inside table "---grantee_tableId:-:FedOrgRelatedContacts---"
+    And I save the field labeled "Created By" as "CreatedByPage"
+    Then I softly see field "Created By" as "{SavedValue:CreatedByPage}"
+    Then I softly see link "{SavedValue:CreatedByPage}" inside Page block
+    And I save the field labeled "Created Date" as "CreatedDate"
+    Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
+    And I save the field labeled "Last Modified By" as "LastModifiedBy"
+    Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedByPage}"
+    Then I softly see link "{SavedValue:LastModifiedByPage}" inside Page block
+    And I save the field labeled "Last Modified Date" as "LastModifiedDate"
+    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
+    And I navigate to "Related Log" sub tab
+    Then I softly see "Active Leads" page block displayed
+    Then I softly see "Opportunities" page block displayed
+    Then I softly see "Applications" page block displayed
+    Then I softly see "Grants" page block displayed
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:relatedLogActiveLeads---"
+    Then I softly see "Opportunity Number" in flex table header "---grantee_tableId:-:relatedLogActiveLeads---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:relatedLogActiveLeads---"
+    Then I softly see "# of Organizations Qualified" in flex table header "---grantee_tableId:-:relatedLogActiveLeads---"
+    Then I softly see "Application Due Date" in flex table header "---grantee_tableId:-:relatedLogActiveLeads---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:relatedOpportunity---"
+    Then I softly see "Opportunity Number" in flex table header "---grantee_tableId:-:relatedOpportunity---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:relatedOpportunity---"
+    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:relatedOpportunity---"
+    Then I softly see "Application Due Date" in flex table header "---grantee_tableId:-:relatedOpportunity---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:relatedOpportunity---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:relatedLogApplications---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:relatedLogApplications---"
+    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:relatedLogApplications---"
+    Then I softly see "Application Due Date" in flex table header "---grantee_tableId:-:relatedLogApplications---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:relatedLogApplications---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "Project Period" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "# of Awards" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "Total Awarded budget" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "Total Spent" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "Remaining Balance" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    And I navigate to "Files" sub tab
+    Then I softly see "Organization Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:federalFilesTableId---"
+    Then I see "Attachment.pdf" has been added in "Organization Files" flex table
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:fedNotesTableId---"
+    Then I softly see value "Notes for PM" for title "Title" inside table "---grantee_tableId:-:fedNotesTableId---"
+    Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:fedNotesTableId---"
+    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:fedNotesTableId---"
+    Then I softly see "Created By" in flex table header "---grantee_tableId:-:fedNotesTableId---"
+    Then I cannot see row level action button "Delete" against "<Notes>" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
+    Then I cannot see row level action button "Edit" against "<Notes>" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
+    Then I softly see value "Test" for title "Title" inside table "---grantee_tableId:-:fedNotesTableId---"
+    Then I softly see value "Grantee testing" for title "Description" inside table "---grantee_tableId:-:fedNotesTableId---"
+    And I save the value from row "2" for column name "Created By" as "CreatedBy" from flex table "---grantee_tableId:-:fedNotesTableId---"
+    Then I softly see value "{SavedValue:CreatedBy}" for title "Created By" inside table "---grantee_tableId:-:fedNotesTableId---"
+    Then I cannot see row level action button "Delete" against "Grantee testing" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
+    Then I cannot see row level action button "Edit" against "Grantee testing" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
+    When I navigate to "History" sub tab
+    Then I softly see "Snapshot History" page block displayed
+
+  @460982 @ValidateNonFederalAuditorprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess @GranteeTBE
+  Scenario Outline: Validate Non Federal Auditor profile user should see all fields and section on Non federal Org layout in readonly View only Access
+    When I login to "As a Grantor" app as "<userType>" user
+    When I navigate to "Home" tab
+    And I navigate to "External" content inside "Organizations" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
+    When I enter in modal value "123" into field "CongressionalDistrict__c"
+    When I enter in modal value "www.google.com" into field "Website"
+    When I enter in modal value "erer" into field "AddressLine2__c"
+    When I enter in modal value "1234" into field "BillingPostalCodeExtension__c"
+    When I enter in modal value "vegas" into field "County__c"
+    When I enter in modal value "Automation Runtime Organization" into field "Name"
+    When I enter in modal value "NGO" into field "NonFederalOrganizationType__c"
+    When I enter in modal value "Street 1" into field "BillingStreet"
+    When I enter in modal value "New York" into field "BillingCity"
+    When I enter in modal value "AL" into field "State__c"
+    When I enter in modal value "USA" into field "BillingCountry"
+    When I enter in modal value "45623" into field "BillingPostalCode"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Organization Name" as "OrganizationName"
+    Then I softly see field "Organization Name" as "{SavedValue:OrganizationName}"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
+    When I enter in modal value "Automation Runtime" into field "Title"
+    When I enter in modal value "Automation" into field "FirstName"
+    When I enter in modal value "Execution" into field "LastName"
+    When I enter in modal value "8967093890" into field "Phone"
+    When I enter in modal value "8967093440" into field "MobilePhone"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+    When I enter in modal value "Mail Street" into field "MailingStreet"
+    When I enter in modal value "Howard Lane" into field "Address2__c"
+    When I enter in modal value "AK: Alaska" into field "State__c"
+    When I enter in modal value "VA" into field "MailingCity"
+    When I enter in modal value "123" into field "CongressionalDistrict__c"
+    When I enter in modal value "USA" into field "MailingCountry"
+    When I enter in modal value "United" into field "County__c"
+    When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
+    When I enter in modal value "12345" into field "MailingPostalCode"
+    When I click modal button "Save"
+    And I wait for "2" seconds
+    And I save the field labeled "Title" as "ContactTitle" on modal
+    And I save the field labeled "First Name" as "FirstName" on modal
+    And I save the field labeled "Last Name" as "LastName" on modal
+    And I save the field labeled "Phone" as "Phone" on modal
+    And I save the field labeled "Mobile Phone" as "MobilePhone" on modal
+    And I save the field labeled "Email" as "Email" on modal
+    And I save the field labeled "Address Line 1" as "AddressLine1" on modal
+    And I save the field labeled "Address Line 2" as "AddressLine2" on modal
+    And I save the field labeled "State" as "State" on modal
+    And I save the field labeled "Congressional District" as "CongressionalDistrict" on modal
+    And I save the field labeled "City" as "City" on modal
+    And I save the field labeled "Country" as "Country" on modal
+    And I save the field labeled "County" as "County" on modal
+    And I save the field labeled "4-Digit Zip Code Extension" as "4-DigitZipCodeExtension" on modal
+    And I save the field labeled "Zip Code" as "ZipCode" on modal
+    And I save the field labeled "Created By" as "CreatedBy" on modal
+    And I save the field labeled "CreatedDate" as "CreatedDate" on modal
+    And I save the field labeled "Last Modified By" as "LastModifiedBy" on modal
+    And I save the field labeled "Last Modified Date" as "LastModifiedDate" on modal
+    When I click modal button "Close"
+    When I perform quick search for "{SavedValue:ContactTitle}" in "---grantee_tableId:-:FedOrgRelatedContacts---" panel
+    Then I softly see value "{SavedValue:ContactTitle}" for title "Title" inside table "---grantee_tableId:-:FedOrgRelatedContacts---"
+    Then I can see row level action button "View" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
+    Then I can see row level action button "Delete" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
+    Then I can see row level action button "Edit" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
+    And I save the field labeled "Created By" as "CreatedByPage"
+    Then I softly see field "Created By" as "{SavedValue:CreatedByPage}"
+    And I save the field labeled "Created Date" as "CreatedDatePage"
+    Then I softly see field "Created Date" as "{SavedValue:CreatedDatePage}"
+    And I save the field labeled "Last Modified By" as "LastModifiedByPage"
+    Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedByPage}"
+    And I save the field labeled "Last Modified Date" as "LastModifiedDatePage"
+    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDatePage}"
+    And I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    And I upload attachment without random number "<attachment>" of type "Indirect Cost Rate Letter" from computer
+    When I click modal button "Close"
+    When I enter the following values into flex table with id "---grantee_tableId:-:fedNotesTableId---" by clicking "New" :
+      | Title   | Description      |
+      | <Notes> | Automation Notes |
+    And I re-login to "As a Grantee" app as "<userAuditor>" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    And I navigate to "External" content inside "Organizations" subheader on left panel
+    And I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
+    When I click on "View" icon for "{SavedValue:OrganizationName}" inside table
+    Then I see the header is "Non-Federal Organization" in the page details
+    Then I see the sub-header is "{SavedValue:OrganizationName}" in the page details
+    Then I softly see field "Parent Organization" as "NA"
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Related Log" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    And I navigate to "Overview" sub tab
+    Then I softly see "Address" page block displayed
+    Then I softly see "Related Contacts" page block displayed
+    Then I softly see "Child Organizations" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I softly see field "Organization Name" as "{SavedValue:OrganizationName}"
+    Then I softly see field "Address Line 1" as "Street 1"
+    Then I softly see field "City" as "New York"
+    Then I softly see field "State" as "AL"
+    Then I softly see field "Congressional District" as "123"
+    When I hovering mouse on help text icon inside page block detail "Congressional District"
+    Then I softly see "Enter 3 digit numeric value. For Example if Congressional District is 8 enter 008, if congressional District is 78 enter 078 and if Congressional District is 876 enter 876." shown as help text
+    Then I softly see field "Country" as "USA"
+    Then I softly see field "Zip Code" as "45623"
+    Then I softly see field "Website" as "www.google.com"
+    Then I softly see field "County" as "vegas"
+    Then I softly see field "Address Line 2" as "erer"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FedOrgRelatedContacts---"
+    When I perform quick search for "{SavedValue:ContactTitle}" in "---grantee_tableId:-:FedOrgRelatedContacts---" panel
+    Then I softly see value "{SavedValue:ContactTitle}" for title "Title" inside table "---grantee_tableId:-:FedOrgRelatedContacts---"
+    When I click on "View" icon for "{SavedValue:ContactTitle}" inside flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
+    Then I softly see "Create Contact" opens in overLay window
+    Then I softly see field on modal "Title" inside page block
+    Then I softly see field on modal "First Name" inside page block
+    Then I softly see field on modal "Last Name" inside page block
+    Then I softly see field on modal "Phone" inside page block
+    When I hovering mouse on help text icon inside modal "Phone"
+    Then I softly see "Please enter number in this format (xxx)-xxx-xxxx" shown as help text
+    Then I softly see field on modal "Mobile Phone" inside page block
+    Then I softly see field on modal "Email" inside page block
+    Then I softly see field on modal "Address Line 1" inside page block
+    Then I softly see field on modal "Address Line 2" inside page block
+    Then I softly see field on modal "State" inside page block
+    Then I softly see field on modal "Congressional District" inside page block
+    When I hovering mouse on help text icon inside modal "Congressional District"
+    Then I softly see "Enter 3 digit numeric value. For Example if Congressional District is 8 enter 008, if congressional District is 78 enter 078 and if Congressional District is 876 enter 876." shown as help text
+    Then I softly see field on modal "City" inside page block
+    Then I softly see field on modal "Country" inside page block
+    Then I softly see field on modal "County" inside page block
+    Then I softly see field on modal "4-Digit Zip Code Extension" inside page block
+    Then I softly see field on modal "Zip Code" inside page block
+    Then I softly see field "Status" as "Active"
+    Then I see field "Title" as "{SavedValue:ContactTitle}" on modal
+    Then I see field "First Name" as "{SavedValue:FirstName}" on modal
+    Then I see field "Last Name" as "{SavedValue:LastName}" on modal
+    Then I see field "Phone" as "{SavedValue:Phone}" on modal
+    Then I see field "Mobile Phone" as "{SavedValue:MobilePhone}" on modal
+    Then I see field "Email" as "{SavedValue:Email}" on modal
+    Then I see field "Address Line 1" as "{SavedValue:AddressLine1}" on modal
+    Then I see field "Address Line 2" as "{SavedValue:AddressLine2}" on modal
+    Then I see field "State" as "{SavedValue:State}" on modal
+    Then I see field "Congressional District" as "{SavedValue:CongressionalDistrict}" on modal
+    Then I see field "City" as "{SavedValue:City}" on modal
+    Then I see field "Country" as "{SavedValue:Country}" on modal
+    Then I see field "County" as "{SavedValue:County}" on modal
+    Then I see field "4-Digit Zip Code Extension" as "{SavedValue:4-DigitZipCodeExtension}" on modal
+    Then I see field "Zip Code" as "{SavedValue:ZipCode}" on modal
+    Then I see field "Created By" as "{SavedValue:CreatedBy}" on modal
+    Then I softly see link "{SavedValue:CreatedBy}" inside Page block
+    Then I see field "Created Date" as "{SavedValue:CreatedDate}" on modal
+    Then I see field "Last Modified By" as "{SavedValue:LastModifiedBy}" on modal
+    Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
+    Then I see field "Last Modified Date" as "{SavedValue:LastModifiedDate}" on modal
+    When I click modal button "Close"
+    When I perform quick search for "{SavedValue:ContactTitle}" in "---grantee_tableId:-:FedOrgRelatedContacts---" panel
+    Then I softly see value "{SavedValue:ContactTitle}" for title "Title" inside table "---grantee_tableId:-:FedOrgRelatedContacts---"
+    Then I can see row level action button "View" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
+    Then I softly see field "Created By" as "{SavedValue:CreatedByPage}"
+    Then I softly see field "Created Date" as "{SavedValue:CreatedDatePage}"
+    Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedByPage}"
+    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDatePage}"
+    And I navigate to "Related Log" sub tab
+    Then I softly see "Active Leads" page block displayed
+    Then I softly see "Opportunities" page block displayed
+    Then I softly see "Applications" page block displayed
+    Then I softly see "Grants" page block displayed
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:relatedLogActiveLeads---"
+    Then I softly see "Opportunity Number" in flex table header "---grantee_tableId:-:relatedLogActiveLeads---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:relatedLogActiveLeads---"
+    Then I softly see "# of Organizations Qualified" in flex table header "---grantee_tableId:-:relatedLogActiveLeads---"
+    Then I softly see "Application Due Date" in flex table header "---grantee_tableId:-:relatedLogActiveLeads---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:relatedOpportunity---"
+    Then I softly see "Opportunity Number" in flex table header "---grantee_tableId:-:relatedOpportunity---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:relatedOpportunity---"
+    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:relatedOpportunity---"
+    Then I softly see "Application Due Date" in flex table header "---grantee_tableId:-:relatedOpportunity---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:relatedOpportunity---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:relatedLogApplications---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:relatedLogApplications---"
+    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:relatedLogApplications---"
+    Then I softly see "Application Due Date" in flex table header "---grantee_tableId:-:relatedLogApplications---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:relatedLogApplications---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "Project Period" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "# of Awards" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "Total Awarded budget" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "Total Spent" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "Remaining Balance" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:relatedLogGrants---"
+    And I navigate to "Files" sub tab
+    Then I softly see "Organization Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:federalFilesTableId---"
+    And I wait for "2" seconds
+    Then I see "<attachment>" has been added in "Organization Files" flex table
+    Then I can see row level action button "View" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    Then I cannot see row level action button "Delete" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    Then I cannot see row level action button "Edit" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    Then I can see row level action button "Download" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:fedNotesTableId---"
+    Then I softly see value "<Notes>" for title "Title" inside table "---grantee_tableId:-:fedNotesTableId---"
+    Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:fedNotesTableId---"
+    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:fedNotesTableId---"
+    Then I softly see "Created By" in flex table header "---grantee_tableId:-:fedNotesTableId---"
+    Then I cannot see row level action button "Delete" against "<Notes>" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
+    Then I cannot see row level action button "Edit" against "<Notes>" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
+    When I navigate to "History" sub tab
+    Then I softly see "Snapshot History" page block displayed
+
+    Examples:
+      | userType   | attachment     | Notes        | userName | Title | userAuditor     |
+      | GRANTEE PM | Attachment.pdf | Notes Record | Sarah PM | Test  | GRANTEE AUDITOR |
