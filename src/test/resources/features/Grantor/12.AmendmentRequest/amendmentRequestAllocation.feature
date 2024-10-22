@@ -5638,7 +5638,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:TotalObligation}" is "Equals to" the value "{SavedValue:TotalObligation1}"
     Then I softly see value "{SavedValue:AvailableBalance}" is "Equals to" the value "{SavedValue:AvailableBalance1}"
 
-  @hit1 @257728 @ValidateBudgetedAmountshouldberolledfromtherevisedawardamountcolumnfrombudgetedgridFAYes @sprint-19-US-242374  @Allocation
+  @257728 @ValidateBudgetedAmountshouldberolledfromtherevisedawardamountcolumnfrombudgetedgridFAYes @sprint-19-US-242374  @Allocation
   Scenario: Validate Budgeted Amount should be rolled from the revised award amount column from budgeted grid(FA=Yes)
     And I activated standalone subaward "Automation Runtime award" with properties "THREE_FOCUS_AREA_NO_BUDGET_CATEGORY_THIRD_FOCUS-Automation EXE user" of type "Formula_By_Applicant"
     When I login to "As a Grantor" app as "EXE1" user
@@ -5771,7 +5771,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Revised Award Amount |
       | $2,500.00            |
 
-  @hit1 @256862 @ValidateFOusercanseeBudgetedAmountcolumnvalueasRollupfromthebudgetgridsRevisedAwardAmountColumn @sprint-19-US-229281  @Allocation
+  @256862 @ValidateFOusercanseeBudgetedAmountcolumnvalueasRollupfromthebudgetgridsRevisedAwardAmountColumn @sprint-19-US-229281  @Allocation
   Scenario: Validate FO user can see Budgeted Amount column value as Rollup from the budget grid's Revised Award Amount Column
     And I activated standalone subaward "Automation Runtime award" with properties "THREE_FOCUS_AREA_NO_BUDGET_CATEGORY_THIRD_FOCUS" of type "Directed"
     When I login to "As a Grantor" app as "FO" user
