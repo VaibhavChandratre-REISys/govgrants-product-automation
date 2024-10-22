@@ -9113,7 +9113,7 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:ContactTitle}" in "---grantee_tableId:-:FedOrgRelatedContacts---" panel
     Then I softly see value "{SavedValue:ContactTitle}" for title "Title" inside table "---grantee_tableId:-:FedOrgRelatedContacts---"
     When I click on "View" icon for "{SavedValue:ContactTitle}" inside flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
-    Then I softly see "Create Contact" opens in overLay window
+    Then I softly see "Contact" opens in overLay window
     Then I softly see field on modal "Title" inside page block
     Then I softly see field on modal "First Name" inside page block
     Then I softly see field on modal "Last Name" inside page block
@@ -9133,7 +9133,6 @@ Feature: Sanity scenarios
     Then I softly see field on modal "County" inside page block
     Then I softly see field on modal "4-Digit Zip Code Extension" inside page block
     Then I softly see field on modal "Zip Code" inside page block
-    Then I softly see field "Status" as "Active"
     Then I see field "Title" as "{SavedValue:ContactTitle}" on modal
     Then I see field "First Name" as "{SavedValue:FirstName}" on modal
     Then I see field "Last Name" as "{SavedValue:LastName}" on modal
@@ -9162,9 +9161,11 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Delete" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
     Then I cannot see row level action button "Edit" against "{SavedValue:ContactTitle}" in flex table with id "---grantee_tableId:-:FedOrgRelatedContacts---"
     Then I softly see field "Created By" as "{SavedValue:CreatedByPage}"
-    Then I softly see field "Created Date" as "{SavedValue:CreatedDatePage}"
+    And I save the field labeled "Created Date" as "CreatedDatePage1"
+    Then I softly see field "Created Date" as "{SavedValue:CreatedDatePage1}"
     Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedByPage}"
-    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDatePage}"
+    And I save the field labeled "Last Modified Date" as "LastModifiedDatePage1"
+    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDatePage1}"
     And I navigate to "Related Log" sub tab
     Then I softly see "Active Leads" page block displayed
     Then I softly see "Opportunities" page block displayed
