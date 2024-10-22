@@ -143,7 +143,7 @@ public final class GovGrantsProductObjects {
      * @Modify Keerti.Munde
      */
     public void assertFieldsInViewMode(String fieldApiName, boolean isSoftly) {
-        By pageBlockFields = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldApiName + "']//lightning-formatted-text | //div//label[contains(text(),'" + fieldApiName + "')]/..//lightning-output-field | //lightning-input-field[@data-field_api_name='" + fieldApiName + "']//span[@class='slds-checkbox_faux'] | //div//label[contains(text(),'" + fieldApiName + "')]/..//input[@disabled] | //div//label[normalize-space(text())='" + fieldApiName + "'] | | //div[@data-field_api_name='" + fieldApiName + "']//output");
+        By pageBlockFields = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldApiName + "']//lightning-formatted-text | //div//label[contains(text(),'" + fieldApiName + "')]/..//lightning-output-field | //lightning-input-field[@data-field_api_name='" + fieldApiName + "']//span[@class='slds-checkbox_faux'] | //div//label[contains(text(),'" + fieldApiName + "')]/..//input[@disabled] | //div//label[normalize-space(text())='" + fieldApiName + "'] |  //div[@data-field_api_name='" + fieldApiName + "']//output");
         if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(pageBlockFields)).isTrue();
         } else {
