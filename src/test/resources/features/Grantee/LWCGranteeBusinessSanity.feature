@@ -692,8 +692,8 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I can see row level action button "View" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I cannot see row level action button "View" against "ETE objectives 1" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    Then I cannot see row level action button "Edit" against "ETE objectives 1" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    Then I cannot see row level action button "View" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    Then I cannot see row level action button "Edit" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     Then I softly can see "Amendments" sub tab at view detail page
     When I navigate to "Responsibilities" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardApproverTableId---"
