@@ -10567,17 +10567,17 @@ Feature: Sanity scenarios
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request |
-      | Victor EXE | Step 1            |
+      | Sarah PM   | Step 1            |
     When I get the "EGMS ID"
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -10829,6 +10829,7 @@ Feature: Sanity scenarios
       | Name       | Amendment Request |
       | David FO   | Step 1            |
     When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AmendEGMSID"
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
@@ -10839,3 +10840,17 @@ Feature: Sanity scenarios
     When I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
+    And I wait for "5" seconds
+    And I navigate to "Home" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:HomeCompletedTask---" panel
+    Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:HomeCompletedTask---"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see value "Rejected" for title "Status" against the value "{SavedValue:AmendEGMSID}" inside table "---applicationReview:-:appTableId---"
