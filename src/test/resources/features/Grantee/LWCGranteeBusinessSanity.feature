@@ -9372,7 +9372,7 @@ Feature: Sanity scenarios
     And I enter in modal value "20171" into field "MailingPostalCode"
     And I click modal button "Save"
     And I wait for "4" seconds
-    Then I softly see field "Zip Code" as "20171"
+    Then I see field "Zip Code" as "20171" on modal
     When I close "Create Contact" modal by clicking the top right x button
     And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---grantee_tableId:-:InternalContacts---" panel
     Then I softly see value "{SavedValue:Automation Runtime} Contact" for title "Full Name" inside table "---grantee_tableId:-:InternalContacts---"
@@ -9892,10 +9892,10 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly can see row level action button "View" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly cannot see row level action button "Delete" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly cannot see row level action button "Download" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly can see row level action button "Download" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly can see row level action button "Edit" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I softly can see row level action button "Delete" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I softly cannot see "Amendments" sub tab at view detail page
     And I navigate to "Overview" sub tab
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
