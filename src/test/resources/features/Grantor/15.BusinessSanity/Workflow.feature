@@ -1534,18 +1534,20 @@ Feature: Validate all scenarios of every modules flow
 
   @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    When I login to "As a Grantee" app as "GRANTEE PM" user
     And I wait for "5" seconds
-    When I navigate to "Overview" sub tab
-    And I save the field labeled "EGMS ID" as "PRAMENDID"
-    And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
-    And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
-      | Title                           | Start Date                                | End Date                                |
-      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodStartDate} | {SavedValue:updatedBudgetPeriodEndDate} |
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | Victor EXE | Step 1            |
-    When I get the "EGMS ID"
-    And I click on "Submit for Approval" in the page details
+    When I click on "Record Decision" in the page details
+    Then I softly see fields "Decision__c" is in edit mode
+    Then I softly see fields "Comments__c" is in edit mode
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Additional Details is required to save. |
+      |   Decision is required to save.         |
+    Then I see only the following ordered options in dropdown field "Decision__c" :
+      | --None-- | Accepted | Not Accepted |
+    When I enter values into fields
+      | Value                       | Field             |
+      | Accepted                    | Decision__c       |
+    Then I softly see fields "AmendmentNumber__c" is in edit mode
+    Then I softly see fields "AwardIssueDate__c" is in edit mode
+    Then I softly see fields "Comments__c" is in edit mode
