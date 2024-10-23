@@ -10909,7 +10909,7 @@ Feature: Sanity scenarios
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Amendments" sub tab
-    Then I softly see value "Approved" for title "Status" against the value "{SavedValue:AmendEGMSID2}" inside table "---applicationReview:-:---grantee_tableId:-:AmendmentRequestTableId------"
+    Then I softly see value "Approved" for title "Status" against the value "{SavedValue:AmendEGMSID2}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
     Examples:
       | User          |
       | GRANTEE EXE   |
@@ -11349,7 +11349,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    Then I softly see value "Amended" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
 
     Examples:
       | User         |
@@ -11505,6 +11505,33 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     And I enter "Grantee PeriodicRenewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I click on "Edit" in the page details
+    And I clear the value from field "PurposeRTA__c"
+    When I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Justification is required to save under Overview. |
+    And I enter value "Automation Justification" into field "PurposeRTA__c"
+    And I enter value "2222" into field "ApprovedIndirectCostRate__c"
+    When I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      |  Maximum Indirect Cost Rate: value outside of valid range on numeric field |
+    And I enter value "110" into field "ApprovedIndirectCostRate__c"
+    When I click on "Save" in the page details
+    And I click on "Submit for Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - Maximum Indirect Cost Rate cannot be greater than 100% |
+    And I click on "Edit" in the page details
+    And I enter value "10" into field "ApprovedIndirectCostRate__c"
+    When I click on "Save" in the page details
+    And I click on "Edit" in the page details
+    Then I softly see fields "GeneralConditionChanged__c" is in edit mode
+    And I enter value "Checked" into field "GeneralConditionChanged__c"
+    Then I softly see fields "AreTCspartofNGAAttachments__c" is in edit mode
+    Then I softly see fields "FederalTCLink__c" is in edit mode
+    And I enter value "Unchecked" into field "GeneralConditionChanged__c"
+    Then I softly do not see fields "AreTCspartofNGAAttachments__c" is visible
+    Then I softly do not see fields "FederalTCLink__c" is visible
+    And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PRAMENDID"
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
