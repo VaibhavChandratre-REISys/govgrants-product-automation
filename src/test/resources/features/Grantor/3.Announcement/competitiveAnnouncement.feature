@@ -16,7 +16,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
 
-  @73959 @pdfDownloadContacts @TBExecution
+  @73959 @pdfDownloadContacts @TBExecution1
   Scenario: To verify system allow to download pdf for contact section in overview tab of announcement by PM user
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
@@ -24,8 +24,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -276,7 +276,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I pause execution for "5" seconds
     Then I softly see the following messages in the page details :
       | Overview Tab - Select Eligible Applicant Types in the Eligibility Details section.                                    |
-      | Financial Tab - Enter Award Ceiling amount before submitting this Announcement.                                    |
+      | Financial Tab - Enter Award Ceiling amount before submitting this Announcement.                                       |
       | Financial Tab - Enter the Estimated Funding Amount.                                                                   |
       | Financial Tab - Enter at least one Budget Period.                                                                     |
       | Overview Tab - The question submission deadline must be before the Application due date.                              |
@@ -293,7 +293,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I pause execution for "5" seconds
     Then I softly see the following messages in the page details :
       | Overview Tab - Select Eligible Applicant Types in the Eligibility Details section.                                    |
-      | Financial Tab - Enter Award Ceiling amount before submitting this Announcement.                                    |
+      | Financial Tab - Enter Award Ceiling amount before submitting this Announcement.                                       |
       | Financial Tab - Enter the Estimated Funding Amount.                                                                   |
       | Financial Tab - Enter at least one Budget Period.                                                                     |
       | Overview Tab - The response deadline cannot be earlier than the question deadline.                                    |
@@ -495,7 +495,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Remove" icon for "NGO" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
     Then I softly do not see value "NGO" for title "Type" inside table "---announcement:-:relatedAnnouncementTableId---"
 
-  @75617 @70727 @73624 @70723 @73621 @72482 @73536 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA @TBExecution
+  @75617 @70727 @73624 @70723 @73621 @72482 @73536 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA @TBExecution1
   Scenario Outline: Validate that user can not enter application due date as past date | Validate that user should not submit announcement with blank budget period dates|To Verify that user can view contact while creating Announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -572,8 +572,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -640,7 +640,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @75618 @74799 @74801 @74368 @74369 @70894 @71722 @72471 @72324 @72548 @73858 @verifyReviseUnderRevision @smoke @TBExecution
+  @75618 @74799 @74801 @74368 @74369 @70894 @71722 @72471 @72324 @72548 @73858 @verifyReviseUnderRevision @smoke @TBExecution1
   Scenario Outline: To Verify that after clicking on revise button, status changes to created.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -669,8 +669,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -919,7 +919,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @70803 @73849 @73774 @73773 @70817 @70893 @73775 @34768 @70898 @72490 @announcementApprovalCA @verifyApproverCanNotEdit  @FieldHistoryExclude @TBExecution
+  @70803 @73849 @73774 @73773 @70817 @70893 @73775 @34768 @70898 @72490 @announcementApprovalCA @verifyApproverCanNotEdit  @FieldHistoryExclude @TBExecution1
   Scenario Outline: Validate the approval of an Announcement | To verify that after unpublished announcement , user can not create application from that announcement
   | To Verify that after submitting for approval, approver can not edit anything on announcement
   |To verify field history update with respect to modification in Commitment field of Announcement
@@ -944,8 +944,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1024,7 +1024,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @72328 @72326 @72025 @71974 @announcementDisApprovalbyEXE  @FieldHistoryExclude @TBExecution
+  @72328 @72326 @72025 @71974 @announcementDisApprovalbyEXE  @FieldHistoryExclude @TBExecution1
   Scenario Outline: To verify Approval history of announcement when announcement rejected by Executive Office Approval: Victor EXE
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1047,8 +1047,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1122,7 +1122,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @announcementPendingTaskPostApprovalCA @announcementCompletedTaskPostApprovalCA @TBExecution
+  @announcementPendingTaskPostApprovalCA @announcementCompletedTaskPostApprovalCA @TBExecution1
   Scenario Outline: Validate that after approval of an Announcement task get deleted from pending task table | Validate that after approval of an Announcement task get added to its completed task table ||
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1145,8 +1145,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1185,7 +1185,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @announcementPostSendBackCheckFieldHistoryCA @announcementSendBackPendingTaskToOwnerCA @announcementSendBackToOwnerCA @smoke @TBExecution
+  @announcementPostSendBackCheckFieldHistoryCA @announcementSendBackPendingTaskToOwnerCA @announcementSendBackToOwnerCA @smoke @TBExecution1
   Scenario: Validate the send back functionality of an Announcement || Validate the field history after send back of an announcement || Validate that after send back from approvers owner should not get pending task
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1208,8 +1208,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1247,7 +1247,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     Then I softly do not see values "Record Id" and "{SavedValue:Automation Runtime Competitive Announcement}" inside table
 
-  @65080 @VerifyDraftAnnouncementIsNotDisplayedForSRUer @TBExecution
+  @65080 @VerifyDraftAnnouncementIsNotDisplayedForSRUer @TBExecution1
   Scenario Outline: Verify Draft announcement is not displayed at SR user end.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1270,8 +1270,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1326,7 +1326,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @announcementRejectPendingTaskForNextApproverCA @announcementPostRejectionCheckInListViewCA @announcementPostRejectCompletedTaskForUserCA @announcementPostRejectPendingTaskForUserCA @TBExecution
+  @announcementRejectPendingTaskForNextApproverCA @announcementPostRejectionCheckInListViewCA @announcementPostRejectCompletedTaskForUserCA @announcementPostRejectPendingTaskForUserCA @TBExecution1
   Scenario Outline: Validate that after rejection of an Announcement task get added to it's completed task table. || Validate that after rejection from 1st approver, 2nd user should not get pending task || Validate that after rejection of an Announcement task get deleted from pending task table.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1349,8 +1349,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1507,7 +1507,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Field History" on page "1" of "govgrants" pdf file
 
-  @139848 @Verify2StepApprovalAtApproverSection_CompetitiveAnnouncement-RnRFunctionality @TBExecution
+  @139848 @Verify2StepApprovalAtApproverSection_CompetitiveAnnouncement-RnRFunctionality @TBExecution1
   Scenario: verify that user can add two step approver on announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1530,8 +1530,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1541,7 +1541,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | {SavedValue:FO Username} | Step 2       |
     Then I softly see "Saved Successfully!" inside flex table with id "---announcement:-:approversTableId---"
 
-  @139849 @VerifyErrorMessageWhileSkippingStepsAtApproverSection_CompetitiveAnnouncement-RnRFunctionality @TBExecution
+  @139849 @VerifyErrorMessageWhileSkippingStepsAtApproverSection_CompetitiveAnnouncement-RnRFunctionality @TBExecution1
   Scenario: Verify validation when user skip an Approval Step at announcement level
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1564,8 +1564,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1589,7 +1589,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 
-  @139850 @VerifyVisibilityOfNewButtonAtApproverSection_CompetitiveAnnouncement-RnRFunctionality @TBExecution
+  @139850 @VerifyVisibilityOfNewButtonAtApproverSection_CompetitiveAnnouncement-RnRFunctionality @TBExecution1
   Scenario: verify New button not displayed in approver section when announcement is submitted for approval
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1612,8 +1612,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1634,7 +1634,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" for "---announcement:-:approversTableId---" flex table
 
-  @139871 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtAnnouncement-RnRFunctionality @TBExecution
+  @139871 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtAnnouncement-RnRFunctionality @TBExecution1
   Scenario: Validate announcement owner cant add same steps for while assigning approvers for announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1657,8 +1657,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1669,7 +1669,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I see the following messages in the page details contains:
       | You cannot specify the same step for multiple users for Announcement. |
 
-  @139864 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtAnnouncementApprover-RnRFunctionality @TBExecution
+  @139864 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtAnnouncementApprover-RnRFunctionality @TBExecution1
   Scenario: Validate owner cant add same user  for multiple steps for announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1692,8 +1692,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1703,7 +1703,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | {SavedValue:PM Username} | Step 2       |
     Then I softly see "You cannot specify the same user for multiple steps for Announcement" inside flex table with id "---announcement:-:approversTableId---"
 
-  @140944 @VerifyColumnAtAnnouncementApproverSection-RnRFunctionality @TBExecution
+  @140944 @VerifyColumnAtAnnouncementApproverSection-RnRFunctionality @TBExecution1
   Scenario Outline: Validate the columns present on the announcement for approver definition
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1726,8 +1726,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see "Program" in flex table header "---announcement:-:approversTableId---"
     Then I softly see "<ColumnName>" in flex table header "---announcement:-:approversTableId---"
@@ -1743,7 +1743,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Monitoring           |
       | Closeout             |
 
-  @145325 @verifyAdditionOfApproverAfterAnnouncementIsUnpublished-RnRFuntionality  @TBExecution
+  @145325 @verifyAdditionOfApproverAfterAnnouncementIsUnpublished-RnRFuntionality  @TBExecution1
   Scenario Outline: Validate Announcement owner can add approvers while its unpublished
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1766,8 +1766,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
-      | Title           | Email                      |
-      | Program Manager | pm1.automation@yopmail.com |
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
