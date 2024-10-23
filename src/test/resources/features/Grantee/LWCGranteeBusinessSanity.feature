@@ -9487,7 +9487,7 @@ Feature: Sanity scenarios
     And I navigate to "Projections" sub tab
     Then I softly see "Project Period Details" page block displayed
     Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
-    Then I softly see field "Project Period End Date" as "SavedValue:ProjectPeriodEndDate}"
+    Then I softly see field "Project Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
     And I click on "Edit" in the page details
     Then I softly see "Budget Period Details" page block displayed
     Then I softly see fields "BudgetPeriodEndDate__c" is in edit mode
@@ -10557,11 +10557,12 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     And I enter "Grantee PeriodicRenewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
+   And I wait for "3" seconds
    And I save the field labeled "EGMS ID" as "PRAMENDID"
    And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
    And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
-     | Title                           | Start Date                                | End Date                         |
+     | Title                           | Start Date                                | End Date                                |
      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodStartDate} | {SavedValue:updatedBudgetPeriodEndDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
