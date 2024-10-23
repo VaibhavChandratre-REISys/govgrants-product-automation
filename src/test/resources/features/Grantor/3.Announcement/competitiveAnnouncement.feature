@@ -23,7 +23,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "3" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -571,7 +571,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
@@ -668,7 +668,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
@@ -943,7 +943,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
@@ -1046,7 +1046,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
@@ -1144,7 +1144,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
@@ -1207,7 +1207,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
@@ -1269,7 +1269,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
@@ -1348,7 +1348,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
@@ -1529,7 +1529,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
@@ -1563,7 +1563,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
@@ -1611,7 +1611,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
@@ -1656,7 +1656,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
@@ -1691,7 +1691,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
@@ -1725,7 +1725,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
@@ -1765,7 +1765,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
       | Name           | Title           | Email                      |
       | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
