@@ -229,23 +229,34 @@ public final class PageDetails {
 //        }
 
         try {
-            I.amPerforming().waitFor().ElementToBeVisible(desiredTab);
-            if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
-                I.amPerforming().click().on(desiredTab);
 
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(moreTabs)) {
+                try {
+                    I.amPerforming().click().on(moreTabs);
+                    I.amPerforming().click().on(desiredTab);
+                    I.amPerforming().click().on(moreTabs);
+                } catch (Exception e) {
+                    I.amPerforming().click().withJavaScript(moreTabs);
+                    I.amPerforming().click().withJavaScript(desiredTab);
+                    I.amPerforming().click().withJavaScript(moreTabs);
+                }
             } else {
-                I.amPerforming().click().on(moreTabs);
-                I.amPerforming().waitFor().ElementToBePresent(desiredTab);
-                I.amPerforming().click().on(desiredTab);
+                try {
+                    I.amPerforming().click().on(desiredTab);
+                } catch (Exception e) {
+                    I.amPerforming().click().withJavaScript(desiredTab);
+                }
             }
         } catch (Exception ex) {
-            I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     An exception is thrown - Retrying with javaScript");
-            I.amPerforming().waitFor().makeThreadSleep(3000);
-            I.amPerforming().click().on(moreTabs);
-            I.amPerforming().click().withJavaScript(desiredTab, false);
-
+            try {
+                I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     An exception is thrown - Retrying with javaScript");
+                I.amPerforming().waitFor().makeThreadSleep(3000);
+                I.amPerforming().click().withJavaScript(desiredTab, false);
+            } catch (Exception e) {
+                if (!EnvironmentFactory.getDevice().equalsIgnoreCase("firefox"))
+                    throw e;
+            }
         }
-
 
 //        try {
 //            if (!I.amPerforming().checkToSee().isEnabled(isdesiredTabActive, false)) {
@@ -763,12 +774,11 @@ public final class PageDetails {
         }
     }
 
-    public void pageBlockExpandedOrCollapse(String pageBlockTitle,String actionIcon) {
-        if(actionIcon.contains("Collapse")) {
+    public void pageBlockExpandedOrCollapse(String pageBlockTitle, String actionIcon) {
+        if (actionIcon.contains("Collapse")) {
             By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//span[text()='Expanded']");
             I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
-        }
-        else {
+        } else {
             By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//span[text()='Collapse']");
             I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
         }
