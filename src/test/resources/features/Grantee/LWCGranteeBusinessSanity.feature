@@ -9237,7 +9237,7 @@ Feature: Sanity scenarios
     Then I softly see "Is User" in flex table header "---grantee_tableId:-:InternalContacts---"
     Then I softly see toggle option "All Contacts" inside flex table id "---grantee_tableId:-:InternalContacts---"
     Then I softly see toggle option "My Organization’s Contact" inside flex table id "---grantee_tableId:-:InternalContacts---"
-    When I click on parallel lines menu bar with data target value "My Organization’s Contact"
+    When I click on parallel lines menu bar with data target value "All Contacts"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
