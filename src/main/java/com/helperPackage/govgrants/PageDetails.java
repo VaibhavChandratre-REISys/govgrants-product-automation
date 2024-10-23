@@ -229,6 +229,7 @@ public final class PageDetails {
 //        }
 
         try {
+            I.amPerforming().waitFor().ElementToBeVisible(desiredTab);
             if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
                 I.amPerforming().click().on(desiredTab);
 
