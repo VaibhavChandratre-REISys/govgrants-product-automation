@@ -9311,7 +9311,7 @@ Feature: Sanity scenarios
     When I enter in modal value "Automation Runtime" into field "FirstName"
     And I enter in modal value "Contact" into field "LastName"
     And I enter in modal value "67895678" into field "Phone"
-    And I enter in modal value "897896890" into field "MobilePhone"
+    And I enter in modal value "8978968909" into field "MobilePhone"
     And I enter in modal value "Automation Test" into field "Email"
     And I enter in modal value "VA Street" into field "MailingStreet"
     And I enter in modal value "Jordan Road" into field "Address2__c"
@@ -9371,11 +9371,14 @@ Feature: Sanity scenarios
     And I click on "Edit" in the page details
     And I enter in modal value "20171" into field "MailingPostalCode"
     And I click modal button "Save"
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     Then I softly see field "Zip Code" as "20171"
     When I close "Create Contact" modal by clicking the top right x button
     And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---grantee_tableId:-:InternalContacts---" panel
     Then I softly see value "{SavedValue:Automation Runtime} Contact" for title "Full Name" inside table "---grantee_tableId:-:InternalContacts---"
+    Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
 
   @443805 @ValidateGrantWithPMProfilewithcreatedowneraccessifGrantisinActivatedState @GranteeTBE
   Scenario: Validate Grant With PM Profile , with created owner access  if Grant is in Activated State
