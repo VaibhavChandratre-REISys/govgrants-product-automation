@@ -9844,6 +9844,7 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
+    Then I softly see status in Progress-bar is "Rejected" and is "Red"
     When I navigate to "Overview" sub tab
     Then I cannot see top right button "Edit" in page detail
     And I save the value from row "1" for column name "Title" as "TitleExternalProg" from flex table "---grantee_tableId:-:awardExternalProgranTableId---"
@@ -9900,9 +9901,9 @@ Feature: Sanity scenarios
     And I navigate to "Overview" sub tab
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     Then I softly see field "Status" as "Terminated"
-    Then I softly see status in Progress-bar is "Terminated" and is "dark blue"
-    Then I cannot see top right button "Edit" in page detail
+    Then I softly see status in Progress-bar is "Terminated" and is "Red"
     And I navigate to "Overview" sub tab
+    Then I cannot see top right button "Edit" in page detail
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantExternalProgramTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantContactTableId---"
     Then I softly see "No Records Found" inside flex table with id "GranteeBudgetPeriods"
