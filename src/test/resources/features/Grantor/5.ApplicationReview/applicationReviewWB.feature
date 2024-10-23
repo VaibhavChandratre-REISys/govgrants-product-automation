@@ -1,5 +1,5 @@
 @AppReview @applicationReviewWB @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE
-Feature: Validate all scenarios in the Application Review without background
+Feature: Validate all scenarios in the Applicatirrrrrrrrrrrrrrrrrrrrrrrrron Review without background
 
   @78088 @InitiateReviewProcessIcon
   Scenario Outline: To verify Announcement owner should be able view  "Initiate Review process " icon , If Program and Announcement owner is same
