@@ -11123,9 +11123,9 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
 
-  @462433 @VerifyPOuserAROwnercanabletoAcceptPeriodicRenewalAmendmentRequest
-  Scenario: Verify PO user  (AR Owner) can able to Accept Periodic Renewal Amendment Request
-    When I login to "As a Grantee" app as "GRANTEE PO" user
+  @462433 @462379 @VerifyPOuserAROwnercanabletoAcceptPeriodicRenewalAmendmentRequest
+  Scenario Outline: Verify PO user  (AR Owner) can able to Accept Periodic Renewal Amendment Request
+    When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
@@ -11245,7 +11245,7 @@ Feature: Sanity scenarios
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -11284,7 +11284,7 @@ Feature: Sanity scenarios
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -11314,6 +11314,15 @@ Feature: Sanity scenarios
     Then I softly see fields "AmendmentNumber__c" is in edit mode
     Then I softly see fields "AwardIssueDate__c" is in edit mode
     Then I softly see fields "Comments__c" is in edit mode
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Additional Details is required to save. |
+    When I enter values into fields
+      | Value                       | Field             |
+      | Test                        | Comments__c       |
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | You need to provide Award Issue Date if the decision is accepted. |
     When I enter values into fields
       | Value                       | Field             |
       | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
@@ -11339,3 +11348,8 @@ Feature: Sanity scenarios
     When I navigate to "Awards" sub tab
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly see value "Amended" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+
+    Examples:
+      | User         |
+      | GRANTEE PO   |
+      | GRANTEE EXE  |
