@@ -9311,7 +9311,7 @@ Feature: Sanity scenarios
     When I enter in modal value "Automation Runtime" into field "FirstName"
     And I enter in modal value "Contact" into field "LastName"
     And I enter in modal value "67895678" into field "Phone"
-    And I enter in modal value "678956788" into field "MobilePhone"
+    And I enter in modal value "897896890" into field "MobilePhone"
     And I enter in modal value "Automation Test" into field "Email"
     And I enter in modal value "VA Street" into field "MailingStreet"
     And I enter in modal value "Jordan Road" into field "Address2__c"
@@ -9324,7 +9324,7 @@ Feature: Sanity scenarios
     And I enter in modal value "1234" into field "MailingPostalCode"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Email: invalid email address: automation test |
+      | Email: invalid email address: Automation Test |
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
     And I click modal button "Save"
@@ -9335,6 +9335,7 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Please enter valid Phone Number. |
     And I enter in modal value "8967894567" into field "Phone"
+    And I enter in modal value "897" into field "MobilePhone"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | Please enter valid Mobile Phone Number. |
@@ -9368,13 +9369,13 @@ Feature: Sanity scenarios
     Then I softly see field on modal "Last Modified Date" inside page block
     Then I can see top right button "Edit" in page detail
     And I click on "Edit" in the page details
-    And I enter in modal value "15564" into field "MailingPostalCode"
+    And I enter in modal value "20171" into field "MailingPostalCode"
     And I click modal button "Save"
     And I wait for "2" seconds
-    Then I softly see field "Zip Code" as "15564"
+    Then I softly see field "Zip Code" as "20171"
     When I close "Create Contact" modal by clicking the top right x button
-    And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---grantee_tableId:-:InternalContacts---" panel
-    Then I softly see value "{SavedValue:Automation Runtime Contact} Contact" for title "Full Name" inside table "---grantee_tableId:-:InternalContacts---"
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---grantee_tableId:-:InternalContacts---" panel
+    Then I softly see value "{SavedValue:Automation Runtime} Contact" for title "Full Name" inside table "---grantee_tableId:-:InternalContacts---"
 
   @443805 @ValidateGrantWithPMProfilewithcreatedowneraccessifGrantisinActivatedState @GranteeTBE
   Scenario: Validate Grant With PM Profile , with created owner access  if Grant is in Activated State
