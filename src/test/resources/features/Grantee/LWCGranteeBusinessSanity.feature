@@ -9227,7 +9227,7 @@ Feature: Sanity scenarios
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
-    And I click toggle button to select "My Organization’s Contact"
+    And I click toggle button to select "My Organization"
     Then I softly see "Actions" in flex table header "---grantee_tableId:-:InternalContacts---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:InternalContacts---"
     Then I softly see "Full Name" in flex table header "---grantee_tableId:-:InternalContacts---"
