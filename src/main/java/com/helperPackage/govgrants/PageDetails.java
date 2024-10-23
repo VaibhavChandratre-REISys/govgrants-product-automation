@@ -213,7 +213,7 @@ public final class PageDetails {
         By desiredTab = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']");
         By isdesiredTabActive = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']//ancestor::li[contains(@class,'active')]");
 //        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//button[@title='More Tabs']");
-        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs']");
+        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs'] | //button[@title='More Tabs']");
         By selectMoreTabs = By.xpath("//a//span[text()='" + tabName + "']");
 //        By moreTabElement = By.xpath("//div[@id='myTabs']//span[text()='" + tabName + "']/ancestor::li[not(@style)]");
 
@@ -229,34 +229,22 @@ public final class PageDetails {
 //        }
 
         try {
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(moreTabs)) {
-                try {
-                    I.amPerforming().click().on(moreTabs);
-                    I.amPerforming().click().on(desiredTab);
-                    I.amPerforming().click().on(moreTabs);
-                } catch (Exception e) {
-                    I.amPerforming().click().withJavaScript(moreTabs);
-                    I.amPerforming().click().withJavaScript(desiredTab);
-                    I.amPerforming().click().withJavaScript(moreTabs);
-                }
+            if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
+                I.amPerforming().click().on(desiredTab);
 
             } else {
-                try {
-                    I.amPerforming().click().on(desiredTab);
-                } catch (Exception e) {
-                    I.amPerforming().click().withJavaScript(desiredTab);
-                }
+                I.amPerforming().click().on(moreTabs);
+                I.amPerforming().waitFor().ElementToBePresent(desiredTab);
+                I.amPerforming().click().on(desiredTab);
             }
         } catch (Exception ex) {
-            try {
-                I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     An exception is thrown - Retrying with javaScript");
-                I.amPerforming().waitFor().makeThreadSleep(3000);
-                I.amPerforming().click().withJavaScript(desiredTab, false);
-            } catch (Exception e) {
-                if (!EnvironmentFactory.getDevice().equalsIgnoreCase("firefox"))
-                    throw e;
-            }
+            I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     An exception is thrown - Retrying with javaScript");
+            I.amPerforming().waitFor().makeThreadSleep(3000);
+            I.amPerforming().click().on(moreTabs);
+            I.amPerforming().click().withJavaScript(desiredTab, false);
+
         }
+
 
 //        try {
 //            if (!I.amPerforming().checkToSee().isEnabled(isdesiredTabActive, false)) {

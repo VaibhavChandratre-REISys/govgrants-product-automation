@@ -68,7 +68,7 @@ public class UsersAndURL implements UsersController {
         }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("FWLWC"))) {
             userName = getFwLwcEnvironmentUser(setUpUserLevel(userLevel));
         }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("LWCPATCH"))) {
-            userName = getLwcPatchEnvironmentUser(userLevel);
+            userName = getLwcPatchEnvironmentUser(setUpUserLevel(userLevel));
         }
         else {
             userName = getAUTOEnvironmentUser(setUpUserLevel(userLevel));
@@ -88,7 +88,7 @@ public class UsersAndURL implements UsersController {
         } else if (EnvironmentFactory.getEnvironmentName().contains("FWLWC")) {
             password = getFwLwcEnvironmentPassword(setUpUserLevel(userLevel));
         }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("LWCPATCH"))) {
-            password = getLwcPatchEnvironmentPassword(userLevel);
+            password = getLwcPatchEnvironmentPassword(setUpUserLevel(userLevel));
         }else
             password = getAUTOEnvironmentPassword(setUpUserLevel(userLevel));
         return password;
@@ -373,7 +373,7 @@ public class UsersAndURL implements UsersController {
         password.put("SPI3", "FwLwc@02oct");
         password.put("PM1", "FwLwc@02oct");
         password.put("Automation PM", "FwLwc@02oct");
-        password.put("SA", "FwLwc@02oct");
+        password.put("SA", "FwLwc@02octo");
         password.put("PO", "FwLwc@02oct");
         password.put("IND", "FwLwc@02oct");
         if (userType.toUpperCase() != null) {
