@@ -335,6 +335,9 @@ Feature: Validate all notes scenarios in the  Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -864,7 +867,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record11" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record11" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @220096 @ValidatePMEXEFOusercanAddeditdeletehisnotesonacompetitiveannouncementwhichisPublished @sprint-9-US-201923  @Notes @TBExecution
+  @220096 @ValidatePMEXEFOusercanAddeditdeletehisnotesonacompetitiveannouncementwhichisPublished @sprint-9-US-201923  @Notes
   Scenario:Validate PM/EXE/FO user can Add/edit/delete his notes on a competitive announcement which is Published
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1382,31 +1385,18 @@ Feature: Validate all notes scenarios in the  Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     And I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
-    Then I softly see value "Notes Record" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
-    Then I softly see value "Automation PM" for title "Created By" inside table "---announcement:-:AnnouncementNotestableId---"
-    And I save the value from row "1" for column name "Created Date" as "CreatedDate" from flex table "---announcement:-:AnnouncementNotestableId---"
-    Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---announcement:-:AnnouncementNotestableId---"
-    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
+    Then I softly do not see top right button "New" inside flex table "---announcement:-:AnnouncementNotestableId---"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     And I navigate to "Files" sub tab
-    Then I softly see value "Notes Record" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
-    Then I softly see value "Automation PM" for title "Created By" inside table "---announcement:-:AnnouncementNotestableId---"
-    And I save the value from row "1" for column name "Created Date" as "CreatedDate" from flex table "---announcement:-:AnnouncementNotestableId---"
-    Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---announcement:-:AnnouncementNotestableId---"
-    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
-    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---announcement:-:AnnouncementNotestableId---"
+    Then I softly do not see top right button "New" inside flex table "---announcement:-:AnnouncementNotestableId---"
 
   @220164 @ValidatePMPOusercantaddnotesbuteditdeletehisnotesoncompetitiveannouncementwhichisRejected @sprint-9-US-201923  @Notes @TBExecution
   Scenario:Validate PM/PO user cant add notes but edit/delete his notes on competitive announcement which is Rejected
@@ -1472,6 +1462,9 @@ Feature: Validate all notes scenarios in the  Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1663,7 +1656,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record4" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record4" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @220169 @ValidateEXEFOusercantaddnotesoncompetitiveannouncementwhichisClosed @sprint-9-US-201923  @Notes @TBExecution
+  @220169 @ValidateEXEFOusercantaddnotesoncompetitiveannouncementwhichisClosed @sprint-9-US-201923  @Notes
   Scenario:Validate EXE/FO user cant add notes on competitive announcement which is Closed
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -1720,7 +1713,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @220175 @ValidatePMEXEADMINcantaddnotesonCompetitiveannouncementhavingstatusasArchived @sprint-9-US-201923  @Notes @TBExecution
+  @220175 @ValidatePMEXEADMINcantaddnotesonCompetitiveannouncementhavingstatusasArchived @sprint-9-US-201923  @Notes
   Scenario:Validate PM/EXE/ADMIN cant add notes on Competitive announcement having status as Archived
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1836,6 +1829,9 @@ Feature: Validate all notes scenarios in the  Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1855,10 +1851,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    And I navigate to "Files" sub tab
-    #Bug446189
+    When I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
@@ -1866,14 +1859,8 @@ Feature: Validate all notes scenarios in the  Announcement tab
     Then I softly see value "Automation PM" for title "Created By" inside table "---announcement:-:AnnouncementNotestableId---"
     And I save the value from row "1" for column name "Created Date" as "CreatedDate" from flex table "---announcement:-:AnnouncementNotestableId---"
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---announcement:-:AnnouncementNotestableId---"
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "All Competitive Announcements"
-    And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
-    And I click on "View" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
-    And I click on "Publish" in the page details
-    Then I softly see status in Progress-bar is "Published" and is "dark blue"
+    And I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     When I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel

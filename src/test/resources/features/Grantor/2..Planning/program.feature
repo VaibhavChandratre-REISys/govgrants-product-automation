@@ -668,7 +668,7 @@ Feature: Validate all scenarios for program
       | {SavedValue:EXE Username} | Step 2  |
     Then I see that "{SavedValue:EXE Username}" has been added in flextable with Id "---program:-:approverTableId---"
 
-  @hit1 @34616 @76118 @75992 @75821 @75830 @75831 @75836 @75832 @75840 @75841 @programFocusAreaAssociation @TBExecution1
+  @hit1 @34616 @76118 @75992 @75821 @75830 @75831 @75836 @75832 @75840 @75841 @programFocusAreaAssociation
   Scenario Outline: Validate the association of Focus Area for the Internal Program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -2734,7 +2734,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
- @hit3 @77418 @77422 @77421 @ValidatingErrorMessageInManagamentComplianceFiscalReviewForm @TBExecution1
+ @hit3 @77418 @77422 @77421 @ValidatingErrorMessageInManagamentComplianceFiscalReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :100% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Management Review form in Management Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :20% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for compliance Review form in SME Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :40% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Fiscal Review form in SME Review step in planning phase

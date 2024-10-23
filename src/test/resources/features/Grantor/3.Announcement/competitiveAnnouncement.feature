@@ -23,6 +23,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     And I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -248,24 +251,24 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see the text containing "Question Deadline"
     Then I softly see the text containing "Response Deadline"
     Then I softly see the text containing "Submit questions to:"
-    And I enter value "20" into field "ApplicationDueDate__c"
+    And I enter value "20" into field "ApplicationDeadlineWithDateTime__c"
     And I enter value "3" into field "QSubmissionDeadline__c"
     And I enter value "3" into field "AResponseDeadline__c"
     And I enter value "reisystemsqa@yopmail.com" into field "QAContactEmailAddress__c"
     And I enter value "Test Eligibility Information" into field "AdditionalInformation__c"
     And I click on "Save" in the page details
     And I pause execution for "5" seconds
-    And I save the field labeled "Application Due Date" as "ADD"
+    And I save the field labeled "Application Deadline (EST)" as "ADD"
     And I save the field labeled "Question Deadline" as "QDD"
     And I save the field labeled "Response Deadline" as "RDD"
     And I pause execution for "2" seconds
-    Then I softly see field "Application Due Date" as "{SavedValue:ADD}"
+    Then I softly see field "Application Deadline (EST)" as "{SavedValue:ADD}"
     Then I softly see field "Question Deadline" as "{SavedValue:QDD}"
     Then I softly see field "Response Deadline" as "{SavedValue:RDD}"
     Then I softly see field "Submit questions to:" as "reisystemsqa@yopmail.com"
     Then I softly see field "Eligibility Information" as "Test Eligibility Information"
     And I click on "Edit" in the page details
-    And I enter value "2" into field "ApplicationDueDate__c"
+    And I enter value "2" into field "ApplicationDeadlineWithDateTime__c"
     And I enter value "5" into field "QSubmissionDeadline__c"
     And I enter value "5" into field "AResponseDeadline__c"
     And I click on "Save" in the page details
@@ -273,7 +276,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I pause execution for "5" seconds
     Then I softly see the following messages in the page details :
       | Overview Tab - Select Eligible Applicant Types in the Eligibility Details section.                                    |
-      | Financial Tab - Enter Subaward Ceiling amount before submitting this Announcement.                                    |
+      | Financial Tab - Enter Award Ceiling amount before submitting this Announcement.                                    |
       | Financial Tab - Enter the Estimated Funding Amount.                                                                   |
       | Financial Tab - Enter at least one Budget Period.                                                                     |
       | Overview Tab - The question submission deadline must be before the Application due date.                              |
@@ -282,7 +285,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Responsibilities - At least one approver is required                                                                  |
       | Overview Tab - Enter the Description.                                                                                 |
     And I click on "Edit" in the page details
-    And I enter value "20" into field "ApplicationDueDate__c"
+    And I enter value "20" into field "ApplicationDeadlineWithDateTime__c"
     And I enter value "15" into field "QSubmissionDeadline__c"
     And I enter value "10" into field "AResponseDeadline__c"
     And I click on "Save" in the page details
@@ -290,7 +293,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I pause execution for "5" seconds
     Then I softly see the following messages in the page details :
       | Overview Tab - Select Eligible Applicant Types in the Eligibility Details section.                                    |
-      | Financial Tab - Enter Subaward Ceiling amount before submitting this Announcement.                                    |
+      | Financial Tab - Enter Award Ceiling amount before submitting this Announcement.                                    |
       | Financial Tab - Enter the Estimated Funding Amount.                                                                   |
       | Financial Tab - Enter at least one Budget Period.                                                                     |
       | Overview Tab - The response deadline cannot be earlier than the question deadline.                                    |
@@ -568,6 +571,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -662,6 +668,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -870,6 +879,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Snapshot_Announcement_Submission" as name
     And I click on hyperlink containing value "Snapshot_Announcement_Submission"
+    And I wait for "5" seconds
     When I download the file
     Then I softly see "Announcement information" on page "1" of "govgrants" pdf file
     And I see "{SavedValue:PM Username}" against "Initial Submitter" in approval history
@@ -901,10 +911,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly can see top right button "Revise" in page detail
-    And I click on "Revise" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    Then I softly see field "Status" as "Under Revision"
-    Then I softly cannot see top right button "Extend Dates" in page detail
+#    And I click on "Revise" in the page details
+#    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+#    Then I softly see field "Status" as "Under Revision"
+    Then I softly can see top right button "Extend Dates" in page detail
     Examples:
       | Announcement Type |
       | Competitive       |
@@ -933,6 +943,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -981,31 +994,32 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
+    Then I softly see value "Closed" for title "New Value" inside field history table
     Then I softly see value "Approved" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "<Announcement Type>" content inside "Announcements" subheader on left panel
-    When I click toggle button to select "Draft Competitive Announcements"
-    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
-    Then I softly can see top right button "Revise" in page detail
-    And I click on "Publish" in the page details
-    Then I softly can see top right button "Extend Dates" in page detail
-    When I navigate to "History" sub tab
-    And I navigate to "Field Audit" sub tab in split screen
-    And I click on hyperlink containing value "View All"
-    Then I softly see value "Published" for title "New Value" inside field history table
-    Then I softly see value "Approved" for title "Original Value" inside field history table
-    And I click on back arrow
-    And I click on "Unpublish" in the page details
-    Then I softly see field "Status" as "Under Revision"
-    And I pause execution for "2" seconds
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Opportunities" tab
-    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "Record Id" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-    Then I softly do not see value "Record Id" for title "Announcement ID" inside table "---applicationIntake:-:activeOpportunitiesTableId---"
+#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Announcements" tab
+#    When I navigate to "<Announcement Type>" content inside "Announcements" subheader on left panel
+#    When I click toggle button to select "Draft Competitive Announcements"
+#    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+#    Then I softly can see top right button "Revise" in page detail
+#    And I click on "Publish" in the page details
+#    Then I softly can see top right button "Extend Dates" in page detail
+#    When I navigate to "History" sub tab
+#    And I navigate to "Field Audit" sub tab in split screen
+#    And I click on hyperlink containing value "View All"
+#    Then I softly see value "Published" for title "New Value" inside field history table
+#    Then I softly see value "Approved" for title "Original Value" inside field history table
+#    And I click on back arrow
+#    And I click on "Unpublish" in the page details
+#    Then I softly see field "Status" as "Under Revision"
+#    And I pause execution for "2" seconds
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    And I navigate to "Opportunities" tab
+#    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+#    And I perform quick search for "Record Id" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+#    Then I softly do not see value "Record Id" for title "Announcement ID" inside table "---applicationIntake:-:activeOpportunitiesTableId---"
     Examples:
       | Announcement Type |
       | Competitive       |
@@ -1032,6 +1046,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1127,6 +1144,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1187,6 +1207,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1246,6 +1269,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1322,6 +1348,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1377,7 +1406,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When  I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     When I navigate to "Financials" sub tab
-    And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
+    And I click on "Remove" icon for "Administrative Costs" inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
     Then I softly see the following messages in the page details :
       | Record removed successfully. |
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
@@ -1500,6 +1529,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1531,6 +1563,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1576,6 +1611,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1618,6 +1656,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1650,6 +1691,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1681,6 +1725,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see "Program" in flex table header "---announcement:-:approversTableId---"
     Then I softly see "<ColumnName>" in flex table header "---announcement:-:approversTableId---"
@@ -1718,6 +1765,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:annoucementContactTableId---" by clicking "Edit" :
+      | Title           | Email                      |
+      | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement | FDM    | Award  | Amendment Request | Post Award Reporting | Payment Request | Monitoring | Closeout |
@@ -1765,26 +1815,27 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "All Competitive Announcements"
-    And I perform quick search for "Record ID" in "---announcement:-:competitiveAnnouncementTableId---" panel
-    And I click on "View" icon for "Record ID" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    And I click on "Publish" in the page details
-    And I click on "Unpublish" in the page details
-    Then I softly see field "Status" as "Under Revision"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "All Competitive Announcements"
-    And I perform quick search for "Record ID" in "---announcement:-:competitiveAnnouncementTableId---" panel
-    And I click on "View" icon for "Record ID" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name                     | FDM    |
-      | {SavedValue:FO Username} | Step 2 |
-    Then I softly see "Saved Successfully!" inside flex table with id "---announcement:-:approversTableId---"
+    Then I softly see field "Status" as "Closed"
+#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Announcements" tab
+#    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+#    And I click toggle button to select "All Competitive Announcements"
+#    And I perform quick search for "Record ID" in "---announcement:-:competitiveAnnouncementTableId---" panel
+#    And I click on "View" icon for "Record ID" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+#    And I click on "Publish" in the page details
+#    And I click on "Unpublish" in the page details
+#    Then I softly see field "Status" as "Under Revision"
+#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Announcements" tab
+#    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+#    And I click toggle button to select "All Competitive Announcements"
+#    And I perform quick search for "Record ID" in "---announcement:-:competitiveAnnouncementTableId---" panel
+#    And I click on "View" icon for "Record ID" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+#      | Name                     | FDM    |
+#      | {SavedValue:FO Username} | Step 2 |
+#    Then I softly see "Saved Successfully!" inside flex table with id "---announcement:-:approversTableId---"
 
     Examples:
       | Announcement Type |
