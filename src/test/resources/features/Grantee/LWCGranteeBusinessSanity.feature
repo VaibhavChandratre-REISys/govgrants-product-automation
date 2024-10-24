@@ -11494,12 +11494,9 @@ Feature: Sanity scenarios
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | Please select Amendment Request Type is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Initiated By is required to save. |
-      | Justification is required to save.|
-      | Initiated By is required to save. |
-    And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
+      | Initiated By is required to save.                         |
+      | Justification is required to save.                        |
+      | Initiated By is required to save.                         |
     And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
