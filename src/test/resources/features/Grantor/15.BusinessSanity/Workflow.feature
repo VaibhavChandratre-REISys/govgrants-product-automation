@@ -1534,12 +1534,37 @@ Feature: Validate all scenarios of every modules flow
 
   @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Account/001Db000017RNJCIA4/view"
-    And I wait for "10" seconds
-    And I click on advance filter of table id "---program:-:grantorTaskReassignTableId---" for LWC
-    And I enter advance filter values inside id "---program:-:grantorTaskReassignTableId---" for LWC
-      | EGMS ID | contains | {SavedValue:ProgramEGMSID} |
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Grant__c/a2RDb000004q03xMAA/view"
+    Then I softly see field "Status" as "Terminated"
+    Then I softly see status in Progress-bar is "Terminated" and is "Red"
+    And I navigate to "Overview" sub tab
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantExternalProgramTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantContactTableId---"
+    Then I softly see "No Records Found" inside flex table with id "GranteeBudgetPeriods"
+    Then I softly do not see "Actions" in flex table header "---grantee_tableId:-:grantFocusAreaTableId---"
+    And I wait for "2" seconds
+    And I navigate to "Awards" sub tab
+    Then I softly can see row level action button "View" against "Rejected" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    Then I softly cannot see row level action button "Edit" against "Rejected" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    And I navigate to "Financials" sub tab
+    Then I softly see "No Records Found" inside flex table with id "GrantBudgetCategoryFlexGridGrantee"
+    And I navigate to "Management" sub tab
+    Then I softly see "No Records Found" inside flex table with id "AmendmentRequestReport"
+    Then I softly see "No Records Found" inside flex table with id "GranteeGrantProgressReport"
+    Then I softly see "No Records Found" inside flex table with id "RelatedGranteeFinancialReportsOnGrant"
+    And I navigate to "Monitoring" sub tab
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantGoalsTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantKPITableId---"
+    And I navigate to "Files" sub tab
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantNotesTableId---"
+    When I navigate to "Closeout" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+
     And I halt execution
 
   @TestingXSS
