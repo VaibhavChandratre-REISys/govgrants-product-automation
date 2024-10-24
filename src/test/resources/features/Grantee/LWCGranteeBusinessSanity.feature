@@ -10404,7 +10404,7 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I enter "Grantee_PeriodicRenewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     When I click on "Save" in the page details
@@ -10552,10 +10552,10 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I enter "Grantee_PeriodicRenewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
-    And I enter "Grantee PeriodicRenewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PeriodicRenewal_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
    And I wait for "3" seconds
    And I save the field labeled "EGMS ID" as "PRAMENDID"
@@ -10812,10 +10812,10 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I enter "Grantee_PeriodicRenewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
-    And I enter "Grantee PeriodicRenewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PeriodicRenewal_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PRAMENDID"
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
@@ -10873,10 +10873,10 @@ Feature: Sanity scenarios
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I enter "Grantee_PeriodicRenewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
-    And I enter "Grantee PeriodicRenewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PeriodicRenewal_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PRAMENDID"
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
@@ -11258,10 +11258,10 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I enter "Grantee_PeriodicRenewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
-    And I enter "Grantee PeriodicRenewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PeriodicRenewal_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PRAMENDID"
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
@@ -11498,12 +11498,12 @@ Feature: Sanity scenarios
       | Initiated By is required to save. |
       | Justification is required to save.|
       | Initiated By is required to save. |
-    And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I enter "Grantee_PeriodicRenewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
-    And I enter "Grantee PeriodicRenewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PeriodicRenewal_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
     And I clear the value from field "PurposeRTA__c"
@@ -11695,7 +11695,7 @@ Feature: Sanity scenarios
     And I enter "Grantee_BPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
-    And I enter "Grantee PeriodicRenewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PeriodicRenewal_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
     And I clear the value from field "PurposeRTA__c"
@@ -11873,10 +11873,10 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I enter "Grantee_PeriodicRenewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
-    And I enter "Grantee PeriodicRenewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_PeriodicRenewal_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PRAMENDID"
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
