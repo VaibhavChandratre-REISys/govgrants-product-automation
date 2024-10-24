@@ -10200,6 +10200,7 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:selectAwardKPITableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | KPIs added succesfully. |
     And I click modal button "Close"
