@@ -210,53 +210,41 @@ public final class PageDetails {
     }
 
     public void clickSubTabsInsideTableViewForLWC(String tabName) {
-        By desiredTab = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']");
-        By isdesiredTabActive = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']//ancestor::li[contains(@class,'active')]");
+            By desiredTab = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']");
+            By isdesiredTabActive = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']//ancestor::li[contains(@class,'active')]");
 //        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//button[@title='More Tabs']");
-        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs'] | //button[@title='More Tabs']");
-        By selectMoreTabs = By.xpath("//a//span[text()='" + tabName + "']");
+            By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs'] | //button[@title='More Tabs']");
+            By selectMoreTabs = By.xpath("//a//span[text()='" + tabName + "']");
 //        By moreTabElement = By.xpath("//div[@id='myTabs']//span[text()='" + tabName + "']/ancestor::li[not(@style)]");
 
-        if (EnvironmentFactory.getDevice().equalsIgnoreCase("firefox")) {
-            I.amPerforming().waitFor().makeThreadSleep(4000);
-        }
-        // wait until any one of the subtab to be active to get rid of the issue of
-        // click effect is not taking place even after clicking on it.
+            if (EnvironmentFactory.getDevice().equalsIgnoreCase("firefox")) {
+                I.amPerforming().waitFor().makeThreadSleep(4000);
+            }
+            // wait until any one of the subtab to be active to get rid of the issue of
+            // click effect is not taking place even after clicking on it.
 //        try {
 //            I.amPerforming().getElementReference().of(By.xpath("//ul[@id='topTabsID']//li[contains(@class,'active')]"));
 //        } catch (Exception ee) {
 //            // Who cares!
 //        }
 
-        try {
-
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(moreTabs)) {
-                try {
-                    I.amPerforming().click().on(moreTabs);
-                    I.amPerforming().click().on(desiredTab);
-                    I.amPerforming().click().on(moreTabs);
-                } catch (Exception e) {
-                    I.amPerforming().click().withJavaScript(moreTabs);
-                    I.amPerforming().click().withJavaScript(desiredTab);
-                    I.amPerforming().click().withJavaScript(moreTabs);
-                }
-            } else {
-                try {
-                    I.amPerforming().click().on(desiredTab);
-                } catch (Exception e) {
-                    I.amPerforming().click().withJavaScript(desiredTab);
-                }
-            }
-        } catch (Exception ex) {
             try {
+                if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
+                    I.amPerforming().click().on(desiredTab);
+
+                } else {
+                    I.amPerforming().click().on(moreTabs);
+                    I.amPerforming().waitFor().ElementToBePresent(desiredTab);
+                    I.amPerforming().click().on(desiredTab);
+                }
+            } catch (Exception ex) {
                 I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     An exception is thrown - Retrying with javaScript");
                 I.amPerforming().waitFor().makeThreadSleep(3000);
+                I.amPerforming().click().on(moreTabs);
                 I.amPerforming().click().withJavaScript(desiredTab, false);
-            } catch (Exception e) {
-                if (!EnvironmentFactory.getDevice().equalsIgnoreCase("firefox"))
-                    throw e;
+
             }
-        }
+
 
 //        try {
 //            if (!I.amPerforming().checkToSee().isEnabled(isdesiredTabActive, false)) {
@@ -266,7 +254,8 @@ public final class PageDetails {
 //        } catch (Exception e) {
 //            I.amPerforming().click().withJavaScript(desiredTab, false);
 //        }
-    }
+        }
+
 
     public void clickSubTabsInsideTableViewForSplitScreen(String tabName) {
         By desiredTab = By.xpath("//div[@class='uiTabBar']//ul//li//a[@title='" + tabName + "'] | //div[@class='slds-tabs_card']//ul//li//a[text()='" + tabName + "'] | //div[contains(@class,'forceCommunityTabLayout')]//ul//li//a[text()='" + tabName + "']");
