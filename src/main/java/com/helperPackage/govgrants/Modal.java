@@ -32,6 +32,8 @@ public final class Modal {
         if (buttonName.equals("Save and Continue")) {
             I.amPerforming().waitFor().makeThreadSleep(5000);
         }
+
+
     }
 
     public By getModalContentSpecificButton(String buttonName) {

@@ -26,6 +26,7 @@ import static com.helperPackage.misclib.ConsoleFormatter.setTextColor;
 public enum LogLevel {
     TEST_BLAZE_CRITICAL(YELLOW, "[Blaze:911]"),
     TEST_BLAZE_INFO(BLUE, "[Blaze:Info]"),
+    TEST_EXCELROW_INFO(BRIGHT_PURPLE, "[Row:Info]"),
     TEST_BLAZE_IMPORTANT(CYAN, "[Blaze:Imp]"),
     TEST_BLAZE_ERROR(RED, "[Blaze:Err]"),
     BUSINESS_LAYER_INFO(GREEN, "[BuLayer:Info]"),

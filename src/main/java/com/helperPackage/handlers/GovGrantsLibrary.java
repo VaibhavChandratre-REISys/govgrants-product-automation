@@ -1,5 +1,6 @@
 package com.helperPackage.handlers;
 
+import com.ggproduct.automation.steps.govgrantsSteps.GovGrantsAssertionObjects;
 import com.helperPackage.govgrants.*;
 
 
@@ -9,6 +10,8 @@ public final class GovGrantsLibrary {
     private static Charts charts;
     private static FlexTable flexTable;
     private static InputForms inputForms;
+    private static InputForms inputForms1;
+    private static Assertions assertions;
     private static LibraryFiles libraryFiles;
     private static MainPage mainPage;
     private static Modal modal;
@@ -18,6 +21,8 @@ public final class GovGrantsLibrary {
     private static SideBar sideBar;
     private static Registration registration;
     private Email email = null;
+
+    GovGrantsAssertionObjects ggAssertionObjects;
 
     public Approvals approvals() {
         if (approvals == null) {
@@ -48,11 +53,25 @@ public final class GovGrantsLibrary {
     }
 
     public InputForms inputForms() {
-        if (inputForms == null) {
-            inputForms = new InputForms();
-        }
+        if (inputForms == null) inputForms = new InputForms();
+
         return inputForms;
     }
+
+    public Assertions assertions() {
+        if (assertions == null) assertions = new Assertions();
+
+        return assertions;
+    }
+
+//    public InputForms inputForms() {
+//        if (inputForms == null) {
+//            inputForms = new InputForms(GovGrantsAssertionObjects ggAssertionObjects);
+//            this.ggAssertionObjects=ggAssertionObjects;
+//
+//        }
+//        return inputForms;
+//    }
 
     public LibraryFiles libraryFiles() {
         if (libraryFiles == null) {

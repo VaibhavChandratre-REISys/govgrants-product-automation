@@ -34,6 +34,7 @@ import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.openxml4j.exceptions.OLE2NotOfficeXmlFileException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -494,6 +495,61 @@ public final class FileHandler {
             return getDataFromSheet(sheetName);
         }
 
+        public int getRowIndex(String fileName, String sheetName) {
+            try {
+                InputStream is = getClass().getResourceAsStream("/" + fileName);
+                workbook = new XSSFWorkbook(is);
+            } catch (Exception e) {
+
+            }
+
+//            try {
+//                XSSFSheet sheet = workbook.getSheet(sheetName);
+//                int totalRow = sheet.getLastRowNum() + 1;
+//                int totalColumn = sheet.getRow(0).getLastCellNum();
+//                dataSets = new String[totalRow - 1][totalColumn];
+//                for (int i = 1; i < totalRow; i++) {
+//                    XSSFRow rows = sheet.getRow(i);
+//                    for (int j = 0; j < totalColumn; j++) {
+//                        XSSFCell cell = rows.getCell(j);
+//                        if (cell.getCellTypeEnum() == CellType.STRING)
+//                            dataSets[i - 1][j] = cell.getStringCellValue();
+//                        else if (cell.getCellTypeEnum() == CellType.NUMERIC) {
+//                            long cellText = Math.round(cell.getNumericCellValue());
+//                            String cellTextString = Long.toString(cellText);
+//                            dataSets[i - 1][j] = cellTextString;
+//                        } else {
+//                            dataSets[i - 1][j] = String.valueOf(cell.getBooleanCellValue());
+//                        }
+//
+//
+//
+//                        try {
+//                InputStream is = getClass().getResourceAsStream("/" + fileName);
+//                workbook = new XSSFWorkbook(is);
+//            } catch (Exception e) {
+//
+//            }
+            XSSFSheet sheet = workbook.getSheet(sheetName);
+                        int totalRow = sheet.getLastRowNum() + 1;
+                        int rowNumber = 0;
+                        for (int i = 1; i < totalRow; i++) {
+                            Row currentRow = sheet.getRow(i);
+                            if (currentRow != null) {
+                                rowNumber = i;
+                            }
+                        }
+//            Row currentRow = sheet.getRow(0); // Access the first row (example)
+//
+//            if (currentRow != null) {
+//                rowNumber = currentRow.getRowNum();
+//                System.out.println("Current row number: " + rowNumber);
+//            } else {
+//                System.out.println("Row is null.");
+//            }
+            return rowNumber;
+        }
+
         /**
          * Read downloaded Excel file at default location /target
          *
@@ -545,9 +601,12 @@ public final class FileHandler {
                             long cellText = Math.round(cell.getNumericCellValue());
                             String cellTextString = Long.toString(cellText);
                             dataSets[i - 1][j] = cellTextString;
-                        } else
+                        } else {
                             dataSets[i - 1][j] = String.valueOf(cell.getBooleanCellValue());
+                        }
+
                     }
+
                 }
 
             } catch (Exception e) {

@@ -23,7 +23,7 @@ Feature: Validate all scenarios in Desk Review
     And I save the field labeled "EGMS ID" as "DeskReview"
 
   @51010 @51011 @51012 @51013 @62109 @deskReviewCreationEditionParticipantAssociationApproverSelection @smoke
-  Scenario: Validate the Creation, Created Date, Edition, Participant Association of Desk Review and Approver selection of Desk Review
+  Scenario: Validate the Creation, "Created Date, Edition, Participant Association of Desk Review and Approver selection of Desk Review
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Edit" in the page details
     And I enter value "Automation Description" into field "Description__c"

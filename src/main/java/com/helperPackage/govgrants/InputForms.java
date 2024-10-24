@@ -1,15 +1,17 @@
 package com.helperPackage.govgrants;
 
 
+import com.ggproduct.automation.steps.govgrantsSteps.GovGrantsAssertionObjects;
+import com.google.api.services.sheets.v4.model.Sheet;
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.objects.Elements;
 import com.helperPackage.register.EnvironmentFactory;
 import com.helperPackage.register.I;
 import com.helperPackage.report.LogLevel;
+import org.apache.poi.ss.usermodel.Row;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
-
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -27,6 +29,18 @@ public final class InputForms {
     private final By
             ConflictOfInterestReviewForLwcFromPath = By.xpath("//label//span[@class='slds-form-element__label']/../../input[@type='radio'][@value='I agree']"),
             formSectionTitlesLwc = By.xpath("//div[@class='slds-box pblock']//span[contains(@class,'slds-text-heading_medium')]");
+
+//    GovGrantsObjects ggObjects=new GovGrantsObjects();
+
+
+
+//    private GovGrantsAssertionObjects ggAssertionObjects;
+//
+//    public void GovGrantsSteps(GovGrantsAssertionObjects ggAssertionObjects) {
+//        this.ggAssertionObjects = ggAssertionObjects;
+//    }
+
+
 
     /******* "Key Methods with complete functionality - Public" *****************/
 
@@ -58,18 +72,27 @@ public final class InputForms {
      */
     public void enterInputFieldsFromExcelFile(String fileName, String sheetName, String isModal) {
         String[][] data = I.amPerforming().fileHandling().forExcelAnd().readExcelFile(fileName, sheetName);
+        int rowIndex= 0;
         if (!isModal.contains("form")) {
             String currentSubTab = "";
             if (data != null) {
-                for (String[] column : data) {
+
+                             for (String[] column : data) {
                     if ((column[0] == null || "".equalsIgnoreCase(column[0].trim()))
                             && (column[1] == null || "".equalsIgnoreCase(column[1].trim()))
-                            && (column[2] == null || "".equalsIgnoreCase(column[2].trim()))) {
+                            && (column[2] == null || "".equalsIgnoreCase(column[2].trim()))
+                            && (column[3] == null || "".equalsIgnoreCase(column[3].trim()))
+                     && (column[4] == null || "".equalsIgnoreCase(column[3].trim())))
+
+                    {
                         continue;
                     }
                     String subTab = column[0];
                     String fieldApiName = column[1];
                     String fieldValue = column[2];
+                    String fieldVal1=column[3];
+                    String elementId=column[4];
+
                     // Added temporarily for product home scenarios
                     if (fieldValue.equalsIgnoreCase("Product Automation Org")) {
                         fieldValue = fieldValue + Math.random() * ((1000 - 100) + 1) + 100;
@@ -84,7 +107,9 @@ public final class InputForms {
                             currentSubTab = subTab;
                         }
                     }
-                    this.inputFormDataByFieldApiName(fieldApiName, fieldValue, isModal.contains("modal"));
+
+
+                    this.inputFormDataByFieldApiName1(fieldApiName, fieldValue, isModal.contains("modal"),subTab,fieldVal1,elementId,rowIndex++);
                 }
             }
         } else if (isModal.contains("form")) {
@@ -160,6 +185,87 @@ public final class InputForms {
         } else {
             handleFormDataInputs(fieldWrapper, fieldValue);
         }
+    }
+
+    public void inputFormDataByFieldApiName1(String fieldApiName, String fieldValue, boolean isModal, String subTab, String fieldVal1, String elementId,int rowIndex) {
+
+
+
+        if (fieldValue.startsWith("Automation Runtime") && (!fieldValue.matches(".*\\d+.*"))) {
+            var newFieldValue = fieldValue + I.amPerforming().addOnsTo().getStringRandomNumber();
+            I.amPerforming().propertiesFileOperationsTo().saveValue(fieldValue, newFieldValue);
+            fieldValue = newFieldValue;
+        }
+        if(fieldApiName.equalsIgnoreCase("ModalButton")||fieldApiName.equalsIgnoreCase("PageLayoutButton")||fieldApiName.equalsIgnoreCase("TabClick")) {
+            if (fieldApiName.equalsIgnoreCase("ModalButton")) {
+                govgrants.perform().modal().clickModalContentSpecificButton(fieldValue);
+
+
+            }
+            if (fieldApiName.equalsIgnoreCase("PageLayoutButton")) {
+                govgrants.perform().pageDetails().clickAnyTopRightButton(fieldValue);
+
+
+            }
+            if (fieldApiName.equalsIgnoreCase("TabClick")) {
+                govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(fieldValue);
+                I.amPerforming().waitFor().makeThreadSleep(1000);
+
+
+            }
+        }
+        else if(fieldApiName.equalsIgnoreCase("TableAction")) {
+            govgrants.perform().flexTable().clickTableTopRightButton(elementId, fieldValue);
+
+        }
+        else if(fieldApiName.equalsIgnoreCase("TableData")) {
+
+            WebElement rowCell = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='"+elementId+"']//c-fieldlwc[@data-fieldapiname='"+fieldValue+"']"));
+            govgrants.perform().flexTable().handleFlexTableDataInputs(rowCell,fieldVal1);
+
+        }
+        else if(fieldApiName.equalsIgnoreCase("Assertion"))
+        {
+            String matchExact= null;
+            govgrants.perform().assertions().assertFieldValue(fieldVal1,
+                    matchExact != null,
+                    elementId,
+                    fieldValue.contains("softly")
+            );
+
+
+        }
+
+        else {
+            govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+            By fieldWrapperLocator;
+            if (isModal) {
+                fieldWrapperLocator = By.xpath("//div[@id='modaltemp']//div[@id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //span[contains(@id,'" + fieldApiName + "')]|//div[@id='modaltemp']//div[@id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldApiName + "']");
+                I.amPerforming().waitFor().ElementToBePresent(fieldWrapperLocator);
+            } else {
+                fieldWrapperLocator = By.xpath("//*[(local-name()='div' or local-name()='span') and @id='field" + fieldApiName + "' or @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "']");
+                int size = I.amPerforming().getElementReference().forListOfElements().of(fieldWrapperLocator).size();
+                if (size > 2) {
+                    fieldWrapperLocator = By.xpath("//*[(local-name()='div' or local-name()='span') and @id='" + fieldApiName + "'] | //field[@field-name='" + fieldApiName + "']");
+                    size = I.amPerforming().getElementReference().forListOfElements().of(fieldWrapperLocator).size();
+                    if (size > 1) {
+                        fieldWrapperLocator = By.xpath("//*[(local-name()='div' or local-name()='span') and @id='" + fieldApiName + "']//label[contains(string(),'Description')]/.. | //field[@field-name='" + fieldApiName + "']");
+                    }
+
+                }
+            }
+            WebElement fieldWrapper = I.amPerforming().getElementReference().of(fieldWrapperLocator);
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            I.amPerforming().scroll().withMouseToElement(fieldWrapperLocator);
+//        I.amPerforming().scroll().toMoveToElement(fieldWrapperLocator);
+            if ("".equalsIgnoreCase(fieldValue)) {
+                handleClearingFormDataInputs(fieldWrapper);
+
+            } else {
+                handleFormDataInputs(fieldWrapper, fieldValue);
+            }
+        }
+        I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_EXCELROW_INFO,"Current row num :" +rowIndex);
     }
 
     /**

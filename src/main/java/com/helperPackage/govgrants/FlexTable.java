@@ -974,7 +974,7 @@ public final class FlexTable implements FlexTableComponent {
      * @param fieldValue
      * @author john.phillips
      */
-    private void handleFlexTableDataInputs(WebElement fieldWrapper, String fieldValue) {
+    public void handleFlexTableDataInputs(WebElement fieldWrapper, String fieldValue) {
         long preTestTime = System.nanoTime();
         long postTestTime = System.nanoTime();
 
