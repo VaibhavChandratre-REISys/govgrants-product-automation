@@ -9382,7 +9382,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
     Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
 
-  @443805 @ValidateGrantWithPMProfilewithcreatedowneraccessifGrantisinActivatedState @GranteeTBE
+  @443805 @ValidateGrantWithPMProfilewithcreatedowneraccessifGrantisinActivatedState
   Scenario: Validate Grant With PM Profile , with created owner access  if Grant is in Activated State
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -9748,7 +9748,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Delete" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
 
-  @443808 @ValidateGrantWithPOProfileOnceawardrejectedthengrantabletoseeinTerminatedstate @GranteeTBE
+  @443808 @ValidateGrantWithPOProfileOnceawardrejectedthengrantabletoseeinTerminatedstate
   Scenario: Validate Grant With PO Profile,Once award rejected then grant able to see in Terminated state
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
@@ -10297,7 +10297,7 @@ Feature: Sanity scenarios
     Then I softly see value "Automation Permanent Focus Area" for title "Focus Area Name" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly can see row level action button "Show RIFANS Transactions" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:actualsTabDrawDownTableId---"
 
-  @462455 @ValidatePOserasRecordOwnercanseerowlevelChangeownerbuttononanytableofsearchlayoutwhenPRARrecordisinallstates
+  @462455 @ValidatePOserasRecordOwnercanseerowlevelChangeownerbuttononanytableofsearchlayoutwhenPRARrecordisinallstates @GranteeTBE
   Scenario: Validate PO user as Record Owner can see row level Change owner button on any table of search layout when PR AR record is in all states
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
@@ -10483,7 +10483,209 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Change Owner" against "{SavedValue:AmendEGMSID1}" in global search with id "Amendment Requests"
     And I click on row level action button "Change Owner" against "{SavedValue:AmendEGMSID1}" in global search with id "Amendment Requests"
     And I wait for "2" seconds
-    And I select users value "Amendment Requestsictor EXE" in field "forceSearchInputLookup"
+    And I select users value "Victor EXE" in field "forceSearchInputLookup"
     When I click modal button "Submit"
     Then I softly see the following messages in the page details contains:
       | You cannot change the owner from this screen. Click Cancel, and navigate to Home. Then select Ownership Reassignment. |
+
+  @462457 @ValidatePOuserPRAROwnercanabletoseeCreateARonlyonActivestateofAward&Fields&validationsonCreateAmendmnetRequestmodal @GranteeTBE
+  Scenario: Validate PO user PR AR Owner can able to see Create AR only on Active state of Award & Fields & validations on Create Amendmnet Request modal
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I wait for "2" seconds
+    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Title" as "Automation Runtime award"
+    And I click on "Edit" in the page details
+    When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
+      | Name       | Project Role    | Is Key Contact |
+      | Victor EXE | Project Officer | Checked        |
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
+      | Title               | Is Primary Program |
+      | Open Data Framework | Checked            |
+    And I navigate to "Projections" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
+    And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
+      | Title                           | Start Date                         | End Date                         |
+      | Automation Permanent Focus Area | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
+      | Construction | The narrative | 5000         | 500        | 200            |
+    When I close "Add Line Items" modal by clicking the top right x button
+    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
+      | Focus Area Name                 | Projected Program Income ($) | Program Income Justification |
+      | Automation Permanent Focus Area | 1000                         | Automation Test              |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
+      | Name       | Award  |
+      | Victor EXE | Step 1 |
+    And I navigate to "Monitoring" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
+    Then I softly see the following messages in the page details contains:
+      | Goals/Objectives associated successfully. |
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
+    Then I softly see the following messages in the page details contains:
+      | KPIs added succesfully. |
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+    When I enter in modal value "Terms" into field "Title__c"
+    When I enter in modal value "Terms Description" into field "Description__c"
+    When I enter in modal value "1" into field "Sequence__c"
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
+    And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Interim Award Document" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
+    And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+    And I wait for "2" seconds
+    When I navigate to "Amendments" sub tab
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    Then I softly see "General Information" page block displayed
+    When I hovering mouse on help text icon inside modal "General Information"
+    Then I softly see "This section displays amendment type details" shown as help text
+    Then I softly see "Create Amendment Request" opens in overLay window
+    Then I softly see field on modal "Award EGMS ID" inside page block
+    Then I softly see field on modal "Grant Award Number" inside page block
+    Then I softly see field on modal "Grant Number" inside page block
+    Then I softly see field on modal "Impact" inside page block
+    Then I softly see field on modal "Please select Amendment Request Type" inside page block
+    Then I softly see field on modal "Initiated By" inside page block
+    Then I softly see field on modal "Justification" inside page block
+    Then I softly see that "Grant Award Number" rendered in view mode only
+    Then I softly see that "Grant Number" rendered in view mode only
+    Then I softly see fields "Impact__c" is in edit mode
+    Then I softly see fields "InitiatedByGrantee__c" is in edit mode
+    Then I softly see fields "GranteeAmendmentType__c" is in edit mode
+    Then I softly see fields "PurposeRTA__c" is in edit mode
+    Then I softly see "Save and Continue" modal button
+    Then I softly see "Close" modal button
+    Then I see the text " Required to Save | " in modal
+    Then I see the text " Required to Submit" in modal
+    Then I softly see that "Award EGMS ID" rendered in view mode only
+    Then I softly see link "{SavedValue:AwardEGMSID}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    Then I see the header is "Award" in the page details
+    Then I softly see field "EGMS ID" as "{SavedValue:AwardEGMSID}"
+    When I navigate to "Amendments" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | Please select Amendment Request Type is required to save. |
+      | Initiated By is required to save.                         |
+      | Justification is required to save.                        |
+    And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "4" seconds
+    Then I see the header is "Amendment Request" in the page details
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see field "Status" as "Created"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    And I save the field labeled "EGMS ID" as "periodicEGMSID"
+    And I click on back arrow
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | Amendments Tab - The Periodic Renewal request is already in progress. Complete the existing request to create a new request. |
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly can see row level action button "View" against "{SavedValue:periodicEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:periodicEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:periodicEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    And I click on "Edit" icon for "{SavedValue:periodicEGMSID}" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---" without waiting for record
+    Then I see the header is "Amendment Request" in the page details
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see field "Status" as "Created"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "{SavedValue:periodicEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    And I click on "Edit" icon for "{SavedValue:periodicEGMSID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+    Then I see the header is "Amendment Request" in the page details
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see field "Status" as "Created"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+
