@@ -10697,7 +10697,7 @@ Feature: Sanity scenarios
     Then I do not see "Grants" inside "Reassign" is displayed
     Then I do not see "Awards" inside "Reassign" is displayed
     Then I do not see "Amendment Requests" inside "Reassign" is displayed
-    When I "Expanded" page block contaninig value "Grants, Awards & Amendment Requests"
+    When I "Expanded" left navigation contaninig value "Grants, Awards & Amendment Requests"
     Then I see "Grants" inside "Reassign" is displayed
     Then I see "Awards" inside "Reassign" is displayed
     Then I see "Amendment Requests" inside "Reassign" is displayed
