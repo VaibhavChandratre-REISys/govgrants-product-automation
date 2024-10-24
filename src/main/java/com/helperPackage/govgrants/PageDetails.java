@@ -230,6 +230,7 @@ public final class PageDetails {
 
             try {
                 if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
+
                     I.amPerforming().click().on(desiredTab);
 
                 } else {
@@ -239,9 +240,15 @@ public final class PageDetails {
                 }
             } catch (Exception ex) {
                 I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     An exception is thrown - Retrying with javaScript");
-                I.amPerforming().waitFor().makeThreadSleep(3000);
-                I.amPerforming().click().on(moreTabs);
-                I.amPerforming().click().withJavaScript(desiredTab, false);
+                if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
+
+                    I.amPerforming().click().withJavaScript(desiredTab, false);
+
+                } else {
+                    I.amPerforming().click().on(moreTabs);
+                    I.amPerforming().waitFor().ElementToBePresent(desiredTab);
+                    I.amPerforming().click().withJavaScript(desiredTab, false);
+                }
 
             }
 
