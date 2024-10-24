@@ -11683,16 +11683,12 @@ Feature: Sanity scenarios
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | Please select Amendment Request Type is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Initiated By is required to save. |
-      | Justification is required to save.|
-      | Initiated By is required to save. |
+      | Initiated By is required to save.                         |
+      | Justification is required to save.                        |
+      | Initiated By is required to save.                         |
     And I enter "Grantee_BPC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Grantee_BPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "2" seconds
-    And I enter "Grantee_PeriodicRenewal_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
     And I clear the value from field "PurposeRTA__c"
@@ -12006,7 +12002,7 @@ Feature: Sanity scenarios
     Then I see value "$0.00" for title "Original Program Income Earned" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:awardProgramRevenueTableId---"
     Then I see value "$0.00" for title "Amount Drawn to Date" against the value "Automation Permanent Focus Area" inside table "---DrawdownTableId:-:awardProgramRevenueTableId---"
 
-  @470843 @PRamdVerifytheimpactonGrants&AwardafterPeriodicRenewalAmendmentRequestisAccepted&creatednewaward
+  @471362 @PRamdVerifytheimpactonGrants&AwardafterPeriodicRenewalAmendmentRequestisAccepted&creatednewaward
   Scenario:PR amd >>Verify the impact on Grants & Award after Periodic Renewal Amendment Request is Accepted & created new award
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
