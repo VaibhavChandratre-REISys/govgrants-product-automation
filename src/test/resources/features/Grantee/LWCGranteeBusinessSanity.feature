@@ -11091,8 +11091,11 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I click modal button "Close"
     Then I softly see field "Status" as "Accepted"
-    When I navigate to "Overview" sub tab
-    And I save the field labeled "Award EGMS ID" as "AwardEGMSID"
+    And I click on "Amend Award" in the page details
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    When I click on "Activate Award" in the page details
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I save the field labeled "Revised Award" as "RevisedAwardId"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Overview" sub tab
