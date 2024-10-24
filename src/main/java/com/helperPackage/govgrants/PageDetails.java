@@ -819,6 +819,18 @@ public final class PageDetails {
         }
     }
 
+
+    public void leftNavigationContaninigValue(String actionIcon, String leftNavigationButton) {
+        if(actionIcon.contains("Collapse")) {
+            By pageBlockExpandCollapseIconSelector = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='true']");
+            I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
+        }
+        else {
+            By pageBlockExpandCollapseIconSelector = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='false']");
+            I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
+        }
+    }
+
     /**
      * @param usage    - softly or not
      * @param cellName - MultiCell value
@@ -997,6 +1009,17 @@ public final class PageDetails {
     }
 
     /**
+     * hover on help text inside modal
+     *
+     * @param modalPageBlockTitle
+     * @author komal.mukhekar
+     */
+
+    public void getHelpTextAtModalWindowforPageBlock(String modalPageBlockTitle) {
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//div[contains(@class,'modal__content')]//span[contains(text(),'" + modalPageBlockTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')]"));
+    }
+
+    /**
      * to click on side bar menus at collab component
      *
      * @param subMenu
@@ -1086,4 +1109,5 @@ public final class PageDetails {
         }
         return flag;
     }
+
 }
