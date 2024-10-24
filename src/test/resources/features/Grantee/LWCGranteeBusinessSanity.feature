@@ -9915,7 +9915,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "Rejected" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly cannot see row level action button "Edit" against "Rejected" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I navigate to "Financials" sub tab
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantBudgetCategory---"
+    Then I softly see "No Records Found" inside flex table with id "GrantBudgetCategoryFlexGridGrantee"
     And I navigate to "Management" sub tab
     Then I softly see "No Records Found" inside flex table with id "AmendmentRequestReport"
     Then I softly see "No Records Found" inside flex table with id "GranteeGrantProgressReport"
