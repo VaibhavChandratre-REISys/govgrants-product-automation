@@ -10648,6 +10648,7 @@ Feature: Sanity scenarios
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Please select Amendment Request Type is required to save. |
       | Initiated By is required to save.                         |
@@ -10689,7 +10690,7 @@ Feature: Sanity scenarios
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
 
-  @462458 @ValidatePOusercanseeonclickofAmendmentRequestseeoptionfromGrantphaseabletoclickonAmedmentRequestLink @GranteeTBE
+  @462458 @ValidatePOusercanseeonclickofAmendmentRequestseeoptionfromGrantphaseabletoclickonAmedmentRequestLink
   Scenario: Validate PO user can see on click of Amendment Request see options from Grant phase & able to click on Amedment Request Link
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
@@ -11058,6 +11059,7 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "AmendEGMSID1"
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

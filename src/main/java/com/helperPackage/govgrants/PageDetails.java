@@ -824,8 +824,10 @@ public final class PageDetails {
         if(actionIcon.contains("Collapse")) {
             WebElement pageBlockExpand = I.amPerforming().getElementReference().of(By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='false']"));
             if(pageBlockExpand.getText().equals("false")) {
-                By pageBlockExpandCollapseIconSelector = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='true']");
+                By pageBlockExpandCollapseIconSelector = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='false']");
                 I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
+                By pageBlockExpandCollapseIconSelector1 = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='true']");
+                I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector1);
             } else {
                 By pageBlockExpandCollapseIconSelector = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='true']");
                 I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
@@ -834,8 +836,10 @@ public final class PageDetails {
         else {
             WebElement pageBlockCollapse = I.amPerforming().getElementReference().of(By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='true']"));
             if(pageBlockCollapse.getText().equals("true")) {
-                By pageBlockExpandCollapseIconSelector = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='false']");
+                By pageBlockExpandCollapseIconSelector = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='true']");
                 I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
+                By pageBlockExpandCollapseIconSelector1 = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='false']");
+                I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector1);
             } else {
                 By pageBlockExpandCollapseIconSelector = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='false']");
                 I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
