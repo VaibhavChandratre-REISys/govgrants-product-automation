@@ -64,14 +64,7 @@ public final class GovGrantsLibrary {
         return assertions;
     }
 
-//    public InputForms inputForms() {
-//        if (inputForms == null) {
-//            inputForms = new InputForms(GovGrantsAssertionObjects ggAssertionObjects);
-//            this.ggAssertionObjects=ggAssertionObjects;
-//
-//        }
-//        return inputForms;
-//    }
+
 
     public LibraryFiles libraryFiles() {
         if (libraryFiles == null) {
