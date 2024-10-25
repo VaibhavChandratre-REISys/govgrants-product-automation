@@ -11516,12 +11516,12 @@ Feature: Sanity scenarios
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly can see row level action button "Enter Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     And I navigate to "Files" sub tab
-    Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I wait for "2" seconds
@@ -11550,7 +11550,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Complete Review" in page detail
     When I navigate to "Responsibilities" sub tab
-    Then I softly can see row level action button "Resend for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly can see row level action button "Resend for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
