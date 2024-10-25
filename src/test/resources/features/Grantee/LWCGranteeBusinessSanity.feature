@@ -10690,227 +10690,6 @@ Feature: Sanity scenarios
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
 
-  @462458 @ValidatePOusercanseeonclickofAmendmentRequestseeoptionfromGrantphaseabletoclickonAmedmentRequestLink @GranteeTBE
-  Scenario: Validate PO user can see on click of Amendment Request see options from Grant phase & able to click on Amedment Request Link
-    When I login to "As a Grantee" app as "GRANTEE PO" user
-    And I navigate to "Grants" tab
-    When I "Collapse" left navigation contaninig value "Grants, Awards & Amendment Requests"
-    Then I do not see "Grants" inside "Grants, Awards & Amendment Requests" is displayed
-    Then I do not see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
-    Then I do not see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
-    When I "Expanded" left navigation contaninig value "Grants, Awards & Amendment Requests"
-    Then I see "Grants" inside "Grants, Awards & Amendment Requests" is displayed
-    Then I see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
-    Then I see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    Then I softly see toggle option "Amendment Requests - My Records" inside flex table id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see toggle option "Amendment Requests - Draft" inside flex table id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see toggle option "Amendment Requests - Accepted" inside flex table id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see toggle option "Amendment Requests - Rejected" inside flex table id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see toggle option "Amendment Requests - All" inside flex table id "---grantee_tableId:-:AmendmentTableId---"
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{grantee_testData:amendmentRequestAward}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{grantee_testData:amendmentRequestAward}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "{grantee_testData:amendmentRequestAwardEgmsId}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    When I navigate to "Amendments" sub tab
-    Then I softly can see row level action button "View" against "{grantee_testData:periodicRenewalAmendmentRequest}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    Then I softly can see row level action button "Edit" against "{grantee_testData:periodicRenewalAmendmentRequest}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    Then I softly can see row level action button "Delete" against "{grantee_testData:periodicRenewalAmendmentRequest}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:AmendmentRequestTableId---"
-    Then I softly see "Amendment Type" in flex table header "---grantee_tableId:-:AmendmentRequestTableId---"
-    Then I softly see "Initiated By" in flex table header "---grantee_tableId:-:AmendmentRequestTableId---"
-    Then I softly see "Status" in flex table header "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    Then I softly see "Actions" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see "Award EGMS ID" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see "Amendment Type" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see "Initiated By" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see "Status" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    And I click toggle button to select "Amendment Requests - My Records"
-    When I perform quick search for "Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Delete" against "Created" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted to Grantor" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Edit" against "Reviewed" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Reviewed" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Delete" against "Reviewed" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted for review" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Submitted for review" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Edit" against "Submitted for review" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Submitted for review" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Delete" against "Submitted for review" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Accepted" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Edit" against "Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Delete" against "Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Delete" against "Created" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Edit" against "Rejected" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Rejected" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Delete" against "Rejected" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Edit" against "Submitted for Approval" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Submitted for Approval" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Delete" against "Submitted for Approval" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Edit" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Delete" against "Not Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted to Grantor" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Submitted to Grantor" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Edit" against "Submitted to Grantor" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Submitted to Grantor" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Delete" against "Submitted to Grantor" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Edit" against "Reviewed" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Reviewed" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Delete" against "Reviewed" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted for review" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Submitted for review" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Edit" against "Submitted for review" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Submitted for review" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Delete" against "Submitted for review" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    And I click toggle button to select "Amendment Requests - Draft"
-    When I perform quick search for "Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Delete" against "Created" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted to Grantor" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Edit" against "Reviewed" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Reviewed" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Delete" against "Reviewed" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted for review" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Submitted for review" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Edit" against "Submitted for review" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Submitted for review" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Delete" against "Submitted for review" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    And I click toggle button to select "Amendment Requests - Accepted"
-    When I perform quick search for "Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Accepted" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Edit" against "Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Delete" against "Accepted" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted to Grantor" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted for review" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    And I click toggle button to select "Amendment Requests - Rejected"
-    When I perform quick search for "Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Edit" against "Rejected" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Rejected" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Delete" against "Rejected" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted to Grantor" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "Submitted for review" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    And I click toggle button to select "Amendment Requests - All"
-    And I click on page navigation arrow "---grantee_tableId:-:AmendmentTableId---" for table id "Next"
-    Then I see table "---grantee_tableId:-:AmendmentTableId---" shows "Page 2"
-    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:AmendmentTableId---"
-    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I see table "---grantee_tableId:-:AmendmentTableId---" shows "Page 1"
-    And I click on advance filter of table id "---program:-:AmendmentTableId---" for LWC
-    And I enter advance filter values inside id "---program:-:AmendmentTableId---" for LWC
-      | EGMS ID | contains | {grantee_testData:periodicRenewalAmendmentRequest} |
-    And I pause execution for "5" seconds
-    Then I softly see value "{grantee_testData:periodicRenewalAmendmentRequest}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentTableId---"
-    And I click on top right button "Clear" in flex table with id "---program:-:AmendmentTableId---"
-    When I click on parallel lines menu bar with data target value "Amendment Requests - All"
-    And I wait for "2" seconds
-    Then I see option "Refresh" present in parallel dropdown
-    Then I see option "Download as PDF" present in parallel dropdown
-    When I perform quick search for "Created" in "---grantee_tableId:-:AmendmentTableId---" panel
-    And I save the value from row "1" for column name "EGMS ID" as "amendEGMSID" from flex table "---grantee_tableId:-:AmendmentTableId---"
-    And I save the value from row "1" for column name "Award EGMS ID" as "awardEGMSID" from flex table "---grantee_tableId:-:AmendmentTableId---"
-    When I click on "Delete" icon for "{SavedValue:amendEGMSID}" inside table with table id "---grantee_tableId:-:AmendmentTableId---" without processing
-    Then I softly see confirmation box with body "Are you sure you want to permanently delete the draft amendment request?" is displayed
-    And I click "OK" on modal confirmation box
-    Then I softly see the following messages in the page details :
-      | Record deleted successfully. |
-    When I perform quick search for "{SavedValue:amendEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    And I navigate to "Grants" tab
-    When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Awards - All"
-    When I perform quick search for "{SavedValue:awardEGMSID}" in "---grantee_tableId:-:awardTableId---" panel
-    And I click on "View" icon for "{SavedValue:awardEGMSID}" inside flex table with id "---grantee_tableId:-:awardTableId---" without waiting for record
-    When I navigate to "Amendments" sub tab
-    When I perform quick search for "{SavedValue:amendEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    And I save the total records from the flex table id "---grantee_tableId:-:AmendmentTableId---" as "totalRecords"
-    Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:AmendmentTableId---"
-    When I perform quick search for "{grantee_testData:periodicRenewalAmendmentRequest}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    When I click on "View" icon for "{grantee_testData:periodicRenewalAmendmentRequest}" inside table
-    Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Delete" in page detail
-    Then I softly can see top right button "Submit for Approval" in page detail
-
   @469406 @ValidatePRamdthatPMuserseestatusofmultipleawardisinActivatedstateonceAwardiscreatedfromPRamendmentrequestonGrantlayout
   Scenario: Validate PR amd that PM user see status of multiple award is in Activated state once Award is created from PR amendment request on Grant layout
     When I login to "As a Grantee" app as "GRANTEE PO" user
@@ -11460,11 +11239,11 @@ Feature: Sanity scenarios
     Then I see option "Download As PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     When I navigate to "Responsibilities" sub tab
-    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
     Then I softly cannot see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
     Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
     Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
-    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:closeoutApproverTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:closeoutApproverTableId---"
     Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:closeoutApproverTableId---"
     When I navigate to "Files" sub tab
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:closeoutAddFilesTableId---"
@@ -11500,17 +11279,17 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly see field "Status" as "Approved"
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    Then I softly can see top right button "Submit to Grantor" in page detail
+    Then I softly cannot see top right button "Submit to Grantor" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download As PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     When I navigate to "Responsibilities" sub tab
-    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
     Then I softly cannot see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
     Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
     Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
-    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:closeoutApproverTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:closeoutApproverTableId---"
     Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:closeoutApproverTableId---"
     When I navigate to "Files" sub tab
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:closeoutAddFilesTableId---"
@@ -11520,8 +11299,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
     Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:closeoutAddFilesTableId---"
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:closeoutNotesTableId---"
-    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:closeoutNotesTableId---"
-    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:closeoutNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record Edited" in flex table with id "---grantee_tableId:-:closeoutNotesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record Edited" in flex table with id "---grantee_tableId:-:closeoutNotesTableId---"
     Then I softly see value "Notes Record Edited" for title "Title" inside table "---grantee_tableId:-:closeoutNotesTableId---"
     When I navigate to "History" sub tab
     Then I softly see column "Overall Status" at position "1" contains text "Approved"
