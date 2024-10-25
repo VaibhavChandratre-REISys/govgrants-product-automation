@@ -11564,6 +11564,7 @@ Feature: Sanity scenarios
     Then I softly see value "Reviewed" for title "New Value" inside field history table
     Then I softly see value "Submitted for Review" for title "Original Value" inside field history table
     And I click on back arrow
+    When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly can see row level action button "Resend for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
