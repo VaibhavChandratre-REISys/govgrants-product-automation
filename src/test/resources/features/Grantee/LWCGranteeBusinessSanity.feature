@@ -12469,6 +12469,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
+    When I navigate to "Overview" sub tab
     When I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
@@ -12710,6 +12711,7 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
+    When I navigate to "Overview" sub tab
     When I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
     Then I see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
 
