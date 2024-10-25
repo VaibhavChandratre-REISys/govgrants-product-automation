@@ -12188,7 +12188,7 @@ Feature: Sanity scenarios
     Then I softly see field "Total Anticipated Amount" as "{SavedValue:TotalAnticipatedAmount}"
     When I save the field labeled "Award Amount to Date" as "AwardAmounttoDate"
     Then I softly see field "Award Amount to Date" as "{SavedValue:AwardAmounttoDate}"
-    When I save the field labeled "ExpenditurestoDate" as "ExpenditurestoDate"
+    When I save the field labeled "Expenditures to Date" as "ExpenditurestoDate"
     Then I softly see field "Expenditures to Date" as "{SavedValue:ExpenditurestoDate}"
     When I save the field labeled "Remaining Budget" as "RemainingBudget"
     Then I softly see field "Remaining Budget" as "{SavedValue:RemainingBudget}"
@@ -12207,6 +12207,7 @@ Feature: Sanity scenarios
     When I save the field labeled "Total Project Cost" as "TotalProjectCost"
     Then I softly see field "Total Project Cost" as "{SavedValue:TotalProjectCost}"
     Given I expand nested table containing column value "BP01"
+    Then I softly see value "{SavedValue:NewBudgetPeriodEndDate}" for title "End Date" against the value "BP01" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
@@ -12689,6 +12690,12 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     Then I cannot see top right button "Edit" in page detail
     Then I can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
