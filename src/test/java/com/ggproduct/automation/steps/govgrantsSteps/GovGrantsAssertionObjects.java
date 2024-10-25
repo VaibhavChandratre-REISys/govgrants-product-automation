@@ -501,7 +501,7 @@ public final class GovGrantsAssertionObjects {
 
     public void verifyFieldAvailableOnModal(String field, String text) {
         try {
-            By fieldText = By.xpath("//div[@id='modaltemp']//div//span[contains(text(),'" + field + "')]//following::dd//span[contains(text(),'" + text + "')] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/..//lightning-base-combobox//span[text()='" + text + "']");
+            By fieldText = By.xpath("//div[@id='modaltemp']//div//span[contains(text(),'" + field + "')]//following::dd//span[contains(text(),'" + text + "')] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/..//lightning-base-combobox//span[text()='" + text + "'] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/parent::div//lightning-formatted-text[text()='" + text + "'] | //div[contains(@class,'modal__container')]//label[text()='" + field + "']/parent::div//a[text()='" + text + "']");
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(fieldText)).isTrue();
         } catch (Exception e) {
 
@@ -1407,7 +1407,15 @@ public final class GovGrantsAssertionObjects {
                                 .map(el -> el.getAttribute("title")).collect(Collectors.joining(" & ")));
                     } else {
                         // Add text of the cell to list
-                        rowValues.add(cell.getText());
+                        if (cell.getText().contains("*")) {// Exclude asterisks
+                            String cellText = cell.getText().trim();
+                            String newCell = cellText.split("\n")[1];
+                            rowValues.add(newCell);
+                        }
+                        else {
+                            rowValues.add(cell.getText());
+                        }
+//                        rowValues.add(cell.getText());
                     }
                 }
 
@@ -3683,7 +3691,7 @@ public final class GovGrantsAssertionObjects {
     public boolean AssertTextinModal(String text) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(ByUsing.xpath("//*[contains(text(),'" + text + "')]")))) {
+            if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(ByUsing.xpath("//div[contains(@class,'slds-modal__container')]//*[contains(text(),'" + text + "')]")))) {
                 flag = true;
             }
         } catch (Exception e) {

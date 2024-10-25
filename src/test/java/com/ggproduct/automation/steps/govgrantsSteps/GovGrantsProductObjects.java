@@ -143,7 +143,7 @@ public final class GovGrantsProductObjects {
      * @Modify Keerti.Munde
      */
     public void assertFieldsInViewMode(String fieldApiName, boolean isSoftly) {
-        By pageBlockFields = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldApiName + "']//lightning-formatted-text | //div//label[contains(text(),'" + fieldApiName + "')]/..//lightning-output-field | //lightning-input-field[@data-field_api_name='" + fieldApiName + "']//span[@class='slds-checkbox_faux'] | //div//label[contains(text(),'" + fieldApiName + "')]/..//input[@disabled] | //div//label[normalize-space(text())='" + fieldApiName + "'] |  //div[@data-field_api_name='" + fieldApiName + "']//output");
+        By pageBlockFields = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldApiName + "']//lightning-formatted-text | //div//label[contains(text(),'" + fieldApiName + "')]/..//lightning-output-field | //lightning-input-field[@data-field_api_name='" + fieldApiName + "']//span[@class='slds-checkbox_faux'] | //div//label[contains(text(),'" + fieldApiName + "')]/..//input[@disabled] | //div//label[normalize-space(text())='" + fieldApiName + "'] | //div[@data-field_api_name='" + fieldApiName + "']//output");
         if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(pageBlockFields)).isTrue();
         } else {
@@ -641,8 +641,8 @@ public final class GovGrantsProductObjects {
     public void sendTheEmailOnCollabTab(List<List<String>> emailDetails) {
         for (int i = 1; i < emailDetails.size(); i++) {
             List<String> ll = emailDetails.get(i);
-            I.amPerforming().textInput().toClear(By.xpath("//gnt-email-component//input[not(contains(@class,'combobox__input'))]"));
-            I.amPerforming().textInput().in(By.xpath("//gnt-email-component//input[not(contains(@class,'combobox__input'))]"), ll.get(0));
+            I.amPerforming().textInput().toClear(By.xpath("//gnt-email-component//input[not(contains(@placeholder,'Select an Option'))]"));
+            I.amPerforming().textInput().in(By.xpath("//gnt-email-component//input[not(contains(@placeholder,'Select an Option'))]"), ll.get(0));
             I.amPerforming().textInput().toClear(By.xpath("//gnt-email-component//input[@name='subject']"));
             I.amPerforming().textInput().in(By.xpath("//gnt-email-component//input[@name='subject']"), ll.get(1));
             I.amPerforming().click().withJavaScript(By.xpath("//gnt-email-component//div[contains(@class,'text-area')]"));

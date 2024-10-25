@@ -120,6 +120,40 @@ public final class PageDetails {
 
     /**
      * click any button on right header inside detail page. Submit, submit for
+     * approval without processing
+     *
+     * @param buttonName
+     * @return
+     * @author john.phillips
+     * modifier saranjit.modak - 09.09.2022 added explicit wait used try catch to handle ElementClickInterceptedException exception
+     */
+    public void clickAnyTopRightButtonForWithoutProcessing(String buttonName) {
+        By topRightButton = getAnyTopRightButton(buttonName);
+        try {
+            I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -800);
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            try {
+                I.amPerforming().waitFor().ElementToBeVisible(topRightButton);
+                try {
+                    I.amPerforming().click().on(topRightButton);
+                } catch (Exception e) {
+                    I.amPerforming().click().withJavaScript(topRightButton);
+                }
+            } catch (Exception ex) {
+                I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//gnt-header-overview//lightning-button-menu//button"));
+                I.amPerforming().click().withJavaScript(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
+                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+            }
+
+        } catch (ElementClickInterceptedException e) {
+            I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Exception {ElementClickInterceptedException} is thrown - used Explicit Wait and Java Script to click the element");
+            I.amPerforming().waitFor().ElementToBeClickable(topRightButton);
+            I.amPerforming().click().withJavaScript(topRightButton);
+        }
+    }
+
+    /**
+     * click any button on right header inside detail page. Submit, submit for
      * approval
      *
      * @param buttonName
@@ -798,14 +832,39 @@ public final class PageDetails {
         }
     }
 
-    public void pageBlockExpandedOrCollapse(String pageBlockTitle,String actionIcon) {
-        if(actionIcon.contains("Collapse")) {
-            By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//span[text()='Expanded']");
+    public void pageBlockExpandedOrCollapse(String pageBlockTitle, String actionIcon) {
+        if (actionIcon.contains("Collapse")) {
+            By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//lightning-icon[contains(@icon-name,'up')]");
+            I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
+        } else {
+            By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//lightning-icon[contains(@icon-name,'down')]");
             I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
         }
-        else {
-            By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//span[text()='Collapse']");
-            I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
+    }
+
+
+    public void leftNavigationContaninigValue(String actionIcon, String leftNavigationButton) {
+        if (actionIcon.contains("Collapse")) {
+            try {
+                By pageBlockExpand = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='true']");
+                if (I.amPerforming().checkToSee().isDisplayed(pageBlockExpand)) {
+                    I.amPerforming().click().withJavaScript(pageBlockExpand);
+                }
+            } catch (Exception e) {
+
+            }
+            I.amPerforming().waitFor().makeThreadSleep(1000);
+        } else if(actionIcon.contains("Expanded")) {
+            try {
+                By pageBlockCollapse = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='false']");
+                if (I.amPerforming().checkToSee().IsElementPresentQuick(pageBlockCollapse)) {
+                    I.amPerforming().click().withJavaScript(pageBlockCollapse);
+                }
+            } catch (Exception e) {
+
+            }
+            I.amPerforming().waitFor().makeThreadSleep(1000);
+
         }
     }
 
@@ -912,6 +971,8 @@ public final class PageDetails {
             I.amPerforming().click().on(ByUsing.xpath("//div[@id='" + linkName + "']//a//img[@src='/resource/GovGrantsImages/PieChartIcon.jpg']"));
         } else if (usage.equalsIgnoreCase("hyperlink for global search")) {
             I.amPerforming().click().on(ByUsing.xpath("//div[@data-aura-class='forceInlineEditGrid']//table//a[contains(text(),'" + linkName + "')]"));
+        } else if (usage.equalsIgnoreCase("hyperlink for modal")) {
+            I.amPerforming().click().withJavaScript(ByUsing.xpath("//div[contains(@class,'modal__container')]//a[contains(text(),'" + linkName + "')] | //div[contains(@class,'modal__container')]//span[contains(text(),'" + linkName + "')] | //div[contains(@class,'modal__container')]//a[contains(@href,'" + linkName + "')] | //div[contains(@class,'modal__container')]//a//span[@class='" + linkName + "' or text()='" + linkName + "']"));
         }
 
     }
@@ -982,6 +1043,17 @@ public final class PageDetails {
      */
     public void getHelpTextAtModalWindow(String modalFieldTitle) {
         I.amPerforming().scroll().withMouseToElement(By.xpath("//div[contains(@class,'modal__content')]//label[contains(text(),'" + modalFieldTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')]"));
+    }
+
+    /**
+     * hover on help text inside modal
+     *
+     * @param modalPageBlockTitle
+     * @author komal.mukhekar
+     */
+
+    public void getHelpTextAtModalWindowforPageBlock(String modalPageBlockTitle) {
+        I.amPerforming().scroll().withMouseToElement(By.xpath("//div[contains(@class,'modal__content')]//span[contains(text(),'" + modalPageBlockTitle + "')]//parent::div//button[contains(@aria-describedby,'salesforce-lightning-tooltip-bubble')]"));
     }
 
     /**
@@ -1074,4 +1146,5 @@ public final class PageDetails {
         }
         return flag;
     }
+
 }

@@ -407,7 +407,7 @@ public final class GovGrantsSteps {
     @When("^I enter the following values into flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void enterFlexTableRows(String flexTableId, String buttonName, List<Map<String, String>> rowValues) {
         I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -800);
-        I.amPerforming().waitFor().makeThreadSleep(2000);
+        I.amPerforming().waitFor().makeThreadSleep(1000);
         govgrants.perform().flexTable().enterFlexTableRows(
                 flexTableId,
                 buttonName,
@@ -573,7 +573,7 @@ public final class GovGrantsSteps {
         } else if (buttonLocation.equalsIgnoreCase("bottom of page details")) {
             govgrants.perform().pageDetails().clickAnyBottomRightButton(buttonName);
         } else if (buttonLocation.equalsIgnoreCase("page details without processing")) {
-            govgrants.perform().pageDetails().clickTopRightButton(buttonName);
+            govgrants.perform().pageDetails().clickAnyTopRightButtonForWithoutProcessing(buttonName);
         }
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
     }
@@ -967,7 +967,7 @@ public final class GovGrantsSteps {
     }
 
     @Description("To click on any hyperlink with value or id inside page details")
-    @And("^I click (in table|on) (subaward dashboard|hyperlink|link name|hyperlink for global search) containing value \"([^\"]*)\"$")
+    @And("^I click (in table|on) (subaward dashboard|hyperlink|link name|hyperlink for global search|hyperlink for modal) containing value \"([^\"]*)\"$")
     public void iClickOnHyperlinkContainingValue(String check, String usage, String linkName) {
         govgrants.perform().pageDetails().clickOnLink(check.contains("table"), usage, linkName);
     }
@@ -982,10 +982,13 @@ public final class GovGrantsSteps {
     }
 
     @Description("To mouse hover on help text icon inside page details")
-    @When("^I hovering mouse on help text icon inside (page block detail|modal) \"([^\"]*)\"$")
+    @When("^I hovering mouse on help text icon inside (page block detail|modal|modal page block) \"([^\"]*)\"$")
     public void getHelpTextIconsAtPageBlockDetail(String usage, String pageBlockDetailTitle) {
         if (usage.equalsIgnoreCase("modal"))
             govgrants.perform().pageDetails().getHelpTextAtModalWindow(pageBlockDetailTitle);
+        else if(usage.equalsIgnoreCase("modal page block")){
+            govgrants.perform().pageDetails().getHelpTextAtModalWindowforPageBlock(pageBlockDetailTitle);
+        }
         else
             govgrants.perform().pageDetails().getHelpTextAtPageBlockDetail(pageBlockDetailTitle);
     }
