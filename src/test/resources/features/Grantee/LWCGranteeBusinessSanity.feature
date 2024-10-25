@@ -12234,7 +12234,7 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
+    And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I navigate to "History" sub tab
     Then I softly see "Change Request History" page block displayed
 
@@ -12488,7 +12488,7 @@ Feature: Sanity scenarios
    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
    When I navigate to "Awards" sub tab
-   And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
+   And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
    And I navigate to "History" sub tab
    Then I softly see "Change Request History" page block displayed
 
