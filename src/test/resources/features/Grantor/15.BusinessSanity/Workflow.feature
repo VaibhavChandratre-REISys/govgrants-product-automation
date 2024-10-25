@@ -1532,16 +1532,25 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @tst
+  @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fKCKYA2/view"
-    And I wait for "10" seconds
-    And I navigate to "Messages" sub tab
-    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
-    And I send the email under collab tab with following details:
-      | To                        | Cc                         | Subject | Body            |
-      | pm.automation@yopmail.com | exe.automation@yopmail.com | test    | Automation Test |
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Grant__c/a2RDb000004LRJ5MAO/view"
+    And I navigate to "Awards" sub tab
+    Then I softly see value "Activated" for title "Status" against the value "AD-GA-3031" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    Then I softly see value "Activated" for title "Status" against the value "AD-GA-3035" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    And I navigate to "Financials" sub tab
+    Then I softly see value "BP01" for title "Budget Period" inside table "---grantee_tableId:-:grantGrantBudgetTableId---"
+    Then I softly see value "BP02" for title "Budget Period" inside table "---grantee_tableId:-:grantGrantBudgetTableId---"
+    And I navigate to "Monitoring" sub tab
+    And I save the value from row "1" for column name "EGMS ID" as "objectiveBP01Id" from flex table "---grantee_tableId:-:grantGoalsTableId---"
+    Then I softly see value "{SavedValue:objectiveBP01Id}" for title "EGMS ID" inside table "---grantee_tableId:-:grantGoalsTableId---"
+    And I save the value from row "2" for column name "EGMS ID" as "objectiveBP02Id" from flex table "---grantee_tableId:-:grantGoalsTableId---"
+    Then I softly see value "{SavedValue:objectiveBP02Id}" for title "EGMS ID" inside table "---grantee_tableId:-:grantGoalsTableId---"
+    And I save the value from row "1" for column name "EGMS ID" as "kpiBP01Id" from flex table "---grantee_tableId:-:grantKPITableId---"
+    Then I softly see value "{SavedValue:kpiBP01Id}" for title "EGMS ID" inside table "---grantee_tableId:-:grantKPITableId---"
+    And I save the value from row "2" for column name "EGMS ID" as "kpiBP02Id" from flex table "---grantee_tableId:-:grantKPITableId---"
+    Then I softly see value "{SavedValue:kpiBP02Id}" for title "EGMS ID" inside table "---grantee_tableId:-:grantKPITableId---"
     And I halt execution
 
   @TestingXSS

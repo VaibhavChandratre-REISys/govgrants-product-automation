@@ -113,6 +113,12 @@ public class CommonSteps {
     public void iPageBlockContaninigValue(String actionIcon, String pageBlockTitle) {
         govgrants.perform().pageDetails().pageBlockExpandedOrCollapse(pageBlockTitle,actionIcon);
     }
+
+
+    @When("I {string} left navigation contaninig value {string}")
+    public void iLeftNavigationContaninigValue(String actionIcon, String leftNavigationButton) {
+        govgrants.perform().pageDetails().leftNavigationContaninigValue(actionIcon,leftNavigationButton);
+    }
 }
 
 

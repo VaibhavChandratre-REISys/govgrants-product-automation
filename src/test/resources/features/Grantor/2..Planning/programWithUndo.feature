@@ -1,4 +1,4 @@
-@programWithUndo @grantor-regression @grantor-parallel-regression @planning @regression
+@programWithUndo @grantor-regression @grantor-parallel-regression @planning @regression @intProg
 Feature: Validate all scenarios for program
 
    @279282 @Verifyusershouldnotseeundobuttonincreatedsentforreviewreviewedstateofprogram @sprint-25-US-295138  @Undo
@@ -2318,8 +2318,7 @@ Feature: Validate all scenarios for program
     When I select radio button "Reject" in the approval decision
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
-      Then I softly see the following messages in the page details contains:
-        | This action cannot be undone. Do you really want to Reject? |
+    Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
     And I click "Continue" on modal confirmation box
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -3225,9 +3224,8 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
     Then I cannot see top right button "Undo" in page detail
-    And I click on Menu icon present on top right corner of the page
-    And I select "Download As PDF" from dropdown
-    And I wait for "3" seconds
+    And I click on "Download As PDF" in the page details
+    And I wait for "7" seconds
     And I download the file
     And I wait for "3" seconds
     Then I softly see "{SavedValue:ProgramEGMSID}" on page "1" of "govgrants" pdf file

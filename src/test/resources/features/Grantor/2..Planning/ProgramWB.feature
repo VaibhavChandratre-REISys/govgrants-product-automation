@@ -2315,7 +2315,7 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
 
-  @197549 @ValidateownershiptasksareroutedtoretainedbyappropriateuserwhentaskshavingdifferentpurposearereassignedsimultaneouslytoanotherPMuserfor3differentexternalprograms @sprint-4  @reassignment @taskreassign
+  @197549 @ValidateownershiptasksareroutedtoretainedbyappropriateuserwhentaskshavingdifferentpurposearereassignedsimultaneouslytoanotherPMuserfor3differentexternalprograms @sprint-4  @reassignment
   Scenario: Validate ownership & tasks are routed to retained by appropriate user when tasks having different purpose are reassigned simultaneously to another PM user for 3 different external programs
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -2414,7 +2414,7 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
-    And I refresh the page
+    And I click on top right button "Clear" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I enter advance filter values inside id "---program:-:grantorTaskReassignTableId---" for LWC
       | EGMS ID | contains | {SavedValue:ProgramEGMSID1} |
     And I pause execution for "5" seconds
@@ -2425,8 +2425,7 @@ Feature: Validate all scenarios for program
     When I check "{SavedValue:ProgramEGMSID1}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
-     And I refresh the page
-    And I click on advance filter of table id "---program:-:grantorTaskReassignTableId---" for LWC
+    And I click on top right button "Clear" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I enter advance filter values inside id "---program:-:grantorTaskReassignTableId---" for LWC
       | EGMS ID | contains | {SavedValue:ProgramEGMSID2} |
     And I pause execution for "5" seconds
@@ -2973,9 +2972,9 @@ Feature: Validate all scenarios for program
       | Reviewer Name  | Responsibility  | Description                 | Due Date |
       | Automation EXE | Fiscal Reviewer | Automation Test Description | 10       |
     And I wait for "2" seconds
-    Then I softly can see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
-    Then I softly can see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
-    Then I softly can see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---program:-:peerReviewTableId---"
+    Then I softly can see row level action button "Edit" against "Automation EXE" in flex table with id "---program:-:peerReviewTableId---"
+    Then I softly can see row level action button "Delete" against "Automation EXE" in flex table with id "---program:-:peerReviewTableId---"
+    Then I softly can see row level action button "Send for Review" against "Automation EXE" in flex table with id "---program:-:peerReviewTableId---"
     When I click on "Delete" icon for "Automation EXE" inside flex table with id "---program:-:peerReviewTableId---"
     Then I softly can see top right button "Complete Review" in page detail
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
@@ -2991,6 +2990,7 @@ Feature: Validate all scenarios for program
     When I click modal button "Save"
     And I click on submit review
     And I logout
+    And I wait for "2" seconds
     And I checkout to yopmail with mailid "pm.automation@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
@@ -4284,7 +4284,7 @@ Feature: Validate all scenarios for program
       """
 
 
-   @191032 @ValidatePlanningPMasrecordownercanseenewlyreassignApprovernameinapproversection @sprint-11-US-224734  @reassignment
+  @191032 @ValidatePlanningPMasrecordownercanseenewlyreassignApprovernameinapproversection @sprint-11-US-224734  @reassignment
   Scenario: Validate Planning PM as record owner can see newly reassign Approver name in approver section
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Planning" tab
