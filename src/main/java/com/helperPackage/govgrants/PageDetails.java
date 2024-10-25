@@ -808,12 +808,11 @@ public final class PageDetails {
         }
     }
 
-    public void pageBlockExpandedOrCollapse(String pageBlockTitle,String actionIcon) {
-        if(actionIcon.contains("Collapse")) {
+    public void pageBlockExpandedOrCollapse(String pageBlockTitle, String actionIcon) {
+        if (actionIcon.contains("Collapse")) {
             By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//lightning-icon[contains(@icon-name,'up')]");
             I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
-        }
-        else {
+        } else {
             By pageBlockExpandCollapseIconSelector = By.xpath("//span[contains(@title,'" + pageBlockTitle + "')]//..//lightning-icon[contains(@icon-name,'down')]");
             I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
         }
@@ -821,29 +820,27 @@ public final class PageDetails {
 
 
     public void leftNavigationContaninigValue(String actionIcon, String leftNavigationButton) {
-        if(actionIcon.contains("Collapse")) {
-            WebElement pageBlockExpand = I.amPerforming().getElementReference().of(By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='false']"));
-            if(pageBlockExpand.getText().equals("false")) {
-                By pageBlockExpandCollapseIconSelector = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='false']");
-                I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
-                By pageBlockExpandCollapseIconSelector1 = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='true']");
-                I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector1);
-            } else {
-                By pageBlockExpandCollapseIconSelector = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='true']");
-                I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
+        if (actionIcon.contains("Collapse")) {
+            try {
+                By pageBlockExpand = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='true']");
+                if (I.amPerforming().checkToSee().isDisplayed(pageBlockExpand)) {
+                    I.amPerforming().click().withJavaScript(pageBlockExpand);
+                }
+            } catch (Exception e) {
+
             }
-        }
-        else {
-            WebElement pageBlockCollapse = I.amPerforming().getElementReference().of(By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='true']"));
-            if(pageBlockCollapse.getText().equals("true")) {
-                By pageBlockExpandCollapseIconSelector = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='true']");
-                I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
-                By pageBlockExpandCollapseIconSelector1 = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='false']");
-                I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector1);
-            } else {
-                By pageBlockExpandCollapseIconSelector = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='false']");
-                I.amPerforming().click().withJavaScript(pageBlockExpandCollapseIconSelector);
+            I.amPerforming().waitFor().makeThreadSleep(1000);
+        } else if(actionIcon.contains("Expanded")) {
+            try {
+                By pageBlockCollapse = By.xpath("//section//button[@title='" + leftNavigationButton + "' and @aria-expanded='false']");
+                if (I.amPerforming().checkToSee().IsElementPresentQuick(pageBlockCollapse)) {
+                    I.amPerforming().click().withJavaScript(pageBlockCollapse);
+                }
+            } catch (Exception e) {
+
             }
+            I.amPerforming().waitFor().makeThreadSleep(1000);
+
         }
     }
 

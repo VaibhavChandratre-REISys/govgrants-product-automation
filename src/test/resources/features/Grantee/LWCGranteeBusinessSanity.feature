@@ -10488,7 +10488,7 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | You cannot change the owner from this screen. Click Cancel, and navigate to Home. Then select Ownership Reassignment. |
 
-  @462457 @ValidatePOuserPRAROwnercanabletoseeCreateARonlyonActivestateofAward&Fields&validationsonCreateAmendmnetRequestmodal @GranteeTBE
+  @462457 @ValidatePOuserPRAROwnercanabletoseeCreateARonlyonActivestateofAward&Fields&validationsonCreateAmendmnetRequestmodal
   Scenario: Validate PO user PR AR Owner can able to see Create AR only on Active state of Award & Fields & validations on Create Amendmnet Request modal
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
@@ -10690,18 +10690,18 @@ Feature: Sanity scenarios
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
 
-  @462458 @ValidatePOusercanseeonclickofAmendmentRequestseeoptionfromGrantphaseabletoclickonAmedmentRequestLink
+  @462458 @ValidatePOusercanseeonclickofAmendmentRequestseeoptionfromGrantphaseabletoclickonAmedmentRequestLink @GranteeTBE
   Scenario: Validate PO user can see on click of Amendment Request see options from Grant phase & able to click on Amedment Request Link
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I "Collapse" left navigation contaninig value "Grants, Awards & Amendment Requests"
-    Then I do not see "Grants" inside "Reassign" is displayed
-    Then I do not see "Awards" inside "Reassign" is displayed
-    Then I do not see "Amendment Requests" inside "Reassign" is displayed
+    Then I do not see "Grants" inside "Grants, Awards & Amendment Requests" is displayed
+    Then I do not see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
+    Then I do not see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
     When I "Expanded" left navigation contaninig value "Grants, Awards & Amendment Requests"
-    Then I see "Grants" inside "Reassign" is displayed
-    Then I see "Awards" inside "Reassign" is displayed
-    Then I see "Amendment Requests" inside "Reassign" is displayed
+    Then I see "Grants" inside "Grants, Awards & Amendment Requests" is displayed
+    Then I see "Awards" inside "Grants, Awards & Amendment Requests" is displayed
+    Then I see "Amendment Requests" inside "Grants, Awards & Amendment Requests" is displayed
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     Then I softly see toggle option "Amendment Requests - My Records" inside flex table id "---grantee_tableId:-:AmendmentTableId---"
     Then I softly see toggle option "Amendment Requests - Draft" inside flex table id "---grantee_tableId:-:AmendmentTableId---"
@@ -11096,7 +11096,7 @@ Feature: Sanity scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-    And I save the field labeled "Revised Award" as "RevisedAwardId"
+    And I save the field labeled "EGMS ID" as "RevisedAwardId"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Overview" sub tab
     Then I softly see value "BP01" for title "Budget Period" inside table "---grantee_tableId:-:grantBudgetPeriodDetailsTableId---"
