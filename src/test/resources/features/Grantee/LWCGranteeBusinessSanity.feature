@@ -4853,7 +4853,7 @@ Feature: Sanity scenarios
     Then I see field "Phone" as "(896) 709-3855" on modal
     Then I see field "MobilePhone" as "(896) 709-3455" on modal
     Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
-   And I click on hyperlink for modal containing value ""Department of Education"
+   And I click on hyperlink for modal containing value "Department of Education"
     Then I see the header is "Federal Organization" in the page details
     Then I see the sub-header is "Department of Education" in the page details
     And I click on back arrow
