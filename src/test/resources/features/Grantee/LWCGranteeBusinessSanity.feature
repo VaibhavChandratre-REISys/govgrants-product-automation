@@ -4750,7 +4750,7 @@ Feature: Sanity scenarios
       | GRANTEE FO  |
       | GRANTEE PM  |
 
- @BS1 @443676 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's
+ @443676 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's
   Scenario: federal_ Verify user should see all fields and section for federal contact's
     When I login to "As a Grantor" app as "GRANTEE ADMIN" user
     When I navigate to "Home" tab
@@ -4831,7 +4831,7 @@ Feature: Sanity scenarios
       | Please enter valid Mobile Phone Number.|
     When I enter in modal value "8967093440" into field "MobilePhone"
     When I click modal button "Save"
-    And I save the field labeled "Title" as "ContactTitle" on modal
+    And I save the field labeled "Title" as "Title" on modal
     Then I see field "Title" as "{SavedValue:Automation Runtime}" on modal
     Then I see field "FirstName" as "Automation" on modal
     Then I see field "LastName" as "Execution" on modal
@@ -6393,7 +6393,7 @@ Feature: Sanity scenarios
     Then I see "Delete" button name inside post dropdown
     Then I see "Bookmark" button name inside post dropdown
 
-  @BS1 @granteeBS @443801 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection
+  @BS1 @443801 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection
   Scenario: Validate Grant with EXE Profile able to create direct grant and see all tabs and section
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -6487,7 +6487,7 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "SnapShot on"
     And I wait for "8" seconds
     When I download the file
-    Then I see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     And I navigate to "Financials" sub tab
     Then I softly cannot see field "Budgeted Cash Match" inside page block
@@ -13687,7 +13687,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE   |
       | GRANTEE PO    |
 
-  @granteeBs1 @470797 @VerifyPMusershouldabletocreateandaccepttheSOWamendmentrequest
+  @BS1 @470797 @VerifyPMusershouldabletocreateandaccepttheSOWamendmentrequest
   Scenario: Verify PM user should able to create and accept the SOW amendment request
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -13846,10 +13846,10 @@ Feature: Sanity scenarios
     Then I softly see "General Condition" page block displayed
     Then I softly see "Special Conditions" page block displayed
     When I navigate to "Responsibilities" sub tab
-    When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request |
       | Sarah PM   |  Step 1           |
-    When I edit the following rows inline in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "Edit" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request |
       | Victor EXE | Step 2            |
     And I click on "Submit for Approval" in the page details
