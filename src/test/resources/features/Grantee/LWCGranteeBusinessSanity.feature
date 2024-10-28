@@ -4750,7 +4750,7 @@ Feature: Sanity scenarios
       | GRANTEE FO  |
       | GRANTEE PM  |
 
-  @granteeBS @443676 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's @GranteeTBE
+ @BS1 @443676 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's
   Scenario: federal_ Verify user should see all fields and section for federal contact's
     When I login to "As a Grantor" app as "GRANTEE ADMIN" user
     When I navigate to "Home" tab
@@ -4769,7 +4769,7 @@ Feature: Sanity scenarios
     And I select "Download as PDF" from parallel lines dropdown of "Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I softly see "Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I see "Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
@@ -4822,17 +4822,22 @@ Feature: Sanity scenarios
     When I enter in modal value "896" into field "Phone"
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Please enter valid Mobile Phone Number. |
+      | Please enter valid Phone Number. |
     When I enter in modal value "8967093844" into field "Phone"
+    When I enter in modal value "896709" into field "MobilePhone"
     And I wait for "2" seconds
     When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Please enter valid Mobile Phone Number.|
+    When I enter in modal value "8967093440" into field "MobilePhone"
+    When I click modal button "Save"
     And I save the field labeled "Title" as "ContactTitle" on modal
-    Then I softly see field "Title" as "Automation Runtime"
-    Then I softly see field "FirstName" as "Automation"
-    Then I softly see field "LastName" as "Execution"
-    Then I softly see field "Phone" as "8967093844"
-    Then I softly see field "MobilePhone" as "8967093440"
-    Then I softly see field "Email" as "{SavedValue:uniqueEmailID}"
+    Then I see field "Title" as "{SavedValue:Automation Runtime}" on modal
+    Then I see field "FirstName" as "Automation" on modal
+    Then I see field "LastName" as "Execution" on modal
+    Then I see field "Phone" as "(896) 709-3844" on modal
+    Then I see field "MobilePhone" as "(896) 709-3440" on modal
+    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
     And I click on top right button "Edit" in flex table with id "---grantee_tableId:-:fedContactTableId---"
     When I enter in modal value "Automation Runtime Test" into field "Title"
     When I enter in modal value "Automation1" into field "FirstName"
@@ -4842,13 +4847,12 @@ Feature: Sanity scenarios
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
-    Then I softly see field "Title" as "Automation Runtime Test"
-    And I save the field labeled "Title" as "Title"
-    Then I softly see field "FirstName" as "Automation1"
-    Then I softly see field "LastName" as "Execution1"
-    Then I softly see field "Phone" as "8967093855"
-    Then I softly see field "MobilePhone" as "8967093455"
-    Then I softly see field "Email" as "{SavedValue:uniqueEmailID}"
+    Then I see field "Title" as "{SavedValue:Automation Runtime Test}" on modal
+    Then I see field "FirstName" as "Automation1" on modal
+    Then I see field "LastName" as "Execution1" on modal
+    Then I see field "Phone" as "(896) 709-3855" on modal
+    Then I see field "MobilePhone" as "(896) 709-3455" on modal
+    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
     And I click on hyperlink containing value "Department of Education"
     Then I see the header is "Federal Organization" in the page details
     Then I see the sub-header is "Department of Education" in the page details
@@ -6389,7 +6393,7 @@ Feature: Sanity scenarios
     Then I see "Delete" button name inside post dropdown
     Then I see "Bookmark" button name inside post dropdown
 
-  @granteeBS @443801 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection
+  @BS1 @granteeBS @443801 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection
   Scenario: Validate Grant with EXE Profile able to create direct grant and see all tabs and section
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -6470,7 +6474,7 @@ Feature: Sanity scenarios
     Then I softly can see "Field Audit" sub tab at view detail page
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download As PDF" present in parallel dropdown
-    Then I softly see option "Take Snapshot" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
     And I click on "Download As PDF" in the page details
     And I wait for "8" seconds
     And I download the file
