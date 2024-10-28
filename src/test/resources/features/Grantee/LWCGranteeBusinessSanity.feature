@@ -8762,7 +8762,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
     Then I softly see value "Amended" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Projections" sub tab
     Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
@@ -14124,7 +14124,7 @@ Feature: Sanity scenarios
       | GRANTEE PO   |
       | GRANTEE EXE  |
 
- @granteeBS1 @462448 @VerifyPOuserPRAROwnercanabletoseeValidationonSaveSubmitforApproval&ValidatebuttonsonPRARwhenRequiredtosave& @bug_474485
+ @462448 @VerifyPOuserPRAROwnercanabletoseeValidationonSaveSubmitforApproval&ValidatebuttonsonPRARwhenRequiredtosave& @bug_474485
   Scenario: Verify PO user (PR AR Owner) can able to see Validation on Save, Submit for Approval & Validate buttons on PR AR when Required to save & Required to submit fields are not entered
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
