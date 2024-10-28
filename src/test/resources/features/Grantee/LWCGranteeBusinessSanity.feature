@@ -4857,7 +4857,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:Title}" in "---grantee_tableId:-:fedContactTableId---" panel
     Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:fedContactTableId---"
 
- @granteeBS @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram
+ @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram
   Scenario: Validate Non-Federal program PM user can create and Activate Non Federal program
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
@@ -6701,7 +6701,7 @@ Feature: Sanity scenarios
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:specialConditionsChildTableId---"
 
-  @granteeBS @443790 @ValidateGrantWithPMProfileAfterclickonGrantphaseredirecttoGrantListviewpage @Grantee1
+  @443790 @ValidateGrantWithPMProfileAfterclickonGrantphaseredirecttoGrantListviewpage @Grantee1
   Scenario: Validate Grant With PM Profile After click on Grant phase redirect to Grant List view page
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
