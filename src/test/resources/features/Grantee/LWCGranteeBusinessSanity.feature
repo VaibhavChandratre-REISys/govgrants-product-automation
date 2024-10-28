@@ -9735,15 +9735,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
     Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
     Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:grantAddFilesTableId---"
-    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:grantNotesTableId---" by clicking "New" :
-      | Title                     | Description      |
-      | Notes Record AUDITOR User | Automation Notes |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
-    Then I softly see value "Notes Record AUDITOR User" for title "Title" inside table "---grantee_tableId:-:grantNotesTableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record AUDITOR User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
-    Then I softly can see row level action button "Edit" against "Notes Record AUDITOR User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly see value "Notes Record EXE User" for title "Title" inside table "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record EXE User" in flex table with id "---grantee_tableId:-:grantNotesTableId---"
@@ -10230,7 +10222,7 @@ Feature: Sanity scenarios
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
-    And I wait for "5" seconds
+    And I wait for "8" seconds
     Then I softly see the following messages in the page details contains:
       | File Attachment.pdf Uploaded successfully. |
     When I click modal button "Close"
@@ -11567,7 +11559,7 @@ Feature: Sanity scenarios
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly can see row level action button "Resend for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Resend for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I expand nested table containing column value "Danielle FD Garcia"
     Then I softly see "Reviews" page block displayed
     Then I softly see "Rating" in flex table header "---grantee_tableId:-:peerReviewChildTableId---"

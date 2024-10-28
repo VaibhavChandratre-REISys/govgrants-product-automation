@@ -145,8 +145,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     #286696
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
-    Then I softly see the following messages in the page details contains:
+    And I wait for "3" seconds
+    Then I see the following messages in the page details contains:
       | The following error(s) occurred:              |
       | As COI is disagreed, Review must be declined. |
     And I wait for "3" seconds
@@ -210,7 +210,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name                     | Announcement |
+      | Name                      | Announcement |
       | {SavedValue:EXE Username} | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
@@ -689,8 +689,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Pre-Screen Review | 25              |
     And I expand nested table containing column value "Pre-Screen Review"
     When I edit the following rows inline in flex table with id "---announcement:-:annReviewFormsTableId---" by clicking "Edit" :
-      | Form Name  | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Pre-Screen | 100             | Checked   | 1                                         |
+      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | Checked   | 100             | 1                                         |
 #    And I expand nested table containing column value "Pre-Screen Review"
     And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:annReviewFormsTableId---" without waiting for record
     When I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
@@ -1785,7 +1785,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I click on "Start" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "6" seconds
     When I click on "Submit" in the page details without processing
@@ -1826,7 +1826,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly cannot see row level action button "Undo" against "Automation FO" in flex table with id "---applicationReview:-:appreviewsTableId---"
     When I click on "View" icon for "Automation FO" inside flex table with id "---applicationReview:-:appreviewsTableId---"
     And I wait for "2" seconds
-   Then I cannot see top right button "Undo" in page detail
+    Then I cannot see top right button "Undo" in page detail
     Examples:
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
@@ -2057,8 +2057,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Pre-Screen Review | 25              |
     And I expand nested table containing column value "Pre-Screen Review"
     When I edit the following rows inline in flex table with id "---announcement:-:annReviewFormsTableId---" by clicking "Edit" :
-      | Form Name  | Form Weight (%) | Required? | Minimum Number of Reviews per Application |
-      | Pre-Screen | 100             | Checked   | 1                                         |
+      | Form Name  | Required? | Form Weight (%) | Minimum Number of Reviews per Application |
+      | Pre-Screen | Checked   | 100             | 1                                         |
     And I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:annReviewFormsTableId---" without waiting for record
     When I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Order | Section Header | Section Weight (%) |
@@ -2275,11 +2275,11 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
-      | Form Name                     | Needs Negotiation |
-      | Program Application Form      | Checked           |
+      | Form Name                | Needs Negotiation |
+      | Program Application Form | Checked           |
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
-      | Form Name                     | Needs Negotiation |
-      | Standard Assurances Form      | Checked           |
+      | Form Name                | Needs Negotiation |
+      | Standard Assurances Form | Checked           |
     When I click on "Send to Subrecipient" in the page details
     When I click on "Back to Current Review Step" in the page details
     Then I softly see value "Negotiation In-Progress" for title "Decision Status" against the value "{SavedValue:Automation Runtime FDM Announcement}" inside table "---applicationReview:-:appTableId---"
@@ -2483,11 +2483,11 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
-      | Form Name                     | Needs Negotiation |
-      | Program Application Form      | Checked           |
+      | Form Name                | Needs Negotiation |
+      | Program Application Form | Checked           |
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
-      | Form Name                     | Needs Negotiation |
-      | Standard Assurances Form      | Checked           |
+      | Form Name                | Needs Negotiation |
+      | Standard Assurances Form | Checked           |
     When I click on "Send to Subrecipient" in the page details
     When I click on "Back to Current Review Step" in the page details
     Then I softly see value "Negotiation In-Progress" for title "Decision Status" against the value "{SavedValue:Automation Runtime FDM Announcement}" inside table "---applicationReview:-:appTableId---"
@@ -2774,11 +2774,11 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
-      | Form Name                     | Needs Negotiation |
-      | Program Application Form      | Checked           |
+      | Form Name                | Needs Negotiation |
+      | Program Application Form | Checked           |
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
-      | Form Name                     | Needs Negotiation |
-      | Standard Assurances Form      | Checked           |
+      | Form Name                | Needs Negotiation |
+      | Standard Assurances Form | Checked           |
     When I click on "Send to Subrecipient" in the page details
     When I click on "Back to Current Review Step" in the page details
     Then I softly see value "Negotiation In-Progress" for title "Decision Status" against the value "{SavedValue:Automation Runtime FDM Announcement}" inside table "---applicationReview:-:appTableId---"
@@ -2931,8 +2931,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
-      | Reviewer                  |
-      | {SavedValue:PM Username}  |
+      | Reviewer                 |
+      | {SavedValue:PM Username} |
     And I click on "Assign" icon for "{SavedValue:PM Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "{SavedValue:Automation Runtime FDM Announcement}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -3182,7 +3182,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
- @280799 @ValidatecorrectscoreisupdatedfortheapplicationontheRecommendedapplicationsectiononFDMafterApplicationpromotedtoFDMafternegotiation @Sprint-25-US-227292  @Undo
+  @280799 @ValidatecorrectscoreisupdatedfortheapplicationontheRecommendedapplicationsectiononFDMafterApplicationpromotedtoFDMafternegotiation @Sprint-25-US-227292  @Undo
   Scenario: Validate correct score is updated for the application on the Recommended application section on FDM after Application promoted to FDM after negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -3271,16 +3271,17 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
     And I navigate to "Negotiations" sub tab
+    When I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-   And I wait for "3" seconds
+    And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
-      | Form Name                     | Needs Negotiation |
-      | Program Application Form      | Checked           |
+      | Form Name                | Needs Negotiation |
+      | Program Application Form | Checked           |
     And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
-      | Form Name                     | Needs Negotiation |
-      | Standard Assurances Form      | Checked           |
+      | Form Name                | Needs Negotiation |
+      | Standard Assurances Form | Checked           |
     When I click on "Send to Subrecipient" in the page details
     When I click on "Back to Current Review Step" in the page details
     Then I softly see value "Negotiation In-Progress" for title "Decision Status" against the value "{SavedValue:Automation Runtime FDM Announcement}" inside table "---applicationReview:-:appTableId---"
@@ -3467,11 +3468,11 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
-      | Form Name                     | Needs Negotiation |
-      | Program Application Form      | Checked           |
+      | Form Name                | Needs Negotiation |
+      | Program Application Form | Checked           |
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
-      | Form Name                     | Needs Negotiation |
-      | Standard Assurances Form      | Checked           |
+      | Form Name                | Needs Negotiation |
+      | Standard Assurances Form | Checked           |
     When I click on "Send to Subrecipient" in the page details
     When I click on "Back to Current Review Step" in the page details
     Then I softly see value "Negotiation In-Progress" for title "Decision Status" against the value "{SavedValue:Automation Runtime Announcement}" inside table "---applicationReview:-:appTableId---"
@@ -3790,11 +3791,11 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
-      | Form Name                     | Needs Negotiation |
-      | Program Application Form      | Checked           |
+      | Form Name                | Needs Negotiation |
+      | Program Application Form | Checked           |
     And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
-      | Form Name                     | Needs Negotiation |
-      | Standard Assurances Form      | Checked           |
+      | Form Name                | Needs Negotiation |
+      | Standard Assurances Form | Checked           |
     When I click on "Send to Subrecipient" in the page details
     When I click on "Back to Current Review Step" in the page details
     Then I softly see value "Negotiation In-Progress" for title "Decision Status" against the value "{SavedValue:Automation Runtime FDM Announcement}" inside table "---applicationReview:-:appTableId---"

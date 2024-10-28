@@ -360,7 +360,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @65079 @73778 @73791 @75228 @VerifyAwardOwnerCanInitiateReviewProcess
+  @65079 @73778 @73791 @75228 @VerifyAwardOwnerCanInitiateReviewProcess @TBExecution
   Scenario Outline: Verify Award owner can Initiate the Review Process.
   | To Verify that under related log tab , corresponding data is display about related submitted applications for announcement
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -459,7 +459,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @75449 @75451 @75450 @75448 @75454 @VerifyAbleToViewApplication
+  @75449 @75451 @75450 @75448 @75454 @VerifyAbleToViewApplication @TBExecution
   Scenario Outline: To verify user is able to view Applications in Applications section in Related log tab of announcement
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -481,13 +481,13 @@ Feature: Validate all scenarios in the Application Review
     And I navigate to "Related Log" sub tab
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:relatedFOApplicationsTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Project Title" inside table "---applicationReview:-:relatedFOApplicationsTableId---"
-    When I click on advance filter "#advfRelatedFOApplications" of table id "---applicationReview:-:relatedFOApplicationsTableId---"
-    When I enter advance filter values inside id "advfRelatedFOApplications"
+    And I click on advance filter of table id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
+    And I enter advance filter values inside id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
       | EGMS ID | contains | InvalidValue |
     Then I softly see "No Records Found" inside flex table with id "---applicationReview:-:relatedFOApplicationsTableId---"
     And I refresh the page
-    When I click on advance filter "#advfRelatedFOApplications" of table id "---applicationReview:-:relatedFOApplicationsTableId---"
-    When I enter advance filter values inside id "advfRelatedFOApplications"
+    And I click on advance filter of table id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
+    And I enter advance filter values inside id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
       | Project Title | Contains | {SavedValue:Automation Runtime Announcement Application Review} |
     Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Project Title" inside table "---applicationReview:-:relatedFOApplicationsTableId---"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:relatedFOApplicationsTableId---" with wait for record
@@ -713,10 +713,10 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name  | Due in Days | Minimum # of Reviews Required | Required? |
-      | Pre-Screen | 7           | 0                             | UnChecked |
+      | Form Name  | Due in Days | Minimum # of Reviews Required |
+      | Pre-Screen | 7           | 0                             |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Due in Days" inside table "---applicationReview:-:reviewStepFormId---"
     Examples:
       | Announcement Name                                               |
@@ -1809,8 +1809,8 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name  | Required? | Minimum # of Reviews Required |
-      | Pre-Screen | Checked   | 1                             |
+      | Form Name  | Required? | Minimum # of Reviews Required | Due in Days |
+      | Pre-Screen | Checked   | 1                             | 7           |
     Then I softly see the following messages in the page details :
       | Saved successfully! |
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
