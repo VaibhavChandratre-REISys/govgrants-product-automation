@@ -1,7 +1,7 @@
 @AppReview @applicationReviewUndo @applicationReviewAllocation @grantor-regression @grantor-parallel-regression @applicationReview @app @regression @applicationReviewTBE
 Feature: Validate all scenarios in the Application Review with Undo Feature
 
-  @286702 @286706 @284504 @286701  @Sprint-1-US-235657  @Undo
+  @286702 @286706 @284504 @286701  @Sprint-1-US-235657  @Undo @TBExecution
   Scenario Outline: Validate SME Review Step Competitive Ann FA Yes user can successfully decline the review form after selecting I disagree option in COI section
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -96,7 +96,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @334235 @286696 @ValidatePre-ScreenReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectionIdisagreeoptioninCOIsection @Sprint-1-US-235657  @Undo
+  @334235 @286696 @ValidatePre-ScreenReviewStepCompetitiveAnnFAYesusercansuccessfullydeclinethereviewformafterselectionIdisagreeoptioninCOIsection @Sprint-1-US-235657  @Undo @TBExecution
   Scenario Outline: Validate Pre-Screen Review Step Competitive Ann FA Yes user can successfully decline the review form after selecting I disagree option in COI section
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -172,7 +172,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @280726  @Sprint-26-US-282727  @Undo @AppUndoRerun
+  @280726  @Sprint-26-US-282727  @Undo @TBExecution
   Scenario Outline: Validate Customized review step when user click on submit button after undo, The submitted on Date and time should be updated on review form
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -651,7 +651,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @334234  @Sprint-26-US-282727  @Undo @AppUndoRerun
+  @334234  @Sprint-26-US-282727  @Undo @TBExecution
   Scenario Outline: Validate PreScreen Review Step when application is promoted to FDM, and assigned reviewer has clicked undo on Pre-Screen review step then on click of submit score should be updated on the application section on the review step
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1136,7 +1136,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @280686 @Sprint-26-US-282727  @Undo @AppUndoRerun
+  @280686 @Sprint-26-US-282727  @Undo @TBExecution
   Scenario Outline: Validate Competitive Ann FAYes on click of row level undo button, the status of review should change to 'Send for Review' and already entered information on review form should be as it is and reviewer should be able to Edit and submit review again
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1303,7 +1303,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @280687 @280692 @280694 @ValidateManagmentCompAnnFAYesonclickofpagelevelundobuttonthestatusofreviewshouldchangetoSendforReviewandalreadyenteredinformationonreviewformshouldbeitisandreviewershouldbeabletoEditandsubmitreviewagain @Sprint-23-US-273843  @Allocation
+  @280687 @280692 @280694 @ValidateManagmentCompAnnFAYesonclickofpagelevelundobuttonthestatusofreviewshouldchangetoSendforReviewandalreadyenteredinformationonreviewformshouldbeitisandreviewershouldbeabletoEditandsubmitreviewagain @Sprint-23-US-273843  @Allocation @TBExecution
   Scenario Outline: Validate Managment Comp Ann FA Yes on click of page level undo button, the status of review should change to 'Send for Review' and already entered information on review form should be as it is and reviewer should be able to Edit and submit review again
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2015,7 +2015,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @279410 @279704  @Sprint-25-US-227292  @Undo @AppUndoRerun
+  @279410 @279704  @Sprint-25-US-227292  @Undo @TBExecution
   Scenario Outline:Validate after completing negotiation from management review step, PM user can again start application review from Prescreen review step and can assign the application for review to the reviewers
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2363,7 +2363,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @279819  @Sprint-25-US-227292  @Undo @AppUndoRerun
+  @279819  @Sprint-25-US-227292  @Undo @TBExecution
   Scenario Outline: Validate correct score is updated for the application on the Recommended application section on FDM after Application promoted to FDM after negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2653,7 +2653,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @279692  @Sprint-25-US-227292  @Undo @ErrorMessageTimeout @AppUndoRerun
+  @279692  @Sprint-25-US-227292  @Undo @ErrorMessageTimeout @TBExecution
   Scenario Outline: Validate after completing negotiation user should not be able to promote application to next step if minimum review requirement is not completed on the review step
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2964,7 +2964,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
     Then I softly can see row level action button "Undo" against "{SavedValue:PM Username}" in flex table with id "---applicationReview:-:appreviewsTableId---"
 
-  @280801  @Sprint-25  @Undo
+  @280801  @Sprint-25  @Undo @TBExecution
   Scenario Outline: FDM When reviewer has clicked undo button for the review on any review step and review in in sent for review state, then the application cannot be converted into Award
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3182,7 +3182,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PM user | PM   |
 
-  @280799 @ValidatecorrectscoreisupdatedfortheapplicationontheRecommendedapplicationsectiononFDMafterApplicationpromotedtoFDMafternegotiation @Sprint-25-US-227292  @Undo
+  @280799 @ValidatecorrectscoreisupdatedfortheapplicationontheRecommendedapplicationsectiononFDMafterApplicationpromotedtoFDMafternegotiation @Sprint-25-US-227292  @Undo @TBExecution
   Scenario: Validate correct score is updated for the application on the Recommended application section on FDM after Application promoted to FDM after negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -3286,7 +3286,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Back to Current Review Step" in the page details
     Then I softly see value "Negotiation In-Progress" for title "Decision Status" against the value "{SavedValue:Automation Runtime FDM Announcement}" inside table "---applicationReview:-:appTableId---"
 
-  @280800 @Verifyassignedreviewercannotseeundobuttononreviewssectionandonreviewdetailspagewhennegotiationisinitiatedforapplicationonanyreviewstep @Sprint-25  @Undo
+  @280800 @Verifyassignedreviewercannotseeundobuttononreviewssectionandonreviewdetailspagewhennegotiationisinitiatedforapplicationonanyreviewstep @Sprint-25  @Undo @TBExecution
   Scenario Outline: Verify assigned reviewer cannot see undo button on reviews section and on review details page when negotiation is initiated for application on any review step
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
@@ -3467,10 +3467,10 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
       | Form Name                | Needs Negotiation |
       | Program Application Form | Checked           |
-    And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
       | Form Name                | Needs Negotiation |
       | Standard Assurances Form | Checked           |
     When I click on "Send to Subrecipient" in the page details
@@ -3790,10 +3790,10 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
       | Form Name                | Needs Negotiation |
       | Program Application Form | Checked           |
-    And I edit the following rows inline in flex table with id "---preApplication:-:negotiationFormTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
       | Form Name                | Needs Negotiation |
       | Standard Assurances Form | Checked           |
     When I click on "Send to Subrecipient" in the page details
@@ -3952,7 +3952,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @337305  @Undo
+  @337305  @Undo @TBExecution
   Scenario Outline: Validate Pre-screen Review Step Directed Ann FA Yes assigned reviewer cannot see row-level undo button in reviews section and on the review detail page when the review is Review incomplete or Review is declined on prescreen review step
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

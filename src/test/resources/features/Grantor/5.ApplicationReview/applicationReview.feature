@@ -360,7 +360,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @65079 @73778 @73791 @75228 @VerifyAwardOwnerCanInitiateReviewProcess @TBExecution
+  @65079 @73778 @73791 @75228 @VerifyAwardOwnerCanInitiateReviewProcess
   Scenario Outline: Verify Award owner can Initiate the Review Process.
   | To Verify that under related log tab , corresponding data is display about related submitted applications for announcement
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -690,7 +690,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78323 @ValidatingprescreenReviewStepForm
+  @78323 @ValidatingprescreenReviewStepForm @TBExecution
   Scenario Outline: To verify user able to setup the Due Days for the review & set field "Required" :Unchecked in prescreen review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1041,7 +1041,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79749 @79755 @79748 @79747 @79753 @79754 @verifingReviewSectionAndReviewQuestion  @ReviewRerun
+  @79749 @79755 @79748 @79747 @79753 @79754 @verifingReviewSectionAndReviewQuestion @TBExecution
   Scenario Outline: To verify the user able to assign reviewers in the reviews section for Pre-screening review steps of related log tab in the Application phase.
   | To verify,user able to fill  the review questions ,in review form in prescreen review step
   | To verify the user able to assign reviewers in the reviews section for SME review steps of related log tab in the Application phase.
@@ -1248,7 +1248,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79960 @79961 @verifyingCompletedTaskForPrescreenManagementReview
+  @79960 @79961 @verifyingCompletedTaskForPrescreenManagementReview @TBExecution
   Scenario Outline: To verify the tasks will be displayed on completed tasks for the reviewer, when reviewer submit Reviews form successfully,for prescreen review step in  Application phase
   | To verify the tasks will be displayed on completed tasks for the reviewer, when reviewer submit Reviews form successfully,for management review step in  Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -1788,7 +1788,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79978 @ValidatingSuccessMessagePromoteNextButtonPreScreenReviewStepForm
+  @79978 @ValidatingSuccessMessagePromoteNextButtonPreScreenReviewStepForm @TBExecution
   Scenario Outline: To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of prescreen review review step in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
