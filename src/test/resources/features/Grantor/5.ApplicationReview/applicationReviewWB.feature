@@ -19945,7 +19945,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:FO Username} |
-#    When I expand nested table containing column value "<Application Name>"
+    When I expand nested table containing column value "<Application Name>"
     And I click on "Assign" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
