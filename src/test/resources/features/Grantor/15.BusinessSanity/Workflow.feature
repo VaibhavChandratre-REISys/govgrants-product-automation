@@ -1532,17 +1532,20 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @tst
+  @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     Given I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/Program__c/a37DV000000fKCKYA2/view"
     And I wait for "10" seconds
-    And I navigate to "Messages" sub tab
-    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
-    And I send the email under collab tab with following details:
-      | To                        | Cc                         | Subject | Body            |
-      | pm.automation@yopmail.com | exe.automation@yopmail.com | test    | Automation Test |
-    And I halt execution
+    When I select radio button "Reject" in the approval decision
+    When I enter comment "Automation testing" in the approval decision
+    And I submit the approval in the approval decision without processing
+    Then I see confirmation box with quotes in body "Rejecting the FDM will update the 'Final Decision' for all applications in this FDM to 'Cancelled' and the system will not allow you to award any recommended applications in the FDM. Are you sure you wish to continue?" is displayed
+    Then I softly see button "Continue" on confirmation pop-up
+    Then I softly see button "Cancel" on confirmation pop-up
+    And I click "Continue" on modal confirmation box
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Rejected"
 
   @TestingXSS
   Scenario: Testing xss

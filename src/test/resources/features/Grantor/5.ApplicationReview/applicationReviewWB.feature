@@ -8162,6 +8162,7 @@ Feature: Validate all scenarios in the Application Review without background
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     When I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Negotiation Submitted"
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -16582,7 +16583,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                            | Filter             | User |
       | {SavedValue:Automation Runtime Announcement} | Automation PO user | PO   |
 
-  @AppTemp1 @204101 @204106  @Sprint-08-US-202799
+  @204101 @204106  @Sprint-08-US-202799
   Scenario Outline: Validate Announcement owner as PM user should see notification in yopmail for Rejected FDM when FDM is rejected by approver
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default-<Filter>"
     And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
