@@ -13206,6 +13206,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
     And I wait for "3" seconds
+    And I refresh the page
     And I click on "Submit For Approval" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
@@ -13432,6 +13433,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
     And I wait for "3" seconds
+    And I refresh the page
     And I click on "Submit For Approval" in the page details
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
@@ -14578,7 +14580,7 @@ Feature: Validate all scenarios in the Application Review without background
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 2000             |
     And I pause execution for "3" seconds
     Then I see the following messages in the page details contains:
-      | "Allocation Amount" update is not allowed for organization, As Application is Promoted to FDM |
+      | "Allocation Amount" update is not allowed for organization, As Application is Promoted to FDM. |
 
     Examples:
       | Announcement Name                                | Application Name                                 |
