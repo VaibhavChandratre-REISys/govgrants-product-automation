@@ -13205,8 +13205,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
       | {SavedValue:PM Username} | Step 1       |
-    And I wait for "3" seconds
-    And I refresh the page
+    And I wait for "7" seconds
     And I click on "Submit For Approval" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
