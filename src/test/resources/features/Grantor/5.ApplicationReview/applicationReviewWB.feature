@@ -17801,6 +17801,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
+    And I wait for "3" seconds
     Then I softly see value "Cancelled" for title "Final Decision" against the value "{SavedValue:AppEgmdId}" inside table "---subAwardFromFDM:-:fdmNonRecommendedTableId---"
     #2nd Application
     When I navigate to "Applications" tab
@@ -19955,7 +19956,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @AppTemp1 @220312 @Validatereviewer2canreassignAppreviewtasktoreviewer1onlyafternegotiationcompleteifreviewer1alreadyReviewDeclinedforsameform @sprint-10-US-205576  @reassignment
+  @220312 @Validatereviewer2canreassignAppreviewtasktoreviewer1onlyafternegotiationcompleteifreviewer1alreadyReviewDeclinedforsameform @sprint-10-US-205576  @reassignment
   Scenario Outline: Validate reviewer 2 can reassign App review task to reviewer 1 only after negotiation complete if reviewer 1 already 'Review Declined' for same form
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
