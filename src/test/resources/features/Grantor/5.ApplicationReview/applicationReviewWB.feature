@@ -8161,6 +8161,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Edit" in the split screen page details
     When  I enter "Form_prog" values from "Negotiations_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
+    And I wait for "5" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Negotiation Submitted"
