@@ -12383,7 +12383,7 @@ Feature: Sanity scenarios
       | Award  |
       | Step 3 |
     Then I softly see the following messages in the page details contains:
-      | Required Fields Missing |
+      | Required fields missing |
     And I refresh the page
     And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
