@@ -19629,6 +19629,7 @@ Feature: Validate all scenarios in the Application Review without background
      | Budget Period Name | Start Date | End Date |
      | BP01               | 50         | 150      |
    And I click on "Save" in the page details
+   And I wait for "5" seconds
    And I navigate to "Setup" sub tab
    When I enter the following values into flex table with id "---announcement:-:preScreenReviewFormTableId---" by clicking "New" :
      | Step Order | Step Name       | Description |
@@ -19660,8 +19661,10 @@ Feature: Validate all scenarios in the Application Review without background
    And I click on "Publish" in the page details
    Then I see status in Progress-bar is "Published" and is "dark blue"
    Then I softly see status in Progress-bar is "Published" and is "dark blue"
+   When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I wait for "5" seconds
+   When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
