@@ -1534,23 +1534,10 @@ Feature: Validate all scenarios of every modules flow
 
   @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantee" app as "GRANTEE PO" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Grant__c/a2RDb000004LRJ5MAO/view"
-    And I navigate to "Awards" sub tab
-    Then I softly see value "Activated" for title "Status" against the value "AD-GA-3031" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    Then I softly see value "Activated" for title "Status" against the value "AD-GA-3035" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    And I navigate to "Financials" sub tab
-    Then I softly see value "BP01" for title "Budget Period" inside table "---grantee_tableId:-:grantGrantBudgetTableId---"
-    Then I softly see value "BP02" for title "Budget Period" inside table "---grantee_tableId:-:grantGrantBudgetTableId---"
-    And I navigate to "Monitoring" sub tab
-    And I save the value from row "1" for column name "EGMS ID" as "objectiveBP01Id" from flex table "---grantee_tableId:-:grantGoalsTableId---"
-    Then I softly see value "{SavedValue:objectiveBP01Id}" for title "EGMS ID" inside table "---grantee_tableId:-:grantGoalsTableId---"
-    And I save the value from row "2" for column name "EGMS ID" as "objectiveBP02Id" from flex table "---grantee_tableId:-:grantGoalsTableId---"
-    Then I softly see value "{SavedValue:objectiveBP02Id}" for title "EGMS ID" inside table "---grantee_tableId:-:grantGoalsTableId---"
-    And I save the value from row "1" for column name "EGMS ID" as "kpiBP01Id" from flex table "---grantee_tableId:-:grantKPITableId---"
-    Then I softly see value "{SavedValue:kpiBP01Id}" for title "EGMS ID" inside table "---grantee_tableId:-:grantKPITableId---"
-    And I save the value from row "2" for column name "EGMS ID" as "kpiBP02Id" from flex table "---grantee_tableId:-:grantKPITableId---"
-    Then I softly see value "{SavedValue:kpiBP02Id}" for title "EGMS ID" inside table "---grantee_tableId:-:grantKPITableId---"
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/ReviewStep__c/a3SDV000001IWMi2AO/view"
+    And I hovering mouse on table id "---applicationReview:-:reviewFormsTableId---" with table row level icon "Automation PO: Review Declined" for column value "Automation PO: Review Declined"
+    Then I softly see "Automation PO: Review Declined" shown as help text
     And I halt execution
 
   @TestingXSS

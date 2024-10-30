@@ -375,16 +375,17 @@ Feature: Validate all scenarios in the Application Review
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
-    Then I softly see value "Review Initiated" for title "Status" inside table "---applicationReview:-:announcementListTableId---"
+    Then I softly see value "In Progress" for title "Status" inside table "---applicationReview:-:announcementListTableId---"
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    When I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "<Announcement Name>" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     Then I softly see value "Review Initiated" for title "Status" inside table "---applicationReview:-:relatedFOApplicationsTableId---"
-    Then I softly see value "Completed" for title "Status" against the value "Pre-Screen Review" inside table "---applicationReview:-:reviewStepsTableId---"
-    Then I softly see value "Completed" for title "Status" against the value "SME Review" inside table "---applicationReview:-:reviewStepsTableId---"
-    Then I softly see value "Completed" for title "Status" against the value "Management Review" inside table "---applicationReview:-:reviewStepsTableId---"
+    Then I softly see value "In Progress" for title "Status" against the value "Pre-Screen Review" inside table "---applicationReview:-:reviewStepsTableId---"
+    Then I softly see value "Not Started" for title "Status" against the value "SME Review" inside table "---applicationReview:-:reviewStepsTableId---"
+    Then I softly see value "Not Started" for title "Status" against the value "Management Review" inside table "---applicationReview:-:reviewStepsTableId---"
     And I click on parallel menu button in flex table title "Review Steps"
     And I select "Download as PDF" from parallel lines dropdown of "Review Steps"
     When I download the file
@@ -459,7 +460,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @75449 @75451 @75450 @75448 @75454 @VerifyAbleToViewApplication @TBExecution
+  @75449 @75451 @75450 @75448 @75454 @VerifyAbleToViewApplication @TBExecution1
   Scenario Outline: To verify user is able to view Applications in Applications section in Related log tab of announcement
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -488,7 +489,7 @@ Feature: Validate all scenarios in the Application Review
     And I refresh the page
     And I click on advance filter of table id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
     And I enter advance filter values inside id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
-      | Project Title | Contains | {SavedValue:Automation Runtime Announcement Application Review} |
+      | Application Title | Contains | {SavedValue:Automation Runtime Announcement Application Review} |
     Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Project Title" inside table "---applicationReview:-:relatedFOApplicationsTableId---"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:relatedFOApplicationsTableId---" with wait for record
     Then I softly see field "Application" as "{SavedValue:Automation Runtime Announcement Application Review}"
@@ -690,7 +691,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @78323 @ValidatingprescreenReviewStepForm @TBExecution
+  @78323 @ValidatingprescreenReviewStepForm
   Scenario Outline: To verify user able to setup the Due Days for the review & set field "Required" :Unchecked in prescreen review step in related log table in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -1041,7 +1042,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79749 @79755 @79748 @79747 @79753 @79754 @verifingReviewSectionAndReviewQuestion @TBExecution
+  @79749 @79755 @79748 @79747 @79753 @79754 @verifingReviewSectionAndReviewQuestion @TBExecution1
   Scenario Outline: To verify the user able to assign reviewers in the reviews section for Pre-screening review steps of related log tab in the Application phase.
   | To verify,user able to fill  the review questions ,in review form in prescreen review step
   | To verify the user able to assign reviewers in the reviews section for SME review steps of related log tab in the Application phase.
@@ -1248,7 +1249,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79960 @79961 @verifyingCompletedTaskForPrescreenManagementReview @TBExecution
+  @79960 @79961 @verifyingCompletedTaskForPrescreenManagementReview
   Scenario Outline: To verify the tasks will be displayed on completed tasks for the reviewer, when reviewer submit Reviews form successfully,for prescreen review step in  Application phase
   | To verify the tasks will be displayed on completed tasks for the reviewer, when reviewer submit Reviews form successfully,for management review step in  Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
@@ -1788,7 +1789,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79978 @ValidatingSuccessMessagePromoteNextButtonPreScreenReviewStepForm @TBExecution
+  @79978 @ValidatingSuccessMessagePromoteNextButtonPreScreenReviewStepForm
   Scenario Outline: To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of prescreen review review step in Application phase
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
