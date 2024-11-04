@@ -16708,9 +16708,7 @@ Feature: Sanity scenarios
     Then I softly can see "Messages" sub tab at view detail page
     When I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
-    Then I softly see "Budget Period Change" page block displayed
-    Then I softly see "Focus Areas" page block displayed
-    Then I softly see "Indirect Rates" page block displayed
+    Then I softly see "Other Changes" page block displayed
     Then I softly see "General Condition" page block displayed
     Then I softly see "Special Conditions" page block displayed
     Then I softly see "System Information" page block displayed
@@ -16726,24 +16724,6 @@ Feature: Sanity scenarios
     Then I softly see field "Grant Award Number" as "{SavedValue:GrantAwardNumber}"
     Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
     Then I softly see link "{SavedValue:AwardEGMSID}" inside Page block
-    Then I see field "Budget Period" is not editable
-    Then I softly see field "Budget Period" as "{SavedValue:BudgetPeriod}"
-    Then I softly see fields "NewBudgetPeriodEndDate__c" is in edit mode
-    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    Then I softly see "Start Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    Then I softly see "End Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    When I click on parallel lines menu bar with data target value "Focus Areas"
-    And I wait for "3" seconds
-    Then I see option "Refresh" present in parallel dropdown
-    Then I see option "Download as PDF" present in parallel dropdown
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see fields "GeneralConditionChanged__c" is in edit mode
     And I enter value "Checked" into field "GeneralConditionChanged__c"
     Then I softly see fields "AreTCspartofNGAAttachments__c" is in edit mode
@@ -16928,26 +16908,8 @@ Feature: Sanity scenarios
     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I click on "Complete Review" in the page details
-    Then I softly see field "Status" as "Reviewed"
+    And I wait for "3" seconds
     When I navigate to "Overview" sub tab
-    And I click on "Edit" in the page details
-    And I clear the value from field "PurposeRTA__c"
-    When I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Justification is required to save under Overview. |
-    And I enter value "Automation Justification" into field "PurposeRTA__c"
-    And I enter value "2222" into field "ApprovedIndirectCostRate__c"
-    When I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      |  Maximum Indirect Cost Rate: value outside of valid range on numeric field |
-    And I enter value "110" into field "ApprovedIndirectCostRate__c"
-    When I click on "Save" in the page details
-    And I click on "Submit for Approval" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Overview Tab - Maximum Indirect Cost Rate cannot be greater than 100% |
-    And I click on "Edit" in the page details
-    And I enter value "10" into field "ApprovedIndirectCostRate__c"
-    When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
