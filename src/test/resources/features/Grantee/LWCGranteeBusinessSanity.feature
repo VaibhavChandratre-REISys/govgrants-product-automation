@@ -16171,7 +16171,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "Edit" :
       | Created By    | Title         | Description       |
-      | Sarah PM      | Notes Record1 | Automation Notes1 |
+      | David FO      | Notes Record1 | Automation Notes1 |
     And I wait for "2" seconds
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
@@ -16648,22 +16648,22 @@ Feature: Sanity scenarios
       | Initiated By is required to save. |
     Then I softly see the following messages in the page details contains:
       | Justification is required to save. |
-    And I enter "Grantee_BPC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_Other_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
-    And I enter "Grantee_BPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_Other_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
     And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "BPCAMENDID"
+    And I save the field labeled "EGMS ID" as "OTHAMENDID"
     When I navigate to "Overview" sub tab
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
-    Then I see value "Record Id" for title "{SavedValue:BPCAMENDID}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:BPCAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:BPCAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    Then I softly can see row level action button "Delete" against "{SavedValue:BPCAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    Then I see value "Record Id" for title "{SavedValue:OTHAMENDID}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly see "Amendment Type" in flex table header "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I softly see "Initiated By" in flex table header "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -16672,19 +16672,19 @@ Feature: Sanity scenarios
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - My Records"
-    When I perform quick search for "{SavedValue:BPCAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    When I perform quick search for "{SavedValue:OTHAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:BPCAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:BPCAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Delete" against "{SavedValue:BPCAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:OTHAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     Then I softly see "Award EGMS ID" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     Then I softly see "Amendment Type" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     Then I softly see "Initiated By" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:AmendmentTableId---"
-    And I click on "View" icon for "{SavedValue:BPCAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-    Then I softly see field "EGMS ID" as "{SavedValue:BPCAMENDID}"
+    And I click on "View" icon for "{SavedValue:OTHAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+    Then I softly see field "EGMS ID" as "{SavedValue:OTHAMENDID}"
     Then I softly see field "Status" as "Created"
     Then I softly see field "Initiated By" as "Grantor"
     Then I softly see field "Amendment Type" as "Budget Period Change"
@@ -16695,9 +16695,9 @@ Feature: Sanity scenarios
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - My Records"
-    When I perform quick search for "{SavedValue:BPCAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    When I perform quick search for "{SavedValue:OTHAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    And I click on "Edit" icon for "{SavedValue:BPCAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+    And I click on "Edit" icon for "{SavedValue:OTHAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
     And I wait for "3" seconds
