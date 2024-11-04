@@ -16418,7 +16418,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Original Budget Details" against "Construction" in flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Original Budget Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     Then I softly see value "Construction" for title "Title" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see value "The narrative" for title "Narrative" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see value "The narrative" for title "Narrative" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
