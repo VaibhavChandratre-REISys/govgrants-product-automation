@@ -16490,8 +16490,8 @@ Feature: Sanity scenarios
     Then I softly see value "$200.00" for title "Previous Leverage" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see value "$200.00" for title "Other Leverage" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see value "$5,700.00" for title "Previous Project Cost" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
-    Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
-    Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly cannot see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
 
   @471029 @VerifytheFlowofothertypeofAR
   Scenario:Verify the Flow of other  type of AR
@@ -16557,7 +16557,7 @@ Feature: Sanity scenarios
       | Focus Area Name                 | Projected Program Income ($) | Program Income Justification |
       | Automation Permanent Focus Area | 1000                         | Automation Test              |
     And I save the value from row "1" for column name "Focus Area Name" as "FocusAreaName" from flex table "---grantee_tableId:-:awardProgramIncomeTableId---"
-    And I save the value from row "1" for column name "Projected Program Income" as "ProjectedProgramIncome" from flex table "---grantee_tableId:-:awardProgramIncomeTableId---"
+    And I save the value from row "1" for column name "Projected Program Income ($)" as "ProjectedProgramIncome" from flex table "---grantee_tableId:-:awardProgramIncomeTableId---"
     And I save the value from row "1" for column name "Program Income Justification" as "ProgramIncomeJustification" from flex table "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
