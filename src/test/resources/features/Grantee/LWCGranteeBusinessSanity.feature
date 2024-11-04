@@ -16013,6 +16013,10 @@ Feature: Sanity scenarios
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "Start Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "End Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
+     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
+      | Title                            | End Date                            |
+      | Automation Permanent Focus Area  | {SavedValue:NewBudgetPeriodEndDate} |
     When I click on parallel lines menu bar with data target value "Focus Areas"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
