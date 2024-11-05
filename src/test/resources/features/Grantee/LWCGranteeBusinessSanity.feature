@@ -16907,6 +16907,7 @@ Feature: Sanity scenarios
     And I click on "Complete Review" in the page details
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
@@ -16955,9 +16956,9 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I click modal button "Close"
     Then I softly see field "Status" as "Accepted"
+    And I save the field labeled "EGMS ID" as "AREGMSID"
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
-    And I save the field labeled "EGMS ID" as "AwardEGMSID2"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -16972,8 +16973,11 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "AwardEGMSID2"
     And I navigate to "Projections" sub tab
+    And I wait for "3" seconds
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "{SavedValue:BudgetPeriodStartDate}" for title "Start Date" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "{SavedValue:BudgetPeriodEndDate}" for title "End Date" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "$5,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
@@ -16990,11 +16994,11 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
-    Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
+    Then I softly see value "Activated" for title "New Value" inside field history table
+    Then I softly see value "Pending Activation" for title "Original Value" inside field history table
     And I click on back arrow
     And I navigate to "History" sub tab
-    Then I softly see field "Source Change Request" as "{SavedValue:AmendEGMSID}"
+    Then I softly see field "Source Change Request" as "{SavedValue:AREGMSID}"
     Then I softly see field "Request Type" as "Change Request"
 
   @440272 @VerifyWithAdminProfileAbletocreateActivateDeactivethefocusarea.
