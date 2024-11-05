@@ -1634,3 +1634,7 @@ Feature: Validate all scenarios of every modules flow
       | Announcement Name                                     | Application Name                                      |
       | Automation Runtime Competitive Announcement4199454996 | Automation Runtime Competitive Announcement4199454996 |
 
+  @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
+  Scenario: Validate PM user should able to Create & Activate the KPI
+    When I login to "As a Grantee" app as "GRANTEE FD" user
+
