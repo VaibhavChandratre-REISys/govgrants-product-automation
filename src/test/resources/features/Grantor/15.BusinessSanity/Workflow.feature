@@ -1636,49 +1636,44 @@ Feature: Validate all scenarios of every modules flow
 
   @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
   Scenario: Validate PM user should able to Create & Activate the KPI
-    When I login to "As a Grantee" app as "GRANTEE FO" user
+    When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "CR-AD-GA-2650-00" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "CR-AD-GA-2650-00" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
-    And I enter a review as "Passed"
-    When I click modal button "Save"
-    And I click on submit review
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "GT-GA-02593" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "GT-GA-02593" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    Then I softly see value "Activated" for title "Status" against the value "AD-GA-2661" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    Then I softly see value "Pending Activation" for title "Status" against the value "AD-GA-2663" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    And I click on "View" icon for "Pending Activation" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I can see top right button "Activate Award" in page detail
+    Then I can see top right button "Delete" in page detail
+    And I click on "Delete" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to delete this subaward?" is displayed
+    And I click "OK" on modal confirmation box
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted to Grantor" for title "New Value" inside field history table
+    Then I softly see value "Accepted" for title "Original Value" inside field history table
+    And I click on back arrow
     And I wait for "3" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "GT-GA-02593" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "GT-GA-02593" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    Then I softly see value "Activated" for title "Status" against the value "AD-GA-2661" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    Then I softly do not see value "AD-GA-2663" for title "Award EGMS ID" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    Then I softly can see row level action button "View" against "AD-GA-2661" in flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "CR-AD-GA-2650-00" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly can see row level action button "View" against "{SavedValue:AmendEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:AmendEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    And I click on "View" icon for "CR-AD-GA-2650-00" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-    And I click on "Complete Review" in the page details
-    And I wait for "3" seconds
-    And I click on "Submit for Approval" in the page details
-    And I wait for "3" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I click on "Submit to Grantor" in the page details
-    When I enter values into fields
-      | Value | Field                 |
-      | 0     | SubmittedToGrantor__c |
-    And I click modal button "Save"
-    And I click modal button "Close"
+    When I perform quick search for "CR-AD-GA-2661-00" in "---grantee_tableId:-:AmendmentTableId---" panel
+    And I click on "View" icon for "CR-AD-GA-2661-00" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
@@ -1694,4 +1689,55 @@ Feature: Validate all scenarios of every modules flow
     Then I softly cannot see top right button "Edit" in page detail
     And I click on "Amend Award" in the page details
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    Then I can see top right button "Activate Award" in page detail
+    Then I can see top right button "Delete" in page detail
+    When I click on "Activate Award" in the page details
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID2"
+    And I wait for "5" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "GT-GA-02593" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "GT-GA-02593" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    Then I softly see value "Amended" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Projections" sub tab
+    Then I softly see field "Budget Period End Date" as "{SavedValue:NewBudgetPeriodEndDate}"
+    Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly see value "{SavedValue:Effectiveuntil}" for title "Effective until" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    And I navigate to "Overview" sub tab
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{SavedValue:BudgetPeriodStartDate}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{SavedValue:NewBudgetPeriodEndDate}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    And I navigate to "Monitoring" sub tab
+    Then I softly see value "{SavedValue:TermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    And I wait for "3" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Financials" sub tab
+    Then I softly see value "{Date:MM/dd/yyyy::d+3630}" for title "End Date" against the value "BP01" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I navigate to "Projections" sub tab
+    Then I softly do not see field "Budget Period End Date" as "{SavedValue:NewBudgetPeriodEndDate}"
+    Then I softly do not see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly do not see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly do not see value "{SavedValue:Effectiveuntil}" for title "Effective until" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly do not see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
+    And I navigate to "Overview" sub tab
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "{SavedValue:BudgetPeriodStartDate}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly do not see value "{SavedValue:NewBudgetPeriodEndDate}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    And I navigate to "Monitoring" sub tab
+    Then I softly do not see value "{SavedValue:TermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
 

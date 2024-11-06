@@ -17899,6 +17899,12 @@ Feature: Sanity scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request  |
       | Victor EXE | Step 1             |
+    And I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Terms and Conditions" has been added in "Amendment Files" flex table
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -17972,8 +17978,8 @@ Feature: Sanity scenarios
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "{SavedValue:FNCAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    And I click on "View" icon for "{SavedValue:FNCAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:BPCAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    And I click on "View" icon for "{SavedValue:BPCAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
