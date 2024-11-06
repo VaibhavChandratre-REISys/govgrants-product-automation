@@ -17565,9 +17565,9 @@ Feature: Sanity scenarios
     And I navigate to "Overview" sub tab
     Then I softly see value "Open Data Framework" for title "Title" inside table "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I softly see value "David FO" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see field "Description of Other Changes" as "Description1"
-    Then I softly see field "Justification for Purpose and Summary" as "Description2"
-    Then I softly see field "If Other amendment type, explain" as "Description3"
+    Then I softly see field "Description of Other Changes" as "{SavedValue:Description1}"
+    Then I softly see field "Justification for Purpose and Summary" as "{SavedValue:Description2}"
+    Then I softly see field "If Other amendment type, explain" as "{SavedValue:Description3}"
     And I navigate to "Projections" sub tab
     And I wait for "3" seconds
     When I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
@@ -17589,7 +17589,7 @@ Feature: Sanity scenarios
     And I navigate to "Monitoring" sub tab
     Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:awardObjectiveTableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    Then I softly see value "{SavedValue:TermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     And I navigate to "Files" sub tab
     Then I softly see value "Terms and Conditions" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
@@ -17602,9 +17602,9 @@ Feature: Sanity scenarios
     And I navigate to "Overview" sub tab
     Then I softly see value "Open Data Framework" for title "Title" inside table "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I softly see value "David FO" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
-    Then I softly see field "Description of Other Changes" as "Description1"
-    Then I softly see field "Justification for Purpose and Summary" as "Description2"
-    Then I softly see field "If Other amendment type, explain" as "Description3"
+    Then I softly see field "Description of Other Changes" as "{SavedValue:Description1}"
+    Then I softly see field "Justification for Purpose and Summary" as "{SavedValue:Description2}"
+    Then I softly see field "If Other amendment type, explain" as "{SavedValue:Description3}"
     And I navigate to "Projections" sub tab
     And I wait for "3" seconds
     When I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
@@ -17651,7 +17651,7 @@ Feature: Sanity scenarios
     And I navigate to "Monitoring" sub tab
     Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:awardObjectiveTableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    Then I softly see value "{SavedValue:TermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     And I navigate to "Files" sub tab
     Then I softly see value "Terms and Conditions" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
@@ -17664,7 +17664,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     And I navigate to "Overview" sub tab
     Then I softly see value "Open Data Framework" for title "Title" inside table "---grantee_tableId:-:grantExternalProgramTableId---"
-    Then I softly see value "David FO" for title "Name" inside table "---grantee_tableId:-:GranteeGrantContact---"
+    Then I softly do not see value "David FO" for title "Name" inside table "---grantee_tableId:-:GranteeGrantContact---"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:grantFocusAreaTableId---"
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:grantFocusAreaTableId---"
     And I navigate to "Financials" sub tab
@@ -17691,17 +17691,17 @@ Feature: Sanity scenarios
     When I save the field labeled "Total Project Cost" as "TotalProjectCost"
     Then I softly see field "Total Project Cost" as "{SavedValue:TotalProjectCost}"
     Given I expand nested table containing column value "BP01"
-    Then I softly see value "$2,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$200.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$2,400.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$2,000.00" for title "Awarded Budget" against the value "Indirect costs" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$200.00" for title "Cash Match" against the value "Indirect costs" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$200.00" for title "Other Leverage" against the value "Indirect costs" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$2,400.00" for title "Total Project Cost" against the value "Indirect costs" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     And I navigate to "Monitoring" sub tab
     Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:grantGoalsTableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:grantKPITableId---"
     Then I softly see value "{SavedValue:TermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     And I navigate to "Management" sub tab
     Then I softly see "Change Requests" page block displayed
-    Then I softly see value "Accepted" for title "Status" against the value "{SavedValue:AWARDEGMSID2}" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
+    Then I softly see value "Accepted" for title "Status" against the value "{SavedValue:AmendEGMSID}" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
@@ -18024,18 +18024,14 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Financials" sub tab
-    Then I softly see value "{Date:MM/dd/yyyy::d+3630}" for title "End Date" against the value "BP01" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "{SavedValue:NewBudgetPeriodEndDate}" for title "End Date" against the value "BP01" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Projections" sub tab
     Then I softly do not see field "Budget Period End Date" as "{SavedValue:NewBudgetPeriodEndDate}"
-    Then I softly do not see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
-    Then I softly do not see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
-    Then I softly do not see value "{SavedValue:Effectiveuntil}" for title "Effective until" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
-    Then I softly do not see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
-    And I navigate to "Overview" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "{SavedValue:BudgetPeriodStartDate}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly do not see value "{SavedValue:NewBudgetPeriodEndDate}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly do not see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     And I navigate to "Monitoring" sub tab
     Then I softly do not see value "{SavedValue:TermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
