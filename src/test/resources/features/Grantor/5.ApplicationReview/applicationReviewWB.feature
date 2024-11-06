@@ -157,7 +157,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            |
       | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @79978 @79977 @79979 @verifingPromoteToNextAndFDM @TBExecution1
+  @79978 @79977 @79979 @verifingPromoteToNextAndFDM
   Scenario Outline: To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of prescreen review review step in Application phase
   | To validate system generated error message ,for user will not be able to Promote to Next step for application when the reviewer decision is still pending for the steps which are Mandatory of SME review step in Application phase
   | To validate system generated error message ,for user will not be able to Promote to FDM for application when the reviewer decision is still pending for the steps which are Mandatory of management review review step in Application phase
@@ -338,7 +338,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "4" seconds
     And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
-    And I pause execution for "4" seconds
+    And I pause execution for "2" seconds
     #Bug452382
     Then I softly see the following messages in the page details contains:
       | Cannot promote <Announcement Name> because it does not meet the minimum review requirements: |
@@ -1100,6 +1100,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Fiscal Review has 0 out of 1 complete reviews                                                                          |
       | Compliance Review has 0 out of 1 complete reviews                                                                      |
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record ID" in "---applicationReview:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record ID" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
@@ -7610,7 +7611,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see field "Application Sections for Negotiation" as "Overview: Project Information Budget: Budget Details Files: Forms"
     Then I softly see field "Due Date" as "{SavedValue:DueDate}" in "Negotiation Request Details" pageblock
 
-  @134207 @ValidateapplicationrecordownercaneditsectionsandformswithintheapplicationwhentheapplicationisinnegotiationInitiatedstate @Sprint-1 @TBExecution1
+  @134207 @ValidateapplicationrecordownercaneditsectionsandformswithintheapplicationwhentheapplicationisinnegotiationInitiatedstate @Sprint-1
   Scenario: Validate application record owner can edit sections and forms within the application when the application is in negotiation Initiated state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7760,6 +7761,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:internalHomePendingTableId---" panel
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:internalHomePendingTableId---"
     When I click on "Complete Negotiation" in the page details
+    And I wait for "3" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -7882,7 +7884,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly can see top right button "Submit to Grantor" in page detail
     Then I softly can see top right button "Edit" in page detail
 
-  @134401 @ValidatependingtaskisremovedfromapplicationownerspendingtasklistwhenuserclickonSubmittoGrantorbutton @Sprint-1 @TBExecution1
+  @134401 @ValidatependingtaskisremovedfromapplicationownerspendingtasklistwhenuserclickonSubmittoGrantorbutton @Sprint-1
   Scenario: Validate pending task is removed from application owner's pending task list when user click on Submit to Grantor button
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -7952,7 +7954,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
     Then I softly do not see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---negotiation:-:homePendingTasks---"
 
-  @134402 @134403 @134404 @134405 @134406 @ValidatebuttonsdisplayedtoannouncementrecordownerwhenapplicationisinNegotiationSubmittedstate @sprint-1 @TBExecution1
+  @134402 @134403 @134404 @134405 @134406 @ValidatebuttonsdisplayedtoannouncementrecordownerwhenapplicationisinNegotiationSubmittedstate @sprint-1
   Scenario: Validate buttons displayed to announcement record owner when application is in Negotiation Submitted state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -8094,7 +8096,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
 
-  @134410 @ValidateannouncementownercannotsendapplicationforreviewfromanyreviewstepwhenapplicationisinNegotiationInitiatedNegotiationSubmittedstate @sprint-1 @TBExecution1
+  @134410 @ValidateannouncementownercannotsendapplicationforreviewfromanyreviewstepwhenapplicationisinNegotiationInitiatedNegotiationSubmittedstate @sprint-1
   Scenario: Validate announcement owner cannot send application for review from any review step when application is in Negotiation Initiated or Negotiation Submitted state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -8294,7 +8296,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see value "Rejected" for title "Decision Status" against the value "{SavedValue:Automation Runtime Announcement Application Review}" inside table "---applicationReview:-:appTableId---"
     Then I softly cannot see row level action button "Request Negotiation" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:appTableId---"
 
-  @134419 @ValidatestatusofanapplicationwhereNegotiationissubmittedandannouncementownerclickCompleteNegotiationbutton @sprint-1 @TBExecution1
+  @134419 @ValidatestatusofanapplicationwhereNegotiationissubmittedandannouncementownerclickCompleteNegotiationbutton @sprint-1
   Scenario: Validate status of an application where Negotiation is submitted and announcement owner click Complete Negotiation button
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -9705,7 +9707,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @202585 @ValidateEXEuserrequestnegotiation&sendittos/rs/rsendstheresponsetograntor&grantoragaininitiatesthenegotiation&grantorcreatesnegotiation&cancelsthatitthenapplicationmovetofirstreviewstep @sprint-7-US-183693 @TBExecution1
+  @202585 @ValidateEXEuserrequestnegotiation&sendittos/rs/rsendstheresponsetograntor&grantoragaininitiatesthenegotiation&grantorcreatesnegotiation&cancelsthatitthenapplicationmovetofirstreviewstep @sprint-7-US-183693
   Scenario Outline: Validate EXE user request negotiation & send it to s/r, & s/r sends the response to grantor & grantor again initiates the negotiation & grantor creates negotiation & cancels that it, then application move to first review step
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation EXE user"
     When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"

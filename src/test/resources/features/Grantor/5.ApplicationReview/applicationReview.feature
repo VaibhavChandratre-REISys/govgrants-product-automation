@@ -489,7 +489,7 @@ Feature: Validate all scenarios in the Application Review
     And I refresh the page
     And I click on advance filter of table id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
     And I enter advance filter values inside id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
-      | Application Title | Contains | {SavedValue:Automation Runtime Announcement Application Review} |
+      | Application Title | contains | {SavedValue:Automation Runtime Announcement Application Review} |
     Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Project Title" inside table "---applicationReview:-:relatedFOApplicationsTableId---"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:relatedFOApplicationsTableId---" with wait for record
     Then I softly see field "Application" as "{SavedValue:Automation Runtime Announcement Application Review}"
@@ -1238,6 +1238,8 @@ Feature: Validate all scenarios in the Application Review
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see field "Is the project cost effective and has a cost estimate been provided?" as "Yes"
     Then I softly see field "Are the performance goals adequate?" as "Yes"
     Then I softly see field "Rate and describe overall value of the Project." as "Automation description"

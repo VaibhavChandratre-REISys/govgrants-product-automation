@@ -552,8 +552,8 @@ public final class GovGrantsAssertionObjects {
         if (isSoftly.contains("not")) {
             try {
                 // Must use WaitForElementToBePresent as this element never becomes visible, and thus it will always wait the full waitTime
-                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
-                I.amPerforming().waitFor().ElementToBePresent(By.xpath("//script[contains(@src, 'PageMessages')]"), 5);
+//                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+//                I.amPerforming().waitFor().ElementToBePresent(By.xpath("//script[contains(@src, 'PageMessages')]"), 5);
                 I.amPerforming().waitFor().ElementToBePresent(pageMessagesSelector, 2);
             } catch (Exception e) {
                 /* Ignore Exception */
@@ -571,8 +571,8 @@ public final class GovGrantsAssertionObjects {
         } else {
             try {
                 // Must use WaitForElementToBePresent as this element never becomes visible, and thus it will always wait the full waitTime
-                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
-                I.amPerforming().waitFor().ElementToBePresent(By.xpath("//script[contains(@src, 'PageMessages')]"), 5);
+//                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+//                I.amPerforming().waitFor().ElementToBePresent(By.xpath("//script[contains(@src, 'PageMessages')]"), 5);
                 I.amPerforming().waitFor().ElementToBePresent(pageMessagesSelector, 2);
             } catch (Exception e) {
                 /* Ignore Exception */

@@ -1535,9 +1535,9 @@ Feature: Validate all scenarios of every modules flow
   @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/ReviewStep__c/a3SDV000001IWMi2AO/view"
-    And I hovering mouse on table id "---applicationReview:-:reviewFormsTableId---" with table row level icon "Automation PO: Review Declined" for column value "Automation PO: Review Declined"
-    Then I softly see "Automation PO: Review Declined" shown as help text
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/ReviewStep__c/a3SDV000001IZcx2AG/view"
+    When I check "AP-TAO modified-7724" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I halt execution
 
   @TestingXSS

@@ -1725,7 +1725,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Automation EXE1" for title "New Value" inside field history table
     Then I softly see value "Automation EXE" for title "Original Value" inside field history table
 
-   @196847 @Validateuserapprovedtheannouncement&reassignownershiptonewuserthenpublishoptionshoulddisplaytonewowner @sprint-4  @reassignment
+  @196847 @Validateuserapprovedtheannouncement&reassignownershiptonewuserthenpublishoptionshoulddisplaytonewowner @sprint-4  @reassignment
   Scenario: Validate user approved the announcement & reassign ownership to  new user then publish option should display to new owner
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1802,7 +1802,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Competitive Announcements"
+    And I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     Then I softly cannot see top right button "Publish" in page detail
@@ -1979,7 +1979,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Competitive Announcements"
+    And I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     Then I softly can see top right button "Publish" in page detail
@@ -2650,7 +2650,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I cannot see row level action button "Edit" against "{SavedValue:AnnEGMSID}" in flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
 #    Then I cannot see row level action button "Delete" against "{SavedValue:AnnEGMSID}" in flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
 
-   @195225 @ValidatenewAnnownershouldbedisplayforownersectionunderresponsibilitytabafterownershiptaskreassigntonewuser @sprint-4  @reassignment
+  @195225 @ValidatenewAnnownershouldbedisplayforownersectionunderresponsibilitytabafterownershiptaskreassigntonewuser @sprint-4  @reassignment
   Scenario: Validate new Ann owner should be display for owner section under responsibility tab after ownership task reassign to new user
     When I login to "As a Grantor" app as "PM1" user
     And I navigate to "Announcements" tab
@@ -7608,12 +7608,12 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions     | Subject         | From Address               | To Address                | CC Address | Attention To | Email Subject   | Preview       |
-      | Action menu | Automation Test | exe.automation@yopmail.com | pm.automation@yopmail.com |            |              | Automation Test |               |
+      | Actions     | Subject         | From Address               | To Address                | CC Address | Attention To | Email Subject   | Preview |
+      | Action menu | Automation Test | exe.automation@yopmail.com | pm.automation@yopmail.com |            |              | Automation Test |         |
     And I refresh the page
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
 
-   @336732 @336731 @ValidateAnnouncementFOuserseeRefreshbuttonunderhamburgericononSystemEmailssectionshouldabletorefreshthetable @Sprint-13-US-341529-332637 @SystemEmail
+  @336732 @336731 @ValidateAnnouncementFOuserseeRefreshbuttonunderhamburgericononSystemEmailssectionshouldabletorefreshthetable @Sprint-13-US-341529-332637 @SystemEmail
   Scenario: Validate Announcement FO user see Refresh button under hamburger icon on System Emails section & should able to refresh the table
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -7671,7 +7671,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I click on button "resetIcon" in flex table with id "RecordSystemEmailHistory"
     Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
 
-   @336722 @336724 @ValidateAnnouncementPOusercanseeAdvancefiltershouldworkcorrectlyonSystemEmailsection @Sprint-13-US-341529-332637 @SystemEmail
+  @336722 @336724 @ValidateAnnouncementPOusercanseeAdvancefiltershouldworkcorrectlyonSystemEmailsection @Sprint-13-US-341529-332637 @SystemEmail
   Scenario: Validate Announcement PO user can see Advance filter should work correctly on System Email section
     When I login to "As a Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -7861,7 +7861,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
     Then I softly see value "fo.automation@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
 
-   @336735 @ValidateAnnouncemenPMuserseeretesttablebuttonunderhamburgericononSystemEmailsectioshouldnotabletoResetthetablewhenuserapplytheadvancefilterclickonresetbutton
+  @336735 @ValidateAnnouncemenPMuserseeretesttablebuttonunderhamburgericononSystemEmailsectioshouldnotabletoResetthetablewhenuserapplytheadvancefilterclickonresetbutton
   Scenario: Validate Announcement PM user see retest table button under hamburger icon on System Email section & should not able to Reset the table when user apply the advance filter & click on reset button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -8133,8 +8133,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     And I navigate to "Messages" sub tab
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-      | Actions      | Subject             | From Address             | To Address                 | CC Address | Attention To | Email Subject       | Preview |
-      | Action menu  | Automation Test PM1 | automationpo@yopmail.com | pm1.automation@yopmail.com |            |              | Automation Test PM1 |         |
+      | Actions     | Subject             | From Address             | To Address                 | CC Address | Attention To | Email Subject       | Preview |
+      | Action menu | Automation Test PM1 | automationpo@yopmail.com | pm1.automation@yopmail.com |            |              | Automation Test PM1 |         |
 
   @329982 @329983 @ValidateAnnouncementFOusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
   Scenario: Validate Announcement FO user should able to see "Attention To" Column under messages section in messages tab
@@ -8205,8 +8205,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
-    | Actions      | Subject             | From Address                    | To Address                 | CC Address | Attention To | Email Subject       | Preview |
-    | Action menu  | Automation Test FO1 | govgrantsautomation@yopmail.com | fo1.automation@yopmail.com |            |              | Automation Test FO1 |         |
+      | Actions     | Subject             | From Address                    | To Address                 | CC Address | Attention To | Email Subject       | Preview |
+      | Action menu | Automation Test FO1 | govgrantsautomation@yopmail.com | fo1.automation@yopmail.com |            |              | Automation Test FO1 |         |
 
   @329986 @ValidateforAnnouncementEXEusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384
   Scenario: Validate for Announcement EXE user should able to see "Attention To" Column under messages section in messages tab
