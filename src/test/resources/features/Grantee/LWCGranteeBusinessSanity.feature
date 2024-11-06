@@ -17469,10 +17469,10 @@ Feature: Sanity scenarios
       | Value | Field                      |
       | 2000  | RequestedChangeInBudget__c |
     And I click on "Save" in the page details
-    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+    When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title     | Narrative     | Awarded Budget | Cash Match | Other Leverage |
-      | Site work | The narrative | 2000           | 200        | 200            |
+      | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
+      | Indirect costs | The narrative | 2000           | 200        | 200            |
     When I close "Add Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
@@ -17483,6 +17483,7 @@ Feature: Sanity scenarios
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
     And I click modal button "Close"
+    And I wait for "3" seconds
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
@@ -17564,48 +17565,27 @@ Feature: Sanity scenarios
     And I navigate to "Overview" sub tab
     Then I softly see value "Open Data Framework" for title "Title" inside table "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I softly see value "David FO" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
-    And I save the field labeled "Description of Other Changes" as "Description1"
-    And I save the field labeled "Justification for Purpose and Summary" as "Description2"
-    And I save the field labeled "If Other amendment type, explain" as "Description3"
+    Then I softly see field "Description of Other Changes" as "Description1"
+    Then I softly see field "Justification for Purpose and Summary" as "Description2"
+    Then I softly see field "If Other amendment type, explain" as "Description3"
     And I navigate to "Projections" sub tab
     And I wait for "3" seconds
     When I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
     Then I softly see field "Budget Period Start Date" as "{SavedValue:BudgetPeriodStartDate}"
     When I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
     Then I softly see field "Budget Period End Date" as "{SavedValue:BudgetPeriodEndDate}"
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "$2,000.00" for title "Award  Budget" against the value "Site work" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see value "$200.00" for title "Cash Match" against the value "Site work" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see value "$200.00" for title "Other Leverage" against the value "Site work" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see value "$2,400.00" for title "Total Project Cost" against the value "Site work" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$2,000.00" for title "Award  Budget" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$200.00" for title "Cash Match" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$200.00" for title "Other Leverage" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$2,400.00" for title "Total Project Cost" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectiveuntil}" for title "Effective until" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
-    When I navigate to "Actuals" sub tab
-    When I save the field labeled "Grant Amount" as "GrantAmount"
-    Then I softly see field "Grant Amount" as "{SavedValue:GrantAmount}"
-    When I save the field labeled "Total Awarded Budget" as "TotalAwardedBudget"
-    Then I softly see field "Total Awarded Budget" as "{SavedValue:TotalAwardedBudget}"
-    When I save the field labeled "Drawn to Date" as "DrawntoDate"
-    Then I softly see field "Drawn to Date" as "{SavedValue:DrawntoDate}"
-    When I save the field labeled "Spent to Date" as "SpenttoDate"
-    Then I softly see field "Spent to Date" as "{SavedValue:SpenttoDate}"
-    When I save the field labeled "Remaining Balance" as "RemainingBalance"
-    Then I softly see field "Remaining Balance" as "{SavedValue:RemainingBalance}"
-    When I save the field labeled "Total Match Expenditures to Date this Budget Period" as "TotalMatchExpenditurestoDatethisBudgetPeriod"
-    Then I softly see field "Total Match Expenditures to Date this Budget Period" as "{SavedValue:TotalMatchExpenditurestoDatethisBudgetPeriod}"
-    When I save the field labeled "Total Program Income Revenue this Budget Period" as "TotalProgramIncomeRevenuethisBudgetPeriod"
-    Then I softly see field "Total Program Income Revenue this Budget Period" as "{SavedValue:TotalProgramIncomeRevenuethisBudgetPeriod}"
-    When I save the field labeled "Total Leverage" as "TotalLeverage"
-    Then I softly see field "Total Leverage" as "{SavedValue:TotalLeverage}"
-    Then I softly see value "$7,000.00" for title "Award Budget" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly see value "$0.00" for title "Expenditures to Date" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly see value "$0.00" for title "Carry-Forward" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly see value "$7,000.00" for title "Remaining Budget" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly see value "$0.00" for title "Cash Match" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I see value "$0.00" for title "Original Program Income Earned" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:awardProgramRevenueTableId---"
     And I navigate to "Monitoring" sub tab
     Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:awardObjectiveTableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
@@ -17622,20 +17602,23 @@ Feature: Sanity scenarios
     And I navigate to "Overview" sub tab
     Then I softly see value "Open Data Framework" for title "Title" inside table "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I softly see value "David FO" for title "Name" inside table "---grantee_tableId:-:awardContactTableId---"
-    And I save the field labeled "Description of Other Changes" as "Description1"
-    And I save the field labeled "Justification for Purpose and Summary" as "Description2"
-    And I save the field labeled "If Other amendment type, explain" as "Description3"
+    Then I softly see field "Description of Other Changes" as "Description1"
+    Then I softly see field "Justification for Purpose and Summary" as "Description2"
+    Then I softly see field "If Other amendment type, explain" as "Description3"
     And I navigate to "Projections" sub tab
     And I wait for "3" seconds
     When I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
     Then I softly see field "Budget Period Start Date" as "{SavedValue:BudgetPeriodStartDate}"
     When I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
     Then I softly see field "Budget Period End Date" as "{SavedValue:BudgetPeriodEndDate}"
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "$2,000.00" for title "Award  Budget" against the value "Site work" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see value "$200.00" for title "Cash Match" against the value "Site work" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see value "$200.00" for title "Other Leverage" against the value "Site work" inside table "---grantee_tableId:-:AwardBudgetTableId---"
-    Then I softly see value "$2,400.00" for title "Total Project Cost" against the value "Site work" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$2,000.00" for title "Award  Budget" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$200.00" for title "Cash Match" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$200.00" for title "Other Leverage" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "$2,400.00" for title "Total Project Cost" against the value "Indirect costs" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectiveuntil}" for title "Effective until" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
@@ -17657,13 +17640,14 @@ Feature: Sanity scenarios
     Then I softly see field "Total Program Income Revenue this Budget Period" as "{SavedValue:TotalProgramIncomeRevenuethisBudgetPeriod}"
     When I save the field labeled "Total Leverage" as "TotalLeverage"
     Then I softly see field "Total Leverage" as "{SavedValue:TotalLeverage}"
-    Then I softly see value "$7,000.00" for title "Award Budget" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly see value "$0.00" for title "Expenditures to Date" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly see value "$0.00" for title "Carry-Forward" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly see value "$7,000.00" for title "Remaining Budget" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly see value "$0.00" for title "Cash Match" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
-    Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Site work" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$2,000.00" for title "Award Budget" against the value "Indirect costs" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$0.00" for title "Expenditures to Date" against the value "Indirect costs" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$0.00" for title "Carry-Forward" against the value "Indirect costs" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$2,000.00" for title "Remaining Budget" against the value "Indirect costs" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$0.00" for title "Cash Match" against the value "Indirect costs" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+    Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Indirect costs" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I see value "$0.00" for title "Original Program Income Earned" against the value "Automation Permanent Focus Area" inside table "---grantee_tableId:-:awardProgramRevenueTableId---"
+    Then I see value "$0.00" for title "Original Program Income Earned" against the value "Automation Permanent Focus Area2" inside table "---grantee_tableId:-:awardProgramRevenueTableId---"
     And I navigate to "Monitoring" sub tab
     Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:awardObjectiveTableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
@@ -17678,6 +17662,11 @@ Feature: Sanity scenarios
     And I click toggle button to select "Grants - All"
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    Then I softly see value "Open Data Framework" for title "Title" inside table "---grantee_tableId:-:grantExternalProgramTableId---"
+    Then I softly see value "David FO" for title "Name" inside table "---grantee_tableId:-:GranteeGrantContact---"
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:grantFocusAreaTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:grantFocusAreaTableId---"
     And I navigate to "Financials" sub tab
     When I save the field labeled "Total Anticipated Amount" as "TotalAnticipatedAmount"
     Then I softly see field "Total Anticipated Amount" as "{SavedValue:TotalAnticipatedAmount}"
@@ -17702,10 +17691,14 @@ Feature: Sanity scenarios
     When I save the field labeled "Total Project Cost" as "TotalProjectCost"
     Then I softly see field "Total Project Cost" as "{SavedValue:TotalProjectCost}"
     Given I expand nested table containing column value "BP01"
-    Then I softly see value "$7,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$700.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$400.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see value "$8,100.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$2,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$200.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "$2,400.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    And I navigate to "Monitoring" sub tab
+    Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:grantGoalsTableId---"
+    Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:grantKPITableId---"
+    Then I softly see value "{SavedValue:TermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     And I navigate to "Management" sub tab
     Then I softly see "Change Requests" page block displayed
     Then I softly see value "Accepted" for title "Status" against the value "{SavedValue:AWARDEGMSID2}" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
