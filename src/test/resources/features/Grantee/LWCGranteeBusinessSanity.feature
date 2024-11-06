@@ -17893,6 +17893,7 @@ Feature: Sanity scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
       | Title                            | End Date                            |
       | Automation Permanent Focus Area  | {SavedValue:NewBudgetPeriodEndDate} |
+    When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request  |
       | Victor EXE | Step 1             |
