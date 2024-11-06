@@ -299,7 +299,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @219736 @ValidatePMEXEFOusercanAddeditdeletehisnotesonacompetitiveannouncementinsubmittedforapprovalstatus @sprint-9-US-201923  @Notes @TBExecution1
+  @219736 @ValidatePMEXEFOusercanAddeditdeletehisnotesonacompetitiveannouncementinsubmittedforapprovalstatus @sprint-9-US-201923  @Notes
   Scenario:Validate PM/ EXE / FO user can Add/edit/delete his notes on a competitive announcement in submitted for approval status
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1329,7 +1329,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record8" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record8" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @220138 @ValidatePOusercanteditdeletenotesaddedbyPMuseronaapprovedcompetitiveannouncement @sprint-9-US-201923  @Notes @TBExecution
+  @220138 @ValidatePOusercanteditdeletenotesaddedbyPMuseronaapprovedcompetitiveannouncement @sprint-9-US-201923  @Notes @TBExecution1
   Scenario:Validate PO user cant edit/ delete notes added by PM user on a approved competitive announcement
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1364,7 +1364,10 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
-    And I wait for "2" seconds
+    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -1379,6 +1382,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Save" in the page details
     And I pause execution for "3" seconds
     And I click on "Submit For Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1398,7 +1402,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I navigate to "Files" sub tab
     Then I softly do not see top right button "New" inside flex table "---announcement:-:AnnouncementNotestableId---"
 
-  @220164 @ValidatePMPOusercantaddnotesbuteditdeletehisnotesoncompetitiveannouncementwhichisRejected @sprint-9-US-201923  @Notes @TBExecution1
+  @220164 @ValidatePMPOusercantaddnotesbuteditdeletehisnotesoncompetitiveannouncementwhichisRejected @sprint-9-US-201923  @Notes
   Scenario:Validate PM/PO user cant add notes but edit/delete his notes on competitive announcement which is Rejected
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1794,7 +1798,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 
-  @220179 @ValidateAuditorusercantaddnotesoncompetitiveannouncementwhichisPublished @sprint-9-US-201923  @Notes @TBExecution1
+  @220179 @ValidateAuditorusercantaddnotesoncompetitiveannouncementwhichisPublished @sprint-9-US-201923  @Notes
   Scenario:Validate Auditor user cant add notes on competitive announcement which is Published
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
