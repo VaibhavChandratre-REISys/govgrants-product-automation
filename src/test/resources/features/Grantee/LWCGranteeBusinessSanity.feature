@@ -17416,8 +17416,8 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     And I click modal button "Close"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentAssociateContactTableId---" by clicking "Edit" :
-      | Name       | Project Role    | Is Key Contact |
-      | David FO   | Project Officer | Checked        |
+      | Proposed Name  | Project Role    | Is Key Contact |
+      | David FO       | Project Officer | Checked        |
     Then I softly see value "David FO" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     When I click "Associate" after selection of "MI_Objective" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
