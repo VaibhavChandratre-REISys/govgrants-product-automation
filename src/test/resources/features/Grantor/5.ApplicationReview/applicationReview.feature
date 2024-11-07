@@ -490,6 +490,7 @@ Feature: Validate all scenarios in the Application Review
     And I click on advance filter of table id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
     And I enter advance filter values inside id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
       | Application Title | contains | {SavedValue:Automation Runtime Announcement Application Review} |
+    And I wait for "2" seconds
     Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Application Title" inside table "---applicationReview:-:relatedFOApplicationsTableId---"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:relatedFOApplicationsTableId---" with wait for record
     Then I see the sub-header is "{SavedValue:Automation Runtime Announcement Application Review}" in the page details
