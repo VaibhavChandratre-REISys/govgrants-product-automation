@@ -1535,9 +1535,11 @@ Feature: Validate all scenarios of every modules flow
   @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
     When I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/ReviewStep__c/a3SDV000001IZcx2AG/view"
-    When I check "AP-TAO modified-7724" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
-    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/ReviewStep__c/a3SDV000001Im782AC/view"
+    And I halt execution
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name  | Required? | Due in Days | Minimum # of Reviews Required |
+      | Pre-Screen | Checked   | 5           | 1                             |
     And I halt execution
 
   @TestingXSS
