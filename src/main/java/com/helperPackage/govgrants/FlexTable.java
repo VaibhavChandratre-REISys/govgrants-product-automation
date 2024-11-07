@@ -625,6 +625,7 @@ public final class FlexTable implements FlexTableComponent {
 //            clickTableActionIcon(flexTableDivId, editButtonName, key);
             for (String columnName : currentRowValues.keySet()) {
                 WebElement rowCell = I.amPerforming().getElementReference().ofNested(currentRow, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + mapColumnHeaderToColumnPosition.get(columnName) + "]"));
+                I.amPerforming().waitFor().makeThreadSleep(1000);
                 this.handleFlexTableDataInputs(rowCell, currentRowValues.get(columnName));
             }
         }
