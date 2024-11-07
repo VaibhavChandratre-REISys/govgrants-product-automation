@@ -4077,11 +4077,8 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-      | Form Name  | Required? | Minimum # of Reviews Required |
-      | Pre-Screen | Checked   | 1                             |
-    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-      | Form Name  | Due in Days |
-      | Pre-Screen | 5           |
+      | Form Name  | Required? | Minimum # of Reviews Required | Due in Days |
+      | Pre-Screen | Checked   | 1                             | 5           |
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
       | Reviewer                  |
       | {SavedValue:EXE Username} |
