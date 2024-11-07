@@ -16,21 +16,13 @@ import java.util.Map;
 
 public final class GovGrantsProductObjects {
     private final String defaultLongText = "Automation test description";
-    private final By
-            attachmentClassificationPath = By.xpath("//select[@title='Classification' or text()='Classification' or @name='Classification']"),
-            attachmentDescriptionPath = By.xpath("//div//label[text()='Description']/..//textarea"),
-            attachmentFilePath = By.xpath("" + "//td//label[text()='File']/../..//input[@type='file'] | "
-                    + "//div//label[text()='File']/..//input[@type='file'] | "
-                    + "//div//label[contains(text(),'File')]/..//input[@type='file'] | "
-                    + "//div//span[text()='File']/../..//input[@type='file']"),
-            confirmationBoxMessage = By.xpath("//div[contains(@class,'modal__container')]//lightning-modal//div[@class='confirm-modal']//span |//div[contains(@class,'modal-dialog')]//div[contains(@class, 'bootbox-body')] | //div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//lightning-confirm//p");
+    private final By attachmentClassificationPath = By.xpath("//select[@title='Classification' or text()='Classification' or @name='Classification']"), attachmentDescriptionPath = By.xpath("//div//label[text()='Description']/..//textarea"), attachmentFilePath = By.xpath("" + "//td//label[text()='File']/../..//input[@type='file'] | " + "//div//label[text()='File']/..//input[@type='file'] | " + "//div//label[contains(text(),'File')]/..//input[@type='file'] | " + "//div//span[text()='File']/../..//input[@type='file']"), confirmationBoxMessage = By.xpath("//div[contains(@class,'modal__container')]//lightning-modal//div[@class='confirm-modal']//span |//div[contains(@class,'modal-dialog')]//div[contains(@class, 'bootbox-body')] | //div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//lightning-confirm//p");
 
     /**
      * Handles entering of Peer review
      */
     public void enterReview(String rating) {
-        I.amPerforming().dropDownSelection().from(By.xpath("//div[@id='fieldRating__c']//select"))
-                .selectByVisibleText(rating);
+        I.amPerforming().dropDownSelection().from(By.xpath("//div[@id='fieldRating__c']//select")).selectByVisibleText(rating);
         I.amPerforming().textInput().in(By.xpath("//div[@id='fieldReviewComments__c']//textarea"), "Automation Reviewer comments");
     }
 
@@ -114,8 +106,7 @@ public final class GovGrantsProductObjects {
         if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled()).isTrue();
         } else {
-            Assert.assertTrue(
-                    govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled());
+            Assert.assertTrue(govgrants.perform().flexTable().getSpecificTableColumn(flextableId, columnUniqueValue.split(",")).isEnabled());
         }
     }
 
@@ -179,8 +170,7 @@ public final class GovGrantsProductObjects {
     private Boolean isTableColumnHeaderName(String tableId, String titleName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(govgrants.perform().flexTable().getSpecificElementFromTableHeader(tableId, titleName))
-                    || I.amPerforming().checkToSee().isEnabled(govgrants.perform().flexTable().getSpecificElementFromTableHeader(tableId, titleName))) {
+            if (I.amPerforming().checkToSee().isDisplayed(govgrants.perform().flexTable().getSpecificElementFromTableHeader(tableId, titleName)) || I.amPerforming().checkToSee().isEnabled(govgrants.perform().flexTable().getSpecificElementFromTableHeader(tableId, titleName))) {
                 flag = true;
             }
         } catch (org.openqa.selenium.NoSuchElementException e) {
@@ -213,9 +203,7 @@ public final class GovGrantsProductObjects {
      */
     public void assertMessageOfConfirmationBoxPopUp(String message, boolean isSoftly) {
         if (isSoftly) {
-            I.amPerforming().assertionsTo().assertThat(message).isEqualTo(
-                    I.amPerforming().actionToGet().attribute(confirmationBoxMessage, "innerText").replaceAll("\\u00a0", " ")
-            );
+            I.amPerforming().assertionsTo().assertThat(message).isEqualTo(I.amPerforming().actionToGet().attribute(confirmationBoxMessage, "innerText").replaceAll("\\u00a0", " "));
         } else {
             Assert.assertEquals(I.amPerforming().actionToGet().attribute(confirmationBoxMessage, "innerText").replaceAll("\\u00a0", " "), message);
         }
@@ -330,8 +318,7 @@ public final class GovGrantsProductObjects {
      * @throws IOException
      * @author hema.ananthan
      */
-    public void approversApproveRecord(String noOfApprovers, String recordName, Map<String, Map<String, String>> dataTableMap,
-                                       String... approvers) throws TestingBlazeCustomException {
+    public void approversApproveRecord(String noOfApprovers, String recordName, Map<String, Map<String, String>> dataTableMap, String... approvers) throws TestingBlazeCustomException {
         if (recordName.equalsIgnoreCase("Record id")) {
             recordName = govgrants.perform().pageDetails().idOfRecord;
         }
@@ -364,10 +351,8 @@ public final class GovGrantsProductObjects {
      */
     public void additionOfAttachment(String fileName, Map<String, Map<String, String>> dataTableMap) {
         govgrants.perform().pageDetails().clickSubTabsInsideTableView(dataTableMap.get("Attachment Navigation").get("Step 1"));
-        govgrants.perform().flexTable().clickTableTopRightButton(dataTableMap.get("Attachment Navigation").get("Step 3"),
-                dataTableMap.get("Attachment Navigation").get("Step 2"));
-        uploadFile(fileName, dataTableMap.get("Attachment Details").get("Step 1"),
-                dataTableMap.get("Attachment Details").get("Step 2"));
+        govgrants.perform().flexTable().clickTableTopRightButton(dataTableMap.get("Attachment Navigation").get("Step 3"), dataTableMap.get("Attachment Navigation").get("Step 2"));
+        uploadFile(fileName, dataTableMap.get("Attachment Details").get("Step 1"), dataTableMap.get("Attachment Details").get("Step 2"));
         closeModal();
     }
 
@@ -385,16 +370,12 @@ public final class GovGrantsProductObjects {
         govgrants.perform().mainPage().navigateToPortal(dataTableMap.get("Navigation").get("Step 3"));
         govgrants.perform().mainPage().loginToggleToApp(dataTableMap.get("Navigation").get("Step 2"), user);
         govgrants.perform().mainPage().clickMainMenuBar(dataTableMap.get("Navigation").get("Step 1"));
-        govgrants.perform().sideBar().getSideBarContent(dataTableMap.get("Left Panel").get("Step 2"),
-                dataTableMap.get("Left Panel").get("Step 1")).click();
+        govgrants.perform().sideBar().getSideBarContent(dataTableMap.get("Left Panel").get("Step 2"), dataTableMap.get("Left Panel").get("Step 1")).click();
         if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {
-            govgrants.perform().quickSearch().performTableSpecificQuickSearch(dataTableMap.get("FlexTable").get("Step 1"),
-                    govgrants.perform().pageDetails().idOfRecord);
-            govgrants.perform().flexTable().clickTableActionIcons(dataTableMap.get("FlexTable").get("Step 2"),
-                    govgrants.perform().pageDetails().idOfRecord);
+            govgrants.perform().quickSearch().performTableSpecificQuickSearch(dataTableMap.get("FlexTable").get("Step 1"), govgrants.perform().pageDetails().idOfRecord);
+            govgrants.perform().flexTable().clickTableActionIcons(dataTableMap.get("FlexTable").get("Step 2"), govgrants.perform().pageDetails().idOfRecord);
         } else {
-            govgrants.perform().quickSearch().performTableSpecificQuickSearch(dataTableMap.get("FlexTable").get("Step 1"),
-                    uniqueColumnValue);
+            govgrants.perform().quickSearch().performTableSpecificQuickSearch(dataTableMap.get("FlexTable").get("Step 1"), uniqueColumnValue);
             govgrants.perform().flexTable().clickTableActionIcons(dataTableMap.get("FlexTable").get("Step 2"), uniqueColumnValue);
         }
     }
@@ -415,19 +396,16 @@ public final class GovGrantsProductObjects {
             govgrants.perform().mainPage().loginToggleToApp(dataTableMap.get("Owner Navigation").get("Step 1"), recordOwner);
         }
         govgrants.perform().mainPage().clickMainMenuBar(dataTableMap.get("Owner Navigation").get("Step 2"));
-        govgrants.perform().sideBar().getSideBarContent(dataTableMap.get("Owner Navigation").get("Step 4"),
-                dataTableMap.get("Owner Navigation").get("Step 3")).click();
+        govgrants.perform().sideBar().getSideBarContent(dataTableMap.get("Owner Navigation").get("Step 4"), dataTableMap.get("Owner Navigation").get("Step 3")).click();
         try {
-            govgrants.perform().phasePanel()
-                    .clickDoubleArrowDropDownAndSelectItem(dataTableMap.get("Complete Review").get("Step 1"));
+            govgrants.perform().phasePanel().clickDoubleArrowDropDownAndSelectItem(dataTableMap.get("Complete Review").get("Step 1"));
         } catch (Exception ex) {
             /* Ignore Exception */
         }
         if (recordName.equalsIgnoreCase("Record id")) {
             recordName = govgrants.perform().pageDetails().idOfRecord;
         }
-        govgrants.perform().quickSearch().performTableSpecificQuickSearch(dataTableMap.get("Complete Review").get("Step 2"),
-                recordName);
+        govgrants.perform().quickSearch().performTableSpecificQuickSearch(dataTableMap.get("Complete Review").get("Step 2"), recordName);
         govgrants.perform().flexTable().clickTableActionIcons(dataTableMap.get("Complete Review").get("Step 3"), recordName);
     }
 
@@ -439,26 +417,20 @@ public final class GovGrantsProductObjects {
      * @param flexTableId
      */
     public void iSavedSpecificValueFromFlexTableInsideGivenKey(String columnValueFromRow, String columnName, String key, String flexTableId) {
-        I.amPerforming().propertiesFileOperationsTo().saveValue(key, getValueOfSpecifiedColFromTableHavingColumnNameAs(columnValueFromRow,
-                columnName, flexTableId));
+        I.amPerforming().propertiesFileOperationsTo().saveValue(key, getValueOfSpecifiedColFromTableHavingColumnNameAs(columnValueFromRow, columnName, flexTableId));
     }
 
     /******* "Local Methods with Limited functionality " **********/
 
-    private void singleApproverApproval(String recordName, String approver,
-                                        Map<String, Map<String, String>> dataTableMap) throws TestingBlazeCustomException {
+    private void singleApproverApproval(String recordName, String approver, Map<String, Map<String, String>> dataTableMap) throws TestingBlazeCustomException {
         govgrants.perform().mainPage().reloginToggleToApp(dataTableMap.get("Navigation").get("Step 1"), approver);
         govgrants.perform().mainPage().clickMainMenuBar(dataTableMap.get("Navigation").get("Step 2"));
-        govgrants.perform().sideBar().getSideBarContent(dataTableMap.get("FlexTable").get("Step 2"),
-                dataTableMap.get("FlexTable").get("Step 1")).click();
+        govgrants.perform().sideBar().getSideBarContent(dataTableMap.get("FlexTable").get("Step 2"), dataTableMap.get("FlexTable").get("Step 1")).click();
         if (recordName.equalsIgnoreCase("Record Id")) {
-            govgrants.perform().quickSearch().performTableSpecificQuickSearch(dataTableMap.get("FlexTable").get("Step 3"),
-                    govgrants.perform().pageDetails().idOfRecord);
-            govgrants.perform().flexTable().clickTableActionIcons(dataTableMap.get("Approval").get("Step 1"),
-                    govgrants.perform().pageDetails().idOfRecord);
+            govgrants.perform().quickSearch().performTableSpecificQuickSearch(dataTableMap.get("FlexTable").get("Step 3"), govgrants.perform().pageDetails().idOfRecord);
+            govgrants.perform().flexTable().clickTableActionIcons(dataTableMap.get("Approval").get("Step 1"), govgrants.perform().pageDetails().idOfRecord);
         } else {
-            govgrants.perform().quickSearch().performTableSpecificQuickSearch(dataTableMap.get("FlexTable").get("Step 3"),
-                    recordName);
+            govgrants.perform().quickSearch().performTableSpecificQuickSearch(dataTableMap.get("FlexTable").get("Step 3"), recordName);
             govgrants.perform().flexTable().clickTableActionIcons(dataTableMap.get("Approval").get("Step 1"), recordName);
         }
         govgrants.perform().approvals().selectRadioButton(dataTableMap.get("Approval").get("Step 2"));
@@ -466,13 +438,10 @@ public final class GovGrantsProductObjects {
         govgrants.perform().approvals().submitApproval(true);
     }
 
-    private void singleRecordAssociation(int qNumber, String recordToAssociate,
-                                         Map<String, Map<String, String>> dataTableMap) {
+    private void singleRecordAssociation(int qNumber, String recordToAssociate, Map<String, Map<String, String>> dataTableMap) {
         govgrants.perform().pageDetails().clickSubTabsInsideTableView(dataTableMap.get("Associate " + qNumber).get("Step 1"));
-        govgrants.perform().flexTable().clickTableTopRightButton(dataTableMap.get("Associate " + qNumber).get("Step 3"),
-                dataTableMap.get("Associate " + qNumber).get("Step 2"));
-        chooseRecordForAssociation(dataTableMap.get("Associate " + qNumber).get("Step 4"),
-                dataTableMap.get("Associate " + qNumber).get("Step 5"), recordToAssociate.split(";"));
+        govgrants.perform().flexTable().clickTableTopRightButton(dataTableMap.get("Associate " + qNumber).get("Step 3"), dataTableMap.get("Associate " + qNumber).get("Step 2"));
+        chooseRecordForAssociation(dataTableMap.get("Associate " + qNumber).get("Step 4"), dataTableMap.get("Associate " + qNumber).get("Step 5"), recordToAssociate.split(";"));
         try {
             closeModal();
         } catch (Exception ex) {
@@ -503,7 +472,13 @@ public final class GovGrantsProductObjects {
 
         // get the column index of required column.
         for (Elements columnEle : columnList) {
-            if (columnEle.getText().equalsIgnoreCase(columnName)) {
+            if (columnEle.getText().contains("*")) {
+                String cloumnText = columnEle.getText().trim();
+                String newColumnEle = cloumnText.split("\n")[1];
+                if (newColumnEle.equalsIgnoreCase(columnName)) {
+                    break;
+                }
+            } else if (columnEle.getText().equalsIgnoreCase(columnName)) {
                 break;
             }
             counter++;
@@ -521,8 +496,7 @@ public final class GovGrantsProductObjects {
                 }
             }
         }
-        columnValueFromRowInInt = rowNumber.equalsIgnoreCase("last row") ? listOfDataInColumn.size()
-                : Integer.parseInt(rowNumber);
+        columnValueFromRowInInt = rowNumber.equalsIgnoreCase("last row") ? listOfDataInColumn.size() : Integer.parseInt(rowNumber);
         return listOfDataInColumn.get(columnValueFromRowInInt - 1).getText();
     }
 
@@ -608,8 +582,7 @@ public final class GovGrantsProductObjects {
      */
     private Boolean isNewTabOpened() {
         boolean myNewTabFound = false;
-        if (I.amPerforming().switchTo().getWindowsHandlers().size() > 1)
-            myNewTabFound = true;
+        if (I.amPerforming().switchTo().getWindowsHandlers().size() > 1) myNewTabFound = true;
         return myNewTabFound;
     }
 
@@ -697,8 +670,7 @@ public final class GovGrantsProductObjects {
     }
 
     public void iSavedSpecificLinkValueFromFlexTableInsideGivenKey(String columnValueFromRow, String columnName, String key, String flexTableId) {
-        I.amPerforming().propertiesFileOperationsTo().saveValue(key, getValueOfSpecifiedLinkColFromTableHavingColumnNameAs(columnValueFromRow,
-                columnName, flexTableId));
+        I.amPerforming().propertiesFileOperationsTo().saveValue(key, getValueOfSpecifiedLinkColFromTableHavingColumnNameAs(columnValueFromRow, columnName, flexTableId));
     }
 
     private String getValueOfSpecifiedLinkColFromTableHavingColumnNameAs(String rowNumber, String columnName, String flexTableId) {
@@ -727,8 +699,7 @@ public final class GovGrantsProductObjects {
                 }
             }
         }
-        columnValueFromRowInInt = rowNumber.equalsIgnoreCase("last row") ? listOfDataInColumn.size()
-                : Integer.parseInt(rowNumber);
+        columnValueFromRowInInt = rowNumber.equalsIgnoreCase("last row") ? listOfDataInColumn.size() : Integer.parseInt(rowNumber);
         return listOfDataInColumn.get(columnValueFromRowInInt - 1).getText();
     }
 

@@ -1,4 +1,4 @@
-@grantor-regression @grantor-parallel-regression @progressReport @progressReportForms @regression @progressReportNotes
+@grantor-regression @grantor-parallel-regression @progressReport @progressReportForms @regression @progressReportNotes @progress-report2
 Feature: Validate scenarios in Progress Report Notes
 
   @236019 @VerifythatPMsercanaddnotesinProgressreportrecordinsubmittograntorstatesandeditdeleteonlyhisownnotes @sprint-12-US-234322  @Notes

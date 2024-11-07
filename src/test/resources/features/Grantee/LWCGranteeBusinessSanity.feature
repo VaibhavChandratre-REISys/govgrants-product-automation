@@ -17442,8 +17442,6 @@ Feature: Sanity scenarios
     And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
     And I click on "Save" in the page details
     And I wait for "3" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly can see row level action button "View" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly can see row level action button "Edit" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly can see row level action button "Delete" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -17456,7 +17454,7 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I wait for "3" seconds
     Then I softly see value "Terms1" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    And I save the value from row "1" for column name "EGMS ID" as "AmendTermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
       | Rate1  | 15             | 30              | 10                             | Final                  |
@@ -17483,6 +17481,7 @@ Feature: Sanity scenarios
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
     And I click modal button "Close"
+    And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     When I navigate to "Responsibilities" sub tab
@@ -17589,7 +17588,7 @@ Feature: Sanity scenarios
     And I navigate to "Monitoring" sub tab
     Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:awardObjectiveTableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see value "{SavedValue:AmendTermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     And I navigate to "Files" sub tab
     Then I softly see value "Terms and Conditions" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
@@ -17651,7 +17650,7 @@ Feature: Sanity scenarios
     And I navigate to "Monitoring" sub tab
     Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:awardObjectiveTableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see value "{SavedValue:AmendTermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     And I navigate to "Files" sub tab
     Then I softly see value "Terms and Conditions" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
@@ -17698,7 +17697,7 @@ Feature: Sanity scenarios
     And I navigate to "Monitoring" sub tab
     Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:grantGoalsTableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:grantKPITableId---"
-    Then I softly see value "{SavedValue:TermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see value "{SavedValue:AmendTermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     And I navigate to "Management" sub tab
     Then I softly see "Change Requests" page block displayed
     Then I softly see value "Accepted" for title "Status" against the value "{SavedValue:AmendEGMSID}" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
@@ -17876,7 +17875,7 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I wait for "3" seconds
     Then I softly see value "Terms1" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    And I save the value from row "1" for column name "EGMS ID" as "AmendTermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
       | Rate1  | 15             | 30              | 10                             | Final                  |
@@ -18016,7 +18015,7 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:BudgetPeriodStartDate}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "{SavedValue:NewBudgetPeriodEndDate}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
     And I navigate to "Monitoring" sub tab
-    Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see value "{SavedValue:AmendTermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     And I wait for "3" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -18028,10 +18027,10 @@ Feature: Sanity scenarios
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Projections" sub tab
-    Then I softly do not see field "Budget Period End Date" as "{SavedValue:NewBudgetPeriodEndDate}"
+    Then I softly see field "Budget Period End Date" as "{SavedValue:BudgetPeriodEndDate}"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly see value "{SavedValue:BudgetPeriodStartDate}" for title "Start Date" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly do not see value "{SavedValue:NewBudgetPeriodEndDate}" for title "End Date" inside table "---grantee_tableId:-:ProjectTableId---"
     Then I softly do not see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     And I navigate to "Monitoring" sub tab
-    Then I softly do not see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly do not see value "{SavedValue:AmendTermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
