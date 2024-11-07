@@ -460,7 +460,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               |
       | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @75449 @75451 @75450 @75448 @75454 @VerifyAbleToViewApplication @TBExecution1
+  @75449 @75451 @75450 @75448 @75454 @VerifyAbleToViewApplication
   Scenario Outline: To verify user is able to view Applications in Applications section in Related log tab of announcement
     And I login to "As a Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
@@ -490,12 +490,15 @@ Feature: Validate all scenarios in the Application Review
     And I click on advance filter of table id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
     And I enter advance filter values inside id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
       | Application Title | contains | {SavedValue:Automation Runtime Announcement Application Review} |
-    Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Project Title" inside table "---applicationReview:-:relatedFOApplicationsTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Application Title" inside table "---applicationReview:-:relatedFOApplicationsTableId---"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:relatedFOApplicationsTableId---" with wait for record
-    Then I softly see field "Application" as "{SavedValue:Automation Runtime Announcement Application Review}"
+    Then I see the sub-header is "{SavedValue:Automation Runtime Announcement Application Review}" in the page details
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Budget" sub tab at view detail page
-    Then I softly can see "Monitoring" sub tab at view detail page
+    Then I softly can see "Proposal" sub tab at view detail page
+    Then I softly can see "Forms and Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
     And I wait for "3" seconds
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel

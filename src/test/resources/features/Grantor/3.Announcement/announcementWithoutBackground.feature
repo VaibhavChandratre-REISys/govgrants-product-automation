@@ -989,7 +989,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     #194690
     And I click on top right button "Transfer Ownership" in flex table with id "---announcement:-:annAdminOwnerReplaceTableId---"
     And I click "OK" on modal confirmation box
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     Then I see the following messages in the page details contains:
       | You need to select at least one record |
     #194685
