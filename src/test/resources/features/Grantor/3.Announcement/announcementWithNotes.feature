@@ -1329,7 +1329,7 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I click on "Delete" icon for "Notes Record8" inside flex table with id "---announcement:-:AnnouncementNotestableId---" without waiting for record
     Then I softly do not see value "Notes Record8" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @220138 @ValidatePOusercanteditdeletenotesaddedbyPMuseronaapprovedcompetitiveannouncement @sprint-9-US-201923  @Notes @TBExecution1
+  @220138 @ValidatePOusercanteditdeletenotesaddedbyPMuseronaapprovedcompetitiveannouncement @sprint-9-US-201923  @Notes
   Scenario:Validate PO user cant edit/ delete notes added by PM user on a approved competitive announcement
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab

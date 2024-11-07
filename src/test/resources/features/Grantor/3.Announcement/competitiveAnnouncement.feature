@@ -233,7 +233,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I save the value from row "1" for column name "Program Number" as "prNum" from flex table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly see value "{SavedValue:prNum}" for title "Program Number" inside table "---announcement:-:relatedAnnouncementTableId---"
 
-  @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility  @smoke @TBExecution1
+  @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility  @smoke
   Scenario: To Verify that user able to see Text fields after select Q&A Availability  as "Yes"  And  user can enter and save all required fields while creating Announcement
   | To Validate system generated validation message for  Q&A Availability section when "Question Deadline Date",and "Response Deadline date" is greater then Application Due Date.
     When I navigate to "Announcements" tab
@@ -446,7 +446,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
 #    And I navigate to "Setup" sub tab
 #    Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---announcement:-:objectivesTableId---"
 
-  @70163 @70166 @70197 @userAllowToSelectEligibilityDetails @TBExecution1
+  @70163 @70166 @70197 @userAllowToSelectEligibilityDetails
   Scenario: To Verify that user is  allowed  to select the Eligibility Details while creating Announcement
   | To verify that  without selecting "Eligibility Details" user is able to see the validation message by clicking on "Submit for approval" button.
     When I navigate to "Announcements" tab
@@ -472,7 +472,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
-    When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    When I click on "View" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click "Associate" after selection of "10.028" in the table "---announcement:-:associateForRelated---"
     When I click modal button "Close"
@@ -486,6 +486,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click "Associate" after selection of "Test" in the table "---announcement:-:associateForRelated---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I perform quick search for "Test" in "---announcement:-:relatedAnnouncementTableId---" panel
     And I click on "View" icon for "Test" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
 #    Then I see the header is "Federal/NGO Program" in the page details
 #    Then I see the sub-header is "Automation Permanent NGO Program" in the page details
@@ -495,7 +496,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
-    When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    When I click on "View" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I wait for "5" seconds
     And I click on "Remove" icon for "NGO" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
     Then I softly do not see value "NGO" for title "Type" inside table "---announcement:-:relatedAnnouncementTableId---"
@@ -516,11 +517,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Commitment |
       | {SavedValue:fundingAccount} | 2000       |
-#    When I navigate to "History" sub tab
-#    And I select "Related Funding Account" from dropdown present on top right of flex table id "History"
-#    Then I softly see value "Commitment" for title "Changed Field" inside table "History"
-#    Then I softly see value "$2,000.00" for title "New Value" inside table "History"
-#    Then I softly see value "$1,000.00" for title "Old Value" inside table "History"
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -567,7 +563,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
-    When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    When I click on "View" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     When I navigate to "Overview" sub tab
     And I click on "Remove" icon for "TestFirst TestLast" inside flex table with id "---announcement:-:contactTableId---" without waiting for record
     And I refresh the page
@@ -627,18 +623,14 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     When I navigate to "Overview" sub tab
-#    And I enter value "-1" into field "ApplicationDueDate__c"
-#    And I click on "Save" in the page details
-#    Then I softly see the following messages in the page details :
-#      | Overview Tab - Application Due Date cannot be in the past. |
-    And I enter value "0" into field "ApplicationDueDate__c"
+    And I enter value "0" into field "ApplicationDeadlineWithDateTime__c"
     And I enter value "No" into field "QAAvailability__c"
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
     And I wait for "5" seconds
     And I navigate to "Announcements" tab
     And I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    When I click toggle button to select "Draft Competitive Announcements"
+    When I click toggle button to select "All Competitive Announcements"
     When I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     Then I softly cannot see row level action button "Delete" against "Record id" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     Examples:
@@ -882,6 +874,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I navigate to "History" sub tab
+    And I refresh the page
+    And I wait for "10" seconds
     Then I softly see snapshot with name containing "Snapshot_Announcement_Submission" as name
     And I click on hyperlink containing value "Snapshot_Announcement_Submission"
     And I wait for "5" seconds
@@ -925,7 +919,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @70803 @73849 @73774 @73773 @70817 @70893 @73775 @34768 @70898 @72490 @announcementApprovalCA @verifyApproverCanNotEdit  @FieldHistoryExclude @TBExecution1
+  @70803 @73849 @73774 @73773 @70817 @70893 @73775 @34768 @70898 @72490 @announcementApprovalCA @verifyApproverCanNotEdit  @FieldHistoryExclude
   Scenario Outline: Validate the approval of an Announcement | To verify that after unpublished announcement , user can not create application from that announcement
   | To Verify that after submitting for approval, approver can not edit anything on announcement
   |To verify field history update with respect to modification in Commitment field of Announcement
@@ -1128,7 +1122,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @announcementPendingTaskPostApprovalCA @announcementCompletedTaskPostApprovalCA @TBExecution1
+  @announcementPendingTaskPostApprovalCA @announcementCompletedTaskPostApprovalCA
   Scenario Outline: Validate that after approval of an Announcement task get deleted from pending task table | Validate that after approval of an Announcement task get added to its completed task table ||
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1191,7 +1185,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @announcementPostSendBackCheckFieldHistoryCA @announcementSendBackPendingTaskToOwnerCA @announcementSendBackToOwnerCA @smoke @TBExecution1
+  @announcementPostSendBackCheckFieldHistoryCA @announcementSendBackPendingTaskToOwnerCA @announcementSendBackToOwnerCA @smoke
   Scenario: Validate the send back functionality of an Announcement || Validate the field history after send back of an announcement || Validate that after send back from approvers owner should not get pending task
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1253,7 +1247,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     Then I softly do not see values "Record Id" and "{SavedValue:Automation Runtime Competitive Announcement}" inside table
 
-  @65080 @VerifyDraftAnnouncementIsNotDisplayedForSRUer @TBExecution1
+  @65080 @VerifyDraftAnnouncementIsNotDisplayedForSRUer
   Scenario Outline: Verify Draft announcement is not displayed at SR user end.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1333,7 +1327,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @announcementRejectPendingTaskForNextApproverCA @announcementPostRejectionCheckInListViewCA @announcementPostRejectCompletedTaskForUserCA @announcementPostRejectPendingTaskForUserCA @TBExecution1
+  @announcementRejectPendingTaskForNextApproverCA @announcementPostRejectionCheckInListViewCA @announcementPostRejectCompletedTaskForUserCA @announcementPostRejectPendingTaskForUserCA
   Scenario Outline: Validate that after rejection of an Announcement task get added to it's completed task table. || Validate that after rejection from 1st approver, 2nd user should not get pending task || Validate that after rejection of an Announcement task get deleted from pending task table.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1710,7 +1704,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | {SavedValue:PM Username} | Step 2       |
     Then I softly see "You cannot specify the same user for multiple steps for Announcement" inside flex table with id "---announcement:-:approversTableId---"
 
-  @140944 @VerifyColumnAtAnnouncementApproverSection-RnRFunctionality @TBExecution1
+  @140944 @VerifyColumnAtAnnouncementApproverSection-RnRFunctionality
   Scenario Outline: Validate the columns present on the announcement for approver definition
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1750,7 +1744,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Monitoring           |
       | Closeout             |
 
-  @145325 @verifyAdditionOfApproverAfterAnnouncementIsUnpublished-RnRFuntionality  @TBExecution1
+  @145325 @verifyAdditionOfApproverAfterAnnouncementIsUnpublished-RnRFuntionality
   Scenario Outline: Validate Announcement owner can add approvers while its unpublished
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
