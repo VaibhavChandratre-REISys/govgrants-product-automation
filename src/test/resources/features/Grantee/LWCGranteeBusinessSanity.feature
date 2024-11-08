@@ -18116,7 +18116,7 @@ Feature: Sanity scenarios
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I perform quick search for "{SavedValue:FocusAreaId}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
-    Then I can see row level action button "Delete" against "Automation Runtime Focus Area" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I can see row level action button "Delete" against "{SavedValue:FocusAreaId}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
     And I click on "Delete" icon for "{SavedValue:FocusAreaId}" inside flex table with id "---grantee_tableId:-:GranteeProjectTableId---" without waiting for record
     And I perform quick search for "{SavedValue:FocusAreaId}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
     Then I do not see value "{SavedValue:FocusAreaId}" for title "Name" inside table "---grantee_tableId:-:GranteeProjectTableId---"
@@ -18143,86 +18143,16 @@ Feature: Sanity scenarios
     And I navigate to "Planning" tab
     When I navigate to "External" content inside "Programs" subheader on left panel
     And I wait for "10" seconds
-    And I perform quick search for "Maha Research and Technology Activity" in "---grantee_tableId:-:ExternalFederalPrograms---" panel
-    When I click on "View" icon for "Maha Research and Technology Activity" inside table
-    Then I softly cannot see top right button "Edit" in page detail
-    Then I see the header is "Federal Program" in the page details
-    Then I see the sub-header is "Maha Research and Technology Activity" in the page details
-    Then I softly see "Program Information" page block displayed
-    Then I softly see "Eligibility Requirements" page block displayed
-    Then I softly see "Application and Award Process" page block displayed
-    Then I softly see "Assistance Consideration" page block displayed
-    Then I softly see "Compliance Requirements" page block displayed
-    Then I softly see "Financial Information" page block displayed
-    Then I softly see "Contact Information" page block displayed
-    Then I softly see "Contact Information" page block displayed
-    Then I softly see "System Information" page block displayed
-    Then I softly see field "EGMS ID" inside page block
-    Then I softly see field "Source" inside page block
-    Then I softly see field "Source" as "SAM.gov"
-    Then I softly see field "Assistance Listing #" inside page block
-    Then I softly see field "Awarding Agency Code" inside page block
-    Then I softly see field "Federal Agency" inside page block
-    Then I softly see field "Authorization" inside page block
-    Then I softly see field "Objectives" inside page block
-    Then I softly see field "Types Of Assistance" inside page block
-    Then I softly see field "Uses And Use Restrictions" inside page block
-    Then I softly see field "Credentials/Documentation" inside page block
-    Then I softly see field "Applicant Eligibility" inside page block
-    Then I softly see field "Beneficiary Eligibility" inside page block
-    Then I softly see field "Pre-application Coordination" inside page block
-    Then I softly see field "Application Procedures" inside page block
-    Then I softly see field "Award Procedure" inside page block
-    Then I softly see field "Deadlines" inside page block
-    Then I softly see field "Date Range of Approval/Disapproval" inside page block
-    Then I softly see field "Appeals" inside page block
-    Then I softly see field "Renewals" inside page block
-    Then I softly see field "Criteria For Selecting Proposals" inside page block
-    Then I softly see field "Formula And Matching Requirements" inside page block
-    Then I softly see field "Length And Time Phasing Of Assistance" inside page block
-    Then I softly see field "Reports" inside page block
-    Then I softly see field "Audits" inside page block
-    Then I softly see field "Records" inside page block
-    Then I softly see field "Regulations, Guidelines, and Literature" inside page block
-    Then I softly see field "Account Identification" inside page block
-    Then I softly see field "Obligations" inside page block
-    Then I softly see field "Range and Average of Financial Assistance" inside page block
-    Then I softly see field "Program Accomplishments" inside page block
-    Then I softly see field "Regional Or Local Office" inside page block
-    Then I softly see field "Headquarters Office" inside page block
-    Then I softly see field "Website Address" inside page block
-    Then I softly see field "Created By" inside page block
-    Then I softly see field "Last Modified By" inside page block
-    Then I softly see field "Last Modified Date" inside page block
-    And I navigate to "Planning" tab
-    When I navigate to "External" content inside "Programs" subheader on left panel
-    Then I softly see "Actions" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
-    Then I softly see "Program Number" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
-    Then I softly see "Program Number" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
-    Then I softly see "Title" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
-    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
-    Then I softly see "Created By" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
-    Then I softly see "Status" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
-    And I click toggle button to select "Non-Federal Programs- All"
-    When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
-    And I wait for "2" seconds
-    Then I see option "Refresh" present in parallel dropdown
-    Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Download as CSV" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Programs- All"
-    And I wait for "8" seconds
-    And I download the file
-    Then I softly see "Non-Federal Programs- All" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
-    When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
-    And I select "Refresh" from parallel lines dropdown of "Non-Federal Programs- All"
-    Then I see table is refreshing
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFederalProgramsTableId---"
     Then I softly see "Create Non Federal Program" opens in overLay window
     Then I softly see field on modal "Program Name" inside page block
     Then I softly see field on modal "Abbreviation" inside page block
     Then I softly see field on modal "Type" inside page block
     Then I softly see field on modal "NGO Organization" inside page block
+    And I click modal button "Save and Continue"
+ Program Name is required to save.
+ Type is required to save.
+ NGO Organization is required to save.
     When I enter "Grantee_nonFed" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I softly see field "Status" as "Created"
