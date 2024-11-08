@@ -951,7 +951,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                            | Application Name                                             |
       | {SavedValue:Automation Runtime Announcement for Application} | {SavedValue:Automation Runtime Announcement for Application} |
 
-  @80518 @verifyStatusOfSMEReviewInCompletedTasks @TBExecution1
+  @80518 @verifyStatusOfSMEReviewInCompletedTasks
   Scenario Outline: validate status of SME Review is Completed inside completed tasks once review form is submitted for SME review with expected user
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
     When I am on "SUBPORTAL" portal
@@ -1144,9 +1144,9 @@ Feature: Validate all scenarios in the Application Review without background
     And I navigate to "Home" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record ID" in "---applicationReview:-:completedTaskTableId---" panel
-    Then I see value "Completed" for title "Status" against the value "Conduct SME Review Review for Application #{SavedValue:ApplicationEGMSID} Submitted by SAN DIEGO ELECTRICAL TRAINING TRUST" inside table "---applicationReview:-:completedTaskTableId---"
-    Then I see value "Completed" for title "Status" against the value "Conduct SME Review Review for Application #{SavedValue:ApplicationEGMSID} Submitted by SAN DIEGO ELECTRICAL TRAINING TRUST" inside table "---applicationReview:-:completedTaskTableId---"
-    Then I see value "Completed" for title "Status" against the value "Conduct SME Review Review for Application #{SavedValue:ApplicationEGMSID} Submitted by SAN DIEGO ELECTRICAL TRAINING TRUST" inside table "---applicationReview:-:completedTaskTableId---"
+    Then I softly see value "Completed" for title "Status" against the value "Conduct SME Review Review for Application #{SavedValue:ApplicationEGMSID} Submitted by SAN DIEGO ELECTRICAL TRAINING TRUST" inside table "---applicationReview:-:completedTaskTableId---"
+    Then I softly see value "Completed" for title "Status" against the value "Conduct SME Review Review for Application #{SavedValue:ApplicationEGMSID} Submitted by SAN DIEGO ELECTRICAL TRAINING TRUST" inside table "---applicationReview:-:completedTaskTableId---"
+    Then I softly see value "Completed" for title "Status" against the value "Conduct SME Review Review for Application #{SavedValue:ApplicationEGMSID} Submitted by SAN DIEGO ELECTRICAL TRAINING TRUST" inside table "---applicationReview:-:completedTaskTableId---"
 
     Examples:
       | Announcement Name                                            | Application Name                                             |

@@ -2014,7 +2014,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @279410 @279704  @Sprint-25-US-227292  @Undo @TBExecution1
+  @279410 @279704  @Sprint-25-US-227292  @Undo
   Scenario Outline:Validate after completing negotiation from management review step, PM user can again start application review from Prescreen review step and can assign the application for review to the reviewers
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2070,14 +2070,17 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I enter the following values into flex table with id "---announcement:-:announcementReviewQuestionTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 5              | Test 5   | Yes/No | 50        |
+    And I wait for "1" seconds
     When I collapse nested table containing column value "Eligibility"
     And I wait for "2" seconds
     And I expand nested table containing column value "Completeness"
     When I enter the following values into flex table with id "---announcement:-:announcementReviewQuestionTableId---" by clicking "New" :
       | Question Order | Question | Type   | Max Score |
       | 5              | Test 5   | Yes/No | 50        |
+    And I wait for "1" seconds
     When I collapse nested table containing column value "Completeness"
     And I refresh the page
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name           | Announcement |
