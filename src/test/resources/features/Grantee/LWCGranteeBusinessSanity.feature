@@ -18101,7 +18101,7 @@ Feature: Sanity scenarios
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
-    When I enter in modal value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter in modal value "Automation Focus Area" into field "Title__c"
     When I enter in modal value "Automation Test Description" into field "Description__c"
     When I click modal button "Save and Continue"
     And I wait for "2" seconds
@@ -18110,16 +18110,16 @@ Feature: Sanity scenarios
    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
-    And I perform quick search for "Automation Runtime Focus Area" in "---grantee_tableId:-:GranteeProjectTableId---" panel
-    Then I cannot see row level action button "Delete" against "Automation Runtime Focus Area" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    And I perform quick search for "{SavedValue:FocusAreaId}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I cannot see row level action button "Delete" against "{SavedValue:FocusAreaId}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
-    And I perform quick search for "Automation Runtime Focus Area" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    And I perform quick search for "{SavedValue:FocusAreaId}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
     Then I can see row level action button "Delete" against "Automation Runtime Focus Area" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
-    And I click on "Delete" icon for "Automation Runtime Focus Area" inside flex table with id "---grantee_tableId:-:GranteeProjectTableId---" without waiting for record
-    And I perform quick search for "Automation Runtime Focus Area" in "---grantee_tableId:-:GranteeProjectTableId---" panel
-    Then I do not see value "Automation Runtime Focus Area" for title "Name" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+    And I click on "Delete" icon for "{SavedValue:FocusAreaId}" inside flex table with id "---grantee_tableId:-:GranteeProjectTableId---" without waiting for record
+    And I perform quick search for "{SavedValue:FocusAreaId}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I do not see value "{SavedValue:FocusAreaId}" for title "Name" inside table "---grantee_tableId:-:GranteeProjectTableId---"
 
   @476620 @476621 @476622 @VerifyFDusercannotDeactivateactiveStrategicplan
   Scenario Outline: Verify FD user cannot Deactivate active Strategic plan
@@ -18127,8 +18127,8 @@ Feature: Sanity scenarios
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Active"
-    And I perform quick search for "Automation Permanent Strategic Plan" in "---grantee_tableId:-:StrategicPlans---" panel
-    And I click on "View" icon for "Automation Permanent Strategic Plan" inside table
+    And I perform quick search for "<RecordId>" in "---grantee_tableId:-:StrategicPlans---" panel
+    And I click on "View" icon for "<RecordId>" inside table
     Then I cannot see top right button "Deactivate" in page detail
 
     Examples:
@@ -18136,3 +18136,166 @@ Feature: Sanity scenarios
       | GRANTEE FO    | Automation Permanent Strategic Plan |
       | GRANTEE FD    | Automation Permanent Strategic Plan |
       | GRANTEE PO    | MI_STPlan_7824                      |
+
+ @476976 @NonFederalprogramVerifyvalidationsdisplayedtoPOuseronNonFederalprogram
+  Scenario: Non-Federal program - Verify validations displayed to PO user on Non Federal program
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "External" content inside "Programs" subheader on left panel
+    And I wait for "10" seconds
+    And I perform quick search for "Maha Research and Technology Activity" in "---grantee_tableId:-:ExternalFederalPrograms---" panel
+    When I click on "View" icon for "Maha Research and Technology Activity" inside table
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I see the header is "Federal Program" in the page details
+    Then I see the sub-header is "Maha Research and Technology Activity" in the page details
+    Then I softly see "Program Information" page block displayed
+    Then I softly see "Eligibility Requirements" page block displayed
+    Then I softly see "Application and Award Process" page block displayed
+    Then I softly see "Assistance Consideration" page block displayed
+    Then I softly see "Compliance Requirements" page block displayed
+    Then I softly see "Financial Information" page block displayed
+    Then I softly see "Contact Information" page block displayed
+    Then I softly see "Contact Information" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I softly see field "EGMS ID" inside page block
+    Then I softly see field "Source" inside page block
+    Then I softly see field "Source" as "SAM.gov"
+    Then I softly see field "Assistance Listing #" inside page block
+    Then I softly see field "Awarding Agency Code" inside page block
+    Then I softly see field "Federal Agency" inside page block
+    Then I softly see field "Authorization" inside page block
+    Then I softly see field "Objectives" inside page block
+    Then I softly see field "Types Of Assistance" inside page block
+    Then I softly see field "Uses And Use Restrictions" inside page block
+    Then I softly see field "Credentials/Documentation" inside page block
+    Then I softly see field "Applicant Eligibility" inside page block
+    Then I softly see field "Beneficiary Eligibility" inside page block
+    Then I softly see field "Pre-application Coordination" inside page block
+    Then I softly see field "Application Procedures" inside page block
+    Then I softly see field "Award Procedure" inside page block
+    Then I softly see field "Deadlines" inside page block
+    Then I softly see field "Date Range of Approval/Disapproval" inside page block
+    Then I softly see field "Appeals" inside page block
+    Then I softly see field "Renewals" inside page block
+    Then I softly see field "Criteria For Selecting Proposals" inside page block
+    Then I softly see field "Formula And Matching Requirements" inside page block
+    Then I softly see field "Length And Time Phasing Of Assistance" inside page block
+    Then I softly see field "Reports" inside page block
+    Then I softly see field "Audits" inside page block
+    Then I softly see field "Records" inside page block
+    Then I softly see field "Regulations, Guidelines, and Literature" inside page block
+    Then I softly see field "Account Identification" inside page block
+    Then I softly see field "Obligations" inside page block
+    Then I softly see field "Range and Average of Financial Assistance" inside page block
+    Then I softly see field "Program Accomplishments" inside page block
+    Then I softly see field "Regional Or Local Office" inside page block
+    Then I softly see field "Headquarters Office" inside page block
+    Then I softly see field "Website Address" inside page block
+    Then I softly see field "Created By" inside page block
+    Then I softly see field "Last Modified By" inside page block
+    Then I softly see field "Last Modified Date" inside page block
+    And I navigate to "Planning" tab
+    When I navigate to "External" content inside "Programs" subheader on left panel
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
+    Then I softly see "Program Number" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
+    Then I softly see "Program Number" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
+    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
+    Then I softly see "Created By" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
+    And I click toggle button to select "Non-Federal Programs- All"
+    When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Download as CSV" present in parallel dropdown
+    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Programs- All"
+    And I wait for "8" seconds
+    And I download the file
+    Then I softly see "Non-Federal Programs- All" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
+    When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
+    And I select "Refresh" from parallel lines dropdown of "Non-Federal Programs- All"
+    Then I see table is refreshing
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFederalProgramsTableId---"
+    Then I softly see "Create Non Federal Program" opens in overLay window
+    Then I softly see field on modal "Program Name" inside page block
+    Then I softly see field on modal "Abbreviation" inside page block
+    Then I softly see field on modal "Type" inside page block
+    Then I softly see field on modal "NGO Organization" inside page block
+    When I enter "Grantee_nonFed" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    Then I softly see field "Status" as "Created"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Related Log" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Chatter" sub tab at view detail page
+    Then I softly can see "Field Audit" sub tab at view detail page
+    Then I softly see "Information" page block displayed
+    Then I softly see "Eligibility Requirements" page block displayed
+    Then I softly see "Application and Award Process" page block displayed
+    Then I softly see "Assistance Consideration" page block displayed
+    Then I softly see "Compliance Requirements" page block displayed
+    Then I softly see "Financial Information" page block displayed
+    Then I softly see "Contact Information" page block displayed
+    Then I softly see "System Information" page block displayed
+    When I navigate to "Related Log" sub tab
+    Then I softly see "Opportunities" page block displayed
+    Then I softly see "Pre-Applications" page block displayed
+    Then I softly see "Applications" page block displayed
+    Then I softly see "Grants" page block displayed
+    And I navigate to "Files" sub tab
+    Then I softly see "Program Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    When I navigate to "History" sub tab
+    Then I softly see "Snapshot History" page block displayed
+    When I enter "Grantee_nonFed_Edition" values from "Program_Field_Values.xlsx"
+    And I generate the random digits and save as "digits"
+    And I enter value "{SavedValue:digits}" into field "FederalProgramCFDA__c"
+    And I click on "Save" in the page details
+    And I wait for "3" seconds
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    And I pause execution for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+    When I click modal button "Close"
+    And I pause execution for "3" seconds
+    Then I softly see "Program Artifacts" has been added in "Program Files" flex table
+    Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    And I click on "Edit" icon for "Program Artifacts" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    And I select Classification as "Other Artifacts" at upload file modal
+    When I click modal button "Save"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "5" seconds
+    Then I softly see value "Other Artifacts" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
+    And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---" without waiting for record
+    Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:nonFedNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:nonFedNotesTableId---" by clicking "Edit" :
+      | Created By | Title                     | Description                  |
+      | Sarah PM   | Notes Record for Sarah PM | Automation Notes Description |
+    Then I softly see value "Notes Record for Sarah PM" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly see value "Automation Notes Description" for title "Description" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    And I navigate to "Chatter" sub tab in split screen
+    And I post the message "Automation Test" inside chatter
+    Then I softly see post "Automation Test" by user "Sarah PM"
+    And I click on "Activate" in the page details
+    Then I softly see field "Status" as "Active"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Active" for title "New Value" inside field history table
+    And I softly see value "Created" for title "Original Value" inside field history table
