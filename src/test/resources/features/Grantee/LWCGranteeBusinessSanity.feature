@@ -18062,12 +18062,25 @@ Feature: Sanity scenarios
     And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    When I click "Associate" after selection of "Automation Permanent Draft Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-     #@440232
+    And I perform quick search for "Automation Permanent Draft Focus Area" in "---grantee_tableId:-:ProjectTableId---" panel
+      #@440232
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+    And I perform quick search for "Automation Permanent Draft Focus Area" in "---grantee_tableId:-:ProjectTableId---" panel
     #@440231
     Then I softly see "Automation Permanent Focus Area" inside flex table with id "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+
+  @440215 @FocusAreaVerifyOnlyAdminEXEPMprofileabletoseetheNEWbuttontocreatetheFocusareas
+  Scenario Outline: Focus Area - Verify Only Admin ,EXE ,PM profile able to see the NEW button to create the Focus areas.
+    When I login to "As a Grantee" app as "<User>" user
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:GranteeProjectTableId---"
+
+    Examples:
+      | User          |
+      | GRANTEE Admin |
+      | GRANTEE EXE   |
+      | GRANTEE PM    |
 
  @440216 @FocusAreaVerifyOnlyPOFOFDprofilenotabletoseetheNEWbuttontocreatetheFocusareas
   Scenario Outline: Focus Area - Verify Only PO,FO, FD profile not able to see the NEW button to create the Focus areas.
