@@ -18065,7 +18065,7 @@ Feature: Sanity scenarios
     And I perform quick search for "Automation Permanent Draft Focus Area" in "---grantee_tableId:-:ProjectTableId---" panel
       #@440232
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    And I perform quick search for "Automation Permanent Draft Focus Area" in "---grantee_tableId:-:ProjectTableId---" panel
+    And I perform quick search for "Automation Permanent Focus Area" in "---grantee_tableId:-:ProjectTableId---" panel
     #@440231
     Then I softly see "Automation Permanent Focus Area" inside flex table with id "---grantee_tableId:-:selectAwardFocusAreaTableId---"
 
@@ -18094,3 +18094,29 @@ Feature: Sanity scenarios
      | GRANTEE PO |
      | GRANTEE FO |
      | GRANTEE FD |
+
+ @440213 @VerifywithPMProfileonlydraftcreatestatusrecordabletodeletebyrecordowneronly
+  Scenario: Verify with PM Profile ,only draft (create) status record able to delete by record owner only
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I enter in modal value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter in modal value "Automation Test Description" into field "Description__c"
+    When I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "FocusAreaId"
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I perform quick search for "Automation Runtime Focus Area" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I cannot see row level action button "Delete" against "Automation Runtime Focus Area" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I perform quick search for "Automation Runtime Focus Area" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I can see row level action button "Delete" against "Automation Runtime Focus Area" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    And I click on "Delete" icon for "Automation Runtime Focus Area" inside flex table with id "---grantee_tableId:-:GranteeProjectTableId---" without waiting for record
+    And I perform quick search for "Automation Runtime Focus Area" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I do not see value "Automation Runtime Focus Area" for title "Name" inside table "---grantee_tableId:-:GranteeProjectTableId---"
