@@ -18107,12 +18107,12 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FocusAreaId"
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+   When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I perform quick search for "Automation Runtime Focus Area" in "---grantee_tableId:-:GranteeProjectTableId---" panel
     Then I cannot see row level action button "Delete" against "Automation Runtime Focus Area" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
-   When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I perform quick search for "Automation Runtime Focus Area" in "---grantee_tableId:-:GranteeProjectTableId---" panel
@@ -18121,172 +18121,18 @@ Feature: Sanity scenarios
     And I perform quick search for "Automation Runtime Focus Area" in "---grantee_tableId:-:GranteeProjectTableId---" panel
     Then I do not see value "Automation Runtime Focus Area" for title "Name" inside table "---grantee_tableId:-:GranteeProjectTableId---"
 
-  @476621 @VerifyFDusercannotDeactivateactiveStrategicplan
-  Scenario: Verify FD user cannot Deactivate active Strategic plan
-    When I login to "As a Grantee" app as "GRANTEE ADMIN" user
+  @476620 @476621 @476622 @VerifyFDusercannotDeactivateactiveStrategicplan
+  Scenario Outline: Verify FD user cannot Deactivate active Strategic plan
+    When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Strategic Plans - Draft"
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicPlans---"
-    And I enter in modal "Grantee_StrategicPlanCreation" values from "StrategicPlan_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    When I enter value "Automation Test Description" into field "StrategyDescription__c"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see field "Description" as "Automation Test Description" in "Details" pageblock
-    When I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I see "AttachmentTesting.pdf" has been added in "Strategic Plan Files" flex table
-    And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
-    And I update title as "Automation.pdf" on upload file modal
-    And I select Classification as "Strategic Plan" at upload file modal
-    When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
-    And I wait for "2" seconds
-    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
-    Then I softly see value "Strategic Plan" for title "Classification" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I see "Attachment.pdf" has been added in "Strategic Plan Files" flex table
-    When I enter the following values into flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
-    When I enter the following values into flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---" by clicking "New" :
-      | Title         | Description       |
-      | Notes Record1 | Automation Notes1 |
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:strategicPlansNotesTableId---"
-    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:strategicPlansNotesTableId---"
-    And I navigate to "Messages" sub tab
-    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
-    And I send the email under collab tab with following details:
-      | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
-    When I click modal button "Close"
-    And I refresh the page
-    And I wait for "3" seconds
-    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
-    And I navigate to "Overview" sub tab
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
-    When I enter in modal value "Automation Strategic Goal" into field "StrategyTitle__c"
-    When I click modal button "Save and Continue"
-    When I enter value "Automation Test Description" into field "StrategyDescription__c"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see field "Description" as "Automation Test Description" in "Details" pageblock
-    When I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicGoalsFilesTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I see "AttachmentTesting.pdf" has been added in "Strategic GoaI Files" flex table
-    And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:strategicGoalsFilesTableId---"
-    And I update title as "Automation.pdf" on upload file modal
-    And I select Classification as "Strategic Goal" at upload file modal
-    When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
-    And I wait for "2" seconds
-    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
-    Then I softly see value "Strategic Goal" for title "Classification" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicGoalsFilesTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I see "Attachment.pdf" has been added in "Strategic GoaI Files" flex table
-    When I enter the following values into flex table with id "---grantee_tableId:-:strategicGoalsNotesTableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
-    When I enter the following values into flex table with id "---grantee_tableId:-:strategicGoalsNotesTableId---" by clicking "New" :
-      | Title         | Description       |
-      | Notes Record1 | Automation Notes1 |
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:strategicGoalsNotesTableId---"
-    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:strategicGoalsNotesTableId---"
-    And I navigate to "Messages" sub tab
-    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
-    And I send the email under collab tab with following details:
-      | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
-    When I click modal button "Close"
-    And I refresh the page
-    And I wait for "3" seconds
-    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
-    And I navigate to "Overview" sub tab
-    When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
-    When I enter in modal value "Automation Strategic Objective" into field "StrategyTitle__c"
-    When I click modal button "Save and Continue"
-    When I enter value "Automation Test Description" into field "StrategyDescription__c"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see field "Activities" as "Automation Test Description"
-    When I navigate to "Related Log" sub tab
-    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:strategicObjectivesKPITableId---"
-    When I click "Add" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
-    When I click modal button "Close"
-    And I refresh the page
-    And I wait for "3" seconds
-    Then I softly see that "Automation Runtime KPI" has been added in flextable with Id "---grantee_tableId:-:strategicObjectivesKPITableId---"
-    Then I softly see field "Status" as "Draft"
-    When I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:objectivesAddFilesTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I see "AttachmentTesting.pdf" has been added in "Objective Files" flex table
-    And I click on "Edit" icon for "Others" inside flex table with id "---grantee_tableId:-:objectivesAddFilesTableId---"
-    And I update title as "Automation.pdf" on upload file modal
-    And I select Classification as "Objective" at upload file modal
-    When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
-    And I wait for "2" seconds
-    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
-    Then I softly see value "Objective" for title "Classification" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:objectivesAddFilesTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I see "Attachment.pdf" has been added in "Objective Files" flex table
-    When I enter the following values into flex table with id "---grantee_tableId:-:objectivesNotesTableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
-    When I enter the following values into flex table with id "---grantee_tableId:-:objectivesNotesTableId---" by clicking "New" :
-      | Title         | Description       |
-      | Notes Record1 | Automation Notes1 |
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:objectivesNotesTableId---"
-    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:objectivesNotesTableId---"
-    And I navigate to "Messages" sub tab
-    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
-    And I send the email under collab tab with following details:
-      | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
-    When I click modal button "Close"
-    And I refresh the page
-    And I wait for "3" seconds
-    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
-    And I save the field labeled "Strategic Plan" as "StrategicPlan"
-    And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
-    When I navigate to "Related Log" sub tab
-    Then I softly see that "Automation Runtime KPI" has been added in flextable with Id "---grantee_tableId:-:strategicPlanKPITableId---"
-    Then I softly see field "Status" as "Draft"
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    And I navigate to "Planning" tab
-    When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Strategic Plans - Draft"
-    And I perform quick search for "{SavedValue:StrategicPlan}" in "---grantee_tableId:-:StrategicPlans---" panel
-    Then I softly see value "{SavedValue:StrategicPlan}" for title "EGMS ID" inside table "---grantee_tableId:-:StrategicPlans---"
-    When I expand nested table containing column value "{SavedValue:StrategicPlan}"
-    Then I softly see value "Automation Strategic Goal" for title "Strategic Goal" inside table "---grantee_tableId:-:StrategicGoalsChild---"
-    When I expand nested table containing column value "Automation Strategic Goal"
-    Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
+    And I click toggle button to select "Strategic Plans - Active"
+    And I perform quick search for "Automation Permanent Strategic Plan" in "---grantee_tableId:-:StrategicPlans---" panel
+    And I click on "View" icon for "Automation Permanent Strategic Plan" inside table
+    Then I cannot see top right button "Deactivate" in page detail
+
+    Examples:
+      | User          | RecordId                            |
+      | GRANTEE FO    | Automation Permanent Strategic Plan |
+      | GRANTEE FD    | Automation Permanent Strategic Plan |
+      | GRANTEE PO    | MI_STPlan_7824                      |
