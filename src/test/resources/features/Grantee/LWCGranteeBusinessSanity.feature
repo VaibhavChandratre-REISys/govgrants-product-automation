@@ -78,7 +78,7 @@ Feature: Sanity scenarios
 
   @440386 @ValidatePMusercancreateandActivateStrategicplan
   Scenario: Validate PM user can create and Activate Strategic plan
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Draft"
@@ -126,7 +126,7 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
@@ -11045,7 +11045,7 @@ Feature: Sanity scenarios
     Then I softly see value "$700.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$700.00" for title "Non-Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
 
-  @446143 @ValidateGPCloseoutwithPMProfileIfCloseoutisinApprovedstatethenabletoseetheaccessofsection @GranteeTBE
+  @446143 @ValidateGPCloseoutwithPMProfileIfCloseoutisinApprovedstatethenabletoseetheaccessofsection
   Scenario: Validate GP Closeout with PM Profile ,If Closeout is in Approved state then able to see the access of section
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -11878,7 +11878,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:focusEGMSID}" inside table
     Then I cannot see top right button "Deactivate" in page detail
 
-  @476625 @476626 @476627 @476628 @476629 @476630 @476631 @ValidateFederalprogramPMusercanviewFederalProgram
+  @476625 @476626 @476627 @476628 @476629 @476630 @476631 @ValidateFederalprogramPMusercanviewFederalProgram @GranteeTBE
   Scenario Outline: Validate Federal program PM/Po/EXE/FO/FD/ADMIN/AUD user can view Federal Program
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -11950,8 +11950,9 @@ Feature: Sanity scenarios
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @476632 @ValidateNon-FederalprogramPOusercancreateandActivateNonFederalprogram
+  @476632 @ValidateNon-FederalprogramPOusercancreateandActivateNonFederalprogram @GranteeTBE
   Scenario: Non-Federal program PO user can create and Activate Non Federal program
+    When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Planning" tab
     When I navigate to "External" content inside "Programs" subheader on left panel
     Then I softly see "Actions" in flex table header "---grantee_tableId:-:nonFederalProgramsTableId---"
@@ -12036,8 +12037,10 @@ Feature: Sanity scenarios
     And I wait for "5" seconds
     Then I softly see value "Automation.pdf" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
+    And I click on "Download" icon for "Other Artifacts" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---" without waiting for record
+    Then I softly verify that the file "Automation.pdf" is downloaded
     And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---" without waiting for record
-    Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly do not see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:nonFedNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
@@ -12047,15 +12050,40 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:nonFedNotesTableId---" by clicking "Edit" :
       | Created By | Title                     | Description                  |
-      | Sarah PM   | Notes Record for Sarah PM | Automation Notes Description |
+      | Grantee PO | Notes Record for Sarah PM | Automation Notes Description |
     Then I softly see value "Notes Record for Sarah PM" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
     Then I softly see value "Automation Notes Description" for title "Description" inside table "---grantee_tableId:-:nonFedNotesTableId---"
     And I navigate to "Chatter" sub tab in split screen
     And I post the message "Automation Test" inside chatter
-    Then I softly see post "Automation Test" by user "Sarah PM"
+    Then I softly see post "Automation Test" by user "Grantee PO"
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Active" for title "New Value" inside field history table
     And I softly see value "Created" for title "Original Value" inside field history table
+
+  @476633 @476634 @476635 @476636 @476637 @ValidateNon-FederalprogramAdminusercannotcreateNonFederalprogram @GranteeTBE
+  Scenario Outline: Validate Non-Federal program Admin user cannot create Non Federal program
+    When I login to "As a Grantee" app as "<userType>" user
+    And I navigate to "Planning" tab
+    When I navigate to "External" content inside "Programs" subheader on left panel
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:nonFederalProgramsTableId---"
+    Examples:
+      | userType        |
+      | GRANTEE ADMIN   |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE EXE     |
+      | GRANTEE AUDITOR |
+
+  @476612 @476615 @ValidateStrategicPlanFOusercannotcreateStrategicPlan @GranteeTBE
+  Scenario Outline: Validate Strategic Plan FO user cannot create Strategic Plan
+    When I login to "As a Grantee" app as "<userType>" user
+    And I navigate to "Planning" tab
+    When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:StrategicPlans---"
+    Examples:
+      | userType        |
+      | GRANTEE FD      |
+      | GRANTEE AUDITOR |
