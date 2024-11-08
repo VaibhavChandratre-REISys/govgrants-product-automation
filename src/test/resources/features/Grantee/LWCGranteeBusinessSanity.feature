@@ -18034,3 +18034,50 @@ Feature: Sanity scenarios
     Then I softly do not see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:awardIndirectRateTableId---"
     And I navigate to "Monitoring" sub tab
     Then I softly do not see value "{SavedValue:AmendTermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+
+  @440231 @440232 @verifywithPMprofileunabletoseethedraftedfocusareatoselectinDirectGrantAward.
+  Scenario:verify with PM profile unable to see the drafted focus area to select in Direct Grant / Award.
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I wait for "2" seconds
+    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Title" as "Automation Runtime award"
+    And I click on "Edit" in the page details
+    When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
+    And I navigate to "Projections" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    When I click "Associate" after selection of "Automation Permanent Draft Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+     #@440232
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+    #@440231
+    Then I softly see "Automation Permanent Focus Area" inside flex table with id "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+
+ @440216 @FocusAreaVerifyOnlyPOFOFDprofilenotabletoseetheNEWbuttontocreatetheFocusareas
+  Scenario Outline: Focus Area - Verify Only PO,FO, FD profile not able to see the NEW button to create the Focus areas.
+    When I login to "As a Grantee" app as "<User>" user
+   When I navigate to "Planning" tab
+   When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+   Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:GranteeProjectTableId---"
+
+   Examples:
+     | User       |
+     | GRANTEE PO |
+     | GRANTEE FO |
+     | GRANTEE FD |
