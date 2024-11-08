@@ -11878,7 +11878,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:focusEGMSID}" inside table
     Then I cannot see top right button "Deactivate" in page detail
 
-  @476625 @476626 @476627 @476628 @476629 @476630 @476631 @ValidateFederalprogramPMusercanviewFederalProgram @GranteeTBE
+  @476625 @476626 @476627 @476628 @476629 @476630 @476631 @ValidateFederalprogramPMusercanviewFederalProgram
   Scenario Outline: Validate Federal program PM/Po/EXE/FO/FD/ADMIN/AUD user can view Federal Program
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -11942,15 +11942,15 @@ Feature: Sanity scenarios
 
     Examples:
       | userType        |
-#      | GRANTEE PM      |
-#      | GRANTEE PO      |
-#      | GRANTEE EXE     |
-#      | GRANTEE FO      |
-#      | GRANTEE FD      |
-#      | GRANTEE ADMIN   |
+      | GRANTEE PM      |
+      | GRANTEE PO      |
+      | GRANTEE EXE     |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @476632 @ValidateNon-FederalprogramPOusercancreateandActivateNonFederalprogram @GranteeTBE
+  @476632 @ValidateNon-FederalprogramPOusercancreateandActivateNonFederalprogram
   Scenario: Non-Federal program PO user can create and Activate Non Federal program
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Planning" tab
@@ -12063,7 +12063,7 @@ Feature: Sanity scenarios
     Then I softly see value "Active" for title "New Value" inside field history table
     And I softly see value "Created" for title "Original Value" inside field history table
 
-  @476633 @476634 @476635 @476636 @476637 @ValidateNon-FederalprogramAdminusercannotcreateNonFederalprogram @GranteeTBE
+  @476633 @476634 @476635 @476636 @476637 @ValidateNon-FederalprogramAdminusercannotcreateNonFederalprogram
   Scenario Outline: Validate Non-Federal program Admin user cannot create Non Federal program
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -12071,13 +12071,13 @@ Feature: Sanity scenarios
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:nonFederalProgramsTableId---"
     Examples:
       | userType        |
-#      | GRANTEE ADMIN   |
-#      | GRANTEE FO      |
-#      | GRANTEE FD      |
-#      | GRANTEE EXE     |
+      | GRANTEE ADMIN   |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE EXE     |
       | GRANTEE AUDITOR |
 
-  @476612 @476615 @ValidateStrategicPlanFOusercannotcreateStrategicPlan @GranteeTBE
+  @476612 @476615 @ValidateStrategicPlanFOusercannotcreateStrategicPlan
   Scenario Outline: Validate Strategic Plan FO user cannot create Strategic Plan
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -12085,5 +12085,74 @@ Feature: Sanity scenarios
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:StrategicPlans---"
     Examples:
       | userType        |
-#      | GRANTEE FD      |
+      | GRANTEE FD      |
       | GRANTEE AUDITOR |
+
+  @443818 @ValidateAwardwithnonownerPMProfileonawardpagelayoutunabletoseeEditandSubmitforapprovalbutton @GranteeTBE
+  Scenario: Validate Award with non owner (PM Profile) on award page layout unable to see Edit and Submit for approval button
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I wait for "2" seconds
+    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
+
+  @443822 @ValidateAwardwithEXEprofileIfinDirectgrantselectNOforProgramIncomeAllowed?AndAllowIndirectCosts?fieldTheninawardunabletoseetheSectionsforthatfield @GranteeTBE
+  Scenario: Validate Award with EXE profile If in Direct grant select NO for Program Income Allowed? And Allow Indirect Costs? field Then in award unable to see the Sections for that field
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I enter "Grantee_Grant_Setting_No" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    When I click on "Cancel" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
+    When I click modal button "OK"
+    Then I can see top right button "Edit" in page detail
+    Then I softly see field "UEI Number" as ""
+    And I click on "Edit" in the page details
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    And I click on "Save" in the page details
+    And I navigate to "Financials" sub tab
+    Then I softly cannot see field "Budgeted Cash Match" inside page block
+    Then I softly cannot see field "Budgeted Non-Cash Match" inside page block
+    Then I softly cannot see field "Budgeted Non-Cash Match" inside page block
+    Then I softly cannot see field "Budgeted Leverage" inside page block
+    Then I softly cannot see field "Total Anticipated Program Income" inside page block
+    Then I softly cannot see field "Total Program Income Expenditure" inside page block
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Projections" sub tab
+    Then I softly cannot see field "Maximum Indirect Cost Rate" inside page block
+    Then I softly cannot see field "Program Income Treatment Type" inside page block
+    Then I softly do not see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly do not see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly do not see "Program Income" page block displayed
+    Then I softly do not see "Indirect Rates" page block displayed
