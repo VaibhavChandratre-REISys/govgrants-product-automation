@@ -18193,7 +18193,7 @@ Feature: Sanity scenarios
    Then I softly see fields "WebsiteAddress__c" is in edit mode
    When I clear the value from field "FederalProgramCFDA__c"
    When I clear the value from field "ProgramName__c"
-   When I clear the value from field "Account__c"
+   And I click on remove for lookup from field "Account__c"
    And I click on "Save" in the page details
    Then I softly see the following messages in the page details :
    | Program Number is required to save under Overview.        |
