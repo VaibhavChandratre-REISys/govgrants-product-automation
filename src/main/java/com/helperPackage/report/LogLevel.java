@@ -32,6 +32,7 @@ public enum LogLevel {
     BUSINESS_LAYER_ERROR(BRIGHT_YELLOW, "[BuLayer:Error]"),
     PROJECT_LAYER_INFO(CYAN, "[PLayer:Info]"),
     PROJECT_LAYER_ERROR(BRIGHT_WHITE, "[PLayer:Error]"),
+    TEST_EXCELROW_INFO(BRIGHT_PURPLE, "[Row:Info]"),
     EMPTY_LABEL(BRIGHT_WHITE, "");
 
     private COLOR logColor;

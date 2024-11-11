@@ -504,6 +504,8 @@ public final class GovGrantsSteps {
         }
     }
 
+
+
     /**
      * Uploads an attachment file using a flex table edit action
      *
@@ -1203,7 +1205,7 @@ public final class GovGrantsSteps {
     }
 
     @When("^I (enter|enter in modal|enter in form) \"([^\"]*)\" script values from \"([^\"]*)\"$")
-    public void iEnterInModalValuesFromForCss(String usage, String sheetName, String fileName) {
+    public void iEnterInModalValuesFromForCss(String usage, String sheetName, String fileName) throws TestingBlazeCustomException {
         govgrants.perform().inputForms().enterInputFieldsFromExcelFileForCss(
                 fileName,
                 sheetName,
