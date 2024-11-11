@@ -1532,26 +1532,20 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @tst @debug
+  @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantee" app as "GRANTEE PO" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Grant__c/a2RDb000004LRJ5MAO/view"
-    And I navigate to "Awards" sub tab
-    Then I softly see value "Activated" for title "Status" against the value "AD-GA-3031" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    Then I softly see value "Activated" for title "Status" against the value "AD-GA-3035" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-    And I navigate to "Financials" sub tab
-    Then I softly see value "BP01" for title "Budget Period" inside table "---grantee_tableId:-:grantGrantBudgetTableId---"
-    Then I softly see value "BP02" for title "Budget Period" inside table "---grantee_tableId:-:grantGrantBudgetTableId---"
-    And I navigate to "Monitoring" sub tab
-    And I save the value from row "1" for column name "EGMS ID" as "objectiveBP01Id" from flex table "---grantee_tableId:-:grantGoalsTableId---"
-    Then I softly see value "{SavedValue:objectiveBP01Id}" for title "EGMS ID" inside table "---grantee_tableId:-:grantGoalsTableId---"
-    And I save the value from row "2" for column name "EGMS ID" as "objectiveBP02Id" from flex table "---grantee_tableId:-:grantGoalsTableId---"
-    Then I softly see value "{SavedValue:objectiveBP02Id}" for title "EGMS ID" inside table "---grantee_tableId:-:grantGoalsTableId---"
-    And I save the value from row "1" for column name "EGMS ID" as "kpiBP01Id" from flex table "---grantee_tableId:-:grantKPITableId---"
-    Then I softly see value "{SavedValue:kpiBP01Id}" for title "EGMS ID" inside table "---grantee_tableId:-:grantKPITableId---"
-    And I save the value from row "2" for column name "EGMS ID" as "kpiBP02Id" from flex table "---grantee_tableId:-:grantKPITableId---"
-    Then I softly see value "{SavedValue:kpiBP02Id}" for title "EGMS ID" inside table "---grantee_tableId:-:grantKPITableId---"
-    And I halt execution
+    Given I login to "As a Grantor" app as "PM" user
+    And I wait for "10" seconds
+    When I select radio button "Reject" in the approval decision
+    When I enter comment "Automation testing" in the approval decision
+    And I submit the approval in the approval decision without processing
+    Then I see confirmation box with quotes in body "Rejecting the FDM will update the 'Final Decision' for all applications in this FDM to 'Cancelled' and the system will not allow you to award any recommended applications in the FDM. Are you sure you wish to continue?" is displayed
+    Then I softly see button "Continue" on confirmation pop-up
+    Then I softly see button "Cancel" on confirmation pop-up
+    And I click "Continue" on modal confirmation box
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Rejected"
 
   @TestingXSS
   Scenario: Testing xss
@@ -1601,3 +1595,49 @@ Feature: Validate all scenarios of every modules flow
     Then I see the text "Email Sent Successfully." in modal
     And I halt execution
 
+  @2026131 @ValidatenewassignedreviewerPOcanreviewthenewlyaddedreviewstepandaddedcustomizeformonAnn @sprint-6-US-201906  @reassignment
+  Scenario Outline: Validate new assigned reviewer PO can review the newly added review step and added customize form on Ann
+    When I login to "As a Grantor" app as "PO" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "AN-TAO modified-12611" in "---applicationReview:-:pendingTaskTableId---" panel
+    Then I softly see value "AN-TAO modified-12611" for title "EGMS ID" inside table "---applicationReview:-:pendingTaskTableId---"
+    And I navigate to "Home" tab
+    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+    When I reassign task to "Automation PO1"
+    When I perform quick search for "AN-TAO modified-12611" in "---program:-:grantorTaskReassignTableId---" panel
+    When I check "AN-TAO modified-12611" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I pause execution for "30" seconds
+    And I reset the table
+    When I perform quick search for "AN-TAO modified-12611" in "---program:-:grantorTaskReassignTableId---" panel
+    Then I softly do not see value "AN-TAO modified-12611" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "AN-TAO modified-12611" in "---applicationReview:-:pendingTaskTableId---" panel
+    Then I softly see value "AN-TAO modified-12611" for title "EGMS ID" inside table "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Start" icon for "AN-TAO modified-12611" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    Then I can see top right button "Edit" in page detail
+    Then I can see top right button "Submit" in page detail
+    Then I can see top right button "Decline" in page detail
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    Then I softly see that "Status" is in "Review Completed" status
+    Examples:
+      | Announcement Name                                     | Application Name                                      |
+      | Automation Runtime Competitive Announcement4199454996 | Automation Runtime Competitive Announcement4199454996 |
+
+  @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
+  Scenario: Validate PM user should able to Create & Activate the KPI
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I wait for "5" seconds
+    And I navigate to "Overview" sub tab
+    And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"

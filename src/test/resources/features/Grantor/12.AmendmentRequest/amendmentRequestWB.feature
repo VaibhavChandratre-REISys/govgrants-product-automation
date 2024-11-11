@@ -23788,7 +23788,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Start" icon for "{SavedValue:budgetPC&ScopeId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
     And I pause execution for "5" seconds
     And I refresh the page
     And I see the mail subject is as follows :

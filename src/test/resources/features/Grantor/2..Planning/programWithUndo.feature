@@ -1,4 +1,4 @@
-@programWithUndo @grantor-regression @grantor-parallel-regression @planning @regression @intProg
+@programWithUndo @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
    @279282 @Verifyusershouldnotseeundobuttonincreatedsentforreviewreviewedstateofprogram @sprint-25-US-295138  @Undo

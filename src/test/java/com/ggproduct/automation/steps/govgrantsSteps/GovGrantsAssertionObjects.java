@@ -541,7 +541,7 @@ public final class GovGrantsAssertionObjects {
                 + " | //div[contains(@class, 'alert') and @ng-repeat]" // First variant of flex table messages
                 + " | //div[contains(@class,'alertMessages')]//div[contains(@class,'alertMessage')]//span[@class='ng-binding']" // Second variant of flex table messages
                 + " | //div[contains(@class,'alert-danger')]" // get the alert danger message...
-                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text | //c-flex-layout-page-messages//span//lightning-formatted-text | //span[@class='toastMessage forceActionsText'] | //span[contains(@class,'changeOwnerErrorMessage')] | //flowruntime-error-content//lightning-formatted-rich-text//span"
+                + " | //div//span[contains(@class,'dynamic-msg-box-margin')] | //c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text | //c-flex-layout-page-messages//span//lightning-formatted-text | //span[@class='toastMessage forceActionsText'] | //span[contains(@class,'changeOwnerErrorMessage')] | //flowruntime-error-content//lightning-formatted-rich-text//span | //div[@data-id='modalcontent1']//lightning-formatted-rich-text//span"
         );
 
         List<String> desiredMessages = unsanitizedDesiredMessages
@@ -1118,8 +1118,8 @@ public final class GovGrantsAssertionObjects {
      */
     public void checkForDropdownOptions(boolean exactMatch, boolean checkOrder, String fieldApiName, List<String> expectedOptions) {
         if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("lightning") || I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
-            I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox'] | //label[text()='" + fieldApiName + "'] |//select[@name='" + fieldApiName + "']"));
-            By Options = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//lightning-base-combobox-item//span[@title] | //label[text()='" + fieldApiName + "']/parent::div//lightning-base-combobox-item |//select[@name='" + fieldApiName + "']/option");
+            I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//button[@aria-haspopup='listbox'] | //label[text()='" + fieldApiName + "'] | //select[@name='" + fieldApiName + "']"));
+            By Options = By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//lightning-base-combobox-item//span[@title] | //label[text()='" + fieldApiName + "']/parent::div//lightning-base-combobox-item | //select[@name='" + fieldApiName + "']//option");
             List<String> actualOptions = I.amPerforming().getElementReference().forListOfElements().of(Options)
                     .stream().map(Elements::getText).collect(Collectors.toList());
 
@@ -2176,7 +2176,7 @@ public final class GovGrantsAssertionObjects {
     private boolean isHyperTextDisplayed(String linkName) {
         boolean flag = false;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[contains(text(),'" + linkName + "')]/ancestor::a |  //a[contains(text(),'" + linkName + "')]"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//label[contains(text(),'" + linkName + "')]//parent::div//a |//span[contains(text(),'" + linkName + "')]/ancestor::a | //a[contains(text(),'" + linkName + "')]"))) {
                 flag = true;
             }
         } catch (Exception e) {
