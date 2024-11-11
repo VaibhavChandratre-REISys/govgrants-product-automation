@@ -2016,7 +2016,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-   @281840 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF428form @sprint-25-US-280119 @Forms
+  @281840 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF428form @sprint-25-US-280119 @Forms
   Scenario: Validate SPI user can able to save & validate form after entering correct & valid data on all fields present on SF-428 form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2104,7 +2104,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     And I click on "Validate" in the split screen page details
-    And I wait for "7" seconds
+    And I wait for "4" seconds
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     #SF 428 Form
@@ -2196,7 +2196,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Disposition Report/Request (SF-428-C) is required to be submitted as it is selected in field 6 'Attachment'.    |
       | SF-428S or equivalent document is required to be submitted as it is selected in field '7. Supplemental Sheet'.  |
 
-  @281844-1 @ValidatethevalidationforfilltheSF428ABCSformbutnotcheckedfieldinSF428
+  @281844-1 @ValidatethevalidationforfilltheSF428ABCSformbutnotcheckedfieldinSF428 @TBExecution
   Scenario: Validate the validation for fill the SF428-A,B,C,S form but not checked field in SF 428
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2296,7 +2296,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     And I refresh the page
     When I click on "Validate" in the page details
-    And I wait for "7" seconds
+    And I wait for "4" seconds
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
@@ -2967,10 +2967,11 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     And I refresh the page
+    And I wait for "2" seconds 
     When I click on "Validate" in the page details
-    And I wait for "7" seconds
+    And I wait for "4" seconds
     Then I softly see the following messages in the page details :
-      | Form validated successfully. |
+      | Form Validated Successfully. |
     And I close the tab
     And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
