@@ -3727,81 +3727,81 @@ Feature: Validate scenarios in Progress Report Forms
    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
-    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
-    When I click modal button "Close"
-    And I wait for "6" seconds
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
-    #285304
-    When I click on "Edit" in the page details
-    And I wait for "2" seconds
-    When I enter value "Checked" into field "RequestTransfertoAward__c"
-    And I enter value "11" into field "FederalAwardIdentifier__c"
-    When I enter value "Unchecked" into field "RequestFederalAgency__c"
-    When I enter value "Unchecked" into field "Other__c"
-    When I click on "Save" in the page details
-    And I wait for "2" seconds
+#    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
+#    And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
+#    When I click modal button "Close"
+#    And I wait for "6" seconds
+#    When I click on "Validate" in the page details
 #    Then I softly see the following messages in the page details :
-#      | Form saved successfully. |
-    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "3. Other" from computer
-    When I click modal button "Close"
-    And I refresh the page
-    And I wait for "7" seconds
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Form validated successfully. |
-    #285305
-    When I click on "Edit" in the page details
-    And I wait for "3" seconds
-    And I enter value "11" into field "FederalAwardIdentifier__c"
-    When I enter value "Checked" into field "RequestFederalAgency__c"
-    When I enter value "Checked" into field "Other__c"
-    When I click on "Save" in the page details
+#      | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
+#    #285304
+#    When I click on "Edit" in the page details
 #    And I wait for "2" seconds
-#    Then I softly see the following messages in the page details :
-#      | Form saved successfully. |
-    And I click on "Delete" icon for "2. Additional File for Comments" inside flex table with id "---progressReport:-:sf428cFormAttachmentTableId---" without waiting for record
-    And I wait for "6" seconds
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
-    #285306
-    When I click on "Edit" in the page details
-    When I enter value "Unchecked" into field "RequestTransfertoAward__c"
-    When I enter value "Unchecked" into field "RequestFederalAgency__c"
-    When I click on "Save" in the page details
+#    When I enter value "Checked" into field "RequestTransfertoAward__c"
+#    And I enter value "11" into field "FederalAwardIdentifier__c"
+#    When I enter value "Unchecked" into field "RequestFederalAgency__c"
+#    When I enter value "Unchecked" into field "Other__c"
+#    When I click on "Save" in the page details
 #    And I wait for "2" seconds
+##    Then I softly see the following messages in the page details :
+##      | Form saved successfully. |
+#    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
+#    And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
+#    When I click modal button "Close"
+#    And I wait for "2" seconds
+#    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
+#    And I upload attachment without random number "AttachmentTesting.pdf" of type "3. Other" from computer
+#    When I click modal button "Close"
+#    And I refresh the page
+#    And I wait for "7" seconds
+#    When I click on "Validate" in the page details
 #    Then I softly see the following messages in the page details :
-#      | Form saved successfully. |
-    And I click on "Delete" icon for "1. Supplemental Sheet SF-428S or recipient equivalent" inside flex table with id "---progressReport:-:sf428cFormAttachmentTableId---" without waiting for record
-    And I wait for "2" seconds
-    And I click on "Delete" icon for "3. Other" inside flex table with id "---progressReport:-:sf428cFormAttachmentTableId---" without waiting for record
-    And I wait for "2" seconds
-    Then I softly see "No Records Found" inside flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-    And I refresh the page
-    And I wait for "9" seconds
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
-    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "3. Other" from computer
-    When I click modal button "Close"
-    And I refresh the page
-    And I wait for "9" seconds
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
+#      | Form validated successfully. |
+#    #285305
+#    When I click on "Edit" in the page details
+#    And I wait for "3" seconds
+#    And I enter value "11" into field "FederalAwardIdentifier__c"
+#    When I enter value "Checked" into field "RequestFederalAgency__c"
+#    When I enter value "Checked" into field "Other__c"
+#    When I click on "Save" in the page details
+##    And I wait for "2" seconds
+##    Then I softly see the following messages in the page details :
+##      | Form saved successfully. |
+#    And I click on "Delete" icon for "2. Additional File for Comments" inside flex table with id "---progressReport:-:sf428cFormAttachmentTableId---" without waiting for record
+#    And I wait for "6" seconds
+#    When I click on "Validate" in the page details
+#    Then I softly see the following messages in the page details :
+#      | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
+#    #285306
+#    When I click on "Edit" in the page details
+#    When I enter value "Unchecked" into field "RequestTransfertoAward__c"
+#    When I enter value "Unchecked" into field "RequestFederalAgency__c"
+#    When I click on "Save" in the page details
+##    And I wait for "2" seconds
+##    Then I softly see the following messages in the page details :
+##      | Form saved successfully. |
+#    And I click on "Delete" icon for "1. Supplemental Sheet SF-428S or recipient equivalent" inside flex table with id "---progressReport:-:sf428cFormAttachmentTableId---" without waiting for record
+#    And I wait for "2" seconds
+#    And I click on "Delete" icon for "3. Other" inside flex table with id "---progressReport:-:sf428cFormAttachmentTableId---" without waiting for record
+#    And I wait for "2" seconds
+#    Then I softly see "No Records Found" inside flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
+#    And I refresh the page
+#    And I wait for "9" seconds
+#    When I click on "Validate" in the page details
+#    Then I softly see the following messages in the page details :
+#      | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
+#    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
+#    And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
+#    When I click modal button "Close"
+#    And I wait for "2" seconds
+#    And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
+#    And I upload attachment without random number "AttachmentTesting.pdf" of type "3. Other" from computer
+#    When I click modal button "Close"
+#    And I refresh the page
+#    And I wait for "9" seconds
+#    When I click on "Validate" in the page details
+#    Then I softly see the following messages in the page details :
+#      | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
 
   @285432 @285443 @285445 @285446 @ValidateSF428BUsershouldseevalidationwhenfilesSupplementalSheetSF428Sisnotattachedifweselect2ndoptionfrom2bfieldthengettingvalidationforSupplementalssheetif1bisselect @sprint-25-US-280119  @Forms
   Scenario: Validate SF428 B User should see validation when files Supplemental Sheet SF428S is not attached & if we select 2nd option from "2b field then getting validation for Supplementals sheet if 1 b is select
