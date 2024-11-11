@@ -41,7 +41,6 @@ public final class PageDetails {
                 "//*[contains(@class,'overview-header') or contains(@class,'panel-footer')]//*[(local-name()='a' or local-name()='button' or local-name()='input') and not(contains(@class,'hidden'))]//span[(text()='" + buttonName + "') and not(contains(@class,'hidden'))] |" +
                 "//*[contains(@class,'panel-heading')]//*[local-name()='a' and contains(@class,'menuLinks') and @title='" + buttonName + "'] | //*[@value='" + buttonName + "' and @class='customBtn'] | //lightning-button//button[@title='" + buttonName + "' or text()='" + buttonName + "'] | //div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "'] | //lightning-menu-item//div//*[text()='" + buttonName + "'] | //li/a/div[@title='" + buttonName + "']");
     }
-
     /**
      * click any button on botton on right header inside detail page. Submit, submit for
      * approval
@@ -91,6 +90,31 @@ public final class PageDetails {
             I.amPerforming().waitFor().ElementToBeClickable(topRightButton);
             I.amPerforming().click().withJavaScript(topRightButton);
             govgrants.perform().modal().acceptPopUp();
+        }
+    }
+
+    public void clickTopRightButton(String buttonName) {
+        By topRightButton = getAnyTopRightButton(buttonName);
+        try {
+            I.amPerforming().scroll().onPageWindow("PAGEUP", 0, -800);
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            try {
+                I.amPerforming().waitFor().ElementToBeVisible(topRightButton);
+                try {
+                    I.amPerforming().click().on(topRightButton);
+                } catch (Exception e) {
+                    I.amPerforming().click().withJavaScript(topRightButton);
+                }
+            } catch (Exception ex) {
+                I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//gnt-header-overview//lightning-button-menu//button"));
+                I.amPerforming().click().withJavaScript(ByUsing.xpath("//gnt-header-overview//lightning-button-menu//button"));
+                I.amPerforming().click().on(ByUsing.xpath("//div[contains(@class,'dropdown__item')]//span[text()='" + buttonName + "']"));
+            }
+
+        } catch (ElementClickInterceptedException e) {
+            I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Exception {ElementClickInterceptedException} is thrown - used Explicit Wait and Java Script to click the element");
+            I.amPerforming().waitFor().ElementToBeClickable(topRightButton);
+            I.amPerforming().click().withJavaScript(topRightButton);
         }
     }
 

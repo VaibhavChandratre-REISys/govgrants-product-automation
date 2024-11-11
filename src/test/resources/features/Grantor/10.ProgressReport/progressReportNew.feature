@@ -1,4 +1,4 @@
-@progressReportNew @grantor-regression @grantor-parallel-regression @progressReport @regression
+@progressReportNew @grantor-regression @grantor-parallel-regression @progressReport @regression @progress-report2
 Feature: Validate all scenarios in Progress Report with respect to Amendment Request
 
   @60726 @60727 @6072 @60656 @60657 @validateReviewedPRAfterFundingChangeAmendmentIsCarryForwarded

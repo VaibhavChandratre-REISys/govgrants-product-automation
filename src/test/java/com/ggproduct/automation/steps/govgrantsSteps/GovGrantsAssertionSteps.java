@@ -125,7 +125,7 @@ public final class GovGrantsAssertionSteps {
         );
     }
 
-    @Then("^I (softly see|see) field (matches exactly )?\"([^\"]*)\" as \"([^\"]*)\"$")
+    @Then("^I (softly see|softly do not see|see) field (matches exactly )?\"([^\"]*)\" as \"([^\"]*)\"$")
     public void assertFieldValue(String usage, String matchExact, String fieldName, String fieldValue) {
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         I.amPerforming().waitFor().makeThreadSleep(3000);

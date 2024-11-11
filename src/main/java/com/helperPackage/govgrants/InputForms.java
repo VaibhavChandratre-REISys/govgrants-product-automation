@@ -1551,6 +1551,7 @@ public final class InputForms {
         handleClearingFormDataInputs(fieldWrapper);
     }
 
+
     /**
      * method under testing
      *
