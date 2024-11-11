@@ -12077,7 +12077,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE     |
       | GRANTEE AUDITOR |
 
-  @476612 @476615 @ValidateStrategicPlanFOusercannotcreateStrategicPlan
+  @476612 @476613 @476615 @ValidateStrategicPlanFOusercannotcreateStrategicPlan
   Scenario Outline: Validate Strategic Plan FO user cannot create Strategic Plan
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -12085,6 +12085,7 @@ Feature: Sanity scenarios
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:StrategicPlans---"
     Examples:
       | userType        |
+      | GRANTEE FO      |
       | GRANTEE FD      |
       | GRANTEE AUDITOR |
 
