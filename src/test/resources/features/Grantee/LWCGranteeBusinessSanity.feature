@@ -11951,7 +11951,7 @@ Feature: Sanity scenarios
     Then I softly see value "$400.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$4,600.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
 
-  @granteeExecution3 @449404 @VerifyusershouldabletocorrectvaluesinnewactivatedAward
+  @granteeExecution3 @449404 @476541 @VerifyusershouldabletocorrectvaluesinnewactivatedAward
   Scenario: Verify user should able to correct values in new activated Award
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -11969,6 +11969,10 @@ Feature: Sanity scenarios
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Projections" sub tab
+    #@476541
+    Then I softly do not see "Program Income" page block displayed
+    Then I softly do not see "Indirect Rates" page block displayed
     And I navigate to "Overview" sub tab
     And I save the field labeled "Award Title" as "Automation Runtime award"
     And I click on "Edit" in the page details
@@ -18101,7 +18105,7 @@ Feature: Sanity scenarios
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
-    When I enter in modal value "Automation Focus Area" into field "Title__c"
+    When I enter in modal value "Automation Focus Area1" into field "Title__c"
     When I enter in modal value "Automation Test Description" into field "Description__c"
     When I click modal button "Save and Continue"
     And I wait for "2" seconds
@@ -18119,7 +18123,7 @@ Feature: Sanity scenarios
     Then I can see row level action button "Delete" against "{SavedValue:FocusAreaId}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
     And I click on "Delete" icon for "{SavedValue:FocusAreaId}" inside flex table with id "---grantee_tableId:-:GranteeProjectTableId---" without waiting for record
     And I perform quick search for "{SavedValue:FocusAreaId}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
-    Then I do not see value "{SavedValue:FocusAreaId}" for title "Name" inside table "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I do not see value "{SavedValue:FocusAreaId}" for title "EGMS ID" inside table "---grantee_tableId:-:GranteeProjectTableId---"
 
   @476620 @476621 @476622 @VerifyFDusercannotDeactivateactiveStrategicplan
   Scenario Outline: Verify FD user cannot Deactivate active Strategic plan
