@@ -1,9 +1,9 @@
 @GranteeSanityBusinessFlow
 Feature: Sanity scenarios
 
-  @443880 @ValidatePMusershouldabletoCreateActivatetheKPI
-  Scenario: Validate PM user should able to Create & Activate the KPI
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+  @477625 @477603 @477627 @ValidatePMusershouldabletoCreateActivatetheKPI
+  Scenario Outline: Validate PM/EXE/ADMIN user should able to Create & Activate the KPI
+    When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -12,6 +12,25 @@ Feature: Sanity scenarios
     And I click modal button "Save and Continue"
     And I wait for "5" seconds
     And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Related Log" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    And I save the field labeled "Domain" as "Domain"
+    And I save the field labeled "Title" as "KPITitle"
+    And I save the field labeled "Measure" as "Measure"
+    And I save the field labeled "Unit of Measurement" as "UnitofMeasurement"
+    And I save the field labeled "Indicator" as "Indicator"
+    Then I softly see field "Domain" as "{SavedValue:Domain}"
+    Then I softly see field "Title" as "{SavedValue:KPITitle}"
+    Then I softly see field "Measure" as "{SavedValue:Domain}"
+    Then I softly see field "Domain" as "{SavedValue:Domain}"
+    When I navigate to "Related Log" sub tab
+    Then I softly see "No Records Found" inside flex table with id "Goals"
+    Then I softly see "No Records Found" inside flex table with id "KPIsGranteeRelatedAwards"
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
@@ -72,9 +91,15 @@ Feature: Sanity scenarios
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
     When I navigate to "Related Log" sub tab
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:KPIObjectivesTableId---"
+    Then I softly see "No Records Found" inside flex table with id "Goals"
+    Then I softly see "No Records Found" inside flex table with id "KPIsGranteeRelatedAwards"
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Activate.pdf" as name
+    Examples:
+      | userType      |
+      | GRANTEE PM    |
+      | GRANTEE EXE   |
+      | GRANTEE ADMIN |
 
   @440386 @ValidatePMusercancreateandActivateStrategicplan
   Scenario: Validate PM user can create and Activate Strategic plan
@@ -4828,7 +4853,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Please enter valid Mobile Phone Number.|
+      | Please enter valid Mobile Phone Number. |
     When I enter in modal value "8967093440" into field "MobilePhone"
     When I click modal button "Save"
     And I save the field labeled "Title" as "Title" on modal
@@ -4853,7 +4878,7 @@ Feature: Sanity scenarios
     Then I see field "Phone" as "(896) 709-3855" on modal
     Then I see field "MobilePhone" as "(896) 709-3455" on modal
     Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
-   And I click on hyperlink for modal containing value "Department of Education"
+    And I click on hyperlink for modal containing value "Department of Education"
     Then I see the header is "Federal Organization" in the page details
     Then I see the sub-header is "Department of Education" in the page details
     And I click on back arrow
@@ -11394,7 +11419,7 @@ Feature: Sanity scenarios
       | Focus Area Name                 | Projected Program Income ($) | Program Income Justification |
       | Automation Permanent Focus Area | 1000                         | Automation Test              |
     Then I softly see the following messages in the page details contains:
-      || Saved Successfully! |
+      |  | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
       | Rate  | 15             | 30              | 10                             | Final                   |
@@ -11492,7 +11517,7 @@ Feature: Sanity scenarios
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
-      | Site work | The narrative | 50             | 5        |
+      | Site work | The narrative | 50             | 5          |
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$50.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
@@ -11565,7 +11590,7 @@ Feature: Sanity scenarios
       | Title                            | Start Date                         | End Date                         |
       | Automation Permanent Focus Area2 | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
     Then I softly see the following messages in the page details contains:
-      | | Saved Successfully! |
+      |  | Saved Successfully! |
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
@@ -11668,7 +11693,7 @@ Feature: Sanity scenarios
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
-      | Site work | The narrative | 500            | 50        |
+      | Site work | The narrative | 500            | 50         |
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
@@ -11743,8 +11768,8 @@ Feature: Sanity scenarios
       | Title                            | Start Date                         | End Date                         |
       | Automation Permanent Focus Area2 | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
-      | Title                            | Start Date                         | End Date                         |
-      | Test Focus Area1                 | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
+      | Title            | Start Date                         | End Date                         |
+      | Test Focus Area1 | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
@@ -11771,14 +11796,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Sarah PM   | Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
       | Victor EXE | Step 2 |
@@ -11871,14 +11896,14 @@ Feature: Sanity scenarios
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
+      | Name     | Amendment Request |
       | Sarah PM | Step 1            |
     When I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
-      | Construction | The narrative | 4000           | 400      |
+      | Construction | The narrative | 4000           | 400        |
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$4,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
@@ -12016,8 +12041,8 @@ Feature: Sanity scenarios
       | Title                            | Start Date                         | End Date                         |
       | Automation Permanent Focus Area2 | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
-      | Title             | Start Date                         | End Date                         |
-      | Test Focus Area1  | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
+      | Title            | Start Date                         | End Date                         |
+      | Test Focus Area1 | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
@@ -12040,8 +12065,8 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Sarah PM   | Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
       | Victor EXE | Step 2 |
@@ -12126,14 +12151,14 @@ Feature: Sanity scenarios
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | Sarah PM   | Step 1            |
+      | Name     | Amendment Request |
+      | Sarah PM | Step 1            |
     When I get the "EGMS ID"
     And I navigate to "Overview" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Awarded Budget  |
-      | Construction | The narrative | 45000           |
+      | Title        | Narrative     | Awarded Budget |
+      | Construction | The narrative | 45000          |
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$45,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
@@ -12145,8 +12170,8 @@ Feature: Sanity scenarios
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Awarded Budget  |
-      | Construction | The narrative | 45000           |
+      | Title        | Narrative     | Awarded Budget |
+      | Construction | The narrative | 45000          |
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$45,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
@@ -12159,8 +12184,8 @@ Feature: Sanity scenarios
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Awarded Budget  |
-      | Construction | The narrative | 45000           |
+      | Title        | Narrative     | Awarded Budget |
+      | Construction | The narrative | 45000          |
     When I close "Add Line Items" modal by clicking the top right x button
     Then I softly see value "$45,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
@@ -12306,8 +12331,8 @@ Feature: Sanity scenarios
     Then I softly see "Indirect Rates" page block displayed
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:awardIndirectRateTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     Then I can see row level action button "Edit" against "Rate" in flex table with id "---grantee_tableId:-:awardIndirectRateTableId---"
@@ -12374,16 +12399,16 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Sarah PM   | Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
       | Victor EXE | Step 2 |
     Then I softly see value "Step 1" for title "Award" against the value "Sarah PM" inside table "---grantee_tableId:-:awardApproverTableId---"
     Then I softly see value "Step 2" for title "Award" against the value "Victor EXE" inside table "---grantee_tableId:-:awardApproverTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award |
-      | David FO   |  NA   |
+      | Name     | Award |
+      | David FO | NA    |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Award  |
       | Step 3 |
@@ -12392,27 +12417,27 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-      | Name       | Award   |
-      | Sarah PM   |  Step 2 |
+      | Name     | Award  |
+      | Sarah PM | Step 2 |
     Then I softly see the following messages in the page details contains:
       | You cannot specify the same step for multiple users for Award. |
     And I refresh the page
     And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-      | Name       | Award |
-      | Sarah PM   |  NA   |
+      | Name     | Award |
+      | Sarah PM | NA    |
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
       | Name       | Award |
-      | Victor EXE |  NA   |
+      | Victor EXE | NA    |
     And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-      | Name       |  Award   |
-      | Sarah PM   |  Step 1  |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "Edit" :
-      | Name       | Award   |
-      | Victor EXE | Step 2  |
+      | Name       | Award  |
+      | Victor EXE | Step 2 |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:awardApproverTableId---"
@@ -12594,8 +12619,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "Edit" :
-      | Created By  | Title         | Description       |
-      | Sarah PM    | Notes Record1 | Automation Notes1 |
+      | Created By | Title         | Description       |
+      | Sarah PM   | Notes Record1 | Automation Notes1 |
     And I wait for "2" seconds
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:awardsNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:awardsNotesTableId---" without waiting for record
@@ -12676,14 +12701,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Sarah PM   | Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
       | Victor EXE | Step 2 |
@@ -12811,14 +12836,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Sarah PM   | Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -12973,14 +12998,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Sarah PM   | Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -13110,14 +13135,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Sarah PM   | Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
       | Victor EXE | Step 2 |
@@ -13187,11 +13212,11 @@ Feature: Sanity scenarios
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - Propose a new Budget Period End Date. |
-      | Overview Tab - Awarded Budget must be greater than $0. |
-      | Overview Tab - Enter a Focus Area Start Date and a Focus Area End Date to all Focus Areas before submitting this request.|
+      | Overview Tab - Propose a new Budget Period End Date.                                                                                                                          |
+      | Overview Tab - Awarded Budget must be greater than $0.                                                                                                                        |
+      | Overview Tab - Enter a Focus Area Start Date and a Focus Area End Date to all Focus Areas before submitting this request.                                                     |
       | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
-      | Responsibilities - At least one approver is required |
+      | Responsibilities - At least one approver is required                                                                                                                          |
 
   @granteeExecution3 @462436 @VerifyPOusercannotabletoseeGrantorDecisionHistorysectionunderHistorytabwhenPeriodicRenewalAmendmentRequestisnotinAcceptedstate
   Scenario: Verify PO user cannot able to see Grantor Decision History section under History tab when Periodic Renewal Amendment Request is not in Accepted state
@@ -13257,14 +13282,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Sarah PM   | Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
       | Victor EXE | Step 2 |
@@ -13334,17 +13359,17 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     And I enter "Grantee_PeriodicRenewal_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-   And I wait for "3" seconds
-   And I save the field labeled "EGMS ID" as "PRAMENDID"
-   And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
-   And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
-   And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
-     | Title                           | Start Date                                | End Date                                |
-     | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodStartDate} | {SavedValue:updatedBudgetPeriodEndDate} |
+    And I wait for "3" seconds
+    And I save the field labeled "EGMS ID" as "PRAMENDID"
+    And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
+    And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
+      | Title                           | Start Date                                | End Date                                |
+      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodStartDate} | {SavedValue:updatedBudgetPeriodEndDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | Sarah PM   | Step 1            |
+      | Name     | Amendment Request |
+      | Sarah PM | Step 1            |
     When I get the "EGMS ID"
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
@@ -13520,14 +13545,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Sarah PM   | Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -13602,8 +13627,8 @@ Feature: Sanity scenarios
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodStartDate} | {SavedValue:updatedBudgetPeriodEndDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | David FO   | Step 1            |
+      | Name     | Amendment Request |
+      | David FO | Step 1            |
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID1"
     And I click on "Submit for Approval" in the page details
@@ -13663,8 +13688,8 @@ Feature: Sanity scenarios
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodStartDate} | {SavedValue:updatedBudgetPeriodEndDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | David FO   | Step 1            |
+      | Name     | Amendment Request |
+      | David FO | Step 1            |
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
     And I click on "Submit for Approval" in the page details
@@ -13688,9 +13713,9 @@ Feature: Sanity scenarios
     And I navigate to "Amendments" sub tab
     Then I softly see value "Approved" for title "Status" against the value "{SavedValue:AmendEGMSID2}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
     Examples:
-      | User          |
-      | GRANTEE EXE   |
-      | GRANTEE PO    |
+      | User        |
+      | GRANTEE EXE |
+      | GRANTEE PO  |
 
   @granteeExecution3 @470797 @VerifyPMusershouldabletocreateandaccepttheSOWamendmentrequest
   Scenario: Verify PM user should able to create and accept the SOW amendment request
@@ -13762,8 +13787,8 @@ Feature: Sanity scenarios
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name      |  Award  |
-      | Sarah PM  |  Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
       | Victor EXE | Step 2 |
@@ -13852,8 +13877,8 @@ Feature: Sanity scenarios
     Then I softly see "Special Conditions" page block displayed
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | Sarah PM   |  Step 1           |
+      | Name     | Amendment Request |
+      | Sarah PM | Step 1            |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request |
       | Victor EXE | Step 2            |
@@ -13964,14 +13989,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Sarah PM   | Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -14048,8 +14073,8 @@ Feature: Sanity scenarios
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodStartDate} | {SavedValue:updatedBudgetPeriodEndDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | David FO   | Step 1            |
+      | Name     | Amendment Request |
+      | David FO | Step 1            |
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID1"
     And I click on "Submit for Approval" in the page details
@@ -14082,12 +14107,12 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | Additional Details is required to save. |
-      |   Decision is required to save.         |
+      | Decision is required to save.           |
     Then I see only the following ordered options in dropdown field "Decision__c" :
       | --None-- | Accepted | Not Accepted |
     When I enter values into fields
-      | Value                       | Field             |
-      | Accepted                    | Decision__c       |
+      | Value    | Field       |
+      | Accepted | Decision__c |
     Then I softly see fields "AmendmentNumber__c" is in edit mode
     Then I softly see fields "AwardIssueDate__c" is in edit mode
     Then I softly see fields "Comments__c" is in edit mode
@@ -14097,8 +14122,8 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Additional Details is required to save. |
     When I enter values into fields
-      | Value                       | Field             |
-      | Test                        | Comments__c       |
+      | Value | Field       |
+      | Test  | Comments__c |
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | You need to provide Award Issue Date if the decision is accepted. |
@@ -14129,9 +14154,9 @@ Feature: Sanity scenarios
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
 
     Examples:
-      | User         |
-      | GRANTEE PO   |
-      | GRANTEE EXE  |
+      | User        |
+      | GRANTEE PO  |
+      | GRANTEE EXE |
 
   @granteeExecution3 @462448 @VerifyPOuserPRAROwnercanabletoseeValidationonSaveSubmitforApproval&ValidatebuttonsonPRARwhenRequiredtosave& @bug_474485
   Scenario: Verify PO user (PR AR Owner) can able to see Validation on Save, Submit for Approval & Validate buttons on PR AR when Required to save & Required to submit fields are not entered
@@ -14197,14 +14222,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Sarah PM   | Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -14288,7 +14313,7 @@ Feature: Sanity scenarios
     And I enter value "2222" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      |  Maximum Indirect Cost Rate: value outside of valid range on numeric field |
+      | Maximum Indirect Cost Rate: value outside of valid range on numeric field |
     And I enter value "110" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
@@ -14311,14 +14336,14 @@ Feature: Sanity scenarios
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | David FO   | Step 1            |
+      | Name     | Amendment Request |
+      | David FO | Step 1            |
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID1"
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - Enter a Focus Area Start Date and a Focus Area End Date to all Focus Areas before submitting this request.|
+      | Overview Tab - Enter a Focus Area Start Date and a Focus Area End Date to all Focus Areas before submitting this request.                                                     |
       | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
 
   @granteeExecution3 @464038 @VerifyPOuserBPCAROwnercanabletoseeValidationonSaveSubmitforApprovalbuttonsonBPCARwhenRequiredtosave&Requiredtosubmitfieldsarenotentered @bug_474485
@@ -14385,14 +14410,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Sarah PM   | Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -14475,7 +14500,7 @@ Feature: Sanity scenarios
     And I enter value "2222" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      |  Maximum Indirect Cost Rate: value outside of valid range on numeric field |
+      | Maximum Indirect Cost Rate: value outside of valid range on numeric field |
     And I enter value "110" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
@@ -14492,20 +14517,20 @@ Feature: Sanity scenarios
     And I click on "Submit for Approval" in the page details
     #validation not through and logged bug#
     Then I softly see the following messages in the page details contains:
-      | #######################################################################|
+      | ####################################################################### |
     And I save the field labeled "EGMS ID" as "BPCAMENDID"
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | David FO   | Step 1            |
+      | Name     | Amendment Request |
+      | David FO | Step 1            |
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID1"
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
-  | Overview Tab - Enter a Focus Area Start Date and a Focus Area End Date to all Focus Areas before submitting this request.|
-  | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
+      | Overview Tab - Enter a Focus Area Start Date and a Focus Area End Date to all Focus Areas before submitting this request.                                                     |
+      | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
 
   @granteeExecution3 @470843 @PRamdVerifytheimpactonGrants&AwardafterPeriodicRenewalAmendmentRequestisAccepted&creatednewaward
   Scenario:PR amd >>Verify the impact on Grants & Award after Periodic Renewal Amendment Request is Accepted & created new award
@@ -14571,14 +14596,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name         | Award  |
-      | Victor EXE   | Step 1 |
+      | Name       | Award  |
+      | Victor EXE | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -14655,8 +14680,8 @@ Feature: Sanity scenarios
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodStartDate} | {SavedValue:updatedBudgetPeriodEndDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | David FO   | Step 1            |
+      | Name     | Amendment Request |
+      | David FO | Step 1            |
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID1"
     And I click on "Submit for Approval" in the page details
@@ -14842,14 +14867,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
-      | Victor EXE   | Step 1 |
+      | Victor EXE | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -14921,12 +14946,12 @@ Feature: Sanity scenarios
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
-      | Title                            | End Date                            |
-      | Automation Permanent Focus Area  | {SavedValue:NewBudgetPeriodEndDate} |
+      | Title                           | End Date                            |
+      | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | David FO   | Step 1            |
+      | Name     | Amendment Request |
+      | David FO | Step 1            |
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
     And I click on "Submit for Approval" in the page details
@@ -15096,14 +15121,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
-      | Victor EXE   | Step 1 |
+      | Victor EXE | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -15175,12 +15200,12 @@ Feature: Sanity scenarios
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
-      | Title                            | End Date                            |
-      | Automation Permanent Focus Area  | {SavedValue:NewBudgetPeriodEndDate} |
+      | Title                           | End Date                            |
+      | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | David FO   | Step 1            |
+      | Name     | Amendment Request |
+      | David FO | Step 1            |
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
     And I click on "Submit for Approval" in the page details
@@ -15254,7 +15279,7 @@ Feature: Sanity scenarios
     Then I softly see field "Total Program Income Expenditure" as "{SavedValue:TotalProgramIncomeExpenditure}"
     When I save the field labeled "Total Project Cost" as "TotalProjectCost"
     Then I softly see field "Total Project Cost" as "{SavedValue:TotalProjectCost}"
-   Then I softly see value "{Date:MM/dd/yyyy::d+3630}" for title "End Date" against the value "BP01" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see value "{Date:MM/dd/yyyy::d+3630}" for title "End Date" against the value "BP01" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Given I expand nested table containing column value "BP01"
     Then I softly see value "$5,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
     Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
@@ -15275,16 +15300,16 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see field "Source Change Request" as "{SavedValue:AmendEGMSID}"
     Then I softly see field "Request Type" as "Change Request"
-   And I wait for "5" seconds
-   And I navigate to "Grants" tab
-   When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-   And I click toggle button to select "Grants - All"
-   When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
-   And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-   When I navigate to "Awards" sub tab
-   And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-   And I navigate to "History" sub tab
-   Then I softly do not see "Change Request History" page block displayed
+    And I wait for "5" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
+    And I navigate to "History" sub tab
+    Then I softly do not see "Change Request History" page block displayed
 
   @granteeExecution3 @471682 @VerifyFOuserAROwnercanabletoSubmitARforApproval&Approvedfromassigned4stepapprover&candoSendtoOwnerForwardApproveactions&seeSubmittoGrantorbuttononceApprovedtheBPCARRecord
   Scenario:Verify FO user (AR Owner) can able to Submit AR for Approval & Approved from assigned 4 step approver & can do Send to Owner/ Forward/ Approve actions & see 'Submit to Grantor' button once Approved the BPC AR Record
@@ -15350,14 +15375,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name         | Award  |
-      | Victor EXE   | Step 1 |
+      | Name       | Award  |
+      | Victor EXE | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -15436,21 +15461,21 @@ Feature: Sanity scenarios
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
-      | Title                            | End Date                            |
-      | Automation Permanent Focus Area  | {SavedValue:NewBudgetPeriodEndDate} |
+      | Title                           | End Date                            |
+      | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+      | Name     | Amendment Request |
+      | Sarah PM | Step 1            |
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request |
-      | Sarah PM   | Step 1            |
+      | Victor EXE | Step 2            |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name        | Amendment Request |
-      | Victor EXE  | Step 2            |
+      | Name       | Amendment Request |
+      | Grantee PO | Step 3            |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name        | Amendment Request |
-      | Grantee PO  | Step 3            |
-    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name        | Amendment Request |
-      |  David FO   | Step 4            |
+      | Name     | Amendment Request |
+      | David FO | Step 4            |
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID1"
     And I click on "Submit for Approval" in the page details
@@ -15596,14 +15621,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name         | Award  |
-      | Victor EXE   | Step 1 |
+      | Name       | Award  |
+      | Victor EXE | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -15688,17 +15713,17 @@ Feature: Sanity scenarios
       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodStartDate} | {SavedValue:updatedBudgetPeriodEndDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+      | Name     | Amendment Request |
+      | Sarah PM | Step 1            |
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request |
-      | Sarah PM   | Step 1            |
+      | Victor EXE | Step 2            |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name        | Amendment Request |
-      | Victor EXE  | Step 2            |
+      | Name       | Amendment Request |
+      | Grantee PO | Step 3            |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name        | Amendment Request |
-      | Grantee PO  | Step 3            |
-    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name        | Amendment Request |
-      |  David FO   | Step 4            |
+      | Name     | Amendment Request |
+      | David FO | Step 4            |
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID1"
     And I click on "Submit for Approval" in the page details
@@ -15846,8 +15871,8 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
@@ -16018,10 +16043,10 @@ Feature: Sanity scenarios
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "Start Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "End Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
-     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
+    And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
-      | Title                            | End Date                            |
-      | Automation Permanent Focus Area  | {SavedValue:NewBudgetPeriodEndDate} |
+      | Title                           | End Date                            |
+      | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
     When I click on parallel lines menu bar with data target value "Focus Areas"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -16080,11 +16105,11 @@ Feature: Sanity scenarios
     Then I softly see "Status" in flex table header "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
-      | David FO     | Fiscal Reviewer  | Automation Description | 5        | Yes                  |
+      | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
     Then I softly see value "David FO" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role             | Description            | Due Date | Allow Record Editing |
-      | Automation FD | Program Reviewer | Automation Description | 5        | No                  |
+      | Automation FD | Program Reviewer | Automation Description | 5        | No                   |
     Then I softly see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly can see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly can see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
@@ -16108,21 +16133,21 @@ Feature: Sanity scenarios
     And I click on top right button "Save" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I click on "Delete" icon for "Automation FD" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     Then I softly see the following messages in the page details contains:
-      |Record deleted successfully.|
+      | Record deleted successfully. |
     Then I softly do not see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     Then I softly see that "Sent for Review" has been added in flextable with Id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly see "Name" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly see "Amendment Request" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request  |
-      | Victor EXE | NA                 |
+      | Name       | Amendment Request |
+      | Victor EXE | NA                |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request  |
-      | Victor EXE | Step 1             |
+      | Name       | Amendment Request |
+      | Victor EXE | Step 1            |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request  |
-      | David FO   | Step 2             |
+      | Name     | Amendment Request |
+      | David FO | Step 2            |
     Then I softly see link "Victor EXE" inside Page block
     And I click on hyperlink containing value "Victor EXE"
     Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
@@ -16179,8 +16204,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "Edit" :
-      | Created By    | Title         | Description       |
-      | David FO      | Notes Record1 | Automation Notes1 |
+      | Created By | Title         | Description       |
+      | David FO   | Notes Record1 | Automation Notes1 |
     And I wait for "2" seconds
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
@@ -16220,7 +16245,7 @@ Feature: Sanity scenarios
     And I enter value "2222" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      |  Maximum Indirect Cost Rate: value outside of valid range on numeric field |
+      | Maximum Indirect Cost Rate: value outside of valid range on numeric field |
     And I enter value "110" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
@@ -16271,9 +16296,9 @@ Feature: Sanity scenarios
     Then I can see top right button "Revise Amendment" in page detail
     When I click on "Record Decision" in the page details
     When I enter values into fields
-      | Value                        | Field             |
-      |   Not Accepted               | Decision__c       |
-      |   Test                       | Comments__c       |
+      | Value        | Field       |
+      | Not Accepted | Decision__c |
+      | Test         | Comments__c |
     And I click modal button "Save"
     And I click modal button "Close"
     Then I softly see field "Status" as "Not Accepted"
@@ -16567,8 +16592,8 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:awardIndirectRateTableId---"
     And I save the value from row "1" for column name "Effective from" as "Effectivefrom" from flex table "---grantee_tableId:-:awardIndirectRateTableId---"
     And I save the value from row "1" for column name "Effective until" as "Effectiveuntil" from flex table "---grantee_tableId:-:awardIndirectRateTableId---"
@@ -16779,11 +16804,11 @@ Feature: Sanity scenarios
     Then I softly see "Status" in flex table header "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
-      | David FO     | Fiscal Reviewer  | Automation Description | 5        | Yes                  |
+      | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
     Then I softly see value "David FO" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role             | Description            | Due Date | Allow Record Editing |
-      | Automation FD | Program Reviewer | Automation Description | 5        | No                  |
+      | Automation FD | Program Reviewer | Automation Description | 5        | No                   |
     Then I softly see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly can see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly can see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
@@ -16807,21 +16832,21 @@ Feature: Sanity scenarios
     And I click on top right button "Save" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I click on "Delete" icon for "Automation FD" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     Then I softly see the following messages in the page details contains:
-      |Record deleted successfully.|
+      | Record deleted successfully. |
     Then I softly do not see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     Then I softly see that "Sent for Review" has been added in flextable with Id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly see "Name" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly see "Amendment Request" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request  |
-      | Victor EXE | NA                 |
+      | Name       | Amendment Request |
+      | Victor EXE | NA                |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request  |
-      | Victor EXE | Step 1             |
+      | Name       | Amendment Request |
+      | Victor EXE | Step 1            |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request  |
-      | David FO   | Step 2             |
+      | Name     | Amendment Request |
+      | David FO | Step 2            |
     Then I softly see link "Victor EXE" inside Page block
     And I click on hyperlink containing value "Victor EXE"
     Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
@@ -16878,8 +16903,8 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "Edit" :
-      | Created By    | Title         | Description       |
-      | David FO      | Notes Record1 | Automation Notes1 |
+      | Created By | Title         | Description       |
+      | David FO   | Notes Record1 | Automation Notes1 |
     And I wait for "2" seconds
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
@@ -17068,7 +17093,7 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
- @464034 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess
+  @464034 @CombinationofamendmentVerifyPOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess
   Scenario:Combination of amendment - Verify PO user (AR Owner) can able to Forward Amendment Request from Approval Process
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
@@ -17132,14 +17157,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
-      | Victor EXE   | Step 1 |
+      | Victor EXE | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -17211,48 +17236,48 @@ Feature: Sanity scenarios
     When I click on "Save" in the page details
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
-      | Title                            | End Date                            |
-      | Automation Permanent Focus Area  | {SavedValue:NewBudgetPeriodEndDate} |
+      | Title                           | End Date                            |
+      | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | David FO   | Step 1            |
+      | Name     | Amendment Request |
+      | David FO | Step 1            |
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
-   When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-   And I navigate to "Grants" tab
-   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-   And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-   When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-   When I select radio button "Forward" in the approval decision
-   And I select user "Danielle FD Garcia" in the approval decision
-   When I enter comment "Automation testing" in the approval decision
-   And I submit the approval in the approval decision without processing
-   Then I softly see the following messages in the page details contains:
-     | Successfully Re-Assigned |
-   Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-   When I navigate to "History" sub tab
-   And I navigate to "Field Audit" sub tab in split screen
-   And I click on hyperlink containing value "View All"
-   Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
-   Then I softly see value "Created" for title "Original Value" inside field history table
-   And I click on back arrow
-   When I navigate to "History" sub tab
-   Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
-   When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
-   And I navigate to "Grants" tab
-   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-   And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-   When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-   When I "Approve" in the approval decision
-   Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-   When I navigate to "History" sub tab
-   And I navigate to "Field Audit" sub tab in split screen
-   And I click on hyperlink containing value "View All"
-   Then I softly see value "Approved" for title "New Value" inside field history table
-   Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I select radio button "Forward" in the approval decision
+    And I select user "Danielle FD Garcia" in the approval decision
+    When I enter comment "Automation testing" in the approval decision
+    And I submit the approval in the approval decision without processing
+    Then I softly see the following messages in the page details contains:
+      | Successfully Re-Assigned |
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
+    Then I softly see value "Created" for title "Original Value" inside field history table
+    And I click on back arrow
+    When I navigate to "History" sub tab
+    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    When I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Approved" for title "New Value" inside field history table
+    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
 
   @472256 @CombinationofamendmentVerifyEXEusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward
   Scenario:Combination of amendment : Verify EXE user can create combination of amendment using following combinations and activate new award
@@ -17321,14 +17346,14 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name         | Award  |
-      | Sarah PM     | Step 1 |
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -17423,8 +17448,8 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     And I click modal button "Close"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
-      | Proposed Name  | Project Role    | Is Key Contact |
-      | David FO       | Project Officer | Checked        |
+      | Proposed Name | Project Role    | Is Key Contact |
+      | David FO      | Project Officer | Checked        |
     Then I softly see value "David FO" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
     And I save the value from row "1" for column name "Proposed Name" as "ProposedName" from flex table "---grantee_tableId:-:amendmentContactTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
@@ -17462,7 +17487,7 @@ Feature: Sanity scenarios
     And I save the value from row "1" for column name "EGMS ID" as "AmendTermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate1  | 15             | 30              | 10                             | Final                  |
+      | Rate1 | 15             | 30              | 10                             | Final                   |
     And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Effective from" as "Effectivefrom" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Effective until" as "Effectiveuntil" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -17480,8 +17505,8 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
-      | Title                            | End Date                            |
-      | Automation Permanent Focus Area  | {SavedValue:NewBudgetPeriodEndDate} |
+      | Title                           | End Date                            |
+      | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
@@ -17491,8 +17516,8 @@ Feature: Sanity scenarios
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | Sarah PM   | Step 1            |
+      | Name     | Amendment Request |
+      | Sarah PM | Step 1            |
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
@@ -17503,8 +17528,8 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
-      | Reviewer Name   | Role            | Description            | Due Date | Allow Record Editing |
-      | Victor EXE      | Fiscal Reviewer | Automation Description | 5        | No                   |
+      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | Victor EXE    | Fiscal Reviewer | Automation Description | 5        | No                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I click on "Send for Review" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
@@ -17778,8 +17803,8 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
-      | Title |Effective from| Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate  | 15           | 30              | 10                             | Final                   |
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
@@ -17883,19 +17908,19 @@ Feature: Sanity scenarios
     And I save the value from row "1" for column name "EGMS ID" as "AmendTermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate1  | 15             | 30              | 10                             | Final                  |
+      | Rate1 | 15             | 30              | 10                             | Final                   |
     And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Effective from" as "Effectivefrom" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Effective until" as "Effectiveuntil" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
-      | Title                            | End Date                            |
-      | Automation Permanent Focus Area  | {SavedValue:NewBudgetPeriodEndDate} |
+      | Title                           | End Date                            |
+      | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request  |
-      | Victor EXE | Step 1             |
+      | Name       | Amendment Request |
+      | Victor EXE | Step 1            |
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
@@ -18087,20 +18112,20 @@ Feature: Sanity scenarios
       | GRANTEE EXE   |
       | GRANTEE PM    |
 
- @440216 @FocusAreaVerifyOnlyPOFOFDprofilenotabletoseetheNEWbuttontocreatetheFocusareas
+  @440216 @FocusAreaVerifyOnlyPOFOFDprofilenotabletoseetheNEWbuttontocreatetheFocusareas
   Scenario Outline: Focus Area - Verify Only PO,FO, FD profile not able to see the NEW button to create the Focus areas.
     When I login to "As a Grantee" app as "<User>" user
-   When I navigate to "Planning" tab
-   When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
-   Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:GranteeProjectTableId---"
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:GranteeProjectTableId---"
 
-   Examples:
-     | User       |
-     | GRANTEE PO |
-     | GRANTEE FO |
-     | GRANTEE FD |
+    Examples:
+      | User       |
+      | GRANTEE PO |
+      | GRANTEE FO |
+      | GRANTEE FD |
 
- @440213 @VerifywithPMProfileonlydraftcreatestatusrecordabletodeletebyrecordowneronly
+  @440213 @VerifywithPMProfileonlydraftcreatestatusrecordabletodeletebyrecordowneronly
   Scenario: Verify with PM Profile ,only draft (create) status record able to delete by record owner only
     When I login to "As a Grantee" app as "GRANTEE PM" user
     When I navigate to "Planning" tab
@@ -18112,7 +18137,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FocusAreaId"
-   When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I perform quick search for "{SavedValue:FocusAreaId}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
@@ -18137,13 +18162,13 @@ Feature: Sanity scenarios
     Then I cannot see top right button "Deactivate" in page detail
 
     Examples:
-      | User          | RecordId                            |
-      | GRANTEE FO    | Automation Permanent Strategic Plan |
-      | GRANTEE FD    | Automation Permanent Strategic Plan |
-      | GRANTEE PO    | MI_STPlan_7824                      |
+      | User       | RecordId                            |
+      | GRANTEE FO | Automation Permanent Strategic Plan |
+      | GRANTEE FD | Automation Permanent Strategic Plan |
+      | GRANTEE PO | MI_STPlan_7824                      |
 
- @476976 @476963 @NonFederalprogramVerifyvalidationsdisplayedtoPOuseronNonFederalprogram
- Scenario Outline: Non-Federal program - Verify validations displayed to PO user on Non Federal program
+  @476976 @476963 @NonFederalprogramVerifyvalidationsdisplayedtoPOuseronNonFederalprogram
+  Scenario Outline: Non-Federal program - Verify validations displayed to PO user on Non Federal program
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "External" content inside "Programs" subheader on left panel
@@ -18155,67 +18180,67 @@ Feature: Sanity scenarios
     Then I softly see field on modal "Type" inside page block
     Then I softly see field on modal "NGO Organization" inside page block
     And I click modal button "Save and Continue"
-   Then I softly see the following messages in the page details :
-    | Program Name is required to save.     |
-    | Type is required to save.             |
-    | NGO Organization is required to save. |
+    Then I softly see the following messages in the page details :
+      | Program Name is required to save.     |
+      | Type is required to save.             |
+      | NGO Organization is required to save. |
     When I enter "Grantee_nonFed" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I softly see field "Status" as "Created"
-   Then I softly see fields "FederalProgramCFDA__c" is in edit mode
-   Then I softly see fields "ProgramName__c" is in edit mode
-   Then I softly see fields "Account__c" is in edit mode
-   Then I softly see fields "Objectives__c" is in edit mode
-   Then I softly see fields "AssistanceType__c" is in edit mode
-   Then I softly see fields "UsesAndUseRestrictions__c" is in edit mode
-   Then I softly see fields "CredentialsDocumentation__c" is in edit mode
-   Then I softly see fields "ApplicantEligibility__c" is in edit mode
-   Then I softly see fields "BeneficiaryEligibility__c" is in edit mode
-   Then I softly see fields "PreapplicationCoordination__c" is in edit mode
-   Then I softly see fields "ApplicationProcedures__c" is in edit mode
-   Then I softly see fields "Deadlines__c" is in edit mode
-   Then I softly see fields "AwardProcedure__c" is in edit mode
-   Then I softly see fields "RangeofApprovalDisApprovalTime__c" is in edit mode
-   Then I softly see fields "Appeals__c" is in edit mode
-   Then I softly see fields "Renewals__c" is in edit mode
-   Then I softly see fields "CriteriaforSelectingProposals__c" is in edit mode
-   Then I softly see fields "RangeofApprovalDisApprovalTime__c" is in edit mode
-   Then I softly see fields "Appeals__c" is in edit mode
-   Then I softly see fields "Renewals__c" is in edit mode
-   Then I softly see fields "CriteriaforSelectingProposals__c" is in edit mode
-   Then I softly see fields "FormulaandMatchingRequirements__c" is in edit mode
-   Then I softly see fields "LengthandTimePhasingofAssistance__c" is in edit mode
-   Then I softly see fields "Reports__c" is in edit mode
-   Then I softly see fields "Audits__c" is in edit mode
-   Then I softly see fields "Records__c" is in edit mode
-   Then I softly see fields "RegulationsGuidelinesAndLiterature__c" is in edit mode
-   Then I softly see fields "AccountIdentification__c" is in edit mode
-   Then I softly see fields "Obligations__c" is in edit mode
-   Then I softly see fields "RangeandAverageofFinancialAssistanc__c" is in edit mode
-   Then I softly see fields "ProgramAccomplishments__c" is in edit mode
-   Then I softly see fields "RegionalOrLocalOffice__c" is in edit mode
-   Then I softly see fields "HeadquartersOffice__c" is in edit mode
-   Then I softly see fields "WebsiteAddress__c" is in edit mode
-   When I clear the value from field "FederalProgramCFDA__c"
-   When I clear the value from field "ProgramName__c"
-   And I click on remove for lookup from field "Account__c"
-   And I click on "Save" in the page details
-   Then I softly see the following messages in the page details :
-   | Program Number is required to save under Overview.        |
-   |  Program Name is required to save under Overview.         |
-   |  Funding Organization is required to save under Overview. |
-   |   Program Objectives is required to save under Overview.  |
-   And I click on "Cancel" in the page details
-   Then I softly can see top right button "Activate" in page detail
-   Then I softly can see top right button "Edit" in page detail
-   And I click on "Activate" in the page details
-   Then I softly see the following messages in the page details :
+    Then I softly see fields "FederalProgramCFDA__c" is in edit mode
+    Then I softly see fields "ProgramName__c" is in edit mode
+    Then I softly see fields "Account__c" is in edit mode
+    Then I softly see fields "Objectives__c" is in edit mode
+    Then I softly see fields "AssistanceType__c" is in edit mode
+    Then I softly see fields "UsesAndUseRestrictions__c" is in edit mode
+    Then I softly see fields "CredentialsDocumentation__c" is in edit mode
+    Then I softly see fields "ApplicantEligibility__c" is in edit mode
+    Then I softly see fields "BeneficiaryEligibility__c" is in edit mode
+    Then I softly see fields "PreapplicationCoordination__c" is in edit mode
+    Then I softly see fields "ApplicationProcedures__c" is in edit mode
+    Then I softly see fields "Deadlines__c" is in edit mode
+    Then I softly see fields "AwardProcedure__c" is in edit mode
+    Then I softly see fields "RangeofApprovalDisApprovalTime__c" is in edit mode
+    Then I softly see fields "Appeals__c" is in edit mode
+    Then I softly see fields "Renewals__c" is in edit mode
+    Then I softly see fields "CriteriaforSelectingProposals__c" is in edit mode
+    Then I softly see fields "RangeofApprovalDisApprovalTime__c" is in edit mode
+    Then I softly see fields "Appeals__c" is in edit mode
+    Then I softly see fields "Renewals__c" is in edit mode
+    Then I softly see fields "CriteriaforSelectingProposals__c" is in edit mode
+    Then I softly see fields "FormulaandMatchingRequirements__c" is in edit mode
+    Then I softly see fields "LengthandTimePhasingofAssistance__c" is in edit mode
+    Then I softly see fields "Reports__c" is in edit mode
+    Then I softly see fields "Audits__c" is in edit mode
+    Then I softly see fields "Records__c" is in edit mode
+    Then I softly see fields "RegulationsGuidelinesAndLiterature__c" is in edit mode
+    Then I softly see fields "AccountIdentification__c" is in edit mode
+    Then I softly see fields "Obligations__c" is in edit mode
+    Then I softly see fields "RangeandAverageofFinancialAssistanc__c" is in edit mode
+    Then I softly see fields "ProgramAccomplishments__c" is in edit mode
+    Then I softly see fields "RegionalOrLocalOffice__c" is in edit mode
+    Then I softly see fields "HeadquartersOffice__c" is in edit mode
+    Then I softly see fields "WebsiteAddress__c" is in edit mode
+    When I clear the value from field "FederalProgramCFDA__c"
+    When I clear the value from field "ProgramName__c"
+    And I click on remove for lookup from field "Account__c"
+    And I click on "Save" in the page details
+    Then I softly see the following messages in the page details :
+      | Program Number is required to save under Overview.       |
+      | Program Name is required to save under Overview.         |
+      | Funding Organization is required to save under Overview. |
+      | Program Objectives is required to save under Overview.   |
+    And I click on "Cancel" in the page details
+    Then I softly can see top right button "Activate" in page detail
+    Then I softly can see top right button "Edit" in page detail
+    And I click on "Activate" in the page details
+    Then I softly see the following messages in the page details :
       | Applicant Eligibility is required to submit under Overview |
 
-   Examples:
-     | User          |
-     | GRANTEE PM    |
-     | GRANTEE PO    |
+    Examples:
+      | User       |
+      | GRANTEE PM |
+      | GRANTEE PO |
 
   @464036 @ValidateAmeliaFDuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononBPCAR
   Scenario: Validate Amelia FD user Reviewer Yes can able to submit Review & Review complete by AR Owner on click of Compelete Review button on BPC AR
@@ -19066,3 +19091,39 @@ Feature: Sanity scenarios
     Then I softly do not see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly do not see "Program Income" page block displayed
     Then I softly do not see "Indirect Rates" page block displayed
+
+  @443880 @477629 @477630 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI
+  Scenario Outline: Validate PM user should able to see validation messages for required to save filed on KPI
+    When I login to "As a Grantee" app as "<userType>" user
+    And I navigate to "Planning" tab
+    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:KPITable---"
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details :
+      | Title is required to save.               |
+      | Domain is required to save.              |
+      | Measure is required to save.             |
+      | Unit of Measurement is required to save. |
+      | Indicator is required to save.           |
+    And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I clear the value from field "Description__c"
+    When I clear the value from field "Title__c"
+    When I enter value "--None--" into field "Unit__c"
+    When I enter value "--None--" into field "Orientation__c"
+    When I enter value "--None--" into field "Domain__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details :
+      | Domain is required to save under Overview.              |
+      | Title is required to save under Overview.               |
+      | Measure is required to save under Overview.             |
+      | Unit of Measurement is required to save under Overview. |
+      | Indicator is required to save under Overview.           |
+
+    Examples:
+      | userType      |
+      | GRANTEE PM    |
+      | GRANTEE EXE   |
+      | GRANTEE ADMIN |
