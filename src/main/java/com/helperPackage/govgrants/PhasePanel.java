@@ -90,11 +90,11 @@ public final class PhasePanel {
         I.amPerforming().textInput().toClear(dropDownSelector1);
         I.amPerforming().textInput().in(dropDownSelector1, rowvalues.get(0).toString());
         By selectDropdown1 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(0).toString() +"']");
-        I.amPerforming().click().withJavaScript(selectDropdown1);
+        I.amPerforming().click().on(selectDropdown1);
         I.amPerforming().textInput().toClear(dropDownSelector2);
         I.amPerforming().textInput().in(dropDownSelector2, rowvalues.get(1).toString());
         By selectDropdown2 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(1).toString() +"']");
-        I.amPerforming().click().withJavaScript(selectDropdown2);
+        I.amPerforming().click().on(selectDropdown2);
         if (I.amPerforming().checkToSee().IsElementPresentQuick(inputField)) {
             I.amPerforming().textInput().toClear(inputField);
             I.amPerforming().textInput().in(inputField, rowvalues.get(2).toString());

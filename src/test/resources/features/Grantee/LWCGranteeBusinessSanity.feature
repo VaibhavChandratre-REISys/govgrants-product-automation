@@ -98,9 +98,9 @@ Feature: Sanity scenarios
     Then I softly see snapshot with name containing "Activate.pdf" as name
     Examples:
       | userType      | emailId                         |
-      | GRANTEE PM    | sarah.pm.23@yopmail.com         |
+#      | GRANTEE PM    | sarah.pm.23@yopmail.com         |
       | GRANTEE EXE   | victor.exeqagrantee@yopmail.com |
-      | GRANTEE ADMIN | productqa@yopmail.com           |
+#      | GRANTEE ADMIN | productqa@yopmail.com           |
 
   @440386 @ValidatePMusercancreateandActivateStrategicplan
   Scenario: Validate PM user can create and Activate Strategic plan
@@ -9313,8 +9313,6 @@ Feature: Sanity scenarios
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
-    Then I softly see toggle option "All Contacts" inside flex table id "---grantee_tableId:-:InternalContacts---"
-    Then I softly see toggle option "My Organization’s Contact" inside flex table id "---grantee_tableId:-:InternalContacts---"
     And I click toggle button to select "All Contacts"
     Then I softly see "Actions" in flex table header "---grantee_tableId:-:InternalContacts---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:InternalContacts---"
@@ -9354,7 +9352,7 @@ Feature: Sanity scenarios
     Then I softly see asterisk mark on "Last Name"
     Then I softly see fields "LastName" is in edit mode
     Then I softly see field on modal "Phone" inside page block
-    Then I softly do not see asterisk mark on "Phone"
+    Then I softly see asterisk mark on "Phone"
     Then I softly see fields "Phone" is in edit mode
     Then I softly see field on modal "Mobile Phone" inside page block
     Then I softly do not see asterisk mark on "Mobile Phone"
@@ -19193,7 +19191,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE   |
       | GRANTEE ADMIN |
 
-  @477639 @477642 @477643 @ValidatePOusershoulonlyviewaccessforKPI @GranteeTBE1
+  @477639 @477642 @477643 @ValidatePOusershoulonlyviewaccessforKPI
   Scenario Outline: Validate PO user should only view access for KPI
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab

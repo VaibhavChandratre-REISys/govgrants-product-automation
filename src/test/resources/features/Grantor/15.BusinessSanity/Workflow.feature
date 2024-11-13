@@ -1533,15 +1533,32 @@ Feature: Validate all scenarios of every modules flow
     Then I softly see field "Status" as "Approved"
 
   @tst @debug
-  Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    Given I login to "As a Grantee" app as "GRANTEE ADMIN" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Account/0011900001SJZymAAH/view?0.source=alohaHeader"
+  Scenario Outline: end-to-end-flow-paymentrequest-progressreport-closeout
+    When I login to "As a Grantor" app as "<userType>" user
+    When I navigate to "Home" tab
+    Then I see "External" inside "Contacts" is displayed
+    Then I see "Internal" inside "Contacts" is displayed
+    And I navigate to "Internal" content inside "Contacts" subheader on left panel
+    And I click toggle button to select "All Contacts"
+    Then I softly see toggle option "All Contacts" inside flex table id "---grantee_tableId:-:InternalContacts---"
+    Then I softly see toggle option "My Organization’s Contact" inside flex table id "---grantee_tableId:-:InternalContacts---"
+    And I click on page navigation arrow "---grantee_tableId:-:InternalContacts---" for table id "Next"
+    Then I see table "---grantee_tableId:-:InternalContacts---" shows "Page 2"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:InternalContacts---"
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:InternalContacts---"
+    And I click on advance filter of table id "---grantee_tableId:-:InternalContacts---" for LWC
+    And I enter advance filter values inside id "---grantee_tableId:-:InternalContacts---" for LWC
+      | Full Name | contains | Grantee PO |
+    Then I softly see value "Grantee PO" for title "Full Name" inside table "---grantee_tableId:-:InternalContacts---"
     And I halt execution
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
-    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:indirectRateTableId---"
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
-    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:indirectRateTableId---"
-    And I halt execution
+    Examples:
+      | userType   |
+      | GRANTEE PM |
+#      | GRANTEE PO    |
+#      | GRANTEE FO    |
+#      | GRANTEE EXE   |
+#      | GRANTEE FD    |
+#      | GRANTEE ADMIN |
 
   @TestingXSS
   Scenario: Testing xss
