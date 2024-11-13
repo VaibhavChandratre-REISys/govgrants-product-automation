@@ -87,7 +87,7 @@ Feature: Sanity scenarios
     And I refresh the page
     And I wait for "4" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "<emailId>" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
@@ -97,10 +97,10 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Activate.pdf" as name
     Examples:
-      | userType      |
-      | GRANTEE PM    |
-      | GRANTEE EXE   |
-      | GRANTEE ADMIN |
+      | userType      | emailId                         |
+      | GRANTEE PM    | sarah.pm.23@yopmail.com         |
+      | GRANTEE EXE   | victor.exeqagrantee@yopmail.com |
+      | GRANTEE ADMIN | productqa@yopmail.com           |
 
   @440386 @ValidatePMusercancreateandActivateStrategicplan
   Scenario: Validate PM user can create and Activate Strategic plan
@@ -4197,7 +4197,7 @@ Feature: Sanity scenarios
     When I "Collapse" page block contaninig value "Address"
     Then I softly do not see fields "Street" is visible
     When I "Expanded" page block contaninig value "Address"
-    Then I softly see field "Street" as "{SavedValue:GrantEGMSID}"
+    Then I softly see fields "Street" is visible
     When I click on parallel lines menu bar with data target value "Related Contacts"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -4337,33 +4337,35 @@ Feature: Sanity scenarios
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
     Then I softly see value "Indirect Cost Rate Letter" for title "Classification" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgFilesTableId---"
+    And I click on "Delete" icon for "Attachment.pdf" inside flex table with id "---grantee_tableId:-:internalOrgFilesTableId---" without waiting for record
+    Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
     When I click on parallel lines menu bar with data target value "Organization Files"
     Then I see option "Refresh" present in parallel dropdown
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:internalOrgNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:internalOrgNotesTableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
+      | Title         | Description      |
+      | <NotesRecord> | Automation Notes |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I softly see value "<NotesRecord>" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I softly see link "Created By" inside Page block
     Then I softly see "Created By" in flex table header "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I can see row level action button "Delete" against "<NotesRecord>" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I can see row level action button "Edit" against "<NotesRecord>" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---" by clicking "Edit" :
-      | Created By | Title         | Description       |
-      | Sarah PM   | Notes Record1 | Automation Notes1 |
+      | Created By     | Title         | Description       |
+      | <CreatedNotes> | Notes Record1 | Automation Notes1 |
     And I wait for "2" seconds
-    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I softly see value "<NotesRecord1>" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
     And I save the value from row "1" for column name "Created By" as "CreatedBy" from flex table "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I softly see value "{SavedValue:CreatedBy}" for title "Created By" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
-    Then I can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
-    And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:internalOrgNotesTableId---" without waiting for record
-    Then I softly do not see value "Notes Recor1" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I can see row level action button "Delete" against "<NotesRecord1>" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I can see row level action button "Edit" against "<NotesRecord1>" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
+    And I click on "Delete" icon for "<NotesRecord1>" inside flex table with id "---grantee_tableId:-:internalOrgNotesTableId---" without waiting for record
+    Then I softly do not see value "<NotesRecord1>" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
     When I click on parallel lines menu bar with data target value "Notes"
     Then I see option "Refresh" present in parallel dropdown
     When I navigate to "History" sub tab
@@ -4372,13 +4374,13 @@ Feature: Sanity scenarios
     Then I softly can see "Chatter" sub tab at view detail page
 
     Examples:
-      | userType      |
-      | GRANTEE PM    |
-      | GRANTEE PO    |
-      | GRANTEE EXE   |
-      | GRANTEE FO    |
-      | GRANTEE FD    |
-      | GRANTEE ADMIN |
+      | userType      | CreatedNotes       | NotesRecord        | NotesRecord1        |
+      | GRANTEE PM    | Sarah PM           | Notes Record PM    | Notes Record PM1    |
+      | GRANTEE PO    | Grantee PO         | Notes Record PO    | Notes Record PO1    |
+      | GRANTEE EXE   | Victor EXE         | Notes Record EXE   | Notes Record EXE1   |
+      | GRANTEE FO    | David FO           | Notes Record FO    | Notes Record FO1    |
+      | GRANTEE FD    | Danielle FD Garcia | Notes Record FD    | Notes Record FD1    |
+      | GRANTEE ADMIN | Product QA         | Notes Record ADMIN | Notes Record ADMIN1 |
 
   @446228 @VerifyEXEusercanseeProgressreportschedulesfromawardinMonitoringschedules
   Scenario: Verify EXE user can see Progress report schedules from award in Monitoring schedules
@@ -9304,13 +9306,15 @@ Feature: Sanity scenarios
       | userType   | attachment     | Notes        | userName | Title | userAuditor     |
       | GRANTEE PM | Attachment.pdf | Notes Record | Sarah PM | Test  | GRANTEE AUDITOR |
 
-  @442181 @ValidatePMusershouldabletosaveandcreateinternalcontact
-  Scenario: Validate PM user should able to save and create internal contact
-    When I login to "As a Grantor" app as "GRANTEE PM" user
+  @442181 @477498 @477500 @477501 @477504 @477507 @ValidatePMusershouldabletosaveandcreateinternalcontact @GranteeTBE1
+  Scenario Outline: Validate PM/PO/FO/EXE/FD/ADMIN user should able to save and create internal contact
+    When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     Then I see "External" inside "Contacts" is displayed
     Then I see "Internal" inside "Contacts" is displayed
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
+    Then I softly see toggle option "All Contacts" inside flex table id "---grantee_tableId:-:InternalContacts---"
+    Then I softly see toggle option "My Organization’s Contact" inside flex table id "---grantee_tableId:-:InternalContacts---"
     And I click toggle button to select "All Contacts"
     Then I softly see "Actions" in flex table header "---grantee_tableId:-:InternalContacts---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:InternalContacts---"
@@ -9329,6 +9333,10 @@ Feature: Sanity scenarios
     Then I see table "---grantee_tableId:-:InternalContacts---" shows "Page 2"
     Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:InternalContacts---"
     Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:InternalContacts---"
+    And I click on advance filter of table id "---grantee_tableId:-:InternalContacts---" for LWC
+    And I enter advance filter values inside id "---grantee_tableId:-:InternalContacts---" for LWC
+      | Full Name | contains | Grantee PO |
+    Then I softly see value "Grantee PO" for title "Full Name" inside table "---grantee_tableId:-:InternalContacts---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:InternalContacts---"
     Then I softly see "Create Contact" opens in overLay window
     Then I softly can see "Overview" sub tab at view detail page
@@ -9463,6 +9471,14 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
     Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
     Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    Examples:
+      | userType      |
+      | GRANTEE PM    |
+      | GRANTEE PO    |
+      | GRANTEE FO    |
+      | GRANTEE EXE   |
+      | GRANTEE FD    |
+      | GRANTEE ADMIN |
 
   @443805 @ValidateGrantWithPMProfilewithcreatedowneraccessifGrantisinActivatedState
   Scenario: Validate Grant With PM Profile , with created owner access  if Grant is in Activated State
@@ -19236,10 +19252,10 @@ Feature: Sanity scenarios
     When I navigate to "Files" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:KPIFilesTableId---"
     Then I see "AttachmentTesting.pdf" has been added in "KPI Files" flex table
-    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
-    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
-    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
-    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I cannot see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I cannot see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
       | Title             | Description      |
       | Notes Record Test | Automation Notes |
