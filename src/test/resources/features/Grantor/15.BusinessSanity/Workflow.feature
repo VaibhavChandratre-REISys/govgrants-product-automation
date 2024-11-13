@@ -1534,12 +1534,13 @@ Feature: Validate all scenarios of every modules flow
 
   @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to url "https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/ReviewStep__c/a3SDV000001Im782AC/view"
+    Given I login to "As a Grantee" app as "GRANTEE ADMIN" user
+    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Account/0011900001SJZymAAH/view?0.source=alohaHeader"
     And I halt execution
-    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
-      | Form Name  | Required? | Due in Days | Minimum # of Reviews Required |
-      | Pre-Screen | Checked   | 5           | 1                             |
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:indirectRateTableId---"
     And I halt execution
 
   @TestingXSS

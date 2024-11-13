@@ -876,4 +876,18 @@ public final class GovGrantsAssertionSteps {
     public void iSoftlySeePostByUser(String usage,String message, String userName) {
         ggAssertionObjects.assertPostByUser(usage,message,userName);
     }
+
+    @Then("^I (softly see|see) \"([^\"]*)\" inside snapshot history$")
+    public void iSoftlySeeInsideSnapshotHistory(String usage, String text) {
+        if (usage.contains("softly")) {
+            I.amPerforming().assertionsTo().assertThat(ggAssertionObjects.isRecordPresentInTheSnapShot(text)).isTrue();
+        } else {
+            Assert.assertTrue(ggAssertionObjects.isRecordPresentInTheSnapShot(text));
+        }
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) sort order \"([^\"]*)\" for column \"([^\"]*)\" inside table with id \"([^\"]*)\"$")
+    public void iSoftlySeeSortValueForColumnInsideTableWithId(String usage,String sortOrder, String columnName, String tableId) {
+        ggAssertionObjects.assertValueForColumnInsideTableWithId(usage, sortOrder, columnName, tableId);
+    }
 }
