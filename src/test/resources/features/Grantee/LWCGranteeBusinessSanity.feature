@@ -3472,9 +3472,9 @@ Feature: Sanity scenarios
     Then I softly see "Primary Place of Performance" page block displayed
     Then I softly see "System Information" page block displayed
     When I "Collapse" page block contaninig value "Details"
-    Then I softly do not see fields "{SavedValue:GrantEGMSID}" is visible
+    Then I softly do not see fields "Grant__c" is visible
     When I "Expanded" page block contaninig value "Details"
-    Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
+    Then I softly see fields "Grant__c" is visible
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     And I wait for "3" seconds
     When I hovering mouse on help text icon inside page block detail "Grant Number"
@@ -4195,9 +4195,9 @@ Feature: Sanity scenarios
     When I save the field labeled "County" as "County"
     Then I softly see field "County" as "{SavedValue:County}"
     When I "Collapse" page block contaninig value "Address"
-    Then I softly do not see fields "Street" is visible
+    Then I softly do not see fields "BillingStreet" is visible
     When I "Expanded" page block contaninig value "Address"
-    Then I softly see fields "Street" is visible
+    Then I softly see fields "BillingStreet" is visible
     When I click on parallel lines menu bar with data target value "Related Contacts"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
@@ -4355,8 +4355,8 @@ Feature: Sanity scenarios
     Then I can see row level action button "Delete" against "<NotesRecord>" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I can see row level action button "Edit" against "<NotesRecord>" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---" by clicking "Edit" :
-      | Created By     | Title         | Description       |
-      | <CreatedNotes> | Notes Record1 | Automation Notes1 |
+      | Created By     | Title          | Description       |
+      | <CreatedNotes> | <NotesRecord1> | Automation Notes1 |
     And I wait for "2" seconds
     Then I softly see value "<NotesRecord1>" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
@@ -10160,9 +10160,9 @@ Feature: Sanity scenarios
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     When I "Collapse" page block contaninig value "Details"
-    Then I softly do not see fields "{SavedValue:GrantEGMSID}" is visible
+    Then I softly do not see fields "Grant__c" is visible
     When I "Expanded" page block contaninig value "Details"
-    Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
+    Then I softly see fields "Grant__c" is visible
     And I navigate to "Projections" sub tab
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
