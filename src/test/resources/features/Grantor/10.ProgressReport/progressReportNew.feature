@@ -1815,7 +1815,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @program2 @62923 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment
+  @program3 @62923 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment
   Scenario Outline: Verify Budget Period field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward at Award Owner end.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -4983,7 +4983,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @program2 @62928 @validateAwardedBudgetAfterFCAmendmentOnInternalPortal @smoke
+  @program3 @62928 @validateAwardedBudgetAfterFCAmendmentOnInternalPortal @smoke
   Scenario Outline: Verify Awarded Budget field value on Progress report should get updated after funding change amendment is done by award owner at Award owner end
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -5104,7 +5104,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @program2 @62924 @validateFrequencyAfterPeriodicAmendmentIsSameOnPR
+  @program3 @62924 @validateFrequencyAfterPeriodicAmendmentIsSameOnPR
   Scenario Outline: Verify Report Frequency field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward and Frequency is updated
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -5841,7 +5841,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
- @program2 @62922 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment
+ @program3 @62922 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment
   Scenario Outline: Verify Budget Period field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward at SR user end.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
