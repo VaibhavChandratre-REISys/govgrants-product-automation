@@ -13841,7 +13841,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE |
       | GRANTEE PO  |
 
-  @granteeExecution3 @470797 @VerifyPMusershouldabletocreateandaccepttheSOWamendmentrequest
+  @470797 @VerifyPMusershouldabletocreateandaccepttheSOWamendmentrequest
   Scenario: Verify PM user should able to create and accept the SOW amendment request
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
