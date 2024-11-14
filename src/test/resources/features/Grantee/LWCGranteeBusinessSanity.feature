@@ -474,7 +474,7 @@ Feature: Sanity scenarios
     And I upload attachment without random number "<attachment>" of type "Indirect Cost Rate Letter" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "Attachment.pdf" has been added in "Organization Files" flex table
+    Then I see "<attachment>" has been added in "Organization Files" flex table
     Then I can see row level action button "View" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I can see row level action button "Delete" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I can see row level action button "Edit" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
