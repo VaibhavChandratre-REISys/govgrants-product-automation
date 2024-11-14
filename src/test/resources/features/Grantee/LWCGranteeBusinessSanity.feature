@@ -480,7 +480,8 @@ Feature: Sanity scenarios
     Then I can see row level action button "Edit" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I can see row level action button "Download" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     And I click on "Delete" icon for "<attachment>" inside flex table with id "---grantee_tableId:-:federalFilesTableId---" without waiting for record
-    Then I do not see "<attachment>" has been added in "Organization Files" flex table
+    Then I see the following messages in the page details :
+      | File <attachment> deleted successfully. |
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:fedNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:fedNotesTableId---" by clicking "New" :
       | Title   | Description      |
