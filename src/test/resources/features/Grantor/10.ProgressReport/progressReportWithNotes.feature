@@ -813,7 +813,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I cannot see row level action button "Edit" against "Notes Record1" in flex table with id "---progressreport:-:progressNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record1" in flex table with id "---progressreport:-:progressNotesTableId---"
 
- @program2 @236045  @sprint-12-US-234322 @Notes
+ @236045  @sprint-12-US-234322 @Notes
   Scenario:Verify that <IND> User Cant Add notes In Progress Report If the record status is in the Submitted to Grantor  And Can Only Edit /Delete Notes Added by him
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1255,7 +1255,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Delete" icon for "Notes Record2" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record2" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
 
- @program2 @238028 @Verifyindusercanaddnoteinsendbacktosubrecipientstateandcanabletoeditdeletehisownnote @sprint-12-US-234322 @Notes
+ @238028 @Verifyindusercanaddnoteinsendbacktosubrecipientstateandcanabletoeditdeletehisownnote @sprint-12-US-234322 @Notes
   Scenario:Verify <ind> user can add note in send back to subrecipient state and can able to edit/delete his own note
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "SUBRECIPIENT_ORG_IND_USER-Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1309,8 +1309,7 @@ Feature: Validate scenarios in Progress Report Notes
     When I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     Then I can see top right button "New" in flex table with id "---progressreport:-:progressNotesTableId---"
-
-    When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
+   When I enter the following values into flex table with id "---progressreport:-:progressNotesTableId---" by clicking "New" :
       | Title         | Description      |
       | Notes Record1 | Automation Notes1|
     Then I softly see value "Notes Record1" for title "Title" inside table "---progressreport:-:progressNotesTableId---"

@@ -6513,6 +6513,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
   @program2 @62921 @validateAwardedBudgetDecreasedAfterFCAmendment @smoke
   Scenario Outline: Verify Awarded Budget field values at performance tab on progress report decrease when award owner performed Funding change amendment on subaward
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+    Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
     When I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6733,7 +6734,8 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
  @program2 @60723 @60724 @validateCreatedPRAfterFCAmendment
   Scenario Outline: Validate Progress reports with Created Status when Award owner performed Funding Change Amendment
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
-    When I am on "INTERNAL" portal
+   Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
+   When I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
