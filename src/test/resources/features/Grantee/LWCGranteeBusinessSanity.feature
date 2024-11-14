@@ -97,9 +97,9 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Activate.pdf" as name
     Examples:
-      | userType      | emailId                         |
+      | userType    | emailId                         |
 #      | GRANTEE PM    | sarah.pm.23@yopmail.com         |
-      | GRANTEE EXE   | victor.exeqagrantee@yopmail.com |
+      | GRANTEE EXE | victor.exeqagrantee@yopmail.com |
 #      | GRANTEE ADMIN | productqa@yopmail.com           |
 
   @440386 @ValidatePMusercancreateandActivateStrategicplan
@@ -334,7 +334,7 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
-  @443756 @461002 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg
+  @443756 @461002 @477522 @477527 @477529 @477532 @477542 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @GranteeTBE
   Scenario Outline: Validate Federal user should see all fields and section on federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -392,6 +392,17 @@ Feature: Sanity scenarios
     Then I softly see field on modal "County" inside page block
     Then I softly see field on modal "4-Digit Zip Code Extension" inside page block
     Then I softly see field on modal "Zip Code" inside page block
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | First Name is required to save.     |
+      | Last Name is required to save.      |
+      | Phone is required to save.          |
+      | Email is required to save.          |
+      | Address Line 1 is required to save. |
+      | State is required to save.          |
+      | City is required to save.           |
+      | Country is required to save.        |
+      | Zip Code is required to save.       |
     When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Automation" into field "FirstName"
     When I enter in modal value "Execution" into field "LastName"
@@ -468,13 +479,20 @@ Feature: Sanity scenarios
     Then I can see row level action button "Delete" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I can see row level action button "Edit" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I can see row level action button "Download" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    And I click on "Delete" icon for "<attachment>" inside flex table with id "---grantee_tableId:-:federalFilesTableId---" without waiting for record
+    Then I do not see "Attachment.pdf" has been added in "Organization Files" flex table
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:fedNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:fedNotesTableId---" by clicking "New" :
+      | Title   | Description      |
+      | <Notes> | Automation Notes |
     Then I softly see value "<Notes>" for title "Title" inside table "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see "Created By" in flex table header "---grantee_tableId:-:fedNotesTableId---"
     Then I can see row level action button "Delete" against "<Notes>" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
     Then I can see row level action button "Edit" against "<Notes>" in flex table with id "---grantee_tableId:-:fedNotesTableId---"
+    And I click on "Delete" icon for "<Notes>" inside flex table with id "---grantee_tableId:-:fedNotesTableId---" without waiting for record
+    Then I softly do not see value "<Notes>" for title "Title" inside table "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see value "Test" for title "Title" inside table "---grantee_tableId:-:fedNotesTableId---"
     Then I softly see value "Grantee testing" for title "Description" inside table "---grantee_tableId:-:fedNotesTableId---"
     And I save the value from row "2" for column name "Created By" as "CreatedBy" from flex table "---grantee_tableId:-:fedNotesTableId---"
@@ -485,9 +503,13 @@ Feature: Sanity scenarios
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | userType   | attachment            | Notes        |
-      | GRANTEE PM | Attachment.pdf        | Notes for PM |
-      | GRANTEE PO | AttachmentTesting.pdf | Notes for PO |
+      | userType      | attachment            | Notes           |
+      | GRANTEE PM    | Attachment.pdf        | Notes for PM    |
+      | GRANTEE PO    | AttachmentTesting.pdf | Notes for PO    |
+      | GRANTEE FO    | AttachmentTesting.pdf | Notes for FO    |
+      | GRANTEE EXE   | AttachmentTesting.pdf | Notes for EXE   |
+      | GRANTEE FD    | AttachmentTesting.pdf | Notes for FD    |
+      | GRANTEE ADMIN | AttachmentTesting.pdf | Notes for ADMIN |
 
   @443850 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection
   Scenario: Validate with PM Profile in direct grant keep setting YES then In Approved Active state able to see the access of section
@@ -2426,8 +2448,8 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @443755 @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
-  Scenario Outline: Non Federal_ Verify user should see all fields and section on Non federal Org
+  @443755 @461000 @477512 @477510 @477515 @477517 @477519 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @GranteeTBE
+  Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
@@ -2596,6 +2618,8 @@ Feature: Sanity scenarios
     Then I can see row level action button "Delete" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I can see row level action button "Edit" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I can see row level action button "Download" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    And I click on "Delete" icon for "<attachment>" inside flex table with id "---grantee_tableId:-:federalFilesTableId---"
+    Then I do not see "<attachment>" has been added in "Organization Files" flex table
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:fedNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:fedNotesTableId---" by clicking "New" :
       | Title   | Description      |
@@ -2619,9 +2643,13 @@ Feature: Sanity scenarios
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | userType   | attachment            | Notes        | userName   | Title |
-      | GRANTEE PM | Attachment.pdf        | Notes Record | Sarah PM   | Test  |
-      | GRANTEE PO | AttachmentTesting.pdf | Notes for PO | Grantee PO | Test1 |
+      | userType      | attachment     | Notes           | userName           | Title |
+      | GRANTEE PM    | Attachment.pdf | Notes Record    | Sarah PM           | Test  |
+      | GRANTEE PO    | Attachment.pdf | Notes for PO    | Grantee PO         | Test1 |
+      | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN | Product QA         | Test2 |
+      | GRANTEE FO    | Attachment.pdf | Notes for FO    | David FO           | Test3 |
+      | GRANTEE FD    | Attachment.pdf | Notes for FD    | Danielle FD Garcia | Test4 |
+      | GRANTEE EXE   | Attachment.pdf | Notes for EXE   | Victor EXE         | Test5 |
 
   @443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject
   Scenario: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
@@ -9471,12 +9499,12 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
     Examples:
       | userType      |
-#      | GRANTEE PM    |
-#      | GRANTEE PO    |
+      | GRANTEE PM    |
+      | GRANTEE PO    |
       | GRANTEE FO    |
-#      | GRANTEE EXE   |
+      | GRANTEE EXE   |
       | GRANTEE FD    |
-#      | GRANTEE ADMIN |
+      | GRANTEE ADMIN |
 
   @443805 @ValidateGrantWithPMProfilewithcreatedowneraccessifGrantisinActivatedState
   Scenario: Validate Grant With PM Profile , with created owner access  if Grant is in Activated State
