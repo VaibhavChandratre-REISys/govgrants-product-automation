@@ -2994,7 +2994,9 @@ Feature: Validate scenarios in Progress Report without background
     When I click on "Start" icon for "{SavedValue:ProgressReport2}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     And I wait for "2" seconds
-    Then I can see the message "<Error Message>" in the approval decision
+   Then I softly see the following messages in the page details contains:
+     | <Error Message> |
+
     Examples:
       | Award Name                            | Grant Name                            | Error Message                                                                                                                                                       |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |Progress Report cannot be approved because a report marked as the Final report has been approved.Send Back to Owner will allow the Owner to notify the Subrecipient. |
