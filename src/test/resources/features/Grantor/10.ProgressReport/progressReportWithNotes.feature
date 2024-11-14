@@ -983,7 +983,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "Delete" icon for "Notes Record3" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record3" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
 
-  @program2 @236177 @236179 @VerifythatSPIUsercannotaddnotesinProgressreportrecordinsubmitforapprovalstatesandeditdeleteonlyhisownnotes  @sprint-12-US-234322  @Notes
+  @236177 @236179 @VerifythatSPIUsercannotaddnotesinProgressreportrecordinsubmitforapprovalstatesandeditdeleteonlyhisownnotes  @sprint-12-US-234322  @Notes
   Scenario: Verify that <SPI> User cannot add notes in Progress report record in submit for approval states and edit /delete only his own notes
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
