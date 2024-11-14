@@ -334,7 +334,7 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
-  @443756 @461002 @477522 @477527 @477529 @477532 @477542 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @GranteeTBE
+  @443756 @461002 @477522 @477527 @477529 @477532 @477542 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg
   Scenario Outline: Validate Federal user should see all fields and section on federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -392,7 +392,7 @@ Feature: Sanity scenarios
     Then I softly see field on modal "County" inside page block
     Then I softly see field on modal "4-Digit Zip Code Extension" inside page block
     Then I softly see field on modal "Zip Code" inside page block
-    And I click modal button "Save and Continue"
+    When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | First Name is required to save.     |
       | Last Name is required to save.      |
@@ -2448,7 +2448,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @443755 @461000 @477512 @477510 @477515 @477517 @477519 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @GranteeTBE
+  @443755 @461000 @477512 @477510 @477515 @477517 @477519 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
