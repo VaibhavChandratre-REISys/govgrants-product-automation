@@ -414,7 +414,7 @@ public final class PhasePanel {
     }
 
     private By getDoubleArrowLocatorForLWC(String anyItemContainedInDropDown) {
-        if(anyItemContainedInDropDown.contains("Announcements") || anyItemContainedInDropDown.contains("Funding Decision Memos")){
+        if(anyItemContainedInDropDown.contains("Announcements") || anyItemContainedInDropDown.contains("Funding Decision Memos") || anyItemContainedInDropDown.contains("Contact")){
             return By.xpath("//gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
         } else if(anyItemContainedInDropDown.contains("External Funding Sources")|| anyItemContainedInDropDown.contains("NGO Programs")){
             String toggleName1 = anyItemContainedInDropDown.split(" ")[1];

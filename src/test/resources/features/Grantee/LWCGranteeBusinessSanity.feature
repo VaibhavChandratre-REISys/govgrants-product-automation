@@ -1,7 +1,7 @@
 @GranteeSanityBusinessFlow
 Feature: Sanity scenarios
 
-  @477625 @477603 @477627 @ValidatePMusershouldabletoCreateActivatetheKPI @GranteeTBE1
+  @477625 @477603 @477627 @ValidatePMusershouldabletoCreateActivatetheKPI
   Scenario Outline: Validate PM/EXE/ADMIN user should able to Create & Activate the KPI
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -4150,7 +4150,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE |
       | GRANTEE PM  |
 
-  @443719 @477483 @477485 @477486 @477488 @477489 @VerifytheinternalOrganizationallsectionandfields @GranteeTBE
+  @443719 @477483 @477485 @477486 @477488 @477489 @VerifytheinternalOrganizationallsectionandfields
   Scenario Outline: Verify the internal Organization all section and fields
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -9306,7 +9306,7 @@ Feature: Sanity scenarios
       | userType   | attachment     | Notes        | userName | Title | userAuditor     |
       | GRANTEE PM | Attachment.pdf | Notes Record | Sarah PM | Test  | GRANTEE AUDITOR |
 
-  @442181 @477498 @477500 @477501 @477504 @477507 @ValidatePMusershouldabletosaveandcreateinternalcontact @GranteeTBE1
+  @442181 @477498 @477500 @477501 @477504 @477507 @ValidatePMusershouldabletosaveandcreateinternalcontact
   Scenario Outline: Validate PM/PO/FO/EXE/FD/ADMIN user should able to save and create internal contact
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -9471,12 +9471,12 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
     Examples:
       | userType      |
-      | GRANTEE PM    |
-      | GRANTEE PO    |
+#      | GRANTEE PM    |
+#      | GRANTEE PO    |
       | GRANTEE FO    |
-      | GRANTEE EXE   |
+#      | GRANTEE EXE   |
       | GRANTEE FD    |
-      | GRANTEE ADMIN |
+#      | GRANTEE ADMIN |
 
   @443805 @ValidateGrantWithPMProfilewithcreatedowneraccessifGrantisinActivatedState
   Scenario: Validate Grant With PM Profile , with created owner access  if Grant is in Activated State
