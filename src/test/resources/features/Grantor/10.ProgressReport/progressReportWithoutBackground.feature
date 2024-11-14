@@ -1004,9 +1004,9 @@ Feature: Validate scenarios in Progress Report without background
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
-#    When I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-#    When I choose the file "sample.pdf" to upload for "Checklist" of type "---progressReport:-:progressReportChecklistsTableId---"
-#    When I close "Upload Document" modal by clicking the top right x button
+    When I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    When I choose the file "sample.pdf" to upload for "Checklist" of type "---progressReport:-:progressReportChecklistsTableId---"
+    When I close "Upload Document" modal by clicking the top right x button
     Then I see value "View" for title "Subrecipient Document Link" against the value "Active" inside table "---progressreport:-:ProgressReportChecklistTableId---"
     Examples:
       | Award Name                            |
