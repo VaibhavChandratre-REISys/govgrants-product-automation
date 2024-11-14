@@ -334,7 +334,7 @@ Feature: Sanity scenarios
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Deactivate.pdf" as name
 
-  @443756 @461002 @477522 @477527 @477529 @477532 @477542 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg
+  @443756 @461002 @477522 @477527 @477529 @477532 @477542 @ValidateFederalusershouldseeallfieldsandsectiononfederalOrg @GranteeTBE1
   Scenario Outline: Validate Federal user should see all fields and section on federal Org
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
@@ -480,7 +480,7 @@ Feature: Sanity scenarios
     Then I can see row level action button "Edit" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     Then I can see row level action button "Download" against "<attachment>" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     And I click on "Delete" icon for "<attachment>" inside flex table with id "---grantee_tableId:-:federalFilesTableId---" without waiting for record
-    Then I do not see "Attachment.pdf" has been added in "Organization Files" flex table
+    Then I do not see "<attachment>" has been added in "Organization Files" flex table
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:fedNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:fedNotesTableId---" by clicking "New" :
       | Title   | Description      |
@@ -4851,7 +4851,7 @@ Feature: Sanity scenarios
       | GRANTEE FO  |
       | GRANTEE PM  |
 
-  @443676 @477551 @477554 @477556 @477564 @477592 @443672 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's
+  @443676 @477551 @477554 @477556 @477564 @477592 @443672 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's @GranteeTBE
   Scenario Outline: federal_ Verify user should see all fields and section for federal contact's
     When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -4957,7 +4957,6 @@ Feature: Sanity scenarios
       | Please enter alphabetic character in the Country field. |
     When I enter in modal value "USA" into field "MailingCountry"
     When I click modal button "Save"
-    And I save the field labeled "Title" as "Title" on modal
     Then I see field "Title" as "{SavedValue:Automation Runtime}" on modal
     Then I see field "FirstName" as "Automation" on modal
     Then I see field "LastName" as "Execution" on modal
@@ -4973,6 +4972,7 @@ Feature: Sanity scenarios
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
+    And I save the field labeled "Title" as "Title" on modal
     Then I see field "Title" as "{SavedValue:Automation Runtime Test}" on modal
     Then I see field "FirstName" as "Automation1" on modal
     Then I see field "LastName" as "Execution1" on modal
@@ -4986,6 +4986,9 @@ Feature: Sanity scenarios
     And I click modal button "Close"
     And I perform quick search for "{SavedValue:Title}" in "---grantee_tableId:-:fedContactTableId---" panel
     Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:fedContactTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:fedContactTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:fedContactTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:fedContactTableId---"
     Examples:
       | User          |
       | GRANTEE PM    |
@@ -19340,7 +19343,7 @@ Feature: Sanity scenarios
       | GRANTEE FO | david.fo@yopmail.com        |
       | GRANTEE FD | danielle.garcia@yopmail.com |
 
-  @461000 @477512 @477515 @477517 @477519 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
+  @461000 @477512 @477515 @477517 @477519 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @GranteeTBE
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
