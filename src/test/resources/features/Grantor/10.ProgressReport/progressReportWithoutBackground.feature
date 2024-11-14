@@ -1004,9 +1004,10 @@ Feature: Validate scenarios in Progress Report without background
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
     When I navigate to "Forms and Files" sub tab
-    When I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    When I choose the file "sample.pdf" to upload for "Checklist" of type "---progressReport:-:progressReportChecklistsTableId---"
-    When I close "Upload Document" modal by clicking the top right x button
+   And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+   And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+   When I click modal button "Close"
+   And I wait for "3" seconds
     Then I see value "View" for title "Subrecipient Document Link" against the value "Active" inside table "---progressreport:-:ProgressReportChecklistTableId---"
     Examples:
       | Award Name                            |
@@ -1088,7 +1089,7 @@ Feature: Validate scenarios in Progress Report without background
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I wait for "3" seconds
     Then I see the following messages in the page details contains:
-      | File application review form.png Uploaded successfully. |
+      | File Attachment.pdf Uploaded successfully. |
     Examples:
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
