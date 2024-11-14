@@ -1088,7 +1088,7 @@ Feature: Validate scenarios in Progress Report without background
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I wait for "3" seconds
     Then I see the following messages in the page details contains:
-      | Updated Successfully. |
+      | File application review form.png Uploaded successfully. |
     Examples:
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
