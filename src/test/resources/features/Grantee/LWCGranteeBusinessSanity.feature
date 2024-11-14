@@ -4854,9 +4854,9 @@ Feature: Sanity scenarios
       | GRANTEE FO  |
       | GRANTEE PM  |
 
-  @443676 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's
-  Scenario: federal_ Verify user should see all fields and section for federal contact's
-    When I login to "As a Grantor" app as "GRANTEE ADMIN" user
+  @443676 @477551 @477554 @477556 @477564 @477592 @443672 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact's
+  Scenario Outline: federal_ Verify user should see all fields and section for federal contact's
+    When I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Contacts" subheader on left panel
     Then I softly see "Federal Contacts" page block displayed
@@ -4866,6 +4866,10 @@ Feature: Sanity scenarios
     Then I softly see "Email" in flex table header "---grantee_tableId:-:fedContactTableId---"
     Then I softly see "Phone" in flex table header "---grantee_tableId:-:fedContactTableId---"
     Then I softly see "Organization" in flex table header "---grantee_tableId:-:fedContactTableId---"
+    And I click on page navigation arrow "---grantee_tableId:-:fedContactTableId---" for table id "Next"
+    Then I see table "---grantee_tableId:-:fedContactTableId---" shows "Page 2"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:fedContactTableId---"
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:fedContactTableId---"
     When I click on parallel lines menu bar with data target value "Federal Contacts"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -4890,6 +4894,7 @@ Feature: Sanity scenarios
       | Organization is required to save.   |
       | First Name is required to save.     |
       | Last Name is required to save.      |
+      | Phone is required to save.          |
       | Email is required to save.          |
       | Address Line 1 is required to save. |
       | State is required to save.          |
@@ -4934,6 +4939,26 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Please enter valid Mobile Phone Number. |
     When I enter in modal value "8967093440" into field "MobilePhone"
+    When I enter in modal value "123" into field "MailingCity"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Please enter alphabetic character in the City field. |
+    When I enter in modal value "VA" into field "MailingCity"
+    When I enter in modal value "123" into field "County__c"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Please enter alphabetic character in the County field. |
+    When I enter in modal value "United" into field "County__c"
+    When I enter in modal value "tes" into field "CongressionalDistrict__c"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Enter 3-digit numeric value for Congressional District field |
+    When I enter in modal value "123" into field "CongressionalDistrict__c"
+    When I enter in modal value "123" into field "MailingCountry"
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Please enter alphabetic character in the Country field. |
+    When I enter in modal value "USA" into field "MailingCountry"
     When I click modal button "Save"
     And I save the field labeled "Title" as "Title" on modal
     Then I see field "Title" as "{SavedValue:Automation Runtime}" on modal
@@ -4964,6 +4989,14 @@ Feature: Sanity scenarios
     And I click modal button "Close"
     And I perform quick search for "{SavedValue:Title}" in "---grantee_tableId:-:fedContactTableId---" panel
     Then I softly see that "{SavedValue:Title}" has been added in flextable with Id "---grantee_tableId:-:fedContactTableId---"
+    Examples:
+      | User          |
+      | GRANTEE PM    |
+      | GRANTEE PO    |
+      | GRANTEE EXE   |
+      | GRANTEE FO    |
+      | GRANTEE FD    |
+      | GRANTEE ADMIN |
 
   @445435 @ValidateNonFederalprogramPMusercancreateandActivateNonFederalprogram
   Scenario: Validate Non-Federal program PM user can create and Activate Non Federal program
