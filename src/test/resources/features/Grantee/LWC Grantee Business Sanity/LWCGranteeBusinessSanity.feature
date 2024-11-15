@@ -19761,7 +19761,7 @@ Feature: Sanity scenarios
     When I navigate to "Closeout" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
 
-  @443821 @476540 @ValidateAwardwithEXEProfileFocusareavalidations @GranteeTBE1
+  @443821 @476540 @ValidateAwardwithEXEProfileFocusareavalidations
   Scenario Outline: Validate Award with EXE/PO Profile Focus area validations
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -19872,7 +19872,7 @@ Feature: Sanity scenarios
 
     Examples:
       | userType    | Approver   |
-#      | GRANTEE EXE | Victor EXE |
+      | GRANTEE EXE | Victor EXE |
       | GRANTEE PO  | Grantee PO |
 
   @449022 @446148 @ValidateGPCloseoutwithEXEProfileunabletoseebudgetperiodcloseout
@@ -20012,8 +20012,8 @@ Feature: Sanity scenarios
     Then I see table "---grantee_tableId:-:specialConditionPhaseLevelTableId---" shows "Page 1"
     And I save the total records from the flex table id "---grantee_tableId:-:specialConditionPhaseLevelTableId---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
-    And I select value inside table "---grantee_tableId:-:specialConditionPhaseLevelTableId---" is "All"
-    Then I see "All" records inside flex table id "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
+    And I select value inside table "---grantee_tableId:-:specialConditionPhaseLevelTableId---" is "5"
+    Then I see "5" records inside flex table id "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
     And I click on advance filter of table id "---program:-:specialConditionPhaseLevelTableId---" for LWC
     And I enter advance filter values inside id "---program:-:specialConditionPhaseLevelTableId---" for LWC
       | EGMS ID | contains | {SavedValue:AwardEGMSID} |
@@ -20135,8 +20135,8 @@ Feature: Sanity scenarios
     Then I see table "---grantee_tableId:-:specialConditionPhaseLevelTableId---" shows "Page 1"
     And I save the total records from the flex table id "---grantee_tableId:-:specialConditionPhaseLevelTableId---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
-    And I select value inside table "---grantee_tableId:-:specialConditionPhaseLevelTableId---" is "All"
-    Then I see "All" records inside flex table id "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
+    And I select value inside table "---grantee_tableId:-:specialConditionPhaseLevelTableId---" is "5"
+    Then I see "5" records inside flex table id "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
     And I click on advance filter of table id "---program:-:specialConditionPhaseLevelTableId---" for LWC
     And I enter advance filter values inside id "---program:-:specialConditionPhaseLevelTableId---" for LWC
       | EGMS ID | contains | {SavedValue:AwardEGMSID} |
