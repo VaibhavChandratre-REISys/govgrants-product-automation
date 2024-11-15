@@ -19676,7 +19676,7 @@ Feature: Sanity scenarios
       | GRANTEE FD    |
       | GRANTEE ADMIN |
 
-  @446125 @ValidateGPCloseoutwithEXEprofileifGrantisnotactivethenunabletoseenewbuttontocreatecloseout @GranteeTBE
+  @446125 @ValidateGPCloseoutwithEXEprofileifGrantisnotactivethenunabletoseenewbuttontocreatecloseout
   Scenario: Validate GP Closeout with EXE  profile ,if Grant is not active then unable to see new button to create closeout
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -19762,7 +19762,7 @@ Feature: Sanity scenarios
     When I navigate to "Closeout" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
 
-  @443821 @ValidateAwardwithEXEProfileFocusareavalidations @GranteeTBE
+  @443821 @ValidateAwardwithEXEProfileFocusareavalidations
   Scenario: Validate Award with EXE Profile Focus area validations
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -19842,12 +19842,12 @@ Feature: Sanity scenarios
       | Projections Tab - Enter the Focus Area Start Date and Focus Area End Date to all focus areas to submit for approval.                       |
       | Projections Tab - You must associate a budget to all focus areas before submitting this award for approval.                                |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
-      | Title                           | Start Date                         | End Date                         |
-      | Automation Permanent Focus Area | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
+      | Title                           | Start Date | End Date |
+      | Automation Permanent Focus Area | 15         | 365      |
     And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Projections Tab - At least one focus area must be in place at all times during the budget period. Adjust the focus area dates accordingly. |
-      | Projections Tab - Focus Area Start Date and Focus Area End Date should be between budget period.                       |
+      | Projections Tab - Focus Area Start Date and Focus Area End Date should be between budget period.                                           |
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
     And I click modal button "Close"
