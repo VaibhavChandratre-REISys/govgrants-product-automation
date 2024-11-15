@@ -13981,8 +13981,8 @@ Feature: Sanity scenarios
 
      Examples:
        | User          | Non Owner  |
-       | GRANTEE PM    | GRANTEE PO |
-#       | GRANTEE PO    | GRANTEE PM |
+#       | GRANTEE PM    | GRANTEE PO |
+        | GRANTEE PO    | GRANTEE PM |
 #       | GRANTEE EXE   | GRANTEE PO |
 #       | GRANTEE FO    | GRANTEE FD |
 #       | GRANTEE FD    | GRANTEE FO |
@@ -18447,10 +18447,8 @@ Feature: Sanity scenarios
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | Please select Amendment Request Type is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Initiated By is required to save. |
-    Then I softly see the following messages in the page details contains:
-      | Justification is required to save. |
+      | Initiated By is required to save.                         |
+      | Justification is required to save.                        |
     And I enter "Grantee_ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "3" seconds
