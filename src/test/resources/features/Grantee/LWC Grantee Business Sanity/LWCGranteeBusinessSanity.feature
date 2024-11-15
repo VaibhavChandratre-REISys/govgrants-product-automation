@@ -19761,7 +19761,7 @@ Feature: Sanity scenarios
     When I navigate to "Closeout" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
 
-  @443821 @476540 @ValidateAwardwithEXEProfileFocusareavalidations @GranteeTBE
+  @443821 @476540 @ValidateAwardwithEXEProfileFocusareavalidations @GranteeTBE1
   Scenario Outline: Validate Award with EXE/PO Profile Focus area validations
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -19842,7 +19842,7 @@ Feature: Sanity scenarios
       | Projections Tab - You must associate a budget to all focus areas before submitting this award for approval.                                |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
-      | Automation Permanent Focus Area | 15         | 500      |
+      | Automation Permanent Focus Area | 15         | 3800     |
     And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Projections Tab - At least one focus area must be in place at all times during the budget period. Adjust the focus area dates accordingly. |
@@ -19874,7 +19874,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE | Victor EXE |
       | GRANTEE PO  | Grantee PO |
 
-  @449022 @446148 @ValidateGPCloseoutwithEXEProfileunabletoseebudgetperiodcloseout @GranteeTBE
+  @449022 @446148 @ValidateGPCloseoutwithEXEProfileunabletoseebudgetperiodcloseout
   Scenario Outline: Validate GP Closeout with EXE Profile unable to see budget period closeout
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Closeout" tab
@@ -19955,8 +19955,8 @@ Feature: Sanity scenarios
       | Rate  | 15             | 30              | 10                             | Final                   |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name     | Award  |
-      | Sarah PM | Step 1 |
+      | Name       | Award  |
+      | Victor EXE | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -20085,8 +20085,8 @@ Feature: Sanity scenarios
       | Rate  | 15             | 30              | 10                             | Final                   |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name     | Award  |
-      | Sarah PM | Step 1 |
+      | Name       | Award  |
+      | Victor EXE | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
