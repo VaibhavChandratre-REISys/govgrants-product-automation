@@ -19874,7 +19874,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE | Victor EXE |
       | GRANTEE PO  | Grantee PO |
 
-  @449022 @446148 @ValidateGPCloseoutwithEXEProfileunabletoseebudgetperiodcloseout
+  @449022 @446148 @ValidateGPCloseoutwithEXEProfileunabletoseebudgetperiodcloseout @GranteeTBE
   Scenario Outline: Validate GP Closeout with EXE Profile unable to see budget period closeout
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Closeout" tab
