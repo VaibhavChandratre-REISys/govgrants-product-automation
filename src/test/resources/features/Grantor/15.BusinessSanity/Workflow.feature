@@ -1634,10 +1634,10 @@ Feature: Validate all scenarios of every modules flow
       | Announcement Name                                     | Application Name                                      |
       | Automation Runtime Competitive Announcement4199454996 | Automation Runtime Competitive Announcement4199454996 |
 
-  @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
+ @443 @ValidatePMusershouldabletoCreateActivatetheKPI
   Scenario: Validate PM user should able to Create & Activate the KPI
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    When I login to "As a Grantee" app as "GRANTEE PO" user
     And I wait for "5" seconds
-    And I navigate to "Overview" sub tab
-    And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentKPITableId---" by clicking "Edit" :
+      | EGMS ID                  | Target |
+      | Automation Runtime KPI   |        |
