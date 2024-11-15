@@ -1,4 +1,4 @@
-@home @grantor-regression @grantor-parallel-regression @regression
+@home @grantor-regression @grantor-parallel-regression @regression @TBExecution
 Feature: Validate all scenarios in the home tab
 
   @Add1 @56710 @56708 @internalOrganizationViewADMINEditPMView @smoke

@@ -20014,11 +20014,11 @@ Feature: Sanity scenarios
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
     And I select value inside table "---grantee_tableId:-:specialConditionPhaseLevelTableId---" is "5"
     Then I see "5" records inside flex table id "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
-    And I click on advance filter of table id "---program:-:specialConditionPhaseLevelTableId---" for LWC
-    And I enter advance filter values inside id "---program:-:specialConditionPhaseLevelTableId---" for LWC
+    And I click on advance filter of table id "---grantee_tableId:-:specialConditionPhaseLevelTableId---" for LWC
+    And I enter advance filter values inside id "---grantee_tableId:-:specialConditionPhaseLevelTableId---" for LWC
       | EGMS ID | contains | {SavedValue:AwardEGMSID} |
     And I pause execution for "5" seconds
-    Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:specialConditionPhaseLevelTableId---" panel
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:specialConditionsChildTableId---"
@@ -20137,11 +20137,11 @@ Feature: Sanity scenarios
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
     And I select value inside table "---grantee_tableId:-:specialConditionPhaseLevelTableId---" is "5"
     Then I see "5" records inside flex table id "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
-    And I click on advance filter of table id "---program:-:specialConditionPhaseLevelTableId---" for LWC
-    And I enter advance filter values inside id "---program:-:specialConditionPhaseLevelTableId---" for LWC
+    And I click on advance filter of table id "---grantee_tableId:-:specialConditionPhaseLevelTableId---" for LWC
+    And I enter advance filter values inside id "---grantee_tableId:-:specialConditionPhaseLevelTableId---" for LWC
       | EGMS ID | contains | {SavedValue:AwardEGMSID} |
     And I pause execution for "5" seconds
-    Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:specialConditionPhaseLevelTableId---"
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:specialConditionPhaseLevelTableId---" panel
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:specialConditionsChildTableId---"

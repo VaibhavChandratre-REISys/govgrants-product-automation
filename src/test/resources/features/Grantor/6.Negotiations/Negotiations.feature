@@ -1,4 +1,4 @@
-@negotiations @grantor-regression @grantor-parallel-regression @regression @NegoWithBackground
+@negotiations @grantor-regression @grantor-parallel-regression @regression @NegoWithBackground @TBExecution
 Feature: Validate all scenarios in Negotiations
 
   Background: To setup data
