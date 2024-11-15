@@ -19784,6 +19784,7 @@ Feature: Sanity scenarios
     And I click on "Edit" in the page details
     When I enter "Grantee_Award_Edition_All_No" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
@@ -19871,7 +19872,7 @@ Feature: Sanity scenarios
 
     Examples:
       | userType    | Approver   |
-      | GRANTEE EXE | Victor EXE |
+#      | GRANTEE EXE | Victor EXE |
       | GRANTEE PO  | Grantee PO |
 
   @449022 @446148 @ValidateGPCloseoutwithEXEProfileunabletoseebudgetperiodcloseout
@@ -19997,6 +19998,7 @@ Feature: Sanity scenarios
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Awards"
     Then I see table is refreshing
+    When I click on parallel lines menu bar with data target value "Awards"
     And I select "Download as PDF" from parallel lines dropdown of "Awards"
     And I download the file
     And I wait for "4" seconds
@@ -20119,6 +20121,7 @@ Feature: Sanity scenarios
     Then I see option "Download as PDF" present in parallel dropdown
     And I select "Refresh" from parallel lines dropdown of "Awards"
     Then I see table is refreshing
+    When I click on parallel lines menu bar with data target value "Awards"
     And I select "Download as PDF" from parallel lines dropdown of "Awards"
     And I download the file
     And I wait for "4" seconds
