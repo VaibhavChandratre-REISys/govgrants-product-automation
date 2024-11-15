@@ -13691,8 +13691,8 @@ Feature: Sanity scenarios
       | GRANTEE EXE   |
       | GRANTEE PO    |
 
-   @470797 @VerifyPMusershouldabletocreateandaccepttheSOWamendmentrequest
-  Scenario: Verify PM user should able to create and accept the SOW amendment request
+   @470797 @477663 @477666 @477669 @477670 @VerifyPMusershouldabletocreateandaccepttheSOWamendmentrequest
+   Scenario Outline: Verify PM user should able to create and accept the SOW amendment request
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -13817,7 +13817,7 @@ Feature: Sanity scenarios
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -13851,51 +13851,141 @@ Feature: Sanity scenarios
     Then I softly see "Key Performance Indicators (KPIs)" page block displayed
     Then I softly see "General Condition" page block displayed
     Then I softly see "Special Conditions" page block displayed
-#     And I click on "Edit" in the page details
-#
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-#      | Name       | Amendment Request |
-#      | Sarah PM   |  Step 1           |
-#    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-#      | Name       | Amendment Request |
-#      | Victor EXE | Step 2            |
-#    And I click on "Submit for Approval" in the page details
-#    Then I softly see field "Status" as "Submitted for Approval"
-#    And I wait for "2" seconds
-#    And I "Approve" in the approval decision
-#    Then I softly see field "Status" as "Submitted for Approval"
-#    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    And I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-#    When I click on "Start" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-#    And I "Approve" in the approval decision
-#    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-#    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-#    And I click toggle button to select "Amendment Requests - All"
-#    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-#    When I click on "Submit to Grantor" in the page details
-#    When I enter values into fields
-#      | Value | Field                 |
-#      | 0     | SubmittedToGrantor__c |
-#    And I click modal button "Save"
-#    And I click modal button "Close"
-#    Then I softly see field "Status" as "Submitted to Grantor"
-#    Then I can see top right button "Record Decision" in page detail
-#    Then I can see top right button "Revise Amendment" in page detail
-#    When I click on "Record Decision" in the page details
-#    When I enter values into fields
-#      | Value                       | Field             |
-#      | Accepted                    | Decision__c       |
-#      | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
-#      | Test                        | Comments__c       |
-#    And I click modal button "Save"
-#    And I click modal button "Close"
-#    Then I softly see field "Status" as "Accepted"
+     And I click on "Edit" in the page details
+     And I enter value "Automation Award" into field "GrantAwardName__c"
+     And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
+     And I enter value "Street4" into field "Addressline1__c"
+     And I enter value "Street5" into field "Addressline2__c"
+     And I enter value "Testing City" into field "City__c"
+     And I enter value "Testing County" into field "County__c"
+     And I enter value "IL: Illinois" into field "State__c"
+     And I enter value "321" into field "CongressionalDistrict__c"
+     And I enter value "54321" into field "Zip4__c"
+     And I enter value "Testing Country" into field "Country__c"
+     And I enter value "1111" into field "ZipCode4Extension__c"
+     And I click on "Save" in the page details
+     And I save the field labeled "Address line 1" as "Addressline1"
+     Then I softly see field "Address line 1" as "{SavedValue:Addressline1}"
+     And I save the field labeled "Address line 2" as "Addressline2"
+     Then I softly see field "Address line 2" as "{SavedValue:Addressline2}"
+     And I save the field labeled "City" as "City"
+     Then I softly see field "City" as "{SavedValue:City}"
+     And I save the field labeled "County" as "County"
+     Then I softly see field "County" as "{SavedValue:County}"
+     And I save the field labeled "State" as "State"
+     Then I softly see field "State" as "{SavedValue:State}"
+     And I save the field labeled "Congressional District" as "CongressionalDistrict"
+     Then I softly see field "Congressional District" as "{SavedValue:CongressionalDistrict}"
+     And I save the field labeled "Zip Code" as "ZipCode"
+     Then I softly see field "Zip Code" as "{SavedValue:ZipCode}"
+     And I save the field labeled "Country" as "Country"
+     Then I softly see field "Country" as "{SavedValue:Country}"
+     And I save the field labeled "4-Digit Zip Code Extension" as "ZipCodeExtension"
+     Then I softly see field "4-Digit Zip Code Extension" as "{SavedValue:ZipCodeExtension}"
+     And I click on "Edit" in the page details
+     Then I softly see fields "GeneralConditionChanged__c" is in edit mode
+     And I enter value "Checked" into field "GeneralConditionChanged__c"
+     And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
+     And I click on "Save" in the page details
+     And I save the field labeled "General Condition Changed?" as "GeneralConditionChanged"
+     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+     When I enter in modal value "Terms1" into field "Title__c"
+     When I enter in modal value "Terms Description" into field "Description__c"
+     When I enter in modal value "1" into field "Sequence__c"
+     When I enter in modal value "1" into field "EffectiveFrom__c"
+     When I enter in modal value "1" into field "EffectiveTill__c"
+     And I click modal button "Save"
+     And I wait for "3" seconds
+     Then I softly see value "Terms1" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+     Then I softly can see row level action button "View" against "Terms1" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+     Then I softly can see row level action button "Edit" against "Terms1" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+     Then I softly can see row level action button "Delete" against "Terms1" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+     When I navigate to "Files" sub tab
+     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:amendmentRequestAddFile---"
+     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+     And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
+     When I click modal button "Close"
+     And I wait for "2" seconds
+     Then I see "Attachment.pdf" has been added in "Amendment Files" flex table
+     Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+     Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+     Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+     Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "New" :
+       | Title        | Description      |
+       | Notes Record | Automation Notes |
+     Then I softly see the following messages in the page details contains:
+       | Saved Successfully! |
+     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+     When I re-login to "As a Grantee" app as "<Non Owner>" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Amendment Requests - All"
+     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+     When I navigate to "Files" sub tab
+     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+     When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Amendment Requests - All"
+     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+     When I navigate to "Responsibilities" sub tab
+     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+      | Name       | Amendment Request |
+      | Sarah PM   |  Step 1           |
+    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+      | Name       | Amendment Request |
+      | Victor EXE | Step 2            |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "2" seconds
+    And I "Approve" in the approval decision
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+    When I click on "Submit to Grantor" in the page details
+    When I enter values into fields
+      | Value | Field                 |
+      | 0     | SubmittedToGrantor__c |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I can see top right button "Record Decision" in page detail
+    Then I can see top right button "Revise Amendment" in page detail
+    When I click on "Record Decision" in the page details
+    When I enter values into fields
+      | Value                       | Field             |
+      | Accepted                    | Decision__c       |
+      | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
+      | Test                        | Comments__c       |
+    And I click modal button "Save"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Accepted"
+
+     Examples:
+       | User          | Non Owner  |
+       | GRANTEE PM    | GRANTEE PO |
+       | GRANTEE PO    | GRANTEE PM |
+       | GRANTEE EXE   | GRANTEE PO |
+       | GRANTEE FO    | GRANTEE FD |
+       | GRANTEE FD    | GRANTEE FO |
 
    @462433 @462379 @VerifyPOuserAROwnercanabletoAcceptPeriodicRenewalAmendmentRequest
   Scenario Outline: Verify PO user  (AR Owner) can able to Accept Periodic Renewal Amendment Request
