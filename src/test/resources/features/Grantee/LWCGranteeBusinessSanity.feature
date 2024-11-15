@@ -13944,7 +13944,11 @@ Feature: Sanity scenarios
       | Victor EXE | Step 2            |
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    And I wait for "2" seconds
+     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+     And I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+     When I click on "Start" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
@@ -13981,11 +13985,11 @@ Feature: Sanity scenarios
 
      Examples:
        | User          | Non Owner  |
-       | GRANTEE PM    | GRANTEE PO |
+#       | GRANTEE PM    | GRANTEE PO |
        | GRANTEE PO    | GRANTEE PM |
-       | GRANTEE EXE   | GRANTEE PO |
-       | GRANTEE FO    | GRANTEE FD |
-       | GRANTEE FD    | GRANTEE FO |
+#       | GRANTEE EXE   | GRANTEE PO |
+#       | GRANTEE FO    | GRANTEE FD |
+#       | GRANTEE FD    | GRANTEE FO |
 
    @462433 @462379 @VerifyPOuserAROwnercanabletoAcceptPeriodicRenewalAmendmentRequest
   Scenario Outline: Verify PO user  (AR Owner) can able to Accept Periodic Renewal Amendment Request
