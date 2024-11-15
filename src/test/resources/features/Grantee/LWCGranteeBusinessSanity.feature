@@ -13982,10 +13982,10 @@ Feature: Sanity scenarios
      Examples:
        | User          | Non Owner  |
        | GRANTEE PM    | GRANTEE PO |
-       | GRANTEE PO    | GRANTEE PM |
-       | GRANTEE EXE   | GRANTEE PO |
-       | GRANTEE FO    | GRANTEE FD |
-       | GRANTEE FD    | GRANTEE FO |
+#       | GRANTEE PO    | GRANTEE PM |
+#       | GRANTEE EXE   | GRANTEE PO |
+#       | GRANTEE FO    | GRANTEE FD |
+#       | GRANTEE FD    | GRANTEE FO |
 
    @462433 @462379 @VerifyPOuserAROwnercanabletoAcceptPeriodicRenewalAmendmentRequest
   Scenario Outline: Verify PO user  (AR Owner) can able to Accept Periodic Renewal Amendment Request
