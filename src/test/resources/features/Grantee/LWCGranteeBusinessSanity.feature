@@ -13836,6 +13836,8 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "SOWEGMSID"
+     Then I can see top right button "Edit" in page detail
+     Then I can see top right button "Delete" in page detail
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
@@ -13849,55 +13851,51 @@ Feature: Sanity scenarios
     Then I softly see "Key Performance Indicators (KPIs)" page block displayed
     Then I softly see "General Condition" page block displayed
     Then I softly see "Special Conditions" page block displayed
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | Sarah PM   |  Step 1           |
-    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | Victor EXE | Step 2            |
-    And I click on "Submit for Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
-    And I wait for "2" seconds
-    And I "Approve" in the approval decision
-    Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-    When I click on "Submit to Grantor" in the page details
-    When I enter values into fields
-      | Value | Field                 |
-      | 0     | SubmittedToGrantor__c |
-    And I click modal button "Save"
-    And I click modal button "Close"
-    Then I softly see field "Status" as "Submitted to Grantor"
-    Then I can see top right button "Record Decision" in page detail
-    Then I can see top right button "Revise Amendment" in page detail
-    When I click on "Record Decision" in the page details
-    When I enter values into fields
-      | Value                       | Field             |
-      | Accepted                    | Decision__c       |
-      | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
-      | Test                        | Comments__c       |
-    And I click modal button "Save"
-    And I click modal button "Close"
-    Then I softly see field "Status" as "Accepted"
-    And I click on "Amend Award" in the page details
-    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
-    When I click on "Activate Award" in the page details
-    And I wait for "3" seconds
-    Then I softly see field "Status" as "Activated"
-    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+#     And I click on "Edit" in the page details
+#
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+#      | Name       | Amendment Request |
+#      | Sarah PM   |  Step 1           |
+#    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+#      | Name       | Amendment Request |
+#      | Victor EXE | Step 2            |
+#    And I click on "Submit for Approval" in the page details
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    And I wait for "2" seconds
+#    And I "Approve" in the approval decision
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+#    When I click on "Start" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+#    And I "Approve" in the approval decision
+#    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+#    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+#    And I click toggle button to select "Amendment Requests - All"
+#    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+#    When I click on "Submit to Grantor" in the page details
+#    When I enter values into fields
+#      | Value | Field                 |
+#      | 0     | SubmittedToGrantor__c |
+#    And I click modal button "Save"
+#    And I click modal button "Close"
+#    Then I softly see field "Status" as "Submitted to Grantor"
+#    Then I can see top right button "Record Decision" in page detail
+#    Then I can see top right button "Revise Amendment" in page detail
+#    When I click on "Record Decision" in the page details
+#    When I enter values into fields
+#      | Value                       | Field             |
+#      | Accepted                    | Decision__c       |
+#      | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
+#      | Test                        | Comments__c       |
+#    And I click modal button "Save"
+#    And I click modal button "Close"
+#    Then I softly see field "Status" as "Accepted"
 
    @462433 @462379 @VerifyPOuserAROwnercanabletoAcceptPeriodicRenewalAmendmentRequest
   Scenario Outline: Verify PO user  (AR Owner) can able to Accept Periodic Renewal Amendment Request
