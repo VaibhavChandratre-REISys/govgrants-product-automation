@@ -13981,11 +13981,11 @@ Feature: Sanity scenarios
 
      Examples:
        | User          | Non Owner  |
-#       | GRANTEE PM    | GRANTEE PO |
-        | GRANTEE PO    | GRANTEE PM |
-#       | GRANTEE EXE   | GRANTEE PO |
-#       | GRANTEE FO    | GRANTEE FD |
-#       | GRANTEE FD    | GRANTEE FO |
+       | GRANTEE PM    | GRANTEE PO |
+       | GRANTEE PO    | GRANTEE PM |
+       | GRANTEE EXE   | GRANTEE PO |
+       | GRANTEE FO    | GRANTEE FD |
+       | GRANTEE FD    | GRANTEE FO |
 
    @462433 @462379 @VerifyPOuserAROwnercanabletoAcceptPeriodicRenewalAmendmentRequest
   Scenario Outline: Verify PO user  (AR Owner) can able to Accept Periodic Renewal Amendment Request
@@ -18504,6 +18504,9 @@ Feature: Sanity scenarios
       | Automation Runtime KPI   |        |
     Then I softly see the following messages in the page details contains:
       | Required fields missing  |
+    And I refresh the page
+    And I wait for "5" seconds
+    And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentKPITableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Runtime KPI   |    0   |
