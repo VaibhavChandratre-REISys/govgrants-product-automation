@@ -1621,6 +1621,9 @@ Feature: Validate all scenarios in Closeout
     When I click on "Edit" in the page details
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I navigate to "Files" sub tab
+    When I enter the following values into flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" by clicking "Add" :
+      | Description                 | Required  | Status |
+      | Automation test description | Mandatory | Active |
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
     Then I softly see the following messages in the page details contains:
