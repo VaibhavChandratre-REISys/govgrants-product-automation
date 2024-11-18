@@ -312,7 +312,7 @@ Feature: Validate all scenarios in Closeout
       | Type is required to save.   |
       | Reason is required to save. |
 
-  @40065 @87352 @40608 @89221 @89222 @89223 @89224 @89225 @89226 @89229 @89227 @88734 @88735 @88736 @88737 @88738 @88739 @ValidatingCloseoutRequest @buglogged141573 @TBExecution
+  @40065 @87352 @40608 @89221 @89222 @89223 @89224 @89225 @89226 @89229 @89227 @88734 @88735 @88736 @88737 @88738 @88739 @ValidatingCloseoutRequest @buglogged141573
   Scenario: To verify the PM user should be able to create the Closeout Request
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
@@ -956,7 +956,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see column "Overall Status" at position "3" contains text "Approved"
     Then I softly see column "Overall Status" at position "1" contains text "Pending"
 
-  @40759 @VerifyExpectedValueInsideFieldHistoryPageBlockOfCloseoutRequest  @FieldHistoryExclude @TBExecution
+  @40759 @VerifyExpectedValueInsideFieldHistoryPageBlockOfCloseoutRequest  @FieldHistoryExclude
   Scenario: Validate expected New value and Old value inside Field History page block for closeout request
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
@@ -983,8 +983,6 @@ Feature: Validate all scenarios in Closeout
     And I click on "View" icon for "Created" inside flex table with id "---closeout:-:closeoutTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
-    And I enter value "07/20/2023" into field "CloseoutDate__c"
-    And I enter value "08/12/2023" into field "CloseoutDueDateGrantor__c"
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "3" seconds
