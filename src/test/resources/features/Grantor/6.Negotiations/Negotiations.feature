@@ -260,7 +260,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     #408966 spell mistake for required also
     Then I softly see the following messages in the page details :
-      | Details is required for save under Negotiations |
+      | Details is required to save under Negotiations |
 
   @34387 @negotiationWhenOpenUserCannotCreateOther
   Scenario: Verify that with open negotiation request user can not Complete Negotiation (Negative TC)
@@ -504,7 +504,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "Edit" in the page details
     When I click on "Save" in the page details
     Then I see the following messages in the page details :
-      | Details is required for save under Negotiations |
+      | Details is required to save under Negotiations |
 
   @57839 @57840 @66445 @pendingNegotiationsViewAndSendToSubrecipientAfterSubmittingToGrantor
   Scenario: Validate whether users able to Send to Subrecipient after Submit to Grantor for adjustments and view the record  inside Pending Negotaitions Table |Validate Task is craeted to Subrecipient even when the negotiation is send back to subrecipient
