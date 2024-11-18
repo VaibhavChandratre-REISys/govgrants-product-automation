@@ -988,7 +988,7 @@ Feature: Validate all scenarios in Closeout
     And I wait for "3" seconds
     When I click on "Send To Subrecipient" in the page details
     Then I softly see field "Status" as "Sent To Subrecipient"
-    Then I softly see status in Progress-bar is "Sent To Subrecipient" and is "dark blue"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Home" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
