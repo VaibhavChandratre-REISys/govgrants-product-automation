@@ -235,7 +235,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "5" seconds
     Then I softly can see row level action button "Initiate Negotiation" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
 
-  @57218 @57219 @pendingTaskActionIconApplicantEditNegotiationRequest  @bug-408966-2024
+ @home1 @57218 @57219 @pendingTaskActionIconApplicantEditNegotiationRequest  @bug-408966-2024
   Scenario: Validate whether users will review the information and Applicant will be able to edit the respective application section(s) that the Agency mentioned
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -480,7 +480,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     Then I softly cannot see top right button "Edit" in page detail
 
-  @57838 @detailsRequiredtoSaveBeforeSubmitToGrantor  @bug-408966-2024
+ @home1 @57838 @detailsRequiredtoSaveBeforeSubmitToGrantor  @bug-408966-2024
   Scenario: Validate whether user to able to Submit to Grantor before providing deatils
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
