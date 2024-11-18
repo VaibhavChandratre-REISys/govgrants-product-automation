@@ -1,4 +1,4 @@
-@negotiations @grantor-regression @grantor-parallel-regression @regression @NegoWithBackground @TBExecution
+@negotiations @grantor-regression @grantor-parallel-regression @regression @NegoWithBackground
 Feature: Validate all scenarios in Negotiations
 
   Background: To setup data
@@ -1076,7 +1076,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see the following messages in the page details contains:
       | Negotiations Tab - Select at least one form for negotiation, because Form section is added for negotiation. |
 
-  @133252  @sprint-3
+  @133252  @sprint-3 @TBExecution
   Scenario: Validate PM user is able to select Allow Edit for atleast one form in the Available Forms for Revisionstable when application is submitted to grantor
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1101,6 +1101,7 @@ Feature: Validate all scenarios in Negotiations
     When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Negotiation Submitted"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Negotiations" content inside "Application Reviews" subheader on left panel
@@ -1121,7 +1122,7 @@ Feature: Validate all scenarios in Negotiations
       | Saved successfully! |
     Then I softly see "check" symbol against the value "Standard Assurances Form" in flex table with id "---negotiation:-:NegotiationFormsTableId---"
 
-  @133264  @sprint-3
+  @133264  @sprint-3 @TBExecution
   Scenario: that edit action is displayed for "Allow edit" column when Subrecipient user has submitted application to grantor and Application is in Negotiation Initiated state
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -1155,6 +1156,7 @@ Feature: Validate all scenarios in Negotiations
     When I enter value "Automation Negotiation Iniatiation" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Negotiation Submitted"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Negotiations" content inside "Application Reviews" subheader on left panel

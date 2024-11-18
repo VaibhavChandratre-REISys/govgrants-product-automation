@@ -1534,7 +1534,7 @@ Feature: Sanity scenarios
     When I click modal button "Save"
     And I click on submit review
     And I wait for "3" seconds
-    When I re-login to "As a Grantee" app as "<userName>" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "<userType>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
