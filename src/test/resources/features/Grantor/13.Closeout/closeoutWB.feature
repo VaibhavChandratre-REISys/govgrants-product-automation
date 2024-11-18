@@ -1008,7 +1008,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see row level action button "View" against "Created" in flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
     Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
 
-  @141925 @141947 @154057 @Verify1StepApprovalForScheduleCloseoutRequest-RnRFuntionality @TBExecution
+  @141925 @141947 @154057 @Verify1StepApprovalForScheduleCloseoutRequest-RnRFuntionality
   Scenario: Verify user is able to add one step approver for schedule closeout request
   |Verify user is able to add step 2 approver for schedule closeout request|
   |Verify user is able to add four step approver on schedule closeout request|
@@ -1044,7 +1044,7 @@ Feature: Validate all scenarios in Closeout
       | {SavedValue:FD Username} | Step 4   |
     Then I softly see "Saved Successfully!" inside flex table with id "---closeout:-:closeoutApproverTableId---"
 
-  @141949 @VerifyErrorMessageWhileSkippingStepsForScheduleCloseoutRequest-RnRFuntionality @TBExecution
+  @141949 @VerifyErrorMessageWhileSkippingStepsForScheduleCloseoutRequest-RnRFuntionality
   Scenario: Verify the user is not able to skip approver step on schedule closeout request
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -1098,7 +1098,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 
-  @153657 @verifyUserNotAbleToSkipApproverAtScheduleCloseoutRequest-RnRFunctionality @TBExecution
+  @153657 @verifyUserNotAbleToSkipApproverAtScheduleCloseoutRequest-RnRFunctionality
   Scenario: Verify the validation message when approval step has <NA>  on schedule closeout request
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
