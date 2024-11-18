@@ -18692,10 +18692,7 @@ Feature: Sanity scenarios
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
-      | Sarah PM   | Step 1 |
-    When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
-      | Name       | Award  |
-      | Victor EXE | Step 2 |
+      | Victor EXE | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -18732,5 +18729,21 @@ Feature: Sanity scenarios
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:awardsNotesTableId---"
-#    And I click on "Submit For Approval" in the page details
+    And I navigate to "Projections" sub tab
+    Then I softly do not see "Cash Match" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    Then I softly do not see "Other Levearage" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    When I save the field labeled "Total Match Amount Required" as "TotalMatchAmountRequired"
+    Then I softly see field "Total Match Amount Required" as "TotalMatchAmountRequired"
+    And I wait for "5" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Financials" sub tab
+    Then I softly do not see "Cash Match" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    Then I softly do not see "Other Levearage" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "2" seconds
+    When I "Approve" in the approval decision
