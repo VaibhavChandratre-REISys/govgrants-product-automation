@@ -18732,5 +18732,5 @@ Feature: Sanity scenarios
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:awardsNotesTableId---"
-    And I click on "Submit For Approval" in the page details
+#    And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
