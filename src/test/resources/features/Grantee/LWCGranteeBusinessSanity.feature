@@ -19294,7 +19294,7 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Edit" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     Then I cannot see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     When I expand nested table containing column value "{SavedValue:Title}"
-    And I save the value from row "1" for column name "Title" as "Title1" from flex table "---grantee_tableId:-:StrategicObjectivesChild---"
+    And I save the value from row "1" for column name "Objective" as "Title1" from flex table "---grantee_tableId:-:StrategicObjectivesChild---"
     Then I can see row level action button "View" against "{SavedValue:Title1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
     Then I cannot see row level action button "Edit" against "{SavedValue:Title1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
     Then I cannot see row level action button "Delete" against "{SavedValue:Title1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
