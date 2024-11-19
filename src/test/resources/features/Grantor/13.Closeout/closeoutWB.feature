@@ -4914,41 +4914,48 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:PayreqId1}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---progressReport:-:pendingTaskTableId---" panel
-    Then I softly see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
-    When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
-    And I navigate to "Closeout" tab
-    And I click toggle button to select "Closeouts - All"
-    And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
-    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
-    When I navigate to "Open Items" sub tab
-    Then I see "No Records Found" inside flex table with id "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
-    Then I see "No Records Found" inside flex table with id "---closeout:-:closeoutPendingProgressReportCloseoutTableId---"
-    Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
-    Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:PayreqId1}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
-    Then I softly see value "Created" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
-    Then I softly see value "Created" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
-    When I click on "Override" in the page details
-    And I refresh the page
-    When I navigate to "Open Items" sub tab
-    Then I see "No Records Found" inside flex table with id "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
-    Then I see "No Records Found" inside flex table with id "---closeout:-:closeoutPendingProgressReportCloseoutTableId---"
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId1}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
+   When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+   And I navigate to "Grants" tab
+   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+   When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
+   And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+   And I "Approve" in the approval decision
+   When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+   And I navigate to "Grants" tab
+   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+   When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
+   And I click on "Start" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+   And I "Approve" in the approval decision
+   Then I softly see field "Status" as "Approved"
+   When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+   And I navigate to "Monitoring" tab
+   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+   And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---progressReport:-:pendingTaskTableId---" panel
+   Then I softly see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
+   When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+   And I "Approve" in the approval decision
+   Then I softly see field "Status" as "Approved"
+   When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+   And I navigate to "Closeout" tab
+   And I click toggle button to select "Closeouts - All"
+   And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
+   And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
+   When I navigate to "Open Items" sub tab
+   Then I see "No Records Found" inside flex table with id "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
+   Then I see "No Records Found" inside flex table with id "---closeout:-:closeoutPendingProgressReportCloseoutTableId---"
+   Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
+   Then I softly see value "Submitted to Grantor" for title "Status" against the value "{SavedValue:PayreqId1}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
+   Then I softly see value "Created" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
+   Then I softly see value "Created" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
+   When I click on "Override" in the page details
+   And I refresh the page
+   When I navigate to "Open Items" sub tab
+   Then I see "No Records Found" inside flex table with id "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
+   Then I see "No Records Found" inside flex table with id "---closeout:-:closeoutPendingProgressReportCloseoutTableId---"
+   Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId1}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
+   Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:PayreqId}" inside table "---closeout:-:closeoutPaymentRequestTableId---"
+   Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:DeskReview}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
+   Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:SitevVisitId}" inside table "---closeout:-:PendingSiteVisitDeskReviewTableId---"
 
   @close2 @227791 @ValidatePMuserwhenrecordsunderopenitemsisinsubmitforapprovalstate&ownerofthatrecordissameascloseoutownerthenusershouldoverrideopenitems&forceclosethatopenitem&proceedfurtherevenafterownershiptransfer @sprint-12-US-226976  @reassignment
   Scenario: Validate PM user when records under open items is in submit for approval state & owner of that record is same as closeout owner then user should override open items & force close that open items & proceed further even after ownership transfer

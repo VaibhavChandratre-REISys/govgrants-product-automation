@@ -18747,3 +18747,4 @@ Feature: Sanity scenarios
     Then I softly see field "Status" as "Submitted for Approval"
     And I wait for "2" seconds
     When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Submitted for Approval"
