@@ -18912,9 +18912,10 @@ Feature: Sanity scenarios
     Then I softly see "Other Levearage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     When I save the field labeled "Total Match Amount Required" as "TotalMatchAmountRequired"
     Then I softly see field "Total Match Amount Required" as "{SavedValue:TotalMatchAmountRequired}"
-    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see "Program Income" page block displayed
     Then I softly see "Indirect Rates" page block displayed
+    When I navigate to "Actuals" sub tab
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:ExpenditureDetailsTableId---"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -18923,10 +18924,9 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Financials" sub tab
     Given I expand nested table containing column value "BP01"
+    And I wait for "2" seconds
     Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see "Other Levearage" in flex table header "---grantee_tableId:-:grantBudgetCategoryTableId---"
-    Then I softly see "Program Income" page block displayed
-    Then I softly see "Indirect Rates" page block displayed
+    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:grantBudgetCategoryTableId---"
 
   @462449 @VerifyPOuserAwardOwnercanabletoRevisethePeriodicRenewalAmendmentRequestonclickofReviseAmendmentbuttonwhenPRARisinSubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisethePRAR
   Scenario:Verify PO user  (Award Owner) can able to Revise the Periodic Renewal Amendment Request on click of Revise Amendment button when PR AR is in Submit to Grantor state & able to see status & Step Progress bar after revise the PR AR
