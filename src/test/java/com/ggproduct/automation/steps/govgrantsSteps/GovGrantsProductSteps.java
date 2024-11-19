@@ -41,11 +41,11 @@ public final class GovGrantsProductSteps {
     @Description("To check no records displayed in flex table")
     @Then("^I (softly see|see|do not see|softly do not see) \"([^\"]*)\" inside flex table with id \"([^\"]*)\"$")
     public void iSeeInsideFlexTableWithId(String usage, String text, String tableID) {
-            if (usage.contains("softly see")) {
+            if (usage.equals("softly see")) {
                 I.amPerforming().assertionsTo().assertThat(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID)).isTrue();
-            } else if (usage.contains("see")) {
+            } else if (usage.equals("see")) {
                 Assert.assertTrue(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID));
-            } else if (usage.contains("softly do not see")) {
+            } else if (usage.equals("softly do not see")) {
                 I.amPerforming().assertionsTo().assertThat(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID)).isFalse();
             } else {
                 Assert.assertFalse(ggProductObjects.isRecordPresentInTheFlexTable(text, tableID));
