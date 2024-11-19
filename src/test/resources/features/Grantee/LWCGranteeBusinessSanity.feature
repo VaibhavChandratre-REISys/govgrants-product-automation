@@ -19093,6 +19093,7 @@ Feature: Sanity scenarios
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     Then I cannot see top right button "Edit" in page detail
     Then I can see top right button "Submit to Grantor" in page detail
+    When I click on "Submit to Grantor" in the page details
     When I enter values into fields
       | Value | Field                 |
       | 0     | SubmittedToGrantor__c |
