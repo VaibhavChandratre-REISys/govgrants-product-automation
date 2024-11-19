@@ -20248,10 +20248,10 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
+    Then I see "Attachment.pdf" has been added in "Award Files" flex table
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
