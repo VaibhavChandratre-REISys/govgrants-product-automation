@@ -18729,11 +18729,22 @@ Feature: Sanity scenarios
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:awardsNotesTableId---"
+    And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "2" seconds
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Activated"
     And I navigate to "Projections" sub tab
     Then I softly do not see "Cash Match" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
     Then I softly do not see "Other Levearage" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
     When I save the field labeled "Total Match Amount Required" as "TotalMatchAmountRequired"
     Then I softly see field "Total Match Amount Required" as "TotalMatchAmountRequired"
+    Then I softly do not see "Cash Match" in flex table header "---subAwardStandAlone:-:ExpenditureDetailsTableId---"
+    Then I softly do not see "Program Income" page block displayed
+    Then I softly do not see "Indirect Rates" page block displayed
+    When I navigate to "Financials" sub tab
+    Then I softly do not see "Cash Match" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    Then I softly do not see "Other Levearage" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -18741,13 +18752,11 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Financials" sub tab
-    Then I softly do not see "Cash Match" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    Then I softly do not see "Other Levearage" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    And I click on "Submit For Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
-    And I wait for "2" seconds
-    When I "Approve" in the approval decision
-    Then I softly see field "Status" as "Submitted for Approval"
+    Given I expand nested table containing column value "BP01"
+    Then I softly do not see "Cash Match" in flex table header "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly do not see "Other Levearage" in flex table header "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly do not see "Program Income" page block displayed
+    Then I softly do not see "Indirect Rates" page block displayed
 
   @443842 @AwardVerifyWithPMProfileIfsettingkeptYesthenabletoseethesectioninGrantAward.
   Scenario: Award -  Verify With PM Profile ,If setting kept Yes then able to see the section in Grant/Award.
@@ -18886,6 +18895,12 @@ Feature: Sanity scenarios
     Then I softly see "Other Levearage" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
     When I save the field labeled "Total Match Amount Required" as "TotalMatchAmountRequired"
     Then I softly see field "Total Match Amount Required" as "TotalMatchAmountRequired"
+    Then I softly see "Cash Match" in flex table header "---subAwardStandAlone:-:ExpenditureDetailsTableId---"
+    Then I softly see "Program Income" page block displayed
+    Then I softly see "Indirect Rates" page block displayed
+    When I navigate to "Financials" sub tab
+    Then I softly see "Cash Match" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    Then I softly see "Other Levearage" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -18893,10 +18908,8 @@ Feature: Sanity scenarios
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Financials" sub tab
-    Then I softly do not see "Cash Match" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    Then I softly do not see "Other Levearage" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    And I click on "Submit For Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
-    And I wait for "2" seconds
-    When I "Approve" in the approval decision
-    Then I softly see field "Status" as "Submitted for Approval"
+    Given I expand nested table containing column value "BP01"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see "Other Levearage" in flex table header "---grantee_tableId:-:grantBudgetCategoryTableId---"
+    Then I softly see "Program Income" page block displayed
+    Then I softly see "Indirect Rates" page block displayed
