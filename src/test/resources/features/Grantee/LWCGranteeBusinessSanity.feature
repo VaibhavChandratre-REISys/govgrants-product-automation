@@ -18749,9 +18749,7 @@ Feature: Sanity scenarios
     Then I softly do not see "Cash Match" in flex table header "---subAwardStandAlone:-:ExpenditureDetailsTableId---"
     Then I softly do not see "Program Income" page block displayed
     Then I softly do not see "Indirect Rates" page block displayed
-    When I navigate to "Financials" sub tab
-    Then I softly do not see "Cash Match" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    Then I softly do not see "Other Levearage" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    Then I softly cannot see "Financials" sub tab at view detail page
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
