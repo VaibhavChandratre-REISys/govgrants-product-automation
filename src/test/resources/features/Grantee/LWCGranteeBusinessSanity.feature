@@ -18748,11 +18748,11 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Activated"
     And I navigate to "Projections" sub tab
-    Then I softly do not see "Cash Match" in flex table header "---subAwardStandAlone:-:AwardBudgetTableId---"
-    Then I softly do not see "Other Levearage" in flex table header "---subAwardStandAlone:-:AwardBudgetTableId---"
+    Then I softly do not see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly do not see "Other Levearage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     When I save the field labeled "Total Match Amount Required" as "TotalMatchAmountRequired"
-    Then I softly see field "Total Match Amount Required" as "TotalMatchAmountRequired"
-    Then I softly do not see "Cash Match" in flex table header "---subAwardStandAlone:-:ExpenditureDetailsTableId---"
+    Then I softly see field "Total Match Amount Required" as "{SavedValue:TotalMatchAmountRequired}"
+    Then I softly do not see "Cash Match" in flex table header "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly do not see "Program Income" page block displayed
     Then I softly do not see "Indirect Rates" page block displayed
     Then I softly cannot see "Financials" sub tab at view detail page
@@ -18902,11 +18902,11 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Activated"
     And I navigate to "Projections" sub tab
-    Then I softly see "Cash Match" in flex table header "---subAwardStandAlone:-:AwardBudgetTableId---"
-    Then I softly see "Other Levearage" in flex table header "---subAwardStandAlone:-:AwardBudgetTableId---"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Other Levearage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     When I save the field labeled "Total Match Amount Required" as "TotalMatchAmountRequired"
     Then I softly see field "Total Match Amount Required" as "{SavedValue:TotalMatchAmountRequired}"
-    Then I softly see "Cash Match" in flex table header "---subAwardStandAlone:-:ExpenditureDetailsTableId---"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:ExpenditureDetailsTableId---"
     Then I softly see "Program Income" page block displayed
     Then I softly see "Indirect Rates" page block displayed
     And I wait for "5" seconds
