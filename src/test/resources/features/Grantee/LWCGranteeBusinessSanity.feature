@@ -13323,16 +13323,22 @@ Feature: Sanity scenarios
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
+     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+     When I "Approve" in the approval decision
+     Then I softly see field "Status" as "Activated"
     When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    Then I softly see field "Status" as "Activated"
-    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-    And I wait for "2" seconds
-    When I navigate to "Amendments" sub tab
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
