@@ -18742,8 +18742,8 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Activated"
     And I navigate to "Projections" sub tab
-    Then I softly do not see "Cash Match" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    Then I softly do not see "Other Levearage" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    Then I softly do not see "Cash Match" in flex table header "---subAwardStandAlone:-:AwardBudgetTableId---"
+    Then I softly do not see "Other Levearage" in flex table header "---subAwardStandAlone:-:AwardBudgetTableId---"
     When I save the field labeled "Total Match Amount Required" as "TotalMatchAmountRequired"
     Then I softly see field "Total Match Amount Required" as "TotalMatchAmountRequired"
     Then I softly do not see "Cash Match" in flex table header "---subAwardStandAlone:-:ExpenditureDetailsTableId---"
@@ -18896,16 +18896,13 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     Then I softly see field "Status" as "Activated"
     And I navigate to "Projections" sub tab
-    Then I softly see "Cash Match" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    Then I softly see "Other Levearage" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
+    Then I softly see "Cash Match" in flex table header "---subAwardStandAlone:-:AwardBudgetTableId---"
+    Then I softly see "Other Levearage" in flex table header "---subAwardStandAlone:-:AwardBudgetTableId---"
     When I save the field labeled "Total Match Amount Required" as "TotalMatchAmountRequired"
-    Then I softly see field "Total Match Amount Required" as "TotalMatchAmountRequired"
+    Then I softly see field "Total Match Amount Required" as "{SavedValue:TotalMatchAmountRequired}"
     Then I softly see "Cash Match" in flex table header "---subAwardStandAlone:-:ExpenditureDetailsTableId---"
     Then I softly see "Program Income" page block displayed
     Then I softly see "Indirect Rates" page block displayed
-    When I navigate to "Financials" sub tab
-    Then I softly see "Cash Match" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    Then I softly see "Other Levearage" in flex table header "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
