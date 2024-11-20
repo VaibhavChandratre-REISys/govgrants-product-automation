@@ -17832,11 +17832,11 @@ Feature: Sanity scenarios
     Examples:
       | User          |
       | GRANTEE EXE   |
-#      | GRANTEE PM    |
-#      | GRANTEE PO    |
-#      | GRANTEE ADMIN |
-#      | GRANTEE FO    |
-#      | GRANTEE FD    |
+      | GRANTEE PM    |
+      | GRANTEE PO    |
+      | GRANTEE ADMIN |
+      | GRANTEE FO    |
+      | GRANTEE FD    |
 
 
   @464050 @VerifyPMuserARrecordownercanabletoseeAmendAwardbuttonwhenARgetAccepted&abletocreatenewAward&checkstatusofoldAward&checkimpactofnewlycreatedAwardonGrant&Award
