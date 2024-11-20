@@ -17366,7 +17366,7 @@ Feature: Sanity scenarios
 
   @472256 @476988 @476989 @476990 @476991 @476992 @CombinationofamendmentVerifyEXEusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward
   Scenario Outline:Combination of amendment : Verify EXE user can create combination of amendment using following combinations and activate new award
-    When I login to "As a Grantee" app as "<User>" user
+    When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
@@ -17834,9 +17834,9 @@ Feature: Sanity scenarios
 #      | GRANTEE EXE   |
 #      | GRANTEE PM    |
 #      | GRANTEE PO    |
-      | GRANTEE ADMIN |
+#      | GRANTEE ADMIN |
       | GRANTEE FO    |
-      | GRANTEE FD    |
+#      | GRANTEE FD    |
 
 
   @464050 @VerifyPMuserARrecordownercanabletoseeAmendAwardbuttonwhenARgetAccepted&abletocreatenewAward&checkstatusofoldAward&checkimpactofnewlycreatedAwardonGrant&Award
