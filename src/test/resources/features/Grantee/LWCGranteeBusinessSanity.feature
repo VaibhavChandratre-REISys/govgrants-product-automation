@@ -19947,5 +19947,10 @@ Feature: Sanity scenarios
  | Responsibilities - At least one approver is required.                                                                                                                         |
 
     Examples:
-      | User       |
-      | GRANTEE PM |
+      | User           |
+      | GRANTEE PM     |
+      | GRANTEE PO     |
+      | GRANTEE EXE    |
+      | GRANTEE FO     |
+      | GRANTEE FD     |
+      | GRANTEE ADMIN  |
