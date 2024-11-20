@@ -1310,7 +1310,7 @@ Feature: Sanity scenarios
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Overview" sub tab
-    When I enter value "123456789123" into field "DUNS__c"
+    When I enter value "<UEI>" into field "DUNS__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I navigate to "Awards" sub tab
@@ -1714,10 +1714,10 @@ Feature: Sanity scenarios
       | userType      | userName   | UEI          |
 #      | GRANTEE PM  | Sarah PM   | 123456789123 |
 #      | GRANTEE EXE | Victor EXE | 123456789123 |
-      | GRANTEE PO    | Grantee PO | 123456789123 |
+#      | GRANTEE PO    | Grantee PO | 123456789123 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @445640 @446229 @477326 @477325 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @GranteeTBE1
+  @445640 @446229 @477326 @477325 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
   Scenario Outline: Validate Financial Report Schedule user can edit Financial report schedule on Created Submitted for review Reviewed Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -2124,8 +2124,8 @@ Feature: Sanity scenarios
 
     Examples:
       | userType   | userName   |
-#      | GRANTEE PM  | Sarah PM   |
-#      | GRANTEE EXE | Victor EXE |
+      | GRANTEE PM  | Sarah PM   |
+      | GRANTEE EXE | Victor EXE |
       | GRANTEE PO | Grantee PO |
 
   @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout
@@ -6571,7 +6571,7 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | UEI Number is required to save under Overview. |
     And I navigate to "Overview" sub tab
-    When I enter value "123456789123" into field "DUNS__c"
+    When I enter value "<UEI>" into field "DUNS__c"
     When I click on "Cancel" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
     When I click modal button "OK"
@@ -20174,7 +20174,7 @@ Feature: Sanity scenarios
     And I expand nested table containing column value "{SavedValue:AwardEGMSID}"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:specialConditionsChildTableId---"
 
-  @443824 @476551 @ValidateAwardWithPMProfileProgramincomeRevenuebyFocusareaandDrawdownByGrantAwardTasksectionInActualTabofAwardPagelayout @GranteeTBE1
+  @443824 @476551 @ValidateAwardWithPMProfileProgramincomeRevenuebyFocusareaandDrawdownByGrantAwardTasksectionInActualTabofAwardPagelayout
   Scenario Outline: Validate Award With PM Profile Program income Revenue by Focus area  and Drawdown By Grant Award Task section In Actual Tab of Award Page layout
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -20201,7 +20201,7 @@ Feature: Sanity scenarios
     And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
+    When I click "Associate" after selection of "<userName>" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
@@ -20321,7 +20321,7 @@ Feature: Sanity scenarios
     Then I see "Financial Transactions" on page "1" of "govgrants" pdf file
     Examples:
       | userType    | userName   | Approver |
-      | GRANTEE PM  | Victor EXE | GRANTEE EXE |
+#      | GRANTEE PM  | Victor EXE | GRANTEE EXE |
       | GRANTEE EXE | Sarah PM   | GRANTEE PM  |
 
   @446128 @ValidateGPCloseoutWithEXEProfileOncecreatetheadhoccloseoutNewbuttonofcloseoutgetdisable @GranteeTBE
@@ -20433,9 +20433,9 @@ Feature: Sanity scenarios
     When I navigate to "Closeout" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     Then I can see row level action button "View" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
-    Then I can see row level action button "Edit" against "{SavedValue:v}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I can see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
 
-  @443845 @ValidateAwardWithPMProfileIfPeerreviewerFDProfilenotsubmitthereviewthenawardownerabletoseecompletereviewbuttonontoprightcornerandrowlevelresendforreview @GranteeTBE1
+  @443845 @ValidateAwardWithPMProfileIfPeerreviewerFDProfilenotsubmitthereviewthenawardownerabletoseecompletereviewbuttonontoprightcornerandrowlevelresendforreview
   Scenario: Validate Award With PM Profile If Peer reviewer FD Profile not submit the review then award owner able to see complete review button on top right corner and row level resend for review
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -20492,7 +20492,7 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Complete Review" in page detail
     Then I softly can see row level action button "Resend for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
 
-  @443803 @ValidateGrantFO/FD/AuditorProfileunabletoseetheNEWbuttontocreateDirectGrant @GranteeTBE
+  @443803 @ValidateGrantFO/FD/AuditorProfileunabletoseetheNEWbuttontocreateDirectGrant
   Scenario Outline: Validate Grant FO /FD /Auditor Profile unable to see the NEW button to create Direct Grant
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
