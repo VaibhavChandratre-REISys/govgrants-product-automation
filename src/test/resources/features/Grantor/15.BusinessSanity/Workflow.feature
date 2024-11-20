@@ -1635,52 +1635,13 @@ Feature: Validate all scenarios of every modules flow
       | Automation Runtime Competitive Announcement4199454996 | Automation Runtime Competitive Announcement4199454996 |
 
  @443 @ValidatePMusershouldabletoCreateActivatetheKPI
- Scenario Outline: Validate PM user should able to Create & Activate the KPI
-    When I login to "As a Grantee" app as "<User>" user
-   And I navigate to "Planning" tab
-   When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
-   And I click toggle button to select "Strategic Plans - Active"
-   And I perform quick search for "<RecordId>" in "---grantee_tableId:-:StrategicPlans---" panel
-   Then I softly see value "<RecordId>" for title "EGMS ID" inside table "---grantee_tableId:-:StrategicPlans---"
-   When I expand nested table containing column value "Automation Permanent Strategic Plan"
-   Then I softly see value "Automation Permanent Strategic Goal" for title "Strategic Goal" inside table "---grantee_tableId:-:StrategicGoalsChild---"
-   When I expand nested table containing column value "Automation Permanent Strategic Goal"
-   Then I softly see value "Automation Permanent Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
-   Then I cannot see row level action button "Edit" against "Automation Permanent Strategic Plan" in flex table with id "---grantee_tableId:-:StrategicPlans---"
-   Then I can see row level action button "View" against "Automation Permanent Strategic Plan" in flex table with id "---grantee_tableId:-:StrategicPlans---"
-   And I click on "View" icon for "<RecordId>" inside table
-   Then I cannot see top right button "Edit" in page detail
-   Then I cannot see top right button "Deactivate" in page detail
-   And I navigate to "Overview" sub tab
-   Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
-   And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:StrategicGoalsandObjective---"
-   Then I can see row level action button "View" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
-   Then I cannot see row level action button "Edit" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
-   Then I cannot see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
-   When I expand nested table containing column value "{SavedValue:Title}"
-   Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
-   And I save the value from row "1" for column name "Objective" as "Objective1" from flex table "---grantee_tableId:-:StrategicObjectivesChild---"
-   Then I can see row level action button "View" against "{SavedValue:Objective1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
-   Then I cannot see row level action button "Edit" against "{SavedValue:Objective1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
-   Then I cannot see row level action button "Delete" against "{SavedValue:Objective1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
-   When I navigate to "Related Log" sub tab
-   Then  I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:strategicPlanKPITableId---"
-   And I save the value from row "1" for column name "Title" as "Title2" from flex table "---grantee_tableId:-:strategicPlanKPITableId---"
-   Then I softly see that "{SavedValue:Title2}" has been added in flextable with Id "---grantee_tableId:-:strategicPlanKPITableId---"
-   Then I can see row level action button "View" against "{SavedValue:Title2}" in flex table with id "---grantee_tableId:-:strategicPlanKPITableId---"
-   Then I cannot see row level action button "Edit" against "{SavedValue:Title2}" in flex table with id "---grantee_tableId:-:strategicPlanKPITableId---"
-   Then I cannot see row level action button "Delete" against "{SavedValue:Title2}" in flex table with id "---grantee_tableId:-:strategicPlanKPITableId---"
+   @477515 @477517 @477519 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
+ Scenario: Non Federal Verify user should see all fields and section on Non federal Org
+   When I login to "As a Grantor" app as "GRANTEE PO" user
+   When I navigate to "Home" tab
+   And I navigate to "External" content inside "Organizations" subheader on left panel
+   Then I softly see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
    And I navigate to "Files" sub tab
-   Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
-   Then  I can see top right button "New" in flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---"
-   When I click on parallel lines menu bar with data target value "Strategic Plan Files"
-   And I wait for "2" seconds
-   Then I see option "Refresh" present in parallel dropdown
-   Then I see option "Download as PDF" present in parallel dropdown
-
-   Examples:
-     | User           | RecordId                            |
-     | GRANTEE PO     | Automation Permanent Strategic Plan |
-#      | GRANTEE PM     | Automation Permanent Strategic Plan |
-#      | GRANTEE FO     | Automation Permanent Strategic Plan |
-#      | GRANTEE ADMIN  | Automation Permanent Strategic Plan |
+   Then I softly see "Organization Files" page block displayed
+   Then I softly see "Notes" page block displayed
+   Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:federalFilesTableId---"
