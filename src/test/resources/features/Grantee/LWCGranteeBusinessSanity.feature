@@ -19407,8 +19407,8 @@ Feature: Sanity scenarios
       | GRANTEE ADMIN  | Automation Permanent Strategic Plan |
 
   @476993 @477146 @477137 @477139 @477140 @477142 @477144 @CombinationofamendmentVerifyAuditorusercannotcreatecombinationofamendmentusingfollowingcombinationsonactiveaward
-  Scenario:Combination of amendment : Verify Auditor user cannot create combination of amendment using following combinations on active award
-    When I login to "As a Grantee" app as "<User>>" user
+  Scenario Outline: Combination of amendment : Verify Auditor user cannot create combination of amendment using following combinations on active award
+    When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
