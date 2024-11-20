@@ -19112,7 +19112,7 @@ Feature: Sanity scenarios
     Then I softly see value "Revision in Progress" for title "New Value" inside field history table
     Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
 
-  @476594 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate
+  @476594 @476595 @476596 @476597 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate
   Scenario Outline: Strategic Plan - Verify PO as Non owner user cannot edit any data on Strategic plan record created by PM user when SP is in Created, Active state
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
@@ -19306,12 +19306,12 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Edit" against "{SavedValue:Title2}" in flex table with id "---grantee_tableId:-:strategicPlanKPITableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:Title2}" in flex table with id "---grantee_tableId:-:strategicPlanKPITableId---"
     And I navigate to "Files" sub tab
-    Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicGoalsFilesTableId---"
-    And I save the value from row "1" for column name "Classification" as "Classification" from flex table "---grantee_tableId:-:StrategicGoalsandObjective---"
-    Then I can see row level action button "Download" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:strategicGoalsFilesTableId---"
-    Then I can see row level action button "View" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:strategicGoalsFilesTableId---"
-    Then I cannot see row level action button "Edit" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:strategicGoalsFilesTableId---"
-    Then I cannot see row level action button "Delete" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:strategicGoalsFilesTableId---"
+    Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
+    And I save the value from row "1" for column name "Title" as "Files" from flex table "---grantee_tableId:-:strategicPlansFilesTableId---"
+    Then I can see row level action button "Download" against "{SavedValue:Files}" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
+    Then I can see row level action button "View" against "{SavedValue:Files}" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:Files}" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:Files}" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
     Then  I can see top right button "New" in flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---"
     And I save the value from row "1" for column name "Title" as "Notes" from flex table "---grantee_tableId:-:strategicPlansNotesTableId---"
     Then I cannot see row level action button "Download" against "{SavedValue:Notes}" in flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---"
@@ -19345,10 +19345,10 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     When I expand nested table containing column value "{SavedValue:Title}"
     Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
-    And I save the value from row "1" for column name "Title" as "Title1" from flex table "---grantee_tableId:-:StrategicObjectivesChild---"
-    Then I can see row level action button "View" against "{SavedValue:Title1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
-    Then I cannot see row level action button "Edit" against "{SavedValue:Title1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
-    Then I cannot see row level action button "Delete" against "{SavedValue:Title1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
+    And I save the value from row "1" for column name "Objective" as "Objective1" from flex table "---grantee_tableId:-:StrategicObjectivesChild---"
+    Then I can see row level action button "View" against "{SavedValue:Objective1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:Objective1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:Objective1}" in flex table with id "---grantee_tableId:-:StrategicObjectivesChild---"
     When I navigate to "Related Log" sub tab
     Then  I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:strategicPlanKPITableId---"
     And I save the value from row "1" for column name "Title" as "Title2" from flex table "---grantee_tableId:-:strategicPlanKPITableId---"
@@ -19357,7 +19357,7 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Edit" against "{SavedValue:Title2}" in flex table with id "---grantee_tableId:-:strategicPlanKPITableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:Title2}" in flex table with id "---grantee_tableId:-:strategicPlanKPITableId---"
     And I navigate to "Files" sub tab
-    Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicGoalsFilesTableId---"
+    Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
     Then  I can see top right button "New" in flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---"
     When I click on parallel lines menu bar with data target value "Strategic Plan Files"
     And I wait for "2" seconds
@@ -19367,8 +19367,8 @@ Feature: Sanity scenarios
     Examples:
       | User           | RecordId                            |
       | GRANTEE PO     | Automation Permanent Strategic Plan |
-#      | GRANTEE PM     | Automation Permanent Strategic Plan |
-#      | GRANTEE FO     | Automation Permanent Strategic Plan |
-#      | GRANTEE ADMIN  | Automation Permanent Strategic Plan |
+      | GRANTEE PM     | Automation Permanent Strategic Plan |
+      | GRANTEE FO     | Automation Permanent Strategic Plan |
+      | GRANTEE ADMIN  | Automation Permanent Strategic Plan |
 
 
