@@ -17364,7 +17364,7 @@ Feature: Sanity scenarios
    Then I softly see value "Approved" for title "New Value" inside field history table
    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
 
-  @472256 @476988 @CombinationofamendmentVerifyEXEusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward
+  @472256 @476988 @476989 @476990 @476991 @476992 @CombinationofamendmentVerifyEXEusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward
   Scenario Outline:Combination of amendment : Verify EXE user can create combination of amendment using following combinations and activate new award
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Grants" tab
@@ -17831,9 +17831,14 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
 
     Examples:
-      | User  |
-      | EXE   |
-      | PM    |
+      | User          |
+      | GRANTEE EXE   |
+      | GRANTEE PM    |
+#      | GRANTEE PO    |
+#      | GRANTEE ADMIN |
+#      | GRANTEE FO    |
+#      | GRANTEE FD    |
+
 
   @464050 @VerifyPMuserARrecordownercanabletoseeAmendAwardbuttonwhenARgetAccepted&abletocreatenewAward&checkstatusofoldAward&checkimpactofnewlycreatedAwardonGrant&Award
   Scenario:Verify PM user (AR record owner) can able to see Amend Award button when AR get Accepted & able to create new Award & check status of old Award & check impact of newly created Award on Grant & Award
