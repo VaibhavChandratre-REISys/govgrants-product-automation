@@ -19673,11 +19673,11 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:AmendEGMSID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     Then I softly can see top right button "Edit" in page detail
     And I navigate to "Overview" sub tab
-    Then I softly see value "{SavedValue:ProposedName}" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
+    Then I softly see value "David FO" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
-    Then I cannot see row level action button "View" against "{SavedValue:ProposedName}" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
-    Then I cannot see row level action button "Edit" against "{SavedValue:ProposedName}" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
-    Then I cannot see row level action button "Delete" against "{SavedValue:ProposedName}" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    Then I cannot see row level action button "View" against "David FO" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    Then I cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    Then I cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I cannot see row level action button "View" against "{SavedValue:ObjectiveTitle}" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
