@@ -1637,11 +1637,23 @@ Feature: Validate all scenarios of every modules flow
  @443 @ValidatePMusershouldabletoCreateActivatetheKPI
    @477515 @477517 @477519 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
  Scenario: Non Federal Verify user should see all fields and section on Non federal Org
-   When I login to "As a Grantor" app as "GRANTEE AUDITOR" user
-   When I navigate to "Home" tab
-   And I navigate to "External" content inside "Organizations" subheader on left panel
-   Then I softly see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
-   And I navigate to "Files" sub tab
-   Then I softly see "Organization Files" page block displayed
-   Then I softly see "Notes" page block displayed
-   Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:federalFilesTableId---"
+   When I login to "As a Grantor" app as "GRANTEE PM" user
+   When I navigate to "Overview" sub tab
+   And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
+     | Name       | Project Role    | Is Key Contact |
+     | Victor EXE | --None--        | Unchecked      |
+   And I click on "Edit" in the page details
+   Then I softly see fields "GeneralConditionChanged__c" is in edit mode
+   And I enter value "Checked" into field "GeneralConditionChanged__c"
+   And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
+   And I click on "Save" in the page details
+   And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+   Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
+   When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
+   And I click modal button "Close"
+   When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+   And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
+     | Title        | Narrative     | Cash Match  |
+     | Construction | The narrative | 200         |
+   When I close "Add Line Items" modal by clicking the top right x button
+   And I click on "Submit for Approval" in the page details

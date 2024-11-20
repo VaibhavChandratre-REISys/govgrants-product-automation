@@ -19692,7 +19692,7 @@ Feature: Sanity scenarios
     When I enter value "2000" into field "RequestedChangeInBudget__c"
     When I click on "Save" in the page details
     Then I softly see value "{SavedValue:ContactName}" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | --None--        | Unchecked      |
     And I click on "Edit" in the page details
@@ -19704,6 +19704,11 @@ Feature: Sanity scenarios
     Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "5" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
+      | Title                            | Start Date                         | End Date                           |
+      | Automation Permanent Focus Area2 | {SavedValue:BudgetPeriodEndDate}   | {SavedValue:BudgetPeriodStartDate} |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Cash Match  |
@@ -19711,14 +19716,14 @@ Feature: Sanity scenarios
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
-  | Overview Tab - Provide a value for contact project role.                                                                                                                     |
-  | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date.|
-  | Overview Tab - Please specify the Requested Change in Award Budget planned through this amendment request.                                                                   |
-  | Overview Tab - Maximum Indirect Cost Rate cannot be greater than 100%.                                                                                                       |
-  | Overview Tab - Provide a description of other changes.                                                                                                                       |
-  | Overview Tab - Provide the justification for Other amendment purpose and summary.                                                                                            |
-  | Overview Tab - Provide an explanation if Other amendment type is selected.                                                                                                   |
-  | Responsibilities - At least one approver is required.                                                                                                                        |
+ | Overview Tab - You have a requested a change of $0.0, but the required change is $2000.00.                                                                                    |
+ | Overview Tab - Insufficent match $200.0. The required match for the current budget is $500.000.                                                                               |
+ | Overview Tab - Provide a value for contact project role.                                                                                                                      |
+ | Overview Tab - Specify at least one Key Personnel for Key Personnel Change request.                                                                                           |
+ | Overview Tab - Focus Area End Date should be greater than Focus Area Start Date.                                                                                              |                                                                                           |
+ | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
+ | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected.      |
+ | Responsibilities - At least one approver is required.                                                                                                                         |
 
     Examples:
       | User       |
