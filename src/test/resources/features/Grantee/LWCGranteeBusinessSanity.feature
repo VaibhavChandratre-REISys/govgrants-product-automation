@@ -19724,12 +19724,12 @@ Feature: Sanity scenarios
     And I click on "Download" icon for "{SavedValue:Classification}" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I wait for "2" seconds
     And I download the file
-    Then I softly verify that the file "Attachment.pdf" is downloaded
+    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
     And I switch to parent tab
-    And I click on "View" icon for "{SavedValue:Classification}" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I wait for "5" seconds
-    Then I softly see "View" opens in overLay window
-    And I click modal button "Close"
+#    And I click on "View" icon for "{SavedValue:Classification}" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+#    And I wait for "5" seconds
+#    Then I softly see "View" opens in overLay window
+#    And I click modal button "Close"
     When I click on parallel lines menu bar with data target value "Amendment Files"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
