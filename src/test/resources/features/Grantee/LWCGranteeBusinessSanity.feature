@@ -19720,7 +19720,7 @@ Feature: Sanity scenarios
  | Overview Tab - Insufficent match $200.0. The required match for the current budget is $500.000.                                                                               |
  | Overview Tab - Provide a value for contact project role.                                                                                                                      |
  | Overview Tab - Specify at least one Key Personnel for Key Personnel Change request.                                                                                           |
- | Overview Tab - Focus Area End Date should be greater than Focus Area Start Date.                                                                                              |                                                                                           |
+ | Overview Tab - Focus Area End Date should be greater than Focus Area Start Date.                                                                                              |
  | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
  | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected.      |
  | Responsibilities - At least one approver is required.                                                                                                                         |
