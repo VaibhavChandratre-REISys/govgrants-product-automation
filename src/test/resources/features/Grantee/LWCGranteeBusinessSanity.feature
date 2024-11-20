@@ -19653,6 +19653,16 @@ Feature: Sanity scenarios
     And I save the value from row "1" for column name "Title" as "Title" from flex table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see value "{SavedValue:Classification}" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "New" :
+      | Title         | Description      |
+      | Notes Record1 | Automation Notes1 |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    And I save the value from row "1" for column name "Description" as "Description" from flex table "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
@@ -19665,21 +19675,74 @@ Feature: Sanity scenarios
     And I navigate to "Overview" sub tab
     Then I softly see value "{SavedValue:ProposedName}" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
-    Then I can see row level action button "View" against "{SavedValue:ProposedName}" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
+    Then I cannot see row level action button "View" against "{SavedValue:ProposedName}" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:ProposedName}" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:ProposedName}" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
-    Then I can see row level action button "View" against "{SavedValue:ObjectiveTitle}" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I cannot see row level action button "View" against "{SavedValue:ObjectiveTitle}" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:ObjectiveTitle}" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:ObjectiveTitle}" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
-    Then I can see row level action button "View" against "{SavedValue:KPITitle}" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
+    Then I cannot see row level action button "View" against "{SavedValue:KPITitle}" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:KPITitle}" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:KPITitle}" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
+    Then I softly see value "{SavedValue:Terms1}" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I can see row level action button "View" against "{SavedValue:Terms1}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:Terms1}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:Terms1}" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly see value "{SavedValue:FocusArea1}" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly see value "{SavedValue:FocusArea2}" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I cannot see row level action button "View" against "{SavedValue:FocusArea1}" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:FocusArea1}" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:FocusArea1}" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I cannot see row level action button "View" against "{SavedValue:FocusArea2}" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:FocusArea2}" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:FocusArea2}" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see value "Victor EXE" for title "Title" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I cannot see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I cannot see row level action button "Delete" against "Victor EXE" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I softly see value "Sarah PM" for title "Title" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I cannot see row level action button "View" against "Sarah PM" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I cannot see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I cannot see row level action button "Delete" against "Sarah PM" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    And I navigate to "Files" sub tab
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see value "{SavedValue:Classification}" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I can see row level action button "Download" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I can see row level action button "View" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:Classification}" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I click on "Download" icon for "{SavedValue:Classification}" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I wait for "2" seconds
+    And I download the file
+    Then I softly verify that the file "Attachment.pdf" is downloaded
+    And I switch to parent tab
+    And I click on "View" icon for "{SavedValue:Classification}" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I wait for "5" seconds
+    Then I softly see "View" opens in overLay window
+    And I click modal button "Close"
+    When I click on parallel lines menu bar with data target value "Amendment Files"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I save the value from row "1" for column name "Description" as "Description" from flex table "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly see value "{SavedValue:Description}" for title "Description" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I can see row level action button "Download" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I can see row level action button "View" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I cannot see row level action button "Delete" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @476994 @CombinationofamendmentVerifyPMusercanseevalidationsoncombinationofamendment
+  @476994 @477128 @477129 @477130 @477131 @477132 @CombinationofamendmentVerifyPMusercanseevalidationsoncombinationofamendment
   Scenario Outline:Combination of amendment : Verify PM user can see validations on combination of amendment
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Grants" tab
@@ -19864,7 +19927,7 @@ Feature: Sanity scenarios
     And I click modal button "Close"
     And I refresh the page
     And I wait for "5" seconds
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ProjectTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date                         | End Date                           |
       | Automation Permanent Focus Area2 | {SavedValue:BudgetPeriodEndDate}   | {SavedValue:BudgetPeriodStartDate} |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
