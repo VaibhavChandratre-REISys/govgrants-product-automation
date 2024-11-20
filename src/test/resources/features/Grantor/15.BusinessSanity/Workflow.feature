@@ -1637,7 +1637,7 @@ Feature: Validate all scenarios of every modules flow
  @443 @ValidatePMusershouldabletoCreateActivatetheKPI
    @477515 @477517 @477519 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
  Scenario: Non Federal Verify user should see all fields and section on Non federal Org
-   When I login to "As a Grantor" app as "GRANTEE PO" user
+   When I login to "As a Grantor" app as "GRANTEE AUDITOR" user
    When I navigate to "Home" tab
    And I navigate to "External" content inside "Organizations" subheader on left panel
    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
