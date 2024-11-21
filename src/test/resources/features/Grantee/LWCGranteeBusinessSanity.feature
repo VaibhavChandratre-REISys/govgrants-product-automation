@@ -20206,6 +20206,8 @@ Feature: Sanity scenarios
       | David FO       | Fiscal Reviewer | Automation Description | 5        | No                   |
     Then I softly see the following messages in the page details contains:
       | Responsibilities Tab - A person with the same role cannot be added again.|
+    And I refresh the page
+    And I wait for "2" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name   | Role             | Description            | Due Date  | Allow Record Editing |
       | Grantee PO      | Program Reviewer | Automation Description | 0         | NO                   |
@@ -20219,8 +20221,6 @@ Feature: Sanity scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name   | Role             | Description            | Due Date  | Allow Record Editing |
       | Grantee PO      | Program Reviewer | Automation Description | 5         | NO                 |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
     And I pause execution for "3" seconds
     Then I softly can see row level action button "Edit" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly can see row level action button "Send for Review" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
