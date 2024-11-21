@@ -137,6 +137,9 @@ public class UsersAndURL implements UsersController {
             case "GRANTEE ADMIN":
                 password = "Grantee@2027";
                 break;
+            case "GRANTEE ADMIN1":
+                password = "Grantee@2028";
+                break;
             case "GRANTEE PM":
                 password = "Grantee@2027";
                 break;
@@ -293,6 +296,7 @@ public class UsersAndURL implements UsersController {
         username.put("SARAH PM", "sarah.pm@ggp.test8.qaorg");
 
         username.put("GRANTEE ADMIN", "product.qa@ggp.test8.qagrnteatm");
+        username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.qagrnteatm");
         username.put("GRANTEE PM", "sarah.pm@ggp.test8.qagrnteatm");
         username.put("GRANTEE EXE", "victor.exe@ggp.test8.qagrnteatm");
         username.put("GRANTEE FO", "david.fo@ggp.test8.qagrnteatm");

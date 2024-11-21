@@ -1637,7 +1637,7 @@ Feature: Validate all scenarios of every modules flow
  @443 @ValidatePMusershouldabletoCreateActivatetheKPI
    @477515 @477517 @477519 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
  Scenario: Non Federal Verify user should see all fields and section on Non federal Org
-   When I login to "As a Grantor" app as "GRANTEE PM" user
+   When I login to "As a Grantor" app as "GRANTEE ADMIN1" user
    When I navigate to "Overview" sub tab
    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
      | Name       | Project Role    | Is Key Contact |
