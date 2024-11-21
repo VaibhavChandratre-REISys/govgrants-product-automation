@@ -13198,7 +13198,7 @@ Feature: Sanity scenarios
       | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
       | Responsibilities - At least one approver is required |
 
-   @462436 @462376 @VerifyPOusercannotabletoseeGrantorDecisionHistorysectionunderHistorytabwhenPeriodicRenewalAmendmentRequestisnotinAcceptedstate
+   @462436 @462376 @462432 @VerifyPOusercannotabletoseeGrantorDecisionHistorysectionunderHistorytabwhenPeriodicRenewalAmendmentRequestisnotinAcceptedstate
    Scenario Outline: Verify PO user cannot able to see Grantor Decision History section under History tab when Periodic Renewal Amendment Request is not in Accepted state
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Grants" tab
@@ -13381,9 +13381,13 @@ Feature: Sanity scenarios
     Then I can see top right button "Record Decision" in page detail
     Then I can see top right button "Revise Amendment" in page detail
     When I click on "Record Decision" in the page details
+     Then I see only the following ordered options in dropdown field "Decision__c" :
+       | --None-- | Accepted | Not Accepted |
     When I enter values into fields
       | Value        | Field       |
       | Not Accepted | Decision__c |
+     Then I softly do not see fields "AmendmentNumber__c" is visible
+     Then I softly do not see fields "AwardIssueDate__c" is visible
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | Additional Details is required to save. |
@@ -13394,8 +13398,13 @@ Feature: Sanity scenarios
     And I click modal button "Close"
      #462376
     Then I softly see field "Status" as "Not Accepted"
+     Then I see status in Progress-bar is "Not Accepted" and is "Red"
     And I navigate to "History" sub tab
     Then I softly do not see "Grantor Decision History" page block displayed
+     And I navigate to "Field Audit" sub tab in split screen
+     And I click on hyperlink containing value "View All"
+     Then I softly see value "Activated" for title "New Value" inside field history table
+     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
 
      Examples:
        | User       |
