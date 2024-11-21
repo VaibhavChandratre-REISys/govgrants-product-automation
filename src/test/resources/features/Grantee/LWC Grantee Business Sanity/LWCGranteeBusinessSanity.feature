@@ -1299,7 +1299,7 @@ Feature: Sanity scenarios
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-  @445639 @477317 @477315 @477316 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @GranteeTBE
+  @445639 @477317 @477315 @477316 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
   Scenario Outline: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -1430,12 +1430,12 @@ Feature: Sanity scenarios
     Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
+    When I click "Associate" after selection of "<userName>" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
       | Name       | Project Role    | Is Key Contact |
-      | Victor EXE | Project Officer | Checked        |
+      | <userName> | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
@@ -6539,7 +6539,7 @@ Feature: Sanity scenarios
     Then I see "Delete" button name inside post dropdown
     Then I see "Bookmark" button name inside post dropdown
 
-  @443801 @476534 @476537 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection @GranteeTBE
+  @443801 @476534 @476537 @ValidateGrantwithEXEProfileabletocreatedirectgrantandseealltabsandsection
   Scenario Outline: Validate Grant with EXE Profile able to create direct grant and see all tabs and section
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -6674,8 +6674,8 @@ Feature: Sanity scenarios
 
     Examples:
       | userType      | UEI          |
-#      | GRANTEE EXE   | 123456789123 |
-#      | GRANTEE PO    | 123456789123 |
+      | GRANTEE EXE   | 123456789123 |
+      | GRANTEE PO    | 123456789123 |
       | GRANTEE ADMIN | 123456789012 |
 
   @443858 @ValidateAwardsplconwithPMProfileIfSpecialConditionisaddedtheninawardspecialconditionmoduleafterexpandtheawardabletoseespecialconditionrecord
@@ -20321,10 +20321,10 @@ Feature: Sanity scenarios
     Then I see "Financial Transactions" on page "1" of "govgrants" pdf file
     Examples:
       | userType    | userName   | Approver |
-#      | GRANTEE PM  | Victor EXE | GRANTEE EXE |
+      | GRANTEE PM  | Victor EXE | GRANTEE EXE |
       | GRANTEE EXE | Sarah PM   | GRANTEE PM  |
 
-  @446128 @ValidateGPCloseoutWithEXEProfileOncecreatetheadhoccloseoutNewbuttonofcloseoutgetdisable @GranteeTBE
+  @446128 @ValidateGPCloseoutWithEXEProfileOncecreatetheadhoccloseoutNewbuttonofcloseoutgetdisable
   Scenario: Validate GP Closeout With EXE Profile Once create the adhoc closeout New button of closeout get disable
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
