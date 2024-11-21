@@ -13345,8 +13345,9 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     And I enter "Grantee_PeriodicRenewal_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-   And I wait for "3" seconds
-   And I save the field labeled "EGMS ID" as "PRAMENDID"
+    And I wait for "3" seconds
+     Then I softly see field "Amendment Type" as "Periodic Renewal"
+    And I save the field labeled "EGMS ID" as "PRAMENDID"
    And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
    And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -13403,8 +13404,26 @@ Feature: Sanity scenarios
     Then I softly do not see "Grantor Decision History" page block displayed
      And I navigate to "Field Audit" sub tab in split screen
      And I click on hyperlink containing value "View All"
-     Then I softly see value "Activated" for title "New Value" inside field history table
+     Then I softly see value "Not Accepted" for title "New Value" inside field history table
      Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
+     And I wait for "5" seconds
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     When I navigate to "Amendments" sub tab
+     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+     And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+     And I click modal button "Save and Continue"
+     And I wait for "2" seconds
+     And I enter "Grantee_PeriodicRenewal_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+     When I click on "Save" in the page details
+     Then I softly see field "Status" as "Created"
+     Then I softly see field "Amendment Type" as "Periodic Renewal"
+
 
      Examples:
        | User       |
