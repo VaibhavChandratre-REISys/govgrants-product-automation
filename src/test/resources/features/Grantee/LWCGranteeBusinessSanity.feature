@@ -17851,7 +17851,7 @@ Feature: Sanity scenarios
 #      | GRANTEE EXE   |
 #      | GRANTEE PM    |
 #      | GRANTEE PO    |
-      | GRANTEE ADMIN |
+      | GRANTEE ADMIN1 |
 #      | GRANTEE FO    |
 #      | GRANTEE FD    |
 
