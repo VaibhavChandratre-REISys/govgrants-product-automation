@@ -20437,7 +20437,7 @@ Feature: Sanity scenarios
     Then I can see row level action button "View" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     Then I can see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
 
-  @443845 @ValidateAwardWithPMProfileIfPeerreviewerFDProfilenotsubmitthereviewthenawardownerabletoseecompletereviewbuttonontoprightcornerandrowlevelresendforreview @GranteeTBE
+  @443845 @ValidateAwardWithPMProfileIfPeerreviewerFDProfilenotsubmitthereviewthenawardownerabletoseecompletereviewbuttonontoprightcornerandrowlevelresendforreview
   Scenario: Validate Award With PM Profile If Peer reviewer FD Profile not submit the review then award owner able to see complete review button on top right corner and row level resend for review
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -20699,7 +20699,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE | Sarah PM   | GRANTEE PM  |
       | GRANTEE PO  | Sarah PM   | GRANTEE PM  |
 
-  @477320 @ValidateFinancialreportschedulesvalidationsdisplayedtoPMuseronEditFinancialreportschedulemodalwhenawardisinCreatedSubmittedforreviewReviewedActivatedstate
+  @477320 @477322 @477321 @477323 @ValidateFinancialreportschedulesvalidationsdisplayedtoPMuseronEditFinancialreportschedulemodalwhenawardisinCreatedSubmittedforreviewReviewedActivatedstate
   Scenario Outline: Validate Financial report schedules validations displayed to PM user on Edit Financial report schedule modal when award is in Created, Submitted for review, Reviewed, Activated state
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -20710,7 +20710,7 @@ Feature: Sanity scenarios
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Overview" sub tab
-    When I enter value "123456789123" into field "DUNS__c"
+    When I enter value "<UEI>" into field "DUNS__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I navigate to "Awards" sub tab
@@ -20781,7 +20781,7 @@ Feature: Sanity scenarios
     When I enter in modal value "25" into field "DaysAfterEndDate__c"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Schedule Start date cannot be after Schedule End Date. |
+      | Schedule Start date cannot be after Schedule End Date |
     When I enter in modal value "15" into field "CalReportingStartDate__c"
     When I enter in modal value "35" into field "CalReportingEndDate__c"
     When I enter in modal value "Annually" into field "Frequency__c"
@@ -20832,12 +20832,12 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
+    When I click "Associate" after selection of "<userName>" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
       | Name       | Project Role    | Is Key Contact |
-      | Victor EXE | Project Officer | Checked        |
+      | <userName> | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
@@ -20930,7 +20930,7 @@ Feature: Sanity scenarios
     When I enter in modal value "25" into field "DaysAfterEndDate__c"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Schedule Start date cannot be after Schedule End Date. |
+      | Schedule Start date cannot be after Schedule End Date |
     When I enter in modal value "15" into field "CalReportingStartDate__c"
     When I enter in modal value "35" into field "CalReportingEndDate__c"
     When I enter in modal value "Annually" into field "Frequency__c"
@@ -21054,7 +21054,7 @@ Feature: Sanity scenarios
     When I enter in modal value "25" into field "DaysAfterEndDate__c"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Schedule Start date cannot be after Schedule End Date. |
+      | Schedule Start date cannot be after Schedule End Date |
     When I enter in modal value "15" into field "CalReportingStartDate__c"
     When I enter in modal value "35" into field "CalReportingEndDate__c"
     When I enter in modal value "Annually" into field "Frequency__c"
@@ -21194,7 +21194,7 @@ Feature: Sanity scenarios
     When I enter in modal value "25" into field "DaysAfterEndDate__c"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Schedule Start date cannot be after Schedule End Date. |
+      | Schedule Start date cannot be after Schedule End Date |
     When I enter in modal value "15" into field "CalReportingStartDate__c"
     When I enter in modal value "35" into field "CalReportingEndDate__c"
     When I enter in modal value "Annually" into field "Frequency__c"
@@ -21242,12 +21242,13 @@ Feature: Sanity scenarios
       | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 28 days if Monthly frequency is selected. |
 
     Examples:
-      | userType   | userName |
-      | GRANTEE PM | Sarah PM |
-#      | GRANTEE EXE | Victor EXE |
-#      | GRANTEE PO  | Grantee PO |
+      | userType      | userName   | UEI          |
+#      | GRANTEE PM    | Sarah PM   | 123456789123 |
+      | GRANTEE EXE   | Victor EXE | 123456789123 |
+      | GRANTEE PO    | Grantee PO | 123456789123 |
+      | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @477324 @ValidateFinancialreportschedulesvalidationsdisplayedtoFDuserReviewerwitheditaccessasYesonEditFinancialreportschedulemodalwhenawardisinSubmittedforreviewstate @GranteeTBE
+  @477324 @ValidateFinancialreportschedulesvalidationsdisplayedtoFDuserReviewerwitheditaccessasYesonEditFinancialreportschedulemodalwhenawardisinSubmittedforreviewstate
   Scenario: Validate Financial report schedules validations displayed to FD user Reviewer with edit access as Yes on Edit Financial report schedule modal when award is in Submitted for review state
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -21341,7 +21342,7 @@ Feature: Sanity scenarios
     When I enter in modal value "25" into field "DaysAfterEndDate__c"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Schedule Start date cannot be after Schedule End Date. |
+      | Schedule Start date cannot be after Schedule End Date |
     When I enter in modal value "15" into field "CalReportingStartDate__c"
     When I enter in modal value "35" into field "CalReportingEndDate__c"
     When I enter in modal value "Annually" into field "Frequency__c"
@@ -21388,7 +21389,7 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 28 days if Monthly frequency is selected. |
 
-  @443846 @ValidateAwardwithPMprofileoncereviewerFDSubmitthereviewawardownerabletocompletethereview @GranteeTBE
+  @443846 @ValidateAwardwithPMprofileoncereviewerFDSubmitthereviewawardownerabletocompletethereview
   Scenario: Validate Award with PM profile, once reviewer (FD) Submit the review award owner able to complete the review
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -21445,6 +21446,6 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     And I navigate to "Responsibilities" sub tab
     Then I softly see field "Status" as "Reviewed"
-    Then I softly cannot see row level action button "Edit" against "Sent for Review" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Send for Review" against "Sent for Review" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Resend for Review" against "Sent for Review" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Edit" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Send for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Resend for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
