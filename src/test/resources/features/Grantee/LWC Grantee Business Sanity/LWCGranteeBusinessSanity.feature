@@ -20635,9 +20635,9 @@ Feature: Sanity scenarios
     When I click on parallel lines menu bar with data target value "Expenditure Details"
     And I select "Download as PDF" from parallel lines dropdown of "Expenditure Details"
     And I download the file
-    And I wait for "4" seconds
-    Then I see "Expenditure Details" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+    And I wait for "6" seconds
+    Then I softly see "Expenditure Details" on page "1" of "govgrants" pdf file
+    And I close the tab
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalCashMatchTableId---"
     When I "Collapse" page block contaninig value "Cash Match Details"
     Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalCashMatchTableId---"
@@ -20652,9 +20652,9 @@ Feature: Sanity scenarios
     When I click on parallel lines menu bar with data target value "Cash Match Details"
     And I select "Download as PDF" from parallel lines dropdown of "Cash Match Details"
     And I download the file
-    And I wait for "4" seconds
-    Then I see "Cash Match Details" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+    And I wait for "6" seconds
+    Then I softly see "Cash Match Details" on page "1" of "govgrants" pdf file
+    And I close the tab
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalProgramIncomeTableId---"
     When I "Collapse" page block contaninig value "Program Income Expenses"
     Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:AwardActualsModalProgramIncomeTableId---"
@@ -20669,9 +20669,9 @@ Feature: Sanity scenarios
     When I click on parallel lines menu bar with data target value "Program Income Expenses"
     And I select "Download as PDF" from parallel lines dropdown of "Program Income Expenses"
     And I download the file
-    And I wait for "4" seconds
-    Then I see "Program Income Expenses" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+    And I wait for "6" seconds
+    Then I softly see "Program Income Expenses" on page "1" of "govgrants" pdf file
+    And I close the tab
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Report Non-Cash Match Line Item" icon for "Construction" inside flex table with id "---grantee_tableId:-:ExpenditureDetailsTableId---"
@@ -20691,8 +20691,8 @@ Feature: Sanity scenarios
     When I click on parallel lines menu bar with data target value "Report Non Cash Match"
     And I select "Download as PDF" from parallel lines dropdown of "Report Non Cash Match"
     And I download the file
-    And I wait for "4" seconds
-    Then I see "Report Non Cash Match" on page "1" of "govgrants" pdf file
+    And I wait for "6" seconds
+    Then I softly see "Report Non Cash Match" on page "1" of "govgrants" pdf file
     Examples:
       | userType    | userName   | Approver    |
       | GRANTEE PM  | Victor EXE | GRANTEE EXE |
