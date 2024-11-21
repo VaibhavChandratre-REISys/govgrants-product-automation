@@ -1712,9 +1712,9 @@ Feature: Sanity scenarios
 
     Examples:
       | userType      | userName   | UEI          |
-#      | GRANTEE PM  | Sarah PM   | 123456789123 |
-#      | GRANTEE EXE | Victor EXE | 123456789123 |
-#      | GRANTEE PO    | Grantee PO | 123456789123 |
+      | GRANTEE PM    | Sarah PM   | 123456789123 |
+      | GRANTEE EXE   | Victor EXE | 123456789123 |
+      | GRANTEE PO    | Grantee PO | 123456789123 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
   @445640 @446229 @477326 @477325 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward
@@ -1728,7 +1728,7 @@ Feature: Sanity scenarios
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Overview" sub tab
-    When I enter value "123456789123" into field "DUNS__c"
+    When I enter value "<UEI>" into field "DUNS__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I navigate to "Awards" sub tab
@@ -1848,12 +1848,12 @@ Feature: Sanity scenarios
     Then I softly see value "{Date:MM/dd/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
+    When I click "Associate" after selection of "<userName>" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
       | Name       | Project Role    | Is Key Contact |
-      | Victor EXE | Project Officer | Checked        |
+      | <userName> | Project Officer | Checked        |
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
@@ -2123,10 +2123,11 @@ Feature: Sanity scenarios
     Then I softly see value "{SavedValue:ReportingPeriodEndDate}" for title "Reporting Period End Date" against the value "{SavedValue:EGMS ID2}" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
     Examples:
-      | userType    | userName   |
-      | GRANTEE PM  | Sarah PM   |
-      | GRANTEE EXE | Victor EXE |
-      | GRANTEE PO  | Grantee PO |
+      | userType      | userName   | UEI          |
+      | GRANTEE PM    | Sarah PM   | 123456789123 |
+      | GRANTEE EXE   | Victor EXE | 123456789123 |
+      | GRANTEE PO    | Grantee PO | 123456789123 |
+      | GRANTEE ADMIN | Product QA | 123456789012 |
 
   @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout
   Scenario: Validate GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
@@ -20436,7 +20437,7 @@ Feature: Sanity scenarios
     Then I can see row level action button "View" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     Then I can see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
 
-  @443845 @ValidateAwardWithPMProfileIfPeerreviewerFDProfilenotsubmitthereviewthenawardownerabletoseecompletereviewbuttonontoprightcornerandrowlevelresendforreview
+  @443845 @ValidateAwardWithPMProfileIfPeerreviewerFDProfilenotsubmitthereviewthenawardownerabletoseecompletereviewbuttonontoprightcornerandrowlevelresendforreview @GranteeTBE
   Scenario: Validate Award With PM Profile If Peer reviewer FD Profile not submit the review then award owner able to see complete review button on top right corner and row level resend for review
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -20467,31 +20468,13 @@ Feature: Sanity scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name      | Role            | Description            | Due Date | Allow Record Editing |
       | Danielle FD Garcia | Fiscal Reviewer | Automation Description | 5        | Yes                  |
-    And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
-    And I pause execution for "3" seconds
+    Then I softly can see row level action button "Send for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
+    Then I softly can see top right button "Complete Review" in page detail
     When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
-    And I enter a review as "Passed"
-    When I click modal button "Save"
-    And I wait for "2" seconds
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    And I navigate to "Responsibilities" sub tab
-    Then I softly can see top right button "Complete Review" in page detail
-    Then I softly can see row level action button "Resend for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingTask---"
 
   @443803 @ValidateGrantFO/FD/AuditorProfileunabletoseetheNEWbuttontocreateDirectGrant
   Scenario Outline: Validate Grant FO /FD /Auditor Profile unable to see the NEW button to create Direct Grant
@@ -21263,3 +21246,205 @@ Feature: Sanity scenarios
       | GRANTEE PM | Sarah PM |
 #      | GRANTEE EXE | Victor EXE |
 #      | GRANTEE PO  | Grantee PO |
+
+  @477324 @ValidateFinancialreportschedulesvalidationsdisplayedtoFDuserReviewerwitheditaccessasYesonEditFinancialreportschedulemodalwhenawardisinSubmittedforreviewstate @GranteeTBE
+  Scenario: Validate Financial report schedules validations displayed to FD user Reviewer with edit access as Yes on Edit Financial report schedule modal when award is in Submitted for review state
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I wait for "2" seconds
+    And I enter "Grantee_Creation_Schedules" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Title" as "Automation Runtime award"
+    And I click on "Edit" in the page details
+    When I enter "Grantee_Award_Edit_Schedules" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Projections" sub tab
+    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" by clicking "New" :
+      | Reviewer Name      | Role            | Description            | Due Date | Allow Record Editing |
+      | Danielle FD Garcia | Fiscal Reviewer | Automation Description | 5        | Yes                  |
+    And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
+    And I pause execution for "3" seconds
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    Then I softly can see top right button "Edit" in page detail
+    When I navigate to "Management" sub tab
+    Then I softly see "Reports Schedule" page block displayed
+    Then I softly see value "Progress Report" for title "Report Type" inside table "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see value "Financial Report" for title "Report Type" inside table "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Report Title" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Report Type" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Frequency" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly see "Reporting Period" in flex table header "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly can see row level action button "View" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    Then I softly can see row level action button "Edit" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+    And I clear in modal the value from field "SubmissionTitle__c"
+    And I clear in modal the value from field "CalReportingStartDate__c"
+    And I clear in modal the value from field "CalReportingEndDate__c"
+    And I clear in modal the value from field "DaysBeforeEndDate__c"
+    And I clear in modal the value from field "DaysAfterEndDate__c"
+    And I enter in modal value "--None--" into field "Frequency__c"
+    And I enter in modal value "--None--" into field "ScheduleBase__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Report Title is required to save.                                 |
+      | Reporting Period Start Date is required to save.                  |
+      | Reporting Period End Date is required to save.                    |
+      | Schedule Base is required to save.                                |
+      | Lead time (in days) for report task creation is required to save. |
+      | # of days for report submission is required to save.              |
+    When I enter in modal value "Financial Report 1" into field "SubmissionTitle__c"
+    When I enter in modal value "-10" into field "CalReportingStartDate__c"
+    When I enter in modal value "380" into field "CalReportingEndDate__c"
+    When I enter in modal value "Monthly" into field "Frequency__c"
+    When I enter in modal value "Calendar" into field "ScheduleBase__c"
+    When I enter in modal value "10" into field "DaysBeforeEndDate__c"
+    When I enter in modal value "15" into field "DaysAfterEndDate__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Schedule Start date cannot be before Budget Period Start Date. |
+    When I enter in modal value "15" into field "CalReportingStartDate__c"
+    When I enter in modal value "390" into field "CalReportingEndDate__c"
+    When I enter in modal value "Monthly" into field "Frequency__c"
+    When I enter in modal value "Reporting Period" into field "ScheduleBase__c"
+    When I enter in modal value "12" into field "DaysBeforeEndDate__c"
+    When I enter in modal value "18" into field "DaysAfterEndDate__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Schedule End date cannot be after Budget Period End Date. |
+    When I enter in modal value "15" into field "CalReportingStartDate__c"
+    When I enter in modal value "-10" into field "CalReportingEndDate__c"
+    When I enter in modal value "Not Applicable" into field "Frequency__c"
+    When I enter in modal value "Calendar" into field "ScheduleBase__c"
+    When I enter in modal value "25" into field "DaysBeforeEndDate__c"
+    When I enter in modal value "25" into field "DaysAfterEndDate__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Schedule Start date cannot be after Schedule End Date. |
+    When I enter in modal value "15" into field "CalReportingStartDate__c"
+    When I enter in modal value "35" into field "CalReportingEndDate__c"
+    When I enter in modal value "Annually" into field "Frequency__c"
+    When I enter in modal value "Reporting Period" into field "ScheduleBase__c"
+    When I enter in modal value "5" into field "DaysBeforeEndDate__c"
+    When I enter in modal value "5" into field "DaysAfterEndDate__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 365 days if Annually frequency is selected. |
+    When I enter in modal value "15" into field "CalReportingStartDate__c"
+    When I enter in modal value "90" into field "CalReportingEndDate__c"
+    When I enter in modal value "Semi-Annually" into field "Frequency__c"
+    When I enter in modal value "Calendar" into field "ScheduleBase__c"
+    When I enter in modal value "10" into field "DaysBeforeEndDate__c"
+    When I enter in modal value "30" into field "DaysAfterEndDate__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 120 days if Semi-Annually frequency is selected. |
+    When I enter in modal value "15" into field "CalReportingStartDate__c"
+    When I enter in modal value "70" into field "CalReportingEndDate__c"
+    When I enter in modal value "Quarterly" into field "Frequency__c"
+    When I enter in modal value "Reporting Period" into field "ScheduleBase__c"
+    When I enter in modal value "7" into field "DaysBeforeEndDate__c"
+    When I enter in modal value "7" into field "DaysAfterEndDate__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 90 days if Quarterly frequency is selected. |
+    When I enter in modal value "15" into field "CalReportingStartDate__c"
+    When I enter in modal value "30" into field "CalReportingEndDate__c"
+    When I enter in modal value "Bi-Monthly" into field "Frequency__c"
+    When I enter in modal value "Reporting Period" into field "ScheduleBase__c"
+    When I enter in modal value "2" into field "DaysBeforeEndDate__c"
+    When I enter in modal value "23" into field "DaysAfterEndDate__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 60 days if Bi-Monthly frequency is selected. |
+    When I enter in modal value "15" into field "CalReportingStartDate__c"
+    When I enter in modal value "18" into field "CalReportingEndDate__c"
+    When I enter in modal value "Monthly" into field "Frequency__c"
+    When I enter in modal value "Reporting Period" into field "ScheduleBase__c"
+    When I enter in modal value "13" into field "DaysBeforeEndDate__c"
+    When I enter in modal value "10" into field "DaysAfterEndDate__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 28 days if Monthly frequency is selected. |
+
+  @443846 @ValidateAwardwithPMprofileoncereviewerFDSubmitthereviewawardownerabletocompletethereview @GranteeTBE
+  Scenario: Validate Award with PM profile, once reviewer (FD) Submit the review award owner able to complete the review
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
+    And I wait for "2" seconds
+    And I enter "Grantee_GrantCreation" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    When I enter value "123456789123" into field "DUNS__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Awards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Award Title" as "Automation Runtime award"
+    And I click on "Edit" in the page details
+    When I enter "Grantee_Award_Edit_Schedules" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Projections" sub tab
+    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" by clicking "New" :
+      | Reviewer Name      | Role            | Description            | Due Date | Allow Record Editing |
+      | Danielle FD Garcia | Fiscal Reviewer | Automation Description | 5        | Yes                  |
+    Then I softly can see row level action button "Send for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
+    And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
+    Then I softly can see top right button "Complete Review" in page detail
+    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---" without waiting for record
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    And I wait for "3" seconds
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I click on "Complete Review" in the page details
+    And I wait for "3" seconds
+    And I navigate to "Responsibilities" sub tab
+    Then I softly see field "Status" as "Reviewed"
+    Then I softly cannot see row level action button "Edit" against "Sent for Review" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Send for Review" against "Sent for Review" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Resend for Review" against "Sent for Review" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
