@@ -14424,7 +14424,7 @@ Feature: Sanity scenarios
     And I click on "Submit for Approval" in the page details
     #validation not through and logged bug#
     Then I softly see the following messages in the page details contains:
-      | ############################################################################ |
+      |Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
     And I save the field labeled "EGMS ID" as "PRAMENDID"
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
@@ -20222,9 +20222,9 @@ Feature: Sanity scenarios
       | Reviewer Name   | Role             | Description            | Due Date  | Allow Record Editing |
       | Grantee PO      | Program Reviewer | Automation Description | 5         | NO                 |
     And I pause execution for "3" seconds
-    Then I softly can see row level action button "Edit" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly can see row level action button "Send for Review" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly can see row level action button "Delete" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly can see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly can see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly can see row level action button "Edit" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly can see row level action button "Send for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly can see row level action button "Delete" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
@@ -20236,6 +20236,8 @@ Feature: Sanity scenarios
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I pause execution for "3" seconds
+    Then I see the following messages in the page details contains:
+      | Review Successfully Initiated. |
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -20262,13 +20264,10 @@ Feature: Sanity scenarios
     Then I softly see "Edit" modal button
     Then I softly see "Submit Review" modal button
     And I click on submit review
-    Then I see the following messages in the page details contains:
-      | Review Successfully Initiated. |
-    And I wait for "3" seconds
-    Then I softly can see row level action button "Resend for Review" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Edit" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Send for Review" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Delete" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly can see row level action button "Resend for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -20278,9 +20277,9 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "{SavedValue:AmendEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     Then I softly can see row level action button "Resend for Review" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Edit" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Send for Review" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Delete" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I click on "Resend for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     Then I softly see value "Sent for Review" for title "Status" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
@@ -20303,13 +20302,11 @@ Feature: Sanity scenarios
     Then I softly see "Edit" modal button
     Then I softly see "Submit Review" modal button
     And I click on submit review
-    Then I see the following messages in the page details contains:
-      | Review Successfully Initiated. |
     And I wait for "3" seconds
-    Then I softly can see row level action button "Resend for Review" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Edit" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Send for Review" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Delete" against "David FO " in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly can see row level action button "Resend for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -20330,8 +20327,6 @@ Feature: Sanity scenarios
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    Then I see the following messages in the page details contains:
-      | Review Successfully Initiated. |
     And I wait for "3" seconds
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab

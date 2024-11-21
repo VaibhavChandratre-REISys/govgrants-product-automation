@@ -1635,25 +1635,44 @@ Feature: Validate all scenarios of every modules flow
       | Automation Runtime Competitive Announcement4199454996 | Automation Runtime Competitive Announcement4199454996 |
 
  @443 @ValidatePMusershouldabletoCreateActivatetheKPI
-   @477515 @477517 @477519 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
  Scenario: Non Federal Verify user should see all fields and section on Non federal Org
-   When I login to "As a Grantor" app as "GRANTEE ADMIN1" user
-   When I navigate to "Overview" sub tab
-   And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
-     | Name       | Project Role    | Is Key Contact |
-     | Victor EXE | --None--        | Unchecked      |
-   And I click on "Edit" in the page details
-   Then I softly see fields "GeneralConditionChanged__c" is in edit mode
-   And I enter value "Checked" into field "GeneralConditionChanged__c"
-   And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
-   And I click on "Save" in the page details
-   And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-   Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
-   When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAmendmentFocusAreaTableId---"
-   And I click modal button "Close"
-   When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-   And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-     | Title        | Narrative     | Cash Match  |
-     | Construction | The narrative | 200         |
-   When I close "Add Line Items" modal by clicking the top right x button
-   And I click on "Submit for Approval" in the page details
+   When I login to "As a Grantee" app as "GRANTEE FD" user
+   And I click toggle button to select "Amendment Requests - All"
+   When I perform quick search for "CR-AD-GA-2839-00" in "---grantee_tableId:-:AmendmentTableId---" panel
+   And I click on "View" icon for "CR-AD-GA-2839-00" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+   And I navigate to "Responsibilities" sub tab
+   Then I softly can see row level action button "Resend for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+   Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+   Then I softly cannot see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+   Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+   When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+   And I navigate to "Grants" tab
+   When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+   And I click toggle button to select "Amendment Requests - All"
+   When I perform quick search for "CR-AD-GA-2839-00" in "---grantee_tableId:-:AmendmentTableId---" panel
+   Then I softly can see row level action button "View" against "CR-AD-GA-2839-00" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+   Then I softly can see row level action button "Edit" against "CR-AD-GA-2839-00" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+   And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+   And I click on "Complete Review" in the page details
+   Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
+   When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+   And I navigate to "Grants" tab
+   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+   And I perform quick search for "CR-AD-GA-2839-00" in "---grantee_tableId:-:PendingTask---" panel
+   When I click on "Start" icon for "CR-AD-GA-2839-00" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+   And I navigate to "Responsibilities" sub tab
+   When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
+   And I enter a review as "Passed"
+   When I click modal button "Save"
+   And I click on submit review
+   And I wait for "3" seconds
+   When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+   And I navigate to "Grants" tab
+   When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+   And I click toggle button to select "Amendment Requests - All"
+   When I perform quick search for "CR-AD-GA-2839-00" in "---grantee_tableId:-:AmendmentTableId---" panel
+   Then I softly can see row level action button "View" against "CR-AD-GA-2839-00" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+   Then I softly can see row level action button "Edit" against "CR-AD-GA-2839-00" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+   And I click on "View" icon for "CR-AD-GA-2839-00" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+   And I click on "Complete Review" in the page details
+   Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
