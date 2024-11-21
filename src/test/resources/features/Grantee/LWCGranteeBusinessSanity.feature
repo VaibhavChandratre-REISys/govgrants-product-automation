@@ -20183,14 +20183,33 @@ Feature: Sanity scenarios
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
+      | Reviewer Name | Role | Description | Due Date | Allow Record Editing |
+      |               |      |             |          |                      |
+    Then I softly see the following messages in the page details contains:
+      | Required fields missing |
+    And I refresh the page
+    And I wait for "5" seconds
+    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name  | Role            | Description            | Due Date | Allow Record Editing |
       | David FO       | Fiscal Reviewer | Automation Description | 5        | No                   |
+    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
+      | Reviewer Name  | Role            | Description            | Due Date | Allow Record Editing |
+      | David FO       | Fiscal Reviewer | Automation Description | 5        | No                   |
+    Then I softly see the following messages in the page details contains:
+      | Responsibilities Tab - A person with the same role cannot be added again.|
+    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
+      | Reviewer Name   | Role             | Description            | Due Date  | Allow Record Editing |
+      | Grantee PO      | Program Reviewer | Automation Description | 0         | NO                   |
+    Then I softly see the following messages in the page details contains:
+      | Due date should not be in the Past Date |
+    And I refresh the page
+    And I wait for "2" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name      | Role             | Description            | Due Date | Allow Record Editing |
       | Danielle FD Garcia | Program Reviewer | Automation Description | 5        | Yes                  |
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
-      | Reviewer Name   | Role             | Description            | Due Date | Allow Record Editing |
-      | Grantee PO      | Program Reviewer | Automation Description | 5        | NO                 |
+      | Reviewer Name   | Role             | Description            | Due Date  | Allow Record Editing |
+      | Grantee PO      | Program Reviewer | Automation Description | 5         | NO                 |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     And I pause execution for "3" seconds
@@ -20209,6 +20228,12 @@ Feature: Sanity scenarios
     And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I pause execution for "3" seconds
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - My Records"
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+    Then I softly do not see value "{SavedValue:AmendEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentTableId---"
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
