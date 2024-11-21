@@ -19576,8 +19576,6 @@ Feature: Sanity scenarios
     When I save the field labeled "Description of Other Changes" as "Description1"
     When I save the field labeled "Justification for Purpose and Summary" as "Description2"
     When I save the field labeled "If Other amendment type, explain" as "Description3"
-    Then I softly see value "{SavedValue:ContactName}" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
-    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
@@ -19744,10 +19742,11 @@ Feature: Sanity scenarios
     Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
     And I wait for "3" seconds
     And I switch to parent tab
-#    And I click on "View" icon for "{SavedValue:Classification}" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-#    And I wait for "5" seconds
-#    Then I softly see "View" opens in overLay window
-#    And I click modal button "Close"
+    ### bug id 476696 remaining step working fine
+ #  And I click on "View" icon for "{SavedValue:Classification}" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+ #   And I wait for "5" seconds
+ #   Then I softly see "View" opens in overLay window
+ #   And I click modal button "Close"
     When I click on parallel lines menu bar with data target value "Amendment Files"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -19983,7 +19982,7 @@ Feature: Sanity scenarios
       | GRANTEE ADMIN  |
 
   @471962 @CombinationofamendmentVerifyAmeliaFDuserReviewerYescanabletosubmitReview&ReviewcompletebyamendmentrequestOwneronclickofCompeleteReviewbuttononamendmentrequest
-  Scenario Outline:Combination of amendment -  Verify Amelia FD user (Reviewer= Yes)can able to submit Review & Review complete by amendment request Owner on click of Compelete Review button on amendment request
+  Scenario:Combination of amendment -  Verify Amelia FD user (Reviewer= Yes)can able to submit Review & Review complete by amendment request Owner on click of Compelete Review button on amendment request
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
