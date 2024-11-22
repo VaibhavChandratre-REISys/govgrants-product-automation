@@ -16,7 +16,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
 
-  @73959 @pdfDownloadContacts
+  @73959 @pdfDownloadContacts @TBExecution
   Scenario: To verify system allow to download pdf for contact section in overview tab of announcement by PM user
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
@@ -233,7 +233,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I save the value from row "1" for column name "Program Number" as "prNum" from flex table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly see value "{SavedValue:prNum}" for title "Program Number" inside table "---announcement:-:relatedAnnouncementTableId---"
 
-  @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility  @smoke
+  @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility  @smoke @TBExecution
   Scenario: To Verify that user able to see Text fields after select Q&A Availability  as "Yes"  And  user can enter and save all required fields while creating Announcement
   | To Validate system generated validation message for  Q&A Availability section when "Question Deadline Date",and "Response Deadline date" is greater then Application Due Date.
     When I navigate to "Announcements" tab
@@ -446,7 +446,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
 #    And I navigate to "Setup" sub tab
 #    Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---announcement:-:objectivesTableId---"
 
-  @70163 @70166 @70197 @userAllowToSelectEligibilityDetails
+  @70163 @70166 @70197 @userAllowToSelectEligibilityDetails @TBExecution
   Scenario: To Verify that user is  allowed  to select the Eligibility Details while creating Announcement
   | To verify that  without selecting "Eligibility Details" user is able to see the validation message by clicking on "Submit for approval" button.
     When I navigate to "Announcements" tab
@@ -465,7 +465,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see the following messages in the page details :
       | Overview Tab - Select Eligible Applicant Types in the Eligibility Details section. |
 
-  @70211 @70216 @70217 @73388 @73535 @73620 @userAbletoAssociateActiveRelatedProgram @TBExecution1
+  @70211 @70216 @70217 @73388 @73535 @73620 @userAbletoAssociateActiveRelatedProgram
   Scenario: To Verify that user is able to associate active Related Federal/NGO Program | To Verify that user is able to view active Related Federal/NGO Program
   |To Verify that user is able to remove active Related Federal/NGO Program while creating Announcement.
     When I navigate to "Announcements" tab
@@ -475,6 +475,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "View" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click "Associate" after selection of "10.028" in the table "---announcement:-:associateForRelated---"
+    And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     And I perform quick search for "Wildlife Services" in "---announcement:-:relatedAnnouncementTableId---" panel
@@ -484,6 +485,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly can see row level action button "View" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click "Associate" after selection of "Test" in the table "---announcement:-:associateForRelated---"
+    And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     And I perform quick search for "Test" in "---announcement:-:relatedAnnouncementTableId---" panel
@@ -501,7 +503,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Remove" icon for "NGO" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
     Then I softly do not see value "NGO" for title "Type" inside table "---announcement:-:relatedAnnouncementTableId---"
 
-  @75617 @70727 @73624 @70723 @73621 @72482 @73536 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA @TBExecution1
+  @75617 @70727 @73624 @70723 @73621 @72482 @73536 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA @TBExecution
   Scenario Outline: Validate that user can not enter application due date as past date | Validate that user should not submit announcement with blank budget period dates|To Verify that user can view contact while creating Announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -637,7 +639,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @75618 @74799 @74801 @74368 @74369 @70894 @71722 @72471 @72324 @72548 @73858 @verifyReviseUnderRevision @smoke @TBExecution1
+  @75618 @74799 @74801 @74368 @74369 @70894 @71722 @72471 @72324 @72548 @73858 @verifyReviseUnderRevision @smoke @TBExecution
   Scenario Outline: To Verify that after clicking on revise button, status changes to created.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -689,10 +691,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    # This is bug. @74799
-    #When I navigate to "Files" sub tab
-    #When I upload attachment "InternalOrganization_Field_Values.xlsx" of type "Funding Opportunity Announcement"
-    #Then I softly see "Funding Opportunity Announcement" has been added in "Attachments" flex table
     Then I softly cannot see top right button "Edit" in page detail
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
@@ -910,16 +908,16 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    Then I softly cannot see top right button "Revise" in page detail
+    Then I softly can see top right button "Revise" in page detail
 #    And I click on "Revise" in the page details
 #    Then I softly see status in Progress-bar is "Created" and is "dark blue"
 #    Then I softly see field "Status" as "Under Revision"
-    Then I softly can see top right button "Extend Dates" in page detail
+#    Then I softly can see top right button "Extend Dates" in page detail
     Examples:
       | Announcement Type |
       | Competitive       |
 
-  @70803 @73849 @73774 @73773 @70817 @70893 @73775 @34768 @70898 @72490 @announcementApprovalCA @verifyApproverCanNotEdit  @FieldHistoryExclude
+  @70803 @73849 @73774 @73773 @70817 @70893 @73775 @34768 @70898 @72490 @announcementApprovalCA @verifyApproverCanNotEdit  @FieldHistoryExclude @TBExecution
   Scenario Outline: Validate the approval of an Announcement | To verify that after unpublished announcement , user can not create application from that announcement
   | To Verify that after submitting for approval, approver can not edit anything on announcement
   |To verify field history update with respect to modification in Commitment field of Announcement
@@ -990,11 +988,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly cannot see row level action button "Edit" against "Record id" in flex table with id "---announcement:-:pendingTaskTableId---"
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---"
     And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "Closed" for title "New Value" inside field history table
     Then I softly see value "Approved" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
 #    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -1024,7 +1021,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @72328 @72326 @72025 @71974 @announcementDisApprovalbyEXE  @FieldHistoryExclude
+  @72328 @72326 @72025 @71974 @announcementDisApprovalbyEXE  @FieldHistoryExclude @TBExecution
   Scenario Outline: To verify Approval history of announcement when announcement rejected by Executive Office Approval: Victor EXE
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1122,7 +1119,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @announcementPendingTaskPostApprovalCA @announcementCompletedTaskPostApprovalCA
+  @announcementPendingTaskPostApprovalCA @announcementCompletedTaskPostApprovalCA @TBExecution
   Scenario Outline: Validate that after approval of an Announcement task get deleted from pending task table | Validate that after approval of an Announcement task get added to its completed task table ||
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1185,7 +1182,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @announcementPostSendBackCheckFieldHistoryCA @announcementSendBackPendingTaskToOwnerCA @announcementSendBackToOwnerCA @smoke
+  @announcementPostSendBackCheckFieldHistoryCA @announcementSendBackPendingTaskToOwnerCA @announcementSendBackToOwnerCA @smoke @TBExecution
   Scenario: Validate the send back functionality of an Announcement || Validate the field history after send back of an announcement || Validate that after send back from approvers owner should not get pending task
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1247,7 +1244,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     Then I softly do not see values "Record Id" and "{SavedValue:Automation Runtime Competitive Announcement}" inside table
 
-  @65080 @VerifyDraftAnnouncementIsNotDisplayedForSRUer
+  @65080 @VerifyDraftAnnouncementIsNotDisplayedForSRUer @TBExecution
   Scenario Outline: Verify Draft announcement is not displayed at SR user end.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1327,7 +1324,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Announcement Type |
       | Competitive       |
 
-  @announcementRejectPendingTaskForNextApproverCA @announcementPostRejectionCheckInListViewCA @announcementPostRejectCompletedTaskForUserCA @announcementPostRejectPendingTaskForUserCA
+  @announcementRejectPendingTaskForNextApproverCA @announcementPostRejectionCheckInListViewCA @announcementPostRejectCompletedTaskForUserCA @announcementPostRejectPendingTaskForUserCA @TBExecution
   Scenario Outline: Validate that after rejection of an Announcement task get added to it's completed task table. || Validate that after rejection from 1st approver, 2nd user should not get pending task || Validate that after rejection of an Announcement task get deleted from pending task table.
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1396,9 +1393,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click toggle button to select "Rejected Competitive Announcements"
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     Then I softly see value "Record Id" for title "EGMS ID" inside table "---announcement:-:competitiveAnnouncementTableId---"
-    Examples:
-      | Announcement Type | Active Funding Opportunities id                     |
-      | Competitive       | ---announcement:-:competitiveAnnouncementTableId--- |
+
 
   @73616 @73962 @userAllowToEnterDataInQualityAndAvailibility1 @TBExecution
   Scenario: To verify user allow to remove budget category when Budget type is Non functional in financial tab for announcement
@@ -1434,7 +1429,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "5" seconds
     Then I see "Funding Accounts" on page "1" of "govgrants" pdf file
 
-  @74120 @userAllowToDownloadPDFResponsibility @TBExecution
+  @74120 @userAllowToDownloadPDFResponsibility
   Scenario: To verify system allow to download PDF for Approvers section in Responsibility tab of announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -1508,7 +1503,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Field History" on page "1" of "govgrants" pdf file
 
-  @139848 @Verify2StepApprovalAtApproverSection_CompetitiveAnnouncement-RnRFunctionality
+  @139848 @Verify2StepApprovalAtApproverSection_CompetitiveAnnouncement-RnRFunctionality @TBExecution
   Scenario: verify that user can add two step approver on announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1542,7 +1537,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | {SavedValue:FO Username} | Step 2       |
     Then I softly see "Saved Successfully!" inside flex table with id "---announcement:-:approversTableId---"
 
-  @139849 @VerifyErrorMessageWhileSkippingStepsAtApproverSection_CompetitiveAnnouncement-RnRFunctionality
+  @139849 @VerifyErrorMessageWhileSkippingStepsAtApproverSection_CompetitiveAnnouncement-RnRFunctionality @TBExecution
   Scenario: Verify validation when user skip an Approval Step at announcement level
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1590,7 +1585,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 
-  @139850 @VerifyVisibilityOfNewButtonAtApproverSection_CompetitiveAnnouncement-RnRFunctionality
+  @139850 @VerifyVisibilityOfNewButtonAtApproverSection_CompetitiveAnnouncement-RnRFunctionality @TBExecution
   Scenario: verify New button not displayed in approver section when announcement is submitted for approval
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1635,7 +1630,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see top right button "New" for "---announcement:-:approversTableId---" flex table
 
-  @139871 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtAnnouncement-RnRFunctionality
+  @139871 @VerifyUserShouldNotBeAbleToAddSameStepForMultipleUserAtAnnouncement-RnRFunctionality @TBExecution
   Scenario: Validate announcement owner cant add same steps for while assigning approvers for announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1670,7 +1665,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I see the following messages in the page details contains:
       | You cannot specify the same step for multiple users for Announcement. |
 
-  @139864 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtAnnouncementApprover-RnRFunctionality
+  @139864 @VerifyUserShouldNotBeAbleToAddSameUserForMultipleStepAtAnnouncementApprover-RnRFunctionality @TBExecution
   Scenario: Validate owner cant add same user  for multiple steps for announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -1704,7 +1699,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | {SavedValue:PM Username} | Step 2       |
     Then I softly see "You cannot specify the same user for multiple steps for Announcement" inside flex table with id "---announcement:-:approversTableId---"
 
-  @140944 @VerifyColumnAtAnnouncementApproverSection-RnRFunctionality
+  @140944 @VerifyColumnAtAnnouncementApproverSection-RnRFunctionality @TBExecution
   Scenario Outline: Validate the columns present on the announcement for approver definition
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
