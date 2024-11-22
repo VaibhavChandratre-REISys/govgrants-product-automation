@@ -1,4 +1,4 @@
-@closeout @grantor-regression @grantor-parallel-regression @regression
+@closeout @grantor-regression @grantor-parallel-regression @regression @closeoutExecution
 Feature: Validate all scenarios in Closeout
 
   @96615 @VerifyAdvanceValueAtCloseoutRequest
@@ -1078,11 +1078,13 @@ Feature: Validate all scenarios in Closeout
     And I enter value "Automation Test Reason" into field "Reason__c"
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Override Justification" as "Automation Test justification"
     When I navigate to "Checklist" sub tab
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     When I click on "Override" in the page details
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -1119,6 +1121,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Edit" in the page details
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I click on "Acknowledge" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab

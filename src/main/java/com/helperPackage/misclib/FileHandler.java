@@ -49,9 +49,8 @@ import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
 
 public final class FileHandler {
@@ -314,6 +313,40 @@ public final class FileHandler {
      */
     public InputStream getResourceAsStream(String fileName) {
         return getClass().getClassLoader().getResourceAsStream(fileName);
+    }
+
+    public void cleanDownloadFolder() throws IOException {
+        Path downloadDir = Paths.get(System.getProperty("user.dir"), "target", "download");
+        if (Files.exists(downloadDir)) {
+            deleteDirectoryRecursively(downloadDir); // Delete directory and contents
+        }
+        Files.createDirectories(downloadDir); // Re-create the directory
+        System.out.println("Download folder cleaned and re-created.");
+    }
+
+    /**
+     *
+     * @param folderPath
+     * @throws IOException
+     */
+    private void deleteDirectoryRecursively(Path folderPath) throws IOException {
+        try {
+            Files.walkFileTree(folderPath, new SimpleFileVisitor<>() {
+                @Override
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                    Files.delete(file);
+                    return FileVisitResult.CONTINUE;
+                }
+
+                @Override
+                public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                    Files.delete(dir);
+                    return FileVisitResult.CONTINUE;
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**

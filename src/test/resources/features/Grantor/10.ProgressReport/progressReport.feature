@@ -48,7 +48,7 @@ Feature: Validate all scenarios in Progress Report
     And I close the tab
     And I refresh the page
     And I wait for "8" seconds
-    Then I see value "100%" for title "Percentage" against the value "Community Initiative Progress Report" inside table "---progressReport:-:formTableId---"
+    Then I see value "100.00%" for title "Percentage" against the value "Community Initiative Progress Report" inside table "---progressReport:-:formTableId---"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I wait for "5" seconds
@@ -960,11 +960,11 @@ Feature: Validate all scenarios in Progress Report
     When I click on "Submit to Grantor" in the page details
     And I navigate to "Overview" sub tab
     Then I softly see field "Last Modified Date" is getting updated with todays date
-    And I click on "Menu" in the page details
-    And I select "Take Snapshot" from dropdown
+    And I click on "Take Snapshot" in the page details
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Progress Report Snapshot"
     When I download the file
+    And I wait for "5" seconds
     Then I softly see "Submitted to Grantor" on page "1" of "govgrant" pdf file
 
   @59675 @59674 @validateSendBackToSRUser
