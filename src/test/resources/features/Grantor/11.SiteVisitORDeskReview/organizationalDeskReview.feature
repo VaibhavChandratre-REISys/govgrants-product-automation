@@ -194,7 +194,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I wait for "3" seconds
     Then I see that "100.00%" has been added in flextable with Id "---orgLevelDeskReview:-:reportsTableId---"
 
-  @54886 @54571 @66270 @submittingForAprovalOfDeskReviewOrgLevel   @buglogged150042 @organizationalDeskReviewFirst @TBExecution
+  @54886 @54571 @66270 @submittingForAprovalOfDeskReviewOrgLevel   @buglogged150042 @organizationalDeskReviewFirst
   Scenario: Validate the org level Desk Review Submitting for Approval | Validate Approvers Table is not editable for record owner and award owner end when the status of Org Level Desk Review is Submitted to Approval
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"
