@@ -1634,10 +1634,10 @@ Feature: Validate all scenarios of every modules flow
       | Announcement Name                                     | Application Name                                      |
       | Automation Runtime Competitive Announcement4199454996 | Automation Runtime Competitive Announcement4199454996 |
 
- @debug @ValidatePMusershouldabletoCreateActivatetheKPI
- Scenario: Non Federal Verify user should see all fields and section on Non federal Org
-   When I am on "SUBPORTAL" portal
-   And I login to "Grants Portal" app as "SPI3" user
-   And I perform quick search inside global search "SV-5358"
-   And I click on hyperlink containing value "SV-5358"
-   Then I softly see field "Status" as "Notified"
+  @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
+  Scenario: Validate PM user should able to Create & Activate the KPI
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I wait for "5" seconds
+    And I navigate to "Overview" sub tab
+    And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"

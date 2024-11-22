@@ -90,11 +90,11 @@ public final class PhasePanel {
         I.amPerforming().textInput().toClear(dropDownSelector1);
         I.amPerforming().textInput().in(dropDownSelector1, rowvalues.get(0).toString());
         By selectDropdown1 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(0).toString() +"']");
-        I.amPerforming().click().withJavaScript(selectDropdown1);
+        I.amPerforming().click().on(selectDropdown1);
         I.amPerforming().textInput().toClear(dropDownSelector2);
         I.amPerforming().textInput().in(dropDownSelector2, rowvalues.get(1).toString());
         By selectDropdown2 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(1).toString() +"']");
-        I.amPerforming().click().withJavaScript(selectDropdown2);
+        I.amPerforming().click().on(selectDropdown2);
         if (I.amPerforming().checkToSee().IsElementPresentQuick(inputField)) {
             I.amPerforming().textInput().toClear(inputField);
             I.amPerforming().textInput().in(inputField, rowvalues.get(2).toString());
@@ -414,7 +414,7 @@ public final class PhasePanel {
     }
 
     private By getDoubleArrowLocatorForLWC(String anyItemContainedInDropDown) {
-        if(anyItemContainedInDropDown.contains("Announcements") || anyItemContainedInDropDown.contains("Funding Decision Memos")){
+        if(anyItemContainedInDropDown.contains("Announcements") || anyItemContainedInDropDown.contains("Funding Decision Memos") || anyItemContainedInDropDown.contains("Contact")){
             return By.xpath("//gnt-flex-table-l-w-c//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more'] | //c-lwc-flex-table//lightning-button-menu//button[@class='slds-button slds-button_icon slds-button_icon-more']");
         } else if(anyItemContainedInDropDown.contains("External Funding Sources")|| anyItemContainedInDropDown.contains("NGO Programs")){
             String toggleName1 = anyItemContainedInDropDown.split(" ")[1];

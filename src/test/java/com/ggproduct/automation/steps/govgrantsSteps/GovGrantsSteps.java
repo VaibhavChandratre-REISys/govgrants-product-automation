@@ -801,8 +801,15 @@ public final class GovGrantsSteps {
     @Description("This will download the file using javascript")
     @When("^I download the file$")
     public void saveTheFileToTarget() throws Throwable {
+        I.amPerforming().fileHandling().cleanDownloadFolder();
         I.amPerforming().fileHandling().DownloadAnyFilefromTab();
-        File file = new File(System.getProperty("user.dir") + File.separatorChar + "target");
+        File targetDir = new File(System.getProperty("user.dir") + File.separator + "target");
+        File file = new File(targetDir, "download");
+
+        // Create the download folder if it doesn't exist
+        if (!file.exists()) {
+            file.mkdirs();
+        }
         I.amPerforming().waitFor().makeThreadSleep(5000);
         I.amPerforming().fileHandling().toRenameFileWithSpecificExtension(file, "govgrant", "pdf", "pdf");
         I.amPerforming().waitFor().makeThreadSleep(2000);

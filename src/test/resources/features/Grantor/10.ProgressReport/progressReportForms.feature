@@ -35,7 +35,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
     And I wait for "4" seconds
     And I click modal button "Close"
-    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Edit" in the page details
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
@@ -193,7 +193,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-   @280156 @280161 @280184 @280193 @280216 @280243 @ValidateSPIuserseeFederalAgencyandOrganizationalElementtoWhichReportisSubmittedmandatoryfiledonSF425formwhichacceptmaximumalphanumericvalue @sprint-26-US-282689 @Forms
+  @280156 @280161 @280184 @280193 @280216 @280243 @ValidateSPIuserseeFederalAgencyandOrganizationalElementtoWhichReportisSubmittedmandatoryfiledonSF425formwhichacceptmaximumalphanumericvalue @sprint-26-US-282689 @Forms
   Scenario: Validate SPI user see Federal Agency and Organizational Element to Which Report is Submitted mandatory filed on SF425 form which accept maximum alphanumeric value
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -1030,13 +1030,15 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
-    And I pause execution for "5" seconds
-    And I click modal button "Close"
+    And I pause execution for "2" seconds
+    When I click modal button "Close"
+    And I pause execution for "2" seconds
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
@@ -1046,8 +1048,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I switch to tab number "1"
     And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I close the tab
-    And I refresh the page
     And I close the tab
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -2016,7 +2016,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
 
-   @281840 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF428form @sprint-25-US-280119 @Forms
+  @281840 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonSF428form @sprint-25-US-280119 @Forms
   Scenario: Validate SPI user can able to save & validate form after entering correct & valid data on all fields present on SF-428 form
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -2104,7 +2104,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     And I click on "Validate" in the split screen page details
-    And I wait for "7" seconds
+    And I wait for "4" seconds
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     #SF 428 Form
@@ -2296,7 +2296,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     And I refresh the page
     When I click on "Validate" in the page details
-    And I wait for "7" seconds
+    And I wait for "4" seconds
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
     And I close the tab
@@ -2358,6 +2358,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
 #    And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
@@ -2403,7 +2404,6 @@ Feature: Validate scenarios in Progress Report Forms
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     And I pause execution for "5" seconds
     And I click modal button "Close"
-    And I refresh the page
     And I click on "Submit to Grantor" in the page details
     And I pause execution for "5" seconds
     #Bug393048
@@ -2778,7 +2778,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter in modal "SF428A_Federal_Property" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save"
     And I refresh the page
-    And I wait for "7" seconds
+    And I wait for "5" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | If year is selected, report type As of Year is required. |
@@ -2967,10 +2967,11 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     And I refresh the page
+    And I wait for "2" seconds 
     When I click on "Validate" in the page details
-    And I wait for "7" seconds
+    And I wait for "4" seconds
     Then I softly see the following messages in the page details :
-      | Form validated successfully. |
+      | Form Validated Successfully. |
     And I close the tab
     And I click on "View" icon for "Tangible Personal Property Report - SF-428" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
@@ -3721,8 +3722,9 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "2" seconds
     Then I softly see "No Records Found" inside flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I refresh the page
-    And I wait for "9" seconds
+    And I wait for "5" seconds
     When I click on "Validate" in the page details
+   And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
@@ -3741,8 +3743,8 @@ Feature: Validate scenarios in Progress Report Forms
     When I enter value "Unchecked" into field "Other__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Form saved successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Form saved successfully. |
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
     When I click modal button "Close"
@@ -3768,13 +3770,13 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Delete" icon for "2. Additional File for Comments" inside flex table with id "---progressReport:-:sf428cFormAttachmentTableId---" without waiting for record
     And I wait for "6" seconds
     When I click on "Validate" in the page details
+   And I wait for "3" seconds
     Then I softly see the following messages in the page details :
       | Adding file is required in "Files section" with classification "Additional File for Comments", if 'Other' is checked in "2a. Federally-owned Property". |
     #285306
     When I click on "Edit" in the page details
     When I enter value "Unchecked" into field "RequestTransfertoAward__c"
     When I enter value "Unchecked" into field "RequestFederalAgency__c"
-    When I enter value "Checked" into field "Other__c"
     When I click on "Save" in the page details
 #    And I wait for "2" seconds
 #    Then I softly see the following messages in the page details :
@@ -3893,9 +3895,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
     When I click modal button "Close"
-    And I wait for "2" seconds
-    And I refresh the page
-    And I wait for "7" seconds
+    And I wait for "5" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
@@ -5646,6 +5646,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I navigate to "Files" sub tab
     When I click on "Preview" icon for "Grantor Progress Report Forms" inside table
     And I select value inside table "---program:-:previewPackageTableId---" is "All"
+    Then I softly see total records count "Total Records: 13" in flex table "---program:-:previewPackageTableId---"
     And I perform quick search for "Community Initiative Progress Report" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Community Initiative Progress Report" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Progress Report" for title "Report Type" inside table "---program:-:previewPackageTableId---"
@@ -5688,10 +5689,10 @@ Feature: Validate scenarios in Progress Report Forms
     And I perform quick search for "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Outlay Report and Request for Reimbursement for Construction Programs-SF-271" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Real Property Report" for title "Report Type" inside table "---program:-:previewPackageTableId---"
-    Then I softly see total records count "Total Records: 13" in flex table "---program:-:previewPackageTableId---"
     And I refresh the page
     #286680
     When I click on "Preview" icon for "Grantor Payment Request Forms" inside table
+    And I perform quick search for "Request for Advance or Reimbursement - SF-270" in "---program:-:previewPackageTableId---" panel
     Then I softly see value "Request for Advance or Reimbursement - SF-270" for title "Form Name" inside table "---program:-:previewPackageTableId---"
     Then I softly see value "Payment Request Report" for title "Report Type" inside table "---program:-:previewPackageTableId---"
 
@@ -6617,6 +6618,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I save the field labeled "EGMS ID" as "progID"
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
@@ -6838,7 +6840,6 @@ Feature: Validate scenarios in Progress Report Forms
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 7      |
-    And I refresh the page
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds

@@ -375,16 +375,17 @@ Feature: Validate all scenarios in the Application Review
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
-    Then I softly see value "Review Initiated" for title "Status" inside table "---applicationReview:-:announcementListTableId---"
+    Then I softly see value "In Progress" for title "Status" inside table "---applicationReview:-:announcementListTableId---"
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    When I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "<Announcement Name>" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     Then I softly see value "Review Initiated" for title "Status" inside table "---applicationReview:-:relatedFOApplicationsTableId---"
-    Then I softly see value "Completed" for title "Status" against the value "Pre-Screen Review" inside table "---applicationReview:-:reviewStepsTableId---"
-    Then I softly see value "Completed" for title "Status" against the value "SME Review" inside table "---applicationReview:-:reviewStepsTableId---"
-    Then I softly see value "Completed" for title "Status" against the value "Management Review" inside table "---applicationReview:-:reviewStepsTableId---"
+    Then I softly see value "In Progress" for title "Status" against the value "Pre-Screen Review" inside table "---applicationReview:-:reviewStepsTableId---"
+    Then I softly see value "Not Started" for title "Status" against the value "SME Review" inside table "---applicationReview:-:reviewStepsTableId---"
+    Then I softly see value "Not Started" for title "Status" against the value "Management Review" inside table "---applicationReview:-:reviewStepsTableId---"
     And I click on parallel menu button in flex table title "Review Steps"
     And I select "Download as PDF" from parallel lines dropdown of "Review Steps"
     When I download the file
@@ -481,20 +482,24 @@ Feature: Validate all scenarios in the Application Review
     And I navigate to "Related Log" sub tab
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:relatedFOApplicationsTableId---" panel
     Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Project Title" inside table "---applicationReview:-:relatedFOApplicationsTableId---"
-    When I click on advance filter "#advfRelatedFOApplications" of table id "---applicationReview:-:relatedFOApplicationsTableId---"
-    When I enter advance filter values inside id "advfRelatedFOApplications"
+    And I click on advance filter of table id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
+    And I enter advance filter values inside id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
       | EGMS ID | contains | InvalidValue |
     Then I softly see "No Records Found" inside flex table with id "---applicationReview:-:relatedFOApplicationsTableId---"
     And I refresh the page
-    When I click on advance filter "#advfRelatedFOApplications" of table id "---applicationReview:-:relatedFOApplicationsTableId---"
-    When I enter advance filter values inside id "advfRelatedFOApplications"
-      | Project Title | Contains | {SavedValue:Automation Runtime Announcement Application Review} |
-    Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Project Title" inside table "---applicationReview:-:relatedFOApplicationsTableId---"
+    And I click on advance filter of table id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
+    And I enter advance filter values inside id "---applicationReview:-:relatedFOApplicationsTableId---" for LWC
+      | Application Title | contains | {SavedValue:Automation Runtime Announcement Application Review} |
+    And I wait for "2" seconds
+    Then I softly see value "{SavedValue:Automation Runtime Announcement Application Review}" for title "Application Title" inside table "---applicationReview:-:relatedFOApplicationsTableId---"
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:relatedFOApplicationsTableId---" with wait for record
-    Then I softly see field "Application" as "{SavedValue:Automation Runtime Announcement Application Review}"
+    Then I see the sub-header is "{SavedValue:Automation Runtime Announcement Application Review}" in the page details
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Budget" sub tab at view detail page
-    Then I softly can see "Monitoring" sub tab at view detail page
+    Then I softly can see "Proposal" sub tab at view detail page
+    Then I softly can see "Forms and Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
     And I wait for "3" seconds
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -713,10 +718,10 @@ Feature: Validate all scenarios in the Application Review
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name  | Due in Days | Minimum # of Reviews Required | Required? |
-      | Pre-Screen | 7           | 0                             | UnChecked |
+      | Form Name  | Due in Days | Minimum # of Reviews Required |
+      | Pre-Screen | 7           | 0                             |
     Then I softly see the following messages in the page details :
-      | Saved successfully! |
+      | Saved Successfully! |
     Then I softly see value "7" for title "Due in Days" inside table "---applicationReview:-:reviewStepFormId---"
     Examples:
       | Announcement Name                                               |
@@ -1041,7 +1046,7 @@ Feature: Validate all scenarios in the Application Review
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @79749 @79755 @79748 @79747 @79753 @79754 @verifingReviewSectionAndReviewQuestion  @ReviewRerun
+  @79749 @79755 @79748 @79747 @79753 @79754 @verifingReviewSectionAndReviewQuestion
   Scenario Outline: To verify the user able to assign reviewers in the reviews section for Pre-screening review steps of related log tab in the Application phase.
   | To verify,user able to fill  the review questions ,in review form in prescreen review step
   | To verify the user able to assign reviewers in the reviews section for SME review steps of related log tab in the Application phase.
@@ -1237,6 +1242,8 @@ Feature: Validate all scenarios in the Application Review
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
     And I wait for "6" seconds
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see field "Is the project cost effective and has a cost estimate been provided?" as "Yes"
     Then I softly see field "Are the performance goals adequate?" as "Yes"
     Then I softly see field "Rate and describe overall value of the Project." as "Automation description"
@@ -1809,8 +1816,8 @@ Feature: Validate all scenarios in the Application Review
     Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:reviewStepTableId---"
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---announcement:-:reviewStepTableId---"
     And I edit the following rows inline in flex table with id "---applicationReview:-:reviewStepFormId---" by clicking "Edit" :
-      | Form Name  | Required? | Minimum # of Reviews Required |
-      | Pre-Screen | Checked   | 1                             |
+      | Form Name  | Required? | Minimum # of Reviews Required | Due in Days |
+      | Pre-Screen | Checked   | 1                             | 7           |
     Then I softly see the following messages in the page details :
       | Saved successfully! |
     When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appTableId---"

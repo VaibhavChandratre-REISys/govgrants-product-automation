@@ -983,13 +983,12 @@ Feature: Validate all scenarios in Closeout
     And I click on "View" icon for "Created" inside flex table with id "---closeout:-:closeoutTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     When I click on "Edit" in the page details
-    And I enter value "07/20/2023" into field "CloseoutDate__c"
-    And I enter value "08/12/2023" into field "CloseoutDueDateGrantor__c"
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
     When I click on "Send To Subrecipient" in the page details
     Then I softly see field "Status" as "Sent To Subrecipient"
-    Then I softly see status in Progress-bar is "Sent To Subrecipient" and is "dark blue"
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Home" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1456,7 +1455,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "Record Id" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I click on "Override" in the page details
     When I navigate to "Responsibilities" sub tab
@@ -1489,7 +1488,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "Record Id" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I click on "Override" in the page details
     When I navigate to "Responsibilities" sub tab
@@ -1526,7 +1525,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "Record Id" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     And I click on "Override" in the page details
     When I navigate to "Responsibilities" sub tab
@@ -1574,8 +1573,9 @@ Feature: Validate all scenarios in Closeout
     When I click on "Start" icon for "{SavedValue:closeoutRequestNo}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     When I navigate to "Overview" sub tab
-    And I enter value "Automation Test justification" into field "fieldJustification__c"
+    And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Override Justification" as "Automation Test justification"
     When I click on "Override" in the page details
     And I click on "Submit for Approval" in the page details

@@ -552,8 +552,8 @@ public final class GovGrantsAssertionObjects {
         if (isSoftly.contains("not")) {
             try {
                 // Must use WaitForElementToBePresent as this element never becomes visible, and thus it will always wait the full waitTime
-                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
-                I.amPerforming().waitFor().ElementToBePresent(By.xpath("//script[contains(@src, 'PageMessages')]"), 5);
+//                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+//                I.amPerforming().waitFor().ElementToBePresent(By.xpath("//script[contains(@src, 'PageMessages')]"), 5);
                 I.amPerforming().waitFor().ElementToBePresent(pageMessagesSelector, 2);
             } catch (Exception e) {
                 /* Ignore Exception */
@@ -571,8 +571,8 @@ public final class GovGrantsAssertionObjects {
         } else {
             try {
                 // Must use WaitForElementToBePresent as this element never becomes visible, and thus it will always wait the full waitTime
-                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
-                I.amPerforming().waitFor().ElementToBePresent(By.xpath("//script[contains(@src, 'PageMessages')]"), 5);
+//                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+//                I.amPerforming().waitFor().ElementToBePresent(By.xpath("//script[contains(@src, 'PageMessages')]"), 5);
                 I.amPerforming().waitFor().ElementToBePresent(pageMessagesSelector, 2);
             } catch (Exception e) {
                 /* Ignore Exception */
@@ -4109,6 +4109,45 @@ public final class GovGrantsAssertionObjects {
             }
         } catch (Exception e) {
         }
+        return flag;
+    }
+
+    public boolean isRecordPresentInTheSnapShot(String text) {
+        try {
+            return I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-snapshot-history//span[" + I.amPerforming().sanityOfXpathTo().contains("text()", text) + "]"));
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+    public void assertValueForColumnInsideTableWithId(String usage, String sortOrder, String columnName, String tableId) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isValueForColumnInsideTableWithId(sortOrder,columnName, tableId));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isValueForColumnInsideTableWithId(sortOrder,columnName, tableId));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isValueForColumnInsideTableWithId(sortOrder,columnName, tableId)).isTrue();
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isValueForColumnInsideTableWithId(sortOrder,columnName, tableId)).isFalse();
+        }
+    }
+
+    private Boolean isValueForColumnInsideTableWithId(String sortOrder, String columnName, String tableId) {
+        boolean flag = false;
+        if (sortOrder.equals("Ascending")) {
+            try {
+                if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//table//th[@data-id='" + columnName + "']//lightning-icon[@title='" + sortOrder + "' and contains(@class,'showArrow')]"))) {
+                    flag = true;
+                }
+            } catch (Exception e) {
+            }
+        } else
+            try {
+                if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-lwc-flex-table[@data-flextablename='" + tableId + "']//table//th[@data-id='" + columnName + "']//lightning-icon[@title='" + sortOrder + "' and contains(@class,'showArrow')]"))) {
+                    flag = true;
+                }
+            } catch (Exception e) {
+            }
         return flag;
     }
 }
