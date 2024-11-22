@@ -717,7 +717,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
       | Status                 | Page Number |
       | Submitted for Approval | 1           |
 
-  @296072 @VerifyAuditorusercannotseeundobuttoninApprovedstateofOrganizationalDeskReview @sprint-4-US-288692 @Undo
+  @296072 @VerifyAuditorusercannotseeundobuttoninApprovedstateofOrganizationalDeskReview @sprint-4-US-288692 @Undo @TBExecution
   Scenario:Verify Auditor user can not see undo button in Approved  state of Organizational Desk Review
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -1350,7 +1350,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @310991 @ValidateOrgdrthatUndoButtonnotvisibleinForceClosedstate @Undo
+  @310991 @ValidateOrgdrthatUndoButtonnotvisibleinForceClosedstate @Undo @TBExecution
   Scenario: Validate Org dr that Undo Button not visible in Force Closed state
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab

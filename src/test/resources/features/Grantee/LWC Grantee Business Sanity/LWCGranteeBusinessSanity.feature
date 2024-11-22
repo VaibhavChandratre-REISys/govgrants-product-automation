@@ -19368,7 +19368,7 @@ Feature: Sanity scenarios
 
     Examples:
       | userType   | EmailId                     |
-      | GRANTEE PO | govgrantsuat@yopmail.com    |
+      | GRANTEE PO | automationpo@yopmail.com    |
       | GRANTEE FO | david.fo@yopmail.com        |
       | GRANTEE FD | danielle.garcia@yopmail.com |
 
@@ -21243,7 +21243,7 @@ Feature: Sanity scenarios
 
     Examples:
       | userType      | userName   | UEI          |
-#      | GRANTEE PM    | Sarah PM   | 123456789123 |
+      | GRANTEE PM    | Sarah PM   | 123456789123 |
       | GRANTEE EXE   | Victor EXE | 123456789123 |
       | GRANTEE PO    | Grantee PO | 123456789123 |
       | GRANTEE ADMIN | Product QA | 123456789012 |

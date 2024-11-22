@@ -135,7 +135,7 @@ public class UsersAndURL implements UsersController {
                 password = "Grants@2026";
                 break;
             case "GRANTEE ADMIN":
-                password = "Grantee@2027";
+                password = "Grantee@2028";
                 break;
             case "GRANTEE PM":
                 password = "Grantee@2027";
@@ -153,7 +153,7 @@ public class UsersAndURL implements UsersController {
                 password = "Grantee@2027";
                 break;
             case "GRANTEE PO":
-                password = "Grantee@2027";
+                password = "Grantee@2028";
                 break;
             default:
                 password = "Salesforce2040";
@@ -297,7 +297,7 @@ public class UsersAndURL implements UsersController {
         username.put("GRANTEE EXE", "victor.exe@ggp.test8.qagrnteatm");
         username.put("GRANTEE FO", "david.fo@ggp.test8.qagrnteatm");
         username.put("GRANTEE FD", "danielle.garcia@ggp.test8.qagrnteatm");
-        username.put("GRANTEE PO", "grantee.po@yopmail.com.qagrnteatm");
+        username.put("GRANTEE PO", "automationpo@yopmail.com.qagrnteatm");
         username.put("GRANTEE AUDITOR", "automationauditor@yopmail.com.qagrnteatm");
 
         if (userLevel.toUpperCase() != null) {

@@ -528,7 +528,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission
+  @55462 @61403 @viewnapshotOrgSiteVisitAcceptButtonAfterSRecipientsSubmission @TBExecution
   Scenario: Validate User will be able to view the SnapshotSite Visit Accept button after review the submission by Recipients
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "SiteVisit"
