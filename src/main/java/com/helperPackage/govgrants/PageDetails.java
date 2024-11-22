@@ -213,7 +213,7 @@ public final class PageDetails {
         By desiredTab = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']");
         By isdesiredTabActive = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']//ancestor::li[contains(@class,'active')]");
 //        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//button[@title='More Tabs']");
-        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs'] | //button[@title='More Tabs']");
+    //    By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs'] | //button[@title='More Tabs']");
         By selectMoreTabs = By.xpath("//a//span[text()='" + tabName + "']");
 //        By moreTabElement = By.xpath("//div[@id='myTabs']//span[text()='" + tabName + "']/ancestor::li[not(@style)]");
 
@@ -234,14 +234,14 @@ public final class PageDetails {
                 I.amPerforming().click().on(desiredTab);
 
             } else {
-                I.amPerforming().click().on(moreTabs);
+              //  I.amPerforming().click().on(moreTabs);
                 I.amPerforming().waitFor().ElementToBePresent(desiredTab);
                 I.amPerforming().click().on(desiredTab);
             }
         } catch (Exception ex) {
             I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     An exception is thrown - Retrying with javaScript");
             I.amPerforming().waitFor().makeThreadSleep(3000);
-            I.amPerforming().click().on(moreTabs);
+          //  I.amPerforming().click().on(moreTabs);
             I.amPerforming().click().withJavaScript(desiredTab, false);
 
         }
