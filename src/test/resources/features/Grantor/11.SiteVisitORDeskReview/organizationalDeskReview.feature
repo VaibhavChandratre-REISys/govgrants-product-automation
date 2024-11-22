@@ -247,7 +247,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I navigate to "Responsibilities" sub tab
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:PM Username}" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:PM Username}" in flex table with id "---orgLevelDeskReview:-:approverSiteVisitTableId---"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -867,7 +867,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     When I click on "Complete Review" in the page details
     Then I see status in Progress-bar is "In Progress" and is "dark blue"
 
-  @55998 @UploadsupportingDocumentChecklistFromWorkSpace  @RunAfterJuly @organizationalDeskReviewFirst @TBExecution1
+  @55998 @UploadsupportingDocumentChecklistFromWorkSpace  @RunAfterJuly @organizationalDeskReviewFirst
   Scenario: User will be able to review the supporting document checklist submitted by the subrecipient
     When I navigate to "Files" sub tab
     When I click on "Upload Template" icon for "Active" inside flex table with id "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
@@ -1237,7 +1237,7 @@ Feature: Validate all scenarios in Organizational Desk Review
     And I click on "Remove" icon for "{SavedValue:Automation Runtime Award Record}" inside flex table with id "---orgLevelDeskReview:-:associateAwardId---"
     Then I softly see "No Records Found" inside flex table with id "---orgLevelDeskReview:-:associateAwardId---"
 
-  @65150 @reviewerCanNotEditAfterSubmittingTheReviewOrgLevel @organizationalDeskReviewSecond @TBExecution
+  @65150 @reviewerCanNotEditAfterSubmittingTheReviewOrgLevel @organizationalDeskReviewSecond
   Scenario: Validate after submitting the review comments for Org Level Desk Review, the Edit button should will be unavailable for the reviewer
     Given I navigate to "Related Log" sub tab
     And I click on top right button "Initiate Desk Review" in flex table with id "DeskReview"

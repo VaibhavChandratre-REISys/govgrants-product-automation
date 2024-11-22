@@ -1176,7 +1176,7 @@ Feature: Validate all scenarios in Desk Review with Undo
     #Bug443647
     Then I softly see snapshot with name containing "Desk Review - Undo Approval.pdf" as name
 
-  @308148 @VerifythatAdminapproveruserwillnotseeUNDObuttoninforceClosedstateofdeskreview @sprint-25-US-297269  @Undo @TBExecution
+  @308148 @VerifythatAdminapproveruserwillnotseeUNDObuttoninforceClosedstateofdeskreview @sprint-25-US-297269  @Undo
   Scenario: Verify that Admin approver user will not see UNDO button in force Closed state of desk review
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant_Focus_Area"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant_Focus_Area"

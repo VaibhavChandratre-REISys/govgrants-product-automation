@@ -996,7 +996,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I see the following messages in the page details :
       | Reports and Outcomes Tab - Complete all data in the form. |
 
-  @56005 @uploadsupportingDocumentChecklistFromWorkSpace @TBExecution1
+  @56005 @uploadsupportingDocumentChecklistFromWorkSpace
   Scenario: User will be able to review the supporting document checklist submitted by the subrecipient
     When I navigate to "Files" sub tab
     And I click on "Upload Template" icon for "Automation" inside flex table with id "---orgRiskAssessment:-:orgriskSupportingDocTableId---" with wait for record
@@ -1006,7 +1006,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on hyperlink against "View" in table "---orgRiskAssessment:-:orgriskSupportingDocTableId---"
     And I download the file
     And I wait for "5" seconds
-    Then I softly see "A Simple PDF File " on page "1" of "govgrants" pdf file
+    Then I softly see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
 
   @61398 @56044 @submittingForApprovalFieldHistoryUpdatedForSiteVisitIsSendBackToOwnerByProgramApprover  @FieldHistoryExclude
   Scenario: To Validate User will be able to view the Submit for Approval button  and field history update post Org level Site Visit is send back to owner by program approver
