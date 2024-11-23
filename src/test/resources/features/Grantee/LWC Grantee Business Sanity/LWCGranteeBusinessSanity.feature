@@ -2658,8 +2658,8 @@ Feature: Sanity scenarios
       | GRANTEE PM    | Attachment.pdf | Notes Record    | Sarah PM   | Test  |
       | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN | Product QA | Test2 |
 
-  @443849 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject
-  Scenario: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
+  @443849 @476570 @476571 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject
+  Scenario Outline: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -13602,13 +13602,10 @@ Feature: Sanity scenarios
      When I click on "Save" in the page details
      Then I softly see field "Status" as "Created"
      Then I softly see field "Amendment Type" as "Periodic Renewal"
-
-
      Examples:
        | User       |
        | GRANTEE PO |
        | GRANTEE PM |
-
 
   @443831 @AwardVerifywithPMprofileManagementTabofAwardPagelayout.
   Scenario:  Award -  Verify with PM profile ,Management Tab of Award Page layout.
@@ -14208,7 +14205,6 @@ Feature: Sanity scenarios
     And I click modal button "Save"
     And I click modal button "Close"
     Then I softly see field "Status" as "Accepted"
-
      Examples:
        | User          | Non Owner  |
        | GRANTEE PM    | GRANTEE PO |
@@ -14444,8 +14440,7 @@ Feature: Sanity scenarios
     When I navigate to "Awards" sub tab
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
-
-    Examples:
+     Examples:
       | User        |
       | GRANTEE PO  |
       | GRANTEE EXE |
@@ -18052,7 +18047,6 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "View All"
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
-
     Examples:
       | User          |
       | GRANTEE EXE   |
@@ -18431,7 +18425,6 @@ Feature: Sanity scenarios
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:GranteeProjectTableId---"
-
     Examples:
       | User          |
       | GRANTEE Admin |
@@ -18444,7 +18437,6 @@ Feature: Sanity scenarios
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:GranteeProjectTableId---"
-
     Examples:
       | User       |
       | GRANTEE PO |
@@ -18486,7 +18478,6 @@ Feature: Sanity scenarios
     And I perform quick search for "<RecordId>" in "---grantee_tableId:-:StrategicPlans---" panel
     And I click on "View" icon for "<RecordId>" inside table
     Then I cannot see top right button "Deactivate" in page detail
-
     Examples:
       | User       | RecordId                            |
       | GRANTEE FO | Automation Permanent Strategic Plan |
@@ -18562,8 +18553,7 @@ Feature: Sanity scenarios
     And I click on "Activate" in the page details
     Then I softly see the following messages in the page details :
       | Applicant Eligibility is required to submit under Overview |
-
-   Examples:
+    Examples:
      | User          |
      | GRANTEE PM    |
      | GRANTEE PO    |
@@ -18856,7 +18846,6 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "Edit" against "Terms and Conditions" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-
     Examples:
       | User          |
       | GRANTEE PO    |
@@ -19604,7 +19593,6 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-
     Examples:
       | User           | RecordId                            |
       | GRANTEE PO     | Automation Permanent Strategic Plan |
@@ -19965,7 +19953,6 @@ Feature: Sanity scenarios
     Then I cannot see row level action button "View" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I cannot see row level action button "Delete" against "{SavedValue:Description}" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-
     Examples:
       | User        |  NonOwner       |
       | GRANTEE PO  | GRANTEE AUDITOR |
@@ -20178,7 +20165,6 @@ Feature: Sanity scenarios
  | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
  | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected.      |
  | Responsibilities - At least one approver is required.                                                                                                                         |
-
     Examples:
       | User           |
       | GRANTEE PM     |
@@ -20187,11 +20173,6 @@ Feature: Sanity scenarios
       | GRANTEE FO     |
       | GRANTEE FD     |
       | GRANTEE ADMIN  |
-
-    Examples:
-      | User       |
-      | GRANTEE PM |
-      | GRANTEE PO |
 
   @464036 @ValidateAmeliaFDuserReviewerYescanabletosubmitReview&ReviewcompletebyAROwneronclickofCompeleteReviewbuttononBPCAR
   Scenario: Validate Amelia FD user Reviewer Yes can able to submit Review & Review complete by AR Owner on click of Compelete Review button on BPC AR
@@ -20824,7 +20805,6 @@ Feature: Sanity scenarios
     Then I softly see field "Created By" inside page block
     Then I softly see field "Last Modified By" inside page block
     Then I softly see field "Last Modified Date" inside page block
-
     Examples:
       | userType        |
       | GRANTEE PM      |
@@ -21072,7 +21052,6 @@ Feature: Sanity scenarios
       | Measure is required to save under Overview.             |
       | Unit of Measurement is required to save under Overview. |
       | Indicator is required to save under Overview.           |
-
     Examples:
       | userType      |
       | GRANTEE PM    |
@@ -21163,7 +21142,6 @@ Feature: Sanity scenarios
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "History" sub tab
     Then I softly see "No Records Found" inside snapshot history
-
     Examples:
       | userType   | EmailId                     |
       | GRANTEE PO | automationpo@yopmail.com    |
@@ -21696,7 +21674,6 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details :
       | Record removed successfully. |
     Then I softly do not see value "Gauri FA" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-
     Examples:
       | userType    | Approver   |
       | GRANTEE EXE | Victor EXE |
