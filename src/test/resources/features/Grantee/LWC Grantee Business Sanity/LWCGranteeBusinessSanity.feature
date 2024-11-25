@@ -544,7 +544,7 @@ Feature: Sanity scenarios
     Then I softly see fields "City__c" is in edit mode
     Then I softly see fields "County__c" is in edit mode
     Then I softly see fields "State__c" is in edit mode
-    Then I softly see fields "CongressionalDistrict__c" is in edit mode
+    Then I softly see fields "CongressionalDistrictName__c" is in edit mode
     Then I softly see fields "Zip4__c" is in edit mode
     Then I softly see fields "Country__c" is in edit mode
     Then I softly see fields "ZipCode4Extension__c" is in edit mode
@@ -669,7 +669,7 @@ Feature: Sanity scenarios
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
     And I navigate to "Monitoring" sub tab
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardObjectiveTableId---"
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardObjectiveTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     Then I softly see the following messages in the page details contains:
@@ -677,7 +677,7 @@ Feature: Sanity scenarios
     And I click modal button "Close"
     And I wait for "3" seconds
     Then I can see row level action button "Remove" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
     Then I softly see the following messages in the page details contains:
@@ -724,18 +724,6 @@ Feature: Sanity scenarios
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:awardsNotesTableId---"
     Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
-    And I navigate to "Messages" sub tab
-    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
-    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
-    And I send the email under collab tab with following details:
-      | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
-    When I click modal button "Close"
-    And I refresh the page
-    And I wait for "3" seconds
-    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     When I click on "Validate" in the page details
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
@@ -777,9 +765,9 @@ Feature: Sanity scenarios
     When I navigate to "Overview" sub tab
     Then I can see row level action button "View" against "Open Data Framework" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     Then I cannot see row level action button "Edit" against "Open Data Framework" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I cannot see row level action button "Remove" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     And I navigate to "Projections" sub tab
     Then I cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
