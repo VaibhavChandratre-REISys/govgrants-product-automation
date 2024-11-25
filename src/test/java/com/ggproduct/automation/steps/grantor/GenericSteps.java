@@ -676,4 +676,10 @@ public class GenericSteps {
     public void iClickOnButtonOnLeftNavigationForGlobalSearch(String buttonName) {
         grantorProjectManager.isButtonClickOnLeftNavigation(buttonName);
     }
+
+    @And("I delete the file in download folder")
+    public void iDeleteTheFileInDownloadFolder() throws IOException {
+        I.amPerforming().waitFor().makeThreadSleep(2000);
+        I.amPerforming().fileHandling().cleanDownloadFolder();
+    }
 }
