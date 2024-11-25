@@ -23567,7 +23567,24 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I click on "Resend for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     Then I softly see value "Sent for Review" for title "Status" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+   When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+   And I navigate to "Grants" tab
+   When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+   And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+   When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+   And I navigate to "Responsibilities" sub tab
+   When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
+   And I enter a review as "Passed"
+   When I click modal button "Save"
+   And I click on submit review
+   And I wait for "3" seconds
+   When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - My Records"
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+    Then I softly see value "{SavedValue:AmendEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentTableId---"
+    And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -23588,10 +23605,10 @@ Feature: Sanity scenarios
     Then I softly see "Submit Review" modal button
     And I click on submit review
     And I wait for "3" seconds
-    Then I softly can see row level action button "Resend for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly can see row level action button "Resend for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Edit" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Send for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly cannot see row level action button "Delete" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -23602,24 +23619,21 @@ Feature: Sanity scenarios
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I click on "Complete Review" in the page details
     Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
-    And I enter a review as "Passed"
-    When I click modal button "Save"
-    And I click on submit review
-    And I wait for "3" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly can see row level action button "View" against "{SavedValue:AmendEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:AmendEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-    And I click on "Complete Review" in the page details
-    Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
+   When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+   And I navigate to "Grants" tab
+   When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+   And I click toggle button to select "Amendment Requests - All"
+   When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+   Then I softly cannot see row level action button "Resend for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+   Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+   Then I softly cannot see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+   Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+   When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+   And I navigate to "Grants" tab
+   When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+   And I click toggle button to select "Amendment Requests - All"
+   When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+   Then I softly cannot see row level action button "Resend for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+   Then I softly cannot see row level action button "Edit" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+   Then I softly cannot see row level action button "Send for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+   Then I softly cannot see row level action button "Delete" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
