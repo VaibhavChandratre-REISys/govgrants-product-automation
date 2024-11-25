@@ -8257,3 +8257,61 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Active"
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
+
+  @786 @ValidatethetRecordforUser
+  Scenario Outline: Validate the record for User
+    When I login to "As a Grantor" app as "<User>" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{AUTOEnvData:AutomationInternalProgram}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:AutomationInternalProgram}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    Then I softly see value "Automation PM1" for title "Name" inside table "---program:-:associateContactsTableId---"
+    Then I softly see value "Automation Runtime123 contact" for title "Name" inside table "---program:-:associateContactsTableId---"
+    Then I softly see value "James Jackson" for title "Name" inside table "---program:-:associateContactsTableId---"
+    Then I softly see value "David Anderson" for title "Name" inside table "---program:-:associateContactsTableId---"
+    Then I softly see value "Matthew Brown" for title "Name" inside table "---program:-:associateContactsTableId---"
+    When I navigate to "Setup" sub tab
+    Then I softly see value "Automation Test1" for title "Description" inside table "---program:-:checklistTableId---"
+    Then I softly see value "Automation Test2" for title "Description" inside table "---program:-:checklistTableId---"
+    Then I softly see value "Automation Test3" for title "Description" inside table "---program:-:checklistTableId---"
+    Then I softly see value "Automation Test4" for title "Description" inside table "---program:-:checklistTableId---"
+    Then I softly see value "Automation Test5" for title "Description" inside table "---program:-:checklistTableId---"
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---program:-:focusAreaTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---program:-:focusAreaTableId---"
+    Then I softly see value "Test Focus Area1" for title "Title" inside table "---program:-:focusAreaTableId---"
+    Then I softly see value "Automation Permanent Focus Area3" for title "Title" inside table "---program:-:focusAreaTableId---"
+    Then I softly see value "Automation Permanent Focus Area4" for title "Title" inside table "---program:-:focusAreaTableId---"
+    Then I softly see value "Automation Permanent KPI For Admin" for title "Title" inside table "---program:-:kpiTableId---"
+    Then I softly see value "Automation Permanent KPI3" for title "Title" inside table "---program:-:kpiTableId---"
+    Then I softly see value "Automation Permanent KPI2" for title "Title" inside table "---program:-:kpiTableId---"
+    Then I softly see value "Automation Permanent KPI for Regression2" for title "Title" inside table "---program:-:kpiTableId---"
+    Then I softly see value "Automation Permanent KPI" for title "Title" inside table "---program:-:kpiTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I softly see value "Automation PM" for title "Reviewer Name" inside table "---program:-:peerReviewTableId---"
+    Then I softly see value "Automation EXE" for title "Reviewer Name" inside table "---program:-:peerReviewTableId---"
+    Then I softly see value "Automation FO" for title "Reviewer Name" inside table "---program:-:peerReviewTableId---"
+    Then I softly see value "Automation FD" for title "Reviewer Name" inside table "---program:-:peerReviewTableId---"
+    Then I softly see value "Automation PO" for title "Reviewer Name" inside table "---program:-:peerReviewTableId---"
+    Then I softly see value "Automation PM" for title "Name" inside table "---program:-:approverTableId---"
+    Then I softly see value "Automation EXE" for title "Name" inside table "---program:-:approverTableId---"
+    Then I softly see value "Automation PO" for title "Name" inside table "---program:-:approverTableId---"
+    Then I softly see value "Automation PM1" for title "Name" inside table "---program:-:approverTableId---"
+    And I navigate to "Files" sub tab
+    Then I softly see value "Automation Test File1" for title "Description" inside table "---program:-:GrantorInternalProgramFilesTableId---"
+    Then I softly see value "Automation Test File2" for title "Description" inside table "---program:-:GrantorInternalProgramFilesTableId---"
+    Then I softly see value "Automation Test File3" for title "Description" inside table "---program:-:GrantorInternalProgramFilesTableId---"
+    Then I softly see value "Automation Test File4" for title "Description" inside table "---program:-:GrantorInternalProgramFilesTableId---"
+    Then I softly see value "Automation Test File5" for title "Description" inside table "---program:-:GrantorInternalProgramFilesTableId---"
+    Then I softly see value "Notes1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
+    Then I softly see value "Notes2" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
+    Then I softly see value "Notes3" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
+    Then I softly see value "Notes4" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
+    Then I softly see value "Notes5" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
+
+    Examples:
+      | User  |
+      | EXE   |
+      |  PO   |
+      |  FO   |
+      |  FD   |
