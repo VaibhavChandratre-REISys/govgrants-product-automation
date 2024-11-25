@@ -1,4 +1,4 @@
-@programWB @grantor-regression @grantor-parallel-regression @planning @regression @IntProg
+@programWB @grantor-regression @grantor-parallel-regression @planning @regression @InternalProgExecution
 Feature: Validate all scenarios for program
 
   @109448 @VerifySelectionOfChildOrganization
