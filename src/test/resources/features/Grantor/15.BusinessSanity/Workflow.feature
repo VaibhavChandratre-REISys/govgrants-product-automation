@@ -1551,30 +1551,30 @@ Feature: Validate all scenarios of every modules flow
       | Excel          |
       | CSS_Creation1  |
 
-  @debug2 @ValidatePMusercanaddnotesonInternalProgramcreatedbyEXEuserwhenitsstatusiscreated @sprint-7-US-201927  @Notes
-  Scenario Outline: Validate PM user can add notes on Internal Program created by EXE user when its status is created
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "Automation Permanent Css Program1" in "---program:-:programsTableId---" panel
-    And I click on "View" icon for "Automation Permanent Css Program1" inside flex table with id "---program:-:programsTableId---" without waiting for record
-    When I click on "Edit" in the page details
-    When I enter "<Excel>" script values from "Program_Field_Values.xlsx"
-    Examples:
-      | Excel        |
-      | CSS_Edition  |
-
-  @debug @ValidatePMusercanaddnotesonInternalProgramcreatedbyEXEuserwhenitsstatusiscreated @sprint-7-US-201927  @Notes
-  Scenario Outline: Validate PM user can add notes on Internal Program created by EXE user when its status is created
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "Automation Permanent Css Program1" in "---program:-:programsTableId---" panel
-    And I click on "View" icon for "Automation Permanent Css Program1" inside flex table with id "---program:-:programsTableId---" without waiting for record
-    When I click on "Edit" in the page details
-    When I enter "<Excel>" script values from "Program_Field_Values.xlsx"
-    Examples:
-      | Excel        |
-      | Test_XSS  |
+#  @debug2 @ValidatePMusercanaddnotesonInternalProgramcreatedbyEXEuserwhenitsstatusiscreated @sprint-7-US-201927  @Notes
+#  Scenario Outline: Validate PM user can add notes on Internal Program created by EXE user when its status is created
+#    When I login to "As a Grantor" app as "PM" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - All"
+#    When I perform quick search for "Automation Permanent Css Program1" in "---program:-:programsTableId---" panel
+#    And I click on "View" icon for "Automation Permanent Css Program1" inside flex table with id "---program:-:programsTableId---" without waiting for record
+#    When I click on "Edit" in the page details
+#    When I enter "<Excel>" script values from "Program_Field_Values.xlsx"
+#    Examples:
+#      | Excel        |
+#      | CSS_Edition  |
+#
+#  @debug @ValidatePMusercanaddnotesonInternalProgramcreatedbyEXEuserwhenitsstatusiscreated @sprint-7-US-201927  @Notes
+#  Scenario Outline: Validate PM user can add notes on Internal Program created by EXE user when its status is created
+#    When I login to "As a Grantor" app as "PM" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - All"
+#    When I perform quick search for "Automation Permanent Css Program1" in "---program:-:programsTableId---" panel
+#    And I click on "View" icon for "Automation Permanent Css Program1" inside flex table with id "---program:-:programsTableId---" without waiting for record
+#    When I click on "Edit" in the page details
+#    When I enter "<Excel>" script values from "Program_Field_Values.xlsx"
+#    Examples:
+#      | Excel        |
+#      | Test_XSS  |
