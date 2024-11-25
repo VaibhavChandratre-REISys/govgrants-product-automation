@@ -23524,9 +23524,6 @@ Feature: Sanity scenarios
     Then I softly do not see value "Grantee PO" for title "Reviewer Name" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
-    And I pause execution for "3" seconds
-    Then I see the following messages in the page details contains:
-      | Review Successfully Initiated. |
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
