@@ -391,7 +391,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I download the file
     Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
 
-  @72323 @71972  @applicationDueDataOfAnnInHistory @FieldHistoryExclude @TBExecution
+  @72323 @71972 @applicationDueDataOfAnnInHistory @FieldHistoryExclude @TBExecution
   Scenario: To verify field history update with respect to modification in Application Due Dates of Announcement|
   To verify that estimated period start date & end date is displayed according to the entered budget period dates in announcemnt
     And I click on "Edit" in the page details
