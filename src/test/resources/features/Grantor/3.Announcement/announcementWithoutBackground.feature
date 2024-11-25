@@ -8180,3 +8180,76 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
       | Actions     | Subject         | From Address               | CC Address | To Address                | Attention To | Email Subject   |
       | Action menu | Automation Test | exe.automation@yopmail.com |            | pm.automation@yopmail.com |              | Automation Test |
+
+  @FlexSharingTesting @Flex
+  Scenario Outline: Flexsharing Testing
+    Given I login to "As a Grantor" app as "<userType>" user
+    And I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
+    When I perform quick search for "{AUTOEnvData:AutomationRecordForFlexSharing}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:AutomationRecordForFlexSharing}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Published" and is "dark blue"
+    Then I softly see value "James Jackson" for title "Name" inside table "---announcement:-:contactTableId---"
+    Then I softly see value "Automation PM1" for title "Name" inside table "---announcement:-:contactTableId---"
+    Then I softly see total records count "Total Records: 6" in flex table "---announcement:-:AnnouncementServiceArea1TableId---"
+    Then I softly see value "New Pre school" for title "Title" inside table "---announcement:-:AnnouncementServiceArea1TableId---"
+    Then I softly see value "REITEST_VA_8/2" for title "Title" inside table "---announcement:-:AnnouncementServiceArea1TableId---"
+    Then I softly see value "Gauri FA" for title "Title" inside table "---announcement:-:AnnouncementServiceArea1TableId---"
+    Then I softly see value "Sam PM Focus Area 1" for title "Title" inside table "---announcement:-:AnnouncementServiceArea1TableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---announcement:-:AnnouncementServiceArea1TableId---"
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---announcement:-:AnnouncementServiceArea1TableId---"
+    When I navigate to "Financials" sub tab
+    Then I softly see total records count "Total Records: 5" in flex table "---announcement:-:fundingAccountsTableId---"
+    Then I softly see value "FA-ST-02" for title "Funding Account" inside table "---announcement:-:fundingAccountsTableId---"
+    Then I softly see value "FA-ST-03" for title "Funding Account" inside table "---announcement:-:fundingAccountsTableId---"
+    Then I softly see value "FA-ST-221" for title "Funding Account" inside table "---announcement:-:fundingAccountsTableId---"
+    Then I softly see value "FA-ST-232" for title "Funding Account" inside table "---announcement:-:fundingAccountsTableId---"
+    Then I softly see value "FA-ST-199" for title "Funding Account" inside table "---announcement:-:fundingAccountsTableId---"
+    Then I softly see total records count "Total Records: 5" in flex table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "BP01" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "BP02" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "BP03" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "BP04" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "BP05" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
+    And I navigate to "Setup" sub tab
+    Then I softly see total records count "Total Records: 5" in flex table "---announcement:-:annChecklist---"
+    Then I softly see value "Application" for title "Applies To" inside table "---announcement:-:annChecklist---"
+    Then I softly see value "Progress Report" for title "Applies To" inside table "---announcement:-:annChecklist---"
+    Then I softly see value "Advance Request" for title "Applies To" inside table "---announcement:-:annChecklist---"
+    Then I softly see value "Project Period Closeout" for title "Applies To" inside table "---announcement:-:annChecklist---"
+    Then I softly see value "Budget Period Closeout" for title "Applies To" inside table "---announcement:-:annChecklist---"
+    Then I softly see total records count "Total Records: 3" in flex table "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see value "Pre-Screen Review" for title "Step Name" inside table "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see value "SME Review" for title "Step Name" inside table "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see value "Management Review" for title "Step Name" inside table "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see total records count "Total Records: 5" in flex table "---announcement:-:kpiflextableid---"
+    Then I softly see value "Department of Education" for title "Title" inside table "---announcement:-:kpiflextableid---"
+    Then I softly see value "VA health KPI" for title "Title" inside table "---announcement:-:kpiflextableid---"
+    Then I softly see value "SH KPI HEALth" for title "Title" inside table "---announcement:-:kpiflextableid---"
+    Then I softly see value "TEST KPI" for title "Title" inside table "---announcement:-:kpiflextableid---"
+    Then I softly see value "Automation Permanent KPI" for title "Title" inside table "---announcement:-:kpiflextableid---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see total records count "Total Records: 5" in flex table "---announcement:-:reviewersTableId---"
+    Then I softly see value "Automation PO" for title "Name" inside table "---announcement:-:reviewersTableId---"
+    Then I softly see value "James Jackson" for title "Name" inside table "---announcement:-:reviewersTableId---"
+    Then I softly see value "Automation FD1" for title "Name" inside table "---announcement:-:reviewersTableId---"
+    Then I softly see value "Daniel Moore" for title "Name" inside table "---announcement:-:reviewersTableId---"
+    Then I softly see value "Automation FO" for title "Name" inside table "---announcement:-:reviewersTableId---"
+    Then I softly see total records count "Total Records: 4" in flex table "---announcement:-:approversTableId---"
+    Then I softly see value "Automation PM" for title "Name" against the value "Step 1" inside table "---announcement:-:approversTableId---"
+    Then I softly see value "Automation FO" for title "Name" against the value "Step 2" inside table "---announcement:-:approversTableId---"
+    Then I softly see value "Automation FD" for title "Name" against the value "Step 3" inside table "---announcement:-:approversTableId---"
+    Then I softly see value "Automation PO" for title "Name" against the value "Step 4" inside table "---announcement:-:approversTableId---"
+    When I navigate to "Files" sub tab
+    Then I softly see value "AttachmentTesting.pdf" for title "Title" against the value "Other" inside table "---announcement:-:AnnouncementAttachmentTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" against the value "Subaward Terms and Conditions" inside table "---announcement:-:AnnouncementAttachmentTableId---"
+    Then I softly see value "Notes Record Created by PM" for title "Title" against the value "Automation PM" inside table "---announcement:-:AnnouncementNotestableId---"
+
+    Examples:
+      | userType |
+      | PM       |
+      | PO       |
+      | FD       |
+      | EXE      |
+      | FO       |
+      | AUDITOR  |
