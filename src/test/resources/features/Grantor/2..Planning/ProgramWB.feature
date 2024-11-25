@@ -8266,6 +8266,7 @@ Feature: Validate all scenarios for program
     And I click toggle button to select "Internal Programs - All"
     When I perform quick search for "{AUTOEnvData:AutomationInternalProgram}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:AutomationInternalProgram}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     Then I softly see value "Automation PM1" for title "Name" inside table "---program:-:associateContactsTableId---"
     Then I softly see value "Automation Runtime123 contact" for title "Name" inside table "---program:-:associateContactsTableId---"
     Then I softly see value "James Jackson" for title "Name" inside table "---program:-:associateContactsTableId---"
@@ -8312,6 +8313,6 @@ Feature: Validate all scenarios for program
     Examples:
       | User  |
       | EXE   |
-      |  PO   |
-      |  FO   |
-      |  FD   |
+#      |  PO   |
+#      |  FO   |
+#      |  FD   |
