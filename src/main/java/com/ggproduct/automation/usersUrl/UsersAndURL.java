@@ -301,7 +301,7 @@ public class UsersAndURL implements UsersController {
         username.put("GRANTEE EXE", "victor.exe@ggp.test8.qagrnteatm");
         username.put("GRANTEE FO", "david.fo@ggp.test8.qagrnteatm");
         username.put("GRANTEE FD", "danielle.garcia@ggp.test8.qagrnteatm");
-        username.put("GRANTEE PO", "automationpo@yopmail.com.qagrnteatm");
+        username.put("GRANTEE PO", "grantee.po@yopmail.com.qagrnteatm");
         username.put("GRANTEE AUDITOR", "automationauditor@yopmail.com.qagrnteatm");
 
         if (userLevel.toUpperCase() != null) {
