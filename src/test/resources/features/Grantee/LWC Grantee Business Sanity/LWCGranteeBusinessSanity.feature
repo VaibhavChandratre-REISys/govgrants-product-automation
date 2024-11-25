@@ -21451,7 +21451,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Send for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
     Then I softly cannot see row level action button "Resend for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
 
-  @445591 @ValidateProgress/FinancialReportSchedulePMusercanseeeditbuttonforProgressreportandFinancialReportonReportingScheduletableoncreatedSubmittedforreviewreviewedapprovedActivestateaward
+  @445591 @ValidateProgress/FinancialReportSchedulePMusercanseeeditbuttonforProgressreportandFinancialReportonReportingScheduletableoncreatedSubmittedforreviewreviewedapprovedActivestateaward @GranteeTBE
   Scenario: Validate Progress/Financial Report Schedule PM user can see edit button for Progress report and Financial Report on Reporting Schedule table on created, Submitted for review, reviewed, approved, Active state award
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -21602,7 +21602,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
     Then I softly can see row level action button "Edit" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
 
-  @477319 @ValidateProgressreportschedulesvalidationsdisplayedtoFOuserReviewerwitheditaccessasYesonEditProgressreportschedulemodalwhenawardisinSubmittedforreviewstate
+  @477319 @ValidateProgressreportschedulesvalidationsdisplayedtoFOuserReviewerwitheditaccessasYesonEditProgressreportschedulemodalwhenawardisinSubmittedforreviewstate @GranteeTBE
   Scenario: Validate Progress report schedules validations displayed to FO user Reviewer with edit access as Yes on Edit Progress report schedule modal when award is in Submitted for review state
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
