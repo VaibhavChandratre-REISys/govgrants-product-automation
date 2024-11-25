@@ -8267,11 +8267,11 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{AUTOEnvData:AutomationInternalProgram}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:AutomationInternalProgram}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     When I navigate to "Overview" sub tab
-    Then I softly see value "Automation PM1" for title "Name" inside table "---program:-:associateContactsTableId---"
-    Then I softly see value "Automation Runtime123 contact" for title "Name" inside table "---program:-:associateContactsTableId---"
-    Then I softly see value "James Jackson" for title "Name" inside table "---program:-:associateContactsTableId---"
-    Then I softly see value "David Anderson" for title "Name" inside table "---program:-:associateContactsTableId---"
-    Then I softly see value "Matthew Brown" for title "Name" inside table "---program:-:associateContactsTableId---"
+    Then I softly see value "Automation PM1" for title "Name" inside table "---program:-:contactsTableId---"
+    Then I softly see value "Automation Runtime123 contact" for title "Name" inside table "---program:-:contactsTableId---"
+    Then I softly see value "James Jackson" for title "Name" inside table "---program:-:contactsTableId---"
+    Then I softly see value "David Anderson" for title "Name" inside table "---program:-:contactsTableId---"
+    Then I softly see value "Matthew Brown" for title "Name" inside table "---program:-:contactsTableId---"
     When I navigate to "Setup" sub tab
     Then I softly see value "Automation Test1" for title "Description" inside table "---program:-:checklistTableId---"
     Then I softly see value "Automation Test2" for title "Description" inside table "---program:-:checklistTableId---"
@@ -8313,6 +8313,6 @@ Feature: Validate all scenarios for program
     Examples:
       | User  |
       | EXE   |
-#      |  PO   |
-#      |  FO   |
-#      |  FD   |
+      |  PO   |
+      |  FO   |
+      |  FD   |
