@@ -33,6 +33,9 @@ Feature: Validate all scenarios in the Announcement with Undo
     When I click "Associate" after selection of "{SavedValue:PM1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
     And I wait for "2" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:contactTableId---" by clicking "Edit" :
+      | Name           | Title           | Email                      |
+      | Automation PM1 | Program Manager | pm1.automation@yopmail.com |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                      | Announcement |
@@ -56,7 +59,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     And I click on "Save" in the page details
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
