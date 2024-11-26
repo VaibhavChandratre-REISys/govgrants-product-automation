@@ -1,5 +1,5 @@
 @riskAssessment @awardLevelRiskAssessment @grantor-regression @grantor-parallel-regression @regression @awardRisk
-Feature: Validate all scenarios in the Risk Assessment 
+Feature: Validate all scenarios in the Risk Assessment
 
   @58164 @58165 @58166 @75867 @65552 @creationOfRiskAssessmentddingApproversSubmitForApproval @smoke
   Scenario: Validate the Creation of Risk Assessment from Draft Award and whether user is able to Add Approvers and submit Risk Assessment for Approval| Also New Button on peer review table is not availble once submit for approval
