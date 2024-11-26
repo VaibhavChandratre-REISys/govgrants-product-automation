@@ -24235,7 +24235,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "{SavedValue:amendmentEGMSID}" in flex table with id "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
     Then I softly see "No Records Found" inside flex table with id "GranteeGrantProgressReport"
     Then I softly see "No Records Found" inside flex table with id "RelatedGranteeFinancialReportsOnGrant"
-    When I navigate to "Closeout" tab
+    When I navigate to "Closeout" sub tab
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     Then I softly can see row level action button "View" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
