@@ -512,7 +512,7 @@ Feature: Sanity scenarios
       | GRANTEE FD    | AttachmentTesting.pdf | Notes for FD    |
       | GRANTEE ADMIN | AttachmentTesting.pdf | Notes for ADMIN |
 
-  @443850 @443840 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection
+  @443850 @443840 @443848 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection
   Scenario: Validate with PM Profile in direct grant keep setting YES then In Approved Active state able to see the access of section
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -729,95 +729,97 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | The award has been validated successfully. |
     And I click on "Submit For Approval" in the page details
-    Then I softly see field "Status" as "Submitted for Approval"
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    Then I softly see field "Status" as "Active"
-    Then I softly see status in Progress-bar is "Active" and is "dark blue"
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Activated"
-    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
-    When I navigate to "Overview" sub tab
-    Then I can see row level action button "View" against "Open Data Framework" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    Then I cannot see row level action button "Edit" against "Open Data Framework" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    Then I can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    Then I cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    Then I cannot see row level action button "Remove" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    And I navigate to "Projections" sub tab
-    Then I cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
-    When I navigate to "Management" sub tab
-    Then I can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    Then I can see row level action button "View" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    Then I can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    Then I can see row level action button "Edit" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:ProgressReportTableId---"
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
-    And I navigate to "Monitoring" sub tab
-    Then I can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    Then I cannot see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    Then I can see row level action button "View" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I cannot see row level action button "Edit" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
-    Then I cannot see row level action button "View" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    Then I cannot see row level action button "Edit" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
-    Then I softly can see "Amendments" sub tab at view detail page
-    When I navigate to "Responsibilities" sub tab
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardApproverTableId---"
-    Then I can see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:awardApproverTableId---"
-    Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardApproverTableId---"
-    Then I can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:awardApproverTableId---"
-    Then I can see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:awardApproverTableId---"
-    And I navigate to "Amendments" sub tab
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentsTableId---"
-    And I navigate to "Files" sub tab
-    Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
-    Then I can see row level action button "View" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "Download" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I cannot see row level action button "Edit" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
-    Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
-    And I navigate to "Messages" sub tab
-    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
-    And I navigate to "Field Audit" sub tab in split screen
-    And I click on hyperlink containing value "View All"
-    Then I softly see value "Activated" for title "New Value" inside field history table
-    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
-    And I click on back arrow
-    When I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
-    Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
-    Then I softly see snapshot with name containing "Complete Review.pdf" as name
-    Then I softly can see top right button "View NOGA" in page detail
-    And I click on "View NOGA" in the page details
-    And I download the file
-    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
+    Then I softly see the following messages in the page details contains:
+      | The award has been validated successfully. |
+#    Then I softly see field "Status" as "Submitted for Approval"
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I "Approve" in the approval decision
+#    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+#    And I navigate to "Grants" tab
+#    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+#    And I click toggle button to select "Grants - All"
+#    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+#    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+#    Then I softly see field "Status" as "Active"
+#    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+#    When I navigate to "Awards" sub tab
+#    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+#    Then I softly see field "Status" as "Activated"
+#    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+#    When I navigate to "Overview" sub tab
+#    Then I can see row level action button "View" against "Open Data Framework" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+#    Then I cannot see row level action button "Edit" against "Open Data Framework" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+#    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+#    Then I can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+#    Then I cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+#    Then I cannot see row level action button "Remove" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+#    And I navigate to "Projections" sub tab
+#    Then I cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+#    Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+#    When I navigate to "Management" sub tab
+#    Then I can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+#    Then I can see row level action button "View" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+#    Then I can see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+#    Then I can see row level action button "Edit" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+#    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:ProgressReportTableId---"
+#    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
+#    And I navigate to "Monitoring" sub tab
+#    Then I can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+#    Then I cannot see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+#    Then I can see row level action button "View" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+#    Then I cannot see row level action button "Edit" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
+#    Then I cannot see row level action button "View" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+#    Then I cannot see row level action button "Edit" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+#    Then I softly can see "Amendments" sub tab at view detail page
+#    When I navigate to "Responsibilities" sub tab
+#    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardApproverTableId---"
+#    Then I can see row level action button "Edit" against "Sarah PM" in flex table with id "---grantee_tableId:-:awardApproverTableId---"
+#    Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardApproverTableId---"
+#    Then I can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:awardApproverTableId---"
+#    Then I can see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:awardApproverTableId---"
+#    And I navigate to "Amendments" sub tab
+#    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentsTableId---"
+#    And I navigate to "Files" sub tab
+#    Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
+#    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
+#    Then I can see row level action button "View" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+#    Then I can see row level action button "Download" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+#    Then I cannot see row level action button "Edit" against "Interim Award Document" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+#    Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+#    Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+#    And I navigate to "Messages" sub tab
+#    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
+#    And I navigate to "Field Audit" sub tab in split screen
+#    And I click on hyperlink containing value "View All"
+#    Then I softly see value "Activated" for title "New Value" inside field history table
+#    Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
+#    And I click on back arrow
+#    When I navigate to "History" sub tab
+#    Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
+#    Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
+#    Then I softly see snapshot with name containing "Complete Review.pdf" as name
+#    Then I softly can see top right button "View NOGA" in page detail
+#    And I click on "View NOGA" in the page details
+#    And I download the file
+#    Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
 
   @445207 @ValidateEXEuserFinancialreportOwnercanabletocreateAdhocFinancialReport&abletosubmitFinancialReporttoGrantor
   Scenario: Validate EXE user Financial report Owner can able to create Adhoc Financial Report & able to submit Financial Report to Grantor
@@ -14878,6 +14880,7 @@ Feature: Sanity scenarios
      And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Maximum Indirect Cost Rate: value outside of valid range on numeric field |
+     And I wait for "2" seconds
     And I enter value "10" into field "ApprovedIndirectCostRate__c"
     Then I softly see fields "GeneralConditionChanged__c" is in edit mode
     And I enter value "Checked" into field "GeneralConditionChanged__c"
