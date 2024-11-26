@@ -14875,6 +14875,7 @@ Feature: Sanity scenarios
     And I enter value "Automation Justification" into field "PurposeRTA__c"
     And I enter value "2222" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
+     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Maximum Indirect Cost Rate: value outside of valid range on numeric field |
     And I enter value "110" into field "ApprovedIndirectCostRate__c"
