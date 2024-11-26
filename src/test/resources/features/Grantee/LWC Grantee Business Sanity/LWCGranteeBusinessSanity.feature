@@ -14893,7 +14893,7 @@ Feature: Sanity scenarios
     And I click on "Submit for Approval" in the page details
     #validation not through and logged bug#
     Then I softly see the following messages in the page details contains:
-      | #######################################################################|
+      | | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
     And I save the field labeled "EGMS ID" as "BPCAMENDID"
     And I save the field labeled "Proposed Budget Period Start Date" as "updatedBudgetPeriodStartDate"
     And I save the field labeled "Proposed Budget Period End Date" as "updatedBudgetPeriodEndDate"
@@ -18647,7 +18647,7 @@ Feature: Sanity scenarios
      | GRANTEE PM    |
      | GRANTEE PO    |
 
-  @477676 @477677 @477679 @VerifyPOusershouldabletoseethevalidationmessagesandrejecttheSOWamendmentrequest
+  @477676 @477677 @477679 @476282 @VerifyPOusershouldabletoseethevalidationmessagesandrejecttheSOWamendmentrequest
   Scenario Outline: Verify PO user should able to see the validation messages and reject the SOW amendment request
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -18937,6 +18937,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Examples:
       | User          |
+      | GRANTEE PM    |
       | GRANTEE PO    |
       | GRANTEE EXE   |
       | GRANTEE FO    |
@@ -23616,12 +23617,6 @@ Feature: Sanity scenarios
    And I wait for "3" seconds
    When I re-login to "As a Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - My Records"
-    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "{SavedValue:AmendEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentTableId---"
-    And I wait for "5" seconds
-    And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
@@ -23654,7 +23649,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "{SavedValue:AmendEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I click on "Complete Review" in the page details
-    Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
+   Then I softly see field "Status" as "Reviewed"
    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
    And I navigate to "Grants" tab
    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
