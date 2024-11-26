@@ -18921,7 +18921,6 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I "Reject" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Overview" sub tab
     Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:amendmentObjectiveTableId---"
@@ -18938,9 +18937,9 @@ Feature: Sanity scenarios
     Examples:
       | User          |
       | GRANTEE PM    |
-#      | GRANTEE PO    |
-#      | GRANTEE EXE   |
-#      | GRANTEE FO    |
+      | GRANTEE PO    |
+      | GRANTEE EXE   |
+      | GRANTEE FO    |
 
   @443841 @AwardVerifyWithEXEProfileIfsettingkeptNOthenunabletoseethesectioninGrantAward
   Scenario: AwardVerifyWithEXEProfileIfsettingkeptNOthenunabletoseethesectioninGrantAward
