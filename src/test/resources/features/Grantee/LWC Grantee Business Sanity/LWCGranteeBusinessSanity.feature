@@ -14879,8 +14879,6 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | Maximum Indirect Cost Rate: value outside of valid range on numeric field |
     And I enter value "10" into field "ApprovedIndirectCostRate__c"
-    When I click on "Save" in the page details
-    And I click on "Edit" in the page details
     Then I softly see fields "GeneralConditionChanged__c" is in edit mode
     And I enter value "Checked" into field "GeneralConditionChanged__c"
     And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
