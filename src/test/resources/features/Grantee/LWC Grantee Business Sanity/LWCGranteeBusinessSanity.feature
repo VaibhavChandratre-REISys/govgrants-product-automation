@@ -23890,7 +23890,7 @@ Feature: Sanity scenarios
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
     When I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
+    Then I softly see snapshot with name containing "Submit for Approval.pdf" as name
     And I wait for "5" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -23901,3 +23901,4 @@ Feature: Sanity scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     When I navigate to "Amendments" sub tab
     Then I softly see value "{SavedValue:PRAMENDID}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
+    Then I softly see value "{SavedValue:BPCAMENDID}" for title "EGMS ID" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
