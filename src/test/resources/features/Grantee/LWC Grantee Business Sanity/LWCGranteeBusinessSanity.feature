@@ -14878,12 +14878,6 @@ Feature: Sanity scenarios
      And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Maximum Indirect Cost Rate: value outside of valid range on numeric field |
-    And I enter value "110" into field "ApprovedIndirectCostRate__c"
-    When I click on "Save" in the page details
-    And I click on "Submit for Approval" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Overview Tab - Maximum Indirect Cost Rate cannot be greater than 100% |
-    And I click on "Edit" in the page details
     And I enter value "10" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
     And I click on "Edit" in the page details
@@ -14891,18 +14885,21 @@ Feature: Sanity scenarios
     And I enter value "Checked" into field "GeneralConditionChanged__c"
     And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
     And I click on "Save" in the page details
-    And I click on "Submit for Approval" in the page details
-    #validation not through and logged bug#
-    Then I softly see the following messages in the page details contains:
-      | | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
-    When I navigate to "Responsibilities" sub tab
+     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
+       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+       | Rate1  | 15             | 30              | 110                             | Final                  |
+     Then I softly see the following messages in the page details contains:
+     |  The approved indirect cost rate cannot be greater than 100%.|
+     And I refresh the page
+     And I wait for "3" seconds
+     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name     | Amendment Request |
       | David FO | Step 1            |
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - Enter a Focus Area Start Date and a Focus Area End Date to all Focus Areas before submitting this request.                                                     |
       | Overview Tab - At least one Focus Area's Start Date should match the Budget Period Start Date and one Focus Area's End Date should match the Proposed Budget Period End Date. |
+      |  Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected.     |
 
    @470843 @PRamdVerifytheimpactonGrants&AwardafterPeriodicRenewalAmendmentRequestisAccepted&creatednewaward
   Scenario:PR amd >>Verify the impact on Grants & Award after Periodic Renewal Amendment Request is Accepted & created new award
@@ -21027,7 +21024,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE     |
       | GRANTEE AUDITOR |
 
-  @476612 @476613 @476615 @ValidateStrategicPlanFOusercannotcreateStrategicPlan
+  @476612 @476613 @476615 @445784 @ValidateStrategicPlanFOusercannotcreateStrategicPlan
   Scenario Outline: Validate Strategic Plan FO user cannot create Strategic Plan
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -21038,6 +21035,7 @@ Feature: Sanity scenarios
       | GRANTEE FO      |
       | GRANTEE FD      |
       | GRANTEE AUDITOR |
+      | GRANTEE PO      |
 
   @443818 @ValidateAwardwithnonownerPMProfileonawardpagelayoutunabletoseeEditandSubmitforapprovalbutton
   Scenario: Validate Award with non owner (PM Profile) on award page layout unable to see Edit and Submit for approval button
