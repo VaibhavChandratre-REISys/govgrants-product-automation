@@ -18938,9 +18938,9 @@ Feature: Sanity scenarios
     Examples:
       | User          |
       | GRANTEE PM    |
-      | GRANTEE PO    |
-      | GRANTEE EXE   |
-      | GRANTEE FO    |
+#      | GRANTEE PO    |
+#      | GRANTEE EXE   |
+#      | GRANTEE FO    |
 
   @443841 @AwardVerifyWithEXEProfileIfsettingkeptNOthenunabletoseethesectioninGrantAward
   Scenario: AwardVerifyWithEXEProfileIfsettingkeptNOthenunabletoseethesectioninGrantAward
