@@ -21602,7 +21602,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "View" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
     Then I softly can see row level action button "Edit" against "Financial Report" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
 
-  @477319 @ValidateProgressreportschedulesvalidationsdisplayedtoFOuserReviewerwitheditaccessasYesonEditProgressreportschedulemodalwhenawardisinSubmittedforreviewstate @GranteeTBE
+  @477319 @ValidateProgressreportschedulesvalidationsdisplayedtoFOuserReviewerwitheditaccessasYesonEditProgressreportschedulemodalwhenawardisinSubmittedforreviewstate
   Scenario: Validate Progress report schedules validations displayed to FO user Reviewer with edit access as Yes on Edit Progress report schedule modal when award is in Submitted for review state
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -21743,7 +21743,7 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 28 days if Monthly frequency is selected. |
 
-  @477311 @477312 @477313 @477314 @ValidateProgressreportschedulesvalidationsdisplayedtoPMuseronEditProgressreportschedulemodalwhenawardisinCreatedSubmittedforreviewReviewedActivatedstate @GranteeTBE
+  @477311 @477312 @477313 @477314 @ValidateProgressreportschedulesvalidationsdisplayedtoPMuseronEditProgressreportschedulemodalwhenawardisinCreatedSubmittedforreviewReviewedActivatedstate
   Scenario Outline: Validate Progress report schedules validations displayed to PM user on Edit Progress report schedule modal when award is in Created, Submitted for review, Reviewed, Activated state
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -22292,7 +22292,7 @@ Feature: Sanity scenarios
 #      | GRANTEE PO    | Grantee PO | 123456789123 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @469405 @ValidatePRamdPMuserseeNewlygeneratedAwardisinPendingactivationstate @GranteeTBE
+  @469405 @ValidatePRamdPMuserseeNewlygeneratedAwardisinPendingactivationstate
   Scenario: Validate PR amd PM user see Newly generated Award is in Pending activation state
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -22598,7 +22598,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID1}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID2}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID3}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGPROGEGMS ID4}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID4}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID5}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID6}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID7}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
@@ -22765,7 +22765,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID1}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID2}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID3}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGPROGEGMS ID4}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID4}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID5}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID6}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID7}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
@@ -22900,7 +22900,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID1}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID2}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID3}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGPROGEGMS ID4}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID4}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID5}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID6}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID7}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
@@ -23053,7 +23053,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID1}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID2}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID3}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGPROGEGMS ID4}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID4}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID5}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID6}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID7}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
@@ -23174,7 +23174,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID1}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID2}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID3}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGPROGEGMS ID4}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID4}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID5}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID6}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:PROGEGMS ID7}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
