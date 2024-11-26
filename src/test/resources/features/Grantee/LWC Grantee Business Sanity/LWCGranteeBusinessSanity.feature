@@ -811,6 +811,7 @@ Feature: Sanity scenarios
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
     When I navigate to "History" sub tab
+    Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
     Then I softly see snapshot with name containing "Complete Review.pdf" as name
     Then I softly can see top right button "View NOGA" in page detail
@@ -2698,7 +2699,7 @@ Feature: Sanity scenarios
       | GRANTEE PM    | Attachment.pdf | Notes Record    | Sarah PM   | Test  |
       | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN | Product QA | Test2 |
 
-  @443849 @476570 @476571 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject
+  @443849 @476570 @476571 @443839 @AwardVerifywithEXEProfileIfindirectgrantkeepsettingNOthenabletocompletetheapprovalprocessforForwardsendtoownerReject
   Scenario Outline: Award - Verify with EXE Profile ,If in direct grant keep setting NO then able to complete the approval process for Forward /send to owner/Reject
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -2722,6 +2723,8 @@ Feature: Sanity scenarios
     When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Overview" sub tab
+    And I navigate to "Overview" sub tab
+    Then I softly do not see fields "MaintenanceOfEffortAmount__c" is visible
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     And I wait for "3" seconds
     When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
@@ -2730,6 +2733,10 @@ Feature: Sanity scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardContactTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardContactTableId---"
+    Then I can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     When I click "Associate" after selection of "Open Data Framework" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
     And I wait for "3" seconds
@@ -2738,6 +2745,10 @@ Feature: Sanity scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---" by clicking "Edit" :
       | Title               | Is Primary Program |
       | Open Data Framework | Checked            |
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardExternalProgranTableId---"
+    Then I can see row level action button "View" against "Open Data Framework" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    Then I can see row level action button "Edit" against "Open Data Framework" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
+    Then I can see row level action button "Remove" against "Open Data Framework" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
     And I navigate to "Projections" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
@@ -2747,6 +2758,12 @@ Feature: Sanity scenarios
     And I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:ProjectTableId---"
+    Then I can see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    Then I can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:ProjectTableId---"
+    Then I can see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:ProjectTableId---"
+    Then I can see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
     And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
     And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
@@ -2758,6 +2775,12 @@ Feature: Sanity scenarios
       | Automation Permanent Focus Area2 | {SavedValue:BudgetPeriodStartDate} | {SavedValue:BudgetPeriodEndDate} |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
+    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match |
@@ -2770,25 +2793,48 @@ Feature: Sanity scenarios
       | Construction | The narrative | 5000         | 500        |
     When I close "Add Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
+      | Focus Area Name                 | Projected Program Income ($) | Program Income Justification |
+      | Automation Permanent Focus Area | 1000                         | Automation Test              |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    Then I can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardIndirectRateTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:awardIndirectRateTableId---" by clicking "New" :
+      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15             | 30              | 10                             | Final                   |
+    Then I can see row level action button "Edit" against "Rate" in flex table with id "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I can see row level action button "Delete" against "Rate" in flex table with id "---grantee_tableId:-:awardIndirectRateTableId---"
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
       | Victor EXE | Step 1 |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
+    And I navigate to "Management" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:ProgressReportTableId---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
     And I navigate to "Monitoring" sub tab
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:awardObjectiveTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     Then I softly see the following messages in the page details contains:
       | Goals/Objectives associated successfully. |
     And I click modal button "Close"
     And I wait for "3" seconds
+    Then I can see row level action button "Remove" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
+    Then I softly see top right button "Associate" inside flex table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
     Then I softly see the following messages in the page details contains:
       | KPIs added succesfully. |
     And I click modal button "Close"
     And I wait for "3" seconds
+    Then I can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I can see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I can see row level action button "Remove" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     When I enter in modal value "Terms" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
@@ -2799,11 +2845,16 @@ Feature: Sanity scenarios
     And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:SpecialConditionTableId---"
     Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     When I navigate to "Files" sub tab
+    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:awardAddFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
+    Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Interim Award Document" at upload file modal
@@ -2813,12 +2864,15 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardsNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:awardsNotesTableId---"
+    Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
+    Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     When I click on "Validate" in the page details
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
