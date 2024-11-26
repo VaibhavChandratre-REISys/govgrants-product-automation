@@ -1,4 +1,4 @@
-@riskAssessment @awardLevelRiskAssessment @grantor-regression @grantor-parallel-regression @regression @awardRisk @IntProg
+@riskAssessment @awardLevelRiskAssessment @grantor-regression @grantor-parallel-regression @regression @awardRisk
 Feature: Validate all scenarios in the Risk Assessment
 
   @58164 @58165 @58166 @75867 @65552 @creationOfRiskAssessmentddingApproversSubmitForApproval @smoke
@@ -3243,3 +3243,70 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     And I save the field labeled "Overall Risk" as "OverallRisk"
     Then I see field "Overall Risk" as "{SavedValue:OverallRisk}"
+
+  @FlexSharingScenarioForRiskAssessment @Flex
+  Scenario Outline: Flex Sharing Scenario For Risk Assessment
+    Given I login to "As a Grantor" app as "<userType>" user
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Award Risk Assessments - Active"
+    And I perform quick search for "{AUTOEnvData:AutomationRiskAssRecordForFlexSharing}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:AutomationRiskAssRecordForFlexSharing}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I navigate to "Assessment" sub tab
+    Then I softly see field "1. Has Grantee received one or more Awards from this program or from a similar program (Size, complexity, and or focus) to that covered under the proposed Award?" as "Yes, in the last two years"
+    Then I softly see field "2. What level of funding is recommended for this award? (Applies to Non-construction project)" as "Non-construction - $100,000 to $250,000"
+    Then I softly see field "3. What level of funding is recommended for this award? (Applies to Construction project)" as "Construction - Under $250,000"
+    Then I softly see field "4. In prior awards, did the grantee demonstrate the ability to manage a project independently?" as "Sometimes"
+    Then I softly see field "5. How many years of experience does the grantee's program/project manager have working with state issued awards?" as "1-3 years"
+    Then I softly see field "6. Does grantee have a process in place to track cash and in-kind match, and report that they have met the match requirement?" as "No process to track and report cash & in-kind match"
+    Then I softly see field "6. Does grantee have a process in place to track cash and in-kind match, and report that they have met the match requirement?" as "No process to track and report cash & in-kind match"
+    Then I softly see field "Score:" as "16" in "Experience (Max Score : 30)" pageblock
+    Then I softly see field "1. Does that grantee have a history of a award reduction, suspension or termination due to performance issues?" as "Yes"
+    Then I softly see field "2. For previous awards, were the project outcomes consistent with the approved plan?" as "Met Expectations"
+    Then I softly see field "3. Did the grantee meet contractual performance measures for previous awards?" as "Sometimes"
+    Then I softly see field "4. Did the grantee submit reports, payment requests, and deliverables on a timely basis for previous awards?" as "Sometimes"
+    Then I softly see field "5. For prior awards, were grantees expenditures allowable under the terms and conditions of the award?" as "Sometimes"
+    Then I softly see field "Score:" as "15" in "Performance (Max Score : 25)" pageblock
+    Then I softly see field "1. For prior awards, did the grantee track actual time and effort for each employee paid with award funds?" as "Yes"
+    Then I softly see field "2. For prior awards, did the time and effort documentation account for 100% of each employee's time, including time not charged to awards?" as "Yes"
+    Then I softly see field "Score:" as "2" in "Personnel (Max Score :10)" pageblock
+    Then I softly see field "1. Does the most current single audit report include any of the following that could impact performance under this grant award:" as "Significant  Deficiencies"
+    Then I softly see field "2. If required, was the corrective action plan implemented within the specified time frame?" as "No"
+    Then I softly see field "3. Has the agency/program identified other concerns about the grantee's capacity, performance and or financial operations in the last two years?" as "No concerns"
+    Then I softly see field "4. Has your agency completed a site visit for this grantee recently?" as "A site visit was completed in the last year"
+    Then I softly see field "5. Did your agency identify findings and concerns through monitoring of previous awards (site visit, desk monitoring, or other interactions)?" as "Minor findings"
+    Then I softly see field "6. Did the grantee implement a Corrective Action Plan to address the monitoring findings/concerns?" as "Corrective Action Plan implemented within 30 days"
+    Then I softly see field "Score:" as "16" in "Compliance/Monitoring (Max Score : 30)" pageblock
+    Then I softly see field "Acknowledgement" as "I Agree"
+    Then I softly see field "Submitted By:" as "Automation FO"
+    Then I softly see field "Submitted By:" as "Automation FO"
+    Then I softly see field "Submitted On:" as "11/26/2024 1:41 AM"
+    When I navigate to "Responsibilities" sub tab
+#    Then I softly see total records count "Total Records: 5" in flex table "---announcement:-:reviewersTableId---"
+    Then I softly see value "Daniel Moore" for title "Name" inside table "---riskassessment:-:raPeerReviewFlexTableId---"
+    Then I softly see value "Automation FO1" for title "Name" inside table "---riskassessment:-:raPeerReviewFlexTableId---"
+    Then I softly see value "Jennifer Johnson" for title "Name" inside table "---riskassessment:-:raPeerReviewFlexTableId---"
+    Then I softly see value "Automation EXE1" for title "Name" inside table "---riskassessment:-:raPeerReviewFlexTableId---"
+    Then I softly see value "Samantha White" for title "Name" inside table "---riskassessment:-:raPeerReviewFlexTableId---"
+#    Then I softly see total records count "Total Records: 4" in flex table "---riskassessment:-:raPeerReviewFlexTableId---"
+    Then I softly see value "Automation PM" for title "Name" against the value "Step 1" inside table "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
+    Then I softly see value "Automation EXE" for title "Name" against the value "Step 2" inside table "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
+    Then I softly see value "Automation PO" for title "Name" against the value "Step 3" inside table "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
+    Then I softly see value "Automation FO" for title "Name" against the value "Step 4" inside table "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
+    When I navigate to "Files" sub tab
+    Then I softly see total records count "Total Records: 3" in flex table "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I softly see value "Attachment1.pdf" for title "Title" against the value "Program Artifacts" inside table "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I softly see value "AttachmentTesting.pdf" for title "Title" against the value "Financial Artifacts" inside table "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" against the value "Financial Artifacts" inside table "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I softly see value "Notes Record for PM" for title "Title" against the value "Automation PM" inside table "---riskassessment:-:riskAssNotesTableId---"
+    Then I softly see value "Notes Record for PM_1" for title "Title" against the value "Automation PM" inside table "---riskassessment:-:riskAssNotesTableId---"
+
+    Examples:
+      | userType |
+      | PM       |
+      | PO       |
+      | FD       |
+      | EXE      |
+      | FO       |
+      | AUDITOR  |
