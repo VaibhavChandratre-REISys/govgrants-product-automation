@@ -21451,7 +21451,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Send for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
     Then I softly cannot see row level action button "Resend for Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:awardPeerReviewerTableId---"
 
-  @445591 @ValidateProgress/FinancialReportSchedulePMusercanseeeditbuttonforProgressreportandFinancialReportonReportingScheduletableoncreatedSubmittedforreviewreviewedapprovedActivestateaward @GranteeTBE
+  @445591 @ValidateProgress/FinancialReportSchedulePMusercanseeeditbuttonforProgressreportandFinancialReportonReportingScheduletableoncreatedSubmittedforreviewreviewedapprovedActivestateaward
   Scenario: Validate Progress/Financial Report Schedule PM user can see edit button for Progress report and Financial Report on Reporting Schedule table on created, Submitted for review, reviewed, approved, Active state award
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -21743,7 +21743,7 @@ Feature: Sanity scenarios
     Then I softly see the following messages in the page details contains:
       | The time between Schedule Start Date and Schedule End Date must be greater than or equal to 28 days if Monthly frequency is selected. |
 
-  @477311 @477312 @477313 @477314 @ValidateProgressreportschedulesvalidationsdisplayedtoPMuseronEditProgressreportschedulemodalwhenawardisinCreatedSubmittedforreviewReviewedActivatedstate
+  @477311 @477312 @477313 @477314 @ValidateProgressreportschedulesvalidationsdisplayedtoPMuseronEditProgressreportschedulemodalwhenawardisinCreatedSubmittedforreviewReviewedActivatedstate @GranteeTBE
   Scenario Outline: Validate Progress report schedules validations displayed to PM user on Edit Progress report schedule modal when award is in Created, Submitted for review, Reviewed, Activated state
     When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -22292,7 +22292,7 @@ Feature: Sanity scenarios
 #      | GRANTEE PO    | Grantee PO | 123456789123 |
       | GRANTEE ADMIN | Product QA | 123456789012 |
 
-  @469405 @ValidatePRamdPMuserseeNewlygeneratedAwardisinPendingactivationstate
+  @469405 @ValidatePRamdPMuserseeNewlygeneratedAwardisinPendingactivationstate @GranteeTBE
   Scenario: Validate PR amd PM user see Newly generated Award is in Pending activation state
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
