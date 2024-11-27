@@ -870,9 +870,9 @@ Feature: Sanity scenarios
     Then I can see row level action button "View" against "Terms" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     When I navigate to "Files" sub tab
     Then I can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
-    Then I can see row level action button "Delete" against "Automation.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+    Then I cannot see row level action button "Delete" against "Automation.pdf" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:awardsNotesTableId---"
     Then I cannot see row level action button "View" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:awardsNotesTableId---"
