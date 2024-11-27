@@ -1534,9 +1534,9 @@ Feature: Validate all scenarios of every modules flow
 
   @tst @debug
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantor" app as "GRANTEE ADMIN" user
+    When I login to "As a Grantee" app as "GRANTEE ADMIN" user
 #    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDh0000025dwdIAA/view"
-#    And I halt execution
+     And I halt execution
 #    When I "Collapse" page block contaninig value "Financial Transactions"
 #    Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:DrawdownByAwardModalTableId---"
 #    When I "Expanded" page block contaninig value "Financial Transactions"
