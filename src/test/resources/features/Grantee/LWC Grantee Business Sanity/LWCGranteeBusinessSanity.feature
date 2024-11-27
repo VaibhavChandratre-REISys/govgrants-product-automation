@@ -24057,6 +24057,8 @@ Feature: Sanity scenarios
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
     And I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
+    Then I softly can see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     When I click on "View" icon for "{SavedValue:OrganizationName}" inside table
     Then I see the header is "Non-Federal Organization" in the page details
     Then I see the sub-header is "{SavedValue:OrganizationName}" in the page details
@@ -24064,6 +24066,7 @@ Feature: Sanity scenarios
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download As PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
+    Then I softly cannot see top right button "Edit" in page detail
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Related Log" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
@@ -24246,6 +24249,6 @@ Feature: Sanity scenarios
 
     Examples:
       | userType   | attachment     | Notes        | userName           | userProfile | NotesProfile         | updatedTitle                        |
-#      | GRANTEE PM | Attachment.pdf | Notes Record | David FO           | GRANTEE FO  | Notes Record for FO  | Notes Record for David FO           |
+      | GRANTEE PM | Attachment.pdf | Notes Record | David FO           | GRANTEE FO  | Notes Record for FO  | Notes Record for David FO           |
       | GRANTEE PM | Attachment.pdf | Notes Record | Danielle FD Garcia | GRANTEE FD  | Notes Record for FD  | Notes Record for Danielle FD Garcia |
       | GRANTEE PM | Attachment.pdf | Notes Record | Victor EXE         | GRANTEE EXE | Notes Record for EXE | Notes Record for Victor EXE         |
