@@ -23241,8 +23241,8 @@ Feature: Sanity scenarios
 
     Examples:
       | userType        |
-#      | GRANTEE PM      |
-#      | GRANTEE PO      |
+      | GRANTEE PM      |
+      | GRANTEE PO      |
       | GRANTEE FO      |
       | GRANTEE FD      |
       | GRANTEE AUDITOR |
@@ -24014,8 +24014,8 @@ Feature: Sanity scenarios
       | userType    |
       | GRANTEE EXE |
 
-  @482144 @ValidateNonFederalFOprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess
-  Scenario Outline: Validate Non Federal FO profile user should see all fields and section on Non federal Org layout in readonly View only Access
+  @482144 @482146 @482149 @ValidateNonFederalFOprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess
+  Scenario Outline: Validate Non Federal FO/FD/EXE profile user should see all fields and section on Non federal Org layout in readonly View only Access
     When I login to "As a Grantor" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
@@ -24245,5 +24245,7 @@ Feature: Sanity scenarios
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | userType   | attachment     | Notes        | userName | userProfile | NotesProfile        | updatedTitle              |
-      | GRANTEE PM | Attachment.pdf | Notes Record | David FO | GRANTEE FO  | Notes Record for FO | Notes Record for David FO |
+      | userType   | attachment     | Notes        | userName           | userProfile | NotesProfile         | updatedTitle                        |
+#      | GRANTEE PM | Attachment.pdf | Notes Record | David FO           | GRANTEE FO  | Notes Record for FO  | Notes Record for David FO           |
+      | GRANTEE PM | Attachment.pdf | Notes Record | Danielle FD Garcia | GRANTEE FD  | Notes Record for FD  | Notes Record for Danielle FD Garcia |
+      | GRANTEE PM | Attachment.pdf | Notes Record | Victor EXE         | GRANTEE EXE | Notes Record for EXE | Notes Record for Victor EXE         |
