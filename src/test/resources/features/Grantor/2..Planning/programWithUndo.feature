@@ -878,7 +878,7 @@ Feature: Validate all scenarios for program
     And I submit the approval in the approval decision
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Comments are Required. |
+      | Comments are required. |
 
   @279442 @VerifyusershouldnotseeactiveprogramtaskinpendingtaskfterpproverclickonUndobutton @sprint-25-US-295138  @Undo @IntProg
   Scenario: Verify user should not see active program task in pending task after approver click on Undo button
