@@ -1,7 +1,7 @@
 @programWithUndo @grantor-regression @grantor-parallel-regression @planning @regression @InternalProgExecution
 Feature: Validate all scenarios for program
 
-  @279282 @Verifyusershouldnotseeundobuttonincreatedsentforreviewreviewedstateofprogram @sprint-25-US-295138  @Undo @IntProg
+  @prog1 @279282 @Verifyusershouldnotseeundobuttonincreatedsentforreviewreviewedstateofprogram @sprint-25-US-295138  @Undo @IntProg
   Scenario: Verify user should not see undo button in created, sent for review, reviewed state of program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -935,7 +935,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:programsTableId---"
 
-  @program2 @279468 @VerifyAuditorprofileusershouldnotseeUndobuttononprogram @sprint-25-US-295138  @Undo @IntProg
+  @prog1 @279468 @VerifyAuditorprofileusershouldnotseeUndobuttononprogram @sprint-25-US-295138  @Undo @IntProg
   Scenario:  Verify Auditor profile user should not see Undo button on program
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab

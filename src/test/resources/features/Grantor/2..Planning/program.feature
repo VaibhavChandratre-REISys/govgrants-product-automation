@@ -2734,7 +2734,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
- @prog1 @77418 @77422 @77421 @ValidatingErrorMessageInManagamentComplianceFiscalReviewForm
+ @77418 @77422 @77421 @ValidatingErrorMessageInManagamentComplianceFiscalReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :100% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Management Review form in Management Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :20% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for compliance Review form in SME Review step in planning phase
   | To validate system generated error message, if Form Weight (%) :40% ,Minimum Number of Reviews per Application : 0 , Required? : Unchecked ,for Fiscal Review form in SME Review step in planning phase
@@ -2972,7 +2972,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @prog1 @77612 @ValidatingErrorMessageInProgramReviewForm
+  @77612 @ValidatingErrorMessageInProgramReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) : 0% ,Minimum Number of Reviews per Application : 1 , Required? : Checked ,for Program Review Review form in SME Review step in planning phase
     And I wait for "5" seconds
     And I click on "Edit" in the page details
@@ -3014,6 +3014,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
+    And I wait for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
@@ -3022,7 +3023,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
- @prog1 @77613 @ValidatingErrorMessageFiscalReviewForm
+ @77613 @ValidatingErrorMessageFiscalReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :0% ,Minimum Number of Reviews per Application : 1 , Required? :Checked ,for fiscal Review Review form in SME Review step in planning phase
     And I click on "Edit" in the page details
     And I wait for "10" seconds
@@ -3062,6 +3063,7 @@ Feature: Validate all scenarios for program
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
+   And I wait for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
@@ -3070,7 +3072,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
- @prog1 @77615 @ValidatingErrorMessageInComplianceReviewForm
+ @77615 @ValidatingErrorMessageInComplianceReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :0% ,Minimum Number of Reviews per Application : 1 , Required? :Checked ,for compliance Review Review form in SME Review step in planning phase
     And I click on "Edit" in the page details
     And I wait for "10" seconds
@@ -3110,6 +3112,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
+   And I wait for "3" seconds
     And I click on top right button "Validate" in flex table with id "---program:-:reviewStepTableId---"
     Then I softly see the following messages in the page details contains:
       | Setup Tab - Pre-Screen Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
