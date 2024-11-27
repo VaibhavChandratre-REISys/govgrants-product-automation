@@ -24057,7 +24057,7 @@ Feature: Sanity scenarios
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
     And I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
-    Then I softly can see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     Then I softly can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     When I click on "View" icon for "{SavedValue:OrganizationName}" inside table
     Then I see the header is "Non-Federal Organization" in the page details
