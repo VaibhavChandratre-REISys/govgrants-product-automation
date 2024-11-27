@@ -1595,9 +1595,38 @@ Feature: Validate all scenarios of every modules flow
     Then I see the text "Email Sent Successfully." in modal
 
   @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
-  Scenario: Validate PM user should able to Create & Activate the KPI
-    When I login to "As a Grantee" app as "GRANTEE ADMIN1" user
+  Scenario Outline: Validate PM user should able to Create & Activate the KPI
+    When I login to "As a Grantee" app as "<User>" user
     And I wait for "5" seconds
-    And I navigate to "Overview" sub tab
-    And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    And I navigate to "Messages" sub tab
+    Then I softly see "Messages" page block displayed
+    Then I softly see "Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "From Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "To Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "CC Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "Email Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "Preview" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    When I get the "EGMS ID"
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To        | Subject            | Body            |
+      | <EmailTo> | Automation Subject | Automation Body |
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
+    Then I softly see value "<EmailFrom>" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "<EmailTo>" for title "To Address" inside table "CommunicationHistory"
+    Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
+    Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:amendmentMessageTableID---"
+    When I click on parallel lines menu bar with data target value "Messages"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Examples:
+      | User       | EmailFrom                         | EmailTo                 |
+      | GRANTEE PO | grantee.po@yopmail.com.qagrnteatm | sarah.pm.23@yopmail.com |
+      | GRANTEE FO | david.fo@ggp.test8.qagrnteatm     | sarah.pm.23@yopmail.com |

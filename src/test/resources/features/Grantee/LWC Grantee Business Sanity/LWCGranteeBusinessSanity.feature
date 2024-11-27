@@ -16737,18 +16737,18 @@ Feature: Sanity scenarios
     Then I softly see "Email Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
     Then I softly see "Preview" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
     When I get the "EGMS ID"
-    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
-    And I send the email under collab tab with following details:
-      | To        | Subject            | Body            |
-      | <EmailTo> | Automation Subject | Automation Body |
-    When I click modal button "Close"
-    And I refresh the page
-    And I wait for "3" seconds
-    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "<EmailFrom>" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "<EmailTo>" for title "To Address" inside table "CommunicationHistory"
-    Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
-    Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
+#    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+#    And I send the email under collab tab with following details:
+#      | To        | Subject            | Body            |
+#      | <EmailTo> | Automation Subject | Automation Body |
+#    When I click modal button "Close"
+#    And I refresh the page
+#    And I wait for "3" seconds
+#    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
+#    Then I softly see value "<EmailFrom>" for title "From Address" inside table "CommunicationHistory"
+#    Then I softly see value "<EmailTo>" for title "To Address" inside table "CommunicationHistory"
+#    Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
+#    Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:amendmentMessageTableID---"
     Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:amendmentMessageTableID---"
     Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:amendmentMessageTableID---"
