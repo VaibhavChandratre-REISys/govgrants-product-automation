@@ -16719,7 +16719,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "Edit" :
       | Created By | Title         | Description       |
-      | David FO   | Notes Record1 | Automation Notes1 |
+      | <User>     | Notes Record1 | Automation Notes1 |
     And I wait for "2" seconds
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
@@ -16782,6 +16782,7 @@ Feature: Sanity scenarios
     And I enter value "110" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
     And I click on "Submit for Approval" in the page details
+      #bug 482502
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Maximum Indirect Cost Rate cannot be greater than 100% |
     And I click on "Edit" in the page details
