@@ -16791,20 +16791,20 @@ Feature: Sanity scenarios
     Then I see option "Download as PDF" present in parallel dropdown
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
+      | Title         | Description       |
+      | Notes Record1 | Automation Notes1 |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "Edit" :
-      | Created By | Title         | Description       |
-      | <User>     | Notes Record1 | Automation Notes1 |
-    And I wait for "2" seconds
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
-    Then I softly do not see value "Notes Recor1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "Edit" :
+      | Title         | Title         | Description       |
+      | Notes Record1 | Notes Record2 | Automation Notes2 |
+    And I wait for "2" seconds
+    Then I softly see value "Notes Record2" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    And I click on "Delete" icon for "Notes Record2" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
+    Then I softly do not see value "Notes Recor2" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I navigate to "History" sub tab
     Then I softly see "Approval History" page block displayed
     Then I softly see "Snapshot History" page block displayed
