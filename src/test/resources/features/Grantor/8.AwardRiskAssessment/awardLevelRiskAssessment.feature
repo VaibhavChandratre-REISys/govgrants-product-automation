@@ -2210,7 +2210,6 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
     And I click on "Take Snapshot" in the page details
-    And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot on"
@@ -2288,7 +2287,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "7" seconds
     Then I see "Active" on page "1" of "govgrants" pdf file
 
-  @60210 @60220 @recordOwnerCannotEditEffectiveDateAndCreatedDateOfRA @riskTBE
+  @60210 @60220 @recordOwnerCannotEditEffectiveDateAndCreatedDateOfRA
   Scenario: Validate Record Owner is not able to edit the Effective Dates under Overview tab of Risk Assessment and the Created Date of Risk Assessment display on Overview Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2555,7 +2554,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Responsibilities" sub tab
     Then I cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "RiskAssessmentApproverRoles"
 
-  @60345 @60344 @riskLevelOverAllRiskFieldAddedtoOverViewOnceRiskAssessmentIsActive @riskTBE
+  @60345 @60344 @riskLevelOverAllRiskFieldAddedtoOverViewOnceRiskAssessmentIsActive
   Scenario: Validate to check the newly added field 'Risk Level' and 'Overall Risk' in overview tab post the changes are done on Risk Assessment Record
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2752,7 +2751,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @60787 @60785  @intialRiskAssessmentToExpiredRAViewedFromMonitoringTable @riskTBE
+  @60787 @60785  @intialRiskAssessmentToExpiredRAViewedFromMonitoringTable
   Scenario:  Validate when the succeeding Risk Assessments are made active then the  Initial Risk Assessment should be marked as Expired and can be viewed from Risk Asessment table and from the Monitoring table
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3307,9 +3306,9 @@ Feature: Validate all scenarios in the Risk Assessment
 
     Examples:
       | userType |
-#      | PM       |
+      | PM       |
       | PO       |
-#      | FD       |
-#      | EXE      |
-#      | FO       |
-#      | AUDITOR  |
+      | FD       |
+      | EXE      |
+      | FO       |
+      | AUDITOR  |
