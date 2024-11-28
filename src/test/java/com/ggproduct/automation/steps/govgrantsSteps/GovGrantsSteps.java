@@ -801,7 +801,7 @@ public final class GovGrantsSteps {
     @Description("This will download the file using javascript")
     @When("^I download the file$")
     public void saveTheFileToTarget() throws Throwable {
-        I.amPerforming().fileHandling().cleanDownloadFolder();
+       I.amPerforming().fileHandling().cleanDownloadFolder();
         I.amPerforming().fileHandling().DownloadAnyFilefromTab();
         File targetDir = new File(System.getProperty("user.dir") + File.separator + "target");
         File file = new File(targetDir, "download");
