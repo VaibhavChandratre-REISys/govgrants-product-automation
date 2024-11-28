@@ -16834,7 +16834,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -16844,6 +16844,13 @@ Feature: Sanity scenarios
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "3" seconds
+    When I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
     And I wait for "3" seconds
     And I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
@@ -25447,7 +25454,7 @@ Feature: Sanity scenarios
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
-      | Victor EXE | Step 1 |
+      | Sarah PM   | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
