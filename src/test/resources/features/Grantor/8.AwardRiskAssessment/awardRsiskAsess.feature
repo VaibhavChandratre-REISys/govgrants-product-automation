@@ -145,7 +145,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-  @65464 @riskFieldAvailbilityOnOverviewTab
+  @65464 @riskFieldAvailbilityOnOverviewTab @riskTBE
   Scenario: Validate Risk Level field on Overview Tab is not availbale for Risk Assessment that is in Created Status
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -254,7 +254,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Created" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
     Then I softly do not see value "Created" for title "Status" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
 
-  @65878 @newButtonISNotAvilbaleforActiveAwards
+  @65878 @newButtonISNotAvilbaleforActiveAwards @wip
   Scenario: Verify whether New button on Management is not available for active awards
     Given I activated standalone subaward "Automation Runtime Award" with properties "YES_RISK_ASSESSMENT" of type "Competitive"
     Given I login to "As a Grantor" app as "PM" user
@@ -269,7 +269,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Management" sub tab
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
 
-  @66874 @orgRAisExpiredAwardRiskAssessmentSetasNo
+  @66874 @orgRAisExpiredAwardRiskAssessmentSetasNo @riskTBE
   Scenario Outline: Validate when Organization Risk Assessment is not active and Award Risk Assessment Required is selected as No then System should throw an exception when user activates the award.
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3606,7 +3606,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team.
       """
 
-  @223375 @ValidateRiskAssessmentModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-10-US-205576  @reassignment
+  @223375 @ValidateRiskAssessmentModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-10-US-205576  @reassignment @wip
   Scenario: Validate Risk Assessment Module user should able to reassign the task to new user of more than 10 records & 1 email should be triggered for all records
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4111,7 +4111,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
 
-  @116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @Allocation @VAExclusion
+  @116331 @ValidateRiskAssessmentsarereadonlyforSRUser @Sprint-23-US-273843 @Allocation @VAExclusion @wip
   Scenario: Validate Risk Assessments are read only for SR User
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab

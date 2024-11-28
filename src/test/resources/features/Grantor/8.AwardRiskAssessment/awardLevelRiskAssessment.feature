@@ -1992,7 +1992,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Responsibilities" sub tab
     Then I softly cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "RiskAssessmentApproverRoles"
 
-  @59960 @intialRiskAssessmentMarkedAsExpired @smoke
+  @59960 @intialRiskAssessmentMarkedAsExpired @smoke @riskTBE
   Scenario Outline: Validate when the Award is activated whether SR user can view the second Risk Assessment that was in Created Status
     When I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2151,6 +2151,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I click on "Send to Grantee" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2175,7 +2176,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Grant Name                                                | Award Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @60208 @validateRecordOwnerISAbleToViewRASnapshot
+  @60208 @validateRecordOwnerISAbleToViewRASnapshot @riskTBE
   Scenario: Validate Record Owner user is able to view the Snapshot after Risk Assessment is Submitted for Approval status
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2207,7 +2208,8 @@ Feature: Validate all scenarios in the Risk Assessment
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     And I click on "Submit for Approval" in the page details
-    And I click on Menu icon present on top right corner of the page
+    And I wait for "3" seconds
+    And I click on "Take Snapshot" in the page details
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
     When I navigate to "History" sub tab
@@ -2286,7 +2288,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I wait for "7" seconds
     Then I see "Active" on page "1" of "govgrants" pdf file
 
-  @60210 @60220 @recordOwnerCannotEditEffectiveDateAndCreatedDateOfRA
+  @60210 @60220 @recordOwnerCannotEditEffectiveDateAndCreatedDateOfRA @riskTBE
   Scenario: Validate Record Owner is not able to edit the Effective Dates under Overview tab of Risk Assessment and the Created Date of Risk Assessment display on Overview Tab
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2553,7 +2555,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Responsibilities" sub tab
     Then I cannot see row level action button "Enter Review" against "{SavedValue:FO Username}" in flex table with id "RiskAssessmentApproverRoles"
 
-  @60345 @60344 @riskLevelOverAllRiskFieldAddedtoOverViewOnceRiskAssessmentIsActive
+  @60345 @60344 @riskLevelOverAllRiskFieldAddedtoOverViewOnceRiskAssessmentIsActive @riskTBE
   Scenario: Validate to check the newly added field 'Risk Level' and 'Overall Risk' in overview tab post the changes are done on Risk Assessment Record
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2592,6 +2594,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2749,7 +2752,7 @@ Feature: Validate all scenarios in the Risk Assessment
       | Award Name                                                | Grant Name                                                |
       | {SavedValue:Automation Runtime Award for Risk Assessment} | {SavedValue:Automation Runtime Award for Risk Assessment} |
 
-  @60787 @60785  @intialRiskAssessmentToExpiredRAViewedFromMonitoringTable
+  @60787 @60785  @intialRiskAssessmentToExpiredRAViewedFromMonitoringTable @riskTBE
   Scenario:  Validate when the succeeding Risk Assessments are made active then the  Initial Risk Assessment should be marked as Expired and can be viewed from Risk Asessment table and from the Monitoring table
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -3271,14 +3274,14 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see field "1. For prior awards, did the grantee track actual time and effort for each employee paid with award funds?" as "Yes"
     Then I softly see field "2. For prior awards, did the time and effort documentation account for 100% of each employee's time, including time not charged to awards?" as "Yes"
     Then I softly see field "Score:" as "2" in "Personnel (Max Score :10)" pageblock
-    Then I softly see field "1. Does the most current single audit report include any of the following that could impact performance under this grant award:" as "Significant  Deficiencies"
+    Then I softly see field "1. Does the most current single audit report include any of the following that could impact performance under this grant award:" as "Significant Deficiencies"
     Then I softly see field "2. If required, was the corrective action plan implemented within the specified time frame?" as "No"
     Then I softly see field "3. Has the agency/program identified other concerns about the grantee's capacity, performance and or financial operations in the last two years?" as "No concerns"
     Then I softly see field "4. Has your agency completed a site visit for this grantee recently?" as "A site visit was completed in the last year"
     Then I softly see field "5. Did your agency identify findings and concerns through monitoring of previous awards (site visit, desk monitoring, or other interactions)?" as "Minor findings"
     Then I softly see field "6. Did the grantee implement a Corrective Action Plan to address the monitoring findings/concerns?" as "Corrective Action Plan implemented within 30 days"
     Then I softly see field "Score:" as "16" in "Compliance/Monitoring (Max Score : 30)" pageblock
-    Then I softly see field "Acknowledgement" as "I Agree"
+    Then I softly see field "Acknowledgement" as "Checked"
     Then I softly see field "Submitted By:" as "Automation FO"
     Then I softly see field "Submitted By:" as "Automation FO"
     Then I softly see field "Submitted On:" as "11/26/2024 1:41 AM"
@@ -3298,7 +3301,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see total records count "Total Records: 3" in flex table "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
     Then I softly see value "Attachment1.pdf" for title "Title" against the value "Program Artifacts" inside table "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
     Then I softly see value "AttachmentTesting.pdf" for title "Title" against the value "Financial Artifacts" inside table "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
-    Then I softly see value "Attachment.pdf" for title "Title" against the value "Financial Artifacts" inside table "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" against the value "Program Artifacts" inside table "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
     Then I softly see value "Notes Record for PM" for title "Title" against the value "Automation PM" inside table "---riskassessment:-:riskAssNotesTableId---"
     Then I softly see value "Notes Record for PM_1" for title "Title" against the value "Automation PM" inside table "---riskassessment:-:riskAssNotesTableId---"
 
