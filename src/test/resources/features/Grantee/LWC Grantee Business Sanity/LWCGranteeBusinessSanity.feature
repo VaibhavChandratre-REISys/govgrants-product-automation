@@ -25568,7 +25568,7 @@ Feature: Sanity scenarios
     Examples:
       | userType        |
       | GRANTEE PO      |
-#      | GRANTEE FO      |
-#      | GRANTEE FD      |
-#      | GRANTEE AUDITOR |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE AUDITOR |
 
