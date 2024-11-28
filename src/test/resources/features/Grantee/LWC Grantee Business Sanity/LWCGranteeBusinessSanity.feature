@@ -24408,6 +24408,7 @@ Feature: Sanity scenarios
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingFinancialReport---"
 
   @446127 @ValidateGPCloseoutwithEXEProfileOnactivegrantabletoseeNewbuttontocreateadhoccloseout @GranteeTBE
+  Scenario: Validate GP Closeout with EXE Profile On active grant able to see New button to createa dhoc closeout
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
