@@ -24400,6 +24400,8 @@ Feature: Sanity scenarios
     And I click on "Edit" in the page details
     And I enter value "Automation Justification" into field "Justification__c"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I click on "Override" in the page details
     Then I softly see field "Status" as "Overridden"
     Then I softly see status in Progress-bar is "Overridden" and is "dark blue"
     When I navigate to "Open  Items" sub tab
