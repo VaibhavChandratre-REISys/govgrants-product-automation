@@ -24648,10 +24648,10 @@ Feature: Sanity scenarios
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Overview" sub tab
     Then I cannot see top right button "Edit" in page detail
-    Then I softly see that "Impact__c" rendered in view mode only
-    Then I softly see that "PurposeRTA__c" rendered in view mode only
-    Then I softly see that "ApprovedIndirectCostRate__c" rendered in view mode only
-    Then I softly see that "NewBudgetPeriodEndDate__c" rendered in view mode only
+    Then I softly see that "Impact" rendered in view mode only
+    Then I softly see that "Justification" rendered in view mode only
+    Then I softly see that "Maximum Indirect Cost Rate" rendered in view mode only
+    Then I softly see that "New Budget Period End Date" rendered in view mode only
     Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
@@ -24698,10 +24698,10 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     And I navigate to "Overview" sub tab
     Then I cannot see top right button "Edit" in page detail
-    Then I softly see that "Impact__c" rendered in view mode only
-    Then I softly see that "PurposeRTA__c" rendered in view mode only
-    Then I softly see that "ApprovedIndirectCostRate__c" rendered in view mode only
-    Then I softly see that "NewBudgetPeriodEndDate__c" rendered in view mode only
+    Then I softly see that "Impact" rendered in view mode only
+    Then I softly see that "Justification" rendered in view mode only
+    Then I softly see that "Maximum Indirect Cost Rate" rendered in view mode only
+    Then I softly see that "New Budget Period End Date" rendered in view mode only
     Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
@@ -24751,10 +24751,14 @@ Feature: Sanity scenarios
     Then I can see top right button "Revise Amendment" in page detail
     And I navigate to "Overview" sub tab
     Then I cannot see top right button "Edit" in page detail
-    Then I softly see that "Impact__c" rendered in view mode only
-    Then I softly see that "PurposeRTA__c" rendered in view mode only
-    Then I softly see that "ApprovedIndirectCostRate__c" rendered in view mode only
-    Then I softly see that "NewBudgetPeriodEndDate__c" rendered in view mode only
+#    Then I softly see that "Impact__c" rendered in view mode only
+#    Then I softly see that "PurposeRTA__c" rendered in view mode only
+#    Then I softly see that "ApprovedIndirectCostRate__c" rendered in view mode only
+#    Then I softly see that "NewBudgetPeriodEndDate__c" rendered in view mode only
+    Then I softly see that "Impact" rendered in view mode only
+    Then I softly see that "Justification" rendered in view mode only
+    Then I softly see that "Maximum Indirect Cost Rate" rendered in view mode only
+    Then I softly see that "New Budget Period End Date" rendered in view mode only
     Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
@@ -24799,10 +24803,10 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button " Amend Award" in page detail
     And I navigate to "Overview" sub tab
     Then I cannot see top right button "Edit" in page detail
-    Then I softly see that "Impact__c" rendered in view mode only
-    Then I softly see that "PurposeRTA__c" rendered in view mode only
-    Then I softly see that "ApprovedIndirectCostRate__c" rendered in view mode only
-    Then I softly see that "NewBudgetPeriodEndDate__c" rendered in view mode only
+    Then I softly see that "Impact" rendered in view mode only
+    Then I softly see that "Justification" rendered in view mode only
+    Then I softly see that "Maximum Indirect Cost Rate" rendered in view mode only
+    Then I softly see that "New Budget Period End Date" rendered in view mode only
     Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
@@ -25044,10 +25048,10 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button " Amend Award" in page detail
     And I navigate to "Overview" sub tab
     Then I cannot see top right button "Edit" in page detail
-    Then I softly see that "Impact__c" rendered in view mode only
-    Then I softly see that "PurposeRTA__c" rendered in view mode only
-    Then I softly see that "ApprovedIndirectCostRate__c" rendered in view mode only
-    Then I softly see that "NewBudgetPeriodEndDate__c" rendered in view mode only
+    Then I softly see that "Impact" rendered in view mode only
+    Then I softly see that "Justification" rendered in view mode only
+    Then I softly see that "Maximum Indirect Cost Rate" rendered in view mode only
+    Then I softly see that "New Budget Period End Date" rendered in view mode only
     Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
@@ -25272,10 +25276,10 @@ Feature: Sanity scenarios
     Then I see status in Progress-bar is "Rejected" and is "Red"
     And I navigate to "Overview" sub tab
     Then I cannot see top right button "Edit" in page detail
-    Then I softly see that "Impact__c" rendered in view mode only
-    Then I softly see that "PurposeRTA__c" rendered in view mode only
-    Then I softly see that "ApprovedIndirectCostRate__c" rendered in view mode only
-    Then I softly see that "NewBudgetPeriodEndDate__c" rendered in view mode only
+    Then I softly see that "Impact" rendered in view mode only
+    Then I softly see that "Justification" rendered in view mode only
+    Then I softly see that "Maximum Indirect Cost Rate" rendered in view mode only
+    Then I softly see that "New Budget Period End Date" rendered in view mode only
     Then I softly do not see top right button "Associate" inside flex table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
