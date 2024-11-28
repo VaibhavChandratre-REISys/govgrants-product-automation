@@ -11654,7 +11654,7 @@ Feature: Sanity scenarios
     Then I softly see "Grant Overview" page block displayed
     Then I softly see "Closeout Request Details" page block displayed
     Then I softly see "System Information" page block displayed
-    When I navigate to "Open Items" sub tab
+    When I navigate to "Open  Items" sub tab
     Then I softly see "Pending Amendment Requests" page block displayed
     Then I softly see "Pending Progress Reports" page block displayed
     Then I softly see "Pending Financial Reports" page block displayed
@@ -16652,8 +16652,9 @@ Feature: Sanity scenarios
     Then I softly see "End Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
-      | Title                           | End Date                            |
+      | Title                           | End Date                           |
       | Automation Permanent Focus Area | {SavedValue:NewBudgetPeriodEndDate} |
+    And I wait for "2" seconds
     When I click on parallel lines menu bar with data target value "Focus Areas"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -25577,7 +25578,6 @@ Feature: Sanity scenarios
       | GRANTEE FO      |
       | GRANTEE FD      |
       | GRANTEE AUDITOR |
-
 
   @445591 @ValidateProgress/FinancialReportSchedulePMusercanseeeditbuttonforProgressreportandFinancialReportonReportingScheduletableoncreatedSubmittedforreviewreviewedapprovedActivestateaward
   Scenario: Validate Progress/Financial Report Schedule PM user can see edit button for Progress report and Financial Report on Reporting Schedule table on created, Submitted for review, reviewed, approved, Active state award
