@@ -968,7 +968,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
- @program1 @59284 @validateSubrecipientDocumentLinkFieldValueIsNotApplicableWhenOptional1 @jitendra
+ @59284 @validateSubrecipientDocumentLinkFieldValueIsNotApplicableWhenOptional1 @jitendra
   Scenario Outline: Validate at SR User side Template Link field value is View Hyperlink at Progress report if template is uploaded by award owner at Grant.
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -1053,7 +1053,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
- @program1 @59140 @attachementSavedSuccessfully @jitendra
+ @59140 @attachementSavedSuccessfully @jitendra
   Scenario Outline: Validate SR user is able to attach the document from Upload file from computer option when Supporting document checklist is selected Mandatory at Grant
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -1114,7 +1114,7 @@ Feature: Validate scenarios in Progress Report without background
       | Grant Name                            | Award Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
- @program1 @59565 @validateSupportingDocumentUploadedIsReflectingUnderAttachmentsTable
+ @59565 @validateSupportingDocumentUploadedIsReflectingUnderAttachmentsTable
   Scenario Outline: Validate document uploaded at supporting  document checklist table is getting reflected at Attachments table also in progress report
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
     And I login to "As a Grantor" app as "PM" user
@@ -1357,7 +1357,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
- @program1 @59573 @59572 @59188_1 @59574 @59288 @dowloadAttachment
+ @59573 @59572 @59188_1 @59574 @59288 @dowloadAttachment
   Scenario Outline: : Validate SR User is able to download the uploaded document from attachment table on Progress report | Validate SR user is able to download the document from Subrecipient Document Link field when document is uploaded.
   Validate SR user is able to Delete the documents uploaded at supporting document checklist table at progress report | Validate SR User can View the template document at Progress report if template is uploaded by award owner at Grant level.
     Given I activated standalone subaward "Automation Runtime Award" with properties "NO_RISK_ASSESSMENT" of type "Competitive"
@@ -2208,7 +2208,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            |
       | {SavedValue:Automation Runtime Award} |
 
- @program1 @60882 @validateFiscalApprovercannotForwardProgressReportWhenFinalprogressreportAlreadyApproved @buglogged133121
+ @60882 @validateFiscalApprovercannotForwardProgressReportWhenFinalprogressreportAlreadyApproved @buglogged133121
   Scenario Outline: Validate Fiscal Approver cannot Forward the Progress report when Final progress report request is already approved
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal

@@ -56,7 +56,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @home1 @56712 @56713 @activeINDandsubrecipientOrganizationView
+  @56712 @56713 @activeINDandsubrecipientOrganizationView
   Scenario Outline: Validate whether all users have view access to Subrecipient Organization and Active Individual Subrecipients
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -75,7 +75,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @home1 @56715 @56714 @activeIndividualSubrecipientsEdit
+  @56715 @56714 @activeIndividualSubrecipientsEdit
   Scenario Outline: Validate whether ADMIN/DA have Edit access to Active Individual Subrecipients and Subrecipient Organizations
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -275,7 +275,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
- @home1 @56733 @internalContactsEdition @smoke
+ @56733 @internalContactsEdition @smoke
   Scenario Outline: Validate whether all Internal Users can edit the Contacts
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -662,7 +662,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
- @home1 @57349 @viewActiveIndividualOrganizations
+ @57349 @viewActiveIndividualOrganizations
   Scenario Outline: The Internal Users should be able to view all the Active Individual Subrecipients that are registered in the system and may be recipients of grants
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -789,7 +789,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @home1 @62104 @indProfileEditAccess
+  @62104 @indProfileEditAccess
   Scenario: Verify other than Admin and Ind Profile Users, other users cannot edit the Ind subrecipient profile Information
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -837,7 +837,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "Record Id" in "---home:-:externalPendingTasktableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---home:-:externalPendingTasktableId---"
 
- @home1 @62106 @indUserEditProfile
+ @62106 @indUserEditProfile
   Scenario: Verify whether the Individual Sub Profile Users can view their own contact information under Overview Tab
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "IND" user
