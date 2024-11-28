@@ -50,7 +50,7 @@ public class setup {
             grantorWebServices.deleteRecordInHooks();
        else if (StringUtils.containsIgnoreCase(EnvironmentFactory.getEnvironmentName(), "GRANTEE"))
            granteeWebServices.deleteRecordInHooks();
-        //It will deactivate the activated users.
+//        It will deactivate the activated users.
         //ProjectWebServices.changeUserActivationStatus("automationinternal", false);
     }
 }

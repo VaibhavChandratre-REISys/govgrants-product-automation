@@ -1815,7 +1815,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62923 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment
+  @program@62923 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment
   Scenario Outline: Verify Budget Period field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward at Award Owner end.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -3812,7 +3812,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62374 @validateFrequencyAfterPeriodicAmendmentIsSameAsBiMonthlyOnAward  @buglogged-171710
+ @62374 @validateFrequencyAfterPeriodicAmendmentIsSameAsBiMonthlyOnAward  @buglogged-171710
   Scenario Outline: Validate frequency remains the same for Progress report schedules after Periodic renewal amendment when frequency type is Bi-Monthly at Award Owner end
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -5841,7 +5841,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @62922 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment
+ @62922 @BudgerPeriodFieldUpdateAfterPeriodicRenewalAmendment
   Scenario Outline: Verify Budget Period field value at Overview Tab on progress report get updated when award owner performed Periodic renewal amendment on subaward at SR user end.
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -6512,7 +6512,8 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
 
   @62921 @validateAwardedBudgetDecreasedAfterFCAmendment @smoke
   Scenario Outline: Verify Awarded Budget field values at performance tab on progress report decrease when award owner performed Funding change amendment on subaward
-    Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
+    Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
     When I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -6598,8 +6599,8 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     Then I see field "Current Obligation" as "$900.00"
     Then I delete the record "<Award Name>" from the object "Progress Report"
     Examples:
-      | Award Name                            | Grant Name                            |
-      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
+      | Award Name                                   | Grant Name                            |
+      | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
   @60646 @60647 @validatePRAfterFundingChangeAmendmentIsCarryForwardedOnExternalPortal
   Scenario Outline: Validate Progress reports with Created/Submitted to Grantor Status is carried forward at Performance Tab Subaward Overview at SR user end when Award owner performed Funding Change Amendment
@@ -6732,8 +6733,9 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
 
  @60723 @60724 @validateCreatedPRAfterFCAmendment
   Scenario Outline: Validate Progress reports with Created Status when Award owner performed Funding Change Amendment
-    Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
-    When I am on "INTERNAL" portal
+    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
+   Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
+   When I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -6816,8 +6818,8 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     Then I delete the record "<Award Name>" from the object "Progress Report"
     Then I delete the record "<Award Name>" from the object "Progress Report"
     Examples:
-      | Award Name                            | Grant Name                            |
-      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
+      | Award Name                                   | Grant Name                                   |
+      | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
 
  @61441 @61447 @validateSubmittedForApprovalPRAfterBPCAmendmentIsCarryForwarded
   Scenario Outline: Validate Submitted for Approval Progress reports is carried forward when award owner performed BPC amendment

@@ -794,7 +794,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details :
       | Setup Tab - Remove all the Focus Areas associated with this program if the Focus Area Required is "No". |
 
-  @program2 @34737 @76116 @76117 @76113 @76115 @75894 @75888 @75891 @programObjectiveAssociation
+  @34737 @76116 @76117 @76113 @76115 @75894 @75888 @75891 @programObjectiveAssociation
   Scenario Outline: Validate the Association of Objective to the Internal Program
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
@@ -3019,7 +3019,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77613 @ValidatingErrorMessageFiscalReviewForm
+ @77613 @ValidatingErrorMessageFiscalReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :0% ,Minimum Number of Reviews per Application : 1 , Required? :Checked ,for fiscal Review Review form in SME Review step in planning phase
     And I click on "Edit" in the page details
     And I wait for "10" seconds
@@ -3066,7 +3066,7 @@ Feature: Validate all scenarios for program
       | Objective                      |
       | Automation Permanent Objective |
 
-  @77615 @ValidatingErrorMessageInComplianceReviewForm
+ @77615 @ValidatingErrorMessageInComplianceReviewForm
   Scenario Outline: To validate system generated error message, if Form Weight (%) :0% ,Minimum Number of Reviews per Application : 1 , Required? :Checked ,for compliance Review Review form in SME Review step in planning phase
     And I click on "Edit" in the page details
     And I wait for "10" seconds
@@ -6019,7 +6019,7 @@ Feature: Validate all scenarios for program
       Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
       """
 
-  @program2 @VerifyValidationMessageForReviewFormWeightLessThan100%
+  @VerifyValidationMessageForReviewFormWeightLessThan100%
   Scenario: validate user is able to see validation message when review form weight is les than 100%
     And I navigate to "Setup" sub tab
     And I edit the following rows inline in flex table with id "---program:-:reviewStepTableId---" by clicking "Edit" :

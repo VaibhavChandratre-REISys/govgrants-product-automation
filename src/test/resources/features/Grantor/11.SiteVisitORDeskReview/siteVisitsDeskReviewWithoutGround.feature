@@ -1,7 +1,7 @@
-@siteVisitDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisit_Lwc_Run
+@siteVisitDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisit_Lwc_Run @siteAndDeskReview
 Feature: Validate all scenarios in the Site Visit and Desk Review without background
 
-  @51089 @formFillingSiteVisitUploadAttachment
+ @51089 @formFillingSiteVisitUploadAttachment
   Scenario: User will be able to review the supporting document checklist submitted by the subrecipient and Filling up of form in Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -54,7 +54,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I wait for "2" seconds
     Then I softly see that "100.00%" has been added in flextable with Id "---sitevisits:-:reportsTableId---"
 
-  @56010 @Userwillbeabletoreviewthesupportingdocumentchecklistsubmittedbythesubrecipient
+ @56010 @Userwillbeabletoreviewthesupportingdocumentchecklistsubmittedbythesubrecipient
   Scenario: User will be able to review the supporting document checklist submitted by the subrecipient and Filling up of form in Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -109,7 +109,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click in table hyperlink containing value "View"
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
-  @60834 @AdditionOfAttachmentForAwardSiteVisits
+ @60834 @AdditionOfAttachmentForAwardSiteVisits
   Scenario: Validating addition of attachment to Award Site Visits
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -141,7 +141,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly see value "Mandatory" for title "Required" inside table "---sitevisits:-:siteVisitSupportingDocumentChecklist---"
     Then I softly see value "Active" for title "Status" inside table "---sitevisits:-:siteVisitSupportingDocumentChecklist---"
 
-  @61178 @addAttachmentToSiteVisit
+ @61178 @addAttachmentToSiteVisit
   Scenario: Validate whether PM will be able to add any specific docuements required along with the supporting documents details under the attachments section
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -173,7 +173,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click in table hyperlink containing value "View"
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
-  @66713 @inProgressSiteVisitAmendedForSiteVisits  @smoke
+ @66713 @inProgressSiteVisitAmendedForSiteVisits  @smoke
   Scenario: Validate In-progress award level site visit are carried forward to newly created award after amendment - Budget Period Change type
     Given I activated standalone subaward "Automation Runtime Award for Amendment Request" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award for Associate Amendment Request" with properties "default" of type "Competitive"
@@ -540,7 +540,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
 #    When I perform quick search for "{SavedValue:SiteVisitID}" in "---sitevisits:-:grantorSiteVisitsTableID---" panel
     Then I softly see "No Records Found" inside flex table with id "---sitevisits:-:grantorSiteVisitsTableID---"
 
-  @66716 @approvedStatusDeskReviewCannotCarriedForwardToNewAward
+ @66716 @approvedStatusDeskReviewCannotCarriedForwardToNewAward
   Scenario: Validate if desk review is in Approved status and amendment is done for base award, final state desk review should not be moved to newly created subaward after amendment.
     Given I activated standalone subaward "Automation Runtime Award for Amendment Request" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award for Associate Amendment Request" with properties "default" of type "Formula_By_Applicant"
@@ -705,7 +705,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
 #    When I perform quick search for "{SavedValue:DeskReviewID}" in "---deskreview:-:managementInitiateDRtableid---" panel
     Then I softly see "No Records Found" inside flex table with id "---deskreview:-:managementInitiateDRtableid---"
 
-  @69413 @initiateSiteVisitButtononFlextable
+ @69413 @initiateSiteVisitButtononFlextable
   Scenario: Validate whether initiate site visit button appear on site visit table of management tab of Award owner after Subaward is activated
     Given I activated standalone subaward "Automation Runtime Award for Amendment Request" with properties "default" of type "Competitive"
     Given I delete the record "Automation Site Visit" from the object "Site Visit"
@@ -794,7 +794,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on hyperlink containing value "View All"
     Then I softly see value "{SavedValue:EndDate}" for title "New Value" against the value "Project Period End Date" inside field history table
 
-  @54160 @pendingTaskForSiteVisit
+ @54160 @pendingTaskForSiteVisit
   Scenario: Verify the pending task for the Applicants - Site Visits
     Given I activated standalone subaward "Automation Runtime Award for Amendment Request" with properties "CREATE_AWARD_EXE" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award for Associate Amendment Request" with properties "CREATE_AWARD_EXE" of type "Competitive"
@@ -834,7 +834,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:EGMSID}" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
     Then I see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
 
-  @54219 @54222 @conductCreatedDeskReview
+ @54219 @54222 @conductCreatedDeskReview
   Scenario: Verify user (record owner) is able to conduct created Desk Review
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "CREATE_AWARD_EXE" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "CREATE_AWARD_EXE" of type "Formula_By_Applicant"
@@ -881,7 +881,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I click on "View" icon for "Record Id" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
     Then I cannot see top right button "Conduct" in page detail
 
-  @197266 @197272 @197275 @ValidateAdminusershouldabletoseeoptionofownershipoptionunderreassignsectiononleftnavigationbar @sprint-4  @reassignment
+ @197266 @197272 @197275 @ValidateAdminusershouldabletoseeoptionofownershipoptionunderreassignsectiononleftnavigationbar @sprint-4  @reassignment
   Scenario: Validate Admin user should able to see option of ownership option under reassign section on left navigation bar
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
@@ -896,7 +896,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Records of Target User" sub tab
     Then I softly see "Site Visits Owned by Target User" page block displayed
 
-  @197278 @ValidateusercanshowalltheSiteVisitoftargetuserswillbetransferredinfutureortransferredispastfromsourceusertotargetuserin2ndsectionofSiteVisit @sprint-4  @reassignment
+ @197278 @ValidateusercanshowalltheSiteVisitoftargetuserswillbetransferredinfutureortransferredispastfromsourceusertotargetuserin2ndsectionofSiteVisit @sprint-4  @reassignment
   Scenario: Validate user can show all the Site Visit of target users will be transferred in future or transferred is past from source user to target user in 2nd section of Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -937,7 +937,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitTargetTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
 
-  @197286 @197290 @197292 @197294 @ValidateusershowSitevisitofthesourceuserforallstatesin1stsectionofSiteVisit @sprint-4  @reassignment
+ @197286 @197290 @197292 @197294 @ValidateusershowSitevisitofthesourceuserforallstatesin1stsectionofSiteVisit @sprint-4  @reassignment
   Scenario: Validate user show Site visit of the source user for all states in 1st section of Site Visit
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -2123,7 +2123,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I can see top right button "Edit" in page detail
     Then I softly can see top right button "Submit for Approval" in page detail
 
-  @197623 @ValidateDeskReviewuserclickoninlineArrowiconofDeskReviewthenusercannavigatetopagewhereheseelistofalltheDeskReviewinsourceandtargetusersection @sprint-4  @reassignment
+ @197623 @ValidateDeskReviewuserclickoninlineArrowiconofDeskReviewthenusercannavigatetopagewhereheseelistofalltheDeskReviewinsourceandtargetusersection @sprint-4  @reassignment
   Scenario: Validate Desk Review user click on inline Arrow icon of Desk Review then user can navigate to page where he see list of all the Desk Review in source and target user section
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
@@ -3864,7 +3864,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I cannot see top right button "New" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
     Then I cannot see top right button "New" in flex table with id "---sitevisits:-:reviewersFlexTableId---"
 
-  @197501 @ValidateSVownerasPOuserisinSubmittedtoGrantorstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinSubmittedtoGrantorstate @sprint-4-US-196236  @reassignment
+ @197501 @ValidateSVownerasPOuserisinSubmittedtoGrantorstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinSubmittedtoGrantorstate @sprint-4-US-196236  @reassignment
   Scenario: Validate SV owner as PO user is in 'Submitted to Grantor' state after that ownership will get changed then new owner will have the same access page layout & sectional level buttons as old owner had in Submitted to Grantor state
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -4413,7 +4413,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:SitevVisitId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @198008 @ValidatePOusershouldabletocheckownershiprelatedtaskNotstarted/Inprocessofsitevisitfromtable&ReassigntonewPOuserofSameorganization @sprint-4-US-192978  @reassignment
+ @198008 @ValidatePOusershouldabletocheckownershiprelatedtaskNotstarted/Inprocessofsitevisitfromtable&ReassigntonewPOuserofSameorganization @sprint-4-US-192978  @reassignment
   Scenario: Validate PO user should able to check ownership related task(Not started/In process) of site visit from table & Reassign to new PO user of Same organization
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"

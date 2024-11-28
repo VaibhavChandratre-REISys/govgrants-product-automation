@@ -235,7 +235,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "5" seconds
     Then I softly can see row level action button "Initiate Negotiation" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---subAwardFromFDM:-:recommendedAppTableId---"
 
-  @57218 @57219 @pendingTaskActionIconApplicantEditNegotiationRequest  @bug-408966-2024
+ @57218 @57219 @pendingTaskActionIconApplicantEditNegotiationRequest  @bug-408966-2024
   Scenario: Validate whether users will review the information and Applicant will be able to edit the respective application section(s) that the Agency mentioned
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -260,7 +260,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     #408966 spell mistake for required also
     Then I softly see the following messages in the page details :
-      | Details is required for save under Negotiations |
+      | Details is required to save under Negotiations |
 
   @34387 @negotiationWhenOpenUserCannotCreateOther
   Scenario: Verify that with open negotiation request user can not Complete Negotiation (Negative TC)
@@ -480,7 +480,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     Then I softly cannot see top right button "Edit" in page detail
 
-  @57838 @detailsRequiredtoSaveBeforeSubmitToGrantor  @bug-408966-2024
+ @57838 @detailsRequiredtoSaveBeforeSubmitToGrantor  @bug-408966-2024
   Scenario: Validate whether user to able to Submit to Grantor before providing deatils
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Applications" tab
@@ -504,7 +504,7 @@ Feature: Validate all scenarios in Negotiations
     And I click on "Edit" in the page details
     When I click on "Save" in the page details
     Then I see the following messages in the page details :
-      | Details is required for save under Negotiations |
+      | Details is required to save under Negotiations |
 
   @57839 @57840 @66445 @pendingNegotiationsViewAndSendToSubrecipientAfterSubmittingToGrantor
   Scenario: Validate whether users able to Send to Subrecipient after Submit to Grantor for adjustments and view the record  inside Pending Negotaitions Table |Validate Task is craeted to Subrecipient even when the negotiation is send back to subrecipient
@@ -721,6 +721,7 @@ Feature: Validate all scenarios in Negotiations
     And I select Classification as "Suspension" at upload file modal
     When I click modal button "Save"
     And I click modal button "Close"
+    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "GrantorApplicationFiles"
     Then I softly see value "Suspension" for title "Classification" inside table "GrantorApplicationFiles"

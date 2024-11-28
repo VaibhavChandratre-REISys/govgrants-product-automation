@@ -275,7 +275,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @56733 @internalContactsEdition @smoke
+ @56733 @internalContactsEdition @smoke
   Scenario Outline: Validate whether all Internal Users can edit the Contacts
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -288,7 +288,7 @@ Feature: Validate all scenarios in the home tab
     And I click modal button "Save"
     And I save the contact name as "Automation Runtime Contact"
     When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:internalContactTableId---" panel
-    Then I cannot see row level action button "Edit" against "Test Automation Organization" in flex table with id "---home:-:internalContactTableId---"
+    Then I can see row level action button "Edit" against "Test Automation Organization" in flex table with id "---home:-:internalContactTableId---"
     Examples:
       | User  |
       | ADMIN |
@@ -662,7 +662,7 @@ Feature: Validate all scenarios in the home tab
       | EXE   |
       | PM    |
 
-  @57349 @viewActiveIndividualOrganizations
+ @57349 @viewActiveIndividualOrganizations
   Scenario Outline: The Internal Users should be able to view all the Active Individual Subrecipients that are registered in the system and may be recipients of grants
     Given I login to "As a Grantor" app as "<User>" user
     When I navigate to "Home" tab
@@ -837,7 +837,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "Record Id" in "---home:-:externalPendingTasktableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---home:-:externalPendingTasktableId---"
 
-  @62106 @indUserEditProfile
+ @62106 @indUserEditProfile
   Scenario: Verify whether the Individual Sub Profile Users can view their own contact information under Overview Tab
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "IND" user

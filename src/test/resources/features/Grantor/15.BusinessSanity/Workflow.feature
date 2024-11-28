@@ -1532,16 +1532,20 @@ Feature: Validate all scenarios of every modules flow
     #TBC:completed status not updated due to bug change after bug reslved
     Then I softly see field "Status" as "Approved"
 
-  @tst @debug
+  @debug1
   Scenario: end-to-end-flow-paymentrequest-progressreport-closeout
-    When I login to "As a Grantee" app as "GRANTEE ADMIN" user
-#    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Award__c/a1oDh0000025dwdIAA/view"
-     And I halt execution
-#    When I "Collapse" page block contaninig value "Financial Transactions"
-#    Then I softly do not see "No Records Found" inside flex table with id "---grantee_tableId:-:DrawdownByAwardModalTableId---"
-#    When I "Expanded" page block contaninig value "Financial Transactions"
-#    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:DrawdownByAwardModalTableId---"
-#    And I halt execution
+    Given I login to "As a Grantor" app as "PM" user
+    And I wait for "10" seconds
+    When I select radio button "Reject" in the approval decision
+    When I enter comment "Automation testing" in the approval decision
+    And I submit the approval in the approval decision without processing
+    Then I see confirmation box with quotes in body "Rejecting the FDM will update the 'Final Decision' for all applications in this FDM to 'Cancelled' and the system will not allow you to award any recommended applications in the FDM. Are you sure you wish to continue?" is displayed
+    Then I softly see button "Continue" on confirmation pop-up
+    Then I softly see button "Cancel" on confirmation pop-up
+    And I click "Continue" on modal confirmation box
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Rejected"
 
   @TestingXSS
   Scenario: Testing xss
@@ -1589,5 +1593,40 @@ Feature: Validate all scenarios of every modules flow
       | To                        | Cc                         | Subject | Body            |
       | pm.automation@yopmail.com | exe.automation@yopmail.com | test    | Automation Test |
     Then I see the text "Email Sent Successfully." in modal
-    And I halt execution
 
+  @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
+  Scenario Outline: Validate PM user should able to Create & Activate the KPI
+    When I login to "As a Grantee" app as "<User>" user
+    And I wait for "5" seconds
+    And I navigate to "Messages" sub tab
+    Then I softly see "Messages" page block displayed
+    Then I softly see "Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "From Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "To Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "CC Address" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "Email Subject" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see "Preview" in flex table header "---grantee_tableId:-:amendmentMessageTableID---"
+    When I get the "EGMS ID"
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To        | Subject            | Body            |
+      | <EmailTo> | Automation Subject | Automation Body |
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
+    Then I softly see value "<EmailFrom>" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "<EmailTo>" for title "To Address" inside table "CommunicationHistory"
+    Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
+    Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:amendmentMessageTableID---"
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:amendmentMessageTableID---"
+    When I click on parallel lines menu bar with data target value "Messages"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Examples:
+      | User       | EmailFrom                         | EmailTo                 |
+      | GRANTEE PO | grantee.po@yopmail.com.qagrnteatm | sarah.pm.23@yopmail.com |
+      | GRANTEE FO | david.fo@ggp.test8.qagrnteatm     | sarah.pm.23@yopmail.com |
