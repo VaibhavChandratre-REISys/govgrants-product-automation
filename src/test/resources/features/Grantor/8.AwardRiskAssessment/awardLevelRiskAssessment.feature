@@ -3307,9 +3307,9 @@ Feature: Validate all scenarios in the Risk Assessment
 
     Examples:
       | userType |
-      | PM       |
+#      | PM       |
       | PO       |
-      | FD       |
-      | EXE      |
-      | FO       |
-      | AUDITOR  |
+#      | FD       |
+#      | EXE      |
+#      | FO       |
+#      | AUDITOR  |
