@@ -118,20 +118,8 @@ public class UsersAndURL implements UsersController {
             case "SARAH PM":
                 password = "Salesforce@2034";
                 break;
-            case "PM":
-                password = "VaDev@2026";
-                break;
-            case "SPI3":
-                password = "VaDev@2026";
-                break;
-            case "AUDITOR":
-                password = "VaDev@2025";
-                break;
-            case "EXE1":
-                password = "VaDev@2027";
-                break;
             default:
-                password = "VaDev@2024";
+                password = "VaDev@2028";
         }
         return password;
        }
