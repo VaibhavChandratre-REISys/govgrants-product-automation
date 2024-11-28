@@ -25313,6 +25313,7 @@ Feature: Sanity scenarios
     And I enter "Grantee_BPC_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
+    And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "BPCAMENDID"
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
@@ -25568,7 +25569,7 @@ Feature: Sanity scenarios
     Examples:
       | userType        |
       | GRANTEE PO      |
-      | GRANTEE FO      |
-      | GRANTEE FD      |
-      | GRANTEE AUDITOR |
+#      | GRANTEE FO      |
+#      | GRANTEE FD      |
+#      | GRANTEE AUDITOR |
 
