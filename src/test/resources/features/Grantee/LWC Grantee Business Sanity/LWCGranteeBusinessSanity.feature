@@ -24752,19 +24752,19 @@ Feature: Sanity scenarios
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see value "Fiscal Reviewer" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I navigate to "Files" sub tab
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Delete" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -24802,19 +24802,19 @@ Feature: Sanity scenarios
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see value "Fiscal Reviewer" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I navigate to "Files" sub tab
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Delete" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -24832,10 +24832,6 @@ Feature: Sanity scenarios
     Then I can see top right button "Revise Amendment" in page detail
     And I navigate to "Overview" sub tab
     Then I cannot see top right button "Edit" in page detail
-#    Then I softly see that "Impact__c" rendered in view mode only
-#    Then I softly see that "PurposeRTA__c" rendered in view mode only
-#    Then I softly see that "ApprovedIndirectCostRate__c" rendered in view mode only
-#    Then I softly see that "NewBudgetPeriodEndDate__c" rendered in view mode only
     Then I softly see that "Impact" rendered in view mode only
     Then I softly see that "Justification" rendered in view mode only
     Then I softly see that "Maximum Indirect Cost Rate" rendered in view mode only
@@ -24859,19 +24855,19 @@ Feature: Sanity scenarios
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see value "Fiscal Reviewer" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I navigate to "Files" sub tab
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Delete" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     When I click on "Record Decision" in the page details
     When I enter values into fields
       | Value        | Field       |
@@ -24907,19 +24903,19 @@ Feature: Sanity scenarios
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see value "Fiscal Reviewer" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I navigate to "Files" sub tab
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Delete" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
   @AmendBPC @464049_1 @VerifyFOuserARrecordownercannoteditthefieldsonBudgetPeriodChangeARisinSubmitforApprovalApprovedSubmittoGrantorAcceptedNotAcceptedRejected
   Scenario: Verify FO user (AR record owner) cannot edit the fields on Budget Period Change AR is in Submit for Approval, Approved, Submit to Grantor, Accepted, Not Accepted, Rejected
@@ -25152,19 +25148,19 @@ Feature: Sanity scenarios
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see value "Fiscal Reviewer" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I navigate to "Files" sub tab
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Delete" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
   @AmendBPC @464049_2 @VerifyFOuserARrecordownercannoteditthefieldsonBudgetPeriodChangeARisinSubmitforApprovalApprovedSubmittoGrantorAcceptedNotAcceptedRejected
   Scenario: Verify FO user (AR record owner) cannot edit the fields on Budget Period Change AR is in Submit for Approval, Approved, Submit to Grantor, Accepted, Not Accepted, Rejected
@@ -25380,17 +25376,17 @@ Feature: Sanity scenarios
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    Then I softly see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see value "Fiscal Reviewer" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly cannot see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I navigate to "Files" sub tab
     Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly can see row level action button "Download" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Delete" against "Automation.pdf" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
