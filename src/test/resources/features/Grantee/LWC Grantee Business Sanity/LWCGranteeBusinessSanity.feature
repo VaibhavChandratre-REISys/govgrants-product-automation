@@ -24257,7 +24257,7 @@ Feature: Sanity scenarios
       | GRANTEE PM | Attachment.pdf | Notes Record | Danielle FD Garcia | GRANTEE FD  | Notes Record for FD  | Notes Record for Danielle FD Garcia |
       | GRANTEE PM | Attachment.pdf | Notes Record | Victor EXE         | GRANTEE EXE | Notes Record for EXE | Notes Record for Victor EXE         |
 
-  @449974 @ValidateGPCloseoutwhileoverrideifthereisnoopenitemstillabletodooverrideandcontinuetheflow @GranteeTBE
+  @449974 @ValidateGPCloseoutwhileoverrideifthereisnoopenitemstillabletodooverrideandcontinuetheflow
   Scenario: Validate GP Closeout while override if there is no open item still able to do override and continue the flow.
     When I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -24409,7 +24409,7 @@ Feature: Sanity scenarios
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingProgressReprt---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingFinancialReport---"
 
-  @446127 @ValidateGPCloseoutwithEXEProfileOnactivegrantabletoseeNewbuttontocreateadhoccloseout @GranteeTBE
+  @446127 @ValidateGPCloseoutwithEXEProfileOnactivegrantabletoseeNewbuttontocreateadhoccloseout
   Scenario: Validate GP Closeout with EXE Profile On active grant able to see New button to createa dhoc closeout
     When I login to "As a Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
