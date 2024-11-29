@@ -25568,14 +25568,14 @@ Feature: Sanity scenarios
     Then I softly see "Snapshot History" page block displayed
     When I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
-    Then I softly do not see top right button "Send Email" inside flex table "CommunicationHistory"
+    Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
 
     Examples:
       | userType        |
       | GRANTEE PO      |
-#      | GRANTEE FO      |
-#      | GRANTEE FD      |
-#      | GRANTEE AUDITOR |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE AUDITOR |
 
   @445591 @ValidateProgress/FinancialReportSchedulePMusercanseeeditbuttonforProgressreportandFinancialReportonReportingScheduletableoncreatedSubmittedforreviewreviewedapprovedActivestateaward
   Scenario: Validate Progress/Financial Report Schedule PM user can see edit button for Progress report and Financial Report on Reporting Schedule table on created, Submitted for review, reviewed, approved, Active state award
