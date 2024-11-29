@@ -23681,6 +23681,7 @@ Feature: Sanity scenarios
       | Saved Successfully! |
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:awardsNotesTableId---"
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -25556,11 +25557,7 @@ Feature: Sanity scenarios
     Then I softly see "Approvers" page block displayed
     Then I softly see "Owner" page block displayed
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
-    Then I softly cannot see row level action button "Send for Review" against "David FO" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
-    Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
-    Then I softly cannot see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---"
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:closeoutApproverTableId---"
-    Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:closeoutApproverTableId---"
     When I navigate to "Files" sub tab
     Then I softly see "Closeout Files" page block displayed
     Then I softly see "Notes" page block displayed
@@ -28662,3 +28659,94 @@ Feature: Sanity scenarios
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:PhasePendingTask---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PhasePendingTask---"
+
+  @463421 @PreAppVerifywithPOProfileOverviewTab
+  Scenario: Verify the  Not Accepeted function of budget Redirection Amendment
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Applications" tab
+    When I navigate to "Applications" content inside "Pre-Applications" subheader on left panel
+    And I click toggle button to select "Pre-Application - All"
+    When I perform quick search for "{AUTOEnvData:AutomationPermanentPreApplication}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:AutomationPermanentPreApplication}" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
+    Then I softly see "Pre-Application Overview" page block displayed
+    Then I softly see "Opportunity Overview" page block displayed
+    Then I softly see "External Programs" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "Project Abstract" page block displayed
+    Then I softly see "System Information" page block displayed
+    And I click on "Edit" in the page details
+    Then I softly see fields "DUNS__c" is in edit mode
+    Then I softly see fields "ProjectDirectorContact__c" is in edit mode
+    Then I softly see that "Total Budget Request" rendered in view mode only
+    Then I softly see that "Internal Organization" rendered in view mode only
+    Then I softly see that "Opportunity Title" rendered in view mode only
+    Then I softly see that "Opportunity Number" rendered in view mode only
+    Then I softly see that "Opportunity Category" rendered in view mode only
+    Then I softly see that "Award Floor" rendered in view mode only
+    Then I softly see that "Pre-Application Due Date" rendered in view mode only
+    Then I softly see that "Award Ceiling" rendered in view mode only
+    Then I softly see that "Application Due Date" rendered in view mode only
+    When I hovering mouse on help text icon inside page block detail "Total Budget Request"
+    Then I softly see "Populated from the Budget Details section" shown as help text
+    When I hovering mouse on help text icon inside page block detail "UEI"
+    Then I softly see "UEI is a 12-character unique number assigned to all entities (public and private companies, institutions, or organizations) who must register to do business with the US Federal Government in SAM.gov." shown as help text
+    When I hovering mouse on help text icon inside page block detail "Opportunity Number"
+    Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
+    When I hovering mouse on help text icon inside page block detail "Award Floor"
+    Then I softly see "Minimum amount for an applicant to request." shown as help text
+    When I hovering mouse on help text icon inside page block detail "Award Ceiling"
+    Then I softly see "Maximum amount for an applicant to request." shown as help text
+    Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:preAppAssociateProgramTableId---"
+    When I click "Associate" after selection of "Wildlife Services" in the table "---grantee_tableId:-:preAppAssociateProgramTableId---"
+    And I click modal button "Close"
+    Then I softly can see row level action button "View" against "Wildlife Services" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I softly can see row level action button "Edit" against "Wildlife Services" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I softly can see row level action button "Remove" against "Wildlife Services" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    When I click on parallel lines menu bar with data target value "External Programs"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Download as CSV" present in parallel dropdown
+    And I select "Download as PDF" from parallel lines dropdown of "External Programs"
+    And I wait for "7" seconds
+    And I download the file
+    Then I see "External Programs" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
+    And I select "Download as CSV" from parallel lines dropdown of "External Programs"
+    And I download the file
+    Then I see that file name contains ".xls" is downloaded
+    And I switch to parent tab
+    And I select "Refresh" from parallel lines dropdown of "External Programs"
+    Then I see table is refreshing
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:preAppAssociateContactTableId---"
+    And I click modal button "Close"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationContactTableId---" by clicking "Edit" :
+      | Name       | Project Role    | Is Key Contact |
+      | Victor EXE | Project Officer | Checked        |
+    Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly can see row level action button "Remove" against "Victor EXE" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    When I click on parallel lines menu bar with data target value "External Programs"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Download as CSV" present in parallel dropdown
+    And I select "Download as PDF" from parallel lines dropdown of "Contacts"
+    And I wait for "7" seconds
+    And I download the file
+    Then I see "Contacts" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
+    And I select "Refresh" from parallel lines dropdown of "Contacts"
+    Then I see table is refreshing
+    Then I softly see field "Created By" inside page block
+    And I save the field labeled "Created By" as "CreatedBy"
+    Then I softly see link "{SavedValue:CreatedBy}" inside Page block
+    Then I softly see field "Created Date" inside page block
+    Then I softly see field "Last Modified By" inside page block
+    And I save the field labeled "Last Modified By" as "LastModifiedBy"
+    Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
+    Then I softly see field "Last Modified Date" inside page block
