@@ -23783,7 +23783,7 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role             | Description            | Due Date | Allow Record Editing |
-      | Grantee PO    | Program Reviewer | Automation Description | 0        | NO                   |
+      | Grantee PO    | Program Reviewer | Automation Description | -1        | NO                   |
     Then I softly see the following messages in the page details contains:
       | Due date should not be in the Past Date |
     And I refresh the page
