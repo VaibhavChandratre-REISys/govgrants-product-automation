@@ -29043,3 +29043,148 @@ Feature: Sanity scenarios
       | userAuditor     |
       | GRANTEE AUDITOR |
 
+  @463417 @ValidatePreAppwithPMprofileifinopportunitiespreapplicationrequiredselectNOthenonlyunabletocreatepreapplication @GranteeTBE
+  Scenario: Validate PreApp with PM profile if in opportunities pre application required select NO then only unable to create pre application
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{grantee_testData:AutomationPreApplicationSelectedNo}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{grantee_testData:AutomationPreApplicationSelectedNo}" inside table
+    Then I softly cannot see top right button "Create Pre-Application" in page detail
+    Then I softly can see top right button "Create Application" in page detail
+    Then I softly see field "Pre-Application Required?" as "No"
+
+  @463439 @ValidatePreAppwithPMProfilAlltabsandsectionformanuallead @GranteeTBE
+  Scenario: Validate PreApp with PM Profile All tabs and section for manual lead
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{grantee_testData:AutomationPreApplicationCreatedState}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{grantee_testData:AutomationPreApplicationCreatedState}" inside table
+    Then I see the header is "Pre-Application" in the page details
+    Then I see the sub-header is "{grantee_testData:AutomationPreApplicationCreatedState}" in the page details
+    And I save the field labeled "EGMS ID" as "PreAppEGMSID"
+    Then I softly see field "EGMS ID" as "{SavedValue:PreAppEGMSID}"
+    Then I softly see field "Status" as "Created"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
+    And I save the field labeled "Funding Organization" as "FundingOrganization"
+    Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:FundingOrganization}"
+    Then I see the header is "Federal Organization" in the page details
+    Then I see the sub-header is "{SavedValue:FundingOrganization}" in the page details
+    And I click on back arrow
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Setup" sub tab at view detail page
+    Then I softly can see "Budget" sub tab at view detail page
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    Then I softly see "Pre-Application Overview" page block displayed
+    Then I softly see "Opportunity Overview" page block displayed
+    Then I softly see "External Programs" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "Project Abstract" page block displayed
+    Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I softly see "Program Number" in flex table header "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I softly see "Type" in flex table header "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I softly see "Is Primary Program" in flex table header "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I can see row level action button "Edit" against "Pratiksha Program" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I can see row level action button "View" against "Pratiksha Program" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I can see row level action button "Remove" against "Pratiksha Program" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    When I click on parallel lines menu bar with data target value "External Programs"
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Download as CSV" present in parallel dropdown
+    Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly see "Project Role" in flex table header "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly see "Name" in flex table header "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly see "Email" in flex table header "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly see "Is Key Contact" in flex table header "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly see "Is User" in flex table header "---grantee_tableId:-:preApplicationContactTableId---"
+    When I click on parallel lines menu bar with data target value "Contacts"
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I softly can see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---"
+    Then I softly can see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---"
+    Then I softly see "Budget Period #" in flex table header "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---"
+    Then I softly see "Start Date" in flex table header "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---"
+    Then I softly see "End Date" in flex table header "---grantee_tableId:-:PreApplicationBudgetPeriodDetails---"
+    When I click on parallel lines menu bar with data target value "Budget Period Details"
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I navigate to "Budget" sub tab
+    Then I softly see "Budget Overview" page block displayed
+    Then I softly see "Budget Level Information" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I softly see "Budget Period #" in flex table header "---grantee_tableId:-:BudgetPeriodDetailsFromBudgetTab---"
+    Then I softly see "Start Date" in flex table header "---grantee_tableId:-:BudgetPeriodDetailsFromBudgetTab---"
+    Then I softly see "End Date" in flex table header "---grantee_tableId:-:BudgetPeriodDetailsFromBudgetTab---"
+    When I click on parallel lines menu bar with data target value "Budget Period Details"
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Peer Reviewers" page block displayed
+    Then I softly see "Approvers" page block displayed
+    Then I softly see "Owner" page block displayed
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:PreApplicationPeerReviewers---"
+    Then I softly see "Reviewer Name" in flex table header "---grantee_tableId:-:PreApplicationPeerReviewers---"
+    Then I softly see "Responsibility" in flex table header "---grantee_tableId:-:PreApplicationPeerReviewers---"
+    Then I softly see "Description" in flex table header "---grantee_tableId:-:PreApplicationPeerReviewers---"
+    Then I softly see "Due Date" in flex table header "---grantee_tableId:-:PreApplicationPeerReviewers---"
+    Then I softly see "Allow Record Editing" in flex table header "---grantee_tableId:-:PreApplicationPeerReviewers---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:PreApplicationPeerReviewers---"
+    When I click on parallel lines menu bar with data target value "Peer Reviewers"
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:preResponsibiltiesTableId---"
+    Then I softly see "Name" in flex table header "---grantee_tableId:-:preResponsibiltiesTableId---"
+    Then I softly see "PreApplication" in flex table header "---grantee_tableId:-:preResponsibiltiesTableId---"
+    When I click on parallel lines menu bar with data target value "Approvers"
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I softly see "Name" in flex table header "---grantee_tableId:-:preApplicationOwnerTableId---"
+    Then I softly see "Responsibility" in flex table header "---grantee_tableId:-:preApplicationOwnerTableId---"
+    When I click on parallel lines menu bar with data target value "Owner"
+    Then I see option "Refresh" present in parallel dropdown
+    When I navigate to "Files" sub tab
+    Then I softly see "Pre-Application Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationAddFilesTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:preApplicationAddFilesTableId---"
+    Then I softly see "Classification" in flex table header "---grantee_tableId:-:preApplicationAddFilesTableId---"
+    Then I softly see "File Extension" in flex table header "---grantee_tableId:-:preApplicationAddFilesTableId---"
+    Then I softly see "Description" in flex table header "---grantee_tableId:-:preApplicationAddFilesTableId---"
+    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:preApplicationAddFilesTableId---"
+    When I click on parallel lines menu bar with data target value "Pre-Application Files"
+    Then I see option "Refresh" present in parallel dropdown
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationNotesTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:preApplicationNotesTableId---"
+    Then I softly see "Description" in flex table header "---grantee_tableId:-:preApplicationNotesTableId---"
+    Then I softly see "Created By" in flex table header "---grantee_tableId:-:preApplicationNotesTableId---"
+    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:preApplicationNotesTableId---"
+    When I click on parallel lines menu bar with data target value "Notes"
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    When I navigate to "History" sub tab
+    Then I softly see "Approval History" page block displayed
+    Then I softly see "Snapshot History" page block displayed
+    And I navigate to "Messages" sub tab
+    Then I softly see "Messages" page block displayed
+    When I click on parallel lines menu bar with data target value "Messages"
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I softly can see "Chatter" sub tab at view detail page
+    Then I softly can see "Quickview" sub tab at view detail page
+    And I navigate to "Field Audit" sub tab in split screen
+    Then I softly can see "Field Audit" sub tab at view detail page
