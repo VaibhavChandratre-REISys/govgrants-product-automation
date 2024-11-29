@@ -29021,6 +29021,10 @@ Feature: Sanity scenarios
     Then I see field "County" as "{SavedValue:County}" on modal
     Then I see field "4-Digit Zip Code Extension" as "{SavedValue:4DigitZipCodeExtension}" on modal
     Then I see field "Zip Code" as "{SavedValue:ZipCode}" on modal
+    And I save the field labeled "Created By" as "CreatedBy" on modal
+    And I save the field labeled "Created Date" as "CreatedDate" on modal
+    And I save the field labeled "Last Modified By" as "LastModifiedBy" on modal
+    And I save the field labeled "Last Modified Date" as "LastModifiedDate" on modal
     Then I see field "Created By" as "{SavedValue:CreatedBy}" on modal
     Then I softly see link "{SavedValue:CreatedBy}" inside Page block
     Then I see field "Created Date" as "{SavedValue:CreatedDate}" on modal
@@ -29038,3 +29042,4 @@ Feature: Sanity scenarios
     Examples:
       | userAuditor     |
       | GRANTEE AUDITOR |
+
