@@ -29160,7 +29160,7 @@ Feature: Sanity scenarios
     When I navigate to "Files" sub tab
     Then I softly see "Pre-Application Files" page block displayed
     Then I softly see "Notes" page block displayed
-    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationAddFilesTableId---"
+    Then I softly can see top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFilesTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:preApplicationAddFilesTableId---"
     Then I softly see "Classification" in flex table header "---grantee_tableId:-:preApplicationAddFilesTableId---"
     Then I softly see "File Extension" in flex table header "---grantee_tableId:-:preApplicationAddFilesTableId---"
@@ -29228,8 +29228,8 @@ Feature: Sanity scenarios
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Application - All"
-    And I perform quick search for "{grantee_testData:AutomationPreApplicationCreatedState}" in "---grantee_tableId:-:PreApplication---" panel
-    When I click on "View" icon for "{grantee_testData:AutomationPreApplicationCreatedState}" inside table
+    And I perform quick search for "{grantee_testData:AutomationPreApplicationPoUserAllSettingYes}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{grantee_testData:AutomationPreApplicationPoUserAllSettingYes}" inside table
     And I navigate to "Budget" sub tab
     Then I softly see field "Cost Sharing or Match Requirement?" as "Cash and Non-Cash Match"
     Then I softly see field "Required Match (%)" as "10.00%"
