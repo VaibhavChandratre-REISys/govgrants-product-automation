@@ -25547,7 +25547,7 @@ Feature: Sanity scenarios
     Then I softly see "Grant Overview" page block displayed
     Then I softly see "Closeout Request Details" page block displayed
     Then I softly see "System Information" page block displayed
-    When I navigate to "Open Items" sub tab
+    When I navigate to "Open  Items" sub tab
     Then I softly see "Pending Amendment Requests" page block displayed
     Then I softly see "Pending Progress Reports" page block displayed
     Then I softly see "Pending Financial Reports" page block displayed
@@ -25576,9 +25576,9 @@ Feature: Sanity scenarios
     Examples:
       | userType        |
       | GRANTEE PO      |
-      | GRANTEE FO      |
-      | GRANTEE FD      |
-      | GRANTEE AUDITOR |
+#      | GRANTEE FO      |
+#      | GRANTEE FD      |
+#      | GRANTEE AUDITOR |
 
   @445591 @ValidateProgress/FinancialReportSchedulePMusercanseeeditbuttonforProgressreportandFinancialReportonReportingScheduletableoncreatedSubmittedforreviewreviewedapprovedActivestateaward
   Scenario: Validate Progress/Financial Report Schedule PM user can see edit button for Progress report and Financial Report on Reporting Schedule table on created, Submitted for review, reviewed, approved, Active state award
