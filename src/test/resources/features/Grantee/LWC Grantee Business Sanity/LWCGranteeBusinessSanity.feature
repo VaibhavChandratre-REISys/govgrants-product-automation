@@ -29043,7 +29043,7 @@ Feature: Sanity scenarios
       | userAuditor     |
       | GRANTEE AUDITOR |
 
-  @463417 @ValidatePreAppwithPMprofileifinopportunitiespreapplicationrequiredselectNOthenonlyunabletocreatepreapplication @GranteeTBE
+  @463417 @ValidatePreAppwithPMprofileifinopportunitiespreapplicationrequiredselectNOthenonlyunabletocreatepreapplication
   Scenario: Validate PreApp with PM profile if in opportunities pre application required select NO then only unable to create pre application
     When I login to "As a Grantee" app as "GRANTEE PM" user
     When I navigate to "Opportunities" tab
@@ -29055,12 +29055,12 @@ Feature: Sanity scenarios
     Then I softly can see top right button "Create Application" in page detail
     Then I softly see field "Pre-Application Required?" as "No"
 
-  @463439 @ValidatePreAppwithPMProfilAlltabsandsectionformanuallead @GranteeTBE
+  @463439 @463457 @ValidatePreAppwithPMProfilAlltabsandsectionformanuallead @GranteeTBE
   Scenario: Validate PreApp with PM Profile All tabs and section for manual lead
     When I login to "As a Grantee" app as "GRANTEE PM" user
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    When I click toggle button to select "Pre-Applications - All"
+    When I click toggle button to select "Pre-Application - All"
     And I perform quick search for "{grantee_testData:AutomationPreApplicationCreatedState}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "View" icon for "{grantee_testData:AutomationPreApplicationCreatedState}" inside table
     Then I see the header is "Pre-Application" in the page details
@@ -29188,3 +29188,67 @@ Feature: Sanity scenarios
     Then I softly can see "Quickview" sub tab at view detail page
     And I navigate to "Field Audit" sub tab in split screen
     Then I softly can see "Field Audit" sub tab at view detail page
+    #463457
+    And I navigate to "Budget" sub tab
+    Then I softly see field "Maintenance of Effort Required?" as "No"
+    Then I softly cannot see field "Cost Sharing or Matching Requirement" inside page block
+    Then I softly cannot see field "Required Match(%)" inside page block
+    Then I softly cannot see field "Maximum Indirect Cost Rate" inside page block
+    Then I softly cannot see field "Program Income Treatment Type" inside page block
+    Then I softly see field "Are Indirect Costs Allowed?" as "No"
+    Then I softly do not see "Program Income" page block displayed
+    Then I softly do not see "Indirect Rates" page block displayed
+    When I navigate to "Overview" sub tab
+    And I click on hyperlink containing value "{grantee_testData:AutomationOpportunityEGMSID}"
+    Then I softly see field "Status" as "Converted to Pre-Application"
+    Then I softly see field "Is Match Required?" as "No"
+    Then I softly cannot see field "Cost Sharing or Matching Requirement" inside page block
+    Then I softly cannot see field "Required Match(%)" inside page block
+    Then I softly cannot see field "Match Source" inside page block
+    Then I softly cannot see field "Program Income Treatment Type" inside page block
+    Then I softly cannot see field "Maximum Indirect Cost Rate" inside page block
+    Then I softly cannot see field "Rate for Organization Use" inside page block
+    Then I softly see field "Is Program Income Allowed?" as "No"
+    Then I softly see field "Are Indirect Costs Allowed?" as "No"
+    Then I softly see field "Is Leverage Allowed?" as "No"
+
+  @463418 @463456 @ValidatePreAppwithPOprofileifinopportunitiespreapplicationrequiredselectYesthenonlyabletocreatepreapplication @GranteeTBE
+  Scenario: Validate PreApp with PO profile if in opportunities pre application required select Yes then only able to create pre application
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{grantee_testData:AutomationPreApplicationAllSettingYes}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{grantee_testData:AutomationPreApplicationAllSettingYes}" inside table
+    Then I softly can see top right button "Create Pre-Application" in page detail
+    Then I softly see field "Pre-Application Required?" as "Yes"
+    And I click on "Create Pre-Application" in the page details
+    Then I softly see fields "Title__c" is in edit mode
+    #463456
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Application - All"
+    And I perform quick search for "{grantee_testData:AutomationPreApplicationCreatedState}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{grantee_testData:AutomationPreApplicationCreatedState}" inside table
+    And I navigate to "Budget" sub tab
+    Then I softly see field "Cost Sharing or Match Requirement?" as "Cash and Non-Cash Match"
+    Then I softly see field "Required Match (%)" as "10.00%"
+    Then I softly see field "Maintenance of Effort Required?" as "Yes"
+    Then I softly see field "Are Indirect Costs Allowed?" as "Yes"
+    Then I softly see field "Maximum Indirect Cost Rate" as "10.00%"
+    Then I softly see field "Program Income Treatment Type" as "Additive"
+    Then I softly see "Program Income" page block displayed
+    Then I softly see "Indirect Rates" page block displayed
+    When I navigate to "Overview" sub tab
+    And I click on hyperlink containing value "{grantee_testData:AutomationOpportunityPOUserEGMSID}"
+    Then I softly see field "Status" as "Converted to Pre-Application"
+    Then I softly see field "Is Match Required?" as "Yes"
+    Then I softly see field "Cost Sharing or Matching Requirement" as "Cash and Non-Cash Match"
+    Then I softly see field "Required Match(%)" as "10.00%"
+    Then I softly see field "Match Source" as "External Source"
+    Then I softly see field "Is Program Income Allowed?" as "Yes"
+    Then I softly see field "Program Income Treatment Type" as "Additive"
+    Then I softly see field "Maximum Indirect Cost Rate" as "10.00%"
+    Then I softly see field "Rate for Organization Use" as "Federally approved indirect rate"
+    Then I softly see field "Are Indirect Costs Allowed?" as "Yes"
+    Then I softly see field "Is Leverage Allowed?" as "Yes"
