@@ -28655,3 +28655,385 @@ Feature: Sanity scenarios
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:PhasePendingTask---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PhasePendingTask---"
+
+  @482129 @ValidatetheAuditoruserinternalOrganizationallsectionandfields @GranteeTBE
+  Scenario: the Auditor user internal Organization all section and fields
+    When I login to "As a Grantor" app as "GRANTEE AUDITOR" user
+    When I navigate to "Home" tab
+    And I navigate to "Internal" content inside "Organizations" subheader on left panel
+    And I click on "View" icon for "Test Automation Organization" inside flex table with id "---grantee_tableId:-:InternalOrganizations---" without waiting for record
+    Then I see the header is "Internal Organization" in the page details
+    Then I see the sub-header is "Test Automation Organization" in the page details
+    Then I softly see field "Parent Organization" as "GMS Administrator"
+    Then I softly see field "Organization Type" as "Agency"
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Related Log" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    And I navigate to "Overview" sub tab
+    Then I softly see "Address" page block displayed
+    Then I softly see "Related Contacts" page block displayed
+    Then I softly see "Child Organizations" page block displayed
+    Then I softly see "Indirect Rates" page block displayed
+    Then I softly see "UEI Numbers" page block displayed
+    Then I softly see "System Information" page block displayed
+    When I save the field labeled "Organization Code" as "OrganizationCode"
+    Then I softly see field "Organization Code" as "{SavedValue:OrganizationCode}"
+    When I save the field labeled "Abbreviation" as "Abbreviation"
+    Then I softly see field "Abbreviation" as "{SavedValue:Abbreviation}"
+    When I save the field labeled "EIN" as "EIN"
+    Then I softly see field "EIN" as "{SavedValue:EIN}"
+    When I save the field labeled "UEI" as "UEI"
+    Then I softly see field "UEI" as "{SavedValue:UEI}"
+    Then I softly see "Address" page block displayed
+    When I save the field labeled "Street" as "Street"
+    Then I softly see field "Street" as "{SavedValue:Street}"
+    When I save the field labeled "City" as "City"
+    Then I softly see field "City" as "{SavedValue:City}"
+    When I save the field labeled "State" as "State"
+    Then I softly see field "State" as "{SavedValue:State}"
+    When I save the field labeled "Country" as "Country"
+    Then I softly see field "Country" as "{SavedValue:Country}"
+    Then I save the field labeled "Zip Code" as "ZipCode"
+    Then I softly see field "Zip Code" as "{SavedValue:ZipCode}"
+    When I save the field labeled "Website" as "Website"
+    Then I softly see field "Website" as "{SavedValue:Website}"
+    When I save the field labeled "County" as "County"
+    Then I softly see field "County" as "{SavedValue:County}"
+    When I "Collapse" page block contaninig value "Address"
+    Then I softly do not see fields "BillingStreet" is visible
+    When I "Expanded" page block contaninig value "Address"
+    Then I softly see fields "BillingStreet" is visible
+    When I click on parallel lines menu bar with data target value "Related Contacts"
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Download as CSV" present in parallel dropdown
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:RelatedContacts---"
+    And I perform quick search for "Automation PM" in "---grantee_tableId:-:RelatedContacts---" panel
+    Then I softly cannot see row level action button "Edit" against "Automation PM" in flex table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I softly can see row level action button "View" against "Automation PM" in flex table with id "---grantee_tableId:-:RelatedContacts---"
+    When I click on "View" icon for "Automation PM" inside table
+    Then I softly see "Contact" opens in overLay window
+    Then I softly see field on modal "Organization" inside page block
+    Then I softly see field on modal "Title" inside page block
+    Then I softly see field on modal "First Name" inside page block
+    Then I softly see field on modal "Last Name" inside page block
+    Then I softly see field on modal "Phone" inside page block
+    Then I softly see field on modal "Mobile Phone" inside page block
+    Then I softly see field on modal "Email" inside page block
+    Then I softly see field on modal "Address Line 1" inside page block
+    Then I softly see field on modal "Address Line 2" inside page block
+    Then I softly see field on modal "State" inside page block
+    Then I softly see field on modal "City" inside page block
+    Then I softly see field on modal "Country" inside page block
+    Then I softly see field on modal "County" inside page block
+    Then I softly see field on modal "4-Digit Zip Code Extension" inside page block
+    Then I softly see field on modal "Zip Code" inside page block
+    And I save the field labeled "Title" as "Title" on modal
+    And I save the field labeled "First Name" as "FirstName" on modal
+    And I save the field labeled "Last Name" as "LastName" on modal
+    And I save the field labeled "Phone" as "Phone" on modal
+    And I save the field labeled "Mobile Phone" as "MobilePhone" on modal
+    And I save the field labeled "Email" as "Email" on modal
+    And I save the field labeled "Address Line 1" as "AddressLine1" on modal
+    And I save the field labeled "State" as "State" on modal
+    And I save the field labeled "City" as "City" on modal
+    And I save the field labeled "Country" as "Country" on modal
+    And I save the field labeled "Zip Code" as "ZipCode" on modal
+    And I save the field labeled "Created By" as "CreatedBy" on modal
+    And I save the field labeled "Created Date" as "CreatedDate" on modal
+    And I save the field labeled "Last Modified By" as "LastModifiedBy" on modal
+    And I save the field labeled "Last Modified Date" as "LastModifiedDate" on modal
+    Then I see field "Title" as "{SavedValue:Title}" on modal
+    Then I see field "First Name" as "{SavedValue:FirstName}" on modal
+    Then I see field "Last Name" as "{SavedValue:LastName}" on modal
+    Then I see field "Phone" as "{SavedValue:Phone}" on modal
+    Then I see field "Mobile Phone" as "{SavedValue:MobilePhone}" on modal
+    Then I see field "Email" as "{SavedValue:Email}" on modal
+    Then I see field "Address Line 1" as "{SavedValue:AddressLine1}" on modal
+    Then I see field "State" as "{SavedValue:State}" on modal
+    Then I see field "City" as "{SavedValue:City}" on modal
+    Then I see field "Country" as "{SavedValue:Country}" on modal
+    Then I see field "Zip Code" as "{SavedValue:ZipCode}" on modal
+    Then I see field "Created By" as "{SavedValue:CreatedBy}" on modal
+    Then I softly see link "{SavedValue:CreatedBy}" inside Page block
+    Then I see field "Created Date" as "{SavedValue:CreatedDate}" on modal
+    Then I see field "Last Modified By" as "{SavedValue:LastModifiedBy}" on modal
+    Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
+    Then I see field "Last Modified Date" as "{SavedValue:LastModifiedDate}" on modal
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    When I perform quick search for "Automation PM" in "---grantee_tableId:-:RelatedContacts---" panel
+    Then I softly see value "Automation PM" for title "Title" inside table "---grantee_tableId:-:RelatedContacts---"
+    Then I can see row level action button "View" against "Automation PM" in flex table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I cannot see row level action button "Delete" against "Automation PM" in flex table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I cannot see row level action button "Edit" against "Automation PM" in flex table with id "---grantee_tableId:-:RelatedContacts---"
+    When I click on parallel lines menu bar with data target value "Related Contacts"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Download as CSV" present in parallel dropdown
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:RelatedContacts---"
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:RelatedContacts---"
+    When I click on "Full Name" column header inside table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see sort order "Ascending" for column "Full Name" inside table with id "---grantee_tableId:-:RelatedContacts---"
+    When I click on "Full Name" column header inside table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see sort order "Descending" for column "Full Name" inside table with id "---grantee_tableId:-:RelatedContacts---"
+    When I click on "Email" column header inside table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see sort order "Ascending" for column "Email" inside table with id "---grantee_tableId:-:RelatedContacts---"
+    When I click on "Email" column header inside table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see sort order "Descending" for column "Email" inside table with id "---grantee_tableId:-:RelatedContacts---"
+    When I click on "Phone" column header inside table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see sort order "Ascending" for column "Phone" inside table with id "---grantee_tableId:-:RelatedContacts---"
+    When I click on "Phone" column header inside table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see sort order "Descending" for column "Phone" inside table with id "---grantee_tableId:-:RelatedContacts---"
+    When I click on "Is User" column header inside table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see sort order "Ascending" for column "Is User" inside table with id "---grantee_tableId:-:RelatedContacts---"
+    When I click on "Is User" column header inside table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see sort order "Descending" for column "Is User" inside table with id "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:RelatedContacts---"
+    Then I softly see "Child Organizations" page block displayed
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:childOrganizationTableId---"
+    Then I softly see "Organization" in flex table header "---grantee_tableId:-:childOrganizationTableId---"
+    Then I softly see "Organization Level" in flex table header "---grantee_tableId:-:childOrganizationTableId---"
+    Then I softly see "Agency Abbreviation" in flex table header "---grantee_tableId:-:childOrganizationTableId---"
+    Then I softly see "Indirect Rates" page block displayed
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see "Effective from" in flex table header "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see "Effective Until" in flex table header "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see "Budget Categories" in flex table header "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:indirectRateTableId---"
+    When I click on parallel lines menu bar with data target value "Indirect Rates"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see sort order "Ascending" for column "Title" inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    When I click on "Title" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    When I click on "Effective from" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see sort order "Ascending" for column "Effective from" inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    When I click on "Effective from" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see sort order "Descending" for column "Effective from" inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    When I click on "Effective Until" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see sort order "Ascending" for column "Effective Until" inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    When I click on "Effective Until" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see sort order "Descending" for column "Effective Until" inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    When I click on "Approved Indirect Cost Rate(%)" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see sort order "Ascending" for column "Approved Indirect Cost Rate(%)" inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    When I click on "Approved Indirect Cost Rate(%)" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see sort order "Descending" for column "Approved Indirect Cost Rate(%)" inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    When I click on "Indirect Cost Rate Type" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see sort order "Ascending" for column "Indirect Cost Rate Type" inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    When I click on "Indirect Cost Rate Type" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see sort order "Descending" for column "Indirect Cost Rate Type" inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    When I click on "Budget Categories" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see sort order "Ascending" for column "Budget Categories" inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    When I click on "Budget Categories" column header inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see sort order "Descending" for column "Budget Categories" inside table with id "---grantee_tableId:-:indirectRateTableId---"
+    Then I softly see "UEI Numbers" page block displayed
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:uieNumberTableId---"
+    Then I softly see "UEI Number" in flex table header "---grantee_tableId:-:uieNumberTableId---"
+    Then I softly see "Registered Entity Name" in flex table header "---grantee_tableId:-:uieNumberTableId---"
+    Then I softly see "Location" in flex table header "---grantee_tableId:-:uieNumberTableId---"
+    Then I softly see "Child Organizations" page block displayed
+    Then I softly see link "Created By" inside Page block
+    And I save the field labeled "Created By" as "CreatedBy"
+    Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
+    And I save the field labeled "Created Date" as "CreatedDate"
+    Then I softly see field "Created Date" as "{SavedValue:CreatedDate}"
+    Then I softly see link "Last Modified By" inside Page block
+    And I save the field labeled "Last Modified By" as "LastModifiedBy"
+    Then I softly see field "Last Modified By" as "{SavedValue:LastModifiedBy}"
+    Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
+    And I save the field labeled "Last Modified Date" as "LastModifiedDate"
+    Then I softly see field "Last Modified Date" as "{SavedValue:LastModifiedDate}"
+    And I navigate to "Related Log" sub tab
+    Then I softly see "Qualified Leads" page block displayed
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
+    Then I softly see "Opportunity Number" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
+    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
+    Then I softly see "Qualifying Organization" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
+    Then I softly see "Application Due Date" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:relatedLogsQualifiedLeadsTableId---"
+    And I navigate to "Files" sub tab
+    Then I softly see "Organization Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    Then I softly do not see top right button "Add Files" inside flex table "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I softly see "Classification" in flex table header "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I softly see "File Extension" in flex table header "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I softly see "Description" in flex table header "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I see "Attachment.pdf" has been added in "Organization Files" flex table
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I softly see value "Others" for title "Classification" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgFilesTableId---"
+    When I click on parallel lines menu bar with data target value "Organization Files"
+    Then I see option "Refresh" present in parallel dropdown
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I softly see value "Notes Record for PM" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I softly see link "Created By" inside Page block
+    Then I softly see "Created By" in flex table header "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I cannot see row level action button "Delete" against "Notes Record for PM" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
+    Then I cannot see row level action button "Edit" against "Notes Record for PM" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
+    When I click on parallel lines menu bar with data target value "Notes"
+    Then I see option "Refresh" present in parallel dropdown
+    When I navigate to "History" sub tab
+    Then I softly see "Snapshot History" page block displayed
+    Then I softly can see "Field Audit" sub tab at view detail page
+    Then I softly can see "Chatter" sub tab at view detail page
+
+  @482136 @ValidateAuditorusershouldhaveonlyviewaccess @GranteeTBE
+  Scenario Outline: Validate Auditor user should have only view access
+    When I login to "As a Grantor" app as "GRANTEE PM" user
+    When I navigate to "Home" tab
+    And I navigate to "Internal" content inside "Contacts" subheader on left panel
+    And I click toggle button to select "All Contacts"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    When I enter in modal value "Department of Product" into field "AccountId"
+    When I enter in modal value "Automation Runtime" into field "FirstName"
+    And I enter in modal value "Contact" into field "LastName"
+    And I enter in modal value "8967894567" into field "Phone"
+    And I enter in modal value "9580378904" into field "MobilePhone"
+    And I enter in modal value "VA Street" into field "MailingStreet"
+    And I enter in modal value "Jordan Road" into field "Address2__c"
+    And I enter in modal value "AK: Alaska" into field "State__c"
+    And I enter in modal value "123" into field "CongressionalDistrict__c"
+    And I enter in modal value "Calif" into field "MailingCity"
+    And I enter in modal value "USA" into field "MailingCountry"
+    And I enter in modal value "California" into field "County__c"
+    And I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
+    And I enter in modal value "12345" into field "MailingPostalCode"
+    And I generate the random EmailID and save as "uniqueEmailID"
+    And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+    And I click modal button "Save"
+    And I save the field labeled "Organization" as "Organization" on modal
+    And I save the field labeled "Type" as "Type" on modal
+    And I save the field labeled "Title" as "Title" on modal
+    And I save the field labeled "First Name" as "FirstName" on modal
+    And I save the field labeled "Last Name" as "LastName" on modal
+    And I save the field labeled "Phone" as "Phone" on modal
+    And I save the field labeled "Mobile Phone" as "MobilePhone" on modal
+    And I save the field labeled "Email" as "Email" on modal
+    And I save the field labeled "Address Line 1" as "AddressLine1" on modal
+    And I save the field labeled "Address Line 2" as "AddressLine2" on modal
+    And I save the field labeled "State" as "State" on modal
+    And I save the field labeled "Congressional District" as "CongressionalDistrict" on modal
+    And I save the field labeled "City" as "City" on modal
+    And I save the field labeled "Country" as "Country" on modal
+    And I save the field labeled "County" as "County" on modal
+    And I save the field labeled "4-Digit Zip Code Extension" as "4DigitZipCodeExtension" on modal
+    And I save the field labeled "Zip Code" as "ZipCode" on modal
+    When I close "Create Contact" modal by clicking the top right x button
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---grantee_tableId:-:InternalContacts---" panel
+    Then I softly see value "{SavedValue:Automation Runtime} Contact" for title "Full Name" inside table "---grantee_tableId:-:InternalContacts---"
+    Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    And I re-login to "As a Grantee" app as "<userAuditor>" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    Then I see "External" inside "Contacts" is displayed
+    Then I see "Internal" inside "Contacts" is displayed
+    And I navigate to "Internal" content inside "Contacts" subheader on left panel
+    And I click toggle button to select "All Contacts"
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:InternalContacts---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:InternalContacts---"
+    Then I softly see "Full Name" in flex table header "---grantee_tableId:-:InternalContacts---"
+    Then I softly see "Email" in flex table header "---grantee_tableId:-:InternalContacts---"
+    Then I softly see "Phone" in flex table header "---grantee_tableId:-:InternalContacts---"
+    Then I softly see "Organization" in flex table header "---grantee_tableId:-:InternalContacts---"
+    Then I softly see "Is User" in flex table header "---grantee_tableId:-:InternalContacts---"
+    Then I softly see toggle option "All Contacts" inside flex table id "---grantee_tableId:-:InternalContacts---"
+    Then I softly see toggle option "My Organization’s Contact" inside flex table id "---grantee_tableId:-:InternalContacts---"
+    When I click on parallel lines menu bar with data target value "All Contacts"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I click on page navigation arrow "---grantee_tableId:-:InternalContacts---" for table id "Next"
+    Then I see table "---grantee_tableId:-:InternalContacts---" shows "Page 2"
+    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:InternalContacts---"
+    Then I softly see button "Advance Filter" inside flextable "---grantee_tableId:-:InternalContacts---"
+    And I click on advance filter of table id "---grantee_tableId:-:InternalContacts---" for LWC
+    And I enter advance filter values inside id "---grantee_tableId:-:InternalContacts---" for LWC
+      | Full Name | contains | Grantee PO |
+    Then I softly see value "Grantee PO" for title "Full Name" inside table "---grantee_tableId:-:InternalContacts---"
+    And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:InternalContacts---"
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---grantee_tableId:-:InternalContacts---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime} Contact" inside table
+    Then I softly see "Contact View" opens in overLay window
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly see "Contact Information" page block displayed
+    Then I softly see "Address Information" page block displayed
+    Then I softly see field on modal "Organization" inside page block
+    Then I softly see field on modal "Title" inside page block
+    Then I softly see field on modal "First Name" inside page block
+    Then I softly see field on modal "Last Name" inside page block
+    Then I softly see field on modal "Phone" inside page block
+    Then I softly see field on modal "Mobile Phone" inside page block
+    Then I softly see field on modal "Email" inside page block
+    Then I softly see field on modal "Address Line 1" inside page block
+    Then I softly see field on modal "Address Line 2" inside page block
+    Then I softly see field on modal "State" inside page block
+    Then I softly see field on modal "Congressional District" inside page block
+    Then I softly see field on modal "City" inside page block
+    Then I softly see field on modal "Country" inside page block
+    Then I softly see field on modal "County" inside page block
+    Then I softly see field on modal "4-Digit Zip Code Extension" inside page block
+    Then I softly see field on modal "Zip Code" inside page block
+    Then I softly see field on modal "Organization" inside page block
+    Then I softly see link "{SavedValue:Organization}" inside Page block
+    Then I see field "Organization" as "{SavedValue:Organization}" on modal
+    And I click on hyperlink for modal containing value "{SavedValue:Organization}"
+    Then I see the header is "Internal Organization" in the page details
+    Then I see the sub-header is "{SavedValue:Organization}" in the page details
+    And I click on back arrow
+    Then I softly see field on modal "Type" inside page block
+    Then I see field "Type" as "{SavedValue:Type}" on modal
+    Then I see field "Title" as "{SavedValue:Title}" on modal
+    Then I see field "First Name" as "{SavedValue:FirstName}" on modal
+    Then I see field "Last Name" as "{SavedValue:LastName}" on modal
+    Then I see field "Phone" as "{SavedValue:Phone}" on modal
+    Then I see field "Mobile Phone" as "{SavedValue:MobilePhone}" on modal
+    Then I see field "Email" as "{SavedValue:Email}" on modal
+    Then I see field "Address Line 1" as "{SavedValue:AddressLine1}" on modal
+    Then I see field "Address Line 2" as "{SavedValue:AddressLine2}" on modal
+    Then I see field "State" as "{SavedValue:State}" on modal
+    Then I see field "Congressional District" as "{SavedValue:CongressionalDistrict}" on modal
+    Then I see field "City" as "{SavedValue:City}" on modal
+    Then I see field "Country" as "{SavedValue:Country}" on modal
+    Then I see field "County" as "{SavedValue:County}" on modal
+    Then I see field "4-Digit Zip Code Extension" as "{SavedValue:4DigitZipCodeExtension}" on modal
+    Then I see field "Zip Code" as "{SavedValue:ZipCode}" on modal
+    Then I see field "Created By" as "{SavedValue:CreatedBy}" on modal
+    Then I softly see link "{SavedValue:CreatedBy}" inside Page block
+    Then I see field "Created Date" as "{SavedValue:CreatedDate}" on modal
+    Then I see field "Last Modified By" as "{SavedValue:LastModifiedBy}" on modal
+    Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
+    Then I see field "Last Modified Date" as "{SavedValue:LastModifiedDate}" on modal
+    Then I cannot see top right button "Edit" in page detail
+    When I close "Contact View" modal by clicking the top right x button
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---grantee_tableId:-:InternalContacts---" panel
+    Then I softly see value "{SavedValue:Automation Runtime} Contact" for title "Full Name" inside table "---grantee_tableId:-:InternalContacts---"
+    Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
+
+    Examples:
+      | userAuditor     |
+      | GRANTEE AUDITOR |
