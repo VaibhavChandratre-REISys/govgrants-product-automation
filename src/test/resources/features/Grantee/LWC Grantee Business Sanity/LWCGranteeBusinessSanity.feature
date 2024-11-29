@@ -28656,7 +28656,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:PhasePendingTask---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PhasePendingTask---"
 
-  @482129 @ValidatetheAuditoruserinternalOrganizationallsectionandfields @GranteeTBE
+  @482129 @ValidatetheAuditoruserinternalOrganizationallsectionandfields
   Scenario: the Auditor user internal Organization all section and fields
     When I login to "As a Grantor" app as "GRANTEE AUDITOR" user
     When I navigate to "Home" tab
@@ -28898,7 +28898,7 @@ Feature: Sanity scenarios
     Then I softly can see "Field Audit" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
 
-  @482136 @ValidateAuditorusershouldhaveonlyviewaccess @GranteeTBE
+  @482136 @ValidateAuditorusershouldhaveonlyviewaccess
   Scenario Outline: Validate Auditor user should have only view access
     When I login to "As a Grantor" app as "GRANTEE PM" user
     When I navigate to "Home" tab
@@ -28951,6 +28951,7 @@ Feature: Sanity scenarios
     Then I see "Internal" inside "Contacts" is displayed
     And I navigate to "Internal" content inside "Contacts" subheader on left panel
     And I click toggle button to select "All Contacts"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:InternalContacts---"
     Then I softly see "Actions" in flex table header "---grantee_tableId:-:InternalContacts---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:InternalContacts---"
     Then I softly see "Full Name" in flex table header "---grantee_tableId:-:InternalContacts---"
