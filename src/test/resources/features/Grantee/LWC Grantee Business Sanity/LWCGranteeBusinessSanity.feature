@@ -29297,11 +29297,253 @@ Feature: Sanity scenarios
     And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I wait for "2" seconds
+    Then I softly see field "State" as "Forecasted"
+    And I save the field labeled "EGMS ID" as "LeadsEGMSID"
+    When I navigate to "Overview" sub tab
+    Then I softly see field "Opportunity Title" as "{SavedValue:Automation Runtime Leads}"
+    Then I softly see field "Opportunity Number" as "{SavedValue:Automation Runtime Opp No}"
+    Then I softly see field "Application Due Date" as "{Date:M/dd/yyyy::d+100}"
+    Then I softly see field "Funding Organization" as "Department of Education"
+    Then I softly see field "Negotiation Request Status" as "Complete" in "Negotiation Request Details" pageblock
+    Then I softly see value "Individuals" for the field "Eligible Applicants" inside multipicklist view list
+    Then I softly see value "For profit organizations other than small businesses" for the field "Eligible Applicants" inside multipicklist view list
+    Then I softly see field "Lead Description" as "Automation Test"
+    And I navigate to "Financials" sub tab
+    Then I softly see field "Cost Sharing or Matching Requirement" as "Yes"
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Financials" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    When I navigate to "Overview" sub tab
+    Then I softly see "General Information" page block displayed
+    Then I softly see field "Funding Organization" inside page block
+    Then I softly see asterisk mark on "Funding Organization"
+    Then I softly see field "Opportunity Number" inside page block
+    Then I softly see asterisk mark on "Opportunity Number"
+    When I hovering mouse on help text icon inside page block detail "Opportunity Number"
+    Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
+    Then I softly see field "Opportunity Title" inside page block
+    Then I softly see asterisk mark on "Opportunity Title"
+    Then I softly see field "Posted Date" inside page block
+    Then I softly see field "Opportunity Category" inside page block
+    Then I softly see asterisk mark on "Opportunity Category"
+    Then I softly see field "Application Due Date" inside page block
+    Then I softly see asterisk mark on "Application Due Date"
+    Then I softly see field "Funding Instrument Type" inside page block
+    Then I softly see asterisk mark on "Funding Instrument Type"
+    Then I softly see field "Category Of Funding Activity" inside page block
+    Then I softly see asterisk mark on "Category Of Funding Activity"
+    Then I softly see field "Archive Date" inside page block
+    Then I softly see asterisk mark on "Archive Date"
+    Then I softly see field "Expected Number of Awards" inside page block
+    Then I softly see field "Source" inside page block
+    Then I softly see field "Version" inside page block
+    Then I softly see "Related Programs" page block displayed
+    Then I softly see "Eligibility" page block displayed
+    Then I softly see field "Eligible Applicants" inside page block
+    Then I softly see field "Additional Eligibility Information" inside page block
+    Then I softly see "Additional Information" page block displayed
+    Then I softly see field "Lead Description" inside page block
+    Then I softly see field "Link to Additional Information" inside page block
+    Then I softly see field "Grantor Contact Information" inside page block
+    Then I softly see "Qualified Agencies" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I can see top right button "Activate" in page detail
+    Then I can see top right button "Edit" in page detail
+    And I navigate to "Financials" sub tab
+    Then I softly see "Financial Details" page block displayed
+    Then I softly see field "Estimated Total Program Funding" inside page block
+    Then I softly see field "Award Floor" inside page block
+    Then I softly see field "Award Ceiling" inside page block
+    Then I softly see field "Cost Sharing or Matching Requirement" inside page block
+    And I navigate to "Files" sub tab
+    Then I softly see "Lead Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    Then I softly can see top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "AttachmentTesting.pdf" has been added in "Lead Files" flex table
+    Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
+    Then I can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
+    Then I can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
+    Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsAttachmentTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:LeadsAttachmentTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:LeadsAttachmentTableId---"
+    Then I can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:LeadsAttachmentTableId---"
+    Then I can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:LeadsAttachmentTableId---"
+    When I navigate to "History" sub tab
+    And I click on "Take Snapshot" in the page details
+    And I wait for "5" seconds
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I see snapshot with name containing "SnapShot on" as name
+    When I click on "Activate" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
+    When I click modal button "OK"
+    Then I softly see field "State" as "Posted"
+    Then I can see top right button "Qualify Lead" in page detail
+    And I click on "Qualify Lead" in the page details
+    Then I softly see field "Status" as "Qualified Lead"
+    And I save the field labeled "EGMS ID" as "QualifiedLeadEGMSID"
+    Then I softly see field "EGMS ID" as "{SavedValue:QualifiedLeadEGMSID}"
+    #470406
+    And I click on "Edit" in the page details
+    And I enter "Grantee_Qualifiedleads_Edition" values from "Announcement_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I can see top right button "Convert to Opportunity" in page detail
+    When I click on "Convert to Opportunity" in the page details
+    Then I softly see field "Status" as "Draft"
+    And I save the field labeled "EGMS ID" as "OpportunityEGMSID"
+    Then I softly see field "EGMS ID" as "{SavedValue:OpportunityEGMSID}"
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Evaluation" sub tab at view detail page
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Validate" in page detail
+    Then I softly can see top right button "Submit for Approval" in page detail
+    Then I softly see "Opportunity Information" page block displayed
+    Then I softly see "Lead Information" page block displayed
+    Then I softly see "Opportunity Specific Settings" page block displayed
+    Then I softly see "External Programs" page block displayed
+    Then I softly see "Eligibility" page block displayed
+    Then I softly see "Additional Information" page block displayed
+    Then I softly see "Financial Details" page block displayed
+    Then I softly see "System Information" page block displayed
+    And I navigate to "Evaluation" sub tab
+    Then I softly see "Evaluation" page block displayed
+    Then I softly see "Organizational Readiness" page block displayed
+    Then I softly see "Collaboration Details" page block displayed
+    Then I softly see "Financial Overview" page block displayed
+    Then I softly see "Certifications and Other" page block displayed
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Peer Reviewers" page block displayed
+    Then I softly see "Approvers" page block displayed
+    And I navigate to "Files" sub tab
+    Then I softly see "Opportunity Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    Then I softly see "Business Forms" page block displayed
+    Examples:
+      | User        |
+      | GRANTEE PM  |
+      | GRANTEE PO  |
+      | GRANTEE EXE |
+
+  @477695 @477697 @477702 @ValidatethedependentfieldforPMuserforsectionEvaluationunderevaluationtabonopportunity @GranteeTBE1
+  Scenario: Validate the dependent field for PM user for section "Evaluation" under evaluation tab on opportunity
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "State" as "Forecasted"
+    And I save the field labeled "EGMS ID" as "LeadsEGMSID"
+    When I click on "Activate" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
+    When I click modal button "OK"
+    Then I softly see field "State" as "Posted"
+    Then I can see top right button "Qualify Lead" in page detail
+    And I click on "Qualify Lead" in the page details
+    Then I softly see field "Status" as "Qualified Lead"
+    And I save the field labeled "EGMS ID" as "QualifiedLeadEGMSID"
+    And I click on "Edit" in the page details
+    And I enter "Grantee_Qualifiedleads_Edition" values from "Announcement_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I click on "Convert to Opportunity" in the page details
+    And I click on "Edit" in the page details
+    And I navigate to "Evaluation" sub tab
+    And I enter value "Yes" into field "HaveWeReceivedAwardFromProgram__c"
+    Then I softly see field "1a. If yes, provide a full description of past fundings (i.e. Purpose of the Program, funds granted, time of the grant, Weaknesses and Achievements according to the funds granted)." inside page block
+    And I enter value "No" into field "HaveWeReceivedAwardFromProgram__c"
+    Then I softly see field "1b. If no, provide a brief description of the Proposal (i.e. the purpose of the program, funds needed to accomplish the objectives of the program, what will be the projected achievements according to the funds needed)." inside page block
+    #477697
+    And I enter value "No" into field "LeadAgencyAgreedUpon__c"
+    Then I softly see field "8b. If no, what steps have been taken to determine the lead organization?" inside page block
+    And I enter value "Yes" into field "LeadAgencyAgreedUpon__c"
+    Then I softly cannot see field "8b. If no, what steps have been taken to determine the lead organization?" inside page block
+    And I enter value "Yes" into field "CollaborationandWorkShare__c"
+    Then I softly see field "9a. Please explain." inside page block
+    And I enter value "No" into field "CollaborationandWorkShare__c"
+    Then I softly cannot see field "9a. Please explain." inside page block
+    #477702
+    And I enter value "Yes" into field "MaintenanceEffortRequire__c"
+    Then I softly see field "13a. If yes, describe the statutory maintenance of effort requirement." inside page block
+    And I enter value "No" into field "MaintenanceEffortRequire__c"
+    Then I softly cannot see field "13a. If yes, describe the statutory maintenance of effort requirement." inside page block
+    And I enter value "Yes" into field "RequiredPassThroughToSubrecipients__c"
+    Then I softly see field "14a. If yes, what is the percent of funding required to pass through to subrecipients." inside page block
+    And I enter value "No" into field "RequiredPassThroughToSubrecipients__c"
+    Then I softly cannot see field "14a. If yes, what is the percent of funding required to pass through to subrecipients." inside page block
+    And I enter value "Yes" into field "LimitOnAdministrativeRate__c"
+    Then I softly see field "16a. If yes, what percent is the administrative cost limit?" inside page block
+    And I enter value "No" into field "LimitOnAdministrativeRate__c"
+    Then I softly cannot see field "16a. If yes, what percent is the administrative cost limit?" inside page block
+
+  @482115 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead
+  Scenario Outline: Validate FO user should have view access only on the qualified lead
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    Then I softly see "Create New Lead" opens in overLay window
+    Then I softly see "General Information" page block displayed on modal
+    Then I softly see field on modal "Opportunity Title" inside page block
+    Then I softly see asterisk mark on "Opportunity Title"
+    Then I softly see field on modal "Opportunity Number" inside page block
+    Then I softly see asterisk mark on "Opportunity Number"
+    When I hovering mouse on help text icon inside modal "Opportunity Number"
+    Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
+    Then I softly see field on modal "Application Due Date" inside page block
+    Then I softly see asterisk mark on "Application Due Date"
+    Then I softly see field on modal "Funding Organization" inside page block
+    Then I softly see asterisk mark on "Funding Organization"
+    Then I softly see "Eligibility" page block displayed on modal
+    Then I softly see field on modal "Eligible Applicants" inside page block
+    Then I softly see asterisk mark on "Eligible Applicants"
+    Then I softly see "Additional Information" page block displayed on modal
+    Then I softly see field on modal "Lead Description" inside page block
+    Then I softly see asterisk mark on "Lead Description"
+    Then I softly see "Financial Details" page block displayed on modal
+    Then I softly see field on modal "Cost Sharing or Matching Requirement" inside page block
+    Then I softly see asterisk mark on "Cost Sharing or Matching Requirement"
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | Opportunity Title is required to save.                    |
+      | Opportunity Number is required to save.                   |
+      | Application Due Date is required to save.                 |
+      | Funding Organization is required to save.                 |
+      | Eligible Applicants is required to save.                  |
+      | Lead Description is required to save.                     |
+      | Cost Sharing or Matching Requirement is required to save. |
+    And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
+    Then I see the header is "Lead" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime Leads}" in the page details
+    And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Forecasted"
     And I save the field labeled "EGMS ID" as "LeadsEGMSID"
     When I navigate to "Overview" sub tab
     Then I softly see field "Opportunity Title" as "{SavedValue:Automation Runtime Leads}"
     Then I softly see field "Opportunity Number" as "{SavedValue:Automation Runtime Opp No}"
+    Then I softly see field "Application Due Date" as "{Date:M/dd/yyyy::d+100}"
     Then I softly see field "Application Due Date" as "{Date:M/dd/yyyy::d+100}"
     Then I softly see field "Funding Organization" as "Department of Education"
     Then I softly see field "Eligible Applicants" as "Individuals"
@@ -29392,108 +29634,44 @@ Feature: Sanity scenarios
     Then I can see top right button "Qualify Lead" in page detail
     And I click on "Qualify Lead" in the page details
     Then I softly see field "Status" as "Qualified Lead"
-    And I save the field labeled "EGMS ID" as "QualifiedLeadEGMSID"
-    Then I softly do not see field "EGMS ID" as "{SavedValue:LeadsEGMSID}"
-    Then I softly see field "EGMS ID" as "{SavedValue:QualifiedLeadEGMSID}"
-    #470406
-    And I click on "Edit" in the page details
-    And I enter "Grantee_Qualifiedleads_Edition" values from "Announcement_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I can see top right button "Convert to Opportunity" in page detail
-    When I click on "Convert to Opportunity" in the page details
-    Then I softly see field "Status" as "Draft"
-    And I save the field labeled "EGMS ID" as "OpportunityEGMSID"
-    Then I softly do not see field "EGMS ID" as "{SavedValue:QualifiedLeadEGMSID}"
-    Then I softly see field "EGMS ID" as "{SavedValue:OpportunityEGMSID}"
+    And I save the field labeled "EGMS ID" as "QualifiedEGMSID"
+    And I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    When I perform quick search for "{SavedValue:QualifiedEGMSID}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:QualifiedEGMSID}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    Then I cannot see top right button "Convert to Opportunity" in page detail
     Then I softly can see "Overview" sub tab at view detail page
-    Then I softly can see "Evaluation" sub tab at view detail page
-    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Financials" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
-    Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Validate" in page detail
-    Then I softly can see top right button "Submit for Approval" in page detail
-    Then I softly see "Opportunity Information" page block displayed
+    Then I softly can see "Messages" sub tab at view detail page
     Then I softly see "Lead Information" page block displayed
-    Then I softly see "Opportunity Specific Settings" page block displayed
-    Then I softly see "External Programs" page block displayed
-    Then I softly see "Eligibility" page block displayed
-    Then I softly see "Additional Information" page block displayed
-    Then I softly see "Financial Details" page block displayed
+    Then I softly see "Qualification Details" page block displayed
+    Then I softly see "All Qualifications" page block displayed
     Then I softly see "System Information" page block displayed
-    And I navigate to "Evaluation" sub tab
-    Then I softly see "Evaluation" page block displayed
-    Then I softly see "Organizational Readiness" page block displayed
-    Then I softly see "Collaboration Details" page block displayed
-    Then I softly see "Financial Overview" page block displayed
-    Then I softly see "Certifications and Other" page block displayed
-    Then I softly see "Additional Information" page block displayed
-    When I navigate to "Responsibilities" sub tab
-    Then I softly see "Peer Reviewers" page block displayed
-    Then I softly see "Approvers" page block displayed
+    Then I softly see field "Funding Organization" inside page block
+    Then I softly see field "Opportunity Number" inside page block
+    Then I softly see field "Opportunity Title" inside page block
+    Then I softly see field "FOA Lead" inside page block
+    Then I softly see field "Qualifying Organization" inside page block
+    Then I softly see field "Relevance" inside page block
+    Then I softly see field "Impact" inside page block
+    Then I softly see field "Justification" inside page block
+    When I navigate to "Financials" sub tab
+    Then I softly see "Financial Details" page block displayed
+    Then I softly see field "Estimated Total Program Funding" inside page block
+    Then I softly see field "Award Floor" inside page block
+    Then I softly see field "Award Ceiling" inside page block
+    Then I softly see field "Cost Sharing or Matching Requirement" inside page block
     And I navigate to "Files" sub tab
-    Then I softly see "Opportunity Files" page block displayed
+    Then I softly see "Qualified Lead Files" page block displayed
     Then I softly see "Notes" page block displayed
-    Then I softly see "Business Forms" page block displayed
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:qualifiedLeadsAddFileTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:qualifiedLeadsNotesTableId---"
+    When I navigate to "History" sub tab
+    Then I softly see "Snapshot History" page block displayed
+
     Examples:
       | User        |
-      | GRANTEE PM  |
-      | GRANTEE PO  |
-      | GRANTEE EXE |
-
-  @477695 @477697 @477702 @ValidatethedependentfieldforPMuserforsectionEvaluationunderevaluationtabonopportunity @GranteeTBE
-  Scenario: Validate the dependent field for PM user for section "Evaluation" under evaluation tab on opportunity
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to "Opportunities" tab
-    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
-    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
-    And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    Then I softly see field "Status" as "Forecasted"
-    And I save the field labeled "EGMS ID" as "LeadsEGMSID"
-    When I click on "Activate" in the page details without processing
-    Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
-    When I click modal button "OK"
-    Then I softly see field "Status" as "Posted"
-    Then I can see top right button "Qualify Lead" in page detail
-    And I click on "Qualify Lead" in the page details
-    Then I softly see field "Status" as "Qualified Lead"
-    And I save the field labeled "EGMS ID" as "QualifiedLeadEGMSID"
-    And I click on "Edit" in the page details
-    And I enter "Grantee_Qualifiedleads_Edition" values from "Announcement_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I wait for "2" seconds
-    When I click on "Convert to Opportunity" in the page details
-    And I click on "Edit" in the page details
-    And I navigate to "Evaluation" sub tab
-    And I enter value "Yes" into field "HaveWeReceivedAwardFromProgram__c"
-    Then I softly see field "1a. If yes, provide a full description of past fundings (i.e. Purpose of the Program, funds granted, time of the grant, Weaknesses and Achievements according to the funds granted)." inside page block
-    And I enter value "No" into field "HaveWeReceivedAwardFromProgram__c"
-    Then I softly see field "1b. If no, provide a brief description of the Proposal (i.e. the purpose of the program, funds needed to accomplish the objectives of the program, what will be the projected achievements according to the funds needed)." inside page block
-    #477697
-    And I enter value "No" into field "LeadAgencyAgreedUpon__c"
-    Then I softly see field "8b. If no, what steps have been taken to determine the lead organization?" inside page block
-    And I enter value "Yes" into field "LeadAgencyAgreedUpon__c"
-    Then I softly cannot see field "8b. If no, what steps have been taken to determine the lead organization?" inside page block
-    And I enter value "Yes" into field "CollaborationandWorkShare__c"
-    Then I softly see field "9a. Please explain." inside page block
-    And I enter value "No" into field "CollaborationandWorkShare__c"
-    Then I softly cannot see field "9a. Please explain." inside page block
-    #477702
-    And I enter value "Yes" into field "MaintenanceEffortRequire__c"
-    Then I softly see field "13a. If yes, describe the statutory maintenance of effort requirement." inside page block
-    And I enter value "No" into field "MaintenanceEffortRequire__c"
-    Then I softly cannot see field "13a. If yes, describe the statutory maintenance of effort requirement." inside page block
-    And I enter value "Yes" into field "RequiredPassThroughToSubrecipients__c"
-    Then I softly see field "14a. If yes, what is the percent of funding required to pass through to subrecipients." inside page block
-    And I enter value "No" into field "RequiredPassThroughToSubrecipients__c"
-    Then I softly cannot see field "14a. If yes, what is the percent of funding required to pass through to subrecipients." inside page block
-    And I enter value "Yes" into field "LimitOnAdministrativeRate__c"
-    Then I softly see field "16a. If yes, what percent is the administrative cost limit?" inside page block
-    And I enter value "No" into field "LimitOnAdministrativeRate__c"
-    Then I softly cannot see field "16a. If yes, what percent is the administrative cost limit?" inside page block
+      | GRANTEE FO  |
