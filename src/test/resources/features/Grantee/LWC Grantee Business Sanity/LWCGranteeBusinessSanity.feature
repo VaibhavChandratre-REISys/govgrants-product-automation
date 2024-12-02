@@ -102,9 +102,9 @@ Feature: Sanity scenarios
       | GRANTEE EXE   | victor.exeqagrantee@yopmail.com |
       | GRANTEE ADMIN | productqa@yopmail.com           |
 
-  @440386 @ValidatePMusercancreateandActivateStrategicplan
-  Scenario: Validate PM user can create and Activate Strategic plan
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+  @440386 @476278 @ValidatePMusercancreateandActivateStrategicplan
+  Scenario Outline: Validate PM user can create and Activate Strategic plan
+    When I login to "As a Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     And I click toggle button to select "Strategic Plans - Draft"
@@ -146,14 +146,14 @@ Feature: Sanity scenarios
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
-      | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | To        | Subject            | Body            |
+      | <emailId> | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "<emailId>" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     When I enter in modal value "Automation Strategic Goal" into field "StrategyTitle__c"
@@ -193,14 +193,14 @@ Feature: Sanity scenarios
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
-      | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | To        | Subject            | Body            |
+      | <emailId> | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "<emailId>" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
     When I enter in modal value "Automation Strategic Objective" into field "StrategyTitle__c"
@@ -248,14 +248,14 @@ Feature: Sanity scenarios
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
-      | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | To         | Subject            | Body            |
+      | <emailId> | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "<emailId>" for title "To Address" inside table "CommunicationHistory"
     And I save the field labeled "Strategic Plan" as "StrategicPlan"
     And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
     When I navigate to "Related Log" sub tab
@@ -271,6 +271,11 @@ Feature: Sanity scenarios
     Then I softly see value "Automation Strategic Goal" for title "Strategic Goal" inside table "---grantee_tableId:-:StrategicGoalsChild---"
     When I expand nested table containing column value "Automation Strategic Goal"
     Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
+    Examples:
+      | userType      | emailId                         |
+      | GRANTEE PM    | sarah.pm.23@yopmail.com         |
+      | GRANTEE EXE   | victor.exeqagrantee@yopmail.com |
+
 
   @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea
   Scenario: Validate Focus Area With EXE Profile Able to create Activate Deactive the focus area
@@ -18804,7 +18809,7 @@ Feature: Sanity scenarios
     And I perform quick search for "{SavedValue:FocusAreaId}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
     Then I do not see value "{SavedValue:FocusAreaId}" for title "EGMS ID" inside table "---grantee_tableId:-:GranteeProjectTableId---"
 
-  @476620 @476621 @476622 @VerifyFDusercannotDeactivateactiveStrategicplan
+  @476620 @476621 @476622 @476623 @VerifyFDusercannotDeactivateactiveStrategicplan
   Scenario Outline: Verify FD user cannot Deactivate active Strategic plan
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Planning" tab
@@ -18814,10 +18819,11 @@ Feature: Sanity scenarios
     And I click on "View" icon for "<RecordId>" inside table
     Then I cannot see top right button "Deactivate" in page detail
     Examples:
-      | User       | RecordId                            |
-      | GRANTEE FO | Automation Permanent Strategic Plan |
-      | GRANTEE FD | Automation Permanent Strategic Plan |
-      | GRANTEE PO | MI_STPlan_7824                      |
+      | User           | RecordId                            |
+      | GRANTEE FO     | Automation Permanent Strategic Plan |
+      | GRANTEE FD     | Automation Permanent Strategic Plan |
+      | GRANTEE PO     | MI_STPlan_7824                      |
+      | GRANTEE AUDITOR| Automation Permanent Strategic Plan |
 
   @476976 @476963 @NonFederalprogramVerifyvalidationsdisplayedtoPOuseronNonFederalprogram
   Scenario Outline: Non-Federal program - Verify validations displayed to PO user on Non Federal program
@@ -28996,5 +29002,325 @@ Feature: Sanity scenarios
     And I click on "Delete" icon for "Rate" inside flex table with id "---grantee_tableId:-:preApplicationIndirectRateTableId---" without waiting for record
     Then I softly do not see value "Rate" for title "Title" inside table "---grantee_tableId:-:preApplicationIndirectRateTableId---"
 
+  @463426 @PreAppVerifyWithEXESummaryBudgetinBudgetTab
+  Scenario: PreApp - Verify With EXE , Summary Budget in Budget Tab.
+    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Pre-Application - All"
+    When I perform quick search for "{AUTOEnvData:AutomationPermanentPreApplication2}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:AutomationPermanentPreApplication2}" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
+    Then I softly see "Pre-Application Overview" page block displayed
+    Then I softly see "Opportunity Overview" page block displayed
+    Then I softly see "External Programs" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "Project Abstract" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I softly can see row level action button "View" against "Wildlife Services" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I softly cannot see row level action button "Edit" against "Wildlife Services" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I softly cannot see row level action button "Remove" against "Wildlife Services" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly can see row level action button "View" against "Grantee PO" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly cannot see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly cannot see row level action button "Remove" against "Grantee PO" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    When I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I softly see that "Project Period Start Date" rendered in view mode only
+    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
+    Then I softly see that "Project Period End Date" rendered in view mode only
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    Then I softly see field "Project Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
+    Then I softly cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    Then I softly cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    Given I expand nested table containing column value "BP01"
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:preAppcationBudgetTableId---"
+    And I navigate to "Budget" sub tab
+    And I save the field labeled "Total Budget Request" as "TotalBudgetRequest"
+    Then I softly see field "Total Budget Request" as "{SavedValue:TotalBudgetRequest}"
+    And I save the field labeled "Maintenance of Effort Required?" as "MaintenanceofEffortRequired?"
+    Then I softly see field "Maintenance of Effort Required?" as "{SavedValue:MaintenanceofEffortRequired?}"
+    And I save the field labeled "Are Indirect Costs Allowed?" as "AreIndirectCostsAllowed?"
+    Then I softly see field "Are Indirect Costs Allowed?" as "{SavedValue:AreIndirectCostsAllowed?}"
+    And I save the field labeled "Maximum Indirect Cost Rate" as "MaximumIndirectCostRate"
+    Then I softly see field "Maximum Indirect Cost Rate" as "{SavedValue:MaximumIndirectCostRate}"
+    Then I softly see field "Budget Level" as "Summary Budget"
+    Then I softly see field "Budget Type" as "NGO"
+    Given I expand nested table containing column value "BP01"
+    Then I softly do not see "Award Budget" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly do not see "Cash Match" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly do not see "Other Leverage" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly do not see "Total Project Cost" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+
+ @463448 @463449 @PreAppVerifywithPOProfilewhenpreapplicationduedateiscrossedforgrantsgovleadthenunabletoseethecreatepreapplicationbutton.
+ Scenario Outline: PreApp - Verify with PO Profile ,when preapplication due date is crossed for grants.gov lead then unable to see the create pre application button.
+    When I login to "As a Grantee" app as "<User>" user
+    And I navigate to "Opportunities" tab
+    And I click toggle button to select "Opportunities - All"
+    When I perform quick search for "{AUTOEnvData:AutomationPermanentLeadPreApplicationExpired}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:AutomationPermanentLeadPreApplicationExpired}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
+    Then I softly cannot see top right button "Create Pre-Application" in page detail
+
+   Examples:
+     | User         |
+     | GRANTEE PO   |
+     | GRANTEE PM   |
 
 
+  @476674 @VerifywithAuditorprofileGrantsGovleadpreapplicationableseeinViewmodeonly
+  Scenario: Verify with Auditor profile , Grants.Gov lead - pre application able see in View mode only.
+    When I login to "As a Grantee" app as "GRANTEE AUDITOR" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Pre-Application - All"
+    When I perform quick search for "{AUTOEnvData:AutomationPermanentPreApplication}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:AutomationPermanentPreApplication}" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
+    Then I softly see "Pre-Application Overview" page block displayed
+    Then I softly see "Opportunity Overview" page block displayed
+    Then I softly see "External Programs" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "Project Abstract" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationExternalProgramTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
+    When I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I softly see that "Project Period Start Date" rendered in view mode only
+    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
+    Then I softly see that "Project Period End Date" rendered in view mode only
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    Then I softly see field "Project Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
+    Then I softly cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    Then I softly cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    And I navigate to "Budget" sub tab
+    Then I softly see "Budget Overview" page block displayed
+    Then I softly see "Budget Level Information" page block displayed
+    Then I softly see "Budget Details" page block displayed
+    Then I softly see "Program Income" page block displayed
+    Then I softly see "Indirect Rates" page block displayed
+    And I save the field labeled "Total Budget Request" as "TotalBudgetRequest"
+    Then I softly see field "Total Budget Request" as "{SavedValue:TotalBudgetRequest}"
+    And I save the field labeled "Cost Sharing or Match Requirement?" as "CostSharingorMatchRequirement?"
+    Then I softly see field "Cost Sharing or Match Requirement?" as "{SavedValue:CostSharingorMatchRequirement?}"
+    And  I save the field labeled "Maintenance of Effort Required?" as "MaintenanceofEffortRequired?"
+    Then I softly see field "Maintenance of Effort Required?" as "{SavedValue:MaintenanceofEffortRequired?}"
+    And I save the field labeled "Are Indirect Costs Allowed?" as "AreIndirectCostsAllowed?"
+    Then I softly see field "Are Indirect Costs Allowed?" as "{SavedValue:AreIndirectCostsAllowed?}"
+    And I save the field labeled "Maximum Indirect Cost Rate" as "MaximumIndirectCostRate"
+    Then I softly see field "Maximum Indirect Cost Rate" as "{SavedValue:MaximumIndirectCostRate}"
+    Then I softly see field "Budget Level" as "Detailed Line Item Budget"
+    Then I softly see field "Budget Type" as "Construction"
+    Given I expand nested table containing column value "BP01"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationIndirectRateTableId---"
+    And I navigate to "Chatter" sub tab in split screen
+    And I post the message "Automation Test" inside chatter
+    Then I softly see post "Automation Test" by user "Grantee AUDITOR"
+    When I navigate to "Responsibilities" sub tab
+    Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---"
+    Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---"
+    And I navigate to "Files" sub tab
+    Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
+    Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
+
+  @463453 @PreAppVerifyWithPMProfilePhaselevelListviewpageasperthefilterlistgettheresult @bugid-483230
+  Scenario: PreApp - Verify With PM Profile , Phase level List view page as per the filter list get the result.
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    Then I softly see toggle option "Pre-Application - All" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see toggle option "Pre-Application - Draft" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see toggle option "Pre-Application - Submitted" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see toggle option "Pre-Application - Converted to Application" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see toggle option "Pre-Application - Expired" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see toggle option "Pre-Application - My Records" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
+    And I click toggle button to select "Pre-Application - All"
+    When I perform quick search for "created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    And I click on page navigation arrow "---grantee_tableId:-:preApplicaltionTableId---" for table id "Next"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:preApplicaltionTableId---"
+    And I click toggle button to select "Pre-Application - All"
+    When I click on parallel lines menu bar with data target value "Pre-Application - All"
+    And I wait for "2" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    And I select "Download as PDF" from parallel lines dropdown of "Pre-Application - All"
+    And I wait for "7" seconds
+    And I download the file
+    Then I softly see "Pre-Application - All" on page "1" of "govgrants" pdf file
+    And I close the tab
+    When I click on parallel lines menu bar with data target value "Pre-Application - All"
+    And I select "Refresh" from parallel lines dropdown of "Pre-Application - All"
+    Then I see table is refreshing
+    And I click toggle button to select "Pre-Application - Draft"
+    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Expired" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    And I wait for "2" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    And I click toggle button to select "Pre-Application - Submitted"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Expired" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    And I wait for "2" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    And I click toggle button to select "Pre-Application - Expired"
+    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Expired" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    And I wait for "2" seconds
+    When I perform quick search for "Expired" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Expired" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    And I wait for "2" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    And I click toggle button to select "Pre-Application - Converted to Application"
+    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Submitted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Submitted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly do not see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    And I wait for "2" seconds
+    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    And I wait for "2" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    And I click toggle button to select "Pre-Application - My Records"
+    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Activated" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Closed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Amended" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    And I wait for "2" seconds
+    And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:preApplicaltionTableId---"
+    When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see "Opportunity Number" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see "Opportunity Title" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see "Pre-Application Title" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see "Due Date" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
