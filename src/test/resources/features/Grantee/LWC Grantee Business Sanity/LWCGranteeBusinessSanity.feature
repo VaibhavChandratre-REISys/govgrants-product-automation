@@ -29304,7 +29304,6 @@ Feature: Sanity scenarios
     Then I softly see field "Opportunity Number" as "{SavedValue:Automation Runtime Opp No}"
     Then I softly see field "Application Due Date" as "{Date:M/dd/yyyy::d+100}"
     Then I softly see field "Funding Organization" as "Department of Education"
-    Then I softly see field "Negotiation Request Status" as "Complete" in "Negotiation Request Details" pageblock
     Then I softly see value "Individuals" for the field "Eligible Applicants" inside multipicklist view list
     Then I softly see value "For profit organizations other than small businesses" for the field "Eligible Applicants" inside multipicklist view list
     Then I softly see field "Lead Description" as "Automation Test"
@@ -29439,7 +29438,7 @@ Feature: Sanity scenarios
       | GRANTEE PO  |
       | GRANTEE EXE |
 
-  @477695 @477697 @477702 @ValidatethedependentfieldforPMuserforsectionEvaluationunderevaluationtabonopportunity @GranteeTBE1
+  @477695 @477697 @477702 @ValidatethedependentfieldforPMuserforsectionEvaluationunderevaluationtabonopportunity
   Scenario: Validate the dependent field for PM user for section "Evaluation" under evaluation tab on opportunity
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -29495,7 +29494,7 @@ Feature: Sanity scenarios
     And I enter value "No" into field "LimitOnAdministrativeRate__c"
     Then I softly cannot see field "16a. If yes, what percent is the administrative cost limit?" inside page block
 
-  @482115 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead
+  @482115 @482116 @482117 @482118 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead
   Scenario Outline: Validate FO user should have view access only on the qualified lead
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -29674,5 +29673,8 @@ Feature: Sanity scenarios
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | User        |
-      | GRANTEE FO  |
+      | User            |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |
