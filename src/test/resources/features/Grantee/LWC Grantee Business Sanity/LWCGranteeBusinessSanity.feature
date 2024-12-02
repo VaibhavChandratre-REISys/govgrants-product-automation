@@ -28893,7 +28893,7 @@ Feature: Sanity scenarios
     Then I softly see link "Victor EXE" inside Page block
     And I click on "Remove" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:preApplicationContactTableId---" without waiting for record
     Then I softly do not see value "Victor EXE" for title "Title" inside table "---grantee_tableId:-:preApplicationContactTableId---"
-    When I click on parallel lines menu bar with data target value "External Programs"
+    When I click on parallel lines menu bar with data target value "Contacts"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
