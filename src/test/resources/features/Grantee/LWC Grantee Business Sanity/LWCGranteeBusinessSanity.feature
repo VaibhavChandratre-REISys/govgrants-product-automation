@@ -29212,7 +29212,7 @@ Feature: Sanity scenarios
     Then I softly see field "Are Indirect Costs Allowed?" as "No"
     Then I softly see field "Is Leverage Allowed?" as "No"
 
-  @463418 @463456 @ValidatePreAppwithPOprofileifinopportunitiespreapplicationrequiredselectYesthenonlyabletocreatepreapplication @GranteeTBE
+  @463418 @463456 @ValidatePreAppwithPOprofileifinopportunitiespreapplicationrequiredselectYesthenonlyabletocreatepreapplication
   Scenario: Validate PreApp with PO profile if in opportunities pre application required select Yes then only able to create pre application
     When I login to "As a Grantee" app as "GRANTEE PO" user
     When I navigate to "Opportunities" tab
@@ -29291,6 +29291,7 @@ Feature: Sanity scenarios
       | Lead Description is required to save.                     |
       | Cost Sharing or Matching Requirement is required to save. |
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime Leads}" in the page details
     And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
@@ -29301,7 +29302,6 @@ Feature: Sanity scenarios
     When I navigate to "Overview" sub tab
     Then I softly see field "Opportunity Title" as "{SavedValue:Automation Runtime Leads}"
     Then I softly see field "Opportunity Number" as "{SavedValue:Automation Runtime Opp No}"
-    Then I softly see field "Application Due Date" as "{Date:M/dd/yyyy::d+100}"
     Then I softly see field "Application Due Date" as "{Date:M/dd/yyyy::d+100}"
     Then I softly see field "Funding Organization" as "Department of Education"
     Then I softly see field "Eligible Applicants" as "Individuals"
@@ -29450,6 +29450,7 @@ Feature: Sanity scenarios
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
     And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I wait for "2" seconds
