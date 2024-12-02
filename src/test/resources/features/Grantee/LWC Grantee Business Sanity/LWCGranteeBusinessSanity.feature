@@ -28882,11 +28882,11 @@ Feature: Sanity scenarios
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
     When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:preAppAssociateContactTableId---"
     And I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationContactTableId---" by clicking "Edit" :
       | Name       | Project Role    | Is Key Contact |
       | Victor EXE | Project Officer | Checked        |
-    And I refresh the page
-    And I wait for "3" seconds
     Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
     Then I softly can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
     Then I softly can see row level action button "Remove" against "Victor EXE" in flex table with id "---grantee_tableId:-:preApplicationContactTableId---"
