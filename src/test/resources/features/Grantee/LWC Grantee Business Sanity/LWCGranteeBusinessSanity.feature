@@ -29533,6 +29533,7 @@ Feature: Sanity scenarios
       | Lead Description is required to save.                     |
       | Cost Sharing or Matching Requirement is required to save. |
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime Leads}" in the page details
     And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
@@ -29546,8 +29547,8 @@ Feature: Sanity scenarios
     Then I softly see field "Application Due Date" as "{Date:M/dd/yyyy::d+100}"
     Then I softly see field "Application Due Date" as "{Date:M/dd/yyyy::d+100}"
     Then I softly see field "Funding Organization" as "Department of Education"
-    Then I softly see field "Eligible Applicants" as "Individuals"
-    Then I softly see field "Eligible Applicants" as "For profit organizations other than small businesses"
+    Then I softly see value "Individuals" for the field "Eligible Applicants" inside multipicklist view list
+    Then I softly see value "For profit organizations other than small businesses" for the field "Eligible Applicants" inside multipicklist view list
     Then I softly see field "Lead Description" as "Automation Test"
     And I navigate to "Financials" sub tab
     Then I softly see field "Cost Sharing or Matching Requirement" as "Yes"
