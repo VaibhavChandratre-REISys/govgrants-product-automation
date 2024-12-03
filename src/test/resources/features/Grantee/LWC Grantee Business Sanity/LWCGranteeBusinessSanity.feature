@@ -29866,6 +29866,8 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     When I click on "Convert to Opportunity" in the page details
     And I click on "Edit" in the page details
+    And I refresh the page
+    And I wait for "3" seconds
     And I enter "Grantee_Opportunity_Edition" values from "Announcement_Field_Values.xlsx"
     And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
     When I click on "Save" in the page details
