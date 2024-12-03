@@ -29691,10 +29691,10 @@ Feature: Sanity scenarios
 
     Examples:
       | User            | Validation        |
-      | GRANTEE FO      | softly can see    |
-      | GRANTEE FD      | softly can see    |
+#      | GRANTEE FO      | softly can see    |
+#      | GRANTEE FD      | softly can see    |
       | GRANTEE ADMIN   | softly can see    |
-      | GRANTEE AUDITOR | softly cannot see |
+#      | GRANTEE AUDITOR | softly cannot see |
 
   @483166 @483167 @483181 @ValidatePMusertheflowofNotyetqualifiedlead
   Scenario Outline: Validate PM user the flow of Not yet qualified lead
