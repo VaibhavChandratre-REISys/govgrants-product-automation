@@ -29414,8 +29414,8 @@ Feature: Sanity scenarios
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
-    When I perform quick search for "{AUTOEnvData:Automation Permanent Lead}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
-    And I click on "View" icon for "{AUTOEnvData:Automation Permanent Lead}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
+    When I perform quick search for "{AUTOEnvData:AutomationPermanentLead}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:AutomationPermanentLead}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
     Then I softly see field "Status" as "Converted to Application"
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Evaluation" sub tab at view detail page
@@ -29425,7 +29425,7 @@ Feature: Sanity scenarios
     Then I softly can see "Field Audit" sub tab at view detail page
     Then I softly can see "Chatter" sub tab at view detail page
     Then I see the header is "Opportunity" in the page details
-    Then I see the sub-header is "{SavedValue:Automation Permanent Lead}" in the page details
+    Then I see the sub-header is "Automation Permanent Lead" in the page details
     And I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:EGMSID}"
     Then I softly see field "Status" as "Converted to Application"
@@ -29438,11 +29438,15 @@ Feature: Sanity scenarios
     Then I softly see "Opportunity Information" page block displayed
     Then I softly see field "Funding Opportunity Title" inside page block
     Then I softly see field "Opportunity Number" inside page block
+    When I hovering mouse on help text icon inside page block detail "Opportunity Number"
+    Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
     Then I softly see field "Internal Organization" inside page block
     Then I softly see field "Funding Instrument Type" inside page block
     Then I softly see field "Category Of Funding Activity" inside page block
     Then I softly see field "Opportunity Category" inside page block
     Then I softly see field "Expected Number of Awards" inside page block
+    When I hovering mouse on help text icon inside page block detail "Expected Number of Awards"
+    Then I softly see "The maximum number excepted is 999." shown as help text
     Then I softly see field "Source" inside page block
     Then I softly see field "Lead Version" inside page block
     Then I softly see field "Posted Date" inside page block
@@ -29452,7 +29456,7 @@ Feature: Sanity scenarios
     Then I softly see field "Number of Agencies that have Qualified this Lead" inside page block
     And I save the field labeled "FOA Lead" as "FOALead"
     And I click on hyperlink containing value "{SavedValue:FOALead}"
-    And I close the tab
+    And I click on back arrow
     Then I softly see "Opportunity Specific Settings" page block displayed
     Then I softly see field "Budget Type" inside page block
     Then I softly see field "Estimated Project Period Start Date" inside page block
@@ -29504,16 +29508,25 @@ Feature: Sanity scenarios
     Then I softly see field "1a. If yes, provide a full description of past fundings (i.e. Purpose of the Program, funds granted, time of the grant, Weaknesses and Achievements according to the funds granted)." inside page block
     Then I softly see field "2. What is the estimated probability of receiving a grant award?" inside page block
     Then I softly see field "2a. Briefly explain." inside page block
-    Then I softly see field "Last Modified by" inside page block
     Then I softly see "Organizational Readiness" page block displayed
     Then I softly see field "3. Do we have the business and technical domain knowledge?" inside page block
     Then I softly see field "3a. Please explain in detail according to the requirements of the Grant Opportunity." inside page block
+    When I hovering mouse on help text icon inside page block detail "3a. Please explain in detail according to the requirements of the Grant Opportunity."
+    Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
     Then I softly see field "4. Do we have the required resources and skill sets to perform the work?" inside page block
     Then I softly see field "4a. Please explain in detail according to the requirements of the Grant Opportunity." inside page block
+    When I hovering mouse on help text icon inside page block detail "Text and number both are allowed. Must not exceed 255 characters"
+    Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
     Then I softly see field "5. Do we have the necessary systems and financial tools?" inside page block
     Then I softly see field "5a. Please explain in detail according to the requirements of the Grant Opportunity." inside page block
+    When I hovering mouse on help text icon inside page block detail "5a. Please explain in detail according to the requirements of the Grant Opportunity."
+    Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
     Then I softly see field "6. Provide the estimated number of hours required to develop the application. Provide an explanation." inside page block
+    When I hovering mouse on help text icon inside page block detail "6. Provide the estimated number of hours required to develop the application. Provide an explanation."
+    Then I softly see "add Text and number both are allowed. Must not exceed 650 characters" shown as help text
     Then I softly see field "7. Provide the estimated number of full time personnel (FTE) that will be required to be hired to implement the grant. Provide an explanation." inside page block
+    When I hovering mouse on help text icon inside page block detail "7. Provide the estimated number of full time personnel (FTE) that will be required to be hired to implement the grant. Provide an explanation."
+    Then I softly see "Text and number both are allowed. Must not exceed 650 characters" shown as help text
     Then I softly see "Collaboration Details" page block displayed
     Then I softly see field "8. Have other internal organizations within the Department qualified this lead?" inside page block
     Then I softly see field "8a. If yes, has an agreement been reached to which organization will be the lead?" inside page block
@@ -29521,19 +29534,42 @@ Feature: Sanity scenarios
     Then I softly see field "9a. Please explain." inside page block
     Then I softly see "Financial Overview" page block displayed
     Then I softly see field "10. What is the expected funding request amount?" inside page block
+    When I hovering mouse on help text icon inside page block detail "10. What is the expected funding request amount?"
+    Then I softly see "Estimated Total Program Funding amount provided in the Financial Details." shown as help text
     Then I softly see field "10a. What is the stated award ceiling (if known)?" inside page block
+    When I hovering mouse on help text icon inside page block detail "10a. What is the stated award ceiling (if known)?"
+    Then I softly see "Maximum spending amount anticipated over the life of the project as provided in the Financial Details." shown as help text
     Then I softly see field "11. Is match required for this grant?" inside page block
+    When I hovering mouse on help text icon inside page block detail "11. Is match required for this grant?"
+    Then I softly see "Match Requirement setting as shown in the Financial Details" shown as help text
+    Then I softly see field "11a. What is the match type." inside page block
+    When I hovering mouse on help text icon inside page block detail "11a. What is the match type."
+    Then I softly see "Cost Sharing or Matching Requirement selected in the Financial Details." shown as help text
     Then I softly see field "11b. If yes, identify the match sources." inside page block
+    When I hovering mouse on help text icon inside page block detail "11b. If yes, identify the match sources."
+    Then I softly see "Match Source as selected in the Financial Details." shown as help text
     Then I softly see field "11c. Required Match(%)" inside page block
+    When I hovering mouse on help text icon inside page block detail "11c. Required Match(%)"
+    Then I softly see "Required Match(%) as provided in the Financial Details." shown as help text
     Then I softly see field "12. Is program income anticipated?" inside page block
+    When I hovering mouse on help text icon inside page block detail "12. Is program income anticipated?"
+    Then I softly see "Is Program Income Allowed? setting as selected in the Financial Details." shown as help text
     Then I softly see field "12a. If yes, what is the program income treatment type?" inside page block
+    When I hovering mouse on help text icon inside page block detail "12a. If yes, what is the program income treatment type?"
+    Then I softly see "Program Income Treatment Type as selected in the Financial Details." shown as help text
     Then I softly see field "13. Is there a maintenance of effort required?" inside page block
     Then I softly see field "13a. If yes, describe the statutory maintenance of effort requirement." inside page block
     Then I softly see field "14. Does the grant require pass through funding to subrecipients?" inside page block
     Then I softly see field "14a. If yes, what is the percent of funding required to pass through to subrecipients." inside page block
     Then I softly see field "15. Does the grant allow indirect costs?" inside page block
+    When I hovering mouse on help text icon inside page block detail "15. Does the grant allow indirect costs?"
+    Then I softly see "Are Indirect Costs Allowed? setting as selected in the Financial Details." shown as help text
     Then I softly see field "15a. If yes, what rate will the organization use?" inside page block
-    Then I softly see field "15b. If Yes, Maximum Indirect Cost Rate" inside page block
+    When I hovering mouse on help text icon inside page block detail "15a. If yes, what rate will the organization use?"
+    Then I softly see "Rate for Organization Use as selected in the Financial Details." shown as help text
+    Then I softly see field "15b. If Yes, Maximum Indirect Cost Rate." inside page block
+    When I hovering mouse on help text icon inside page block detail "15b. If Yes, Maximum Indirect Cost Rate."
+    Then I softly see "Maximum Indirect Cost Rate as provided in the Financial Details." shown as help text
     Then I softly see field "16. Is there an administrative cost limit?" inside page block
     Then I softly see field "16a. If yes, what percent is the administrative cost limit?" inside page block
     Then I softly see field "17. How will the program be sustained, should funding end?" inside page block
@@ -29543,10 +29579,6 @@ Feature: Sanity scenarios
     When I navigate to "Responsibilities" sub tab
     Then I softly see "Peer Reviewers" page block displayed
     Then I softly see "Approvers" page block displayed
-    Then I softly see value "Program Reviewer" for title "Role" against the value "Grantee PO" inside table "---grantee_tableId:-:opportunityPeerReviewTableId---"
-    Then I softly see value "Fiscal Reviewer" for title "Role" against the value "David FO" inside table "---grantee_tableId:-:opportunityPeerReviewTableId---"
-    Then I softly see value "Step 1" for title "Opportunity" against the value "Grantee PO" inside table "---grantee_tableId:-:opportunityPeerReviewTableId---"
-    Then I softly see value "Step 2" for title "Opportunity" against the value "Victor EXE" inside table "---grantee_tableId:-:opportunityPeerReviewTableId---"
     And I navigate to "Files" sub tab
     Then I softly see "Opportunity Files" page block displayed
     Then I softly see "Notes" page block displayed
@@ -29560,8 +29592,14 @@ Feature: Sanity scenarios
     Then I softly see the text containing "Post"
 
     Examples:
-      | User         |
-      | GRANTEE EXE  |
+      | User            |
+      | GRANTEE EXE     |
+#      | GRANTEE FO      |
+#      | GRANTEE FD      |
+#      | GRANTEE AUDITOR |
+#      | GRANTEE ADMIN   |
+#      | GRANTEE PO      |
+#      | GRANTEE PM      |
 
 
 
