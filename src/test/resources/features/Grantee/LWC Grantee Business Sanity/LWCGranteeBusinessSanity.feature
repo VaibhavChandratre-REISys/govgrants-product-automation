@@ -29867,6 +29867,7 @@ Feature: Sanity scenarios
     When I click on "Convert to Opportunity" in the page details
     And I click on "Edit" in the page details
     And I enter "Grantee_Opportunity_Edition" values from "Announcement_Field_Values.xlsx"
+    And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
@@ -29893,6 +29894,13 @@ Feature: Sanity scenarios
     When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
     Then I softly can see top right button "Create Pre-Application" in page detail
     Then I softly see field "Pre-Application Required?" as "Yes"
     And I click on "Create Pre-Application" in the page details
