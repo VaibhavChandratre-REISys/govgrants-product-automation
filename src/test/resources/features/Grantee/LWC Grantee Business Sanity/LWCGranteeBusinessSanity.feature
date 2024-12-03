@@ -29494,7 +29494,7 @@ Feature: Sanity scenarios
     And I enter value "No" into field "LimitOnAdministrativeRate__c"
     Then I softly cannot see field "16a. If yes, what percent is the administrative cost limit?" inside page block
 
-  @482115 @482116 @482117 @482118 @482331 @482332 @482334 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead @GranteeTBE
+  @482115 @482116 @482117 @482118 @482331 @482332 @482334 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead
   Scenario Outline: Validate FO user should have view access only on the qualified lead
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
