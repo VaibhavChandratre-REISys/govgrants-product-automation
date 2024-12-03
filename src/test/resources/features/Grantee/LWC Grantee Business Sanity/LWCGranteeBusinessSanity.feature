@@ -147,13 +147,13 @@ Feature: Sanity scenarios
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To        | Subject            | Body            |
-      | <emailId> | Automation Subject | Automation Body |
+      | <emailIdTo> | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "<emailId>" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "<emailIdFrom>" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "<emailIdTo>" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     When I enter in modal value "Automation Strategic Goal" into field "StrategyTitle__c"
@@ -193,14 +193,14 @@ Feature: Sanity scenarios
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
-      | To        | Subject            | Body            |
-      | <emailId> | Automation Subject | Automation Body |
+      | To          | Subject            | Body            |
+      | <emailIdTo> | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "<emailId>" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "<emailIdFrom>" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "<emailIdTo>" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
     When I enter in modal value "Automation Strategic Objective" into field "StrategyTitle__c"
@@ -248,14 +248,14 @@ Feature: Sanity scenarios
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
-      | To         | Subject            | Body            |
-      | <emailId> | Automation Subject | Automation Body |
+      | To          | Subject            | Body            |
+      | <emailIdTo> | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "<emailId>" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "<emailIdFrom>" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "<emailIdTo>" for title "To Address" inside table "CommunicationHistory"
     And I save the field labeled "Strategic Plan" as "StrategicPlan"
     And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
     When I navigate to "Related Log" sub tab
@@ -272,9 +272,9 @@ Feature: Sanity scenarios
     When I expand nested table containing column value "Automation Strategic Goal"
     Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
     Examples:
-      | userType      | emailId                         |
-      | GRANTEE PM    | sarah.pm.23@yopmail.com         |
-      | GRANTEE EXE   | victor.exeqagrantee@yopmail.com |
+      | userType      | emailIdFrom                     |  emailIdTo                        |
+      | GRANTEE PM    | sarah.pm.23@yopmail.com         |  victor.exeqagrantee@yopmail.com  |
+      | GRANTEE EXE   | victor.exeqagrantee@yopmail.com |  sarah.pm.23@yopmail.com          |
 
 
   @440274 @ValidateFocusAreaWithEXEProfileAbletocreateActivateDeactivethefocusarea
@@ -29054,9 +29054,9 @@ Feature: Sanity scenarios
     Then I softly do not see "Cash Match" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
     Then I softly do not see "Other Leverage" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
     Then I softly do not see "Total Project Cost" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
-    Then I cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
-    Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
-    Then I cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preApplicationFocusAreaTableId---"
+    Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preApplicationFocusAreaTableId---"
+    Then I cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preApplicationFocusAreaTableId---"
 
  @463448 @463449 @PreAppVerifywithPOProfilewhenpreapplicationduedateiscrossedforgrantsgovleadthenunabletoseethecreatepreapplicationbutton.
  Scenario Outline: PreApp - Verify with PO Profile ,when preapplication due date is crossed for grants.gov lead then unable to see the create pre application button.
@@ -29126,8 +29126,7 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---"
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationIndirectRateTableId---"
     And I navigate to "Chatter" sub tab in split screen
-    And I post the message "Automation Test" inside chatter
-    Then I softly see post "Automation Test" by user "Grantee AUDITOR"
+    Then I softly see post "Automation Test" by user "Grantee PO"
     When I navigate to "Responsibilities" sub tab
     Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---"
     Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationApprovalTableId---"
@@ -29324,3 +29323,90 @@ Feature: Sanity scenarios
     Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see "Due Date" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
+
+  @463425 @PreAppVerifywithPMproofileLineItemBudgetinBudgetTab
+  Scenario: PreApp - Verify with PO Profile ,Overview Tab.
+    When I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Pre-Application - All"
+    When I perform quick search for "{AUTOEnvData:AutomationPermanentLeadPreApplicationAllSettingNo}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:AutomationPermanentLeadPreApplicationAllSettingNo}" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---" without waiting for record
+    When I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I softly see that "Project Period Start Date" rendered in view mode only
+    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
+    Then I softly see that "Project Period End Date" rendered in view mode only
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    Then I softly see field "Project Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
+    Then I softly can see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    Then I softly can see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    Then I softly can see row level action button "Delete" against "BP01" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    Then I softly can see row level action button "Edit" against "BP01" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    Given I expand nested table containing column value "BP01"
+    Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    And I navigate to "Budget" sub tab
+    Then I softly see field "Budget Level" as "Line Item Budget"
+    Then I softly see field "Budget Type" as "Non-Construction"
+    Given I expand nested table containing column value "BP01"
+    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Personnel" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Fringe Benefits" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Travel" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Equipment" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Supplies" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Contractual" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---" by clicking "Edit" :
+       | Budget Category | Award Budget |
+       | Construction    | 1000         |
+    And I wait for "5" seconds
+    Then I softly see value "$1000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "$1000.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---" by clicking "Edit" :
+      | Budget Category | Award Budget |
+      | Construction    | 0            |
+    And I wait for "5" seconds
+    Then I softly see value "$0.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "$0.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    When I navigate to "Setup" sub tab
+    And I click on top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    And I enter values into fields
+      | Value | Field              |
+      | 2     | BudgetStartDate__c |
+      | 100   | BudgetEndDate__c   |
+    When I click modal button "Save"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    When I click "Next" after selection of "BP02" in the table "---grantee_tableId:-:preAppAssociateBudgetTableId---"
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:preAppAssociateFocusAreaTableId---"
+    And I click modal button "Close"
+    Then I softly can see row level action button "Delete" against "BP02" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    Then I softly can see row level action button "Edit" against "BP02" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    And I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP02"
+    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Personnel" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Fringe Benefits" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Travel" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Equipment" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Supplies" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Contractual" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    When I navigate to "Setup" sub tab
+    Given I expand nested table containing column value "BP02"
+    Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---" without waiting for record
+    Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:preAppcationBudgetTableId---"
+
+
