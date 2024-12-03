@@ -29594,12 +29594,12 @@ Feature: Sanity scenarios
     Examples:
       | User            |
       | GRANTEE EXE     |
-#      | GRANTEE FO      |
-#      | GRANTEE FD      |
-#      | GRANTEE AUDITOR |
-#      | GRANTEE ADMIN   |
-#      | GRANTEE PO      |
-#      | GRANTEE PM      |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE AUDITOR |
+      | GRANTEE ADMIN   |
+      | GRANTEE PO      |
+      | GRANTEE PM      |
 
 
 
