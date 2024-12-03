@@ -29654,7 +29654,7 @@ Feature: Sanity scenarios
     And I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
-    And I click toggle button to select "Qualified Leads - All"
+    And I click toggle button to select "<Toggles>"
     When I perform quick search for "{SavedValue:QualifiedEGMSID}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:QualifiedEGMSID}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     Then I cannot see top right button "Convert to Opportunity" in page detail
@@ -29690,11 +29690,11 @@ Feature: Sanity scenarios
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | User            | Validation        |
-#      | GRANTEE FO      | softly can see    |
-#      | GRANTEE FD      | softly can see    |
-      | GRANTEE ADMIN   | softly can see    |
-#      | GRANTEE AUDITOR | softly cannot see |
+      | User          | Validation     | Toggles                |
+#      | GRANTEE FO      | softly can see    | Qualified Leads - All |
+#      | GRANTEE FD      | softly can see    | Qualified Leads - All |
+      | GRANTEE ADMIN | softly can see | Qualified Leads - Open |
+#      | GRANTEE AUDITOR | softly cannot see | Qualified Leads - All |
 
   @483166 @483167 @483181 @ValidatePMusertheflowofNotyetqualifiedlead
   Scenario Outline: Validate PM user the flow of Not yet qualified lead
