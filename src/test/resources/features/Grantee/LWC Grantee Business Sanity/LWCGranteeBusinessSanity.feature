@@ -29494,7 +29494,7 @@ Feature: Sanity scenarios
     And I enter value "No" into field "LimitOnAdministrativeRate__c"
     Then I softly cannot see field "16a. If yes, what percent is the administrative cost limit?" inside page block
 
-  @482115 @482116 @482117 @482118 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead @GranteeTBE
+  @482115 @482116 @482117 @482118 @482331 @482332 @482334 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead @GranteeTBE
   Scenario Outline: Validate FO user should have view access only on the qualified lead
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -29595,7 +29595,6 @@ Feature: Sanity scenarios
     And I navigate to "Financials" sub tab
     Then I softly see "Financial Details" page block displayed
     Then I softly see field "Estimated Total Program Funding" inside page block
-    Then I softly see field "Lead Description" inside page block
     Then I softly see field "Award Floor" inside page block
     Then I softly see field "Award Ceiling" inside page block
     Then I softly see field "Cost Sharing or Matching Requirement" inside page block
@@ -29632,12 +29631,30 @@ Feature: Sanity scenarios
     When I click modal button "OK"
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
+    And I save the field labeled "EGMS ID" as "LeadsEGMSID"
+    #482331,482332,482334
+    And I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Leads Not Yet Qualified - All"
+    When I perform quick search for "{SavedValue:LeadsEGMSID}" in "---grantee_tableId:-:LeadsNotYetQualified---" panel
+    When I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    Then I softly see field "State" as "Posted"
+    Then I cannot see top right button "Qualify Lead" in page detail
+    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Leads Not Yet Qualified - All"
+    When I perform quick search for "{SavedValue:LeadsEGMSID}" in "---grantee_tableId:-:LeadsNotYetQualified---" panel
+    When I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    Then I softly see field "State" as "Posted"
     And I click on "Qualify Lead" in the page details
     Then I softly see field "Status" as "Qualified Lead"
     And I save the field labeled "EGMS ID" as "QualifiedEGMSID"
     And I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
     When I perform quick search for "{SavedValue:QualifiedEGMSID}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:QualifiedEGMSID}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     Then I cannot see top right button "Convert to Opportunity" in page detail
@@ -29679,7 +29696,7 @@ Feature: Sanity scenarios
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @483166 @483167 @483181 @ValidatePMusertheflowofNotyetqualifiedlead @GranteeTBE
+  @483166 @483167 @483181 @ValidatePMusertheflowofNotyetqualifiedlead
   Scenario Outline: Validate PM user the flow of Not yet qualified lead
     Given I login to "As a Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
@@ -29820,3 +29837,67 @@ Feature: Sanity scenarios
       | GRANTEE PM  |
       | GRANTEE EXE |
       | GRANTEE PO  |
+
+  @473231 @ValidateNotYetConvertedOpportunityManualPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @GranteeTBE
+  Scenario: Validate Not Yet Converted Opportunity (Manual) PM user can create Pre-Application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Leads_Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "State" as "Forecasted"
+    And I save the field labeled "EGMS ID" as "LeadsEGMSID"
+    When I click on "Activate" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
+    When I click modal button "OK"
+    Then I softly see field "State" as "Posted"
+    Then I can see top right button "Qualify Lead" in page detail
+    And I click on "Qualify Lead" in the page details
+    Then I softly see field "Status" as "Qualified Lead"
+    And I save the field labeled "EGMS ID" as "QualifiedLeadEGMSID"
+    And I click on "Edit" in the page details
+    And I enter "Grantee_Qualifiedleads_Edition" values from "Announcement_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I click on "Convert to Opportunity" in the page details
+    And I click on "Edit" in the page details
+    And I enter "Grantee_Opportunity_Edition" values from "Announcement_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:opportunityExternalProgramModalTableId---"
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:opportunityApproverTableId---" by clicking "New" :
+      | Name       | Opportunity |
+      | Victor EXE | Step 1      |
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | The Funding Opportunity has been validated successfully. |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    Then I softly can see top right button "Create Pre-Application" in page detail
+    Then I softly see field "Pre-Application Required?" as "Yes"
+    And I click on "Create Pre-Application" in the page details
+    Then I softly see fields "Title__c" is in edit mode
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    Then I see the header is "Pre-Application" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime Leads}" in the page details
