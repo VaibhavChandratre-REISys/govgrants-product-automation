@@ -29515,7 +29515,7 @@ Feature: Sanity scenarios
     Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
     Then I softly see field "4. Do we have the required resources and skill sets to perform the work?" inside page block
     Then I softly see field "4a. Please explain in detail according to the requirements of the Grant Opportunity." inside page block
-    When I hovering mouse on help text icon inside page block detail "Text and number both are allowed. Must not exceed 255 characters"
+    When I hovering mouse on help text icon inside page block detail "4a. Please explain in detail according to the requirements of the Grant Opportunity."
     Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
     Then I softly see field "5. Do we have the necessary systems and financial tools?" inside page block
     Then I softly see field "5a. Please explain in detail according to the requirements of the Grant Opportunity." inside page block
