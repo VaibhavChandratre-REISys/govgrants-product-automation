@@ -29685,16 +29685,16 @@ Feature: Sanity scenarios
     Then I softly see "Qualified Lead Files" page block displayed
     Then I softly see "Notes" page block displayed
     Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:qualifiedLeadsAddFileTableId---"
-    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:qualifiedLeadsNotesTableId---"
+    Then I <Validation> top right button "New" in flex table with id "---grantee_tableId:-:qualifiedLeadsNotesTableId---"
     When I navigate to "History" sub tab
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | User            |
-      | GRANTEE FO      |
-      | GRANTEE FD      |
-      | GRANTEE ADMIN   |
-      | GRANTEE AUDITOR |
+      | User            | Validation        |
+      | GRANTEE FO      | softly can see    |
+      | GRANTEE FD      | softly can see    |
+      | GRANTEE ADMIN   | softly can see    |
+      | GRANTEE AUDITOR | softly cannot see |
 
   @483166 @483167 @483181 @ValidatePMusertheflowofNotyetqualifiedlead
   Scenario Outline: Validate PM user the flow of Not yet qualified lead
@@ -29838,7 +29838,7 @@ Feature: Sanity scenarios
       | GRANTEE EXE |
       | GRANTEE PO  |
 
-  @473231 @ValidateNotYetConvertedOpportunityManualPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord @GranteeTBE1
+  @473231 @ValidateNotYetConvertedOpportunityManualPMusercancreatePreApplicationfromOpportunityifPreApplicationRequiredisselectedasYesonOpportunityrecord
   Scenario: Validate Not Yet Converted Opportunity (Manual) PM user can create Pre-Application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
