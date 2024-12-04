@@ -29871,6 +29871,12 @@ Feature: Sanity scenarios
     And I enter "Grantee_Opportunity_Edition" values from "Announcement_Field_Values.xlsx"
     And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
     When I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I refresh the page
+    And I click on "Edit" in the page details
+    And I enter value "Yes" into field "MaintenanceEffortRequire__c"
+    And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
+    And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     When I navigate to "Overview" sub tab
