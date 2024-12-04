@@ -1596,9 +1596,17 @@ Feature: Validate all scenarios of every modules flow
 
   @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
   Scenario: Validate PM user should able to Create & Activate the KPI
-    When I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to url "https://test8-internal--qagrnteatm.sandbox.lightning.force.com/lightning/r/Announcement__c/a1bDl000003rJyqIAE/view"
-    And I halt execution
-    And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
-#    And I enter "Temp_Test" values from "Announcement_Field_Values.xlsx"
+    When I login to "As a Grantee" app as "GRANTEE FO" user
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Task" subheader on left panel
+    And I perform quick search for "PR--0083" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "PR--0083" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Task" subheader on left panel
+    And I perform quick search for "PR--0083" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "PR--0083" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Reject" in the approval decision
+    Then I softly see status in Progress-bar is "Rejected" and is "Red"
     And I halt execution

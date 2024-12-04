@@ -30025,7 +30025,7 @@ Feature: Sanity scenarios
     When I navigate to "Overview" sub tab
     Then I softly see field "Pre-Application Required?" as "No"
 
-  @463442 @ValidatePreAppwithPMprofileabletoRejectwithmultipleapproverableReject @GranteeTBE
+  @463442 @ValidatePreAppwithPMprofileabletoRejectwithmultipleapproverableReject
   Scenario: Validate PreApp with PM profile ,Able to Reject with multiple approver able Reject
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
