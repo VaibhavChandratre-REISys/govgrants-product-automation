@@ -54,21 +54,9 @@ public final class SideBar {
        }else{
 //           handleSideBarContentExpanded(subHeaderName);
           try {
-            //Temporary Added below implementation duw to bug
-              if(subHeaderName.equals("My Task")){
                   I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
-                  I.amPerforming().waitFor().makeThreadSleep(12000);
-              } else {
-                  I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
-              }
           }catch(Exception e) {
-              //Temporary Added below implementation duw to bug
-              if(subHeaderName.equals("My Task")){
-                  I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
-                  I.amPerforming().waitFor().makeThreadSleep(12000);
-              } else {
                   I.amPerforming().click().withJavaScript(getSideBarContentLocator(subHeaderName, contentName));
-              }
           }
        }
     }
