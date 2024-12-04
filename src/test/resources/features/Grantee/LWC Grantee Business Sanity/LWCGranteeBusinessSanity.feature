@@ -30371,7 +30371,7 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Send for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly can see row level action button "Delete" against "Grantee PO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
     When I click on "Delete" icon for "Grantee PO" inside table with table id "---grantee_tableId:-:OpportunityPeerReviewers---" without processing
-    Then I softly see confirmation box with body "Do you want to delete? Once it is deleted it cannot be restored." is displayed
+    Then I softly see confirmation box with body "Are you sure you want to delete?" is displayed
     When I click modal button "OK"
     And I wait for "3" seconds
     Then I softly do not see value "Grantee PO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
