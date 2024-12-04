@@ -63,17 +63,6 @@ public final class GovGrantsObjects {
                         recordPresent = true;
                         break;
                     } else {
-                        if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("qagrnteatm")){
-                            if (this.tableIdForQsearch.contains("PendingTasks")) {
-                                I.amPerforming().browserOperationsTo().refreshPage();
-                                govgrants.perform().sideBar().clickSideBarContent("My Task", "Pending Tasks");
-                                I.amPerforming().waitFor().makeThreadSleep(9000);
-                            } else if (this.tableIdForQsearch.contains("CompletedTasks")) {
-                                I.amPerforming().browserOperationsTo().refreshPage();
-                                govgrants.perform().sideBar().clickSideBarContent("My Task", "Completed Tasks");
-                                I.amPerforming().waitFor().makeThreadSleep(9000);
-                            }
-                        } else {
                             if (this.tableIdForQsearch.contains("PendingTasks")) {
                                 I.amPerforming().browserOperationsTo().refreshPage();
                                 govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Pending Tasks");
@@ -83,7 +72,6 @@ public final class GovGrantsObjects {
                                 govgrants.perform().sideBar().clickSideBarContent("My Tasks", "Completed Tasks");
                                 I.amPerforming().waitFor().makeThreadSleep(9000);
                             }
-                        }
                         counter++;
                     }
                 }
