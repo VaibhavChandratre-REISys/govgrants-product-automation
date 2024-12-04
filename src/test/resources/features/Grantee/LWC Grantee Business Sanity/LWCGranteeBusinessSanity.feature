@@ -30161,7 +30161,7 @@ Feature: Sanity scenarios
     When I "Reject" in the approval decision
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
-  @463441 @ValidatePreAppwithPMprofileabletoaproverwithsingleapprover @GranteeTBE
+  @463441 @ValidatePreAppwithPMprofileabletoaproverwithsingleapprover
   Scenario: Validate PreApp with PM profile ,Able to aprover with single approver
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab

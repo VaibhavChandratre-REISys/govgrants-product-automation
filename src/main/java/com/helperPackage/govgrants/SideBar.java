@@ -55,7 +55,7 @@ public final class SideBar {
 //           handleSideBarContentExpanded(subHeaderName);
           try {
             //Temporary Added below implementation duw to bug
-              if(subHeaderName.contains("My Task")){
+              if(subHeaderName.equals("My Task")){
                   I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
                   I.amPerforming().waitFor().makeThreadSleep(9000);
               } else {
