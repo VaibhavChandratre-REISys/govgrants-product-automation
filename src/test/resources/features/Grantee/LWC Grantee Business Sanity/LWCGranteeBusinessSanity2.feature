@@ -513,6 +513,11 @@ Feature: Sanity scenarios
     Then I softly can see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I pause execution for "3" seconds
+    When I click on parallel lines menu bar with data target value "Peer Reviewers"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Download as CSV" present in parallel dropdown
     When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -561,6 +566,8 @@ Feature: Sanity scenarios
     And I wait for "3" seconds
     Then I softly see that "Submitted" has been added in flextable with Id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I wait for "3" seconds
+    And I expand nested table containing column value "Program Reviewer"
+    Then I softly see value "Passed" for title "Rating" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
