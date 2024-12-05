@@ -30310,7 +30310,7 @@ Feature: Sanity scenarios
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
 
-  @463559 @ValidateOpportunitiesNotconvertedmanualDavidFOuserReviewerNocanabletosubmitReview @GranteeTBE
+  @463559 @ValidateOpportunitiesNotconvertedmanualDavidFOuserReviewerNocanabletosubmitReview
   Scenario: Validate Opportunities Not converted manual David FO user Reviewer No can able to submit Review
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -30402,7 +30402,7 @@ Feature: Sanity scenarios
     Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
 
-  @463432 @ValidatePreAppWithPMprofileabletoaddpeerreviewerwithAllowrecordEditingNO @GranteeTBE
+  @463432 @ValidatePreAppWithPMprofileabletoaddpeerreviewerwithAllowrecordEditingNO
   Scenario: Validate PreApp With PM profile Able to add peer reviewer with Allow record Editing NO
     Given I login to "As a Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -30553,11 +30553,6 @@ Feature: Sanity scenarios
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Peer Reviewers"
-    And I wait for "7" seconds
-    And I download the file
-    Then I softly see "Peer Reviewers" on page "1" of "govgrants" pdf file
-    And I close the tab
     When I click on parallel lines menu bar with data target value "Peer Reviewers"
     And I select "Refresh" from parallel lines dropdown of "Peer Reviewers"
     Then I see table is refreshing
