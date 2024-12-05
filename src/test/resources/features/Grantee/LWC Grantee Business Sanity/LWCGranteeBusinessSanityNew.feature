@@ -400,7 +400,7 @@ Feature: Sanity scenarios New
     And I click on "Create Application" in the page details
     And I wait for "2" seconds
     And I click modal button "Save and Continue"
-    And I enter "Grantee_Edition" values from "Application_Field_Values.xlsx"
+    And I enter "Grantee_Edition" values from "Application_Field_Values - backup.xlsx"
     When I click on "Save" in the page details
     And I pause execution for "2" seconds
     And I get the "EGMS ID"
