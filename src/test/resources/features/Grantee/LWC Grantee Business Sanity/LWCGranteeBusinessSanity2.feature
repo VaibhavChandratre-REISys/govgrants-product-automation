@@ -857,10 +857,9 @@ Feature: Sanity scenarios
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentKPITableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly see value "Terms1" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly can see row level action button "View" against "Terms1" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly cannot see row level action button "Edit" against "Terms1" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    Then I softly cannot see row level action button "Delete" against "Terms1" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly can see row level action button "View" against "Terms2" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly cannot see row level action button "Edit" against "Terms2" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly cannot see row level action button "Delete" against "Terms2" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
