@@ -613,6 +613,7 @@ Feature: Sanity scenarios New
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     And I wait for "2" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardAssociateContactTableId---"
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Select at least one record. |
     When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
