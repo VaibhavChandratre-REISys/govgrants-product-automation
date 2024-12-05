@@ -31238,8 +31238,6 @@ Feature: Sanity scenarios
     And I click on "Revise Amendment" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to revise the amendment request? The amendment request will require an approval again after being revised." is displayed
     And I click "OK" on modal confirmation box
-    Then I softly see field "Status" as "Submitted for Approval"
-    And I click on "Revise Amendment" in the page details
     Then I softly see field "Status" as "Revision in Progress"
     Then I can see top right button "Delete" in page detail
     Then I can see top right button "Edit" in page detail
@@ -31248,7 +31246,7 @@ Feature: Sanity scenarios
     And I click on hyperlink containing value "View All"
     Then I softly see value "Revision in Progress" for title "New Value" inside field history table
     Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
-    And I click on "Submit for Approval" in the page details
+    And I click on back arrow
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
